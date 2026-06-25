@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a12">
+<meta name="description" content="Vai para onde? — o blog do OND. Destinos, roteiros, dicas de viagem e como usar a IA para planejar viagens incríveis sem estresse.">
+<title>Vai para onde? — Blog do OND</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a12;--surface:#12121e;--card:#1a1a2e;--border:#252540;
+  --purple:#7c3fff;--purple-light:#9d6fff;--purple-dim:rgba(124,63,255,.15);
+  --green:#00e676;--green-dim:rgba(0,230,118,.12);
+  --text:#f0eeff;--muted:#8888b0;--muted2:#4a4a70;
+  --radius:16px;--radius-sm:10px;
+  --header-bg:rgba(10,10,18,.92);
+}
+[data-theme="light"]{
+  --bg:#f5f4ff;--surface:#ffffff;--card:#eeebff;--border:#ddd8f0;
+  --purple:#6b2fff;--purple-light:#5518e0;--purple-dim:rgba(107,47,255,.1);
+  --green:#008f45;--green-dim:rgba(0,143,69,.1);
+  --text:#0d0a1a;--muted:#6060a0;--muted2:#a0a0c0;
+  --header-bg:rgba(245,244,255,.96);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;overflow-x:hidden;line-height:1.6;transition:background .25s,color .25s}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+
+/* ── HEADER ── */
+.header{position:sticky;top:0;z-index:200;background:var(--header-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .2s,background .2s;flex-shrink:0}
+.theme-btn:hover{border-color:var(--purple);background:var(--purple-dim)}
+.header-logo-svg{height:34px;width:auto}
+.ond-letter{fill:var(--text)}
+.ond-diamond{fill:var(--purple)}
+.footer-logo-svg{height:26px;width:auto;margin-bottom:14px;display:block}
+.header-nav{display:flex;gap:16px;list-style:none;align-items:center}
+.header-nav a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
+.header-nav a:hover{color:var(--text)}
+.header-nav .nav-active{color:var(--text);font-weight:700}
+.header-nav .nav-agencias{color:var(--green);border:1px solid rgba(0,230,118,.25);padding:5px 13px;border-radius:20px;font-weight:600;font-size:.85rem}
+.header-nav .nav-agencias:hover{background:rgba(0,230,118,.08);color:var(--green)}
+.header-cta{background:var(--purple);color:#fff;padding:9px 22px;border-radius:50px;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap}
+.header-cta:hover{background:var(--purple-light);transform:translateY(-1px)}
+.header-menu-btn{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;padding:4px}
+.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);z-index:199;padding:20px 5%;flex-direction:column;gap:0}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--text);text-decoration:none;font-size:1rem;padding:14px 0;border-bottom:1px solid var(--border)}
+
+/* ── BLOG HERO ── */
+.blog-hero{text-align:center;padding:72px 5% 36px;position:relative;overflow:hidden}
+.blog-hero::before{content:'';position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:760px;height:520px;background:radial-gradient(circle,rgba(124,63,255,.16) 0%,transparent 70%);pointer-events:none}
+.blog-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--purple-dim);border:1px solid rgba(124,63,255,.3);color:var(--purple-light);font-size:.74rem;font-weight:700;padding:6px 14px;border-radius:50px;margin-bottom:22px;letter-spacing:.08em;text-transform:uppercase;position:relative}
+.blog-eyebrow-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+.blog-title{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-bottom:16px;position:relative}
+.blog-title em{font-style:normal;background:linear-gradient(130deg,var(--purple-light),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.blog-sub{font-size:1.05rem;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.7;position:relative}
+
+/* ── CATEGORIAS ── */
+.blog-cats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:900px;margin:28px auto 0;padding:0 5%;position:relative}
+.cat-chip{background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:.85rem;font-weight:600;padding:8px 16px;border-radius:50px;cursor:pointer;transition:color .18s,border-color .18s,background .18s}
+.cat-chip:hover{color:var(--text);border-color:var(--purple)}
+.cat-chip.active{background:var(--purple);color:#fff;border-color:var(--purple)}
+
+.blog-wrap{max-width:1100px;margin:0 auto;padding:44px 5% 0}
+.section-label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin-bottom:20px}
+
+/* ── FEATURED ── */
+.featured{display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:52px;transition:border-color .2s,transform .2s;text-decoration:none;color:inherit}
+.featured:hover{border-color:rgba(124,63,255,.4);transform:translateY(-3px)}
+.featured-thumb{min-height:300px;display:flex;align-items:center;justify-content:center;font-size:5rem}
+.featured-body{padding:38px 36px;display:flex;flex-direction:column;justify-content:center}
+.post-tag{align-self:flex-start;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 12px;border-radius:20px;margin-bottom:16px}
+.featured-title{font-size:1.75rem;font-weight:800;line-height:1.2;letter-spacing:-.02em;margin-bottom:14px}
+.featured-excerpt{font-size:.95rem;color:var(--muted);line-height:1.7;margin-bottom:22px}
+.post-meta{display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--muted2)}
+.post-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--muted2)}
+
+/* ── GRID ── */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-bottom:8px}
+.post-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.post-card:hover{border-color:rgba(124,63,255,.4);transform:translateY(-4px)}
+.post-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.post-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.post-title{font-size:1.12rem;font-weight:800;line-height:1.28;letter-spacing:-.01em;margin-bottom:10px}
+.post-excerpt{font-size:.86rem;color:var(--muted);line-height:1.6;margin-bottom:18px;flex:1}
+
+/* thumb gradients + tags */
+.g-purple{background:linear-gradient(135deg,rgba(124,63,255,.22),rgba(124,63,255,.06))}
+.g-green{background:linear-gradient(135deg,rgba(0,230,118,.18),rgba(0,230,118,.04))}
+.g-blue{background:linear-gradient(135deg,rgba(0,102,255,.18),rgba(0,188,212,.06))}
+.g-orange{background:linear-gradient(135deg,rgba(255,109,0,.18),rgba(255,171,64,.05))}
+.g-pink{background:linear-gradient(135deg,rgba(213,0,249,.16),rgba(234,128,252,.05))}
+.g-cyan{background:linear-gradient(135deg,rgba(0,188,212,.18),rgba(0,229,255,.05))}
+.tag-purple{background:var(--purple-dim);color:var(--purple-light);border:1px solid rgba(124,63,255,.25)}
+.tag-green{background:var(--green-dim);color:var(--green);border:1px solid rgba(0,230,118,.25)}
+.tag-blue{background:rgba(0,102,255,.12);color:#5b9bff;border:1px solid rgba(0,102,255,.25)}
+.tag-orange{background:rgba(255,109,0,.12);color:#ff9d4d;border:1px solid rgba(255,109,0,.25)}
+.tag-pink{background:rgba(213,0,249,.12);color:#e57bf5;border:1px solid rgba(213,0,249,.25)}
+
+.empty{display:none;text-align:center;color:var(--muted);padding:60px 0;font-size:.95rem}
+
+/* ── NEWSLETTER ── */
+.news{margin:56px 0 0;background:linear-gradient(135deg,var(--purple-dim),transparent);border:1px solid var(--border);border-radius:20px;padding:46px 36px;text-align:center}
+.news h3{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+.news p{color:var(--muted);font-size:.95rem;margin:0 auto 24px;max-width:440px;line-height:1.6}
+.news-form{display:flex;gap:10px;max-width:460px;margin:0 auto;flex-wrap:wrap}
+.news-form input{flex:1;min-width:200px;background:var(--surface);border:1px solid var(--border);border-radius:50px;padding:14px 22px;color:var(--text);font-size:.95rem;outline:none;transition:border-color .2s}
+.news-form input:focus{border-color:var(--purple)}
+.news-form button{background:var(--purple);color:#fff;border:none;border-radius:50px;padding:14px 28px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .2s,transform .15s}
+.news-form button:hover{background:var(--purple-light);transform:translateY(-2px)}
+.news-ok{color:var(--green);font-weight:600;margin-top:16px;font-size:.9rem;display:none}
+
+/* ── FOOTER ── */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 32px;margin-top:72px}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;max-width:1100px;margin-left:auto;margin-right:auto}
+.footer-brand p{font-size:.82rem;color:var(--muted);max-width:240px;line-height:1.65}
+.footer-col h4{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted2);margin-bottom:14px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col a{font-size:.85rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:22px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--muted2);flex-wrap:wrap;gap:8px;max-width:1100px;margin:0 auto}
+
+/* ── MODAL CONTATO ── */
+.contact-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:900;opacity:0;pointer-events:none;transition:opacity .2s}
+.contact-overlay.open{opacity:1;pointer-events:all}
+.contact-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-52%) scale(.96);z-index:901;width:100%;max-width:420px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px 28px;box-shadow:0 24px 64px rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .22s,transform .25s cubic-bezier(.34,1.56,.64,1)}
+.contact-modal.open{opacity:1;pointer-events:all;transform:translate(-50%,-50%) scale(1)}
+.contact-modal-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px}
+.contact-modal-title{font-size:1.2rem;font-weight:800;letter-spacing:-.02em}
+.contact-modal-sub{font-size:.84rem;color:var(--muted);margin-top:4px}
+.contact-modal-close{background:none;border:1px solid var(--border);border-radius:50%;width:32px;height:32px;cursor:pointer;color:var(--muted);font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .15s,color .15s}
+.contact-modal-close:hover{border-color:var(--purple);color:var(--text)}
+.contact-options{display:flex;flex-direction:column;gap:10px}
+.contact-option{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;text-decoration:none;color:var(--text);transition:border-color .15s,transform .15s}
+.contact-option:hover{transform:translateX(4px)}
+.contact-option.wa:hover{border-color:#25d366}
+.contact-option.mail:hover{border-color:var(--purple)}
+.contact-option.form:hover{border-color:var(--green)}
+.contact-option-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.contact-option.wa .contact-option-icon{background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.2)}
+.contact-option.mail .contact-option-icon{background:var(--purple-dim);border:1px solid rgba(124,63,255,.2)}
+.contact-option.form .contact-option-icon{background:var(--green-dim);border:1px solid rgba(0,230,118,.2)}
+.contact-option-label{font-size:.93rem;font-weight:700;margin-bottom:2px}
+.contact-option-desc{font-size:.78rem;color:var(--muted)}
+.contact-option-arrow{margin-left:auto;color:var(--muted2);font-size:.9rem;flex-shrink:0}
+
+/* ── OND vAI FLUTUANTE ── */
+@keyframes orbColorCycle{
+  0%  {background:linear-gradient(135deg,#7f11f4,#b44fff);box-shadow:0 0 14px rgba(127,17,244,.6),0 0 28px rgba(127,17,244,.25),0 4px 28px rgba(127,17,244,.5)}
+  16% {background:linear-gradient(135deg,#0066ff,#44aaff);box-shadow:0 0 14px rgba(0,102,255,.6),0 0 28px rgba(0,102,255,.25),0 4px 28px rgba(0,102,255,.4)}
+  33% {background:linear-gradient(135deg,#00bcd4,#00e5ff);box-shadow:0 0 14px rgba(0,188,212,.6),0 0 28px rgba(0,188,212,.25),0 4px 28px rgba(0,188,212,.4)}
+  50% {background:linear-gradient(135deg,#00c853,#69f0ae);box-shadow:0 0 14px rgba(0,200,83,.6),0 0 28px rgba(0,200,83,.25),0 4px 28px rgba(0,200,83,.4)}
+  66% {background:linear-gradient(135deg,#ff6d00,#ffab40);box-shadow:0 0 14px rgba(255,109,0,.6),0 0 28px rgba(255,109,0,.25),0 4px 28px rgba(255,109,0,.4)}
+  83% {background:linear-gradient(135deg,#d500f9,#ea80fc);box-shadow:0 0 14px rgba(213,0,249,.6),0 0 28px rgba(213,0,249,.25),0 4px 28px rgba(213,0,249,.4)}
+  100%{background:linear-gradient(135deg,#7f11f4,#b44fff);box-shadow:0 0 14px rgba(127,17,244,.6),0 0 28px rgba(127,17,244,.25),0 4px 28px rgba(127,17,244,.5)}
+}
+@keyframes orbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.vai-trigger{position:fixed;bottom:28px;right:28px;z-index:999;width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;animation:orbColorCycle 8s linear infinite,orbPulse 3s ease-in-out infinite;transition:transform .18s;text-decoration:none}
+.vai-trigger:hover{transform:scale(1.1)}
+.vai-trigger::before{content:'';position:absolute;inset:4px;border-radius:50%;background:linear-gradient(145deg,rgba(255,255,255,.22) 0%,transparent 55%);pointer-events:none;z-index:2}
+.vai-trigger svg{position:relative;z-index:3}
+.vai-label{position:absolute;right:76px;top:50%;transform:translateY(-50%);background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:8px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.vai-trigger:hover .vai-label{opacity:1}
+
+@media(max-width:960px){
+  .header-nav{display:none}.header-menu-btn{display:block}
+  .blog-grid{grid-template-columns:1fr 1fr}
+  .featured{grid-template-columns:1fr}.featured-thumb{min-height:190px;font-size:3.6rem}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .blog-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .featured-body{padding:28px 24px}
+}
+</style>
+</head>
+<body>
+
+<svg style="display:none">
+  <symbol id="ond-icon" viewBox="0 0 497.26 497.26">
+    <path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/>
+  </symbol>
+  <symbol id="ond-logo" viewBox="0 0 951.32 497.26">
+    <path class="ond-diamond" d="M327.85,243.05l-69.42-45.05-57.11-117.28c-.76-1.55-2.13-2.44-3.59-2.67-1.46.24-2.83,1.12-3.59,2.67l-57.11,117.28-69.42,45.05c-1.53.99-2.26,2.62-2.21,4.23-.04,1.61.69,3.24,2.21,4.23l69.42,45.05,57.11,117.28c.76,1.55,2.13,2.44,3.59,2.67,1.46-.24,2.83-1.12,3.59-2.67l57.11-117.28,69.42-45.05c1.53-.99,2.26-2.62,2.21-4.23.04-1.61-.69-3.24-2.21-4.23Z"/>
+    <path class="ond-letter" d="M373.12,248.52c0-42.54,34.63-76.96,77.17-76.96s77.18,34.42,77.18,76.96-34.63,77.18-77.18,77.18-77.17-34.42-77.17-77.18ZM477.88,248.52c0-15.18-12.4-27.58-27.58-27.58s-27.58,12.4-27.58,27.58,12.4,27.79,27.58,27.79,27.58-12.4,27.58-27.79Z"/>
+    <path class="ond-letter" d="M542.62,171.56h44.05c1.56,0,3.03.73,3.97,1.97l59.71,78.19h1.54v-75.15c0-2.76,2.24-5,5-5h41.53c2.76,0,5,2.24,5,5v144.14c0,2.76-2.24,5-5,5h-44.1c-1.53,0-2.98-.7-3.93-1.91l-59.49-75.6h-1.76v72.51c0,2.76-2.24,5-5,5h-41.53c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5Z"/>
+    <path class="ond-letter" d="M880.82,247.53c0,50.65-43.38,78.17-75.75,78.17h-86.82c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5h88.59c37.87,0,73.99,28.85,73.99,75.97ZM828.86,247.31c0-24.88-15.63-35.01-39.42-35.01h-24.66v72.67h26.42c21.58,0,37.65-14.53,37.65-37.65Z"/>
+  </symbol>
+</svg>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="index.html" class="header-logo">
+    <svg class="header-logo-svg" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+  </a>
+  <nav><ul class="header-nav">
+    <li><a href="index.html#como-funciona">Como funciona</a></li>
+    <li><a href="blog.html" class="nav-active">Blog</a></li>
+    <li><a href="#" onclick="openContact(event)">Contato</a></li>
+    <li><a href="agencias.html" class="nav-agencias">Para Agências →</a></li>
+  </ul></nav>
+  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
+  <a href="https://web.ondviajar.com.br/home" class="header-cta">Usar grátis →</a>
+  <button class="header-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html#como-funciona" onclick="closeMenu()">Como funciona</a>
+  <a href="blog.html" onclick="closeMenu()">Blog</a>
+  <a href="#" onclick="openContact(event);closeMenu()">Contato</a>
+  <a href="agencias.html" onclick="closeMenu()" style="color:var(--green);font-weight:600">Para Agências →</a>
+  <a href="https://web.ondviajar.com.br/home" style="color:var(--purple);font-weight:700">Usar grátis →</a>
+</nav>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="blog-eyebrow"><span class="blog-eyebrow-dot"></span>Blog do OND</div>
+  <h1 class="blog-title">Vai para <em>onde?</em></h1>
+  <p class="blog-sub">Destinos, roteiros e dicas para tirar a viagem do papel — com o jeito OND de planejar: rápido, esperto e sem estresse.</p>
+</section>
+
+<!-- CATEGORIAS -->
+<div class="blog-cats">
+  <button class="cat-chip active" onclick="filterCat(this,'todos')">Todos</button>
+  <button class="cat-chip" onclick="filterCat(this,'destinos')">Destinos</button>
+  <button class="cat-chip" onclick="filterCat(this,'roteiros')">Roteiros</button>
+  <button class="cat-chip" onclick="filterCat(this,'dicas')">Dicas</button>
+  <button class="cat-chip" onclick="filterCat(this,'ia')">IA &amp; Viagem</button>
+  <button class="cat-chip" onclick="filterCat(this,'orcamento')">Orçamento</button>
+</div>
+
+<div class="blog-wrap">
+
+  <!-- FEATURED -->
+  <p class="section-label">Em destaque</p>
+  <a href="post-modelo.html" class="featured" data-cat="destinos">
+    <div class="featured-thumb g-purple">🗺️</div>
+    <div class="featured-body">
+      <span class="post-tag tag-purple">Destinos</span>
+      <h2 class="featured-title">5 destinos no Brasil para fugir do óbvio em 2026</h2>
+      <p class="featured-excerpt">Cansado de sempre os mesmos lugares? Reunimos cinco destinos brasileiros incríveis, lindos e ainda baratos — com a melhor época para ir e quanto custa cada um.</p>
+      <div class="post-meta"><span>OND</span><span class="dot"></span><span>25 jun 2026</span><span class="dot"></span><span>6 min de leitura</span></div>
+    </div>
+  </a>
+
+  <!-- GRID -->
+  <p class="section-label">Últimas histórias</p>
+  <div class="blog-grid" id="grid">
+
+    <a href="post-modelo.html" class="post-card" data-cat="ia">
+      <div class="post-thumb g-green">🤖</div>
+      <div class="post-body">
+        <span class="post-tag tag-green">IA &amp; Viagem</span>
+        <h3 class="post-title">Como montar um roteiro de 7 dias em minutos com IA</h3>
+        <p class="post-excerpt">O passo a passo para sair da página em branco e ter um roteiro completo, dia a dia, sem perder horas pesquisando.</p>
+        <div class="post-meta"><span>22 jun 2026</span><span class="dot"></span><span>4 min</span></div>
+      </div>
+    </a>
+
+    <a href="post-modelo.html" class="post-card" data-cat="dicas">
+      <div class="post-thumb g-blue">✈️</div>
+      <div class="post-body">
+        <span class="post-tag tag-blue">Dicas</span>
+        <h3 class="post-title">O melhor dia da semana para comprar passagem</h3>
+        <p class="post-excerpt">Existe mesmo um dia mais barato? Separamos o que é mito, o que é verdade e como economizar de verdade na passagem.</p>
+        <div class="post-meta"><span>18 jun 2026</span><span class="dot"></span><span>5 min</span></div>
+      </div>
+    </a>
+
+    <a href="post-modelo.html" class="post-card" data-cat="roteiros">
+      <div class="post-thumb g-pink">💍</div>
+      <div class="post-body">
+        <span class="post-tag tag-pink">Roteiros</span>
+        <h3 class="post-title">Lua de mel sem estresse: o passo a passo</h3>
+        <p class="post-excerpt">Do destino ao último detalhe do hotel — como planejar a viagem mais importante do casal sem brigar pelo caminho.</p>
+        <div class="post-meta"><span>14 jun 2026</span><span class="dot"></span><span>7 min</span></div>
+      </div>
+    </a>
+
+    <a href="post-modelo.html" class="post-card" data-cat="orcamento">
+      <div class="post-thumb g-orange">🎒</div>
+      <div class="post-body">
+        <span class="post-tag tag-orange">Orçamento</span>
+        <h3 class="post-title">Mochilão na América do Sul: quanto custa de verdade</h3>
+        <p class="post-excerpt">Peru, Bolívia, Chile e Argentina em 30 dias. Abrimos a planilha real de gastos para você se planejar sem sustos.</p>
+        <div class="post-meta"><span>9 jun 2026</span><span class="dot"></span><span>8 min</span></div>
+      </div>
+    </a>
+
+    <a href="post-modelo.html" class="post-card" data-cat="dicas">
+      <div class="post-thumb g-cyan">🧭</div>
+      <div class="post-body">
+        <span class="post-tag tag-blue">Dicas</span>
+        <h3 class="post-title">Viajar sozinho pela primeira vez: guia completo</h3>
+        <p class="post-excerpt">Segurança, companhia, orçamento e aquele frio na barriga. Tudo que você precisa saber antes da sua primeira viagem solo.</p>
+        <div class="post-meta"><span>3 jun 2026</span><span class="dot"></span><span>6 min</span></div>
+      </div>
+    </a>
+
+    <a href="post-modelo.html" class="post-card" data-cat="destinos">
+      <div class="post-thumb g-purple">🏖️</div>
+      <div class="post-body">
+        <span class="post-tag tag-purple">Destinos</span>
+        <h3 class="post-title">Nordeste fora de temporada: praia vazia e preço baixo</h3>
+        <p class="post-excerpt">Os melhores meses para curtir o litoral nordestino sem multidão e gastando bem menos na hospedagem.</p>
+        <div class="post-meta"><span>28 mai 2026</span><span class="dot"></span><span>5 min</span></div>
+      </div>
+    </a>
+
+  </div>
+  <p class="empty" id="empty">Nenhum post nessa categoria ainda. Em breve! 🧳</p>
+
+  <!-- NEWSLETTER -->
+  <div class="news">
+    <h3>Recebe o próximo no seu e-mail</h3>
+    <p>Uma vez por semana: um destino novo, uma dica boa e nada de spam. Curtiu? Entra na lista do "Vai para onde?".</p>
+    <form class="news-form" onsubmit="subscribe(event)">
+      <input type="email" placeholder="seu@email.com" required aria-label="Seu e-mail">
+      <button type="submit">Quero receber</button>
+    </form>
+    <div class="news-ok" id="newsOk">✓ Pronto! Em breve você recebe nossas novidades.</div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg class="footer-logo-svg" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+      <p>Plataforma de viagens com IA da Agama Tec. Organize sua viagem em minutos, com roteiros inteligentes e concierge 24h.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Viajantes</h4>
+      <ul>
+        <li><a href="https://web.ondviajar.com.br/home">Usar na Web</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.agamatec.ond">App Android</a></li>
+        <li><a href="https://apps.apple.com/br/app/ond-assistente-de-viagem/id6758392427">App iOS</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Parceiros</h4>
+      <ul>
+        <li><a href="https://pci.jotform.com/form/252517268656062">Para agências</a></li>
+        <li><a href="https://ondviajar.com.br/empresas/">Para hotéis</a></li>
+        <li><a href="https://ondviajar.com.br/concierge/">Concierge</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="https://ondviajar.com.br/sobre/">Sobre a Agama</a></li>
+        <li><a href="https://ondviajar.com.br/contato/">Contato</a></li>
+        <li><a href="mailto:renan@agamatec.com">renan@agamatec.com</a></li>
+        <li><a href="https://wa.me/5511910214133">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Agama Tec · OND</span>
+    <span>Feito com IA no Brasil 🇧🇷</span>
+  </div>
+</footer>
+
+<!-- MODAL CONTATO -->
+<div class="contact-overlay" id="contactOverlay" onclick="closeContact()"></div>
+<div class="contact-modal" id="contactModal">
+  <div class="contact-modal-header">
+    <div>
+      <div class="contact-modal-title">Fale com a gente</div>
+      <div class="contact-modal-sub">Escolha como prefere entrar em contato</div>
+    </div>
+    <button class="contact-modal-close" onclick="closeContact()">✕</button>
+  </div>
+  <div class="contact-options">
+    <a href="https://wa.me/5511910214133?text=Olá! vim do blog OND" class="contact-option wa" target="_blank" rel="noopener">
+      <div class="contact-option-icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+      </div>
+      <div>
+        <div class="contact-option-label">WhatsApp</div>
+        <div class="contact-option-desc">Resposta rápida · (11) 91021-4133</div>
+      </div>
+      <div class="contact-option-arrow">→</div>
+    </a>
+    <a href="mailto:renan@agamatec.com" class="contact-option mail">
+      <div class="contact-option-icon">✉️</div>
+      <div>
+        <div class="contact-option-label">E-mail</div>
+        <div class="contact-option-desc">renan@agamatec.com</div>
+      </div>
+      <div class="contact-option-arrow">→</div>
+    </a>
+    <a href="https://pci.jotform.com/form/252517268656062" class="contact-option form" target="_blank" rel="noopener">
+      <div class="contact-option-icon">📋</div>
+      <div>
+        <div class="contact-option-label">Formulário de parceria</div>
+        <div class="contact-option-desc">Para agências e hotéis</div>
+      </div>
+      <div class="contact-option-arrow">→</div>
+    </a>
+  </div>
+</div>
+
+<!-- OND vAI FLUTUANTE -->
+<a class="vai-trigger" href="https://ondjarvis.pages.dev" target="_blank" rel="noopener" aria-label="Abrir OND vAI">
+  <svg viewBox="0 0 497.26 497.26" fill="white" width="28" height="28" style="position:relative;z-index:3"><use href="#ond-icon"/></svg>
+  <span class="vai-label">OND vAI</span>
+</a>
+
+<script>
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileNav').classList.remove('open')}
+function openContact(e){if(e)e.preventDefault();document.getElementById('contactOverlay').classList.add('open');document.getElementById('contactModal').classList.add('open');document.body.style.overflow='hidden'}
+function closeContact(){document.getElementById('contactOverlay').classList.remove('open');document.getElementById('contactModal').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeContact()})
+document.addEventListener('click',function(e){
+  const nav=document.getElementById('mobileNav'),btn=document.querySelector('.header-menu-btn')
+  if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target))closeMenu()
+})
+function toggleTheme(){
+  const isLight=document.documentElement.getAttribute('data-theme')==='light'
+  if(isLight){document.documentElement.removeAttribute('data-theme');document.getElementById('themeBtn').textContent='🌙';localStorage.setItem('ond_theme','dark')}
+  else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☀️';localStorage.setItem('ond_theme','light')}
+}
+;(function(){if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.textContent='☀️'}})()
+
+function filterCat(btn,cat){
+  document.querySelectorAll('.cat-chip').forEach(c=>c.classList.remove('active'))
+  btn.classList.add('active')
+  let visible=0
+  document.querySelectorAll('[data-cat]').forEach(card=>{
+    const show=(cat==='todos'||card.dataset.cat===cat)
+    card.style.display=show?'':'none'
+    if(show)visible++
+  })
+  document.getElementById('empty').style.display=visible?'none':'block'
+}
+function subscribe(e){e.preventDefault();document.getElementById('newsOk').style.display='block';e.target.reset()}
+</script>
+</body>
+</html>

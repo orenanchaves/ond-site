@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a12">
+<meta name="description" content="5 destinos no Brasil para fugir do óbvio em 2026 — lugares lindos, baratos e fora do circuito tradicional, com a melhor época e quanto custa cada um.">
+<title>5 destinos no Brasil para fugir do óbvio em 2026 — Vai para onde?</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a12;--surface:#12121e;--card:#1a1a2e;--border:#252540;
+  --purple:#7c3fff;--purple-light:#9d6fff;--purple-dim:rgba(124,63,255,.15);
+  --green:#00e676;--green-dim:rgba(0,230,118,.12);
+  --text:#f0eeff;--muted:#8888b0;--muted2:#4a4a70;
+  --radius:16px;--radius-sm:10px;
+  --header-bg:rgba(10,10,18,.92);
+}
+[data-theme="light"]{
+  --bg:#f5f4ff;--surface:#ffffff;--card:#eeebff;--border:#ddd8f0;
+  --purple:#6b2fff;--purple-light:#5518e0;--purple-dim:rgba(107,47,255,.1);
+  --green:#008f45;--green-dim:rgba(0,143,69,.1);
+  --text:#0d0a1a;--muted:#6060a0;--muted2:#a0a0c0;
+  --header-bg:rgba(245,244,255,.96);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;overflow-x:hidden;line-height:1.6;transition:background .25s,color .25s}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:200;background:var(--header-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .2s,background .2s;flex-shrink:0}
+.theme-btn:hover{border-color:var(--purple);background:var(--purple-dim)}
+.header-logo-svg{height:34px;width:auto}
+.ond-letter{fill:var(--text)}
+.ond-diamond{fill:var(--purple)}
+.footer-logo-svg{height:26px;width:auto;margin-bottom:14px;display:block}
+.header-nav{display:flex;gap:16px;list-style:none;align-items:center}
+.header-nav a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
+.header-nav a:hover{color:var(--text)}
+.header-nav .nav-active{color:var(--text);font-weight:700}
+.header-nav .nav-agencias{color:var(--green);border:1px solid rgba(0,230,118,.25);padding:5px 13px;border-radius:20px;font-weight:600;font-size:.85rem}
+.header-nav .nav-agencias:hover{background:rgba(0,230,118,.08);color:var(--green)}
+.header-cta{background:var(--purple);color:#fff;padding:9px 22px;border-radius:50px;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap}
+.header-cta:hover{background:var(--purple-light);transform:translateY(-1px)}
+.header-menu-btn{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;padding:4px}
+.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);z-index:199;padding:20px 5%;flex-direction:column;gap:0}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--text);text-decoration:none;font-size:1rem;padding:14px 0;border-bottom:1px solid var(--border)}
+
+/* ARTIGO */
+.article{max-width:740px;margin:0 auto;padding:40px 5% 0}
+.breadcrumb{font-size:.82rem;color:var(--muted2);margin-bottom:28px}
+.breadcrumb a{color:var(--muted);text-decoration:none}
+.breadcrumb a:hover{color:var(--purple-light)}
+.art-tag{display:inline-flex;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 12px;border-radius:20px;margin-bottom:18px;background:var(--purple-dim);color:var(--purple-light);border:1px solid rgba(124,63,255,.25)}
+.art-title{font-size:clamp(1.9rem,4.5vw,2.7rem);font-weight:800;line-height:1.15;letter-spacing:-.025em;margin-bottom:20px}
+.art-meta{display:flex;align-items:center;gap:12px;font-size:.85rem;color:var(--muted);padding-bottom:28px;border-bottom:1px solid var(--border);margin-bottom:8px}
+.art-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--green));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:.9rem}
+.art-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--muted2)}
+.art-cover{height:300px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:6rem;margin:32px 0;background:linear-gradient(135deg,rgba(124,63,255,.22),rgba(0,230,118,.08))}
+
+/* PROSE */
+.prose{font-size:1.06rem;line-height:1.8;color:var(--text)}
+.prose p{margin-bottom:22px;color:#cfcce8}
+[data-theme="light"] .prose p{color:#2a2540}
+.prose h2{font-size:1.55rem;font-weight:800;letter-spacing:-.02em;margin:42px 0 16px}
+.prose h3{font-size:1.2rem;font-weight:800;margin:30px 0 12px;color:var(--purple-light)}
+.prose strong{color:var(--text);font-weight:700}
+.prose ul{margin:0 0 22px 0;padding-left:22px;color:#cfcce8}
+[data-theme="light"] .prose ul{color:#2a2540}
+.prose li{margin-bottom:10px}
+.prose a{color:var(--purple-light);text-decoration:underline}
+.prose blockquote{border-left:3px solid var(--purple);background:var(--card);padding:18px 22px;border-radius:0 12px 12px 0;margin:26px 0;font-size:1.1rem;color:var(--text);font-style:italic}
+.callout{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin:28px 0;font-size:.95rem;color:var(--muted);line-height:1.7}
+.callout strong{color:var(--green)}
+
+/* CTA no fim */
+.art-cta{margin:48px 0 0;background:linear-gradient(135deg,var(--purple-dim),transparent);border:1px solid var(--border);border-radius:20px;padding:38px 34px;text-align:center}
+.art-cta h3{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+.art-cta p{color:var(--muted);font-size:.95rem;margin-bottom:22px;line-height:1.6}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;padding:14px 28px;border-radius:50px;font-size:.97rem;font-weight:700;text-decoration:none;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 4px 24px rgba(124,63,255,.4)}
+.btn-primary:hover{background:var(--purple-light);transform:translateY(-2px)}
+.back-blog{display:inline-flex;align-items:center;gap:7px;margin:40px 0 0;color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:600}
+.back-blog:hover{color:var(--purple-light)}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 32px;margin-top:72px}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;max-width:1100px;margin-left:auto;margin-right:auto}
+.footer-brand p{font-size:.82rem;color:var(--muted);max-width:240px;line-height:1.65}
+.footer-col h4{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted2);margin-bottom:14px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col a{font-size:.85rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:22px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--muted2);flex-wrap:wrap;gap:8px;max-width:1100px;margin:0 auto}
+
+/* OND vAI */
+@keyframes orbColorCycle{
+  0%  {background:linear-gradient(135deg,#7f11f4,#b44fff);box-shadow:0 0 14px rgba(127,17,244,.6),0 0 28px rgba(127,17,244,.25),0 4px 28px rgba(127,17,244,.5)}
+  16% {background:linear-gradient(135deg,#0066ff,#44aaff);box-shadow:0 0 14px rgba(0,102,255,.6),0 0 28px rgba(0,102,255,.25),0 4px 28px rgba(0,102,255,.4)}
+  33% {background:linear-gradient(135deg,#00bcd4,#00e5ff);box-shadow:0 0 14px rgba(0,188,212,.6),0 0 28px rgba(0,188,212,.25),0 4px 28px rgba(0,188,212,.4)}
+  50% {background:linear-gradient(135deg,#00c853,#69f0ae);box-shadow:0 0 14px rgba(0,200,83,.6),0 0 28px rgba(0,200,83,.25),0 4px 28px rgba(0,200,83,.4)}
+  66% {background:linear-gradient(135deg,#ff6d00,#ffab40);box-shadow:0 0 14px rgba(255,109,0,.6),0 0 28px rgba(255,109,0,.25),0 4px 28px rgba(255,109,0,.4)}
+  83% {background:linear-gradient(135deg,#d500f9,#ea80fc);box-shadow:0 0 14px rgba(213,0,249,.6),0 0 28px rgba(213,0,249,.25),0 4px 28px rgba(213,0,249,.4)}
+  100%{background:linear-gradient(135deg,#7f11f4,#b44fff);box-shadow:0 0 14px rgba(127,17,244,.6),0 0 28px rgba(127,17,244,.25),0 4px 28px rgba(127,17,244,.5)}
+}
+@keyframes orbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.vai-trigger{position:fixed;bottom:28px;right:28px;z-index:999;width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;animation:orbColorCycle 8s linear infinite,orbPulse 3s ease-in-out infinite;transition:transform .18s;text-decoration:none}
+.vai-trigger:hover{transform:scale(1.1)}
+.vai-trigger::before{content:'';position:absolute;inset:4px;border-radius:50%;background:linear-gradient(145deg,rgba(255,255,255,.22) 0%,transparent 55%);pointer-events:none;z-index:2}
+.vai-label{position:absolute;right:76px;top:50%;transform:translateY(-50%);background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:8px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.vai-trigger:hover .vai-label{opacity:1}
+
+@media(max-width:960px){
+  .header-nav{display:none}.header-menu-btn{display:block}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .art-cover{height:200px;font-size:4rem}
+}
+@media(max-width:600px){.footer-inner{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<svg style="display:none">
+  <symbol id="ond-icon" viewBox="0 0 497.26 497.26">
+    <path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/>
+  </symbol>
+  <symbol id="ond-logo" viewBox="0 0 951.32 497.26">
+    <path class="ond-diamond" d="M327.85,243.05l-69.42-45.05-57.11-117.28c-.76-1.55-2.13-2.44-3.59-2.67-1.46.24-2.83,1.12-3.59,2.67l-57.11,117.28-69.42,45.05c-1.53.99-2.26,2.62-2.21,4.23-.04,1.61.69,3.24,2.21,4.23l69.42,45.05,57.11,117.28c.76,1.55,2.13,2.44,3.59,2.67,1.46-.24,2.83-1.12,3.59-2.67l57.11-117.28,69.42-45.05c1.53-.99,2.26-2.62,2.21-4.23.04-1.61-.69-3.24-2.21-4.23Z"/>
+    <path class="ond-letter" d="M373.12,248.52c0-42.54,34.63-76.96,77.17-76.96s77.18,34.42,77.18,76.96-34.63,77.18-77.18,77.18-77.17-34.42-77.17-77.18ZM477.88,248.52c0-15.18-12.4-27.58-27.58-27.58s-27.58,12.4-27.58,27.58,12.4,27.79,27.58,27.79,27.58-12.4,27.58-27.79Z"/>
+    <path class="ond-letter" d="M542.62,171.56h44.05c1.56,0,3.03.73,3.97,1.97l59.71,78.19h1.54v-75.15c0-2.76,2.24-5,5-5h41.53c2.76,0,5,2.24,5,5v144.14c0,2.76-2.24,5-5,5h-44.1c-1.53,0-2.98-.7-3.93-1.91l-59.49-75.6h-1.76v72.51c0,2.76-2.24,5-5,5h-41.53c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5Z"/>
+    <path class="ond-letter" d="M880.82,247.53c0,50.65-43.38,78.17-75.75,78.17h-86.82c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5h88.59c37.87,0,73.99,28.85,73.99,75.97ZM828.86,247.31c0-24.88-15.63-35.01-39.42-35.01h-24.66v72.67h26.42c21.58,0,37.65-14.53,37.65-37.65Z"/>
+  </symbol>
+</svg>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="index.html" class="header-logo">
+    <svg class="header-logo-svg" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+  </a>
+  <nav><ul class="header-nav">
+    <li><a href="index.html#como-funciona">Como funciona</a></li>
+    <li><a href="blog.html" class="nav-active">Blog</a></li>
+    <li><a href="https://wa.me/5511910214133" target="_blank" rel="noopener">Contato</a></li>
+    <li><a href="agencias.html" class="nav-agencias">Para Agências →</a></li>
+  </ul></nav>
+  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
+  <a href="https://web.ondviajar.com.br/home" class="header-cta">Usar grátis →</a>
+  <button class="header-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html#como-funciona" onclick="closeMenu()">Como funciona</a>
+  <a href="blog.html" onclick="closeMenu()">Blog</a>
+  <a href="https://wa.me/5511910214133" target="_blank" rel="noopener" onclick="closeMenu()">Contato</a>
+  <a href="agencias.html" onclick="closeMenu()" style="color:var(--green);font-weight:600">Para Agências →</a>
+  <a href="https://web.ondviajar.com.br/home" style="color:var(--purple);font-weight:700">Usar grátis →</a>
+</nav>
+
+<!-- ARTIGO -->
+<article class="article">
+  <div class="breadcrumb"><a href="blog.html">← Vai para onde?</a> · Destinos</div>
+  <span class="art-tag">Destinos</span>
+  <h1 class="art-title">5 destinos no Brasil para fugir do óbvio em 2026</h1>
+  <div class="art-meta">
+    <div class="art-avatar">O</div>
+    <span>Equipe OND</span>
+    <span class="dot"></span>
+    <span>25 jun 2026</span>
+    <span class="dot"></span>
+    <span>6 min de leitura</span>
+  </div>
+
+  <div class="art-cover">🗺️</div>
+
+  <div class="prose">
+    <p>Todo mundo já conhece Gramado, Porto de Galinhas e a Praia do Forte. São ótimos — mas e quando a vontade é de descobrir um lugar que ainda não virou cartão-postal de todo feed do Instagram? O Brasil é gigante e está cheio de destinos lindos, baratos e surpreendentemente vazios.</p>
+    <p>Selecionamos <strong>cinco lugares para 2026</strong> que entregam paisagem, boa comida e preço honesto — com a melhor época para ir e uma estimativa de quanto custa cada um.</p>
+
+    <h2>1. Jericoacoara fora de temporada — Ceará</h2>
+    <p>Jeri já é conhecida, mas pouca gente vai na época certa. Entre <strong>março e maio</strong>, os preços caem pela metade, as dunas ficam vazias e a lagoa do Paraíso vira quase particular.</p>
+    <ul>
+      <li><strong>Melhor época:</strong> março a maio</li>
+      <li><strong>Custo médio (4 dias):</strong> R$ 1.200 a R$ 1.800 por pessoa</li>
+      <li><strong>Não perca:</strong> o pôr do sol na Duna, a Pedra Furada e o kitesurf</li>
+    </ul>
+
+    <h2>2. Vale do Capão — Chapada Diamantina, Bahia</h2>
+    <p>Para quem ama trilha, cachoeira e um clima de vilarejo alternativo. O Capão é base perfeita para a <strong>Cachoeira da Fumaça</strong>, uma das mais altas do Brasil, com 340 metros de queda.</p>
+
+    <blockquote>Viajar não é só sair de casa — é trocar a paisagem da rotina por uma que te lembra do tamanho do mundo.</blockquote>
+
+    <h2>3. São Miguel dos Milagres — Alagoas</h2>
+    <p>A "Rota Ecológica" alagoana é o oposto do turismo de massa: pousadas pé na areia, piscinas naturais e zero agito. Ideal para casais e para quem quer desacelerar de verdade.</p>
+
+    <h2>4. Urubici — Serra Catarinense</h2>
+    <p>Quer frio, cânions e até neve (sim, às vezes neva)? Urubici é o destino de inverno mais subestimado do Sul. <strong>Junho a agosto</strong> é a temporada do friozinho e dos cânions cobertos de geada.</p>
+
+    <h2>5. Alter do Chão — Pará</h2>
+    <p>Chamada de "Caribe amazônico", tem praias de rio com areia branca e água esverdeada. A melhor época é a da <strong>seca, de agosto a dezembro</strong>, quando as praias aparecem.</p>
+
+    <div class="callout">
+      <strong>Dica OND:</strong> em vez de montar tudo na mão, descreva o destino e as datas para o OND e receba um roteiro dia a dia, com voos, hospedagem e passeios já organizados — em minutos.
+    </div>
+
+    <h2>Como escolher o seu</h2>
+    <p>Não existe destino perfeito — existe o destino certo para o seu momento, seu orçamento e a época do ano. O segredo é cruzar essas três coisas antes de comprar a passagem. E é exatamente aí que a gente entra.</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="art-cta">
+    <h3>Achou o destino? Agora monta a viagem.</h3>
+    <p>Conte para o OND para onde quer ir e ele organiza voos, hotel e roteiro completo em minutos.</p>
+    <a href="https://web.ondviajar.com.br/home" class="btn-primary">Planejar minha viagem grátis →</a>
+  </div>
+
+  <a href="blog.html" class="back-blog">← Voltar para o blog</a>
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg class="footer-logo-svg" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+      <p>Plataforma de viagens com IA da Agama Tec. Organize sua viagem em minutos, com roteiros inteligentes e concierge 24h.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Viajantes</h4>
+      <ul>
+        <li><a href="https://web.ondviajar.com.br/home">Usar na Web</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.agamatec.ond">App Android</a></li>
+        <li><a href="https://apps.apple.com/br/app/ond-assistente-de-viagem/id6758392427">App iOS</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Parceiros</h4>
+      <ul>
+        <li><a href="https://pci.jotform.com/form/252517268656062">Para agências</a></li>
+        <li><a href="https://ondviajar.com.br/empresas/">Para hotéis</a></li>
+        <li><a href="https://ondviajar.com.br/concierge/">Concierge</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="https://ondviajar.com.br/sobre/">Sobre a Agama</a></li>
+        <li><a href="https://ondviajar.com.br/contato/">Contato</a></li>
+        <li><a href="mailto:renan@agamatec.com">renan@agamatec.com</a></li>
+        <li><a href="https://wa.me/5511910214133">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Agama Tec · OND</span>
+    <span>Feito com IA no Brasil 🇧🇷</span>
+  </div>
+</footer>
+
+<!-- OND vAI FLUTUANTE -->
+<a class="vai-trigger" href="https://ondjarvis.pages.dev" target="_blank" rel="noopener" aria-label="Abrir OND vAI">
+  <svg viewBox="0 0 497.26 497.26" fill="white" width="28" height="28" style="position:relative;z-index:3"><use href="#ond-icon"/></svg>
+  <span class="vai-label">OND vAI</span>
+</a>
+
+<script>
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileNav').classList.remove('open')}
+function toggleTheme(){
+  const isLight=document.documentElement.getAttribute('data-theme')==='light'
+  if(isLight){document.documentElement.removeAttribute('data-theme');document.getElementById('themeBtn').textContent='🌙';localStorage.setItem('ond_theme','dark')}
+  else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☀️';localStorage.setItem('ond_theme','light')}
+}
+;(function(){if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.textContent='☀️'}})()
+document.addEventListener('click',function(e){
+  const nav=document.getElementById('mobileNav'),btn=document.querySelector('.header-menu-btn')
+  if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target))closeMenu()
+})
+</script>
+</body>
+</html>
