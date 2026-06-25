@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#060a14">
+<meta name="description" content="OND para agências de viagem — crie roteiros personalizados com IA em minutos, com a sua marca. Economize 75% do tempo e atenda mais clientes.">
+<title>OND para Agências — Roteiros com IA em Minutos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#060a14;--surface:#0d1220;--card:#121928;--border:#1e2a40;--border-hi:rgba(0,102,255,.45);
+  --blue:#0066ff;--blue-dim:rgba(0,102,255,.12);--blue-glow:rgba(0,102,255,.4);--blue-light:#4d9fff;
+  --green:#11f558;--green-dim:rgba(17,245,88,.1);
+  --gold:#ffd60a;--gold-dim:rgba(255,214,10,.1);
+  --text:#e8f0ff;--muted:#7a9bc0;--muted2:#3a5070;
+  --radius:16px;--radius-sm:10px;
+  --header-bg:rgba(6,10,20,.96);
+}
+[data-theme="light"]{
+  --bg:#f4f7ff;--surface:#ffffff;--card:#eef3ff;--border:#c8d8f0;--border-hi:rgba(0,85,221,.4);
+  --blue:#0055dd;--blue-dim:rgba(0,85,221,.08);--blue-glow:rgba(0,85,221,.25);--blue-light:#0044bb;
+  --green:#008833;--green-dim:rgba(0,136,51,.1);
+  --gold:#a07800;--gold-dim:rgba(160,120,0,.1);
+  --text:#0a1020;--muted:#3a5a8a;--muted2:#7a90b0;
+  --header-bg:rgba(244,247,255,.97);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,system-ui,sans-serif;overflow-x:hidden;line-height:1.6;transition:background .25s,color .25s}
+
+/* ── OND LOGO SVG ── */
+.ond-letter{fill:var(--text)}
+.ond-diamond{fill:var(--blue)}
+
+/* ── HEADER ── */
+.header{position:sticky;top:0;z-index:200;background:var(--header-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;gap:12px}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .2s,background .2s;flex-shrink:0}
+.theme-btn:hover{border-color:var(--blue);background:var(--blue-dim)}
+.header-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.header-logo-svg{height:34px;width:auto}
+.header-badge{font-size:8px;font-weight:700;background:var(--blue);color:#fff;padding:2px 8px;border-radius:6px;letter-spacing:.07em;text-transform:uppercase;flex-shrink:0}
+.header-nav{display:flex;gap:4px;flex:1;margin-left:8px;list-style:none}
+.header-nav a{color:var(--muted);text-decoration:none;font-size:.84rem;font-weight:600;padding:6px 14px;border-radius:20px;transition:all .15s;white-space:nowrap}
+.header-nav a:hover,.header-nav a.active{color:var(--text);background:rgba(255,255,255,.06)}
+.header-nav .nav-home{color:var(--blue);border:1px solid rgba(0,102,255,.25)}
+.header-nav .nav-home:hover{background:var(--blue-dim);color:var(--blue-light)}
+.header-cta{background:var(--green);color:#000;padding:9px 20px;border-radius:50px;font-size:.84rem;font-weight:700;text-decoration:none;transition:all .15s;white-space:nowrap;flex-shrink:0}
+.header-cta:hover{background:#3dffa0;transform:translateY(-1px)}
+.header-menu-btn{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;padding:4px}
+.mobile-nav{display:none;position:fixed;top:68px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);z-index:199;padding:20px 5%;flex-direction:column;gap:0}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--text);text-decoration:none;font-size:1rem;padding:14px 0;border-bottom:1px solid var(--border)}
+.mobile-nav a.nav-home{color:var(--blue)}
+
+/* ── HERO ── */
+.hero{padding:88px 5% 68px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.hero::before{content:'';position:absolute;top:-200px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(0,102,255,.14) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,102,255,.08) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--blue-dim);border:1px solid rgba(0,102,255,.3);color:var(--blue-light);font-size:.78rem;font-weight:700;padding:6px 14px;border-radius:50px;margin-bottom:22px;letter-spacing:.06em;text-transform:uppercase}
+.hero-eyebrow-dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s infinite;box-shadow:0 0 6px var(--blue)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-title{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:18px;letter-spacing:-.025em}
+.hero-title em{font-style:normal;color:var(--green)}
+.hero-sub{font-size:1.05rem;color:var(--muted);max-width:480px;line-height:1.75;margin-bottom:32px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
+.btn-green{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#000;padding:14px 28px;border-radius:50px;font-size:.97rem;font-weight:700;text-decoration:none;transition:all .2s;box-shadow:0 4px 20px rgba(17,245,88,.25)}
+.btn-green:hover{background:#3dffa0;transform:translateY(-2px);box-shadow:0 8px 32px rgba(17,245,88,.4)}
+.btn-blue{display:inline-flex;align-items:center;gap:8px;background:var(--blue-dim);color:var(--blue-light);border:1.5px solid rgba(0,102,255,.3);padding:13px 24px;border-radius:50px;font-size:.97rem;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-blue:hover{background:rgba(0,102,255,.2);border-color:var(--blue);transform:translateY(-2px)}
+.btn-whatsapp{display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,.1);color:#25d366;border:1.5px solid rgba(37,211,102,.25);padding:13px 24px;border-radius:50px;font-size:.97rem;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-whatsapp:hover{background:rgba(37,211,102,.18);border-color:#25d366;transform:translateY(-2px)}
+.hero-trust{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.trust-chip{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted)}
+.trust-chip::before{content:'✓';color:var(--green);font-weight:700}
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.hero-card-stack{position:relative;width:100%;max-width:380px;margin:0 auto}
+.hero-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;position:relative}
+.hero-card-main{z-index:2;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 1px rgba(0,102,255,.1)}
+.hero-card-behind{position:absolute;top:-12px;left:12px;right:-12px;height:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);z-index:1;opacity:.5}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.card-agency-dot{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0044cc,#0066ff);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;box-shadow:0 4px 12px rgba(0,102,255,.35)}
+.card-agency-name{font-size:.9rem;font-weight:700}
+.card-agency-sub{font-size:.75rem;color:var(--muted)}
+.card-badge{margin-left:auto;background:rgba(17,245,88,.1);border:1px solid rgba(17,245,88,.25);color:var(--green);font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:50px}
+.card-itinerary{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.card-day{display:flex;align-items:flex-start;gap:10px}
+.card-day-num{min-width:26px;height:26px;border-radius:50%;background:var(--blue-dim);border:1px solid rgba(0,102,255,.3);color:var(--blue-light);font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.card-day-content{flex:1}
+.card-day-title{font-size:.82rem;font-weight:700;color:var(--text)}
+.card-day-desc{font-size:.75rem;color:var(--muted);line-height:1.4}
+.card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border)}
+.card-footer-stat{text-align:center}
+.card-footer-num{font-size:1rem;font-weight:800;color:var(--green)}
+.card-footer-label{font-size:.68rem;color:var(--muted)}
+.card-footer-cta{background:var(--blue);color:#fff;font-size:.76rem;font-weight:700;padding:7px 14px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 4px 12px var(--blue-glow)}
+
+/* ── STATS ── */
+.stats{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 5%;display:flex;justify-content:center;gap:0;flex-wrap:wrap}
+.stat{text-align:center;padding:8px 40px;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-num{font-size:1.8rem;font-weight:800;color:var(--text);line-height:1}
+.stat-num.green{color:var(--green)}
+.stat-num.blue{color:var(--blue-light)}
+.stat-num.gold{color:var(--gold)}
+.stat-label{font-size:.78rem;color:var(--muted);margin-top:4px}
+
+/* ── PROBLEMA ── */
+.problema{padding:80px 5%;background:var(--bg)}
+.problema-inner{max-width:920px;margin:0 auto;text-align:center}
+.section-label{display:inline-block;color:var(--green);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;line-height:1.2;margin-bottom:16px;letter-spacing:-.02em}
+.section-sub{font-size:1rem;color:var(--muted);max-width:580px;line-height:1.7;margin:0 auto}
+.problema-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.problema-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:28px 24px;text-align:left}
+.problema-icon{font-size:1.5rem;margin-bottom:14px}
+.problema-title{font-size:.95rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+.problema-desc{font-size:.85rem;color:var(--muted);line-height:1.65}
+
+/* ── COMO FUNCIONA ── */
+.how{background:var(--surface);padding:80px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;max-width:1100px;margin:0 auto}
+.steps-row::before{content:'';position:absolute;top:32px;left:calc(12.5%);right:calc(12.5%);height:1px;background:linear-gradient(90deg,var(--blue),var(--green));opacity:.3}
+.step-item{text-align:center;padding:0 16px;position:relative}
+.step-circle{width:64px;height:64px;border-radius:50%;background:var(--card);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.3rem;position:relative;z-index:1;transition:border-color .2s,box-shadow .2s}
+.step-item:hover .step-circle{border-color:var(--blue);box-shadow:0 0 20px var(--blue-glow)}
+.step-title{font-size:.92rem;font-weight:700;margin-bottom:8px}
+.step-desc{font-size:.82rem;color:var(--muted);line-height:1.6}
+
+/* ── FUNCIONALIDADES ── */
+.features{background:var(--bg);padding:80px 5%}
+.features-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;max-width:1100px;margin:0 auto}
+.features-list{display:flex;flex-direction:column;gap:12px}
+.feat{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:18px 20px;transition:border-color .2s,transform .2s}
+.feat:hover{border-color:var(--border-hi);transform:translateX(4px)}
+.feat-icon{width:40px;height:40px;border-radius:10px;background:var(--blue-dim);border:1px solid rgba(0,102,255,.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.feat-title{font-size:.93rem;font-weight:700;margin-bottom:4px}
+.feat-desc{font-size:.83rem;color:var(--muted);line-height:1.6}
+.features-side{display:flex;flex-direction:column;gap:20px}
+.side-block{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+.side-block-title{font-size:1rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.side-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.side-stat{text-align:center;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 12px}
+.side-stat-num{font-size:1.6rem;font-weight:800;color:var(--green);line-height:1}
+.side-stat-label{font-size:.75rem;color:var(--muted);margin-top:4px;line-height:1.4}
+.model-rows{display:flex;flex-direction:column;gap:10px}
+.model-row{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm)}
+.model-icon{font-size:1.1rem;flex-shrink:0}
+.model-label{font-size:.85rem;font-weight:600;color:var(--text)}
+.model-desc{font-size:.78rem;color:var(--muted);margin-top:2px}
+.model-badge{margin-left:auto;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:50px;white-space:nowrap;flex-shrink:0}
+.badge-green{background:var(--green-dim);color:var(--green);border:1px solid rgba(17,245,88,.2)}
+.badge-blue{background:var(--blue-dim);color:var(--blue-light);border:1px solid rgba(0,102,255,.2)}
+.badge-gold{background:var(--gold-dim);color:var(--gold);border:1px solid rgba(255,214,10,.2)}
+
+/* ── DIFERENCIAIS ── */
+.diff{background:var(--surface);padding:80px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;max-width:1100px;margin-left:auto;margin-right:auto}
+.diff-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:border-color .2s,transform .2s}
+.diff-card:hover{border-color:var(--border-hi);transform:translateY(-4px)}
+.diff-num{font-size:2rem;font-weight:900;color:var(--blue-light);line-height:1;margin-bottom:8px;opacity:.7}
+.diff-title{font-size:1rem;font-weight:700;margin-bottom:8px}
+.diff-desc{font-size:.85rem;color:var(--muted);line-height:1.65}
+
+/* ── PROVA SOCIAL ── */
+.proof{background:var(--bg);padding:80px 5%}
+.proof-inner{max-width:800px;margin:0 auto;text-align:center}
+.proof-quote{font-size:clamp(1.1rem,2.2vw,1.45rem);font-weight:600;line-height:1.55;color:var(--text);margin-bottom:20px;position:relative;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--blue);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:24px 28px;text-align:left}
+.proof-source{font-size:.85rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px}
+.proof-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 6px var(--blue)}
+
+/* ── DEMO CARD (app mockup strip) ── */
+.app-strip{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:56px 5%;overflow:hidden}
+.app-strip-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.app-strip-text .section-label{display:block;margin-bottom:12px}
+.app-strip-text h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;line-height:1.2;margin-bottom:14px;letter-spacing:-.02em}
+.app-strip-text p{font-size:.95rem;color:var(--muted);line-height:1.75;margin-bottom:28px}
+.app-mockup{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 0 1px rgba(0,102,255,.08)}
+.app-nav-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.app-nav-logo{display:flex;align-items:center;gap:7px}
+.app-nav-logo-svg{height:22px;width:auto}
+.app-nav-badge{font-size:7px;font-weight:700;background:var(--blue);color:#fff;padding:2px 6px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.app-nav-links{display:flex;gap:14px}
+.app-nav-link{font-size:11px;font-weight:600;color:var(--muted)}
+.app-nav-link.active{color:var(--blue)}
+.app-agency-bar{background:var(--blue-dim);border:1px solid rgba(0,102,255,.2);border-radius:10px;padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.app-agency-label{font-size:8px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em}
+.app-agency-name{font-size:12px;font-weight:700}
+.app-agency-plan{font-size:10px;color:var(--muted)}
+.app-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.app-stat-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center}
+.app-stat-val{font-size:14px;font-weight:800}
+.app-stat-val.green{color:var(--green)}.app-stat-val.blue{color:var(--blue-light)}.app-stat-val.gold{color:var(--gold)}
+.app-stat-label{font-size:9px;color:var(--muted);margin-top:2px}
+.app-client-row{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:8px}
+.app-client-av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#0044aa,#0066ff);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0}
+.app-client-name{font-size:12px;font-weight:700;flex:1}
+.app-client-trip{font-size:10px;color:var(--muted)}
+.app-client-status{font-size:9px;font-weight:700;padding:3px 8px;border-radius:10px}
+.status-green{background:var(--green-dim);color:var(--green);border:1px solid rgba(17,245,88,.2)}
+.status-blue{background:var(--blue-dim);color:var(--blue-light);border:1px solid rgba(0,102,255,.2)}
+.status-gold{background:var(--gold-dim);color:var(--gold);border:1px solid rgba(255,214,10,.2)}
+
+/* ── CTA FINAL ── */
+.cta-final{background:linear-gradient(135deg,rgba(0,102,255,.07) 0%,rgba(17,245,88,.05) 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 5%}
+.cta-final-inner{max-width:720px;margin:0 auto;text-align:center}
+.cta-final-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;line-height:1.2;margin-bottom:16px;letter-spacing:-.02em}
+.cta-final-title em{font-style:normal;color:var(--green)}
+.cta-final-sub{font-size:1.05rem;color:var(--muted);max-width:520px;margin:0 auto 36px;line-height:1.7}
+.cta-final-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.cta-final-note{font-size:.82rem;color:var(--muted2)}
+.cta-final-note a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border)}
+
+/* ── FOOTER ── */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 28px}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+.footer-brand{display:flex;flex-direction:column;gap:0}
+.footer-logo-svg{height:26px;width:auto;margin-bottom:12px}
+.footer-brand p{font-size:.82rem;color:var(--muted);max-width:240px;line-height:1.65}
+.footer-col h4{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted2);margin-bottom:12px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col a{font-size:.84rem;color:var(--muted);text-decoration:none;transition:color .15s}
+.footer-col a:hover{color:var(--text)}
+.footer-col a.footer-home{color:var(--blue-light)}
+.footer-col a.footer-home:hover{color:var(--blue)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--muted2);flex-wrap:wrap;gap:8px}
+
+/* ── FLOATING vAI ── */
+@keyframes orbColorCycle{
+  0%  {background:linear-gradient(135deg,#0044cc,#0066ff);box-shadow:0 0 14px rgba(0,102,255,.6),0 0 28px rgba(0,102,255,.25),0 4px 28px rgba(0,102,255,.5)}
+  33% {background:linear-gradient(135deg,#00bcd4,#00e5ff);box-shadow:0 0 14px rgba(0,188,212,.6),0 0 28px rgba(0,188,212,.25),0 4px 28px rgba(0,188,212,.4)}
+  66% {background:linear-gradient(135deg,#5511f4,#7f44ff);box-shadow:0 0 14px rgba(85,17,244,.6),0 0 28px rgba(85,17,244,.25),0 4px 28px rgba(85,17,244,.4)}
+  100%{background:linear-gradient(135deg,#0044cc,#0066ff);box-shadow:0 0 14px rgba(0,102,255,.6),0 0 28px rgba(0,102,255,.25),0 4px 28px rgba(0,102,255,.5)}
+}
+@keyframes orbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.vai-trigger{position:fixed;bottom:28px;right:28px;z-index:999;width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;animation:orbColorCycle 6s linear infinite,orbPulse 3s ease-in-out infinite;transition:transform .18s}
+.vai-trigger:hover{transform:scale(1.1)}
+.vai-trigger::before{content:'';position:absolute;inset:4px;border-radius:50%;background:linear-gradient(145deg,rgba(255,255,255,.22) 0%,transparent 55%);pointer-events:none;z-index:2}
+.vai-trigger svg{position:relative;z-index:3}
+.vai-label{position:absolute;right:76px;top:50%;transform:translateY(-50%);background:var(--card);border:1px solid var(--border);color:var(--text);font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:8px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.vai-trigger:hover .vai-label{opacity:1}
+.vai-modal{position:fixed;bottom:100px;right:28px;z-index:998;width:380px;height:560px;max-height:calc(100vh - 120px);background:var(--surface);border:1px solid rgba(0,102,255,.25);border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.7);display:none;flex-direction:column;opacity:0;transform:scale(.94) translateY(16px);transition:opacity .22s,transform .25s cubic-bezier(.34,1.56,.64,1)}
+.vai-modal.open{display:flex}
+.vai-modal.visible{opacity:1;transform:scale(1) translateY(0)}
+.vai-modal-header{background:var(--blue-dim);border-bottom:1px solid var(--border);padding:13px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.vai-orb-sm{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0044cc,#0066ff);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 12px var(--blue-glow)}
+.vai-modal-title{font-size:.92rem;font-weight:700}
+.vai-online{font-size:.72rem;color:var(--green);display:flex;align-items:center;gap:4px}
+.vai-online::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;box-shadow:0 0 6px var(--green)}
+.vai-close{margin-left:auto;background:none;border:none;color:var(--muted);font-size:1.1rem;cursor:pointer;padding:4px 6px;line-height:1}
+.vai-close:hover{color:var(--text)}
+.vai-body{flex:1;overflow:hidden}
+.vai-body iframe{width:100%;height:100%;border:none;display:block}
+.vai-foot{padding:7px 14px;text-align:center;font-size:.7rem;color:var(--muted2);border-top:1px solid var(--border);flex-shrink:0}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .header-nav{display:none}.header-menu-btn{display:block}
+  .hero{grid-template-columns:1fr;padding:56px 5% 44px;gap:36px}
+  .hero-visual{display:none}
+  .problema-cards{grid-template-columns:1fr 1fr}
+  .steps-row{grid-template-columns:1fr 1fr}.steps-row::before{display:none}
+  .features-inner{grid-template-columns:1fr}
+  .diff-grid{grid-template-columns:1fr 1fr}
+  .app-strip-inner{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .stat{padding:8px 24px}
+}
+@media(max-width:600px){
+  .problema-cards{grid-template-columns:1fr}
+  .steps-row{grid-template-columns:1fr}
+  .diff-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .cta-final-btns{flex-direction:column;align-items:center}
+  .btn-green,.btn-whatsapp{width:100%;max-width:300px;justify-content:center}
+  .vai-modal{width:calc(100vw - 20px);right:10px;bottom:88px}
+  .stats{flex-direction:column;align-items:center}.stat{border-right:none;border-bottom:1px solid var(--border);width:100%;max-width:280px;padding:14px 0}
+  .stat:last-child{border-bottom:none}
+  .side-stat-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<svg style="display:none">
+  <symbol id="ond-icon" viewBox="0 0 497.26 497.26">
+    <path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/>
+  </symbol>
+  <symbol id="ond-logo" viewBox="0 0 951.32 497.26">
+    <path class="ond-diamond" d="M327.85,243.05l-69.42-45.05-57.11-117.28c-.76-1.55-2.13-2.44-3.59-2.67-1.46.24-2.83,1.12-3.59,2.67l-57.11,117.28-69.42,45.05c-1.53.99-2.26,2.62-2.21,4.23-.04,1.61.69,3.24,2.21,4.23l69.42,45.05,57.11,117.28c.76,1.55,2.13,2.44,3.59,2.67,1.46-.24,2.83-1.12,3.59-2.67l57.11-117.28,69.42-45.05c1.53-.99,2.26-2.62,2.21-4.23.04-1.61-.69-3.24-2.21-4.23Z"/>
+    <path class="ond-letter" d="M373.12,248.52c0-42.54,34.63-76.96,77.17-76.96s77.18,34.42,77.18,76.96-34.63,77.18-77.18,77.18-77.17-34.42-77.17-77.18ZM477.88,248.52c0-15.18-12.4-27.58-27.58-27.58s-27.58,12.4-27.58,27.58,12.4,27.79,27.58,27.79,27.58-12.4,27.58-27.79Z"/>
+    <path class="ond-letter" d="M542.62,171.56h44.05c1.56,0,3.03.73,3.97,1.97l59.71,78.19h1.54v-75.15c0-2.76,2.24-5,5-5h41.53c2.76,0,5,2.24,5,5v144.14c0,2.76-2.24,5-5,5h-44.1c-1.53,0-2.98-.7-3.93-1.91l-59.49-75.6h-1.76v72.51c0,2.76-2.24,5-5,5h-41.53c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5Z"/>
+    <path class="ond-letter" d="M880.82,247.53c0,50.65-43.38,78.17-75.75,78.17h-86.82c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5h88.59c37.87,0,73.99,28.85,73.99,75.97ZM828.86,247.31c0-24.88-15.63-35.01-39.42-35.01h-24.66v72.67h26.42c21.58,0,37.65-14.53,37.65-37.65Z"/>
+  </symbol>
+</svg>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="index.html" class="header-logo">
+    <svg class="header-logo-svg" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+    <span class="header-badge">Agência</span>
+  </a>
+  <nav><ul class="header-nav">
+    <li><a href="index.html" class="nav-home">← Para viajantes</a></li>
+    <li><a href="#como-funciona">Como funciona</a></li>
+    <li><a href="#modelo">Modelo</a></li>
+    <li><a href="#plataforma">Plataforma</a></li>
+  </ul></nav>
+  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
+  <a href="https://pci.jotform.com/form/252517268656062" class="header-cta">Quero para minha agência →</a>
+  <button class="header-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html" class="nav-home">← Para viajantes</a>
+  <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
+  <a href="#modelo" onclick="closeMenu()">Modelo</a>
+  <a href="#plataforma" onclick="closeMenu()">Plataforma</a>
+  <a href="https://pci.jotform.com/form/252517268656062" style="color:var(--green);font-weight:700">Quero para minha agência →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Para agências de viagem</div>
+    <h1 class="hero-title">Roteiro montado<br>na mão <em>não escala.</em></h1>
+    <p class="hero-sub">Sua equipe gasta horas em algo que a IA faz em minutos. O OND entrega roteiros personalizados com a sua marca, libera seu time para o que gera valor — e aumenta sua capacidade de atendimento sem aumentar custo.</p>
+    <div class="hero-ctas">
+      <a href="https://pci.jotform.com/form/252517268656062" class="btn-green">Quero o OND na minha agência →</a>
+      <a href="https://wa.me/5511910214133?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+    <div class="hero-trust">
+      <span class="trust-chip">Sem contrato de longo prazo</span>
+      <span class="trust-chip">Sua marca no portal</span>
+      <span class="trust-chip">Suporte dedicado</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card-stack">
+      <div class="hero-card-behind"></div>
+      <div class="hero-card hero-card-main">
+        <div class="card-header">
+          <div class="card-agency-dot">✈️</div>
+          <div>
+            <div class="card-agency-name">Viagens Premium</div>
+            <div class="card-agency-sub">Roteiro gerado por OND vAI</div>
+          </div>
+          <div class="card-badge">⚡ 4 min</div>
+        </div>
+        <div class="card-itinerary">
+          <div class="card-day">
+            <div class="card-day-num">D1</div>
+            <div class="card-day-content">
+              <div class="card-day-title">Chegada em Lisboa · Alfama</div>
+              <div class="card-day-desc">Castelo de São Jorge · Miradouro da Graça · Fado no Bairro Alto</div>
+            </div>
+          </div>
+          <div class="card-day">
+            <div class="card-day-num">D2</div>
+            <div class="card-day-content">
+              <div class="card-day-title">Belém · LX Factory</div>
+              <div class="card-day-desc">Torre de Belém · Pastéis de Belém · Museu dos Coches</div>
+            </div>
+          </div>
+          <div class="card-day">
+            <div class="card-day-num">D3</div>
+            <div class="card-day-content">
+              <div class="card-day-title">Sintra · Cascais</div>
+              <div class="card-day-desc">Palácio da Pena · Quinta da Regaleira · Costa do Estoril</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-footer-stat"><div class="card-footer-num">R$4.200</div><div class="card-footer-label">estimativa total</div></div>
+          <div class="card-footer-stat"><div class="card-footer-num">7d · 2pax</div><div class="card-footer-label">duração · grupo</div></div>
+          <button class="card-footer-cta">Enviar ao cliente</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num green">75%</div><div class="stat-label">menos tempo por roteiro</div></div>
+  <div class="stat"><div class="stat-num blue">3×</div><div class="stat-label">mais clientes atendidos</div></div>
+  <div class="stat"><div class="stat-num green">5min</div><div class="stat-label">do briefing ao roteiro completo</div></div>
+  <div class="stat"><div class="stat-num gold">100%</div><div class="stat-label">com a sua marca</div></div>
+</div>
+
+<!-- PROBLEMA -->
+<section class="problema">
+  <div class="problema-inner">
+    <span class="section-label">O problema</span>
+    <h2 class="section-title">Agências sem IA já<br>ficaram no passado</h2>
+    <p class="section-sub">O viajante moderno pesquisa sozinho, compara em segundos e escolhe quem entrega mais rápido. Sem tecnologia, sua agência perde o cliente antes mesmo de apresentar o roteiro.</p>
+    <div class="problema-cards">
+      <div class="problema-card">
+        <div class="problema-icon">⏱️</div>
+        <h3 class="problema-title">Horas perdidas em roteiros</h3>
+        <p class="problema-desc">Montar um roteiro detalhado leva de 2 a 6 horas por consultor. Tempo que poderia estar gerando novos clientes ou atendendo quem já confia em você.</p>
+      </div>
+      <div class="problema-card">
+        <div class="problema-icon">📉</div>
+        <h3 class="problema-title">Limite de capacidade</h3>
+        <p class="problema-desc">Cada consultor só consegue atender um número limitado de clientes. Com a demanda crescente por viagens personalizadas, a equipe nunca é suficiente.</p>
+      </div>
+      <div class="problema-card">
+        <div class="problema-icon">🏃</div>
+        <h3 class="problema-title">Concorrência mais ágil</h3>
+        <p class="problema-desc">Plataformas de IA já estão tomando o espaço das agências lentas. Quem não adotar tecnologia agora vai perder clientes para quem entrega em 5 minutos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="how" id="como-funciona">
+  <div style="max-width:1100px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="section-label">Como funciona</span>
+      <h2 class="section-title">Do briefing ao roteiro em 4 passos</h2>
+      <p class="section-sub" style="margin:0 auto">Simples para o consultor. Impressionante para o cliente.</p>
+    </div>
+    <div class="steps-row">
+      <div class="step-item">
+        <div class="step-circle">💬</div>
+        <h3 class="step-title">Receba o briefing</h3>
+        <p class="step-desc">O cliente conta destino, datas, perfil do grupo e orçamento. Pode ser por WhatsApp, formulário ou diretamente no portal.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">🤖</div>
+        <h3 class="step-title">IA monta o roteiro</h3>
+        <p class="step-desc">Em menos de 5 minutos, o OND gera um itinerário completo, hora a hora, com rotas, atrações, estimativas e dicas práticas.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">✏️</div>
+        <h3 class="step-title">Consultor revisa</h3>
+        <p class="step-desc">Você ajusta, personaliza com serviços da sua agência e adiciona cross-sell de hospedagem, seguro e traslados.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">📤</div>
+        <h3 class="step-title">Entrega ao cliente</h3>
+        <p class="step-desc">O cliente recebe via PDF, WhatsApp, e-mail ou acesso ao portal — tudo com a identidade visual da sua agência.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATAFORMA (app mockup) -->
+<section class="app-strip" id="plataforma">
+  <div class="app-strip-inner">
+    <div class="app-strip-text">
+      <span class="section-label">A plataforma</span>
+      <h2>Dashboard de agência.<br>Do mesmo jeito que o app.</h2>
+      <p>Seus consultores têm acesso a um painel centralizado com clientes, propostas e integrações — tudo no visual do OND, com a sua marca sobreposta.</p>
+      <a href="https://ondjarvis.pages.dev/agencia" class="btn-blue" target="_blank" rel="noopener">Ver demo ao vivo →</a>
+    </div>
+    <div class="app-mockup">
+      <div class="app-nav-bar">
+        <div class="app-nav-logo">
+          <svg class="app-nav-logo-svg" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+          <span class="app-nav-badge">Agência</span>
+        </div>
+        <div class="app-nav-links">
+          <span class="app-nav-link active">Início</span>
+          <span class="app-nav-link">Clientes</span>
+          <span class="app-nav-link">vAI</span>
+          <span class="app-nav-link">Propostas</span>
+        </div>
+      </div>
+      <div class="app-agency-bar">
+        <div>
+          <div class="app-agency-label">Modo Agência</div>
+          <div class="app-agency-name">Viagens Premium Ltda.</div>
+        </div>
+        <div style="margin-left:auto"><div class="app-agency-plan">Plano Pro · 12 clientes</div></div>
+      </div>
+      <div class="app-stats-row">
+        <div class="app-stat-card"><div class="app-stat-val green">R$48k</div><div class="app-stat-label">Faturamento · jun</div></div>
+        <div class="app-stat-card"><div class="app-stat-val blue">12</div><div class="app-stat-label">Clientes ativos</div></div>
+        <div class="app-stat-card"><div class="app-stat-val gold">94%</div><div class="app-stat-label">Satisfação</div></div>
+      </div>
+      <div class="app-client-row">
+        <div class="app-client-av">M</div>
+        <div><div class="app-client-name">Marcos Oliveira</div><div class="app-client-trip">✈️ Miami · 14–21 jun · 2 pax</div></div>
+        <div class="app-client-status status-gold">Aguardando</div>
+      </div>
+      <div class="app-client-row">
+        <div class="app-client-av" style="background:linear-gradient(135deg,#660099,#9900cc)">A</div>
+        <div><div class="app-client-name">Ana Paula Costa</div><div class="app-client-trip">🛎️ Paris · ago · lua de mel</div></div>
+        <div class="app-client-status status-blue">Planejando</div>
+      </div>
+      <div class="app-client-row">
+        <div class="app-client-av" style="background:linear-gradient(135deg,#006633,#009944)">J</div>
+        <div><div class="app-client-name">João Ferreira</div><div class="app-client-trip">🗾 Tóquio · set · família</div></div>
+        <div class="app-client-status status-green">Confirmado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNCIONALIDADES + MODELO -->
+<section class="features" id="modelo">
+  <div class="features-inner">
+    <div>
+      <span class="section-label">Funcionalidades</span>
+      <h2 class="section-title" style="margin-bottom:28px">Tudo que sua agência precisa</h2>
+      <div class="features-list">
+        <div class="feat">
+          <div class="feat-icon">🏷️</div>
+          <div><div class="feat-title">Portal com a sua marca</div><div class="feat-desc">Seu logo, suas cores, seu domínio. O cliente vê a experiência da sua agência, potencializada pela IA do OND.</div></div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">🗓️</div>
+          <div><div class="feat-title">Roteiros dia a hora em minutos</div><div class="feat-desc">Itinerários completos com atrações, rotas Google Maps, horários, preços estimados e observações por perfil de viajante.</div></div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">👥</div>
+          <div><div class="feat-title">Gestão de múltiplos clientes</div><div class="feat-desc">Painel centralizado com todos os roteiros e status de cada cliente em tempo real. Sua equipe sempre atualizada.</div></div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">📦</div>
+          <div><div class="feat-title">Cross-sell integrado</div><div class="feat-desc">Adicione hospedagem, seguro viagem, traslados e experiências dentro do roteiro — e aumente o ticket médio de cada venda.</div></div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">📄</div>
+          <div><div class="feat-title">Entrega multi-canal</div><div class="feat-desc">PDF offline, envio por e-mail, WhatsApp, portal web ou Google Calendar. O cliente escolhe como quer receber.</div></div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">🤖</div>
+          <div><div class="feat-title">Concierge de IA 24h</div><div class="feat-desc">Seu cliente viaja com um assistente inteligente disponível a qualquer hora — sem sobrecarregar sua equipe.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="features-side">
+      <div class="side-block">
+        <div class="side-block-title">📊 Impacto real</div>
+        <div class="side-stat-grid">
+          <div class="side-stat"><div class="side-stat-num">75%</div><div class="side-stat-label">menos tempo por roteiro</div></div>
+          <div class="side-stat"><div class="side-stat-num">3×</div><div class="side-stat-label">capacidade de atendimento</div></div>
+          <div class="side-stat"><div class="side-stat-num">5min</div><div class="side-stat-label">do briefing ao roteiro</div></div>
+          <div class="side-stat"><div class="side-stat-num">24h</div><div class="side-stat-label">concierge para seu cliente</div></div>
+        </div>
+      </div>
+      <div class="side-block">
+        <div class="side-block-title">💰 Modelo de negócio</div>
+        <div class="model-rows">
+          <div class="model-row">
+            <div class="model-icon">📋</div>
+            <div><div class="model-label">Fee fixo mensal</div><div class="model-desc">Acesso ao portal, IA e suporte por um valor previsível</div></div>
+            <div class="model-badge badge-green">Previsível</div>
+          </div>
+          <div class="model-row">
+            <div class="model-icon">📈</div>
+            <div><div class="model-label">Rev-share por roteiro</div><div class="model-desc">Nosso ganho é vinculado ao seu resultado</div></div>
+            <div class="model-badge badge-blue">Alinhado</div>
+          </div>
+          <div class="model-row">
+            <div class="model-icon">🏷️</div>
+            <div><div class="model-label">Você define o preço</div><div class="model-desc">Cobre do seu cliente o valor que achar justo</div></div>
+            <div class="model-badge badge-gold">Controle total</div>
+          </div>
+        </div>
+        <p style="font-size:.78rem;color:var(--muted2);margin-top:14px;line-height:1.5">Preços e condições definidos em conversa — cada agência tem um contexto diferente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="diff">
+  <div style="text-align:center;max-width:720px;margin:0 auto">
+    <span class="section-label">Por que o OND</span>
+    <h2 class="section-title" style="margin-bottom:12px">Não é só um ChatGPT<br>com wrapper de viagem</h2>
+    <p class="section-sub" style="margin:0 auto">O OND combina IA com regras do turismo, dados de destinos e programação tradicional — resultado: roteiros coerentes, confiáveis e prontos para vender.</p>
+  </div>
+  <div class="diff-grid" style="margin-top:48px">
+    <div class="diff-card">
+      <div class="diff-num">01</div>
+      <h3 class="diff-title">Regras do turismo embutidas</h3>
+      <p class="diff-desc">Horários de funcionamento, distâncias entre atrações, sazonalidade e logística local já estão no modelo. Não é só IA gerando texto — é IA que entende como uma viagem funciona na prática.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-num">02</div>
+      <h3 class="diff-title">Sua marca, não a nossa</h3>
+      <p class="diff-desc">O cliente final nunca precisa saber que o OND existe. Ele vê sua agência, seus valores, sua identidade. A tecnologia trabalha para você nos bastidores.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-num">03</div>
+      <h3 class="diff-title">Receita alinhada ao resultado</h3>
+      <p class="diff-desc">Fee fixo + rev-share significa que nosso ganho cresce junto com o seu. Não é SaaS frio com cobrança independente de uso — é uma parceria real.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-num">04</div>
+      <h3 class="diff-title">Concierge que fideliza</h3>
+      <p class="diff-desc">O cliente volta para você na próxima viagem porque teve uma experiência excepcional. A IA do OND coleta preferências e retroalimenta o próximo roteiro automaticamente.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-num">05</div>
+      <h3 class="diff-title">Patente em andamento (INPI)</h3>
+      <p class="diff-desc">O processo de geração de roteiro com IA + regras de negócio está sendo patenteado. Sua agência adota uma tecnologia com proteção legal — não um commodity.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-num">06</div>
+      <h3 class="diff-title">Suporte humano real</h3>
+      <p class="diff-desc">Você tem acesso direto à equipe da Agama Tec para onboarding, customizações e acompanhamento. Não é suporte por ticket — é parceria próxima.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROVA SOCIAL -->
+<section class="proof">
+  <div class="proof-inner">
+    <span class="section-label">Validação</span>
+    <h2 class="section-title" style="margin-bottom:32px">Apresentado para as maiores<br>redes de viagem do Brasil</h2>
+    <p class="proof-quote">
+      O OND foi apresentado para o conselho da BeFly Leadership — uma das maiores redes de agências de viagem do Brasil — e recebeu aprovação técnica e estratégica para integração com a rede de franquias e turismo corporativo.
+    </p>
+    <div class="proof-source"><span class="proof-dot"></span> Pitch Day · Desafio Turismo Inteligente BeFly · 2026</div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="cta-final-inner">
+    <span class="section-label">Comece agora</span>
+    <h2 class="cta-final-title">Sua agência com IA.<br><em>Seus clientes, seus preços.</em></h2>
+    <p class="cta-final-sub">Preencha o formulário ou fale diretamente no WhatsApp. Vamos entender o contexto da sua agência e montar a melhor proposta para você.</p>
+    <div class="cta-final-btns">
+      <a href="https://pci.jotform.com/form/252517268656062" class="btn-green">Preencher formulário →</a>
+      <a href="https://wa.me/5511910214133?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+    <div class="cta-final-note">Dúvidas? Escreva para <a href="mailto:renan@agamatec.com">renan@agamatec.com</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg class="footer-logo-svg" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+      <p>Plataforma de viagens com IA da Agama Tec. Roteiros inteligentes para viajantes e tecnologia para agências.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Agências</h4>
+      <ul>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#modelo">Modelo e preços</a></li>
+        <li><a href="#plataforma">Ver plataforma</a></li>
+        <li><a href="https://pci.jotform.com/form/252517268656062">Quero o OND</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Viajantes</h4>
+      <ul>
+        <li><a href="index.html" class="footer-home">← Home OND</a></li>
+        <li><a href="https://web.ondviajar.com.br/home">Usar na Web</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.agamatec.ond">App Android</a></li>
+        <li><a href="https://apps.apple.com/br/app/ond-assistente-de-viagem/id6758392427">App iOS</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="https://ondviajar.com.br/sobre/">Sobre a Agama</a></li>
+        <li><a href="mailto:renan@agamatec.com">renan@agamatec.com</a></li>
+        <li><a href="https://wa.me/5511910214133">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Agama Tec · OND</span>
+    <span>Feito com IA no Brasil 🇧🇷</span>
+  </div>
+</footer>
+
+<!-- OND vAI FLUTUANTE -->
+<button class="vai-trigger" id="vaiTrigger" onclick="toggleVAI()" aria-label="Abrir OND vAI">
+  <svg viewBox="0 0 497.26 497.26" fill="white" width="28" height="28" style="position:relative;z-index:3"><use href="#ond-icon"/></svg>
+  <span class="vai-label">OND vAI</span>
+</button>
+<div class="vai-modal" id="vaiModal">
+  <div class="vai-modal-header">
+    <div class="vai-orb-sm">
+      <svg viewBox="0 0 497.26 497.26" fill="white" width="16" height="16"><use href="#ond-icon"/></svg>
+    </div>
+    <div>
+      <div class="vai-modal-title">OND vAI · Agência</div>
+      <div class="vai-online">online agora</div>
+    </div>
+    <button class="vai-close" onclick="toggleVAI()">✕</button>
+  </div>
+  <div class="vai-body">
+    <iframe src="https://ondjarvis.pages.dev/agencia" title="OND vAI Agência" loading="lazy" allow="clipboard-write"></iframe>
+  </div>
+  <div class="vai-foot">OND vAI · Agama Tec</div>
+</div>
+
+<script>
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileNav').classList.remove('open')}
+document.addEventListener('click',function(e){
+  const nav=document.getElementById('mobileNav'),btn=document.querySelector('.header-menu-btn')
+  if(nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target))closeMenu()
+})
+function toggleTheme(){
+  const isLight=document.documentElement.getAttribute('data-theme')==='light'
+  if(isLight){document.documentElement.removeAttribute('data-theme');document.getElementById('themeBtn').textContent='🌙';localStorage.setItem('ond_theme','dark')}
+  else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☀️';localStorage.setItem('ond_theme','light')}
+}
+;(function(){if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.textContent='☀️'}})()
+let vaiOpen=false
+const CLOSE_SVG='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" style="position:relative;z-index:3"><path d="M18 6L6 18M6 6l12 12"/></svg><span class="vai-label">Fechar</span>'
+const OPEN_SVG='<svg viewBox="0 0 497.26 497.26" fill="white" width="28" height="28" style="position:relative;z-index:3"><use href="#ond-icon"/></svg><span class="vai-label">OND vAI</span>'
+function toggleVAI(){
+  vaiOpen=!vaiOpen
+  const modal=document.getElementById('vaiModal'),trigger=document.getElementById('vaiTrigger')
+  if(vaiOpen){modal.style.display='flex';requestAnimationFrame(()=>requestAnimationFrame(()=>modal.classList.add('visible')));trigger.innerHTML=CLOSE_SVG}
+  else{modal.classList.remove('visible');trigger.innerHTML=OPEN_SVG;setTimeout(()=>{modal.style.display='none'},250)}
+}
+document.addEventListener('click',function(e){
+  if(!vaiOpen)return
+  const modal=document.getElementById('vaiModal'),trigger=document.getElementById('vaiTrigger')
+  if(!modal.contains(e.target)&&!trigger.contains(e.target))toggleVAI()
+})
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const el=document.querySelector(this.getAttribute('href'))
+    if(el){e.preventDefault();window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-72,behavior:'smooth'})}
+  })
+})
+</script>
+</body>
+</html>
