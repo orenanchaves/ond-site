@@ -58,7 +58,14 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .art-meta{display:flex;align-items:center;gap:12px;font-size:.85rem;color:var(--muted);padding-bottom:28px;border-bottom:1px solid var(--border);margin-bottom:8px}
 .art-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--green));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:.9rem}
 .art-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--muted2)}
-.art-cover{height:300px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:6rem;margin:32px 0;background:linear-gradient(135deg,rgba(124,63,255,.22),rgba(0,230,118,.08))}
+.art-cover{height:340px;border-radius:20px;overflow:hidden;margin:32px 0;background:linear-gradient(135deg,rgba(124,63,255,.22),rgba(0,230,118,.08))}
+.art-cover img{width:100%;height:100%;object-fit:cover;display:block}
+/* autor Ondino */
+.author-card{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 22px;margin:44px 0 0}
+.author-card img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 25%;background:#fff;flex-shrink:0;border:2px solid var(--purple)}
+.author-card .au-name{font-size:1rem;font-weight:800}
+.author-card .au-bio{font-size:.85rem;color:var(--muted);line-height:1.55;margin-top:3px}
+.au-avatar{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:50% 22%;background:#fff;border:1.5px solid var(--purple)}
 
 /* PROSE */
 .prose{font-size:1.06rem;line-height:1.8;color:var(--text)}
@@ -163,15 +170,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <span class="art-tag">Destinos</span>
   <h1 class="art-title">5 destinos no Brasil para fugir do óbvio em 2026</h1>
   <div class="art-meta">
-    <div class="art-avatar">O</div>
-    <span>Equipe OND</span>
+    <img class="au-avatar" src="assets/ondino.png" alt="Ondino, personagem do OND">
+    <span>Por <strong style="color:var(--text)">Ondino</strong></span>
     <span class="dot"></span>
     <span>25 jun 2026</span>
     <span class="dot"></span>
     <span>6 min de leitura</span>
   </div>
 
-  <div class="art-cover">🗺️</div>
+  <div class="art-cover"><img src="assets/blog/brasil-rio.jpg" alt="Cristo Redentor e Pão de Açúcar no Rio de Janeiro, Brasil"></div>
 
   <div class="prose">
     <p>Todo mundo já conhece Gramado, Porto de Galinhas e a Praia do Forte. São ótimos — mas e quando a vontade é de descobrir um lugar que ainda não virou cartão-postal de todo feed do Instagram? O Brasil é gigante e está cheio de destinos lindos, baratos e surpreendentemente vazios.</p>
@@ -212,6 +219,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <h3>Achou o destino? Agora monta a viagem.</h3>
     <p>Conte para o OND para onde quer ir e ele organiza voos, hotel e roteiro completo em minutos.</p>
     <a href="https://web.ondviajar.com.br/home" class="btn-primary">Planejar minha viagem grátis →</a>
+  </div>
+
+  <div class="author-card">
+    <img src="assets/ondino.png" alt="Ondino, o personagem viajante do OND">
+    <div>
+      <div class="au-name">Ondino 🤠</div>
+      <div class="au-bio">O viajante de chapéu do OND. Já perdeu voo, dormiu em aeroporto e aprendeu na marra — hoje usa o OND vAI pra planejar tudo em minutos e divide aqui os melhores destinos e dicas.</div>
+    </div>
   </div>
 
   <a href="blog.html" class="back-blog">← Voltar para o blog</a>

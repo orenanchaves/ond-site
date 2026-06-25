@@ -69,7 +69,8 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 /* ── FEATURED ── */
 .featured{display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:52px;transition:border-color .2s,transform .2s;text-decoration:none;color:inherit}
 .featured:hover{border-color:rgba(124,63,255,.4);transform:translateY(-3px)}
-.featured-thumb{min-height:300px;display:flex;align-items:center;justify-content:center;font-size:5rem}
+.featured-thumb{min-height:300px;display:flex;align-items:center;justify-content:center;font-size:5rem;overflow:hidden}
+.featured-thumb img,.post-thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .featured-body{padding:38px 36px;display:flex;flex-direction:column;justify-content:center}
 .post-tag{align-self:flex-start;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 12px;border-radius:20px;margin-bottom:16px}
 .featured-title{font-size:1.75rem;font-weight:800;line-height:1.2;letter-spacing:-.02em;margin-bottom:14px}
@@ -81,7 +82,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-bottom:8px}
 .post-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
 .post-card:hover{border-color:rgba(124,63,255,.4);transform:translateY(-4px)}
-.post-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.post-thumb{height:170px;display:flex;align-items:center;justify-content:center;font-size:3rem;overflow:hidden}
 .post-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
 .post-title{font-size:1.12rem;font-weight:800;line-height:1.28;letter-spacing:-.01em;margin-bottom:10px}
 .post-excerpt{font-size:.86rem;color:var(--muted);line-height:1.6;margin-bottom:18px;flex:1}
@@ -237,7 +238,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <!-- FEATURED -->
   <p class="section-label">Em destaque</p>
   <a href="post-modelo.html" class="featured" data-cat="destinos">
-    <div class="featured-thumb g-purple">🗺️</div>
+    <div class="featured-thumb"><img src="assets/blog/brasil-rio.jpg" alt="Cristo Redentor e Pão de Açúcar vistos do alto, Rio de Janeiro, Brasil" loading="lazy"></div>
     <div class="featured-body">
       <span class="post-tag tag-purple">Destinos</span>
       <h2 class="featured-title">5 destinos no Brasil para fugir do óbvio em 2026</h2>
@@ -251,7 +252,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <div class="blog-grid" id="grid">
 
     <a href="post-modelo.html" class="post-card" data-cat="ia">
-      <div class="post-thumb g-green">🤖</div>
+      <div class="post-thumb"><img src="assets/blog/roma.jpg" alt="Coliseu de Roma ao entardecer, Itália" loading="lazy"></div>
       <div class="post-body">
         <span class="post-tag tag-green">IA &amp; Viagem</span>
         <h3 class="post-title">Como montar um roteiro de 7 dias em minutos com IA</h3>
@@ -261,7 +262,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     </a>
 
     <a href="post-modelo.html" class="post-card" data-cat="dicas">
-      <div class="post-thumb g-blue">✈️</div>
+      <div class="post-thumb"><img src="assets/blog/paris.jpg" alt="Torre Eiffel em Paris, França" loading="lazy"></div>
       <div class="post-body">
         <span class="post-tag tag-blue">Dicas</span>
         <h3 class="post-title">O melhor dia da semana para comprar passagem</h3>
@@ -271,7 +272,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     </a>
 
     <a href="post-modelo.html" class="post-card" data-cat="roteiros">
-      <div class="post-thumb g-pink">💍</div>
+      <div class="post-thumb"><img src="assets/blog/bora-bora.jpg" alt="Lagoa azul-turquesa de Bora Bora, Polinésia Francesa" loading="lazy"></div>
       <div class="post-body">
         <span class="post-tag tag-pink">Roteiros</span>
         <h3 class="post-title">Lua de mel sem estresse: o passo a passo</h3>
@@ -281,7 +282,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     </a>
 
     <a href="post-modelo.html" class="post-card" data-cat="orcamento">
-      <div class="post-thumb g-orange">🎒</div>
+      <div class="post-thumb"><img src="assets/blog/machu-picchu.jpg" alt="Ruínas de Machu Picchu nas montanhas do Peru" loading="lazy"></div>
       <div class="post-body">
         <span class="post-tag tag-orange">Orçamento</span>
         <h3 class="post-title">Mochilão na América do Sul: quanto custa de verdade</h3>
@@ -291,7 +292,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     </a>
 
     <a href="post-modelo.html" class="post-card" data-cat="dicas">
-      <div class="post-thumb g-cyan">🧭</div>
+      <div class="post-thumb"><img src="assets/blog/patagonia.jpg" alt="Torres del Paine na Patagônia, Chile" loading="lazy"></div>
       <div class="post-body">
         <span class="post-tag tag-blue">Dicas</span>
         <h3 class="post-title">Viajar sozinho pela primeira vez: guia completo</h3>
@@ -301,7 +302,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     </a>
 
     <a href="post-modelo.html" class="post-card" data-cat="destinos">
-      <div class="post-thumb g-purple">🏖️</div>
+      <div class="post-thumb"><img src="assets/blog/noronha.jpg" alt="Morro Dois Irmãos e mar cristalino em Fernando de Noronha, Brasil" loading="lazy"></div>
       <div class="post-body">
         <span class="post-tag tag-purple">Destinos</span>
         <h3 class="post-title">Nordeste fora de temporada: praia vazia e preço baixo</h3>
