@@ -1,0 +1,33 @@
+/* OND Design System — marca B2B (gerado). NÃO editar à mão. */
+
+/* Padrão = tema claro (reflete o app em produção). Dark via [data-theme="dark"]. */
+
+:root {
+  --ond-color-bg: #f4f7ff;
+  --ond-color-surface: #ffffff;
+  --ond-color-card: #eef3ff;
+  --ond-color-border: #c8d8f0;
+  --ond-color-text: #0a1020;
+  --ond-color-muted: #3a5a8a;
+  --ond-color-primary: #0055dd;
+  --ond-color-primaryHover: #0044bb;
+  --ond-color-onPrimary: #ffffff;
+  --ond-color-success: #008833;
+  --ond-color-accent: #a07800;
+  --ond-color-whatsapp: #25d366;
+}
+
+[data-theme="dark"] {
+  --ond-color-bg: #060a14;
+  --ond-color-surface: #0d1220;
+  --ond-color-card: #121928;
+  --ond-color-border: #1e2a40;
+  --ond-color-text: #e8f0ff;
+  --ond-color-muted: #7a9bc0;
+  --ond-color-primary: #0066ff;
+  --ond-color-primaryHover: #4d9fff;
+  --ond-color-onPrimary: #ffffff;
+  --ond-color-success: #11f558;
+  --ond-color-accent: #ffd60a;
+  --ond-color-whatsapp: #25d366;
+}

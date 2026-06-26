@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0a0a12">
 <meta name="description" content="Vai para onde? — o blog do OND. Destinos, roteiros, dicas de viagem e como usar a IA para planejar viagens incríveis sem estresse.">
 <title>Vai para onde? — Blog do OND</title>
+<!-- OND Design System (vendorizado — ver tokens/SYNC.md) -->
+<link rel="stylesheet" href="tokens/ond-core.css">
+<link rel="stylesheet" href="tokens/ond-b2c.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+/* Cores remapeadas para os tokens do OND Design System (ond-b2c.css).
+   Tema (light/dark) é controlado pelos próprios tokens via [data-theme]. */
 :root{
-  --bg:#0a0a12;--surface:#12121e;--card:#1a1a2e;--border:#252540;
-  --purple:#7c3fff;--purple-light:#9d6fff;--purple-dim:rgba(124,63,255,.15);
-  --green:#00e676;--green-dim:rgba(0,230,118,.12);
-  --text:#f0eeff;--muted:#8888b0;--muted2:#4a4a70;
+  --bg:var(--ond-color-bg);
+  --surface:var(--ond-color-surface);
+  --card:var(--ond-color-card);
+  --border:var(--ond-color-border);
+  --purple:var(--ond-color-primary);
+  --purple-light:var(--ond-color-primaryHover);
+  --purple-dim:color-mix(in srgb, var(--ond-color-primary) 15%, transparent);
+  --green:var(--ond-color-success);
+  --green-dim:color-mix(in srgb, var(--ond-color-success) 12%, transparent);
+  --text:var(--ond-color-text);
+  --muted:var(--ond-color-muted);
+  --muted2:color-mix(in srgb, var(--ond-color-muted), var(--ond-color-bg) 45%);
   --radius:16px;--radius-sm:10px;
-  --header-bg:rgba(10,10,18,.92);
-}
-[data-theme="light"]{
-  --bg:#f5f4ff;--surface:#ffffff;--card:#eeebff;--border:#ddd8f0;
-  --purple:#6b2fff;--purple-light:#5518e0;--purple-dim:rgba(107,47,255,.1);
-  --green:#008f45;--green-dim:rgba(0,143,69,.1);
-  --text:#0d0a1a;--muted:#6060a0;--muted2:#a0a0c0;
-  --header-bg:rgba(245,244,255,.96);
+  --header-bg:color-mix(in srgb, var(--ond-color-bg) 92%, transparent);
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;overflow-x:hidden;line-height:1.6;transition:background .25s,color .25s}
@@ -425,7 +431,7 @@ document.addEventListener('click',function(e){
 })
 function toggleTheme(){
   const isLight=document.documentElement.getAttribute('data-theme')==='light'
-  if(isLight){document.documentElement.removeAttribute('data-theme');document.getElementById('themeBtn').textContent='🌙';localStorage.setItem('ond_theme','dark')}
+  if(isLight){document.documentElement.setAttribute('data-theme','dark');document.getElementById('themeBtn').textContent='🌙';localStorage.setItem('ond_theme','dark')}
   else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☀️';localStorage.setItem('ond_theme','light')}
 }
 ;(function(){if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.textContent='☀️'}})()

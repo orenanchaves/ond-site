@@ -1,0 +1,33 @@
+/* OND Design System — marca B2C (gerado). NÃO editar à mão. */
+
+/* Padrão = tema claro (reflete o app em produção). Dark via [data-theme="dark"]. */
+
+:root {
+  --ond-color-bg: #f8f6fc;
+  --ond-color-surface: #ffffff;
+  --ond-color-card: #f4eaff;
+  --ond-color-border: #e8e0f0;
+  --ond-color-text: #1e1e1e;
+  --ond-color-muted: #6b6a6a;
+  --ond-color-primary: #560fb2;
+  --ond-color-primaryHover: #7f11f4;
+  --ond-color-onPrimary: #ffffff;
+  --ond-color-success: #085e20;
+  --ond-color-accent: #c67810;
+  --ond-color-whatsapp: #25d366;
+}
+
+[data-theme="dark"] {
+  --ond-color-bg: #0d0d14;
+  --ond-color-surface: #16161f;
+  --ond-color-card: #1a1a2e;
+  --ond-color-border: #252540;
+  --ond-color-text: #f0eeff;
+  --ond-color-muted: #8888b0;
+  --ond-color-primary: #7c3fff;
+  --ond-color-primaryHover: #9d6fff;
+  --ond-color-onPrimary: #ffffff;
+  --ond-color-success: #00e676;
+  --ond-color-accent: #c9b6ff;
+  --ond-color-whatsapp: #25d366;
+}

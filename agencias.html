@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +8,32 @@
 <title>OND para Agências — Roteiros com IA em Minutos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- OND Design System (vendorizado — ver tokens/SYNC.md) -->
+<link rel="stylesheet" href="tokens/ond-core.css">
+<link rel="stylesheet" href="tokens/ond-b2b.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+/* Cores remapeadas para os tokens do OND Design System (ond-b2b.css).
+   Tema (light/dark) é controlado pelos próprios tokens via [data-theme]. */
 :root{
-  --bg:#060a14;--surface:#0d1220;--card:#121928;--border:#1e2a40;--border-hi:rgba(0,102,255,.45);
-  --blue:#0066ff;--blue-dim:rgba(0,102,255,.12);--blue-glow:rgba(0,102,255,.4);--blue-light:#4d9fff;
-  --green:#11f558;--green-dim:rgba(17,245,88,.1);
-  --gold:#ffd60a;--gold-dim:rgba(255,214,10,.1);
-  --text:#e8f0ff;--muted:#7a9bc0;--muted2:#3a5070;
+  --bg:var(--ond-color-bg);
+  --surface:var(--ond-color-surface);
+  --card:var(--ond-color-card);
+  --border:var(--ond-color-border);
+  --border-hi:color-mix(in srgb, var(--ond-color-primary) 45%, transparent);
+  --blue:var(--ond-color-primary);
+  --blue-dim:color-mix(in srgb, var(--ond-color-primary) 12%, transparent);
+  --blue-glow:color-mix(in srgb, var(--ond-color-primary) 40%, transparent);
+  --blue-light:var(--ond-color-primaryHover);
+  --green:var(--ond-color-success);
+  --green-dim:color-mix(in srgb, var(--ond-color-success) 10%, transparent);
+  --gold:var(--ond-palette-gold-400);
+  --gold-dim:color-mix(in srgb, var(--ond-palette-gold-400) 10%, transparent);
+  --text:var(--ond-color-text);
+  --muted:var(--ond-color-muted);
+  --muted2:color-mix(in srgb, var(--ond-color-muted), var(--ond-color-bg) 45%);
   --radius:16px;--radius-sm:10px;
-  --header-bg:rgba(6,10,20,.96);
-}
-[data-theme="light"]{
-  --bg:#f4f7ff;--surface:#ffffff;--card:#eef3ff;--border:#c8d8f0;--border-hi:rgba(0,85,221,.4);
-  --blue:#0055dd;--blue-dim:rgba(0,85,221,.08);--blue-glow:rgba(0,85,221,.25);--blue-light:#0044bb;
-  --green:#008833;--green-dim:rgba(0,136,51,.1);
-  --gold:#a07800;--gold-dim:rgba(160,120,0,.1);
-  --text:#0a1020;--muted:#3a5a8a;--muted2:#7a90b0;
-  --header-bg:rgba(244,247,255,.97);
+  --header-bg:color-mix(in srgb, var(--ond-color-bg) 96%, transparent);
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,system-ui,sans-serif;overflow-x:hidden;line-height:1.6;transition:background .25s,color .25s}
@@ -714,7 +722,7 @@ document.addEventListener('click',function(e){
 })
 function toggleTheme(){
   const isLight=document.documentElement.getAttribute('data-theme')==='light'
-  if(isLight){document.documentElement.removeAttribute('data-theme');document.getElementById('themeBtn').textContent='🌙';localStorage.setItem('ond_theme','dark')}
+  if(isLight){document.documentElement.setAttribute('data-theme','dark');document.getElementById('themeBtn').textContent='🌙';localStorage.setItem('ond_theme','dark')}
   else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☀️';localStorage.setItem('ond_theme','light')}
 }
 ;(function(){if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.textContent='☀️'}})()
