@@ -45,9 +45,9 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .header-nav a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
 .header-nav a:hover{color:var(--text)}
 .header-nav .nav-active{color:var(--text);font-weight:700}
-.header-nav .nav-agencias{color:var(--green);border:1px solid rgba(0,230,118,.25);padding:5px 13px;border-radius:20px;font-weight:600;font-size:.85rem}
-.header-nav .nav-agencias:hover{background:rgba(0,230,118,.08);color:var(--green)}
-.header-cta{background:var(--purple);color:#fff;padding:9px 22px;border-radius:50px;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap}
+.header-nav .nav-agencias{color:var(--green);border:1px solid color-mix(in srgb, var(--green) 25%, transparent);padding:5px 13px;border-radius:20px;font-weight:600;font-size:.85rem}
+.header-nav .nav-agencias:hover{background:color-mix(in srgb, var(--green) 8%, transparent);color:var(--green)}
+.header-cta{background:var(--purple);color:var(--ond-color-onPrimary);padding:9px 22px;border-radius:50px;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap}
 .header-cta:hover{background:var(--purple-light);transform:translateY(-1px)}
 .header-menu-btn{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;padding:4px}
 .mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);z-index:199;padding:20px 5%;flex-direction:column;gap:0}
@@ -56,8 +56,8 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 
 /* ── BLOG HERO ── */
 .blog-hero{text-align:center;padding:72px 5% 36px;position:relative;overflow:hidden}
-.blog-hero::before{content:'';position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:760px;height:520px;background:radial-gradient(circle,rgba(124,63,255,.16) 0%,transparent 70%);pointer-events:none}
-.blog-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--purple-dim);border:1px solid rgba(124,63,255,.3);color:var(--purple-light);font-size:.74rem;font-weight:700;padding:6px 14px;border-radius:50px;margin-bottom:22px;letter-spacing:.08em;text-transform:uppercase;position:relative}
+.blog-hero::before{content:'';position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:760px;height:520px;background:radial-gradient(circle,color-mix(in srgb, var(--purple) 16%, transparent) 0%,transparent 70%);pointer-events:none}
+.blog-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 30%, transparent);color:var(--purple-light);font-size:.74rem;font-weight:700;padding:6px 14px;border-radius:50px;margin-bottom:22px;letter-spacing:.08em;text-transform:uppercase;position:relative}
 .blog-eyebrow-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
 .blog-title{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-bottom:16px;position:relative}
 .blog-title em{font-style:normal;background:linear-gradient(130deg,var(--purple-light),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -67,14 +67,14 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .blog-cats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:900px;margin:28px auto 0;padding:0 5%;position:relative}
 .cat-chip{background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:.85rem;font-weight:600;padding:8px 16px;border-radius:50px;cursor:pointer;transition:color .18s,border-color .18s,background .18s}
 .cat-chip:hover{color:var(--text);border-color:var(--purple)}
-.cat-chip.active{background:var(--purple);color:#fff;border-color:var(--purple)}
+.cat-chip.active{background:var(--purple);color:var(--ond-color-onPrimary);border-color:var(--purple)}
 
 .blog-wrap{max-width:1100px;margin:0 auto;padding:44px 5% 0}
 .section-label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin-bottom:20px}
 
 /* ── FEATURED ── */
 .featured{display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:52px;transition:border-color .2s,transform .2s;text-decoration:none;color:inherit}
-.featured:hover{border-color:rgba(124,63,255,.4);transform:translateY(-3px)}
+.featured:hover{border-color:color-mix(in srgb, var(--purple) 40%, transparent);transform:translateY(-3px)}
 .featured-thumb{min-height:300px;display:flex;align-items:center;justify-content:center;font-size:5rem;overflow:hidden}
 .featured-thumb img,.post-thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .featured-body{padding:38px 36px;display:flex;flex-direction:column;justify-content:center}
@@ -87,22 +87,22 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 /* ── GRID ── */
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-bottom:8px}
 .post-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
-.post-card:hover{border-color:rgba(124,63,255,.4);transform:translateY(-4px)}
+.post-card:hover{border-color:color-mix(in srgb, var(--purple) 40%, transparent);transform:translateY(-4px)}
 .post-thumb{height:170px;display:flex;align-items:center;justify-content:center;font-size:3rem;overflow:hidden}
 .post-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
 .post-title{font-size:1.12rem;font-weight:800;line-height:1.28;letter-spacing:-.01em;margin-bottom:10px}
 .post-excerpt{font-size:.86rem;color:var(--muted);line-height:1.6;margin-bottom:18px;flex:1}
 
 /* thumb gradients + tags */
-.g-purple{background:linear-gradient(135deg,rgba(124,63,255,.22),rgba(124,63,255,.06))}
-.g-green{background:linear-gradient(135deg,rgba(0,230,118,.18),rgba(0,230,118,.04))}
+.g-purple{background:linear-gradient(135deg,color-mix(in srgb, var(--purple) 22%, transparent),color-mix(in srgb, var(--purple) 6%, transparent))}
+.g-green{background:linear-gradient(135deg,color-mix(in srgb, var(--green) 18%, transparent),color-mix(in srgb, var(--green) 4%, transparent))}
 .g-blue{background:linear-gradient(135deg,rgba(0,102,255,.18),rgba(0,188,212,.06))}
 .g-orange{background:linear-gradient(135deg,rgba(255,109,0,.18),rgba(255,171,64,.05))}
 .g-pink{background:linear-gradient(135deg,rgba(213,0,249,.16),rgba(234,128,252,.05))}
 .g-cyan{background:linear-gradient(135deg,rgba(0,188,212,.18),rgba(0,229,255,.05))}
-.tag-purple{background:var(--purple-dim);color:var(--purple-light);border:1px solid rgba(124,63,255,.25)}
-.tag-green{background:var(--green-dim);color:var(--green);border:1px solid rgba(0,230,118,.25)}
-.tag-blue{background:rgba(0,102,255,.12);color:#5b9bff;border:1px solid rgba(0,102,255,.25)}
+.tag-purple{background:var(--purple-dim);color:var(--purple-light);border:1px solid color-mix(in srgb, var(--purple) 25%, transparent)}
+.tag-green{background:var(--green-dim);color:var(--green);border:1px solid color-mix(in srgb, var(--green) 25%, transparent)}
+.tag-blue{background:color-mix(in srgb, var(--ond-palette-blue-500) 12%, transparent);color:#5b9bff;border:1px solid color-mix(in srgb, var(--ond-palette-blue-500) 25%, transparent)}
 .tag-orange{background:rgba(255,109,0,.12);color:#ff9d4d;border:1px solid rgba(255,109,0,.25)}
 .tag-pink{background:rgba(213,0,249,.12);color:#e57bf5;border:1px solid rgba(213,0,249,.25)}
 
@@ -115,7 +115,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .news-form{display:flex;gap:10px;max-width:460px;margin:0 auto;flex-wrap:wrap}
 .news-form input{flex:1;min-width:200px;background:var(--surface);border:1px solid var(--border);border-radius:50px;padding:14px 22px;color:var(--text);font-size:.95rem;outline:none;transition:border-color .2s}
 .news-form input:focus{border-color:var(--purple)}
-.news-form button{background:var(--purple);color:#fff;border:none;border-radius:50px;padding:14px 28px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .2s,transform .15s}
+.news-form button{background:var(--purple);color:var(--ond-color-onPrimary);border:none;border-radius:50px;padding:14px 28px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .2s,transform .15s}
 .news-form button:hover{background:var(--purple-light);transform:translateY(-2px)}
 .news-ok{color:var(--green);font-weight:600;margin-top:16px;font-size:.9rem;display:none}
 
@@ -142,31 +142,31 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .contact-options{display:flex;flex-direction:column;gap:10px}
 .contact-option{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;text-decoration:none;color:var(--text);transition:border-color .15s,transform .15s}
 .contact-option:hover{transform:translateX(4px)}
-.contact-option.wa:hover{border-color:#25d366}
+.contact-option.wa:hover{border-color:var(--ond-color-whatsapp)}
 .contact-option.mail:hover{border-color:var(--purple)}
 .contact-option.form:hover{border-color:var(--green)}
 .contact-option-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
-.contact-option.wa .contact-option-icon{background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.2)}
-.contact-option.mail .contact-option-icon{background:var(--purple-dim);border:1px solid rgba(124,63,255,.2)}
-.contact-option.form .contact-option-icon{background:var(--green-dim);border:1px solid rgba(0,230,118,.2)}
+.contact-option.wa .contact-option-icon{background:color-mix(in srgb, var(--ond-color-whatsapp) 10%, transparent);border:1px solid color-mix(in srgb, var(--ond-color-whatsapp) 20%, transparent)}
+.contact-option.mail .contact-option-icon{background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 20%, transparent)}
+.contact-option.form .contact-option-icon{background:var(--green-dim);border:1px solid color-mix(in srgb, var(--green) 20%, transparent)}
 .contact-option-label{font-size:.93rem;font-weight:700;margin-bottom:2px}
 .contact-option-desc{font-size:.78rem;color:var(--muted)}
 .contact-option-arrow{margin-left:auto;color:var(--muted2);font-size:.9rem;flex-shrink:0}
 
 /* ── OND vAI FLUTUANTE ── */
 @keyframes orbColorCycle{
-  0%  {background:linear-gradient(135deg,#7f11f4,#b44fff);box-shadow:0 0 14px rgba(127,17,244,.6),0 0 28px rgba(127,17,244,.25),0 4px 28px rgba(127,17,244,.5)}
+  0%  {background:linear-gradient(135deg,var(--ond-app-purple),#b44fff);box-shadow:0 0 14px color-mix(in srgb, var(--ond-app-purple) 60%, transparent),0 0 28px color-mix(in srgb, var(--ond-app-purple) 25%, transparent),0 4px 28px color-mix(in srgb, var(--ond-app-purple) 50%, transparent)}
   16% {background:linear-gradient(135deg,#0066ff,#44aaff);box-shadow:0 0 14px rgba(0,102,255,.6),0 0 28px rgba(0,102,255,.25),0 4px 28px rgba(0,102,255,.4)}
   33% {background:linear-gradient(135deg,#00bcd4,#00e5ff);box-shadow:0 0 14px rgba(0,188,212,.6),0 0 28px rgba(0,188,212,.25),0 4px 28px rgba(0,188,212,.4)}
   50% {background:linear-gradient(135deg,#00c853,#69f0ae);box-shadow:0 0 14px rgba(0,200,83,.6),0 0 28px rgba(0,200,83,.25),0 4px 28px rgba(0,200,83,.4)}
   66% {background:linear-gradient(135deg,#ff6d00,#ffab40);box-shadow:0 0 14px rgba(255,109,0,.6),0 0 28px rgba(255,109,0,.25),0 4px 28px rgba(255,109,0,.4)}
   83% {background:linear-gradient(135deg,#d500f9,#ea80fc);box-shadow:0 0 14px rgba(213,0,249,.6),0 0 28px rgba(213,0,249,.25),0 4px 28px rgba(213,0,249,.4)}
-  100%{background:linear-gradient(135deg,#7f11f4,#b44fff);box-shadow:0 0 14px rgba(127,17,244,.6),0 0 28px rgba(127,17,244,.25),0 4px 28px rgba(127,17,244,.5)}
+  100%{background:linear-gradient(135deg,var(--ond-app-purple),#b44fff);box-shadow:0 0 14px color-mix(in srgb, var(--ond-app-purple) 60%, transparent),0 0 28px color-mix(in srgb, var(--ond-app-purple) 25%, transparent),0 4px 28px color-mix(in srgb, var(--ond-app-purple) 50%, transparent)}
 }
 @keyframes orbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
 .vai-trigger{position:fixed;bottom:28px;right:28px;z-index:999;width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;animation:orbColorCycle 8s linear infinite,orbPulse 3s ease-in-out infinite;transition:transform .18s;text-decoration:none}
 .vai-trigger:hover{transform:scale(1.1)}
-.vai-trigger::before{content:'';position:absolute;inset:4px;border-radius:50%;background:linear-gradient(145deg,rgba(255,255,255,.22) 0%,transparent 55%);pointer-events:none;z-index:2}
+.vai-trigger::before{content:'';position:absolute;inset:4px;border-radius:50%;background:linear-gradient(145deg,color-mix(in srgb, var(--ond-app-white) 22%, transparent) 0%,transparent 55%);pointer-events:none;z-index:2}
 .vai-trigger svg{position:relative;z-index:3}
 .vai-label{position:absolute;right:76px;top:50%;transform:translateY(-50%);background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:8px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s;box-shadow:0 4px 16px rgba(0,0,0,.4)}
 .vai-trigger:hover .vai-label{opacity:1}
@@ -386,7 +386,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <div class="contact-options">
     <a href="https://wa.me/5511910214133?text=Olá! vim do blog OND" class="contact-option wa" target="_blank" rel="noopener">
       <div class="contact-option-icon">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        <svg viewBox="0 0 24 24" width="22" height="22" style="fill:var(--ond-color-whatsapp)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
       </div>
       <div>
         <div class="contact-option-label">WhatsApp</div>
@@ -415,7 +415,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
 <!-- OND vAI FLUTUANTE -->
 <a class="vai-trigger" href="https://ondjarvis.pages.dev" target="_blank" rel="noopener" aria-label="Abrir OND vAI">
-  <svg viewBox="0 0 497.26 497.26" fill="white" width="28" height="28" style="position:relative;z-index:3"><use href="#ond-icon"/></svg>
+  <svg viewBox="0 0 497.26 497.26" width="28" height="28" style="position:relative;z-index:3;fill:var(--ond-app-white)"><use href="#ond-icon"/></svg>
   <span class="vai-label">OND vAI</span>
 </a>
 

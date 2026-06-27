@@ -45,9 +45,9 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .header-nav a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
 .header-nav a:hover{color:var(--text)}
 .header-nav .nav-active{color:var(--text);font-weight:700}
-.header-nav .nav-agencias{color:var(--green);border:1px solid rgba(0,230,118,.25);padding:5px 13px;border-radius:20px;font-weight:600;font-size:.85rem}
-.header-nav .nav-agencias:hover{background:rgba(0,230,118,.08);color:var(--green)}
-.header-cta{background:var(--purple);color:#fff;padding:9px 22px;border-radius:50px;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap}
+.header-nav .nav-agencias{color:var(--green);border:1px solid color-mix(in srgb, var(--green) 25%, transparent);padding:5px 13px;border-radius:20px;font-weight:600;font-size:.85rem}
+.header-nav .nav-agencias:hover{background:color-mix(in srgb, var(--green) 8%, transparent);color:var(--green)}
+.header-cta{background:var(--purple);color:var(--ond-color-onPrimary);padding:9px 22px;border-radius:50px;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap}
 .header-cta:hover{background:var(--purple-light);transform:translateY(-1px)}
 .header-menu-btn{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;padding:4px}
 .mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);z-index:199;padding:20px 5%;flex-direction:column;gap:0}
@@ -59,19 +59,19 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .breadcrumb{font-size:.82rem;color:var(--muted2);margin-bottom:28px}
 .breadcrumb a{color:var(--muted);text-decoration:none}
 .breadcrumb a:hover{color:var(--purple-light)}
-.art-tag{display:inline-flex;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 12px;border-radius:20px;margin-bottom:18px;background:var(--purple-dim);color:var(--purple-light);border:1px solid rgba(124,63,255,.25)}
+.art-tag{display:inline-flex;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 12px;border-radius:20px;margin-bottom:18px;background:var(--purple-dim);color:var(--purple-light);border:1px solid color-mix(in srgb, var(--purple) 25%, transparent)}
 .art-title{font-size:clamp(1.9rem,4.5vw,2.7rem);font-weight:800;line-height:1.15;letter-spacing:-.025em;margin-bottom:20px}
 .art-meta{display:flex;align-items:center;gap:12px;font-size:.85rem;color:var(--muted);padding-bottom:28px;border-bottom:1px solid var(--border);margin-bottom:8px}
-.art-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--green));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:.9rem}
+.art-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--green));display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ond-color-onPrimary);font-size:.9rem}
 .art-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--muted2)}
-.art-cover{height:340px;border-radius:20px;overflow:hidden;margin:32px 0;background:linear-gradient(135deg,rgba(124,63,255,.22),rgba(0,230,118,.08))}
+.art-cover{height:340px;border-radius:20px;overflow:hidden;margin:32px 0;background:linear-gradient(135deg,color-mix(in srgb, var(--purple) 22%, transparent),color-mix(in srgb, var(--green) 8%, transparent))}
 .art-cover img{width:100%;height:100%;object-fit:cover;display:block}
 /* autor Ondino */
 .author-card{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 22px;margin:44px 0 0}
-.author-card img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 25%;background:#fff;flex-shrink:0;border:2px solid var(--purple)}
+.author-card img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 25%;background:var(--ond-color-surface);flex-shrink:0;border:2px solid var(--purple)}
 .author-card .au-name{font-size:1rem;font-weight:800}
 .author-card .au-bio{font-size:.85rem;color:var(--muted);line-height:1.55;margin-top:3px}
-.au-avatar{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:50% 22%;background:#fff;border:1.5px solid var(--purple)}
+.au-avatar{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:50% 22%;background:var(--ond-color-surface);border:1.5px solid var(--purple)}
 
 /* PROSE */
 .prose{font-size:1.06rem;line-height:1.8;color:var(--text)}
@@ -92,7 +92,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .art-cta{margin:48px 0 0;background:linear-gradient(135deg,var(--purple-dim),transparent);border:1px solid var(--border);border-radius:20px;padding:38px 34px;text-align:center}
 .art-cta h3{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
 .art-cta p{color:var(--muted);font-size:.95rem;margin-bottom:22px;line-height:1.6}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;padding:14px 28px;border-radius:50px;font-size:.97rem;font-weight:700;text-decoration:none;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 4px 24px rgba(124,63,255,.4)}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:var(--ond-color-onPrimary);padding:14px 28px;border-radius:50px;font-size:.97rem;font-weight:700;text-decoration:none;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 4px 24px color-mix(in srgb, var(--purple) 40%, transparent)}
 .btn-primary:hover{background:var(--purple-light);transform:translateY(-2px)}
 .back-blog{display:inline-flex;align-items:center;gap:7px;margin:40px 0 0;color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:600}
 .back-blog:hover{color:var(--purple-light)}
@@ -109,18 +109,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
 /* OND vAI */
 @keyframes orbColorCycle{
-  0%  {background:linear-gradient(135deg,#7f11f4,#b44fff);box-shadow:0 0 14px rgba(127,17,244,.6),0 0 28px rgba(127,17,244,.25),0 4px 28px rgba(127,17,244,.5)}
-  16% {background:linear-gradient(135deg,#0066ff,#44aaff);box-shadow:0 0 14px rgba(0,102,255,.6),0 0 28px rgba(0,102,255,.25),0 4px 28px rgba(0,102,255,.4)}
+  0%  {background:linear-gradient(135deg,var(--ond-app-purple),#b44fff);box-shadow:0 0 14px color-mix(in srgb, var(--ond-app-purple) 60%, transparent),0 0 28px color-mix(in srgb, var(--ond-app-purple) 25%, transparent),0 4px 28px color-mix(in srgb, var(--ond-app-purple) 50%, transparent)}
+  16% {background:linear-gradient(135deg,var(--ond-palette-blue-500),#44aaff);box-shadow:0 0 14px color-mix(in srgb, var(--ond-palette-blue-500) 60%, transparent),0 0 28px color-mix(in srgb, var(--ond-palette-blue-500) 25%, transparent),0 4px 28px color-mix(in srgb, var(--ond-palette-blue-500) 40%, transparent)}
   33% {background:linear-gradient(135deg,#00bcd4,#00e5ff);box-shadow:0 0 14px rgba(0,188,212,.6),0 0 28px rgba(0,188,212,.25),0 4px 28px rgba(0,188,212,.4)}
-  50% {background:linear-gradient(135deg,#00c853,#69f0ae);box-shadow:0 0 14px rgba(0,200,83,.6),0 0 28px rgba(0,200,83,.25),0 4px 28px rgba(0,200,83,.4)}
-  66% {background:linear-gradient(135deg,#ff6d00,#ffab40);box-shadow:0 0 14px rgba(255,109,0,.6),0 0 28px rgba(255,109,0,.25),0 4px 28px rgba(255,109,0,.4)}
+  50% {background:linear-gradient(135deg,var(--ond-palette-green-600),var(--ond-palette-green-300));box-shadow:0 0 14px color-mix(in srgb, var(--ond-palette-green-600) 60%, transparent),0 0 28px color-mix(in srgb, var(--ond-palette-green-600) 25%, transparent),0 4px 28px color-mix(in srgb, var(--ond-palette-green-600) 40%, transparent)}
+  66% {background:linear-gradient(135deg,#ff6d00,var(--ond-palette-gold-500));box-shadow:0 0 14px rgba(255,109,0,.6),0 0 28px rgba(255,109,0,.25),0 4px 28px rgba(255,109,0,.4)}
   83% {background:linear-gradient(135deg,#d500f9,#ea80fc);box-shadow:0 0 14px rgba(213,0,249,.6),0 0 28px rgba(213,0,249,.25),0 4px 28px rgba(213,0,249,.4)}
-  100%{background:linear-gradient(135deg,#7f11f4,#b44fff);box-shadow:0 0 14px rgba(127,17,244,.6),0 0 28px rgba(127,17,244,.25),0 4px 28px rgba(127,17,244,.5)}
+  100%{background:linear-gradient(135deg,var(--ond-app-purple),#b44fff);box-shadow:0 0 14px color-mix(in srgb, var(--ond-app-purple) 60%, transparent),0 0 28px color-mix(in srgb, var(--ond-app-purple) 25%, transparent),0 4px 28px color-mix(in srgb, var(--ond-app-purple) 50%, transparent)}
 }
 @keyframes orbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
 .vai-trigger{position:fixed;bottom:28px;right:28px;z-index:999;width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;animation:orbColorCycle 8s linear infinite,orbPulse 3s ease-in-out infinite;transition:transform .18s;text-decoration:none}
 .vai-trigger:hover{transform:scale(1.1)}
-.vai-trigger::before{content:'';position:absolute;inset:4px;border-radius:50%;background:linear-gradient(145deg,rgba(255,255,255,.22) 0%,transparent 55%);pointer-events:none;z-index:2}
+.vai-trigger::before{content:'';position:absolute;inset:4px;border-radius:50%;background:linear-gradient(145deg,color-mix(in srgb, var(--ond-app-white) 22%, transparent) 0%,transparent 55%);pointer-events:none;z-index:2}
 .vai-label{position:absolute;right:76px;top:50%;transform:translateY(-50%);background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:8px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s;box-shadow:0 4px 16px rgba(0,0,0,.4)}
 .vai-trigger:hover .vai-label{opacity:1}
 
@@ -280,7 +280,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
 <!-- OND vAI FLUTUANTE -->
 <a class="vai-trigger" href="https://ondjarvis.pages.dev" target="_blank" rel="noopener" aria-label="Abrir OND vAI">
-  <svg viewBox="0 0 497.26 497.26" fill="white" width="28" height="28" style="position:relative;z-index:3"><use href="#ond-icon"/></svg>
+  <svg viewBox="0 0 497.26 497.26" width="28" height="28" style="position:relative;z-index:3;fill:var(--ond-app-white)"><use href="#ond-icon"/></svg>
   <span class="vai-label">OND vAI</span>
 </a>
 

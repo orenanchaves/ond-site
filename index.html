@@ -44,9 +44,9 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .header-nav{display:flex;gap:16px;list-style:none;align-items:center}
 .header-nav a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
 .header-nav a:hover{color:var(--text)}
-.header-nav .nav-agencias{color:var(--green);border:1px solid rgba(0,230,118,.25);padding:5px 13px;border-radius:20px;font-weight:600;font-size:.85rem}
-.header-nav .nav-agencias:hover{background:rgba(0,230,118,.08);color:var(--green)}
-.header-cta{background:var(--purple);color:#fff;padding:9px 22px;border-radius:50px;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap}
+.header-nav .nav-agencias{color:var(--green);border:1px solid color-mix(in srgb, var(--green) 25%, transparent);padding:5px 13px;border-radius:20px;font-weight:600;font-size:.85rem}
+.header-nav .nav-agencias:hover{background:color-mix(in srgb, var(--green) 8%, transparent);color:var(--green)}
+.header-cta{background:var(--purple);color:var(--ond-color-onPrimary);padding:9px 22px;border-radius:50px;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap}
 .header-cta:hover{background:var(--purple-light);transform:translateY(-1px)}
 .header-menu-btn{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;padding:4px}
 .mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);z-index:199;padding:20px 5%;flex-direction:column;gap:0}
@@ -55,9 +55,9 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 
 /* ── HERO ── */
 .hero{min-height:calc(100vh - 64px);display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px;padding:80px 5% 60px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-200px;left:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(124,63,255,.18) 0%,transparent 70%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-80px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,230,118,.07) 0%,transparent 70%);pointer-events:none}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--purple-dim);border:1px solid rgba(124,63,255,.3);color:var(--purple-light);font-size:.78rem;font-weight:700;padding:6px 14px;border-radius:50px;margin-bottom:24px;letter-spacing:.06em;text-transform:uppercase}
+.hero::before{content:'';position:absolute;top:-200px;left:-200px;width:700px;height:700px;background:radial-gradient(circle,color-mix(in srgb, var(--purple) 18%, transparent) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,color-mix(in srgb, var(--green) 7%, transparent) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 30%, transparent);color:var(--purple-light);font-size:.78rem;font-weight:700;padding:6px 14px;border-radius:50px;margin-bottom:24px;letter-spacing:.06em;text-transform:uppercase}
 .hero-badge-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
 .hero-title{font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:800;line-height:1.1;margin-bottom:20px;letter-spacing:-.025em}
@@ -66,16 +66,16 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .hero-proof strong{color:var(--text)}
 .hero-proof cite{display:block;margin-top:6px;font-size:.75rem;color:var(--muted2);font-style:normal}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;padding:14px 28px;border-radius:50px;font-size:.97rem;font-weight:700;text-decoration:none;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 4px 24px rgba(124,63,255,.4)}
-.btn-primary:hover{background:var(--purple-light);transform:translateY(-2px);box-shadow:0 8px 32px rgba(124,63,255,.5)}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:var(--ond-color-onPrimary);padding:14px 28px;border-radius:50px;font-size:.97rem;font-weight:700;text-decoration:none;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 4px 24px color-mix(in srgb, var(--purple) 40%, transparent)}
+.btn-primary:hover{background:var(--purple-light);transform:translateY(-2px);box-shadow:0 8px 32px color-mix(in srgb, var(--purple) 50%, transparent)}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);border:1.5px solid var(--border);padding:13px 24px;border-radius:50px;font-size:.97rem;font-weight:600;text-decoration:none;transition:border-color .2s,background .2s,transform .15s}
 .btn-secondary:hover{border-color:var(--purple);background:var(--purple-dim);transform:translateY(-2px)}
 .hero-stores{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .hero-app-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}
 .app-store-btn{display:inline-flex;align-items:center;gap:12px;padding:13px 22px;border-radius:14px;text-decoration:none;font-weight:600;transition:transform .15s,box-shadow .2s;min-width:178px}
-.app-store-btn.gplay{background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;box-shadow:0 4px 20px rgba(26,115,232,.4)}
+.app-store-btn.gplay{background:linear-gradient(135deg,#1a73e8,#0d47a1);color:var(--ond-color-onPrimary);box-shadow:0 4px 20px rgba(26,115,232,.4)}
 .app-store-btn.gplay:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,115,232,.55)}
-.app-store-btn.appstore{background:linear-gradient(135deg,#1c1c1e,#3a3a3c);color:#fff;border:1px solid rgba(255,255,255,.1);box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.app-store-btn.appstore{background:linear-gradient(135deg,#1c1c1e,#3a3a3c);color:var(--ond-color-onPrimary);border:1px solid rgba(255,255,255,.1);box-shadow:0 4px 20px rgba(0,0,0,.4)}
 .app-store-btn.appstore:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.55)}
 .app-btn-text{display:flex;flex-direction:column;line-height:1.2}
 .app-btn-sub{font-size:.68rem;font-weight:400;opacity:.8;letter-spacing:.01em}
@@ -83,10 +83,10 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .hero-secondary-btns{display:flex;gap:10px;flex-wrap:wrap}
 .hero-sec-btn{display:inline-flex;align-items:center;gap:7px;background:transparent;color:var(--muted);border:1px solid var(--border);padding:9px 16px;border-radius:50px;font-size:.84rem;font-weight:600;text-decoration:none;transition:color .2s,border-color .2s}
 .hero-sec-btn:hover{color:var(--text);border-color:var(--purple)}
-.hero-sec-btn.whatsapp:hover{border-color:#25d366;color:#25d366}
+.hero-sec-btn.whatsapp:hover{border-color:var(--ond-color-whatsapp);color:var(--ond-color-whatsapp)}
 .hero-image{display:flex;justify-content:center;align-items:flex-end;position:relative}
-.hero-image::before{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:380px;height:380px;background:radial-gradient(circle,rgba(124,63,255,.2) 0%,transparent 65%)}
-.hero-image img{max-height:520px;width:auto;position:relative;z-index:1;filter:drop-shadow(0 0 48px rgba(124,63,255,.28))}
+.hero-image::before{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:380px;height:380px;background:radial-gradient(circle,color-mix(in srgb, var(--purple) 20%, transparent) 0%,transparent 65%)}
+.hero-image img{max-height:520px;width:auto;position:relative;z-index:1;filter:drop-shadow(0 0 48px color-mix(in srgb, var(--purple) 28%, transparent))}
 
 /* ── CONQUISTAS ── */
 .conquistas{background:var(--bg);padding:72px 5%;border-bottom:1px solid var(--border)}
@@ -96,10 +96,10 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .conquista-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0}
 .conquista-card.green::before{background:var(--green)}
 .conquista-card.purple::before{background:var(--purple)}
-.conquista-card:hover{border-color:rgba(124,63,255,.3);transform:translateY(-3px)}
+.conquista-card:hover{border-color:color-mix(in srgb, var(--purple) 30%, transparent);transform:translateY(-3px)}
 .conquista-badge{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:14px;letter-spacing:.04em;text-transform:uppercase}
-.conquista-badge.green{background:var(--green-dim);color:var(--green);border:1px solid rgba(0,230,118,.25)}
-.conquista-badge.purple{background:var(--purple-dim);color:var(--purple-light);border:1px solid rgba(124,63,255,.25)}
+.conquista-badge.green{background:var(--green-dim);color:var(--green);border:1px solid color-mix(in srgb, var(--green) 25%, transparent)}
+.conquista-badge.purple{background:var(--purple-dim);color:var(--purple-light);border:1px solid color-mix(in srgb, var(--purple) 25%, transparent)}
 .conquista-badge-dot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:blink 2s infinite}
 .conquista-logo{font-size:1.6rem;margin-bottom:10px}
 .conquista-title{font-size:1rem;font-weight:800;margin-bottom:6px;line-height:1.2}
@@ -138,7 +138,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .arco-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
 .arco-steps::before{content:'';position:absolute;top:40px;left:calc(12.5% + 1px);right:calc(12.5% + 1px);height:1px;background:linear-gradient(90deg,var(--purple),var(--green));opacity:.4}
 .arco-step{text-align:center;padding:0 20px;position:relative}
-.arco-num{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--purple-dim),rgba(0,230,118,.08));border:1.5px solid rgba(124,63,255,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.1rem;position:relative;z-index:1}
+.arco-num{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--purple-dim),color-mix(in srgb, var(--green) 8%, transparent));border:1.5px solid color-mix(in srgb, var(--purple) 30%, transparent);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.1rem;position:relative;z-index:1}
 .arco-step-title{font-size:1rem;font-weight:700;margin-bottom:8px}
 .arco-step-desc{font-size:.85rem;color:var(--muted);line-height:1.6}
 .arco-features{margin-top:8px;display:flex;flex-direction:column;gap:4px}
@@ -150,17 +150,17 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
 .steps::before{content:'';position:absolute;top:44px;left:calc(16.6% + 24px);right:calc(16.6% + 24px);height:1px;background:linear-gradient(90deg,var(--border),var(--purple),var(--border));pointer-events:none}
 .step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 28px;transition:border-color .2s,transform .2s}
-.step:hover{border-color:rgba(124,63,255,.4);transform:translateY(-4px)}
-.step-num{width:52px;height:52px;border-radius:50%;background:var(--purple-dim);border:2px solid rgba(124,63,255,.3);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:var(--purple-light);margin-bottom:24px;position:relative;z-index:1}
+.step:hover{border-color:color-mix(in srgb, var(--purple) 40%, transparent);transform:translateY(-4px)}
+.step-num{width:52px;height:52px;border-radius:50%;background:var(--purple-dim);border:2px solid color-mix(in srgb, var(--purple) 30%, transparent);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:var(--purple-light);margin-bottom:24px;position:relative;z-index:1}
 .step-title{font-size:1.05rem;font-weight:700;margin-bottom:10px}
 .step-desc{font-size:.88rem;color:var(--muted);line-height:1.65}
-.step-highlight{display:inline-block;margin-top:10px;background:var(--green-dim);border:1px solid rgba(0,230,118,.2);color:var(--green);font-size:.75rem;font-weight:700;padding:4px 10px;border-radius:50px}
+.step-highlight{display:inline-block;margin-top:10px;background:var(--green-dim);border:1px solid color-mix(in srgb, var(--green) 20%, transparent);color:var(--green);font-size:.75rem;font-weight:700;padding:4px 10px;border-radius:50px}
 
 /* ── FEATURES ── */
 .features{background:var(--surface);padding:80px 5%;border-top:1px solid var(--border)}
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .feature-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:24px;transition:border-color .2s,transform .2s}
-.feature-card:hover{border-color:rgba(124,63,255,.35);transform:translateY(-3px)}
+.feature-card:hover{border-color:color-mix(in srgb, var(--purple) 35%, transparent);transform:translateY(-3px)}
 .feature-icon{font-size:1.5rem;margin-bottom:12px}
 .feature-title{font-size:.93rem;font-weight:700;margin-bottom:6px}
 .feature-desc{font-size:.84rem;color:var(--muted);line-height:1.6}
@@ -168,15 +168,15 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 /* ── B2B ── */
 .b2b{background:var(--bg);padding:80px 5%}
 .b2b-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto}
-.b2b-tag{display:inline-block;background:var(--green-dim);border:1px solid rgba(0,230,118,.25);color:var(--green);font-size:.75rem;font-weight:700;padding:5px 12px;border-radius:50px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
+.b2b-tag{display:inline-block;background:var(--green-dim);border:1px solid color-mix(in srgb, var(--green) 25%, transparent);color:var(--green);font-size:.75rem;font-weight:700;padding:5px 12px;border-radius:50px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
 .b2b-title{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;line-height:1.2;margin-bottom:16px}
 .b2b-desc{font-size:.97rem;color:var(--muted);line-height:1.75;margin-bottom:28px}
 .b2b-points{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
 .b2b-points li{display:flex;align-items:flex-start;gap:10px;font-size:.92rem}
-.b2b-check{min-width:20px;height:20px;background:var(--green-dim);border:1px solid rgba(0,230,118,.3);border-radius:50%;color:var(--green);font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:2px;flex-shrink:0}
+.b2b-check{min-width:20px;height:20px;background:var(--green-dim);border:1px solid color-mix(in srgb, var(--green) 30%, transparent);border-radius:50%;color:var(--green);font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:2px;flex-shrink:0}
 .b2b-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .b2b-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:22px;transition:border-color .2s}
-.b2b-card:hover{border-color:rgba(0,230,118,.25)}
+.b2b-card:hover{border-color:color-mix(in srgb, var(--green) 25%, transparent)}
 .b2b-card-icon{font-size:1.4rem;margin-bottom:10px}
 .b2b-card-stat{font-size:1.5rem;font-weight:800;color:var(--green);line-height:1;margin-bottom:4px}
 .b2b-card-title{font-size:.88rem;font-weight:700;margin-bottom:5px}
@@ -192,7 +192,7 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .vai-section-demo{display:flex;flex-direction:column;gap:20px}
 .vai-demo-chat{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:12px}
 .vai-demo-msg{padding:10px 14px;border-radius:12px;font-size:.85rem;line-height:1.55;max-width:85%}
-.vai-demo-user{background:var(--purple-dim);border:1px solid rgba(124,63,255,.2);align-self:flex-end;text-align:right}
+.vai-demo-user{background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 20%, transparent);align-self:flex-end;text-align:right}
 .vai-demo-bot{background:var(--surface);border:1px solid var(--border);align-self:flex-start}
 .vai-demo-typing{display:flex;gap:4px;align-items:center;padding:8px 14px}
 .vai-demo-typing span{width:7px;height:7px;border-radius:50%;background:var(--muted2);animation:typing .9s ease-in-out infinite}
@@ -202,29 +202,29 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 
 /* ── ORB (idêntico ao app ondjarvis.pages.dev) ── */
 .vai-orb-area{position:relative;display:flex;align-items:center;justify-content:center;height:280px}
-.vai-orb-area::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(127,17,244,.18) 0%,transparent 70%);pointer-events:none;animation:ambientPulse 4s ease-in-out infinite}
+.vai-orb-area::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb, var(--ond-app-purple) 18%, transparent) 0%,transparent 70%);pointer-events:none;animation:ambientPulse 4s ease-in-out infinite}
 @keyframes ambientPulse{0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}}
 .orb-wrap{position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center}
-.orb-ring{position:absolute;border-radius:50%;border:1px solid rgba(127,17,244,.2)}
+.orb-ring{position:absolute;border-radius:50%;border:1px solid color-mix(in srgb, var(--ond-app-purple) 20%, transparent)}
 .orb-ring-1{inset:-18px;animation:ringRotate 6s linear infinite}
 .orb-ring-2{inset:-32px;animation:ringRotate 10s linear infinite reverse;border-style:dashed;opacity:.4}
 .orb-ring-3{inset:-46px;animation:ringRotate 15s linear infinite;opacity:.2}
 @keyframes ringRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.orb-main{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#7f11f4,#b44fff,#c026d3,#7f11f4);display:flex;align-items:center;justify-content:center;position:relative;z-index:2;animation:orbMorph 6s ease-in-out infinite;box-shadow:0 0 40px rgba(127,17,244,.6),0 0 80px rgba(127,17,244,.3),0 0 120px rgba(127,17,244,.1)}
-.orb-main::before{content:'';position:absolute;top:10%;left:15%;width:40%;height:35%;background:radial-gradient(ellipse,rgba(255,255,255,.35) 0%,transparent 70%);border-radius:50%;transform:rotate(-30deg);pointer-events:none}
+.orb-main{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--ond-app-purple),#b44fff,#c026d3,var(--ond-app-purple));display:flex;align-items:center;justify-content:center;position:relative;z-index:2;animation:orbMorph 6s ease-in-out infinite;box-shadow:0 0 40px color-mix(in srgb, var(--ond-app-purple) 60%, transparent),0 0 80px color-mix(in srgb, var(--ond-app-purple) 30%, transparent),0 0 120px color-mix(in srgb, var(--ond-app-purple) 10%, transparent)}
+.orb-main::before{content:'';position:absolute;top:10%;left:15%;width:40%;height:35%;background:radial-gradient(ellipse,color-mix(in srgb, var(--ond-app-white) 35%, transparent) 0%,transparent 70%);border-radius:50%;transform:rotate(-30deg);pointer-events:none}
 .orb-main svg{width:44px;height:44px;position:relative;z-index:1}
 @keyframes orbMorph{0%{border-radius:50%}20%{border-radius:58% 42% 54% 46%/50% 58% 42% 50%}40%{border-radius:44% 56% 48% 52%/58% 42% 56% 44%}60%{border-radius:52% 48% 44% 56%/44% 54% 46% 56%}80%{border-radius:46% 54% 56% 44%/52% 46% 54% 48%}100%{border-radius:50%}}
 .orb-label{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
 
 /* ── FLOATING TRIGGER (mesma estética do app) ── */
 @keyframes orbColorCycle{
-  0%  {background:linear-gradient(135deg,#7f11f4,#b44fff);box-shadow:0 0 14px rgba(127,17,244,.6),0 0 28px rgba(127,17,244,.25),0 4px 28px rgba(127,17,244,.5)}
+  0%  {background:linear-gradient(135deg,var(--ond-app-purple),#b44fff);box-shadow:0 0 14px rgba(127,17,244,.6),0 0 28px rgba(127,17,244,.25),0 4px 28px rgba(127,17,244,.5)}
   16% {background:linear-gradient(135deg,#0066ff,#44aaff);box-shadow:0 0 14px rgba(0,102,255,.6),0 0 28px rgba(0,102,255,.25),0 4px 28px rgba(0,102,255,.4)}
   33% {background:linear-gradient(135deg,#00bcd4,#00e5ff);box-shadow:0 0 14px rgba(0,188,212,.6),0 0 28px rgba(0,188,212,.25),0 4px 28px rgba(0,188,212,.4)}
   50% {background:linear-gradient(135deg,#00c853,#69f0ae);box-shadow:0 0 14px rgba(0,200,83,.6),0 0 28px rgba(0,200,83,.25),0 4px 28px rgba(0,200,83,.4)}
   66% {background:linear-gradient(135deg,#ff6d00,#ffab40);box-shadow:0 0 14px rgba(255,109,0,.6),0 0 28px rgba(255,109,0,.25),0 4px 28px rgba(255,109,0,.4)}
   83% {background:linear-gradient(135deg,#d500f9,#ea80fc);box-shadow:0 0 14px rgba(213,0,249,.6),0 0 28px rgba(213,0,249,.25),0 4px 28px rgba(213,0,249,.4)}
-  100%{background:linear-gradient(135deg,#7f11f4,#b44fff);box-shadow:0 0 14px rgba(127,17,244,.6),0 0 28px rgba(127,17,244,.25),0 4px 28px rgba(127,17,244,.5)}
+  100%{background:linear-gradient(135deg,var(--ond-app-purple),#b44fff);box-shadow:0 0 14px rgba(127,17,244,.6),0 0 28px rgba(127,17,244,.25),0 4px 28px rgba(127,17,244,.5)}
 }
 @keyframes orbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
 
@@ -264,13 +264,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .contact-options{display:flex;flex-direction:column;gap:10px}
 .contact-option{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;text-decoration:none;color:var(--text);transition:border-color .15s,transform .15s}
 .contact-option:hover{transform:translateX(4px)}
-.contact-option.wa:hover{border-color:#25d366}
+.contact-option.wa:hover{border-color:var(--ond-color-whatsapp)}
 .contact-option.mail:hover{border-color:var(--purple)}
 .contact-option.form:hover{border-color:var(--green)}
 .contact-option-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
-.contact-option.wa .contact-option-icon{background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.2)}
-.contact-option.mail .contact-option-icon{background:var(--purple-dim);border:1px solid rgba(124,63,255,.2)}
-.contact-option.form .contact-option-icon{background:var(--green-dim);border:1px solid rgba(0,230,118,.2)}
+.contact-option.wa .contact-option-icon{background:color-mix(in srgb, var(--ond-color-whatsapp) 10%, transparent);border:1px solid color-mix(in srgb, var(--ond-color-whatsapp) 20%, transparent)}
+.contact-option.mail .contact-option-icon{background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 20%, transparent)}
+.contact-option.form .contact-option-icon{background:var(--green-dim);border:1px solid color-mix(in srgb, var(--green) 20%, transparent)}
 .contact-option-label{font-size:.93rem;font-weight:700;margin-bottom:2px}
 .contact-option-desc{font-size:.78rem;color:var(--muted)}
 .contact-option-arrow{margin-left:auto;color:var(--muted2);font-size:.9rem;flex-shrink:0}
@@ -278,14 +278,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 /* ── FLOATING OND vAI ── */
 .vai-trigger{position:fixed;bottom:28px;right:28px;z-index:999;width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;animation:orbColorCycle 8s linear infinite,orbPulse 3s ease-in-out infinite;transition:transform .18s}
 .vai-trigger:hover{transform:scale(1.1)}
-.vai-trigger::before{content:'';position:absolute;inset:4px;border-radius:50%;background:linear-gradient(145deg,rgba(255,255,255,.22) 0%,transparent 55%);pointer-events:none;z-index:2}
+.vai-trigger::before{content:'';position:absolute;inset:4px;border-radius:50%;background:linear-gradient(145deg,color-mix(in srgb, var(--ond-app-white) 22%, transparent) 0%,transparent 55%);pointer-events:none;z-index:2}
 .vai-trigger svg{position:relative;z-index:3}
 .vai-label{position:absolute;right:76px;top:50%;transform:translateY(-50%);background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:8px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s;box-shadow:0 4px 16px rgba(0,0,0,.4)}
 .vai-trigger:hover .vai-label{opacity:1}
-.vai-modal{position:fixed;bottom:100px;right:28px;z-index:998;width:380px;height:560px;max-height:calc(100vh - 120px);background:var(--surface);border:1px solid rgba(124,63,255,.2);border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.65);display:none;flex-direction:column;opacity:0;transform:scale(.94) translateY(16px);transition:opacity .22s,transform .25s cubic-bezier(.34,1.56,.64,1)}
+.vai-modal{position:fixed;bottom:100px;right:28px;z-index:998;width:380px;height:560px;max-height:calc(100vh - 120px);background:var(--surface);border:1px solid color-mix(in srgb, var(--purple) 20%, transparent);border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.65);display:none;flex-direction:column;opacity:0;transform:scale(.94) translateY(16px);transition:opacity .22s,transform .25s cubic-bezier(.34,1.56,.64,1)}
 .vai-modal.open{display:flex}
 .vai-modal.visible{opacity:1;transform:scale(1) translateY(0)}
-.vai-modal-header{background:rgba(124,63,255,.08);border-bottom:1px solid var(--border);padding:13px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.vai-modal-header{background:color-mix(in srgb, var(--purple) 8%, transparent);border-bottom:1px solid var(--border);padding:13px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
 .vai-orb{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--purple),#5218d4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .vai-modal-title{font-size:.92rem;font-weight:700}
 .vai-online{font-size:.72rem;color:var(--green);display:flex;align-items:center;gap:4px}
@@ -377,11 +377,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     </div>
     <div class="hero-app-btns">
       <a href="https://play.google.com/store/apps/details?id=com.agamatec.ond&pcampaignid=web_share" class="app-store-btn gplay">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="white"><path d="M3.18 23.76a1.96 1.96 0 0 1-.68-.54 1.9 1.9 0 0 1-.4-1.18V1.96c0-.43.14-.83.4-1.18.18-.23.41-.42.68-.54L13.5 12 3.18 23.76zm1.6.77L17.1 17.8l-2.85-2.85-9.47 9.58zm14.3-8.16-3.28-1.87-3.11 3.1 3.1 3.1 3.3-1.86c.94-.53.94-1.94-.01-2.47zm-16.6-9.2L11.97 12l-2.85 2.85-9.44-9.56a1.96 1.96 0 0 1 2.8-.12zm14.26-.17 3.3 1.87c.95.53.95 1.94 0 2.47l-3.3 1.86-3.1-3.1 3.1-3.1z"/></svg>
+        <svg viewBox="0 0 24 24" width="26" height="26" style="fill:var(--ond-color-onPrimary)"><path d="M3.18 23.76a1.96 1.96 0 0 1-.68-.54 1.9 1.9 0 0 1-.4-1.18V1.96c0-.43.14-.83.4-1.18.18-.23.41-.42.68-.54L13.5 12 3.18 23.76zm1.6.77L17.1 17.8l-2.85-2.85-9.47 9.58zm14.3-8.16-3.28-1.87-3.11 3.1 3.1 3.1 3.3-1.86c.94-.53.94-1.94-.01-2.47zm-16.6-9.2L11.97 12l-2.85 2.85-9.44-9.56a1.96 1.96 0 0 1 2.8-.12zm14.26-.17 3.3 1.87c.95.53.95 1.94 0 2.47l-3.3 1.86-3.1-3.1 3.1-3.1z"/></svg>
         <div class="app-btn-text"><span class="app-btn-sub">Baixar no</span><span class="app-btn-name">Google Play</span></div>
       </a>
       <a href="https://apps.apple.com/br/app/ond-assistente-de-viagem/id6758392427" class="app-store-btn appstore">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <svg viewBox="0 0 24 24" width="26" height="26" style="fill:var(--ond-color-onPrimary)"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         <div class="app-btn-text"><span class="app-btn-sub">Baixar na</span><span class="app-btn-name">App Store</span></div>
       </a>
     </div>
@@ -646,7 +646,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
           <div class="orb-ring orb-ring-2"></div>
           <div class="orb-ring orb-ring-3"></div>
           <div class="orb-main">
-            <svg viewBox="0 0 497.26 497.26" fill="white"><use href="#ond-icon"/></svg>
+            <svg viewBox="0 0 497.26 497.26" style="fill:var(--ond-color-onPrimary)"><use href="#ond-icon"/></svg>
           </div>
         </div>
         <div class="orb-label">OND vAI</div>
@@ -670,11 +670,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <p style="color:var(--muted);max-width:420px;line-height:1.7;margin:12px 0 0">Disponível para Android e iOS. Gratuito para começar. Baixe agora e teste em 5 minutos.</p>
     <div class="app-stores">
       <a href="https://play.google.com/store/apps/details?id=com.agamatec.ond&pcampaignid=web_share" class="app-store-btn gplay">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="white"><path d="M3.18 23.76a1.96 1.96 0 0 1-.68-.54 1.9 1.9 0 0 1-.4-1.18V1.96c0-.43.14-.83.4-1.18.18-.23.41-.42.68-.54L13.5 12 3.18 23.76zm1.6.77L17.1 17.8l-2.85-2.85-9.47 9.58zm14.3-8.16-3.28-1.87-3.11 3.1 3.1 3.1 3.3-1.86c.94-.53.94-1.94-.01-2.47zm-16.6-9.2L11.97 12l-2.85 2.85-9.44-9.56a1.96 1.96 0 0 1 2.8-.12zm14.26-.17 3.3 1.87c.95.53.95 1.94 0 2.47l-3.3 1.86-3.1-3.1 3.1-3.1z"/></svg>
+        <svg viewBox="0 0 24 24" width="26" height="26" style="fill:var(--ond-color-onPrimary)"><path d="M3.18 23.76a1.96 1.96 0 0 1-.68-.54 1.9 1.9 0 0 1-.4-1.18V1.96c0-.43.14-.83.4-1.18.18-.23.41-.42.68-.54L13.5 12 3.18 23.76zm1.6.77L17.1 17.8l-2.85-2.85-9.47 9.58zm14.3-8.16-3.28-1.87-3.11 3.1 3.1 3.1 3.3-1.86c.94-.53.94-1.94-.01-2.47zm-16.6-9.2L11.97 12l-2.85 2.85-9.44-9.56a1.96 1.96 0 0 1 2.8-.12zm14.26-.17 3.3 1.87c.95.53.95 1.94 0 2.47l-3.3 1.86-3.1-3.1 3.1-3.1z"/></svg>
         <div class="app-btn-text"><span class="app-btn-sub">Baixar no</span><span class="app-btn-name">Google Play</span></div>
       </a>
       <a href="https://apps.apple.com/br/app/ond-assistente-de-viagem/id6758392427" class="app-store-btn appstore">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <svg viewBox="0 0 24 24" width="26" height="26" style="fill:var(--ond-color-onPrimary)"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         <div class="app-btn-text"><span class="app-btn-sub">Baixar na</span><span class="app-btn-name">App Store</span></div>
       </a>
       <a href="https://web.ondviajar.com.br/home" class="hero-sec-btn" style="margin-top:4px">
@@ -741,7 +741,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <div class="contact-options">
     <a href="https://wa.me/5511910214133?text=Olá! vim do site OND" class="contact-option wa" target="_blank" rel="noopener">
       <div class="contact-option-icon">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        <svg viewBox="0 0 24 24" width="22" height="22" style="fill:var(--ond-color-whatsapp)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
       </div>
       <div>
         <div class="contact-option-label">WhatsApp</div>
@@ -770,7 +770,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
 <!-- OND vAI FLUTUANTE -->
 <a class="vai-trigger" href="https://ondjarvis.pages.dev" target="_blank" rel="noopener" aria-label="Abrir OND vAI">
-  <svg viewBox="0 0 497.26 497.26" fill="white" width="28" height="28" style="position:relative;z-index:3"><use href="#ond-icon"/></svg>
+  <svg viewBox="0 0 497.26 497.26" width="28" height="28" style="position:relative;z-index:3;fill:var(--ond-color-onPrimary)"><use href="#ond-icon"/></svg>
   <span class="vai-label">OND vAI</span>
 </a>
 
