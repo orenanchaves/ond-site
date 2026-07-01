@@ -15,6 +15,10 @@
   --ond-color-success: #008833;
   --ond-color-accent: #a07800;
   --ond-color-whatsapp: #25d366;
+  --ond-color-danger: #e24b4a;
+  --ond-color-warning: #a07800;
+  --ond-color-info: #0055dd;
+  --ond-color-focus: #0055dd;
 }
 
 [data-theme="dark"] {
@@ -30,4 +34,8 @@
   --ond-color-success: #11f558;
   --ond-color-accent: #ffd60a;
   --ond-color-whatsapp: #25d366;
+  --ond-color-danger: #f09595;
+  --ond-color-warning: #ffd60a;
+  --ond-color-info: #4d9fff;
+  --ond-color-focus: #4d9fff;
 }

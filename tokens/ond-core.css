@@ -20,6 +20,8 @@
   --ond-shadow-sm: 0 2px 8px rgba(46,10,94,.08);
   --ond-shadow-md: 0 8px 30px rgba(46,10,94,.12);
   --ond-shadow-lg: 0 16px 50px rgba(46,10,94,.20);
+  --ond-size-touch: 44px;
+  --ond-opacity-disabled: 0.5;
   --ond-palette-purple-50: #f5f4ff;
   --ond-palette-purple-100: #eeebff;
   --ond-palette-purple-200: #e7ddff;
@@ -49,6 +51,11 @@
   --ond-palette-gold-400: #ffd60a;
   --ond-palette-gold-500: #ffab40;
   --ond-palette-gold-700: #a07800;
+  --ond-palette-red-50: #fcebeb;
+  --ond-palette-red-300: #f09595;
+  --ond-palette-red-500: #e24b4a;
+  --ond-palette-red-600: #c0392b;
+  --ond-palette-red-700: #a32d2d;
   --ond-palette-whatsapp: #25d366;
   --ond-palette-neutral-0: #ffffff;
   --ond-palette-neutral-50: #f5f4ff;

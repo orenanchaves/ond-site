@@ -113,9 +113,11 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-ap
 .news h3{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
 .news p{color:var(--muted);font-size:.95rem;margin:0 auto 24px;max-width:440px;line-height:1.6}
 .news-form{display:flex;gap:10px;max-width:460px;margin:0 auto;flex-wrap:wrap}
-.news-form input{flex:1;min-width:200px;background:var(--surface);border:1px solid var(--border);border-radius:50px;padding:14px 22px;color:var(--text);font-size:.95rem;outline:none;transition:border-color .2s}
-.news-form input:focus{border-color:var(--purple)}
-.news-form button{background:var(--purple);color:var(--ond-color-onPrimary);border:none;border-radius:50px;padding:14px 28px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .2s,transform .15s}
+.news-form input{flex:1;min-width:200px;min-height:44px;background:var(--surface);border:1px solid var(--border);border-radius:50px;padding:14px 22px;color:var(--text);font-size:.95rem;outline:none;transition:border-color .2s,box-shadow .2s}
+.news-form input:focus{border-color:var(--ond-color-focus);box-shadow:0 0 0 3px color-mix(in srgb,var(--ond-color-focus) 30%,transparent)}
+.news-form button{min-height:44px;background:var(--purple);color:var(--ond-color-onPrimary);border:none;border-radius:50px;padding:14px 28px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .2s,transform .15s}
+/* acessibilidade: foco visível no teclado (todo o site) */
+:focus-visible{outline:2px solid var(--ond-color-focus);outline-offset:2px}
 .news-form button:hover{background:var(--purple-light);transform:translateY(-2px)}
 .news-ok{color:var(--green);font-weight:600;margin-top:16px;font-size:.9rem;display:none}
 
