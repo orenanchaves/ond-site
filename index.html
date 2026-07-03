@@ -6,6 +6,9 @@
 <meta name="theme-color" content="#0a0a12">
 <meta name="description" content="OND — organize sua viagem com IA. Roteiro completo, rotas e concierge inteligente em 5 minutos. Disponível no Android, iOS e na web.">
 <title>OND — Organize sua viagem com IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <!-- OND Design System (vendorizado — ver tokens/SYNC.md) -->
 <link rel="stylesheet" href="tokens/ond-core.css">
 <link rel="stylesheet" href="tokens/ond-b2c.css">
@@ -26,11 +29,11 @@
   --text:var(--ond-color-text);
   --muted:var(--ond-color-muted);
   --muted2:color-mix(in srgb, var(--ond-color-muted), var(--ond-color-bg) 45%);
-  --radius:16px;--radius-sm:10px;
+  --radius:var(--ond-radius-lg);--radius-sm:var(--ond-radius-md);
   --header-bg:color-mix(in srgb, var(--ond-color-bg) 92%, transparent);
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;overflow-x:hidden;line-height:1.6;transition:background .25s,color .25s}
+body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-base);overflow-x:hidden;line-height:1.6;transition:background .25s,color .25s}
 
 /* ── HEADER ── */
 .header{position:sticky;top:0;z-index:200;background:var(--header-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}

@@ -7,7 +7,8 @@
 <meta name="description" content="OND para agências de viagem — crie roteiros personalizados com IA em minutos, com a sua marca. Economize 75% do tempo e atenda mais clientes.">
 <title>OND para Agências — Roteiros com IA em Minutos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <!-- OND Design System (vendorizado — ver tokens/SYNC.md) -->
 <link rel="stylesheet" href="tokens/ond-core.css">
 <link rel="stylesheet" href="tokens/ond-b2b.css">
@@ -32,11 +33,11 @@
   --text:var(--ond-color-text);
   --muted:var(--ond-color-muted);
   --muted2:color-mix(in srgb, var(--ond-color-muted), var(--ond-color-bg) 45%);
-  --radius:16px;--radius-sm:10px;
+  --radius:var(--ond-radius-lg);--radius-sm:var(--ond-radius-md);
   --header-bg:color-mix(in srgb, var(--ond-color-bg) 96%, transparent);
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,system-ui,sans-serif;overflow-x:hidden;line-height:1.6;transition:background .25s,color .25s}
+body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-base);overflow-x:hidden;line-height:1.6;transition:background .25s,color .25s}
 
 /* ── OND LOGO SVG ── */
 .ond-letter{fill:var(--text)}
