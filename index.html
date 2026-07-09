@@ -36,6 +36,14 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-base);overflow-x:hidden;line-height:1.6;transition:background .25s,color .25s}
 
+/* ── IA É LEI ── */
+.ialei{padding:64px 5%;background:linear-gradient(135deg,var(--purple-dim),transparent);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center}
+.ialei-inner{max-width:760px;margin:0 auto}
+.ialei-tag{display:inline-block;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--purple-light);margin-bottom:14px}
+.ialei-title{font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:14px}
+.ialei-title em{font-style:normal;background:linear-gradient(130deg,var(--purple-light),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ialei-sub{font-size:1.05rem;color:var(--muted);line-height:1.7;max-width:600px;margin:0 auto}
+
 /* ── HEADER ── */
 .header{position:sticky;top:0;z-index:200;background:var(--header-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
 .theme-btn{background:none;border:1px solid var(--border);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .2s,background .2s;flex-shrink:0}
@@ -422,6 +430,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
 </section>
 
+<!-- IA É LEI -->
+<section class="ialei">
+  <div class="ialei-inner">
+    <span class="ialei-tag">O jogo virou</span>
+    <h2 class="ialei-title">IA é lei do turismo <em>agora</em>.</h2>
+    <p class="ialei-sub">Quem planeja com inteligência artificial viaja melhor, mais rápido e gastando certo. O OND coloca essa tecnologia no seu bolso — e é grátis para começar.</p>
+  </div>
+</section>
+
 <!-- ARCO DA VIAGEM -->
 <section class="arco" id="como-funciona">
   <div class="section-header centered">
@@ -636,7 +653,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <div class="footer-col">
       <h4>Empresa</h4>
       <ul>
-        <li><a href="https://ondviajar.com.br/sobre/">Sobre a Agama</a></li>
+        <li><a href="sobre.html">Sobre a Agama</a></li>
         <li><a href="https://ondviajar.com.br/contato/">Contato</a></li>
         <li><a href="mailto:renan@agamatec.com">renan@agamatec.com</a></li>
         <li><a href="https://wa.me/5511910214133">WhatsApp</a></li>

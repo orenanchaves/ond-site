@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0d0d14">
-<meta name="description" content="Assessoria OND — planeje sua viagem sem estresse. Um especialista, apoiado pela IA do OND, avalia transporte e hospedagem, monta seu roteiro dia a dia e acompanha você durante a viagem.">
-<title>Assessoria de Viagem — OND</title>
+<meta name="description" content="Sobre a Agama Tec — tecnologia com propósito. Criamos produtos digitais end-to-end para melhorar a vida das pessoas com tecnologia. Conheça o OND, o Aga Mercado e os fundadores.">
+<title>Sobre a Agama — OND</title>
 <link rel="icon" type="image/svg+xml" href="assets/ond-symbol.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,6 +99,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .hia-card .conc-ico{font-size:1.8rem;margin-bottom:10px}
 .hia-card h3{font-size:1.12rem;font-weight:800;margin-bottom:8px}
 .hia-card p{font-size:.9rem;color:var(--muted);line-height:1.65}
+/* fundadores */
+.founder-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--green));color:var(--ond-color-onPrimary);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.05rem;margin-bottom:12px}
+.founder-role{font-size:.78rem;font-weight:700;color:var(--purple-light);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
+.conc-card.founder h3{margin-bottom:2px}
 @media(max-width:700px){.hia-inner{grid-template-columns:1fr}}
 
 /* COMO FUNCIONA */
@@ -166,7 +170,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </a>
   <nav><ul class="header-nav">
     <li><a href="index.html#como-funciona">Como funciona</a></li>
-    <li><a href="assessoria.html" class="nav-active">Assessoria</a></li>
+    <li><a href="assessoria.html">Assessoria</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="agencias.html" class="nav-agencias">Para Agências →</a></li>
   </ul></nav>
@@ -185,88 +189,59 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
 <!-- HERO -->
 <section class="conc-hero">
-  <div class="conc-eyebrow"><span class="conc-eyebrow-dot"></span>Assessoria OND</div>
-  <h1 class="conc-title">Planeje sua viagem<br><em>sem estresse</em>.</h1>
-  <p class="conc-sub"><strong style="color:var(--text)">A OND transforma seu sonho num plano concreto.</strong> Um especialista de viagem, apoiado pela IA do OND, avalia, monta e acompanha seu roteiro do começo ao fim.</p>
+  <div class="conc-eyebrow"><span class="conc-eyebrow-dot"></span>Agama Tec</div>
+  <h1 class="conc-title">Agama, <em>tecnologia com propósito</em>.</h1>
+  <p class="conc-sub">Criamos produtos digitais end-to-end — da identidade visual ao desenvolvimento, publicação e mídia paga — com um propósito claro: <strong style="color:var(--text)">melhorar a vida das pessoas com tecnologia</strong>.</p>
   <div class="conc-hero-actions">
-    <a href="https://ond-assessoria.pages.dev/" class="btn-primary" target="_blank" rel="noopener">Contratar agora →</a>
-    <a href="https://wa.me/5511910214133?text=Olá! Quero falar com um especialista da Assessoria OND" class="btn-wa" target="_blank" rel="noopener">
+    <a href="#produtos" class="btn-primary">Nossos produtos</a>
+    <a href="https://wa.me/5511910214133?text=Olá! Quero saber mais sobre a Agama" class="btn-wa" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" width="19" height="19" fill="#04310f"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
-      Falar com meu especialista
+      Falar com a gente
     </a>
   </div>
-  <img class="conc-hero-img" src="assets/ondino-espera.svg" alt="Ondino, o guia de viagem do OND, pronto para acompanhar você">
+  <img class="conc-hero-img" src="assets/ondino-espera.svg" alt="Ondino, o personagem viajante do OND">
 </section>
 
-<!-- O QUE ESTÁ INCLUÍDO -->
-<section class="conc-section">
-  <h2 class="conc-h2">O que está incluído</h2>
-  <p class="conc-lead">Um plano de viagem completo — avaliado, otimizado e acompanhado.</p>
-  <div class="conc-grid4">
-    <div class="conc-card"><div class="conc-ico">🧳</div><h3>Transporte e hospedagem avaliados</h3><p>Analisamos suas opções de voo e onde ficar — para você viajar bem gastando certo.</p></div>
-    <div class="conc-card"><div class="conc-ico">🗺️</div><h3>Roteiro otimizado dia a dia</h3><p>Um plano na ordem certa, sem perder tempo nem passeio — do jeito da sua viagem.</p></div>
-    <div class="conc-card"><div class="conc-ico">⚠️</div><h3>Desafios antecipados</h3><p>Preços, filas e alta temporada previstos antes de virarem problema na viagem.</p></div>
-    <div class="conc-card"><div class="conc-ico">📱</div><h3>Acompanhamento na viagem</h3><p>Suporte de verdade enquanto você viaja — não só antes de embarcar.</p></div>
-  </div>
-</section>
-
-<!-- COMO FUNCIONA -->
-<section class="conc-section" id="como">
-  <h2 class="conc-h2">Como funciona</h2>
-  <p class="conc-lead">Simples e rápido — do "quero" à viagem acompanhada.</p>
-  <div class="conc-steps">
-    <div class="conc-step">
-      <div class="conc-step-num">1</div>
-      <h3>Contratação rápida</h3>
-      <p>Você contrata em minutos e conta o essencial da sua viagem para a gente.</p>
-    </div>
-    <div class="conc-step">
-      <div class="conc-step-num">2</div>
-      <h3>Seu especialista monta o plano</h3>
-      <p>Um especialista monta seu roteiro, apoiado pela IA do OND — transporte, hospedagem e passeios avaliados.</p>
-    </div>
-    <div class="conc-step">
-      <div class="conc-step-num">3</div>
-      <h3>Ajustes e acompanhamento</h3>
-      <p>Refinamos junto com você e acompanhamos durante a viagem, para o que você precisar.</p>
-    </div>
-  </div>
-</section>
-
-<!-- HUMANO + IA -->
-<section class="hia">
-  <div class="hia-head">
-    <h2 class="conc-h2">Humano <span style="color:var(--purple-light)">+</span> IA</h2>
-    <p class="conc-lead" style="margin-bottom:0">O melhor dos dois mundos: a sensibilidade de um especialista com a velocidade e a memória da IA do OND.</p>
-  </div>
+<!-- O QUE FAZEMOS / PRODUTOS -->
+<section class="conc-section" id="produtos">
+  <h2 class="conc-h2">O que fazemos</h2>
+  <p class="conc-lead">Produtos digitais do começo ao fim — identidade, engenharia, IA e crescimento. Hoje, dois deles:</p>
   <div class="hia-inner">
-    <div class="hia-card"><div class="conc-ico">🧑‍✈️</div><h3>Especialista de viagem</h3><p>Uma pessoa de verdade que entende seu momento, antecipa problemas e cuida dos detalhes que só a experiência conhece.</p></div>
-    <div class="hia-card"><div class="conc-ico">✨</div><h3>IA do OND</h3><p>Processa destinos, rotas, preços e épocas em segundos — para o especialista focar no que importa: você.</p></div>
+    <div class="conc-card"><div class="conc-ico">✈️</div><h3>OND</h3><p>Planejamento e suporte de viagem com IA — o assistente que organiza roteiros, voos, hospedagem e passeios, do sonho à volta pra casa.</p></div>
+    <div class="conc-card"><div class="conc-ico">🛒</div><h3>Aga Mercado</h3><p>Inteligência de compra: tecnologia para você decidir melhor na hora de comprar, com os dados a seu favor.</p></div>
   </div>
 </section>
 
-<!-- COMEÇAR -->
+<!-- FUNDADORES -->
+<section class="conc-section">
+  <h2 class="conc-h2">Nossos fundadores</h2>
+  <p class="conc-lead">Quem está por trás da Agama.</p>
+  <div class="hia-inner">
+    <div class="conc-card founder"><div class="founder-avatar">RR</div><h3>Renan Rodrigues</h3><div class="founder-role">Cofundador &amp; CTO</div><p>Engenharia de software e mobile — a espinha dorsal técnica dos produtos.</p></div>
+    <div class="conc-card founder"><div class="founder-avatar">RC</div><h3>Renan Chaves</h3><div class="founder-role">Cofundador &amp; UX Partner</div><p>Design, UX e branding — a experiência e a identidade dos produtos.</p></div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="conc-section">
+  <h2 class="conc-h2">Nossos valores</h2>
+  <p class="conc-lead">O que guia cada produto que a gente faz.</p>
+  <div class="conc-grid">
+    <div class="conc-card"><div class="conc-ico">🎯</div><h3>Autonomia</h3><p>Soluções que colocam o usuário no controle.</p></div>
+    <div class="conc-card"><div class="conc-ico">🧩</div><h3>Customização</h3><p>Produtos moldados ao seu contexto.</p></div>
+    <div class="conc-card"><div class="conc-ico">⚙️</div><h3>Tecnologia</h3><p>IA e engenharia de ponta em tudo que fazemos.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
 <div class="conc-price-wrap">
   <div class="conc-price">
-    <div class="conc-price-label">Pronto para começar?</div>
-    <div class="conc-price-value" style="font-size:1.8rem;line-height:1.2;margin:6px 0 10px">Sua viagem, planejada por quem entende.</div>
-    <div class="conc-price-note">Pagamento único e seguro. Você vê o valor na hora de contratar.</div>
-    <ul>
-      <li>Transporte e hospedagem avaliados</li>
-      <li>Roteiro otimizado dia a dia</li>
-      <li>Acompanhamento durante a viagem</li>
-    </ul>
-    <a href="https://ond-assessoria.pages.dev/" class="btn-primary" target="_blank" rel="noopener">Contratar agora →</a>
+    <div class="conc-price-label">Vamos conversar?</div>
+    <div class="conc-price-value" style="font-size:1.8rem;line-height:1.2;margin:6px 0 10px">Tecnologia com propósito, feita no Brasil.</div>
+    <div class="conc-price-note">Fale com a gente sobre o OND, o Aga Mercado ou uma parceria.</div>
+    <a href="https://wa.me/5511910214133?text=Olá! Quero falar com a Agama" class="btn-primary" target="_blank" rel="noopener">Falar com a Agama →</a>
   </div>
 </div>
-
-<!-- CONFIANÇA -->
-<section class="conc-section">
-  <div class="conc-trust">
-    <span class="ico">🛡️</span>
-    <div><strong>Transparência total.</strong> Nunca realizamos compras em seu nome e indicamos apenas canais oficiais. A Assessoria orienta e acompanha — o controle das reservas é sempre seu. Para reservar sozinho, a qualquer hora, o <a href="https://web.ondviajar.com.br/home" style="color:var(--purple-light)">app OND</a> continua grátis.</div>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer>
