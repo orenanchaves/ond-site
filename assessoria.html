@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0d0d14">
-<meta name="description" content="Assessoria OND — um guia humano de viagem em cada etapa. Duas conversas personalizadas, roteiro sob medida e suporte no WhatsApp durante toda a viagem. Investimento único de R$ 500.">
+<meta name="description" content="Assessoria OND — planeje sua viagem sem estresse. Um especialista, apoiado pela IA do OND, avalia transporte e hospedagem, monta seu roteiro dia a dia e acompanha você durante a viagem.">
 <title>Assessoria de Viagem — OND</title>
 <link rel="icon" type="image/svg+xml" href="assets/ond-symbol.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -87,6 +87,19 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .conc-ico{font-size:1.6rem;margin-bottom:12px}
 .conc-card h3{font-size:1rem;font-weight:800;margin-bottom:6px}
 .conc-card p{font-size:.88rem;color:var(--muted);line-height:1.6}
+/* grid de 4 (o que está incluído) */
+.conc-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:900px){.conc-grid4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.conc-grid4{grid-template-columns:1fr}}
+/* Humano + IA */
+.hia{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:56px 5%}
+.hia-head{text-align:center;max-width:620px;margin:0 auto 36px}
+.hia-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hia-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px}
+.hia-card .conc-ico{font-size:1.8rem;margin-bottom:10px}
+.hia-card h3{font-size:1.12rem;font-weight:800;margin-bottom:8px}
+.hia-card p{font-size:.9rem;color:var(--muted);line-height:1.65}
+@media(max-width:700px){.hia-inner{grid-template-columns:1fr}}
 
 /* COMO FUNCIONA */
 .conc-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
@@ -173,14 +186,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <!-- HERO -->
 <section class="conc-hero">
   <div class="conc-eyebrow"><span class="conc-eyebrow-dot"></span>Assessoria OND</div>
-  <h1 class="conc-title">Planeje com quem entende.<br>Viaje com quem <em>te acompanha</em>.</h1>
-  <p class="conc-sub">Um guia humano do OND em cada etapa da sua viagem — do primeiro sonho ao último dia. Ele entende seus desejos, ajusta o roteiro e acompanha cada passo.</p>
+  <h1 class="conc-title">Planeje sua viagem<br><em>sem estresse</em>.</h1>
+  <p class="conc-sub"><strong style="color:var(--text)">A OND transforma seu sonho num plano concreto.</strong> Um especialista de viagem, apoiado pela IA do OND, avalia, monta e acompanha seu roteiro do começo ao fim.</p>
   <div class="conc-hero-actions">
-    <a href="https://wa.me/5511910214133?text=Olá! Quero conhecer a Assessoria OND" class="btn-wa" target="_blank" rel="noopener">
+    <a href="https://ond-assessoria.pages.dev/" class="btn-primary" target="_blank" rel="noopener">Contratar agora →</a>
+    <a href="https://wa.me/5511910214133?text=Olá! Quero falar com um especialista da Assessoria OND" class="btn-wa" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" width="19" height="19" fill="#04310f"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
-      Quero meu parceiro de viagem
+      Falar com meu especialista
     </a>
-    <a href="#como" class="btn-secondary">Ver como funciona</a>
   </div>
   <img class="conc-hero-img" src="assets/ondino-espera.svg" alt="Ondino, o guia de viagem do OND, pronto para acompanhar você">
 </section>
@@ -188,52 +201,62 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <!-- O QUE ESTÁ INCLUÍDO -->
 <section class="conc-section">
   <h2 class="conc-h2">O que está incluído</h2>
-  <p class="conc-lead">Não é um roteiro genérico: é atenção humana, do planejamento à volta pra casa.</p>
-  <div class="conc-grid">
-    <div class="conc-card"><div class="conc-ico">💬</div><h3>Duas conversas personalizadas</h3><p>Calls para entender seu perfil, seus sonhos e ajustar o roteiro exatamente ao seu jeito de viajar.</p></div>
-    <div class="conc-card"><div class="conc-ico">📱</div><h3>Suporte no WhatsApp</h3><p>Acompanhamento contínuo durante toda a viagem. Dúvida na hora? A gente responde.</p></div>
-    <div class="conc-card"><div class="conc-ico">🧭</div><h3>Acompanhamento em cada etapa</h3><p>Do antes ao depois — presença que tranquiliza e ajuda você a aproveitar cada momento.</p></div>
-    <div class="conc-card"><div class="conc-ico">✅</div><h3>Só canais oficiais</h3><p>Indicamos apenas fornecedores e canais oficiais e confiáveis. Nada de furada.</p></div>
-    <div class="conc-card"><div class="conc-ico">🔒</div><h3>Você mantém o controle</h3><p>Nunca realizamos compras em seu nome. Você decide e reserva — a gente orienta.</p></div>
-    <div class="conc-card"><div class="conc-ico">🗺️</div><h3>Roteiro sob medida</h3><p>Um plano feito para você, equilibrando o que importa: cultura, gastronomia, ritmo e orçamento.</p></div>
+  <p class="conc-lead">Um plano de viagem completo — avaliado, otimizado e acompanhado.</p>
+  <div class="conc-grid4">
+    <div class="conc-card"><div class="conc-ico">🧳</div><h3>Transporte e hospedagem avaliados</h3><p>Analisamos suas opções de voo e onde ficar — para você viajar bem gastando certo.</p></div>
+    <div class="conc-card"><div class="conc-ico">🗺️</div><h3>Roteiro otimizado dia a dia</h3><p>Um plano na ordem certa, sem perder tempo nem passeio — do jeito da sua viagem.</p></div>
+    <div class="conc-card"><div class="conc-ico">⚠️</div><h3>Desafios antecipados</h3><p>Preços, filas e alta temporada previstos antes de virarem problema na viagem.</p></div>
+    <div class="conc-card"><div class="conc-ico">📱</div><h3>Acompanhamento na viagem</h3><p>Suporte de verdade enquanto você viaja — não só antes de embarcar.</p></div>
   </div>
 </section>
 
 <!-- COMO FUNCIONA -->
 <section class="conc-section" id="como">
   <h2 class="conc-h2">Como funciona</h2>
-  <p class="conc-lead">Três etapas simples, do primeiro papo à sua volta.</p>
+  <p class="conc-lead">Simples e rápido — do "quero" à viagem acompanhada.</p>
   <div class="conc-steps">
     <div class="conc-step">
       <div class="conc-step-num">1</div>
-      <h3>Escutamos você</h3>
-      <p>Uma call para entender seus sonhos, expectativas e o que não pode faltar na viagem.</p>
+      <h3>Contratação rápida</h3>
+      <p>Você contrata em minutos e conta o essencial da sua viagem para a gente.</p>
     </div>
     <div class="conc-step">
       <div class="conc-step-num">2</div>
-      <h3>Criamos juntos</h3>
-      <p>Apresentamos o roteiro e ajustamos com você, até ficar do seu jeito — sem pressa.</p>
+      <h3>Seu especialista monta o plano</h3>
+      <p>Um especialista monta seu roteiro, apoiado pela IA do OND — transporte, hospedagem e passeios avaliados.</p>
     </div>
     <div class="conc-step">
       <div class="conc-step-num">3</div>
-      <h3>Acompanhamos sua jornada</h3>
-      <p>Durante a viagem, suporte no WhatsApp para o que você precisar, quando precisar.</p>
+      <h3>Ajustes e acompanhamento</h3>
+      <p>Refinamos junto com você e acompanhamos durante a viagem, para o que você precisar.</p>
     </div>
   </div>
 </section>
 
-<!-- PREÇO -->
+<!-- HUMANO + IA -->
+<section class="hia">
+  <div class="hia-head">
+    <h2 class="conc-h2">Humano <span style="color:var(--purple-light)">+</span> IA</h2>
+    <p class="conc-lead" style="margin-bottom:0">O melhor dos dois mundos: a sensibilidade de um especialista com a velocidade e a memória da IA do OND.</p>
+  </div>
+  <div class="hia-inner">
+    <div class="hia-card"><div class="conc-ico">🧑‍✈️</div><h3>Especialista de viagem</h3><p>Uma pessoa de verdade que entende seu momento, antecipa problemas e cuida dos detalhes que só a experiência conhece.</p></div>
+    <div class="hia-card"><div class="conc-ico">✨</div><h3>IA do OND</h3><p>Processa destinos, rotas, preços e épocas em segundos — para o especialista focar no que importa: você.</p></div>
+  </div>
+</section>
+
+<!-- COMEÇAR -->
 <div class="conc-price-wrap">
   <div class="conc-price">
-    <div class="conc-price-label">Investimento único</div>
-    <div class="conc-price-value">R$ 500 <small>/ serviço completo</small></div>
-    <div class="conc-price-note">Sem mensalidade. Do planejamento ao suporte durante a viagem.</div>
+    <div class="conc-price-label">Pronto para começar?</div>
+    <div class="conc-price-value" style="font-size:1.8rem;line-height:1.2;margin:6px 0 10px">Sua viagem, planejada por quem entende.</div>
+    <div class="conc-price-note">Pagamento único e seguro. Você vê o valor na hora de contratar.</div>
     <ul>
-      <li>Duas conversas personalizadas</li>
-      <li>Roteiro sob medida e ajustado com você</li>
-      <li>Suporte no WhatsApp durante toda a viagem</li>
+      <li>Transporte e hospedagem avaliados</li>
+      <li>Roteiro otimizado dia a dia</li>
+      <li>Acompanhamento durante a viagem</li>
     </ul>
-    <a href="https://wa.me/5511910214133?text=Olá! Quero contratar a Assessoria OND (R$500)" class="btn-primary" target="_blank" rel="noopener">Quero suporte humano na minha viagem →</a>
+    <a href="https://ond-assessoria.pages.dev/" class="btn-primary" target="_blank" rel="noopener">Contratar agora →</a>
   </div>
 </div>
 
