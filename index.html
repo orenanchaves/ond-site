@@ -143,6 +143,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 
 /* ── ARCO DA VIAGEM ── */
 .arco{background:var(--surface);padding:80px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.arco-book{max-width:720px;margin:0 auto 44px;background:linear-gradient(135deg,var(--purple-dim),transparent);border:1px solid color-mix(in srgb, var(--purple) 25%, transparent);border-radius:16px;padding:22px 26px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.arco-book-tag{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--purple-light)}
+.arco-book strong{font-size:1.08rem;font-weight:800;line-height:1.35}
+.arco-book-items{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.arco-book-chip{background:var(--card);border:1px solid var(--border);border-radius:50px;padding:8px 16px;font-size:.9rem;font-weight:700}
 .section-label{display:inline-block;color:var(--purple-light);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
 .section-title{font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:800;line-height:1.2;margin-bottom:12px}
 .section-sub{font-size:1rem;color:var(--muted);max-width:520px;line-height:1.7}
@@ -444,7 +449,16 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <div class="section-header centered">
     <span class="section-label">O arco da viagem</span>
     <h2 class="section-title">O OND te acompanha do sonho à volta</h2>
-    <p class="section-sub">Não é só um gerador de roteiro. É um companheiro de viagem inteligente para cada fase.</p>
+    <p class="section-sub">Não é só um gerador de roteiro: você descobre, planeja e <strong style="color:var(--text)">contrata a viagem inteira</strong> — e ainda viaja acompanhado, tudo num lugar só.</p>
+  </div>
+  <div class="arco-book">
+    <span class="arco-book-tag">Tudo num lugar só</span>
+    <strong>Contrate a viagem inteira sem sair do OND</strong>
+    <div class="arco-book-items">
+      <span class="arco-book-chip">✈️ Voos</span>
+      <span class="arco-book-chip">🏨 Hospedagem</span>
+      <span class="arco-book-chip">🎫 Passeios &amp; ingressos</span>
+    </div>
   </div>
   <div class="arco-steps">
     <div class="arco-step">
