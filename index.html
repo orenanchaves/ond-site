@@ -189,26 +189,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .b2b-card-desc{font-size:.8rem;color:var(--muted);line-height:1.5}
 
 /* ── OND vAI SECTION ── */
-.vai-section{background:var(--bg);padding:80px 5%;border-top:1px solid var(--border)}
-.vai-section-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto}
-.vai-section-desc{font-size:1rem;color:var(--muted);line-height:1.75;margin:16px 0 24px}
-.vai-bullets{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
-.vai-bullets li{display:flex;align-items:center;gap:10px;font-size:.93rem;color:var(--text)}
-.vai-bullet-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--green));flex-shrink:0}
-.vai-section-demo{display:flex;flex-direction:column;gap:20px}
-.vai-demo-chat{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:12px}
-.vai-demo-msg{padding:10px 14px;border-radius:12px;font-size:.85rem;line-height:1.55;max-width:85%}
-.vai-demo-user{background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 20%, transparent);align-self:flex-end;text-align:right}
-.vai-demo-bot{background:var(--surface);border:1px solid var(--border);align-self:flex-start}
-.vai-demo-typing{display:flex;gap:4px;align-items:center;padding:8px 14px}
-.vai-demo-typing span{width:7px;height:7px;border-radius:50%;background:var(--muted2);animation:typing .9s ease-in-out infinite}
-.vai-demo-typing span:nth-child(2){animation-delay:.15s}
-.vai-demo-typing span:nth-child(3){animation-delay:.3s}
 @keyframes typing{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
 
 /* ── ORB (idêntico ao app ondjarvis.pages.dev) ── */
-.vai-orb-area{position:relative;display:flex;align-items:center;justify-content:center;height:280px}
-.vai-orb-area::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb, var(--ond-app-purple) 18%, transparent) 0%,transparent 70%);pointer-events:none;animation:ambientPulse 4s ease-in-out infinite}
 @keyframes ambientPulse{0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}}
 .orb-wrap{position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center}
 .orb-ring{position:absolute;border-radius:50%;border:1px solid color-mix(in srgb, var(--ond-app-purple) 20%, transparent)}
@@ -221,18 +204,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .orb-main svg{width:44px;height:44px;position:relative;z-index:1}
 @keyframes orbMorph{0%{border-radius:50%}20%{border-radius:58% 42% 54% 46%/50% 58% 42% 50%}40%{border-radius:44% 56% 48% 52%/58% 42% 56% 44%}60%{border-radius:52% 48% 44% 56%/44% 54% 46% 56%}80%{border-radius:46% 54% 56% 44%/52% 46% 54% 48%}100%{border-radius:50%}}
 .orb-label{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
-
-/* ── FLOATING TRIGGER (mesma estética do app) ── */
-@keyframes orbColorCycle{
-  0%  {background:linear-gradient(135deg,var(--ond-app-purple),#b44fff);box-shadow:0 0 14px rgba(127,17,244,.6),0 0 28px rgba(127,17,244,.25),0 4px 28px rgba(127,17,244,.5)}
-  16% {background:linear-gradient(135deg,#0066ff,#44aaff);box-shadow:0 0 14px rgba(0,102,255,.6),0 0 28px rgba(0,102,255,.25),0 4px 28px rgba(0,102,255,.4)}
-  33% {background:linear-gradient(135deg,#00bcd4,#00e5ff);box-shadow:0 0 14px rgba(0,188,212,.6),0 0 28px rgba(0,188,212,.25),0 4px 28px rgba(0,188,212,.4)}
-  50% {background:linear-gradient(135deg,#00c853,#69f0ae);box-shadow:0 0 14px rgba(0,200,83,.6),0 0 28px rgba(0,200,83,.25),0 4px 28px rgba(0,200,83,.4)}
-  66% {background:linear-gradient(135deg,#ff6d00,#ffab40);box-shadow:0 0 14px rgba(255,109,0,.6),0 0 28px rgba(255,109,0,.25),0 4px 28px rgba(255,109,0,.4)}
-  83% {background:linear-gradient(135deg,#d500f9,#ea80fc);box-shadow:0 0 14px rgba(213,0,249,.6),0 0 28px rgba(213,0,249,.25),0 4px 28px rgba(213,0,249,.4)}
-  100%{background:linear-gradient(135deg,var(--ond-app-purple),#b44fff);box-shadow:0 0 14px rgba(127,17,244,.6),0 0 28px rgba(127,17,244,.25),0 4px 28px rgba(127,17,244,.5)}
-}
-@keyframes orbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
 
 /* ── APP CTA ── */
 .app-cta{background:var(--surface);padding:80px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:60px}
@@ -281,32 +252,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .contact-option-desc{font-size:.78rem;color:var(--muted)}
 .contact-option-arrow{margin-left:auto;color:var(--muted2);font-size:.9rem;flex-shrink:0}
 
-/* ── FLOATING OND vAI ── */
-.vai-trigger{position:fixed;bottom:28px;right:28px;z-index:999;width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;animation:orbColorCycle 8s linear infinite,orbPulse 3s ease-in-out infinite;transition:transform .18s}
-.vai-trigger:hover{transform:scale(1.1)}
-.vai-trigger::before{content:'';position:absolute;inset:4px;border-radius:50%;background:linear-gradient(145deg,color-mix(in srgb, var(--ond-app-white) 22%, transparent) 0%,transparent 55%);pointer-events:none;z-index:2}
-.vai-trigger svg{position:relative;z-index:3}
-.vai-label{position:absolute;right:76px;top:50%;transform:translateY(-50%);background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:8px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s;box-shadow:0 4px 16px rgba(0,0,0,.4)}
-.vai-trigger:hover .vai-label{opacity:1}
-.vai-modal{position:fixed;bottom:100px;right:28px;z-index:998;width:380px;height:560px;max-height:calc(100vh - 120px);background:var(--surface);border:1px solid color-mix(in srgb, var(--purple) 20%, transparent);border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.65);display:none;flex-direction:column;opacity:0;transform:scale(.94) translateY(16px);transition:opacity .22s,transform .25s cubic-bezier(.34,1.56,.64,1)}
-.vai-modal.open{display:flex}
-.vai-modal.visible{opacity:1;transform:scale(1) translateY(0)}
-.vai-modal-header{background:color-mix(in srgb, var(--purple) 8%, transparent);border-bottom:1px solid var(--border);padding:13px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
-.vai-orb{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--purple),#5218d4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.vai-modal-title{font-size:.92rem;font-weight:700}
-.vai-online{font-size:.72rem;color:var(--green);display:flex;align-items:center;gap:4px}
-.vai-online::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%}
-.vai-close{margin-left:auto;background:none;border:none;color:var(--muted);font-size:1.1rem;cursor:pointer;padding:4px 6px;transition:color .2s;line-height:1}
-.vai-close:hover{color:var(--text)}
-.vai-body{flex:1;overflow:hidden}
-.vai-body iframe{width:100%;height:100%;border:none;display:block}
-.vai-foot{padding:7px 14px;text-align:center;font-size:.7rem;color:var(--muted2);border-top:1px solid var(--border);flex-shrink:0}
-
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
   .conquistas-grid{grid-template-columns:1fr 1fr}
-  .vai-section-inner{grid-template-columns:1fr}
-  .vai-orb-area{height:220px}
   .orb-main{width:90px;height:90px}.orb-main svg{width:34px;height:34px}
   .header-nav{display:none}.header-menu-btn{display:block}
   .hero{grid-template-columns:1fr;padding:48px 5% 40px;min-height:auto;gap:28px}
@@ -325,7 +273,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   .conquistas-grid{grid-template-columns:1fr}
   .features-grid{grid-template-columns:1fr}.b2b-cards{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr}.arco-steps{grid-template-columns:1fr}
-  .vai-modal{width:calc(100vw - 20px);right:10px;bottom:88px}
   .hero-app-btns{flex-direction:column}.app-store-btn{width:100%;max-width:240px}
   .stats{gap:0}.stat{width:50%;border-right:none;border-bottom:1px solid var(--border);padding:14px 10px}
   .stat:nth-child(odd){border-right:1px solid var(--border)}.stat:last-child,.stat:nth-last-child(2):nth-child(odd){border-bottom:none}
@@ -776,12 +723,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
 </div>
 
-<!-- OND vAI FLUTUANTE -->
-<a class="vai-trigger" href="https://ondjarvis.pages.dev" target="_blank" rel="noopener" aria-label="Abrir OND vAI">
-  <svg viewBox="0 0 497.26 497.26" width="28" height="28" style="position:relative;z-index:3;fill:var(--ond-color-onPrimary)"><use href="#ond-icon"/></svg>
-  <span class="vai-label">OND vAI</span>
-</a>
-
 <script>
 function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open')}
 function closeMenu(){document.getElementById('mobileNav').classList.remove('open')}
@@ -798,7 +739,6 @@ function toggleTheme(){
   else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☀️';localStorage.setItem('ond_theme','light')}
 }
 ;(function(){if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.textContent='☀️'}})()
-
 
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',function(e){

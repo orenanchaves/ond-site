@@ -238,34 +238,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .footer-col a.footer-home:hover{color:var(--blue)}
 .footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--muted2);flex-wrap:wrap;gap:8px}
 
-/* ── FLOATING vAI ── */
-@keyframes orbColorCycle{
-  0%  {background:linear-gradient(135deg,#0044cc,var(--blue));box-shadow:0 0 14px color-mix(in srgb, var(--blue) 60%, transparent),0 0 28px color-mix(in srgb, var(--blue) 25%, transparent),0 4px 28px color-mix(in srgb, var(--blue) 50%, transparent)}
-  33% {background:linear-gradient(135deg,#00bcd4,#00e5ff);box-shadow:0 0 14px rgba(0,188,212,.6),0 0 28px rgba(0,188,212,.25),0 4px 28px rgba(0,188,212,.4)}
-  66% {background:linear-gradient(135deg,#5511f4,#7f44ff);box-shadow:0 0 14px rgba(85,17,244,.6),0 0 28px rgba(85,17,244,.25),0 4px 28px rgba(85,17,244,.4)}
-  100%{background:linear-gradient(135deg,#0044cc,var(--blue));box-shadow:0 0 14px color-mix(in srgb, var(--blue) 60%, transparent),0 0 28px color-mix(in srgb, var(--blue) 25%, transparent),0 4px 28px color-mix(in srgb, var(--blue) 50%, transparent)}
-}
-@keyframes orbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
-.vai-trigger{position:fixed;bottom:28px;right:28px;z-index:999;width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;animation:orbColorCycle 6s linear infinite,orbPulse 3s ease-in-out infinite;transition:transform .18s}
-.vai-trigger:hover{transform:scale(1.1)}
-.vai-trigger::before{content:'';position:absolute;inset:4px;border-radius:50%;background:linear-gradient(145deg,color-mix(in srgb, var(--ond-app-white) 22%, transparent) 0%,transparent 55%);pointer-events:none;z-index:2}
-.vai-trigger svg{position:relative;z-index:3}
-.vai-label{position:absolute;right:76px;top:50%;transform:translateY(-50%);background:var(--card);border:1px solid var(--border);color:var(--text);font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:8px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s;box-shadow:0 4px 16px rgba(0,0,0,.4)}
-.vai-trigger:hover .vai-label{opacity:1}
-.vai-modal{position:fixed;bottom:100px;right:28px;z-index:998;width:380px;height:560px;max-height:calc(100vh - 120px);background:var(--surface);border:1px solid color-mix(in srgb, var(--blue) 25%, transparent);border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.7);display:none;flex-direction:column;opacity:0;transform:scale(.94) translateY(16px);transition:opacity .22s,transform .25s cubic-bezier(.34,1.56,.64,1)}
-.vai-modal.open{display:flex}
-.vai-modal.visible{opacity:1;transform:scale(1) translateY(0)}
-.vai-modal-header{background:var(--blue-dim);border-bottom:1px solid var(--border);padding:13px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
-.vai-orb-sm{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0044cc,var(--blue));display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 12px var(--blue-glow)}
-.vai-modal-title{font-size:.92rem;font-weight:700}
-.vai-online{font-size:.72rem;color:var(--green);display:flex;align-items:center;gap:4px}
-.vai-online::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;box-shadow:0 0 6px var(--green)}
-.vai-close{margin-left:auto;background:none;border:none;color:var(--muted);font-size:1.1rem;cursor:pointer;padding:4px 6px;line-height:1}
-.vai-close:hover{color:var(--text)}
-.vai-body{flex:1;overflow:hidden}
-.vai-body iframe{width:100%;height:100%;border:none;display:block}
-.vai-foot{padding:7px 14px;text-align:center;font-size:.7rem;color:var(--muted2);border-top:1px solid var(--border);flex-shrink:0}
-
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
   .header-nav{display:none}.header-menu-btn{display:block}
@@ -286,7 +258,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   .footer-inner{grid-template-columns:1fr}
   .cta-final-btns{flex-direction:column;align-items:center}
   .btn-green,.btn-whatsapp{width:100%;max-width:300px;justify-content:center}
-  .vai-modal{width:calc(100vw - 20px);right:10px;bottom:88px}
   .stats{flex-direction:column;align-items:center}.stat{border-right:none;border-bottom:1px solid var(--border);width:100%;max-width:280px;padding:14px 0}
   .stat:last-child{border-bottom:none}
   .side-stat-grid{grid-template-columns:1fr 1fr}
@@ -697,28 +668,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   </div>
 </footer>
 
-<!-- OND vAI FLUTUANTE -->
-<button class="vai-trigger" id="vaiTrigger" onclick="toggleVAI()" aria-label="Abrir OND vAI">
-  <svg viewBox="0 0 497.26 497.26" fill="white" width="28" height="28" style="position:relative;z-index:3"><use href="#ond-icon"/></svg>
-  <span class="vai-label">OND vAI</span>
-</button>
-<div class="vai-modal" id="vaiModal">
-  <div class="vai-modal-header">
-    <div class="vai-orb-sm">
-      <svg viewBox="0 0 497.26 497.26" fill="white" width="16" height="16"><use href="#ond-icon"/></svg>
-    </div>
-    <div>
-      <div class="vai-modal-title">OND vAI · Agência</div>
-      <div class="vai-online">online agora</div>
-    </div>
-    <button class="vai-close" onclick="toggleVAI()">✕</button>
-  </div>
-  <div class="vai-body">
-    <iframe src="https://ondjarvis.pages.dev/agencia" title="OND vAI Agência" loading="lazy" allow="clipboard-write"></iframe>
-  </div>
-  <div class="vai-foot">OND vAI · Agama Tec</div>
-</div>
-
 <script>
 function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open')}
 function closeMenu(){document.getElementById('mobileNav').classList.remove('open')}
@@ -732,20 +681,6 @@ function toggleTheme(){
   else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☀️';localStorage.setItem('ond_theme','light')}
 }
 ;(function(){if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.textContent='☀️'}})()
-let vaiOpen=false
-const CLOSE_SVG='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" style="position:relative;z-index:3"><path d="M18 6L6 18M6 6l12 12"/></svg><span class="vai-label">Fechar</span>'
-const OPEN_SVG='<svg viewBox="0 0 497.26 497.26" fill="white" width="28" height="28" style="position:relative;z-index:3"><use href="#ond-icon"/></svg><span class="vai-label">OND vAI</span>'
-function toggleVAI(){
-  vaiOpen=!vaiOpen
-  const modal=document.getElementById('vaiModal'),trigger=document.getElementById('vaiTrigger')
-  if(vaiOpen){modal.style.display='flex';requestAnimationFrame(()=>requestAnimationFrame(()=>modal.classList.add('visible')));trigger.innerHTML=CLOSE_SVG}
-  else{modal.classList.remove('visible');trigger.innerHTML=OPEN_SVG;setTimeout(()=>{modal.style.display='none'},250)}
-}
-document.addEventListener('click',function(e){
-  if(!vaiOpen)return
-  const modal=document.getElementById('vaiModal'),trigger=document.getElementById('vaiTrigger')
-  if(!modal.contains(e.target)&&!trigger.contains(e.target))toggleVAI()
-})
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',function(e){
     const el=document.querySelector(this.getAttribute('href'))

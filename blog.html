@@ -162,22 +162,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .contact-option-arrow{margin-left:auto;color:var(--muted2);font-size:.9rem;flex-shrink:0}
 
 /* ── OND vAI FLUTUANTE ── */
-@keyframes orbColorCycle{
-  0%  {background:linear-gradient(135deg,var(--ond-app-purple),#b44fff);box-shadow:0 0 14px color-mix(in srgb, var(--ond-app-purple) 60%, transparent),0 0 28px color-mix(in srgb, var(--ond-app-purple) 25%, transparent),0 4px 28px color-mix(in srgb, var(--ond-app-purple) 50%, transparent)}
-  16% {background:linear-gradient(135deg,#0066ff,#44aaff);box-shadow:0 0 14px rgba(0,102,255,.6),0 0 28px rgba(0,102,255,.25),0 4px 28px rgba(0,102,255,.4)}
-  33% {background:linear-gradient(135deg,#00bcd4,#00e5ff);box-shadow:0 0 14px rgba(0,188,212,.6),0 0 28px rgba(0,188,212,.25),0 4px 28px rgba(0,188,212,.4)}
-  50% {background:linear-gradient(135deg,#00c853,#69f0ae);box-shadow:0 0 14px rgba(0,200,83,.6),0 0 28px rgba(0,200,83,.25),0 4px 28px rgba(0,200,83,.4)}
-  66% {background:linear-gradient(135deg,#ff6d00,#ffab40);box-shadow:0 0 14px rgba(255,109,0,.6),0 0 28px rgba(255,109,0,.25),0 4px 28px rgba(255,109,0,.4)}
-  83% {background:linear-gradient(135deg,#d500f9,#ea80fc);box-shadow:0 0 14px rgba(213,0,249,.6),0 0 28px rgba(213,0,249,.25),0 4px 28px rgba(213,0,249,.4)}
-  100%{background:linear-gradient(135deg,var(--ond-app-purple),#b44fff);box-shadow:0 0 14px color-mix(in srgb, var(--ond-app-purple) 60%, transparent),0 0 28px color-mix(in srgb, var(--ond-app-purple) 25%, transparent),0 4px 28px color-mix(in srgb, var(--ond-app-purple) 50%, transparent)}
-}
-@keyframes orbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
-.vai-trigger{position:fixed;bottom:28px;right:28px;z-index:999;width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;animation:orbColorCycle 8s linear infinite,orbPulse 3s ease-in-out infinite;transition:transform .18s;text-decoration:none}
-.vai-trigger:hover{transform:scale(1.1)}
-.vai-trigger::before{content:'';position:absolute;inset:4px;border-radius:50%;background:linear-gradient(145deg,color-mix(in srgb, var(--ond-app-white) 22%, transparent) 0%,transparent 55%);pointer-events:none;z-index:2}
-.vai-trigger svg{position:relative;z-index:3}
-.vai-label{position:absolute;right:76px;top:50%;transform:translateY(-50%);background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:8px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s;box-shadow:0 4px 16px rgba(0,0,0,.4)}
-.vai-trigger:hover .vai-label{opacity:1}
 
 @media(max-width:960px){
   .header-nav{display:none}.header-menu-btn{display:block}
@@ -420,12 +404,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     </a>
   </div>
 </div>
-
-<!-- OND vAI FLUTUANTE -->
-<a class="vai-trigger" href="https://ondjarvis.pages.dev" target="_blank" rel="noopener" aria-label="Abrir OND vAI">
-  <svg viewBox="0 0 497.26 497.26" width="28" height="28" style="position:relative;z-index:3;fill:var(--ond-app-white)"><use href="#ond-icon"/></svg>
-  <span class="vai-label">OND vAI</span>
-</a>
 
 <script>
 function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open')}
