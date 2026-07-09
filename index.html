@@ -42,9 +42,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .theme-btn:hover{border-color:var(--purple);background:var(--purple-dim)}
 .header-logo img{height:36px;display:block}
 .header-logo-svg{height:42px;width:auto}
-/* Logo OND — regra de marca: bússola SEMPRE roxa #7F11F4; wordmark branco (fundo escuro) / ink (fundo claro). Nunca tingir. */
-.ond-letter{fill:#1E1E1E}
-[data-theme="dark"] .ond-letter{fill:#FFFFFF}
+/* Logo OND — bússola SEMPRE roxa #7F11F4; wordmark branco (fundo escuro) / ink (fundo claro).
+   Wordmark usa var(--ond-color-text) — seletor SIMPLES de propósito: regra com ancestral [data-theme] não atravessa o <use> do SVG (o wordmark saía escuro). Variável CSS é herdada pelo <use>, então acompanha o tema. */
+.ond-letter{fill:var(--ond-color-text)}
 .ond-diamond{fill:#7F11F4}
 .footer-logo-svg{height:26px;width:auto;margin-bottom:14px;display:block}
 .header-nav{display:flex;gap:16px;list-style:none;align-items:center}
