@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a0a12">
+<meta name="theme-color" content="#0d0d14">
 <meta name="description" content="OND — organize sua viagem com IA. Roteiro completo, rotas e concierge inteligente em 5 minutos. Disponível no Android, iOS e na web.">
 <title>OND — Organize sua viagem com IA</title>
+<link rel="icon" type="image/svg+xml" href="assets/ond-symbol.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -41,8 +42,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .theme-btn:hover{border-color:var(--purple);background:var(--purple-dim)}
 .header-logo img{height:36px;display:block}
 .header-logo-svg{height:42px;width:auto}
-.ond-letter{fill:var(--text)}
-.ond-diamond{fill:var(--purple)}
+/* Logo OND — regra de marca: bússola SEMPRE roxa #7F11F4; wordmark branco (fundo escuro) / ink (fundo claro). Nunca tingir. */
+.ond-letter{fill:#1E1E1E}
+[data-theme="dark"] .ond-letter{fill:#FFFFFF}
+.ond-diamond{fill:#7F11F4}
 .footer-logo-svg{height:26px;width:auto;margin-bottom:14px;display:block}
 .header-nav{display:flex;gap:16px;list-style:none;align-items:center}
 .header-nav a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
