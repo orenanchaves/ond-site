@@ -533,6 +533,58 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <div class="stat"><div class="stat-num"><em>iOS</em> · <em>Android</em> · Web</div><div class="stat-label">disponível em todas plataformas</div></div>
 </div>
 
+<!-- COMO FUNCIONA + EXEMPLO INTERATIVO (mesclados) -->
+<section class="roteiro" id="como-funciona">
+  <div class="roteiro-inner">
+    <div class="roteiro-text">
+      <span class="section-label">Como funciona</span>
+      <h2 class="section-title">Do destino ao roteiro em 3 passos</h2>
+      <p class="section-sub">Toque no exemplo ao lado e veja o <span style="text-transform:none">OND vAI</span> montar um roteiro completo — igual ao app. Sem formulário longo, sem cadastro: é só conversar.</p>
+      <ol class="how-steps">
+        <li><span class="how-n">1</span><div><strong>Conte o que você quer</strong><span>Destino, época, quem vai. A IA pergunta o resto pra acertar o roteiro.</span></div></li>
+        <li><span class="how-n">2</span><div><strong>O OND vAI monta o roteiro</strong><span>Dia a dia com atrações, rotas, horários e custos — e ainda indica passeios, hospedagens e voos pra você reservar.</span></div></li>
+        <li><span class="how-n">3</span><div><strong>Viaje com tudo na mão</strong><span>App, web, PDF offline ou e-mail. Ajuste durante a viagem quando quiser.</span></div></li>
+      </ol>
+      <div class="roteiro-indica"><span>Indica o que reservar:</span><b>✈️ Voos</b><b>🏨 Hospedagens</b><b>🎟️ Passeios</b></div>
+      <a href="#app" onclick="openApp(event)" class="btn-primary">Teste o app grátis →</a>
+    </div>
+    <div class="roteiro-stage">
+      <div class="phone">
+        <div class="rot-screen" id="mkScreen" data-state="chat">
+          <!-- 1) CHAT: escolhe destino, quando e quem -->
+          <div class="mk-chat">
+            <div class="mk-top"><img class="mk-logo" src="assets/ond-logo.png" alt="OND"><span class="mk-on"><i></i> vAI online</span></div>
+            <div class="mk-body" id="mkBody"></div>
+            <div class="mk-chips" id="mkChips"></div>
+          </div>
+          <!-- 2) GERANDO -->
+          <div class="mk-gen">
+            <div class="mk-gen-star"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path fill="#7F11F4" d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></div>
+            <div class="mk-gen-t">Montando seu roteiro…</div>
+            <div class="mk-gen-steps" id="mkSteps"></div>
+          </div>
+          <!-- 3) ROTEIRO gerado (fiel ao app) -->
+          <div class="mk-rot">
+            <div class="rot-banner" id="rotBanner"><div class="rot-ava"><img src="assets/ondino.png" alt="Ondino, o planejador do OND"></div></div>
+            <div class="rot-scroll">
+              <div class="rot-tabs">
+                <span class="ttab loc" id="rotLoc">🇺🇸 Orlando</span>
+                <span class="ttab active">Visão geral</span>
+                <span class="ttab">Dia a dia</span>
+                <span class="ttab">✈️ Viagem</span>
+                <span class="ttab">＄ Financeiro</span>
+              </div>
+              <div class="rot-metaline" id="rotMeta"></div>
+              <div id="rotDays"></div>
+            </div>
+            <div class="rot-foot">✨ Montado pelo <b style="color:#7b2ff2">OND vAI</b> · <span class="g">PDF ✓</span><button class="mk-replay" id="mkReplay">↻ Recomeçar</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONQUISTAS -->
 <section class="conquistas">
   <div class="conquistas-inner">
@@ -672,58 +724,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         <span class="arco-feat">Controle de gastos</span>
         <span class="arco-feat">Memória de preferências</span>
         <span class="arco-feat">Loop sonho→sonho</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMO FUNCIONA + EXEMPLO INTERATIVO (mesclados) -->
-<section class="roteiro" id="como-funciona">
-  <div class="roteiro-inner">
-    <div class="roteiro-text">
-      <span class="section-label">Como funciona</span>
-      <h2 class="section-title">Do destino ao roteiro em 3 passos</h2>
-      <p class="section-sub">Toque no exemplo ao lado e veja o <span style="text-transform:none">OND vAI</span> montar um roteiro completo — igual ao app. Sem formulário longo, sem cadastro: é só conversar.</p>
-      <ol class="how-steps">
-        <li><span class="how-n">1</span><div><strong>Conte o que você quer</strong><span>Destino, época, quem vai. A IA pergunta o resto pra acertar o roteiro.</span></div></li>
-        <li><span class="how-n">2</span><div><strong>O OND vAI monta o roteiro</strong><span>Dia a dia com atrações, rotas, horários e custos — e ainda indica passeios, hospedagens e voos pra você reservar.</span></div></li>
-        <li><span class="how-n">3</span><div><strong>Viaje com tudo na mão</strong><span>App, web, PDF offline ou e-mail. Ajuste durante a viagem quando quiser.</span></div></li>
-      </ol>
-      <div class="roteiro-indica"><span>Indica o que reservar:</span><b>✈️ Voos</b><b>🏨 Hospedagens</b><b>🎟️ Passeios</b></div>
-      <a href="#app" onclick="openApp(event)" class="btn-primary">Teste o app grátis →</a>
-    </div>
-    <div class="roteiro-stage">
-      <div class="phone">
-        <div class="rot-screen" id="mkScreen" data-state="chat">
-          <!-- 1) CHAT: escolhe destino, quando e quem -->
-          <div class="mk-chat">
-            <div class="mk-top"><img class="mk-logo" src="assets/ond-logo.png" alt="OND"><span class="mk-on"><i></i> vAI online</span></div>
-            <div class="mk-body" id="mkBody"></div>
-            <div class="mk-chips" id="mkChips"></div>
-          </div>
-          <!-- 2) GERANDO -->
-          <div class="mk-gen">
-            <div class="mk-gen-star"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path fill="#7F11F4" d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></div>
-            <div class="mk-gen-t">Montando seu roteiro…</div>
-            <div class="mk-gen-steps" id="mkSteps"></div>
-          </div>
-          <!-- 3) ROTEIRO gerado (fiel ao app) -->
-          <div class="mk-rot">
-            <div class="rot-banner" id="rotBanner"><div class="rot-ava"><img src="assets/ondino.png" alt="Ondino, o planejador do OND"></div></div>
-            <div class="rot-scroll">
-              <div class="rot-tabs">
-                <span class="ttab loc" id="rotLoc">🇺🇸 Orlando</span>
-                <span class="ttab active">Visão geral</span>
-                <span class="ttab">Dia a dia</span>
-                <span class="ttab">✈️ Viagem</span>
-                <span class="ttab">＄ Financeiro</span>
-              </div>
-              <div class="rot-metaline" id="rotMeta"></div>
-              <div id="rotDays"></div>
-            </div>
-            <div class="rot-foot">✨ Montado pelo <b style="color:#7b2ff2">OND vAI</b> · <span class="g">PDF ✓</span><button class="mk-replay" id="mkReplay">↻ Recomeçar</button></div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
