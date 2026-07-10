@@ -474,7 +474,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <li><a href="agencias.html" class="nav-agencias">Para Agências →</a></li>
   </ul></nav>
   <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
-  <a href="#app" class="header-cta">Baixar grátis →</a>
+  <a href="#app" onclick="openApp(event)" class="header-cta">Teste o app →</a>
   <button class="header-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
 </header>
 <nav class="mobile-nav" id="mobileNav">
@@ -484,7 +484,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <a href="blog.html" onclick="closeMenu()">Blog</a>
   <a href="#" onclick="openContact(event);closeMenu()">Contato</a>
   <a href="agencias.html" onclick="closeMenu()" style="color:var(--green);font-weight:600">Para Agências →</a>
-  <a href="#app" style="color:var(--purple);font-weight:700">Baixar grátis →</a>
+  <a href="#app" onclick="openApp(event);closeMenu()" style="color:var(--purple);font-weight:700">Teste o app →</a>
 </nav>
 
 <!-- HERO -->
@@ -607,7 +607,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <span class="ialei-tag">O jogo virou</span>
     <h2 class="ialei-title">IA é lei do turismo <em>agora</em>.</h2>
     <p class="ialei-sub">Quem planeja com inteligência artificial viaja melhor, mais rápido e gastando certo. O OND coloca essa tecnologia no seu bolso — e é grátis para começar.</p>
-    <div style="margin-top:26px"><a href="#app" class="btn-primary">Baixar grátis →</a></div>
+    <div style="margin-top:26px"><a href="#app" onclick="openApp(event)" class="btn-primary">Teste o app grátis →</a></div>
   </div>
 </section>
 
@@ -686,7 +686,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         <li><span class="how-n">2</span><div><strong>O OND vAI monta o roteiro</strong><span>Dia a dia, com atrações, rotas, horários e custos — em segundos.</span></div></li>
         <li><span class="how-n">3</span><div><strong>Viaje com tudo na mão</strong><span>App, web, PDF offline ou e-mail. Ajuste durante a viagem quando quiser.</span></div></li>
       </ol>
-      <a href="#app" class="btn-primary">Baixar grátis →</a>
+      <a href="#app" onclick="openApp(event)" class="btn-primary">Teste o app grátis →</a>
     </div>
     <div class="roteiro-stage">
       <div class="phone">
@@ -1093,6 +1093,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   later(begin,2500);
 })();
 </script>
+<script src="assets/app-modal.js" defer></script>
 <script src="assets/vai-widget.js" defer></script>
 </body>
 </html>
