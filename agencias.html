@@ -251,14 +251,26 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   .stat{padding:8px 24px}
 }
 @media(max-width:600px){
+  /* Header: o CTA já vive dentro do menu hambúrguer (.mobile-nav); remover daqui evita
+     estouro horizontal (o header é flex sem wrap e o botão de 224px empurrava o menu pra fora). */
+  .header-cta{display:none}
+  .header{padding:0 20px;gap:10px}
   .problema-cards{grid-template-columns:1fr}
   .steps-row{grid-template-columns:1fr}
   .diff-grid{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr}
+  .hero-ctas{flex-direction:column;align-items:stretch}
+  .hero-ctas .btn-green,.hero-ctas .btn-whatsapp{width:100%;justify-content:center}
   .cta-final-btns{flex-direction:column;align-items:center}
   .btn-green,.btn-whatsapp{width:100%;max-width:300px;justify-content:center}
   .stats{flex-direction:column;align-items:center}.stat{border-right:none;border-bottom:1px solid var(--border);width:100%;max-width:280px;padding:14px 0}
   .stat:last-child{border-bottom:none}
+  .side-stat-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:400px){
+  /* telas bem estreitas: garante respiro e alvos de toque confortáveis */
+  .hero{padding:48px 20px 40px}
+  .problema,.how,.features,.diff,.proof,.cta-final{padding-left:20px;padding-right:20px}
   .side-stat-grid{grid-template-columns:1fr 1fr}
 }
 /* acessibilidade: foco visível no teclado */
