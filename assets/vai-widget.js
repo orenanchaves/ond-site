@@ -6,7 +6,7 @@
 
   var PLAY = 'https://play.google.com/store/apps/details?id=com.agamatec.ond';
   var APPSTORE = 'https://apps.apple.com/br/app/ond-assistente-de-viagem/id6758392427';
-  var WEB = 'https://web.ondviajar.com.br/home';
+  var WEB = 'https://web.ondviajar.com.br/';
 
   // rosa dos ventos (símbolo OND)
   var SYMBOL = '<svg viewBox="0 0 497.26 497.26"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg>';

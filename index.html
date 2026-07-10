@@ -307,6 +307,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .roteiro-feats li{display:flex;align-items:flex-start;gap:10px;font-size:.95rem;color:var(--muted);line-height:1.5}
 .roteiro-feats li::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0}
 .roteiro-feats strong{color:var(--text);font-weight:700}
+.how-steps{list-style:none;margin:24px 0 30px;display:flex;flex-direction:column;gap:18px}
+.how-steps li{display:flex;gap:14px;align-items:flex-start}
+.how-n{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 35%, transparent);color:var(--purple-light);font-weight:800;font-size:.9rem;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.how-steps li>div{display:flex;flex-direction:column;gap:3px}
+.how-steps strong{font-size:1rem;font-weight:700;color:var(--text)}
+.how-steps li>div>span{font-size:.9rem;color:var(--muted);line-height:1.5}
 .roteiro-stage{display:flex;justify-content:center;position:relative}
 .roteiro-stage::before{content:'';position:absolute;width:360px;height:360px;background:radial-gradient(circle,color-mix(in srgb, var(--purple) 22%, transparent),transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 .phone{position:relative;width:288px;background:#0b0b12;border:9px solid #23232f;border-radius:42px;box-shadow:0 30px 70px rgba(0,0,0,.55);overflow:hidden;animation:phone-float 5.5s ease-in-out infinite}
@@ -389,6 +395,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   .roteiro-inner{grid-template-columns:1fr;gap:36px}
   .roteiro-text{text-align:center;max-width:520px;margin:0 auto}
   .roteiro-feats{align-items:center}.roteiro-feats li{text-align:left}
+  .how-steps{max-width:380px;margin-left:auto;margin-right:auto}
+  .how-steps li{text-align:left}
 }
 </style>
 <script type="application/ld+json">
@@ -499,7 +507,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       </a>
     </div>
     <div class="hero-secondary-btns">
-      <a href="https://web.ondviajar.com.br/home" class="hero-sec-btn" target="_blank" rel="noopener">
+      <a href="https://web.ondviajar.com.br/" class="hero-sec-btn" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         Usar na Web
       </a>
@@ -666,45 +674,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
 </section>
 
-<!-- COMO USAR (3 PASSOS) -->
-<section class="how">
-  <div class="section-header centered">
-    <span class="section-label">Como funciona</span>
-    <h2 class="section-title">Do destino ao roteiro em 3 passos</h2>
-    <p class="section-sub">Sem formulários longos. Sem cadastro obrigatório. É só conversar.</p>
-  </div>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <h3 class="step-title">Conte o que você quer</h3>
-      <p class="step-desc">Destino, datas, quem vai, orçamento, estilo. Pode ser detalhado ou vago — a IA pergunta o que precisar para montar o melhor roteiro.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <h3 class="step-title">IA monta o roteiro</h3>
-      <p class="step-desc">Itinerário completo dia a hora, com atrações, rotas, horários, preços estimados e dicas práticas. Tudo ordenado de forma lógica e eficiente.</p>
-      <span class="step-highlight">⚡ Em menos de 5 minutos</span>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <h3 class="step-title">Viaje com tudo na mão</h3>
-      <p class="step-desc">Acesse pelo app, web, PDF offline, e-mail ou WhatsApp. Ajuste durante a viagem e tire dúvidas com o OND vAI a qualquer hora.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ROTEIRO DE EXEMPLO -->
+<!-- COMO FUNCIONA + EXEMPLO INTERATIVO (mesclados) -->
 <section class="roteiro" id="roteiro">
   <div class="roteiro-inner">
     <div class="roteiro-text">
-      <span class="section-label">Roteiro de exemplo</span>
-      <h2 class="section-title">Veja o OND vAI montar seu roteiro</h2>
-      <p class="section-sub">Toque nas opções ao lado — escolha destino, época e quem vai — e veja o <span style="text-transform:none">OND vAI</span> montar um roteiro completo em segundos, dia a dia, igual ao app.</p>
-      <ul class="roteiro-feats">
-        <li><strong>Dia a dia detalhado</strong>, com horários e sugestões</li>
-        <li><strong>Rotas prontas</strong> entre cada ponto do passeio</li>
-        <li><strong>PDF offline</strong>, e-mail e Google Calendar num toque</li>
-      </ul>
+      <span class="section-label">Como funciona</span>
+      <h2 class="section-title">Do destino ao roteiro em 3 passos</h2>
+      <p class="section-sub">Toque no exemplo ao lado e veja o <span style="text-transform:none">OND vAI</span> montar um roteiro completo — igual ao app. Sem formulário longo, sem cadastro: é só conversar.</p>
+      <ol class="how-steps">
+        <li><span class="how-n">1</span><div><strong>Conte o que você quer</strong><span>Destino, época, quem vai. A IA pergunta o resto pra acertar o roteiro.</span></div></li>
+        <li><span class="how-n">2</span><div><strong>O OND vAI monta o roteiro</strong><span>Dia a dia, com atrações, rotas, horários e custos — em segundos.</span></div></li>
+        <li><span class="how-n">3</span><div><strong>Viaje com tudo na mão</strong><span>App, web, PDF offline ou e-mail. Ajuste durante a viagem quando quiser.</span></div></li>
+      </ol>
       <a href="#app" class="btn-primary">Baixar grátis →</a>
     </div>
     <div class="roteiro-stage">
@@ -855,7 +836,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         <svg viewBox="0 0 24 24" width="26" height="26" style="fill:var(--ond-color-onPrimary)"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         <div class="app-btn-text"><span class="app-btn-sub">Baixar na</span><span class="app-btn-name">App Store</span></div>
       </a>
-      <a href="https://web.ondviajar.com.br/home" class="hero-sec-btn" style="margin-top:4px" target="_blank" rel="noopener">
+      <a href="https://web.ondviajar.com.br/" class="hero-sec-btn" style="margin-top:4px" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         Usar na Web
       </a>
@@ -876,7 +857,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <div class="footer-col">
       <h4>Viajantes</h4>
       <ul>
-        <li><a href="https://web.ondviajar.com.br/home" target="_blank" rel="noopener">Usar na Web</a></li>
+        <li><a href="https://web.ondviajar.com.br/" target="_blank" rel="noopener">Usar na Web</a></li>
         <li><a href="https://play.google.com/store/apps/details?id=com.agamatec.ond" target="_blank" rel="noopener">App Android</a></li>
         <li><a href="https://apps.apple.com/br/app/ond-assistente-de-viagem/id6758392427" target="_blank" rel="noopener">App iOS</a></li>
         <li><a href="#como-funciona">Como funciona</a></li>
