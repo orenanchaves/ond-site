@@ -312,7 +312,46 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .phone{position:relative;width:288px;background:#0b0b12;border:9px solid #23232f;border-radius:42px;box-shadow:0 30px 70px rgba(0,0,0,.55);overflow:hidden;animation:phone-float 5.5s ease-in-out infinite}
 @keyframes phone-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .phone::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:118px;height:20px;background:#23232f;border-radius:0 0 14px 14px;z-index:5}
-.rot-screen{background:#f4f1fb;height:540px;display:flex;flex-direction:column;overflow:hidden}
+.rot-screen{position:relative;background:#f4f1fb;height:540px;overflow:hidden}
+.mk-chat,.mk-gen,.mk-rot{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .35s}
+.rot-screen[data-state="chat"] .mk-chat{opacity:1;pointer-events:auto}
+.rot-screen[data-state="gen"] .mk-gen{opacity:1;pointer-events:auto}
+.rot-screen[data-state="roteiro"] .mk-rot{opacity:1;pointer-events:auto}
+/* chat */
+.mk-top{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:#fff;border-bottom:1px solid #ece6f7;flex:none}
+.mk-logo{height:21px;width:auto}
+.mk-on{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:#1b5e20}
+.mk-on i{width:7px;height:7px;border-radius:50%;background:#00c853;box-shadow:0 0 0 3px rgba(0,200,83,.18)}
+.mk-body{flex:1;overflow-y:auto;padding:16px 14px 6px;display:flex;flex-direction:column;gap:9px;scrollbar-width:none}
+.mk-body::-webkit-scrollbar{display:none}
+.mk-msg{max-width:84%;padding:10px 13px;border-radius:15px;font-size:12.5px;line-height:1.45;animation:mk-pop .2s ease}
+@keyframes mk-pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.mk-msg.ai{align-self:flex-start;background:#fff;color:#2a2438;border:1px solid #ece6f7;border-bottom-left-radius:5px;box-shadow:0 4px 14px rgba(46,10,94,.06)}
+.mk-msg.me{align-self:flex-end;background:#7b2ff2;color:#fff;border-bottom-right-radius:5px}
+.mk-msg.typing{display:flex;gap:4px;align-items:center;padding:13px 14px}
+.mk-msg.typing i{width:6px;height:6px;border-radius:50%;background:#b9a7e8;animation:mk-blink 1s infinite}
+.mk-msg.typing i:nth-child(2){animation-delay:.2s}.mk-msg.typing i:nth-child(3){animation-delay:.4s}
+@keyframes mk-blink{0%,60%,100%{opacity:.3}30%{opacity:1}}
+.mk-chips{display:flex;flex-wrap:wrap;gap:7px;padding:8px 14px 16px;flex:none}
+.mk-chip{border:1.5px solid #7b2ff2;color:#7b2ff2;background:#fff;border-radius:20px;padding:8px 14px;font-weight:600;font-size:12px;cursor:pointer;font-family:inherit;transition:background .15s,color .15s;animation:mk-pop .2s ease}
+.mk-chip:hover{background:#7b2ff2;color:#fff}
+/* gerando */
+.mk-gen{align-items:center;justify-content:center;gap:18px;background:#f4f1fb}
+.mk-gen-star{position:relative;width:72px;height:72px;display:flex;align-items:center;justify-content:center}
+.mk-gen-star::before{content:'';position:absolute;inset:0;border-radius:50%;border:3px solid #e6dcfb;border-top-color:#7b2ff2;animation:mk-spin .9s linear infinite}
+.mk-gen-star svg{width:34px;height:34px;animation:mk-pulse 1.1s ease-in-out infinite}
+@keyframes mk-spin{to{transform:rotate(360deg)}}
+@keyframes mk-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+.mk-gen-t{font-size:14px;font-weight:800;color:#4e1a9e}
+.mk-gen-steps{display:flex;flex-direction:column;gap:9px;font-size:11.5px;color:#8a86a0;min-width:190px}
+.mk-gen-step{opacity:.4;transition:opacity .3s,color .3s}
+.mk-gen-step.on{opacity:1;color:#2a2438}
+.mk-gen-step b{color:#00c853;font-weight:800}
+/* roteiro extras */
+.rot-metaline{font-size:11px;color:#6b6680;font-weight:600;margin:-2px 2px 12px}
+.rot-metaline b{color:#4e1a9e}
+.mk-replay{margin-left:auto;background:#efe9fb;color:#7b2ff2;border:none;border-radius:20px;padding:5px 11px;font-size:10.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.mk-replay:hover{background:#7b2ff2;color:#fff}
 .rot-banner{position:relative;height:104px;background:#3a1078 center/cover;flex:none}
 .rot-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,6,46,.4),rgba(20,6,46,0) 60%)}
 .rot-ava{position:absolute;left:50%;bottom:-24px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;background:#efe9fb;overflow:hidden;box-shadow:0 0 0 4px #f4f1fb,0 3px 10px rgba(46,10,94,.22);z-index:2}
@@ -659,8 +698,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <div class="roteiro-inner">
     <div class="roteiro-text">
       <span class="section-label">Roteiro de exemplo</span>
-      <h2 class="section-title">É assim que seu roteiro fica</h2>
-      <p class="section-sub">Dia a dia, na ordem certa: o que fazer, onde comer e como se locomover. O <span style="text-transform:none">OND vAI</span> monta em minutos — você só ajusta e viaja.</p>
+      <h2 class="section-title">Veja o OND vAI montar seu roteiro</h2>
+      <p class="section-sub">Toque nas opções ao lado — escolha destino, época e quem vai — e veja o <span style="text-transform:none">OND vAI</span> montar um roteiro completo em segundos, dia a dia, igual ao app.</p>
       <ul class="roteiro-feats">
         <li><strong>Dia a dia detalhado</strong>, com horários e sugestões</li>
         <li><strong>Rotas prontas</strong> entre cada ponto do passeio</li>
@@ -670,21 +709,35 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     </div>
     <div class="roteiro-stage">
       <div class="phone">
-        <div class="rot-screen">
-          <div class="rot-banner" style="background-image:url('https://images.unsplash.com/photo-1597466599360-3b9775841aec?w=600&q=70&auto=format')">
-            <div class="rot-ava"><img src="assets/ondino.png" alt="Ondino, o planejador do OND"></div>
+        <div class="rot-screen" id="mkScreen" data-state="chat">
+          <!-- 1) CHAT: escolhe destino, quando e quem -->
+          <div class="mk-chat">
+            <div class="mk-top"><img class="mk-logo" src="assets/ond-logo.png" alt="OND"><span class="mk-on"><i></i> vAI online</span></div>
+            <div class="mk-body" id="mkBody"></div>
+            <div class="mk-chips" id="mkChips"></div>
           </div>
-          <div class="rot-scroll">
-            <div class="rot-tabs">
-              <span class="ttab loc">🇺🇸 Orlando</span>
-              <span class="ttab active">Visão geral</span>
-              <span class="ttab">Dia a dia</span>
-              <span class="ttab">✈️ Viagem</span>
-              <span class="ttab">＄ Financeiro</span>
+          <!-- 2) GERANDO -->
+          <div class="mk-gen">
+            <div class="mk-gen-star"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path fill="#7F11F4" d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></div>
+            <div class="mk-gen-t">Montando seu roteiro…</div>
+            <div class="mk-gen-steps" id="mkSteps"></div>
+          </div>
+          <!-- 3) ROTEIRO gerado (fiel ao app) -->
+          <div class="mk-rot">
+            <div class="rot-banner" id="rotBanner"><div class="rot-ava"><img src="assets/ondino.png" alt="Ondino, o planejador do OND"></div></div>
+            <div class="rot-scroll">
+              <div class="rot-tabs">
+                <span class="ttab loc" id="rotLoc">🇺🇸 Orlando</span>
+                <span class="ttab active">Visão geral</span>
+                <span class="ttab">Dia a dia</span>
+                <span class="ttab">✈️ Viagem</span>
+                <span class="ttab">＄ Financeiro</span>
+              </div>
+              <div class="rot-metaline" id="rotMeta"></div>
+              <div id="rotDays"></div>
             </div>
-            <div id="rotDays"></div>
+            <div class="rot-foot">✨ Montado pelo <b style="color:#7b2ff2">OND vAI</b> · <span class="g">PDF ✓</span><button class="mk-replay" id="mkReplay">↻ Recomeçar</button></div>
           </div>
-          <div class="rot-foot">✨ Montado pelo <b style="color:#7b2ff2">OND vAI</b> · <span class="g">PDF ✓</span> · 5 dias</div>
         </div>
       </div>
     </div>
@@ -917,76 +970,146 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 })
 </script>
 <script>
-/* Roteiro de exemplo — fiel ao app (Orlando): dias colapsáveis + auto-abertura */
+/* Mockup interativo do app OND: chat (escolhe destino/quando/quem) -> gera -> roteiro fiel */
 (function(){
   var IMG='https://images.unsplash.com/';
-  var DAYS=[
-    {date:'12/07', title:'Chegada e respiro', acts:[
-      {t:'Check-in no Cabana Bay', time:'16:00 - 17:00'},
-      {t:'Disney Springs', time:'19:30 - 22:00', rate:'4.7', img:'photo-1506966953602-c20cc11f75e3'}
+  var DEST={
+    Orlando:{flag:'🇺🇸', banner:'photo-1597466599360-3b9775841aec', days:[
+      {title:'Chegada e respiro', acts:[
+        {t:'Check-in no Cabana Bay', time:'16:00 - 17:00'},
+        {t:'Disney Springs', time:'19:30 - 22:00', rate:'4.7', img:'photo-1506966953602-c20cc11f75e3'}]},
+      {title:'Magia no Magic Kingdom', acts:[
+        {t:'Magic Kingdom', time:'08:30 - 18:00', rate:'4.9', img:'photo-1597466599360-3b9775841aec'},
+        {t:'Almoço · Be Our Guest', time:'12:30 - 14:00', rate:'4.5', img:'photo-1589909202802-8f4aadce1849'},
+        {t:'Fogos "Happily Ever After"', time:'21:00 - 21:30', rate:'4.8'}]},
+      {title:'Universal: emoção sem parar', acts:[
+        {t:'Islands of Adventure', time:'09:00 - 13:00', rate:'4.8', img:'photo-1502602898657-3e91760cbb34'},
+        {t:'Universal Studios', time:'14:00 - 19:00', rate:'4.7', img:'photo-1496442226666-8d4d0e62e6e9'},
+        {t:'CityWalk', time:'20:00 - 22:00', rate:'4.4'}]},
+      {title:'Espaço e compras', acts:[
+        {t:'Kennedy Space Center', time:'09:00 - 15:00', rate:'4.8', img:'photo-1483729558449-99ef09a8c325'},
+        {t:'Vineland Premium Outlets', time:'16:00 - 19:00', rate:'4.5', img:'photo-1441986300917-64674bd600d8'}]},
+      {title:'Última volta e adeus', acts:[
+        {t:'ICON Park', time:'11:00 - 13:00', rate:'4.3', img:'photo-1513889961551-628c1e5e2ee9'},
+        {t:'Voo de volta · MCO → GRU', time:'16:30'}]}
     ]},
-    {date:'13/07', title:'Magia no Magic Kingdom', acts:[
-      {t:'Magic Kingdom', time:'08:30 - 18:00', rate:'4.9', img:'photo-1597466599360-3b9775841aec'},
-      {t:'Almoço · Be Our Guest', time:'12:30 - 14:00', rate:'4.5', img:'photo-1589909202802-8f4aadce1849'},
-      {t:'Fogos "Happily Ever After"', time:'21:00 - 21:30', rate:'4.8'}
+    Lisboa:{flag:'🇵🇹', banner:'photo-1585208798174-6cedd86e019a', days:[
+      {title:'Alfama e centro histórico', acts:[
+        {t:'Sé de Lisboa & Alfama', time:'09:30 - 12:00', rate:'4.8'},
+        {t:'Almoço no Time Out Market', time:'13:00 - 14:30', rate:'4.6'},
+        {t:'Chiado & Elevador de Santa Justa', time:'15:30 - 18:00', rate:'4.5'}]},
+      {title:'Belém e seus monumentos', acts:[
+        {t:'Torre de Belém', time:'09:00 - 11:00', rate:'4.7'},
+        {t:'Mosteiro dos Jerónimos', time:'11:30 - 13:00', rate:'4.8'},
+        {t:'Pastéis de Belém', time:'13:30 - 14:00', rate:'4.9'}]},
+      {title:'Sintra encantada', acts:[
+        {t:'Palácio da Pena', time:'09:30 - 12:30', rate:'4.9'},
+        {t:'Quinta da Regaleira', time:'14:00 - 16:30', rate:'4.8'},
+        {t:'Pôr do sol no Cabo da Roca', time:'18:30'}]}
     ]},
-    {date:'14/07', title:'Universal: emoção sem parar', acts:[
-      {t:'Islands of Adventure', time:'09:00 - 13:00', rate:'4.8', img:'photo-1502602898657-3e91760cbb34'},
-      {t:'Universal Studios', time:'14:00 - 19:00', rate:'4.7', img:'photo-1496442226666-8d4d0e62e6e9'},
-      {t:'CityWalk', time:'20:00 - 22:00', rate:'4.4'}
-    ]},
-    {date:'15/07', title:'Espaço e compras', acts:[
-      {t:'Kennedy Space Center', time:'09:00 - 15:00', rate:'4.8', img:'photo-1483729558449-99ef09a8c325'},
-      {t:'Vineland Premium Outlets', time:'16:00 - 19:00', rate:'4.5', img:'photo-1441986300917-64674bd600d8'}
-    ]},
-    {date:'16/07', title:'Última volta e adeus', acts:[
-      {t:'ICON Park', time:'11:00 - 13:00', rate:'4.3', img:'photo-1513889961551-628c1e5e2ee9'},
-      {t:'Voo de volta · MCO → GRU', time:'16:30'}
+    Rio:{flag:'🇧🇷', banner:'photo-1544989164-31dc3c645987', days:[
+      {title:'Cartões-postais', acts:[
+        {t:'Cristo Redentor', time:'08:30 - 11:00', rate:'4.9'},
+        {t:'Almoço em Santa Teresa', time:'12:30 - 14:00', rate:'4.5'},
+        {t:'Escadaria Selarón', time:'15:00 - 16:00', rate:'4.6'}]},
+      {title:'Praias & Pão de Açúcar', acts:[
+        {t:'Copacabana & Ipanema', time:'09:00 - 12:00', rate:'4.7'},
+        {t:'Bondinho Pão de Açúcar', time:'14:00 - 16:30', rate:'4.9'},
+        {t:'Pôr do sol no Arpoador', time:'17:30'}]},
+      {title:'Natureza & boemia', acts:[
+        {t:'Jardim Botânico', time:'09:30 - 11:30', rate:'4.7'},
+        {t:'Floresta da Tijuca', time:'12:30 - 15:00', rate:'4.8'},
+        {t:'Noite na Lapa', time:'20:00', rate:'4.4'}]}
     ]}
-  ];
-  var wrap=document.getElementById('rotDays'), sec=document.getElementById('roteiro');
-  if(!wrap||!sec) return;
+  };
+  var sec=document.getElementById('roteiro'), screen=document.getElementById('mkScreen');
+  if(!sec||!screen) return;
+  var body=document.getElementById('mkBody'), chips=document.getElementById('mkChips'),
+      steps=document.getElementById('mkSteps'), daysEl=document.getElementById('rotDays'),
+      metaEl=document.getElementById('rotMeta'), locEl=document.getElementById('rotLoc'),
+      bannerEl=document.getElementById('rotBanner');
   function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+  var timers=[]; function later(fn,ms){var t=setTimeout(fn,ms);timers.push(t);return t;}
+  function clearTimers(){timers.forEach(clearTimeout);timers=[];}
+
+  /* ---------- CHAT ---------- */
+  var STEPS=[
+    {key:'dest', q:'Oi! Sou o OND vAI 👋 Pra onde vamos?', opts:[['Orlando 🇺🇸','Orlando'],['Lisboa 🇵🇹','Lisboa'],['Rio 🇧🇷','Rio']]},
+    {key:'quando', q:function(){return choice.dest+', ótima escolha! Quando?';}, opts:[['☀️ Julho','Julho'],['🍂 Setembro','Setembro'],['🎄 Dezembro','Dezembro']]},
+    {key:'quem', q:'E quem vai nessa?', opts:[['🧍 Só eu','Só eu'],['❤️ Casal','Casal'],['👨‍👩‍👧 Família','Família']]}
+  ];
+  var choice={}, step=0;
+  function addMsg(who,txt){var d=document.createElement('div');d.className='mk-msg '+who;d.textContent=txt;body.appendChild(d);body.scrollTop=body.scrollHeight;return d;}
+  function typing(){var d=document.createElement('div');d.className='mk-msg ai typing';d.innerHTML='<i></i><i></i><i></i>';body.appendChild(d);body.scrollTop=body.scrollHeight;return d;}
+  function askStep(){
+    var s=STEPS[step]; chips.innerHTML='';
+    var t=typing();
+    later(function(){
+      t.remove();
+      addMsg('ai', typeof s.q==='function'?s.q():s.q);
+      chips.innerHTML=s.opts.map(function(o){return '<button class="mk-chip" data-v="'+o[1]+'">'+o[0]+'</button>';}).join('');
+    },550);
+  }
+  chips.addEventListener('click',function(e){
+    var b=e.target.closest('.mk-chip'); if(!b) return;
+    choice[STEPS[step].key]=b.getAttribute('data-v');
+    addMsg('me', b.textContent.trim()); chips.innerHTML=''; step++;
+    later(step<STEPS.length?askStep:finish, 330);
+  });
+  function finish(){
+    var t=typing();
+    later(function(){ t.remove(); addMsg('ai','Fechou! Montando seu roteiro de '+choice.dest+'… ⚡'); later(generate,650); },650);
+  }
+
+  /* ---------- GERANDO ---------- */
+  var GEN=['Buscando os melhores lugares','Traçando as rotas','Encaixando os horários','Estimando os custos'];
+  function generate(){
+    screen.setAttribute('data-state','gen');
+    steps.innerHTML=GEN.map(function(g){return '<div class="mk-gen-step">▹ '+g+'</div>';}).join('');
+    var lines=steps.querySelectorAll('.mk-gen-step');
+    for(var i=0;i<lines.length;i++){(function(l,idx){ later(function(){ l.classList.add('on'); l.innerHTML='<b>✓</b> '+GEN[idx]; }, 300+idx*300); })(lines[i],i);}
+    later(showRoteiro, 300+GEN.length*300+450);
+  }
+
+  /* ---------- ROTEIRO ---------- */
+  var gdays=[], active=0, autoTimer=null;
   function actCard(a,n){
     var thumb=a.img?'<div class="ga-thumb" style="background-image:url(\''+IMG+a.img+'?w=120&q=60&auto=format\')"></div>':'';
     var star=a.rate?' <span class="ga-star">★ '+a.rate+'</span>':'';
     var audio=a.img?'<span class="ga-audio">🎧</span>':'';
-    return '<div class="ga-card">'+thumb+'<div class="ga-num">'+n+'</div>'+
-      '<div class="ga-info"><div class="ga-t">'+esc(a.t)+'</div>'+
-      '<div class="ga-time">'+esc(a.time)+star+'</div></div>'+audio+'</div>';
+    return '<div class="ga-card">'+thumb+'<div class="ga-num">'+n+'</div><div class="ga-info"><div class="ga-t">'+esc(a.t)+'</div><div class="ga-time">'+esc(a.time)+star+'</div></div>'+audio+'</div>';
   }
-  wrap.innerHTML=DAYS.map(function(d,i){
-    var row=d.acts.map(function(a,k){return actCard(a,k+1);}).join('<span class="ga-arrow">→</span>');
-    return '<div class="gday'+(i===0?' open':'')+'" data-i="'+i+'">'+
-      '<button class="gday-head" type="button"><span><b>'+d.date+'</b> '+esc(d.title)+'</span><span class="gday-ar">▾</span></button>'+
-      '<div class="gday-body"><div class="ga-row">'+row+'</div></div></div>';
-  }).join('');
-  var gdays=[].slice.call(wrap.querySelectorAll('.gday'));
-  function animateOpen(g){
-    g.querySelectorAll('.ga-card').forEach(function(el,i){
-      el.classList.remove('in'); void el.offsetWidth;
-      el.style.animationDelay=(i*0.08)+'s'; el.classList.add('in');
-    });
+  function buildRoteiro(){
+    var d=DEST[choice.dest]||DEST.Orlando;
+    bannerEl.style.backgroundImage="url('"+IMG+d.banner+"?w=600&q=70&auto=format')";
+    if(locEl) locEl.textContent=d.flag+' '+choice.dest;
+    metaEl.innerHTML='<b>'+esc(choice.dest)+' '+d.flag+'</b> · '+esc(choice.quando)+' · '+d.days.length+' dias · '+esc(choice.quem);
+    daysEl.innerHTML=d.days.map(function(day,i){
+      var row=day.acts.map(function(a,k){return actCard(a,k+1);}).join('<span class="ga-arrow">→</span>');
+      return '<div class="gday'+(i===0?' open':'')+'"><button class="gday-head" type="button"><span><b>Dia '+(i+1)+'</b> · '+esc(day.title)+'</span><span class="gday-ar">▾</span></button><div class="gday-body"><div class="ga-row">'+row+'</div></div></div>';
+    }).join('');
+    gdays=[].slice.call(daysEl.querySelectorAll('.gday')); active=0;
   }
-  function openDay(i){ gdays.forEach(function(g,k){g.classList.toggle('open',k===i);}); animateOpen(gdays[i]); }
-  var active=0, timer=null, started=false;
-  function stopAuto(){ if(timer){clearInterval(timer);timer=null;} }
-  function startAuto(){ stopAuto(); timer=setInterval(function(){ active=(active+1)%DAYS.length; openDay(active); },3800); }
-  wrap.addEventListener('click',function(e){
+  function animateOpen(g){ g.querySelectorAll('.ga-card').forEach(function(el,i){ el.classList.remove('in'); void el.offsetWidth; el.style.animationDelay=(i*0.08)+'s'; el.classList.add('in'); }); }
+  function openDay(i){ gdays.forEach(function(g,k){g.classList.toggle('open',k===i);}); if(gdays[i]) animateOpen(gdays[i]); }
+  function stopAuto(){ if(autoTimer){clearInterval(autoTimer);autoTimer=null;} }
+  function startAuto(){ stopAuto(); autoTimer=setInterval(function(){ active=(active+1)%gdays.length; openDay(active); },3600); }
+  daysEl.addEventListener('click',function(e){
     var head=e.target.closest('.gday-head'); if(!head) return;
     stopAuto();
     var g=head.parentElement, was=g.classList.contains('open');
     g.classList.toggle('open'); if(!was) animateOpen(g);
   });
-  function begin(){ if(started) return; started=true; active=0; openDay(0); startAuto(); }
-  openDay(0); // conteúdo sempre visível, mesmo sem observer
-  try{
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(en){ if(en.isIntersecting) begin(); });
-    },{threshold:.15});
-    io.observe(sec);
-  }catch(e){}
-  setTimeout(begin,2500);
+  function showRoteiro(){ buildRoteiro(); screen.setAttribute('data-state','roteiro'); later(function(){ openDay(0); startAuto(); },300); }
+
+  /* ---------- CONTROLE ---------- */
+  var replay=document.getElementById('mkReplay');
+  if(replay) replay.addEventListener('click',reset);
+  function reset(){ clearTimers(); stopAuto(); choice={}; step=0; body.innerHTML=''; chips.innerHTML=''; screen.setAttribute('data-state','chat'); askStep(); }
+  var started=false;
+  function begin(){ if(started) return; started=true; askStep(); }
+  try{ var io=new IntersectionObserver(function(es){es.forEach(function(en){ if(en.isIntersecting) begin(); });},{threshold:.2}); io.observe(sec); }catch(e){}
+  later(begin,2500);
 })();
 </script>
 <script src="assets/vai-widget.js" defer></script>
