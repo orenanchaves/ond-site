@@ -196,7 +196,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <li><a href="index.html#recursos">Recursos</a></li>
     <li><a href="assessoria.html">Assessoria</a></li>
     <li><a href="blog.html" class="nav-active">Blog</a></li>
-    <li><a href="https://wa.me/5511910214133" target="_blank" rel="noopener">Contato</a></li>
+    <li><a href="#" onclick="openContact(event)">Contato</a></li>
     <li><a href="agencias.html" class="nav-agencias">Para Agências →</a></li>
   </ul></nav>
   <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
@@ -209,7 +209,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <a href="index.html#recursos" onclick="closeMenu()">Recursos</a>
   <a href="assessoria.html" onclick="closeMenu()">Assessoria</a>
   <a href="blog.html" onclick="closeMenu()">Blog</a>
-  <a href="https://wa.me/5511910214133" target="_blank" rel="noopener" onclick="closeMenu()">Contato</a>
+  <a href="#" onclick="openContact(event);closeMenu()">Contato</a>
   <a href="agencias.html" onclick="closeMenu()" style="color:var(--green);font-weight:600">Para Agências →</a>
   <a href="index.html#app" style="color:var(--purple);font-weight:700">Baixar grátis →</a>
 </nav>
@@ -309,7 +309,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <div class="footer-col">
       <h4>Empresa</h4>
       <ul>
-        <li><a href="https://wa.me/5511910214133" target="_blank" rel="noopener">Contato</a></li>
+        <li><a href="#" onclick="openContact(event)">Contato</a></li>
         <li><a href="mailto:renan@agamatec.com">renan@agamatec.com</a></li>
         <li><a href="https://wa.me/5511910214133" target="_blank" rel="noopener">WhatsApp</a></li>
       </ul>
@@ -335,6 +335,7 @@ document.addEventListener('click',function(e){
   if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target))closeMenu()
 })
 </script>
+<script src="assets/contact.js" defer></script>
 <script src="assets/vai-widget.js" defer></script>
 </body>
 </html>
