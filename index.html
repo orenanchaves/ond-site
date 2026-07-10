@@ -327,10 +327,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .rot-screen[data-state="gen"] .mk-gen{opacity:1;pointer-events:auto}
 .rot-screen[data-state="roteiro"] .mk-rot{opacity:1;pointer-events:auto}
 /* chat */
-.mk-top{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:#fff;border-bottom:1px solid #ece6f7;flex:none}
-.mk-logo{height:21px;width:auto}
-.mk-on{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:#1b5e20}
-.mk-on i{width:7px;height:7px;border-radius:50%;background:#00c853;box-shadow:0 0 0 3px rgba(0,200,83,.18)}
+.mk-top{display:flex;align-items:center;gap:10px;padding:11px 14px;background:linear-gradient(135deg,rgba(124,63,255,.10),#fff);border-bottom:1px solid #ece6f7;flex:none}
+.mk-ava{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#7c3fff,#9d6fff);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mk-ava svg{width:18px;height:18px;fill:#fff}
+.mk-name{font-weight:800;font-size:.92rem;color:#2a2438;display:flex;align-items:center;gap:7px;line-height:1.2}
+.mk-tag{font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#7b2ff2;background:rgba(124,63,255,.12);border:1px solid rgba(124,63,255,.3);padding:1px 6px;border-radius:20px}
+.mk-status{font-size:.72rem;color:#1b8a3f;display:flex;align-items:center;gap:5px;margin-top:2px}
+.mk-status::before{content:"";width:6px;height:6px;border-radius:50%;background:#00c853;box-shadow:0 0 6px #00c853}
 .mk-body{flex:1;overflow-y:auto;padding:16px 14px 6px;display:flex;flex-direction:column;gap:9px;scrollbar-width:none}
 .mk-body::-webkit-scrollbar{display:none}
 .mk-msg{max-width:84%;padding:10px 13px;border-radius:15px;font-size:12.5px;line-height:1.45;animation:mk-pop .2s ease}
@@ -557,7 +560,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         <div class="rot-screen" id="mkScreen" data-state="chat">
           <!-- 1) CHAT: escolhe destino, quando e quem -->
           <div class="mk-chat">
-            <div class="mk-top"><img class="mk-logo" src="assets/ond-logo.png" alt="OND"><span class="mk-on"><i></i> vAI online</span></div>
+            <div class="mk-top">
+              <div class="mk-ava"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></div>
+              <div>
+                <div class="mk-name">OND vAI <span class="mk-tag">prévia</span></div>
+                <div class="mk-status">online agora</div>
+              </div>
+            </div>
             <div class="mk-body" id="mkBody"></div>
             <div class="mk-chips" id="mkChips"></div>
           </div>
