@@ -313,6 +313,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .how-steps li>div{display:flex;flex-direction:column;gap:3px}
 .how-steps strong{font-size:1rem;font-weight:700;color:var(--text)}
 .how-steps li>div>span{font-size:.9rem;color:var(--muted);line-height:1.5}
+.roteiro-indica{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 26px;font-size:.85rem;color:var(--muted)}
+.roteiro-indica>span{font-weight:600}
+.roteiro-indica b{display:inline-flex;align-items:center;gap:5px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:5px 12px;font-weight:700;color:var(--text);font-size:.82rem}
 .roteiro-stage{display:flex;justify-content:center;position:relative}
 .roteiro-stage::before{content:'';position:absolute;width:360px;height:360px;background:radial-gradient(circle,color-mix(in srgb, var(--purple) 22%, transparent),transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 .phone{position:relative;width:288px;background:#0b0b12;border:9px solid #23232f;border-radius:42px;box-shadow:0 30px 70px rgba(0,0,0,.55);overflow:hidden;animation:phone-float 5.5s ease-in-out infinite}
@@ -683,9 +686,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       <p class="section-sub">Toque no exemplo ao lado e veja o <span style="text-transform:none">OND vAI</span> montar um roteiro completo — igual ao app. Sem formulário longo, sem cadastro: é só conversar.</p>
       <ol class="how-steps">
         <li><span class="how-n">1</span><div><strong>Conte o que você quer</strong><span>Destino, época, quem vai. A IA pergunta o resto pra acertar o roteiro.</span></div></li>
-        <li><span class="how-n">2</span><div><strong>O OND vAI monta o roteiro</strong><span>Dia a dia, com atrações, rotas, horários e custos — em segundos.</span></div></li>
+        <li><span class="how-n">2</span><div><strong>O OND vAI monta o roteiro</strong><span>Dia a dia com atrações, rotas, horários e custos — e ainda indica passeios, hospedagens e voos pra você reservar.</span></div></li>
         <li><span class="how-n">3</span><div><strong>Viaje com tudo na mão</strong><span>App, web, PDF offline ou e-mail. Ajuste durante a viagem quando quiser.</span></div></li>
       </ol>
+      <div class="roteiro-indica"><span>Indica o que reservar:</span><b>✈️ Voos</b><b>🏨 Hospedagens</b><b>🎟️ Passeios</b></div>
       <a href="#app" onclick="openApp(event)" class="btn-primary">Teste o app grátis →</a>
     </div>
     <div class="roteiro-stage">
@@ -1043,7 +1047,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   }
 
   /* ---------- GERANDO ---------- */
-  var GEN=['Buscando os melhores lugares','Traçando as rotas','Encaixando os horários','Estimando os custos'];
+  var GEN=['Buscando passeios, hotéis e voos','Traçando as rotas','Encaixando os horários','Estimando os custos'];
   function generate(){
     screen.setAttribute('data-state','gen');
     steps.innerHTML=GEN.map(function(g){return '<div class="mk-gen-step">▹ '+g+'</div>';}).join('');
