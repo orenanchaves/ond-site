@@ -312,31 +312,40 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .phone{position:relative;width:288px;background:#0b0b12;border:9px solid #23232f;border-radius:42px;box-shadow:0 30px 70px rgba(0,0,0,.55);overflow:hidden;animation:phone-float 5.5s ease-in-out infinite}
 @keyframes phone-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .phone::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:118px;height:20px;background:#23232f;border-radius:0 0 14px 14px;z-index:5}
-.rot-screen{background:#0d0d16;height:540px;display:flex;flex-direction:column}
-.rot-top{padding:28px 18px 12px;background:linear-gradient(160deg,rgba(124,63,255,.28),transparent)}
-.rot-brand{display:flex;align-items:center;gap:7px;font-size:.74rem;font-weight:700;color:#b79bff;letter-spacing:.02em;margin-bottom:9px}
-.rot-brand svg{width:14px;height:14px;fill:#7c3fff}
-.rot-dest{font-size:1.35rem;font-weight:800;color:#fff;line-height:1.05}
-.rot-meta{font-size:.76rem;color:#9a9ac0;margin-top:4px}
-.rot-tabs{display:flex;gap:6px;padding:12px 16px 8px;overflow-x:auto;scrollbar-width:none}
+.rot-screen{background:#f4f1fb;height:540px;display:flex;flex-direction:column;overflow:hidden}
+.rot-banner{position:relative;height:104px;background:#3a1078 center/cover;flex:none}
+.rot-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,6,46,.4),rgba(20,6,46,0) 60%)}
+.rot-ava{position:absolute;left:50%;bottom:-22px;transform:translateX(-50%);width:48px;height:48px;border-radius:50%;background:#7b2ff2;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #f4f1fb;z-index:2}
+.rot-ava svg{width:23px;height:23px;fill:#fff}
+.rot-scroll{flex:1;overflow-y:auto;padding:30px 12px 12px;scrollbar-width:none}
+.rot-scroll::-webkit-scrollbar{display:none}
+.rot-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin-bottom:12px}
 .rot-tabs::-webkit-scrollbar{display:none}
-.rot-tab{flex-shrink:0;font-size:.73rem;font-weight:700;padding:6px 13px;border-radius:50px;border:1px solid #2a2a40;background:transparent;color:#9a9ac0;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s,border-color .15s}
-.rot-tab.on{background:#7c3fff;color:#fff;border-color:#7c3fff}
-.rot-list{flex:1;overflow-y:auto;padding:6px 16px 16px;scrollbar-width:none}
-.rot-list::-webkit-scrollbar{display:none}
-.rot-item{display:flex;gap:11px;padding:9px 0;opacity:0;transform:translateY(12px)}
-.rot-item.in{animation:rot-in .5s cubic-bezier(.2,.7,.3,1) forwards}
+.ttab{flex:none;padding:7px 11px;border-radius:11px;font-weight:600;font-size:11px;background:#ece8f5;color:#3a3550;white-space:nowrap;border:none}
+.ttab.active{background:#f0a818;color:#3a1a00}
+.ttab.loc{background:#ddd6ea;color:#2a2238;font-weight:700}
+.gday{background:#fff;border:1px solid #ece6f7;border-radius:13px;margin-bottom:10px;box-shadow:0 6px 20px rgba(46,10,94,.08);overflow:hidden}
+.gday-head{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;padding:12px 13px;text-align:left;font-size:12.5px;color:#2a2438;background:none;border:none;cursor:pointer;font-family:inherit;line-height:1.3}
+.gday-head b{color:#4e1a9e;margin-right:5px}
+.gday-ar{color:#7b2ff2;transition:transform .25s;font-size:11px;flex:none}
+.gday.open .gday-ar{transform:rotate(180deg)}
+.gday-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.gday.open .gday-body{max-height:160px}
+.ga-row{display:flex;align-items:stretch;gap:5px;overflow-x:auto;scrollbar-width:none;padding:2px 13px 14px}
+.ga-row::-webkit-scrollbar{display:none}
+.ga-arrow{align-self:center;color:#7b2ff2;font-weight:700;flex:none;font-size:12px}
+.ga-card{position:relative;flex:0 0 148px;display:flex;align-items:center;gap:8px;background:#faf8ff;border:1px solid #eee6fb;border-left:5px solid #00c853;border-radius:11px;padding:8px;min-height:64px;opacity:0;transform:translateY(10px)}
+.ga-card.in{animation:rot-in .45s cubic-bezier(.2,.7,.3,1) forwards}
 @keyframes rot-in{to{opacity:1;transform:none}}
-.rot-time{flex-shrink:0;width:42px;font-size:.71rem;font-weight:800;color:#b79bff;padding-top:3px}
-.rot-dot{position:relative;flex-shrink:0;width:26px;display:flex;justify-content:center}
-.rot-dot::before{content:'';position:absolute;top:8px;bottom:-14px;width:2px;background:#26263a}
-.rot-item:last-child .rot-dot::before{display:none}
-.rot-ico{width:26px;height:26px;border-radius:50%;background:#191926;border:1px solid #2a2a40;display:flex;align-items:center;justify-content:center;font-size:.82rem;position:relative;z-index:1}
-.rot-body{flex:1;min-width:0}
-.rot-ti{font-size:.85rem;font-weight:700;color:#f0eeff;line-height:1.3}
-.rot-s{font-size:.73rem;color:#8b8bb0;margin-top:1px}
-.rot-foot{padding:11px 16px;border-top:1px solid #1c1c2c;display:flex;align-items:center;gap:6px;font-size:.72rem;color:#9a9ac0}
-.rot-foot .g{color:#00e676;font-weight:700}
+.ga-thumb{width:40px;height:40px;border-radius:8px;background:#c9b8e8 center/cover;flex:none}
+.ga-num{position:absolute;top:-7px;left:-4px;width:19px;height:19px;border-radius:50%;background:#00c853;color:#063a16;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;z-index:1}
+.ga-info{min-width:0}
+.ga-t{font-weight:700;font-size:11px;color:#2a2438;line-height:1.2}
+.ga-time{font-size:9.5px;color:#7b2ff2;font-weight:600;margin-top:3px}
+.ga-star{color:#e8a200;font-weight:700}
+.ga-audio{position:absolute;right:6px;bottom:5px;font-size:10px}
+.rot-foot{padding:9px 13px;border-top:1px solid #ece6f7;display:flex;align-items:center;gap:6px;font-size:11px;color:#6b6680;background:#fff;flex:none}
+.rot-foot .g{color:#1b5e20;font-weight:700}
 @media(max-width:820px){
   .roteiro-inner{grid-template-columns:1fr;gap:36px}
   .roteiro-text{text-align:center;max-width:520px;margin:0 auto}
@@ -662,14 +671,20 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <div class="roteiro-stage">
       <div class="phone">
         <div class="rot-screen">
-          <div class="rot-top">
-            <div class="rot-brand"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg> OND vAI</div>
-            <div class="rot-dest">Paris</div>
-            <div class="rot-meta">4 dias · 12–15 set · 2 pessoas</div>
+          <div class="rot-banner" style="background-image:url('https://images.unsplash.com/photo-1597466599360-3b9775841aec?w=600&q=70&auto=format')">
+            <div class="rot-ava"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></div>
           </div>
-          <div class="rot-tabs" id="rotTabs"></div>
-          <div class="rot-list" id="rotList"></div>
-          <div class="rot-foot">✨ Montado pelo <span style="color:#b79bff;font-weight:700">OND vAI</span> · <span class="g">PDF ✓</span></div>
+          <div class="rot-scroll">
+            <div class="rot-tabs">
+              <span class="ttab loc">🇺🇸 Orlando</span>
+              <span class="ttab active">Visão geral</span>
+              <span class="ttab">Dia a dia</span>
+              <span class="ttab">✈️ Viagem</span>
+              <span class="ttab">＄ Financeiro</span>
+            </div>
+            <div id="rotDays"></div>
+          </div>
+          <div class="rot-foot">✨ Montado pelo <b style="color:#7b2ff2">OND vAI</b> · <span class="g">PDF ✓</span> · 5 dias</div>
         </div>
       </div>
     </div>
@@ -902,73 +917,76 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 })
 </script>
 <script>
-/* Roteiro de exemplo — troca de dias + animação em sequência */
+/* Roteiro de exemplo — fiel ao app (Orlando): dias colapsáveis + auto-abertura */
 (function(){
-  var days=[
-    {t:'Dia 1', items:[
-      {tm:'10:00', ic:'🏨', ti:'Check-in no hotel', s:'Le Marais'},
-      {tm:'12:30', ic:'🥐', ti:'Almoço no L’As du Fallafel', s:'clássico do bairro'},
-      {tm:'14:00', ic:'🖼️', ti:'Museu do Louvre', s:'ingresso sem fila'},
-      {tm:'17:30', ic:'⛵', ti:'Passeio de barco pelo Sena', s:'Pont Neuf'},
-      {tm:'20:00', ic:'🍷', ti:'Jantar no Le Comptoir', s:'Saint-Germain'}
+  var IMG='https://images.unsplash.com/';
+  var DAYS=[
+    {date:'12/07', title:'Chegada e respiro', acts:[
+      {t:'Check-in no Cabana Bay', time:'16:00 - 17:00'},
+      {t:'Disney Springs', time:'19:30 - 22:00', rate:'4.7', img:'photo-1506966953602-c20cc11f75e3'}
     ]},
-    {t:'Dia 2', items:[
-      {tm:'09:00', ic:'🗼', ti:'Torre Eiffel', s:'subida ao topo'},
-      {tm:'12:00', ic:'🧺', ti:'Piquenique no Champ de Mars', s:''},
-      {tm:'14:30', ic:'🏛️', ti:'Arco do Triunfo', s:'e a Champs-Élysées'},
-      {tm:'18:00', ic:'🌅', ti:'Montmartre & Sacré-Cœur', s:'pôr do sol'},
-      {tm:'21:00', ic:'🎭', ti:'Moulin Rouge', s:'opcional'}
+    {date:'13/07', title:'Magia no Magic Kingdom', acts:[
+      {t:'Magic Kingdom', time:'08:30 - 18:00', rate:'4.9', img:'photo-1597466599360-3b9775841aec'},
+      {t:'Almoço · Be Our Guest', time:'12:30 - 14:00', rate:'4.5', img:'photo-1589909202802-8f4aadce1849'},
+      {t:'Fogos "Happily Ever After"', time:'21:00 - 21:30', rate:'4.8'}
     ]},
-    {t:'Dia 3', items:[
-      {tm:'08:30', ic:'🚆', ti:'Trem para Versalhes', s:'40 min de Paris'},
-      {tm:'10:00', ic:'👑', ti:'Palácio de Versalhes', s:'jardins imperdíveis'},
-      {tm:'15:00', ic:'🛍️', ti:'Compras em Saint-Germain', s:''},
-      {tm:'19:30', ic:'🚢', ti:'Jantar em cruzeiro no Sena', s:'com a cidade iluminada'}
+    {date:'14/07', title:'Universal: emoção sem parar', acts:[
+      {t:'Islands of Adventure', time:'09:00 - 13:00', rate:'4.8', img:'photo-1502602898657-3e91760cbb34'},
+      {t:'Universal Studios', time:'14:00 - 19:00', rate:'4.7', img:'photo-1496442226666-8d4d0e62e6e9'},
+      {t:'CityWalk', time:'20:00 - 22:00', rate:'4.4'}
     ]},
-    {t:'Dia 4', items:[
-      {tm:'09:30', ic:'☕', ti:'Café no Café de Flore', s:'clima parisiense'},
-      {tm:'11:00', ic:'🎨', ti:'Museu d’Orsay', s:'impressionistas'},
-      {tm:'13:30', ic:'🥖', ti:'Última refeição', s:'bistrô local'},
-      {tm:'16:00', ic:'✈️', ti:'Traslado ao aeroporto', s:'CDG'}
+    {date:'15/07', title:'Espaço e compras', acts:[
+      {t:'Kennedy Space Center', time:'09:00 - 15:00', rate:'4.8', img:'photo-1483729558449-99ef09a8c325'},
+      {t:'Vineland Premium Outlets', time:'16:00 - 19:00', rate:'4.5', img:'photo-1441986300917-64674bd600d8'}
+    ]},
+    {date:'16/07', title:'Última volta e adeus', acts:[
+      {t:'ICON Park', time:'11:00 - 13:00', rate:'4.3', img:'photo-1513889961551-628c1e5e2ee9'},
+      {t:'Voo de volta · MCO → GRU', time:'16:30'}
     ]}
   ];
-  var tabs=document.getElementById('rotTabs'), list=document.getElementById('rotList'),
-      sec=document.getElementById('roteiro');
-  if(!tabs||!list||!sec) return;
-  var active=0, timer=null, started=false;
+  var wrap=document.getElementById('rotDays'), sec=document.getElementById('roteiro');
+  if(!wrap||!sec) return;
   function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}
-  function renderTabs(){
-    tabs.innerHTML=days.map(function(d,i){
-      return '<button class="rot-tab'+(i===active?' on':'')+'" data-i="'+i+'">'+d.t+'</button>';
-    }).join('');
+  function actCard(a,n){
+    var thumb=a.img?'<div class="ga-thumb" style="background-image:url(\''+IMG+a.img+'?w=120&q=60&auto=format\')"></div>':'';
+    var star=a.rate?' <span class="ga-star">★ '+a.rate+'</span>':'';
+    var audio=a.img?'<span class="ga-audio">🎧</span>':'';
+    return '<div class="ga-card">'+thumb+'<div class="ga-num">'+n+'</div>'+
+      '<div class="ga-info"><div class="ga-t">'+esc(a.t)+'</div>'+
+      '<div class="ga-time">'+esc(a.time)+star+'</div></div>'+audio+'</div>';
   }
-  function renderList(){
-    list.innerHTML=days[active].items.map(function(it){
-      return '<div class="rot-item"><div class="rot-time">'+it.tm+'</div>'+
-        '<div class="rot-dot"><div class="rot-ico">'+it.ic+'</div></div>'+
-        '<div class="rot-body"><div class="rot-ti">'+esc(it.ti)+'</div>'+
-        (it.s?'<div class="rot-s">'+esc(it.s)+'</div>':'')+'</div></div>';
-    }).join('');
-    var els=list.querySelectorAll('.rot-item');
-    els.forEach(function(el,i){el.style.animationDelay=(i*0.09)+'s';el.classList.add('in');});
-    list.scrollTop=0;
+  wrap.innerHTML=DAYS.map(function(d,i){
+    var row=d.acts.map(function(a,k){return actCard(a,k+1);}).join('<span class="ga-arrow">→</span>');
+    return '<div class="gday'+(i===0?' open':'')+'" data-i="'+i+'">'+
+      '<button class="gday-head" type="button"><span><b>'+d.date+'</b> '+esc(d.title)+'</span><span class="gday-ar">▾</span></button>'+
+      '<div class="gday-body"><div class="ga-row">'+row+'</div></div></div>';
+  }).join('');
+  var gdays=[].slice.call(wrap.querySelectorAll('.gday'));
+  function animateOpen(g){
+    g.querySelectorAll('.ga-card').forEach(function(el,i){
+      el.classList.remove('in'); void el.offsetWidth;
+      el.style.animationDelay=(i*0.08)+'s'; el.classList.add('in');
+    });
   }
-  function setDay(i){active=i;renderTabs();renderList();}
-  function stopAuto(){if(timer){clearInterval(timer);timer=null;}}
-  function startAuto(){stopAuto();timer=setInterval(function(){setDay((active+1)%days.length);},4200);}
-  tabs.addEventListener('click',function(e){
-    var b=e.target.closest('.rot-tab'); if(!b) return;
-    stopAuto(); setDay(+b.getAttribute('data-i'));
+  function openDay(i){ gdays.forEach(function(g,k){g.classList.toggle('open',k===i);}); animateOpen(gdays[i]); }
+  var active=0, timer=null, started=false;
+  function stopAuto(){ if(timer){clearInterval(timer);timer=null;} }
+  function startAuto(){ stopAuto(); timer=setInterval(function(){ active=(active+1)%DAYS.length; openDay(active); },3800); }
+  wrap.addEventListener('click',function(e){
+    var head=e.target.closest('.gday-head'); if(!head) return;
+    stopAuto();
+    var g=head.parentElement, was=g.classList.contains('open');
+    g.classList.toggle('open'); if(!was) animateOpen(g);
   });
-  setDay(0); // conteúdo sempre presente, mesmo sem observer
-  function begin(){ if(started) return; started=true; setDay(0); startAuto(); }
+  function begin(){ if(started) return; started=true; active=0; openDay(0); startAuto(); }
+  openDay(0); // conteúdo sempre visível, mesmo sem observer
   try{
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(en){ if(en.isIntersecting) begin(); });
     },{threshold:.15});
     io.observe(sec);
   }catch(e){}
-  setTimeout(begin,2500); // fallback caso o observer não dispare
+  setTimeout(begin,2500);
 })();
 </script>
 <script src="assets/vai-widget.js" defer></script>
