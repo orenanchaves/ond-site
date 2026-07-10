@@ -320,7 +320,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .roteiro-stage::before{content:'';position:absolute;width:360px;height:360px;background:radial-gradient(circle,color-mix(in srgb, var(--purple) 22%, transparent),transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 .phone{position:relative;width:288px;background:#0b0b12;border:9px solid #23232f;border-radius:42px;box-shadow:0 30px 70px rgba(0,0,0,.55);overflow:hidden;animation:phone-float 5.5s ease-in-out infinite}
 @keyframes phone-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.phone::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:118px;height:20px;background:#23232f;border-radius:0 0 14px 14px;z-index:5}
 .rot-screen{position:relative;background:#f4f1fb;height:540px;overflow:hidden}
 .mk-chat,.mk-gen,.mk-rot{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .35s}
 .rot-screen[data-state="chat"] .mk-chat{opacity:1;pointer-events:auto}
@@ -334,7 +333,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .mk-tag{font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#7b2ff2;background:rgba(124,63,255,.12);border:1px solid rgba(124,63,255,.3);padding:1px 6px;border-radius:20px}
 .mk-status{font-size:.72rem;color:#1b8a3f;display:flex;align-items:center;gap:5px;margin-top:2px}
 .mk-status::before{content:"";width:6px;height:6px;border-radius:50%;background:#00c853;box-shadow:0 0 6px #00c853}
-.mk-body{flex:1;overflow-y:auto;padding:16px 14px 6px;display:flex;flex-direction:column;gap:9px;scrollbar-width:none}
+.mk-body{flex:0 1 auto;min-height:0;overflow-y:auto;padding:16px 14px 6px;display:flex;flex-direction:column;gap:9px;scrollbar-width:none}
 .mk-body::-webkit-scrollbar{display:none}
 .mk-msg{max-width:84%;padding:10px 13px;border-radius:15px;font-size:12.5px;line-height:1.45;animation:mk-pop .2s ease}
 @keyframes mk-pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
