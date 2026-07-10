@@ -5,7 +5,7 @@
   if (window.__ondVai) return; window.__ondVai = true;
 
   var PLAY = 'https://play.google.com/store/apps/details?id=com.agamatec.ond';
-  var APPSTORE = 'https://apps.apple.com/br/app/ond-assistente-de-viagem/id6758392427';
+  var APPSTORE = 'https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427';
   var WEB = 'https://web.ondviajar.com.br/';
 
   // rosa dos ventos (símbolo OND)
