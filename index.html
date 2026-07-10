@@ -359,8 +359,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 /* roteiro extras */
 .rot-metaline{font-size:11px;color:#6b6680;font-weight:600;margin:-2px 2px 12px}
 .rot-metaline b{color:#4e1a9e}
-.mk-replay{margin-left:auto;background:#efe9fb;color:#7b2ff2;border:none;border-radius:20px;padding:5px 11px;font-size:10.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.mk-replay{flex:none;background:#efe9fb;color:#7b2ff2;border:none;border-radius:50%;width:34px;height:34px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s,color .15s}
 .mk-replay:hover{background:#7b2ff2;color:#fff}
+.mk-getapp{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;background:#7b2ff2;color:#fff;border:none;border-radius:22px;padding:10px 12px;font-size:12.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:background .15s;box-shadow:0 6px 18px rgba(124,63,255,.32)}
+.mk-getapp:hover{background:#6a1fd0}
 .rot-banner{position:relative;height:104px;background:#3a1078 center/cover;flex:none}
 .rot-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,6,46,.4),rgba(20,6,46,0) 60%)}
 .rot-ava{position:absolute;left:50%;bottom:-24px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;background:#efe9fb;overflow:hidden;box-shadow:0 0 0 4px #f4f1fb,0 3px 10px rgba(46,10,94,.22);z-index:2}
@@ -392,7 +394,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .ga-time{font-size:9.5px;color:#7b2ff2;font-weight:600;margin-top:3px}
 .ga-star{color:#e8a200;font-weight:700}
 .ga-audio{position:absolute;right:6px;bottom:5px;font-size:10px}
-.rot-foot{padding:9px 13px;border-top:1px solid #ece6f7;display:flex;align-items:center;gap:6px;font-size:11px;color:#6b6680;background:#fff;flex:none}
+.rot-foot{padding:9px 13px 11px;border-top:1px solid #ece6f7;display:flex;flex-direction:column;gap:8px;background:#fff;flex:none}
+.rot-foot-info{display:flex;align-items:center;gap:6px;font-size:10px;color:#8a86a0}
+.rot-foot-cta{display:flex;align-items:center;gap:7px}
 .rot-foot .g{color:#1b5e20;font-weight:700}
 @media(max-width:820px){
   .roteiro-inner{grid-template-columns:1fr;gap:36px}
@@ -577,7 +581,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
               <div class="rot-metaline" id="rotMeta"></div>
               <div id="rotDays"></div>
             </div>
-            <div class="rot-foot">✨ Montado pelo <b style="color:#7b2ff2">OND vAI</b> · <span class="g">PDF ✓</span><button class="mk-replay" id="mkReplay">↻ Recomeçar</button></div>
+            <div class="rot-foot">
+              <div class="rot-foot-info">✨ Montado pelo <b style="color:#7b2ff2">OND vAI</b> · <span class="g">PDF ✓</span></div>
+              <div class="rot-foot-cta">
+                <button class="mk-getapp" onclick="openApp(event)">📲 Baixar o app grátis</button>
+                <button class="mk-replay" id="mkReplay" title="Recomeçar" aria-label="Recomeçar">↻</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
