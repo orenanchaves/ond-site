@@ -300,6 +300,48 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 }
 /* acessibilidade: foco visível no teclado */
 :focus-visible{outline:2px solid var(--ond-color-focus);outline-offset:2px}
+/* ── ROTEIRO DE EXEMPLO ── */
+.roteiro{padding:80px 5%;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
+.roteiro-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.roteiro-feats{list-style:none;margin:22px 0 28px;display:flex;flex-direction:column;gap:12px}
+.roteiro-feats li{display:flex;align-items:flex-start;gap:10px;font-size:.95rem;color:var(--muted);line-height:1.5}
+.roteiro-feats li::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0}
+.roteiro-feats strong{color:var(--text);font-weight:700}
+.roteiro-stage{display:flex;justify-content:center;position:relative}
+.roteiro-stage::before{content:'';position:absolute;width:360px;height:360px;background:radial-gradient(circle,color-mix(in srgb, var(--purple) 22%, transparent),transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.phone{position:relative;width:288px;background:#0b0b12;border:9px solid #23232f;border-radius:42px;box-shadow:0 30px 70px rgba(0,0,0,.55);overflow:hidden;animation:phone-float 5.5s ease-in-out infinite}
+@keyframes phone-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.phone::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:118px;height:20px;background:#23232f;border-radius:0 0 14px 14px;z-index:5}
+.rot-screen{background:#0d0d16;height:540px;display:flex;flex-direction:column}
+.rot-top{padding:28px 18px 12px;background:linear-gradient(160deg,rgba(124,63,255,.28),transparent)}
+.rot-brand{display:flex;align-items:center;gap:7px;font-size:.74rem;font-weight:700;color:#b79bff;letter-spacing:.02em;margin-bottom:9px}
+.rot-brand svg{width:14px;height:14px;fill:#7c3fff}
+.rot-dest{font-size:1.35rem;font-weight:800;color:#fff;line-height:1.05}
+.rot-meta{font-size:.76rem;color:#9a9ac0;margin-top:4px}
+.rot-tabs{display:flex;gap:6px;padding:12px 16px 8px;overflow-x:auto;scrollbar-width:none}
+.rot-tabs::-webkit-scrollbar{display:none}
+.rot-tab{flex-shrink:0;font-size:.73rem;font-weight:700;padding:6px 13px;border-radius:50px;border:1px solid #2a2a40;background:transparent;color:#9a9ac0;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s,border-color .15s}
+.rot-tab.on{background:#7c3fff;color:#fff;border-color:#7c3fff}
+.rot-list{flex:1;overflow-y:auto;padding:6px 16px 16px;scrollbar-width:none}
+.rot-list::-webkit-scrollbar{display:none}
+.rot-item{display:flex;gap:11px;padding:9px 0;opacity:0;transform:translateY(12px)}
+.rot-item.in{animation:rot-in .5s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes rot-in{to{opacity:1;transform:none}}
+.rot-time{flex-shrink:0;width:42px;font-size:.71rem;font-weight:800;color:#b79bff;padding-top:3px}
+.rot-dot{position:relative;flex-shrink:0;width:26px;display:flex;justify-content:center}
+.rot-dot::before{content:'';position:absolute;top:8px;bottom:-14px;width:2px;background:#26263a}
+.rot-item:last-child .rot-dot::before{display:none}
+.rot-ico{width:26px;height:26px;border-radius:50%;background:#191926;border:1px solid #2a2a40;display:flex;align-items:center;justify-content:center;font-size:.82rem;position:relative;z-index:1}
+.rot-body{flex:1;min-width:0}
+.rot-ti{font-size:.85rem;font-weight:700;color:#f0eeff;line-height:1.3}
+.rot-s{font-size:.73rem;color:#8b8bb0;margin-top:1px}
+.rot-foot{padding:11px 16px;border-top:1px solid #1c1c2c;display:flex;align-items:center;gap:6px;font-size:.72rem;color:#9a9ac0}
+.rot-foot .g{color:#00e676;font-weight:700}
+@media(max-width:820px){
+  .roteiro-inner{grid-template-columns:1fr;gap:36px}
+  .roteiro-text{text-align:center;max-width:520px;margin:0 auto}
+  .roteiro-feats{align-items:center}.roteiro-feats li{text-align:left}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -603,6 +645,37 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
 </section>
 
+<!-- ROTEIRO DE EXEMPLO -->
+<section class="roteiro" id="roteiro">
+  <div class="roteiro-inner">
+    <div class="roteiro-text">
+      <span class="section-label">Roteiro de exemplo</span>
+      <h2 class="section-title">É assim que seu roteiro fica</h2>
+      <p class="section-sub">Dia a dia, na ordem certa: o que fazer, onde comer e como se locomover. O <span style="text-transform:none">OND vAI</span> monta em minutos — você só ajusta e viaja.</p>
+      <ul class="roteiro-feats">
+        <li><strong>Dia a dia detalhado</strong>, com horários e sugestões</li>
+        <li><strong>Rotas prontas</strong> entre cada ponto do passeio</li>
+        <li><strong>PDF offline</strong>, e-mail e Google Calendar num toque</li>
+      </ul>
+      <a href="#app" class="btn-primary">Baixar grátis →</a>
+    </div>
+    <div class="roteiro-stage">
+      <div class="phone">
+        <div class="rot-screen">
+          <div class="rot-top">
+            <div class="rot-brand"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg> OND vAI</div>
+            <div class="rot-dest">Paris</div>
+            <div class="rot-meta">4 dias · 12–15 set · 2 pessoas</div>
+          </div>
+          <div class="rot-tabs" id="rotTabs"></div>
+          <div class="rot-list" id="rotList"></div>
+          <div class="rot-foot">✨ Montado pelo <span style="color:#b79bff;font-weight:700">OND vAI</span> · <span class="g">PDF ✓</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA APP (MEIO) -->
 <section class="app-mid">
   <h2>Pronto pra sua próxima viagem?</h2>
@@ -827,6 +900,76 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if(el){e.preventDefault();window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-72,behavior:'smooth'})}
   })
 })
+</script>
+<script>
+/* Roteiro de exemplo — troca de dias + animação em sequência */
+(function(){
+  var days=[
+    {t:'Dia 1', items:[
+      {tm:'10:00', ic:'🏨', ti:'Check-in no hotel', s:'Le Marais'},
+      {tm:'12:30', ic:'🥐', ti:'Almoço no L’As du Fallafel', s:'clássico do bairro'},
+      {tm:'14:00', ic:'🖼️', ti:'Museu do Louvre', s:'ingresso sem fila'},
+      {tm:'17:30', ic:'⛵', ti:'Passeio de barco pelo Sena', s:'Pont Neuf'},
+      {tm:'20:00', ic:'🍷', ti:'Jantar no Le Comptoir', s:'Saint-Germain'}
+    ]},
+    {t:'Dia 2', items:[
+      {tm:'09:00', ic:'🗼', ti:'Torre Eiffel', s:'subida ao topo'},
+      {tm:'12:00', ic:'🧺', ti:'Piquenique no Champ de Mars', s:''},
+      {tm:'14:30', ic:'🏛️', ti:'Arco do Triunfo', s:'e a Champs-Élysées'},
+      {tm:'18:00', ic:'🌅', ti:'Montmartre & Sacré-Cœur', s:'pôr do sol'},
+      {tm:'21:00', ic:'🎭', ti:'Moulin Rouge', s:'opcional'}
+    ]},
+    {t:'Dia 3', items:[
+      {tm:'08:30', ic:'🚆', ti:'Trem para Versalhes', s:'40 min de Paris'},
+      {tm:'10:00', ic:'👑', ti:'Palácio de Versalhes', s:'jardins imperdíveis'},
+      {tm:'15:00', ic:'🛍️', ti:'Compras em Saint-Germain', s:''},
+      {tm:'19:30', ic:'🚢', ti:'Jantar em cruzeiro no Sena', s:'com a cidade iluminada'}
+    ]},
+    {t:'Dia 4', items:[
+      {tm:'09:30', ic:'☕', ti:'Café no Café de Flore', s:'clima parisiense'},
+      {tm:'11:00', ic:'🎨', ti:'Museu d’Orsay', s:'impressionistas'},
+      {tm:'13:30', ic:'🥖', ti:'Última refeição', s:'bistrô local'},
+      {tm:'16:00', ic:'✈️', ti:'Traslado ao aeroporto', s:'CDG'}
+    ]}
+  ];
+  var tabs=document.getElementById('rotTabs'), list=document.getElementById('rotList'),
+      sec=document.getElementById('roteiro');
+  if(!tabs||!list||!sec) return;
+  var active=0, timer=null, started=false;
+  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+  function renderTabs(){
+    tabs.innerHTML=days.map(function(d,i){
+      return '<button class="rot-tab'+(i===active?' on':'')+'" data-i="'+i+'">'+d.t+'</button>';
+    }).join('');
+  }
+  function renderList(){
+    list.innerHTML=days[active].items.map(function(it){
+      return '<div class="rot-item"><div class="rot-time">'+it.tm+'</div>'+
+        '<div class="rot-dot"><div class="rot-ico">'+it.ic+'</div></div>'+
+        '<div class="rot-body"><div class="rot-ti">'+esc(it.ti)+'</div>'+
+        (it.s?'<div class="rot-s">'+esc(it.s)+'</div>':'')+'</div></div>';
+    }).join('');
+    var els=list.querySelectorAll('.rot-item');
+    els.forEach(function(el,i){el.style.animationDelay=(i*0.09)+'s';el.classList.add('in');});
+    list.scrollTop=0;
+  }
+  function setDay(i){active=i;renderTabs();renderList();}
+  function stopAuto(){if(timer){clearInterval(timer);timer=null;}}
+  function startAuto(){stopAuto();timer=setInterval(function(){setDay((active+1)%days.length);},4200);}
+  tabs.addEventListener('click',function(e){
+    var b=e.target.closest('.rot-tab'); if(!b) return;
+    stopAuto(); setDay(+b.getAttribute('data-i'));
+  });
+  setDay(0); // conteúdo sempre presente, mesmo sem observer
+  function begin(){ if(started) return; started=true; setDay(0); startAuto(); }
+  try{
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting) begin(); });
+    },{threshold:.15});
+    io.observe(sec);
+  }catch(e){}
+  setTimeout(begin,2500); // fallback caso o observer não dispare
+})();
 </script>
 <script src="assets/vai-widget.js" defer></script>
 </body>
