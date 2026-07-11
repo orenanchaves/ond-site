@@ -63,10 +63,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 
 /* ── HEADER ── */
 .header{position:sticky;top:0;z-index:200;background:var(--header-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
-.theme-btn{margin-left:auto;background:none;border:1px solid var(--border);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .2s,background .2s;flex-shrink:0}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .2s,background .2s;flex-shrink:0}
 .theme-btn:hover{border-color:var(--purple);background:var(--purple-dim)}
 .header-logo img{height:36px;display:block}
 .header-logo-svg{height:42px;width:auto}
+.header-logo{flex:1 1 0;min-width:0;display:flex;align-items:center}
+.header-actions{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:flex-end;gap:12px}
 /* Logo OND — bússola SEMPRE roxa #7F11F4; wordmark branco (fundo escuro) / ink (fundo claro).
    Wordmark usa var(--ond-color-text) — seletor SIMPLES de propósito: regra com ancestral [data-theme] não atravessa o <use> do SVG (o wordmark saía escuro). Variável CSS é herdada pelo <use>, então acompanha o tema. */
 .ond-letter{fill:var(--ond-color-text)}
@@ -482,9 +484,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <li><a href="#" onclick="openContact(event)">Contato</a></li>
     <li><a href="agencias.html" class="nav-agencias">Para Agências →</a></li>
   </ul></nav>
-  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
+  <div class="header-actions"><button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
   <a href="#app" onclick="openApp(event)" class="header-cta">Teste o app →</a>
-  <button class="header-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  <button class="header-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button></div>
 </header>
 <nav class="mobile-nav" id="mobileNav">
   <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
