@@ -128,7 +128,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 
 /* ── CONQUISTAS ── */
 .conquistas{background:var(--bg);padding:72px 5%;border-bottom:1px solid var(--border)}
-.conquistas-inner{max-width:1100px;margin:0 auto}
+.conquistas-inner{max-width:1280px;margin:0 auto}
 .conquistas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
 .conquista-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 20px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
 .conquista-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0}
@@ -155,7 +155,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 
 /* ── PROBLEMA ── */
 .problema{padding:80px 5%;background:var(--bg)}
-.problema-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto}
+.problema-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1280px;margin:0 auto}
 .problema-quote{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;line-height:1.25;color:var(--text)}
 .problema-quote span{color:var(--purple-light)}
 .problema-right p{font-size:1rem;color:var(--muted);line-height:1.75;margin-bottom:20px}
@@ -202,6 +202,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 /* ── FEATURES ── */
 .features{background:var(--surface);padding:80px 5%;border-top:1px solid var(--border)}
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.features>*,.booking>*{max-width:1280px;margin-left:auto;margin-right:auto}
 .feature-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:24px;transition:border-color .2s,transform .2s}
 .feature-card:hover{border-color:color-mix(in srgb, var(--purple) 35%, transparent);transform:translateY(-3px)}
 .feature-icon{font-size:1.5rem;margin-bottom:12px}
@@ -213,7 +214,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 
 /* ── B2B ── */
 .b2b{background:var(--bg);padding:80px 5%}
-.b2b-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto}
+.b2b-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1280px;margin:0 auto}
 .b2b-tag{display:inline-block;background:var(--green-dim);border:1px solid color-mix(in srgb, var(--green) 25%, transparent);color:var(--green);font-size:.75rem;font-weight:700;padding:5px 12px;border-radius:50px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
 .b2b-title{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;line-height:1.2;margin-bottom:16px}
 .b2b-desc{font-size:.97rem;color:var(--muted);line-height:1.75;margin-bottom:28px}
@@ -229,7 +230,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .b2b-card-desc{font-size:.8rem;color:var(--muted);line-height:1.5}
 
 /* ── APP CTA ── */
-.app-cta{background:var(--surface);padding:80px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:60px}
+.app-cta{background:var(--surface);padding:80px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.app-cta-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:60px}
 .app-cta-content{flex:1}
 .app-cta-image{flex:0 0 280px}
 .app-cta-image img{width:100%;border-radius:var(--radius)}
@@ -287,7 +289,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   .steps{grid-template-columns:1fr}.steps::before{display:none}
   .features-grid{grid-template-columns:1fr 1fr}
   .b2b-inner{grid-template-columns:1fr}.b2b-cards{grid-template-columns:1fr 1fr}
-  .app-cta{flex-direction:column}.app-cta-image{max-width:240px;margin:0 auto}
+  .app-cta-inner{flex-direction:column}.app-cta-image{max-width:240px;margin:0 auto}
   .footer-inner{grid-template-columns:1fr 1fr}
   .stat{padding:8px 20px}
 }
@@ -304,7 +306,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 :focus-visible{outline:2px solid var(--ond-color-focus);outline-offset:2px}
 /* ── ROTEIRO DE EXEMPLO ── */
 .roteiro{padding:80px 5%;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
-.roteiro-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.roteiro-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .roteiro-feats{list-style:none;margin:22px 0 28px;display:flex;flex-direction:column;gap:12px}
 .roteiro-feats li{display:flex;align-items:flex-start;gap:10px;font-size:.95rem;color:var(--muted);line-height:1.5}
 .roteiro-feats li::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0}
@@ -847,6 +849,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
 <!-- APP CTA -->
 <section class="app-cta" id="app">
+  <div class="app-cta-inner">
   <div class="app-cta-content">
     <span class="section-label">App OND</span>
     <h2 class="section-title" style="max-width:440px">Organize sua viagem com OND vAI</h2>
@@ -868,6 +871,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
   <div class="app-cta-image">
     <img src="assets/viajante-laptop.svg" alt="Viajante planejando a viagem com o OND, tudo confirmado" loading="lazy">
+  </div>
   </div>
 </section>
 
