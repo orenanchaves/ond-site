@@ -40,10 +40,10 @@ EXTRA_CSS = ('\n.prose ol{margin:0 0 22px 0;padding-left:22px;color:#cfcce8}'
  '\n.prose .tldr strong{color:var(--green)}'
  '\n.art-cover-credit{font-size:.72rem;color:var(--muted2);margin:-22px 0 30px;text-align:center}'
  '\n.faq{margin:50px 0 0}'
- '\n.faq h2{font-size:1.55rem;font-weight:800;letter-spacing:-.02em;margin-bottom:18px}'
+ '\n.faq h2{font-size:1.72rem;font-weight:800;letter-spacing:-.02em;margin-bottom:18px}'
  '\n.faq-item{border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin-bottom:12px;background:var(--card)}'
- '\n.faq-item h3{font-size:1.02rem;font-weight:700;margin-bottom:7px;color:var(--text)}'
- '\n.faq-item p{font-size:.93rem;color:var(--muted);line-height:1.7;margin:0}\n')
+ '\n.faq-item h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--text)}'
+ '\n.faq-item p{font-size:1rem;color:var(--muted);line-height:1.75;margin:0}\n')
 
 def esc(s): return html.escape(s or '', quote=True)
 def cslug(s): return re.sub(r'^blog-', '', s)
