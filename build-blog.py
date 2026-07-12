@@ -22,6 +22,18 @@ CAT_TAGCLASS = {'roteiros':'tag-pink','dicas':'tag-blue','orcamento':'tag-orange
 CAT_ORDER    = ['roteiros','dicas','orcamento','ia','destinos']
 MESES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
 
+# Capas trocadas manualmente por imagens mais emblemáticas do destino (a da API não era).
+COVER_OVERRIDE = {
+    'roteiro-buenos-aires': {
+        'url':'https://images.unsplash.com/photo-1612294037637-ec328d0e075e?w=1200&q=72&auto=format',
+        'alt':'Fachadas coloridas do Caminito, no bairro da Boca, em Buenos Aires',
+        'credit':'Unsplash'},
+    'roteiro-lisboa': {
+        'url':'https://images.unsplash.com/photo-1585208798174-6cedd86e019a?w=1200&q=72&auto=format',
+        'alt':'O icônico elétrico amarelo 28 numa rua histórica de Lisboa',
+        'credit':'Unsplash'},
+}
+
 EXTRA_CSS = ('\n.prose ol{margin:0 0 22px 0;padding-left:22px;color:#cfcce8}'
  '\n[data-theme="light"] .prose ol{color:#2a2540}'
  '\n.prose .tldr{font-style:normal;border-left-color:var(--green);background:var(--green-dim)}'
@@ -176,7 +188,10 @@ def main():
     for p in posts:
         cs  = cslug(p['slug'])
         cat = ANCORA_CAT.get(p.get('ancora'), 'dicas')
-        print(f'- {cs}  [{cat}]')
+        ov = COVER_OVERRIDE.get(cs)
+        if ov:
+            p['cover'], p['coverAlt'], p['coverCredit'] = ov['url'], ov['alt'], ov['credit']
+        print(f'- {cs}  [{cat}]' + ('  (capa override)' if ov else ''))
         cover = download_cover(cs, p.get('cover',''))
         meta.append((p, cs, cover, cat))
         page = build_head(head_open, p, cs, cover, cat) + build_article(p, cs, cover, cat) + tail
