@@ -365,6 +365,55 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 /* roteiro extras */
 .rot-metaline{font-size:11px;color:#6b6680;font-weight:600;margin:-2px 2px 12px}
 .rot-metaline b{color:#4e1a9e}
+/* abas funcionais + painéis (fiel ao app) */
+.rot-tabs button.ttab{cursor:pointer;font-family:inherit}
+.rt-pane{display:none}
+.rt-pane.on{display:block;animation:mk-pop .25s ease}
+/* dia a dia detalhado */
+.day-chips{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;padding:0 13px 12px}
+.day-chips::-webkit-scrollbar{display:none}
+.dchip{flex:none;padding:7px 12px;border-radius:16px;font-weight:600;font-size:11px;background:#ece8f5;color:#3a3550;white-space:nowrap;border:none;font-family:inherit;cursor:pointer}
+.dchip.active{background:#f0a818;color:#3a1a00}
+.det-row{display:flex;align-items:stretch;gap:6px;overflow-x:auto;scrollbar-width:none;padding:6px 13px 14px}
+.det-row::-webkit-scrollbar{display:none}
+.dt-card{position:relative;flex:0 0 188px;background:#fff;border:1px solid #ece6f7;border-left:5px solid #00c853;border-radius:13px;padding:12px;box-shadow:0 6px 20px rgba(46,10,94,.08)}
+.dt-num{position:absolute;top:-7px;left:-4px;width:20px;height:20px;border-radius:50%;background:#00c853;color:#063a16;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;z-index:1}
+.dt-title{font-weight:700;font-size:12.5px;color:#2a2438;text-align:center;line-height:1.25}
+.dt-meta{font-size:11px;color:#7b2ff2;font-weight:700;text-align:center;margin:3px 0 9px}
+.dt-img{height:94px;border-radius:9px;background:#c9b8e8 center/cover;margin-bottom:9px}
+.comochegar{background:linear-gradient(180deg,#6a1fd0,#5b16c9);border-radius:10px;padding:7px;text-align:center}
+.comochegar>span{color:#fff;font-weight:700;font-size:11px}
+.comochegar .modes{display:flex;justify-content:center;gap:12px;margin-top:5px}
+.comochegar .modes span{background:rgba(255,255,255,.18);width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px}
+.dt-audio{position:absolute;right:9px;bottom:9px;font-size:12px}
+/* viagem */
+.date-banner{background:#7b2ff2;color:#fff;font-weight:800;border-radius:12px;padding:12px;text-align:center;margin:0 13px 12px;font-size:12.5px}
+.vg-block{background:#fff;border:1px solid #ece6f7;border-radius:13px;padding:14px;margin:0 13px 10px;box-shadow:0 6px 20px rgba(46,10,94,.06)}
+.vg-block h4{color:#4e1a9e;font-size:12.5px;margin-bottom:10px}
+.vg-two{display:flex;gap:9px}
+.vg-card{flex:1;background:#f6f3fc;border-radius:10px;padding:10px;min-width:0}
+.vg-card .vg-k{font-size:10px;color:#8a86a0;font-weight:600;display:block}
+.vg-card b{font-size:12px;color:#2a2438;display:block;margin:2px 0}
+.vg-card>span{font-size:10.5px;color:#8a86a0}
+.vg-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}.vg-head h4{margin:0}
+.vg-count{background:#2a0b54;color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:9px}
+.chk{display:flex;align-items:center;gap:9px;font-size:11.5px;color:#33304a;padding:6px 0}
+.chk input{width:15px;height:15px;accent-color:#7b2ff2;flex:none}
+/* financeiro (fiel ao app) */
+.fin-audio{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ece6f7;border-radius:12px;padding:10px 13px;margin:0 13px 11px;box-shadow:0 6px 20px rgba(46,10,94,.06)}
+.fin-play{width:33px;height:33px;border-radius:50%;background:#1b8a3f;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;flex:none}
+.fin-audio b{display:block;font-size:11.5px;color:#4e1a9e}.fin-audio span{font-size:10px;color:#8a86a0}
+.fin-toggle{display:flex;border-bottom:2px solid #e6e0f2;margin:0 13px 12px}
+.fin-t{flex:1;padding:8px;font-weight:700;font-size:11.5px;color:#8a86a0;border:none;background:none;border-bottom:3px solid transparent;margin-bottom:-2px;font-family:inherit;cursor:pointer}
+.fin-t.active{color:#1b8a3f;border-color:#1b8a3f}
+.fin-total{background:linear-gradient(120deg,#7b2ff2,#5e17c7);border-radius:13px;padding:14px 15px;color:#fff;margin:0 13px 10px}
+.fin-total span{font-size:11.5px;opacity:.85}.fin-total b{display:block;font-size:22px;margin-top:2px}
+.fin-card{background:#fff;border:1px solid #ece6f7;border-radius:12px;padding:12px 14px;margin:0 13px 10px;box-shadow:0 6px 20px rgba(46,10,94,.06)}
+.fin-row{display:flex;justify-content:space-between;font-size:11.5px;color:#33304a;margin-bottom:8px}
+.fin-bar{height:8px;background:#e9e3f6;border-radius:6px;overflow:hidden}.fin-bar i{display:block;height:100%;background:#00c853;border-radius:6px}
+.fin-day{display:flex;align-items:center;justify-content:space-between;background:#e8f7ee;border-radius:11px;padding:11px 14px;margin:0 13px 11px;font-size:11.5px;color:#1b5e20;font-weight:700}.fin-day b{font-size:14px}
+.fin-list{background:#fff;border:1px solid #ece6f7;border-radius:12px;overflow:hidden;margin:0 13px;box-shadow:0 6px 20px rgba(46,10,94,.06)}
+.fin-li{display:flex;justify-content:space-between;padding:11px 14px;font-size:12px;color:#33304a;border-top:1px solid #f1edf8}.fin-li:first-child{border-top:none}.fin-li b{color:#4e1a9e}
 .mk-replay{flex:none;background:#efe9fb;color:#7b2ff2;border:none;border-radius:50%;width:34px;height:34px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s,color .15s}
 .mk-replay:hover{background:#7b2ff2;color:#fff}
 .mk-getapp{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;background:#7b2ff2;color:#fff;border:none;border-radius:22px;padding:10px 12px;font-size:12.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:background .15s;box-shadow:0 6px 18px rgba(124,63,255,.32)}
@@ -583,15 +632,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
           <div class="mk-rot">
             <div class="rot-banner" id="rotBanner"><div class="rot-ava"><img src="assets/ondino.png" alt="Ondino, o planejador do OND"></div></div>
             <div class="rot-scroll">
-              <div class="rot-tabs">
+              <div class="rot-tabs" id="rotTabs">
                 <span class="ttab loc" id="rotLoc">🇺🇸 Orlando</span>
-                <span class="ttab active">Visão geral</span>
-                <span class="ttab">Dia a dia</span>
-                <span class="ttab">✈️ Viagem</span>
-                <span class="ttab">＄ Financeiro</span>
+                <button class="ttab active" type="button" data-tab="geral">Visão geral</button>
+                <button class="ttab" type="button" data-tab="det">Dia a dia</button>
+                <button class="ttab" type="button" data-tab="viagem">✈️ Viagem</button>
+                <button class="ttab" type="button" data-tab="fin">＄ Financeiro</button>
               </div>
               <div class="rot-metaline" id="rotMeta"></div>
-              <div id="rotDays"></div>
+              <div class="rt-pane on" id="rt-geral"><div id="rotDays"></div></div>
+              <div class="rt-pane" id="rt-det"><div class="day-chips" id="dayChips"></div><div id="detCards"></div></div>
+              <div class="rt-pane" id="rt-viagem"></div>
+              <div class="rt-pane" id="rt-fin"></div>
             </div>
             <div class="rot-foot">
               <div class="rot-foot-info">✨ Montado pelo <b style="color:#7b2ff2">OND vAI</b> · <span class="g">PDF ✓</span></div>
@@ -983,7 +1035,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 (function(){
   var IMG='https://images.unsplash.com/';
   var DEST={
-    Orlando:{flag:'🇺🇸', banner:'photo-1597466599360-3b9775841aec', days:[
+    Orlando:{flag:'🇺🇸', banner:'photo-1597466599360-3b9775841aec', air:['GRU → MCO','MCO → GRU'], hotel:'Cabana Bay Beach Resort', fin:{total:'R$ 12.400',dia:'R$ 2.480',itens:[['✈️ Voos','R$ 3.480'],['🏨 Hospedagem','R$ 4.200'],['🎢 Ingressos de parques','R$ 2.900'],['🍔 Alimentação','R$ 1.820']]}, days:[
       {title:'Chegada e respiro', acts:[
         {t:'Check-in no Cabana Bay', time:'16:00 - 17:00'},
         {t:'Disney Springs', time:'19:30 - 22:00', rate:'4.7', img:'photo-1506966953602-c20cc11f75e3'}]},
@@ -1002,7 +1054,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
         {t:'ICON Park', time:'11:00 - 13:00', rate:'4.3', img:'photo-1513889961551-628c1e5e2ee9'},
         {t:'Voo de volta · MCO → GRU', time:'16:30'}]}
     ]},
-    Lisboa:{flag:'🇵🇹', banner:'photo-1585208798174-6cedd86e019a', days:[
+    Lisboa:{flag:'🇵🇹', banner:'photo-1585208798174-6cedd86e019a', air:['GRU → LIS','LIS → GRU'], hotel:'Hotel no Chiado', fin:{total:'R$ 9.800',dia:'R$ 2.450',itens:[['✈️ Voos','R$ 4.200'],['🏨 Hospedagem','R$ 3.000'],['🎟️ Passeios & museus','R$ 1.400'],['🍷 Alimentação','R$ 1.200']]}, days:[
       {title:'Alfama e centro histórico', acts:[
         {t:'Sé de Lisboa & Alfama', time:'09:30 - 12:00', rate:'4.8'},
         {t:'Almoço no Time Out Market', time:'13:00 - 14:30', rate:'4.6'},
@@ -1016,7 +1068,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
         {t:'Quinta da Regaleira', time:'14:00 - 16:30', rate:'4.8'},
         {t:'Pôr do sol no Cabo da Roca', time:'18:30'}]}
     ]},
-    Rio:{flag:'🇧🇷', banner:'photo-1544989164-31dc3c645987', days:[
+    Rio:{flag:'🇧🇷', banner:'photo-1544989164-31dc3c645987', air:['GRU → SDU','SDU → GRU'], hotel:'Hotel em Copacabana', fin:{total:'R$ 3.900',dia:'R$ 1.300',itens:[['✈️ Voos','R$ 900'],['🏨 Hospedagem','R$ 1.600'],['🎟️ Passeios','R$ 800'],['🍽️ Alimentação','R$ 600']]}, days:[
       {title:'Cartões-postais', acts:[
         {t:'Cristo Redentor', time:'08:30 - 11:00', rate:'4.9'},
         {t:'Almoço em Santa Teresa', time:'12:30 - 14:00', rate:'4.5'},
@@ -1036,7 +1088,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   var body=document.getElementById('mkBody'), chips=document.getElementById('mkChips'),
       steps=document.getElementById('mkSteps'), daysEl=document.getElementById('rotDays'),
       metaEl=document.getElementById('rotMeta'), locEl=document.getElementById('rotLoc'),
-      bannerEl=document.getElementById('rotBanner');
+      bannerEl=document.getElementById('rotBanner'), tabsEl=document.getElementById('rotTabs'),
+      dayChipsEl=document.getElementById('dayChips'), detCardsEl=document.getElementById('detCards'),
+      viagemEl=document.getElementById('rt-viagem'), finEl=document.getElementById('rt-fin');
   function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}
   var timers=[]; function later(fn,ms){var t=setTimeout(fn,ms);timers.push(t);return t;}
   function clearTimers(){timers.forEach(clearTimeout);timers=[];}
@@ -1088,8 +1142,48 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     var audio=a.img?'<span class="ga-audio">🎧</span>':'';
     return '<div class="ga-card">'+thumb+'<div class="ga-num">'+n+'</div><div class="ga-info"><div class="ga-t">'+esc(a.t)+'</div><div class="ga-time">'+esc(a.time)+star+'</div></div>'+audio+'</div>';
   }
+  var curD=null;
+  function detCard(a,n){
+    var img=a.img?'<div class="dt-img" style="background-image:url(\''+IMG+a.img+'?w=280&q=60&auto=format\')"></div>':'';
+    var star=a.rate?' <span class="ga-star">★ '+a.rate+'</span>':'';
+    var chegar=a.img?'<div class="comochegar"><span>Como chegar</span><div class="modes"><span>🚌</span><span>🚗</span><span>🚶</span></div></div>':'';
+    var audio=a.img?'<span class="dt-audio">🎧</span>':'';
+    return '<div class="dt-card"><div class="dt-num">'+n+'</div><div class="dt-title">'+esc(a.t)+'</div><div class="dt-meta">'+esc(a.time)+star+'</div>'+img+chegar+audio+'</div>';
+  }
+  function selDay(i){
+    if(!curD) return;
+    [].forEach.call(dayChipsEl.children,function(c,k){c.classList.toggle('active',k===i);});
+    detCardsEl.innerHTML='<div class="det-row">'+curD.days[i].acts.map(function(a,k){return detCard(a,k+1);}).join('<span class="ga-arrow">→</span>')+'</div>';
+  }
+  function buildViagem(d){
+    var chk=['Documento (passaporte/RG)','Reservas e ingressos','Seguro viagem','Chip / eSIM','Dinheiro local','Protetor solar'];
+    viagemEl.innerHTML=
+      '<div class="date-banner">'+esc(choice.quando)+' · '+d.days.length+' dias · '+esc(choice.quem)+'</div>'+
+      '<div class="vg-block"><h4>Voos</h4><div class="vg-two">'+
+        '<div class="vg-card"><span class="vg-k">Ida</span><b>✈️ '+d.air[0]+'</b><span>'+esc(choice.quando)+'</span></div>'+
+        '<div class="vg-card"><span class="vg-k">Volta</span><b>✈️ '+d.air[1]+'</b><span>+ '+d.days.length+' dias</span></div>'+
+      '</div></div>'+
+      '<div class="vg-block"><h4>Hospedagem</h4><div class="vg-card" style="background:#faf8ff"><span class="vg-k">Sugestão do OND vAI</span><b>🏨 '+esc(d.hotel)+'</b><span>'+(d.days.length-1)+' noites</span></div></div>'+
+      '<div class="vg-block"><div class="vg-head"><h4>Checklist</h4><span class="vg-count">0/'+chk.length+'</span></div>'+
+        chk.map(function(c){return '<label class="chk"><input type="checkbox">'+esc(c)+'</label>';}).join('')+'</div>';
+  }
+  function buildFin(d){
+    var f=d.fin;
+    finEl.innerHTML=
+      '<div class="fin-audio"><span class="fin-play">▶</span><div><b>Ouvir dicas de orçamento</b><span>Gerado pelo OND vAI</span></div></div>'+
+      '<div class="fin-toggle"><button class="fin-t active" type="button">Estimado</button><button class="fin-t" type="button">Real</button></div>'+
+      '<div class="fin-total"><span>Total estimado · '+esc(choice.quem)+'</span><b>'+f.total+'</b></div>'+
+      '<div class="fin-card"><div class="fin-row"><span>Gasto até agora</span><span>R$ 0 de '+f.total+'</span></div><div class="fin-bar"><i style="width:2%"></i></div></div>'+
+      '<div class="fin-day"><span>📅 Gasto diário sugerido</span><b>'+f.dia+'</b></div>'+
+      '<div class="fin-list">'+f.itens.map(function(it){return '<div class="fin-li"><span>'+it[0]+'</span><b>'+it[1]+'</b></div>';}).join('')+'</div>';
+  }
+  function setTab(t){
+    ['geral','det','viagem','fin'].forEach(function(x){var p=document.getElementById('rt-'+x);if(p)p.classList.toggle('on',x===t);});
+    [].forEach.call(tabsEl.querySelectorAll('.ttab[data-tab]'),function(b){b.classList.toggle('active',b.getAttribute('data-tab')===t);});
+    if(t!=='geral') stopAuto();
+  }
   function buildRoteiro(){
-    var d=DEST[choice.dest]||DEST.Orlando;
+    var d=DEST[choice.dest]||DEST.Orlando; curD=d;
     bannerEl.style.backgroundImage="url('"+IMG+d.banner+"?w=600&q=70&auto=format')";
     if(locEl) locEl.textContent=d.flag+' '+choice.dest;
     metaEl.innerHTML='<b>'+esc(choice.dest)+' '+d.flag+'</b> · '+esc(choice.quando)+' · '+d.days.length+' dias · '+esc(choice.quem);
@@ -1098,6 +1192,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       return '<div class="gday'+(i===0?' open':'')+'"><button class="gday-head" type="button"><span><b>Dia '+(i+1)+'</b> · '+esc(day.title)+'</span><span class="gday-ar">▾</span></button><div class="gday-body"><div class="ga-row">'+row+'</div></div></div>';
     }).join('');
     gdays=[].slice.call(daysEl.querySelectorAll('.gday')); active=0;
+    dayChipsEl.innerHTML=d.days.map(function(day,i){return '<button class="dchip'+(i===0?' active':'')+'" type="button" data-i="'+i+'">Dia '+(i+1)+'</button>';}).join('');
+    selDay(0); buildViagem(d); buildFin(d); setTab('geral');
   }
   function animateOpen(g){ g.querySelectorAll('.ga-card').forEach(function(el,i){ el.classList.remove('in'); void el.offsetWidth; el.style.animationDelay=(i*0.08)+'s'; el.classList.add('in'); }); }
   function openDay(i){ gdays.forEach(function(g,k){g.classList.toggle('open',k===i);}); if(gdays[i]) animateOpen(gdays[i]); }
@@ -1109,6 +1205,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     var g=head.parentElement, was=g.classList.contains('open');
     g.classList.toggle('open'); if(!was) animateOpen(g);
   });
+  tabsEl.addEventListener('click',function(e){ var b=e.target.closest('.ttab[data-tab]'); if(!b) return; setTab(b.getAttribute('data-tab')); });
+  dayChipsEl.addEventListener('click',function(e){ var b=e.target.closest('.dchip'); if(!b) return; selDay(+b.getAttribute('data-i')); });
+  finEl.addEventListener('click',function(e){ var b=e.target.closest('.fin-t'); if(!b) return; [].forEach.call(finEl.querySelectorAll('.fin-t'),function(x){x.classList.remove('active');}); b.classList.add('active'); });
   function showRoteiro(){ buildRoteiro(); screen.setAttribute('data-state','roteiro'); later(function(){ openDay(0); startAuto(); },300); }
 
   /* ---------- CONTROLE ---------- */
