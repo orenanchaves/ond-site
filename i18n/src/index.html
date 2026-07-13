@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0d0d14">
 <meta name="description" content="OND — organize sua viagem com o OND vAI. Roteiro completo, rotas e concierge inteligente em 5 minutos. Disponível no Android, iOS e na web.">
 <title>Roteiro de viagem com IA em 5 minutos — OND vAI</title>
-<link rel="icon" type="image/svg+xml" href="/assets/ond-symbol.svg">
+<link rel="icon" type="image/svg+xml" href="assets/ond-symbol.svg">
 <link rel="canonical" href="https://ondviajar.com.br/">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -28,8 +28,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <!-- OND Design System (vendorizado — ver tokens/SYNC.md) -->
-<link rel="stylesheet" href="/tokens/ond-core.css">
-<link rel="stylesheet" href="/tokens/ond-b2c.css">
+<link rel="stylesheet" href="tokens/ond-core.css">
+<link rel="stylesheet" href="tokens/ond-b2c.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 /* Cores remapeadas para os tokens do OND Design System (ond-b2c.css).
@@ -507,31 +507,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   ]
 }
 </script>
-
-<style>
-.langsel{position:relative;flex-shrink:0}
-.langsel>summary{list-style:none;display:flex;align-items:center;gap:6px;height:34px;padding:0 10px;
-  border:1px solid var(--border);border-radius:17px;color:var(--muted);cursor:pointer;font-size:.82rem;
-  font-weight:600;background:none;transition:border-color .2s,background .2s,color .2s}
-.langsel>summary::-webkit-details-marker{display:none}
-.langsel>summary:hover{border-color:var(--purple);background:var(--purple-dim);color:var(--text)}
-.langsel-caret{font-size:.7rem;opacity:.7}
-.langsel[open]>summary .langsel-caret{transform:rotate(180deg)}
-.langsel-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:168px;list-style:none;margin:0;padding:6px;
-  background:var(--surface);border:1px solid var(--border);border-radius:12px;
-  box-shadow:0 12px 32px rgba(0,0,0,.28);z-index:250}
-.langsel-menu li{list-style:none}
-.langsel-menu a{display:block;padding:9px 12px;border-radius:8px;color:var(--text);text-decoration:none;
-  font-size:.9rem;transition:background .15s}
-.langsel-menu a:hover{background:var(--purple-dim)}
-.langsel-menu a[aria-current="true"]{color:var(--purple-light);font-weight:700}
-</style>
-<link rel="alternate" hreflang="pt-BR" href="https://ondviajar.com.br/">
-<link rel="alternate" hreflang="en" href="https://ondviajar.com.br/en/">
-<link rel="alternate" hreflang="es" href="https://ondviajar.com.br/es/">
-<link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/">
-<link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/">
-<link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/">
 </head>
 <body>
 
@@ -556,21 +531,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <li><a href="#como-funciona">Como funciona</a></li>
     <li><a href="#recursos">Recursos</a></li>
     <li><a href="assessoria.html">Assessoria</a></li>
-    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="blog.html">Blog</a></li>
     <li><a href="#" onclick="openContact(event)">Contato</a></li>
     <li><a href="agencias.html" class="nav-agencias">Para Agências →</a></li>
   </ul></nav>
-  <div class="header-actions"><details class="langsel">
-  <summary class="langsel-btn" aria-label="Idioma / Language"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 4 9 14 14 0 0 1-4 9 14 14 0 0 1-4-9 14 14 0 0 1 4-9z"/></svg><span class="langsel-cur">PT</span><span class="langsel-caret">▾</span></summary>
-  <ul class="langsel-menu">
-    <li><a href="/" hreflang="pt-BR" lang="pt-BR" aria-current="true">Português</a></li>
-    <li><a href="/en/" hreflang="en" lang="en">English</a></li>
-    <li><a href="/es/" hreflang="es" lang="es">Español</a></li>
-    <li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li>
-    <li><a href="/it/" hreflang="it" lang="it">Italiano</a></li>
-  </ul>
-</details>
-  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
+  <div class="header-actions"><button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
   <a href="#app" onclick="openApp(event)" class="header-cta">Teste o app →</a>
   <button class="header-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button></div>
 </header>
@@ -578,7 +543,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
   <a href="#recursos" onclick="closeMenu()">Recursos</a>
   <a href="assessoria.html" onclick="closeMenu()">Assessoria</a>
-  <a href="/blog.html" onclick="closeMenu()">Blog</a>
+  <a href="blog.html" onclick="closeMenu()">Blog</a>
   <a href="#" onclick="openContact(event);closeMenu()">Contato</a>
   <a href="agencias.html" onclick="closeMenu()" style="color:#0066ff;font-weight:600">Para Agências →</a>
   <a href="#app" onclick="openApp(event);closeMenu()" style="color:var(--purple);font-weight:700">Teste o app →</a>
@@ -615,7 +580,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     </div>
   </div>
   <div class="hero-image">
-    <img src="/assets/ondino-caminhando.svg" alt="Ondino, o planejador de viagem do OND, caminhando com o celular na mão e a mala" loading="eager">
+    <img src="assets/ondino-caminhando.svg" alt="Ondino, o planejador de viagem do OND, caminhando com o celular na mão e a mala" loading="eager">
   </div>
 </section>
 
@@ -665,7 +630,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
           </div>
           <!-- 3) ROTEIRO gerado (fiel ao app) -->
           <div class="mk-rot">
-            <div class="rot-banner" id="rotBanner"><div class="rot-ava"><img src="/assets/ondino.png" alt="Ondino, o planejador do OND"></div></div>
+            <div class="rot-banner" id="rotBanner"><div class="rot-ava"><img src="assets/ondino.png" alt="Ondino, o planejador do OND"></div></div>
             <div class="rot-scroll">
               <div class="rot-tabs" id="rotTabs">
                 <span class="ttab loc" id="rotLoc">🇺🇸 Orlando</span>
@@ -957,7 +922,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     </div>
   </div>
   <div class="app-cta-image">
-    <img src="/assets/viajante-laptop.svg" alt="Viajante planejando a viagem com o OND, tudo confirmado" loading="lazy">
+    <img src="assets/viajante-laptop.svg" alt="Viajante planejando a viagem com o OND, tudo confirmado" loading="lazy">
   </div>
   </div>
 </section>
@@ -1255,7 +1220,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   later(begin,2500);
 })();
 </script>
-<script src="/assets/app-modal.js" defer></script>
-<script src="/assets/vai-widget.js" defer></script>
+<script src="assets/app-modal.js" defer></script>
+<script src="assets/vai-widget.js" defer></script>
 </body>
 </html>
