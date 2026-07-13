@@ -34,6 +34,18 @@ COVER_OVERRIDE = {
         'credit':'Unsplash'},
 }
 
+# Alts em PT descritivo p/ as capas cujo coverAlt da API vinha em inglês/genérico.
+ALT_OVERRIDE = {
+    'como-montar-roteiro':'Cúpulas brancas e azuis de Santorini, na Grécia',
+    'passagens-aereas-baratas':'Coliseu de Roma, na Itália',
+    'quanto-custa-europa':'Grande Canal de Veneza, na Itália',
+    'documentos-viagem-internacional':'Passaporte e documentos para viagem internacional',
+    'primeira-viagem-internacional':'Torre Eiffel, em Paris',
+    'o-que-levar-na-mala':'Malas de viagem prontas para embarque',
+    'bagagem-de-mao-regras':'Mala de bordo no aeroporto',
+    'seguro-viagem-vale-a-pena':'Passaporte e mapa nas mãos de um viajante',
+}
+
 # Simulação do roteiro (widget "Monte a sua X com o OND vAI") nos posts de roteiro.
 ROTEIRO_SIM = {
   'roteiro-buenos-aires': {
@@ -136,10 +148,41 @@ def download_cover(cs, url):
         if len(data) < 3000 or not (data[:2]==b'\xff\xd8' or data[:8]==b'\x89PNG\r\n\x1a\n'):
             raise ValueError('não parece imagem (%d bytes)' % len(data))
         open(path,'wb').write(data)
+        make_webp(path)
         return '/assets/blog/'+cs+'.jpg'
     except Exception as e:
         print('    ! capa falhou (%s), usando URL externa' % e)
         return url
+
+# cache de dimensões do webp por caminho de capa (/assets/blog/<slug>.jpg)
+_WEBP = {}
+
+def make_webp(jpg_path):
+    """Gera <jpg>.webp redimensionado (máx 800px de largura) e guarda as dimensões.
+    Falha silenciosa se Pillow não estiver disponível — o JPG segue como fallback."""
+    try:
+        from PIL import Image
+        im = Image.open(jpg_path).convert('RGB')
+        ow, oh = im.size
+        if ow > 800:
+            im = im.resize((800, round(oh*800/ow)), Image.LANCZOS)
+        w, h = im.size
+        im.save(os.path.splitext(jpg_path)[0]+'.webp', 'WEBP', quality=80, method=6)
+        _WEBP['/assets/blog/'+os.path.basename(jpg_path)[:-4]] = (w, h)
+    except Exception as e:
+        print('    ! webp falhou (%s), só JPG' % e)
+
+def img_tag(cover, alt, loading):
+    """<picture> com fonte webp + <img> jpg de fallback (com width/height se conhecidos).
+    Se a capa for externa (http) ou sem webp, devolve um <img> simples."""
+    a = esc(alt)
+    if cover.startswith('/assets/blog/') and cover.endswith('.jpg'):
+        base = cover[:-4]
+        wh = _WEBP.get(base)
+        dim = f' width="{wh[0]}" height="{wh[1]}"' if wh else ''
+        return (f'<picture><source srcset="{base}.webp" type="image/webp">'
+                f'<img src="{esc(cover)}" alt="{a}"{dim} loading="{loading}"></picture>')
+    return f'<img src="{esc(cover)}" alt="{a}" loading="{loading}">'
 
 def rep(pattern, value, s):
     return re.sub(pattern, lambda m: m.group(1)+value+m.group(2), s, count=1)
@@ -235,7 +278,7 @@ def build_article(p, cs, cover, cat):
       f'    <span class="dot"></span><span>{date}</span>\n'
       f'    <span class="dot"></span><span>{rmin} min de leitura</span>\n'
       f'  </div>\n'
-      f'  <div class="art-cover"><img src="{esc(cover)}" alt="{esc(p.get("coverAlt",""))}" loading="eager"></div>{credit_html}\n'
+      f'  <div class="art-cover">{img_tag(cover, p.get("coverAlt",""), "eager")}</div>{credit_html}\n'
       f'  <div class="prose">\n{prose}\n  </div>\n{sim_html}{faq_html}'
       f'  <div class="art-cta">\n'
       f'    <h3>Pronto pra tirar do papel?</h3>\n'
@@ -256,7 +299,7 @@ def card(p, cs, cover, cat, featured=False):
     href = f'/blog/{cs}/'; alt = esc(p.get('coverAlt',''))
     if featured:
         return (f'<a href="{href}" class="featured" data-cat="{cat}">\n'
-          f'    <div class="featured-thumb"><img src="{esc(cover)}" alt="{alt}" loading="lazy"></div>\n'
+          f'    <div class="featured-thumb">{img_tag(cover, p.get("coverAlt",""), "lazy")}</div>\n'
           f'    <div class="featured-body">\n'
           f'      <span class="post-tag {tc}">{esc(tag)}</span>\n'
           f'      <h2 class="featured-title">{esc(p["title"])}</h2>\n'
@@ -264,7 +307,7 @@ def card(p, cs, cover, cat, featured=False):
           f'      <div class="post-meta"><span>Ondino</span><span class="dot"></span><span>{date}</span><span class="dot"></span><span>{rmin} min de leitura</span></div>\n'
           f'    </div>\n  </a>')
     return (f'<a href="{href}" class="post-card" data-cat="{cat}">\n'
-      f'      <div class="post-thumb"><img src="{esc(cover)}" alt="{alt}" loading="lazy"></div>\n'
+      f'      <div class="post-thumb">{img_tag(cover, p.get("coverAlt",""), "lazy")}</div>\n'
       f'      <div class="post-body">\n'
       f'        <span class="post-tag {tc}">{esc(tag)}</span>\n'
       f'        <h3 class="post-title">{esc(p["title"])}</h3>\n'
@@ -308,6 +351,8 @@ def main():
         ov = COVER_OVERRIDE.get(cs)
         if ov:
             p['cover'], p['coverAlt'], p['coverCredit'] = ov['url'], ov['alt'], ov['credit']
+        if cs in ALT_OVERRIDE:
+            p['coverAlt'] = ALT_OVERRIDE[cs]
         print(f'- {cs}  [{cat}]' + ('  (capa override)' if ov else ''))
         cover = download_cover(cs, p.get('cover',''))
         meta.append((p, cs, cover, cat))
