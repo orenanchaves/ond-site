@@ -34,6 +34,30 @@ COVER_OVERRIDE = {
         'credit':'Unsplash'},
 }
 
+# Simulação do roteiro (widget "Monte a sua X com o OND vAI") nos posts de roteiro.
+ROTEIRO_SIM = {
+  'roteiro-buenos-aires': {
+    'dest':'Buenos Aires','flag':'🇦🇷','banner':'/assets/blog/roteiro-buenos-aires.jpg',
+    'meta':'Setembro · 4 dias · Casal','air':['GRU → EZE','EZE → GRU'],'hotel':'Hotel em Palermo',
+    'fin':{'total':'R$ 4.700','dia':'R$ 800','itens':[['✈️ Voos','R$ 1.900'],['🏨 Hospedagem · 3 noites','R$ 1.400'],['🍽️ Gastronomia','R$ 900'],['🎭 Passeios & tango','R$ 500']]},
+    'days':[
+      {'title':'Recoleta e Centro','acts':[{'t':'Cemitério da Recoleta','time':'09:30 - 11:30','rate':'4.8'},{'t':'Obelisco & Av. 9 de Julio','time':'12:00 - 13:00','rate':'4.6'},{'t':'Teatro Colón','time':'15:00 - 16:30','rate':'4.9'},{'t':'Café Tortoni','time':'17:30 - 18:30','rate':'4.5'}]},
+      {'title':'Palermo','acts':[{'t':'Bosques de Palermo','time':'09:30 - 11:00','rate':'4.7'},{'t':'Jardín Japonés','time':'11:30 - 13:00','rate':'4.6'},{'t':'MALBA','time':'14:30 - 16:30','rate':'4.7'},{'t':'Noite em Palermo Soho','time':'20:00','rate':'4.8'}]},
+      {'title':'San Telmo e La Boca','acts':[{'t':'Feira de San Telmo','time':'10:00 - 12:30','rate':'4.7'},{'t':'Caminito & La Boca','time':'13:30 - 15:30','rate':'4.6'},{'t':'La Bombonera','time':'16:00 - 17:00','rate':'4.8'},{'t':'Show de tango','time':'21:00','rate':'4.9'}]},
+      {'title':'Compras e gastronomia','acts':[{'t':'Calle Florida','time':'10:00 - 12:00','rate':'4.4'},{'t':'Almoço · parrilla','time':'13:00 - 14:30','rate':'4.8'},{'t':'Puerto Madero','time':'15:00 - 17:00','rate':'4.6'},{'t':'Voo de volta · EZE','time':'20:30'}]},
+    ]},
+  'roteiro-lisboa': {
+    'dest':'Lisboa','flag':'🇵🇹','banner':'/assets/blog/roteiro-lisboa.jpg',
+    'meta':'Setembro · 4 dias · Casal','air':['GRU → LIS','LIS → GRU'],'hotel':'Hotel no Chiado',
+    'fin':{'total':'R$ 10.200','dia':'R$ 2.550','itens':[['✈️ Voos','R$ 4.200'],['🏨 Hospedagem · 3 noites','R$ 3.000'],['🎟️ Passeios & museus','R$ 1.600'],['🍷 Gastronomia','R$ 1.400']]},
+    'days':[
+      {'title':'Alfama e centro','acts':[{'t':'Sé de Lisboa & Alfama','time':'09:30 - 12:00','rate':'4.8'},{'t':'Almoço no Time Out Market','time':'13:00 - 14:30','rate':'4.6'},{'t':'Chiado & Elevador de Santa Justa','time':'15:30 - 18:00','rate':'4.5'},{'t':'Fado no Bairro Alto','time':'21:00','rate':'4.8'}]},
+      {'title':'Belém','acts':[{'t':'Torre de Belém','time':'09:00 - 11:00','rate':'4.7'},{'t':'Mosteiro dos Jerónimos','time':'11:30 - 13:00','rate':'4.8'},{'t':'Pastéis de Belém','time':'13:30 - 14:00','rate':'4.9'},{'t':'MAAT','time':'15:30 - 17:00','rate':'4.5'}]},
+      {'title':'Sintra (bate-volta)','acts':[{'t':'Palácio da Pena','time':'09:30 - 12:30','rate':'4.9'},{'t':'Quinta da Regaleira','time':'14:00 - 16:30','rate':'4.8'},{'t':'Pôr do sol no Cabo da Roca','time':'18:30','rate':'4.7'}]},
+      {'title':'Chiado e miradouros','acts':[{'t':'Miradouro de São Pedro de Alcântara','time':'10:00 - 11:00','rate':'4.7'},{'t':'LX Factory','time':'12:30 - 15:00','rate':'4.6'},{'t':'Compras no Chiado','time':'15:30 - 17:30','rate':'4.5'},{'t':'Voo de volta · LIS','time':'21:30'}]},
+    ]},
+}
+
 EXTRA_CSS = ('\n.prose ol{margin:0 0 22px 0;padding-left:22px;color:#cfcce8}'
  '\n[data-theme="light"] .prose ol{color:#2a2540}'
  '\n.prose .tldr{font-style:normal;border-left-color:var(--green);background:var(--green-dim)}'
@@ -43,7 +67,10 @@ EXTRA_CSS = ('\n.prose ol{margin:0 0 22px 0;padding-left:22px;color:#cfcce8}'
  '\n.faq h2{font-size:1.72rem;font-weight:800;letter-spacing:-.02em;margin-bottom:18px}'
  '\n.faq-item{border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin-bottom:12px;background:var(--card)}'
  '\n.faq-item h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--text)}'
- '\n.faq-item p{font-size:1rem;color:var(--muted);line-height:1.75;margin:0}\n')
+ '\n.faq-item p{font-size:1rem;color:var(--muted);line-height:1.75;margin:0}'
+ '\n.roteiro-sim-wrap{margin:48px auto 8px;text-align:center}'
+ '\n.roteiro-sim-wrap>h2{font-size:1.72rem;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}'
+ '\n.rsim-sub{font-size:1rem;color:var(--muted);max-width:560px;margin:0 auto 22px;line-height:1.6}\n')
 
 # Ícone de pin (mesmo da timeline de roteiro do app OND).
 PIN_SVG = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 '
@@ -146,6 +173,18 @@ def build_head(head_open, p, cs, cover, cat):
         s = s.replace('</head>', '<script type="application/ld+json">'+json.dumps(schema, ensure_ascii=False)+'</script>\n</head>', 1)
     return s
 
+def build_sim(cs):
+    d = ROTEIRO_SIM.get(cs)
+    if not d: return ''
+    cfg = json.dumps(d, ensure_ascii=False)
+    return ('\n  <section class="roteiro-sim-wrap">'
+        '\n  <h2>Monte a sua ' + esc(d['dest']) + ' com o OND vAI</h2>'
+        '\n  <p class="rsim-sub">Veja o OND vAI transformar este roteiro num plano completo — dia a dia, voos, hospedagem e orçamento — e leve tudo no app.</p>'
+        '\n  <div id="roteiro-sim"></div>'
+        '\n  </section>'
+        '\n  <script>window.RSIM = ' + cfg + ';</script>'
+        '\n  <script src="/assets/roteiro-sim.js" defer></script>\n')
+
 def build_article(p, cs, cover, cat):
     tag  = CAT_LABEL.get(cat, cat)
     date = fmt_date(p.get('updatedAt',''))
@@ -158,6 +197,7 @@ def build_article(p, cs, cover, cat):
         items = '\n  '.join(f'<div class="faq-item"><h3>{esc(f["q"])}</h3><p>{esc(f["a"])}</p></div>' for f in faqs)
         faq_html = f'\n  <section class="faq">\n  <h2>Perguntas frequentes</h2>\n  {items}\n  </section>\n'
     prose = absolutize(p['html'])
+    sim_html = build_sim(cs)
     if cat == 'roteiros':
         prose = roteirize(prose)
     return (f'<article class="article">\n'
@@ -171,7 +211,7 @@ def build_article(p, cs, cover, cat):
       f'    <span class="dot"></span><span>{rmin} min de leitura</span>\n'
       f'  </div>\n'
       f'  <div class="art-cover"><img src="{esc(cover)}" alt="{esc(p.get("coverAlt",""))}" loading="eager"></div>{credit_html}\n'
-      f'  <div class="prose">\n{prose}\n  </div>\n{faq_html}'
+      f'  <div class="prose">\n{prose}\n  </div>\n{sim_html}{faq_html}'
       f'  <div class="art-cta">\n'
       f'    <h3>Pronto pra tirar do papel?</h3>\n'
       f'    <p>Conte pro OND vAI pra onde quer ir e ele monta o roteiro completo — com voos, hotéis e passeios — em minutos.</p>\n'
