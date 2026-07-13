@@ -10,7 +10,7 @@ build-blog.py — gera os posts do blog do OND a partir da API do OND Firma.
 
 Rode de novo sempre que o conteúdo mudar:  python build-blog.py
 """
-import json, re, html, os, urllib.request
+import json, re, html, os, datetime, urllib.request
 
 API  = 'https://ond-firma.ond-jarvis.workers.dev/api/blog/posts'
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -68,9 +68,10 @@ EXTRA_CSS = ('\n.prose ol{margin:0 0 22px 0;padding-left:22px;color:#cfcce8}'
  '\n.faq-item{border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin-bottom:12px;background:var(--card)}'
  '\n.faq-item h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--text)}'
  '\n.faq-item p{font-size:1rem;color:var(--muted);line-height:1.75;margin:0}'
- '\n.roteiro-sim-wrap{margin:48px auto 8px;text-align:center}'
- '\n.roteiro-sim-wrap>h2{font-size:1.72rem;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}'
- '\n.rsim-sub{font-size:1rem;color:var(--muted);max-width:560px;margin:0 auto 22px;line-height:1.6}\n')
+ '\n.roteiro-sim-wrap{margin:60px auto 40px;padding-top:40px;border-top:1px solid var(--border);text-align:center}'
+ '\n.roteiro-sim-wrap>h2{font-size:1.8rem;font-weight:800;letter-spacing:-.02em;margin:0 0 10px}'
+ '\n.rsim-sub{font-size:1.02rem;color:var(--muted);max-width:560px;margin:0 auto 30px;line-height:1.6}'
+ '\n@media(min-width:760px){.roteiro-sim-wrap{margin:72px auto 48px;padding-top:48px}.rsim-sub{margin-bottom:36px}}\n')
 
 # Ícone de pin (mesmo da timeline de roteiro do app OND).
 PIN_SVG = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 '
@@ -166,6 +167,25 @@ def build_head(head_open, p, cs, cover, cat):
     s = rep(r'(<meta name="twitter:description" content=")[^"]*(">)', esc(desc), s)
     s = rep(r'(<meta name="twitter:image" content=")[^"]*(">)', esc(ogimg), s)
     s = s.replace('</style>', EXTRA_CSS+'</style>', 1)
+    # posts sao indexaveis: remove o noindex que vem herdado do post-modelo.html
+    s = re.sub(r'\s*<meta name="robots"[^>]*>', '', s, count=1)
+    # remove o @graph (Article + BreadcrumbList) fixo herdado do template
+    s = re.sub(r'\s*<script type="application/ld\+json">\s*\{[^<]*?"@graph".*?</script>', '', s, count=1, flags=re.S)
+    # Article + BreadcrumbList com os dados REAIS deste post
+    pub = p.get('createdAt') or p.get('updatedAt') or '2026-07-10'
+    mod = p.get('updatedAt') or pub
+    graph = {'@context':'https://schema.org','@graph':[
+        {'@type':'Article','headline':title,'description':desc,'image':ogimg,
+         'datePublished':pub,'dateModified':mod,'inLanguage':'pt-BR',
+         'mainEntityOfPage':canon,'articleSection':CAT_LABEL.get(cat,cat),
+         'author':{'@type':'Organization','name':'OND','url':SITE+'/'},
+         'publisher':{'@type':'Organization','name':'OND',
+             'logo':{'@type':'ImageObject','url':SITE+'/assets/ond-logo.png'}}},
+        {'@type':'BreadcrumbList','itemListElement':[
+            {'@type':'ListItem','position':1,'name':'Início','item':SITE+'/'},
+            {'@type':'ListItem','position':2,'name':'Vai para onde?','item':SITE+'/blog.html'},
+            {'@type':'ListItem','position':3,'name':title,'item':canon}]}]}
+    s = s.replace('</head>', '<script type="application/ld+json">'+json.dumps(graph, ensure_ascii=False)+'</script>\n</head>', 1)
     faqs = p.get('faq') or []
     if faqs:
         schema = {'@context':'https://schema.org','@type':'FAQPage','mainEntity':[
@@ -197,7 +217,12 @@ def build_article(p, cs, cover, cat):
         items = '\n  '.join(f'<div class="faq-item"><h3>{esc(f["q"])}</h3><p>{esc(f["a"])}</p></div>' for f in faqs)
         faq_html = f'\n  <section class="faq">\n  <h2>Perguntas frequentes</h2>\n  {items}\n  </section>\n'
     prose = absolutize(p['html'])
+    # o html da API ja traz um FAQ proprio -> remove (usamos o nosso estilizado + schema)
+    prose = re.sub(r'<h2[^>]*>Perguntas frequentes.*', '', prose, flags=re.S)
     sim_html = build_sim(cs)
+    if sim_html:
+        # nos posts de roteiro, o widget substitui o bloco de texto "Monte a sua {dest}"
+        prose = re.sub(r'<h2[^>]*>Monte a sua.*', '', prose, flags=re.S)
     if cat == 'roteiros':
         prose = roteirize(prose)
     return (f'<article class="article">\n'
@@ -247,6 +272,25 @@ def card(p, cs, cover, cat, featured=False):
       f'        <div class="post-meta"><span>{date}</span><span class="dot"></span><span>{rmin} min</span></div>\n'
       f'      </div>\n    </a>')
 
+def write_sitemap(meta):
+    """Reescreve o sitemap.xml: paginas fixas + os posts reais. Sem post-modelo.html."""
+    today = datetime.date.today().isoformat()
+    fixed = [('', '1.0', 'weekly'), ('agencias.html', '0.9', 'monthly'),
+             ('assessoria.html', '0.8', 'monthly'), ('blog.html', '0.7', 'weekly')]
+    urls = []
+    for path, prio, freq in fixed:
+        urls.append(f'  <url>\n    <loc>{SITE}/{path}</loc>\n    <lastmod>{today}</lastmod>\n'
+                    f'    <changefreq>{freq}</changefreq>\n    <priority>{prio}</priority>\n  </url>')
+    for p, cs, cover, cat in meta:
+        lastmod = p.get('updatedAt') or today
+        urls.append(f'  <url>\n    <loc>{SITE}/blog/{cs}/</loc>\n    <lastmod>{lastmod}</lastmod>\n'
+                    f'    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>')
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+           + '\n'.join(urls) + '\n</urlset>\n')
+    open(os.path.join(ROOT,'sitemap.xml'),'w',encoding='utf-8',newline='\n').write(xml)
+    print('sitemap.xml atualizado (%d urls)' % len(urls))
+
 def main():
     print('Puxando API...')
     req = urllib.request.Request(API, headers={'User-Agent':'Mozilla/5.0','Accept':'application/json'})
@@ -289,6 +333,8 @@ def main():
     blog = blog[:i] + NEW_CARDS + blog[j:]
     open(os.path.join(ROOT,'blog.html'),'w',encoding='utf-8',newline='\n').write(blog)
     print('blog.html atualizado (%d cards, chips: %s)' % (len(meta), ', '.join(present)))
+
+    write_sitemap(meta)
     print('OK')
 
 if __name__ == '__main__':
