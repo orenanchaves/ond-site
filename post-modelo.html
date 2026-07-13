@@ -115,6 +115,19 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .callout{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin:28px 0;font-size:.95rem;color:var(--muted);line-height:1.7}
 .callout strong{color:var(--green)}
 
+/* ROTEIRO TIMELINE — mesma cara do roteiro dentro do app OND */
+.roteiro-timeline{margin:26px 0 32px;display:flex;flex-direction:column;gap:20px}
+.rt-day-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.rt-day-badge{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#fff;padding:7px 15px;border-radius:50px;background:linear-gradient(135deg,#7F11F4,#290756);box-shadow:0 4px 16px color-mix(in srgb,#7F11F4 40%,transparent)}
+.rt-day-title{font-size:1.2rem;font-weight:800;letter-spacing:-.01em;color:var(--text);margin:0}
+.rt-card{background:var(--card);border:1px solid var(--border);border-left:3px solid #11F558;border-radius:14px;padding:6px 20px}
+.rt-stop{display:flex;align-items:center;gap:13px;padding:13px 0;border-bottom:1px solid var(--border)}
+.rt-stop:last-child{border-bottom:none}
+.rt-pin{flex-shrink:0;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,#11F558 16%,transparent)}
+.rt-pin svg{width:15px;height:15px;fill:#11F558;display:block}
+.rt-stop-text{font-size:1.02rem;line-height:1.5;color:var(--text);font-weight:600}
+.rt-note{font-size:.9rem;color:var(--muted);margin:0;padding:12px 0 4px;line-height:1.5;font-style:italic}
+
 /* CTA no fim */
 .art-cta{margin:48px 0 0;background:linear-gradient(135deg,var(--purple-dim),transparent);border:1px solid var(--border);border-radius:20px;padding:38px 34px;text-align:center}
 .art-cta h3{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}

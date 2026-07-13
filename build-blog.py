@@ -45,6 +45,37 @@ EXTRA_CSS = ('\n.prose ol{margin:0 0 22px 0;padding-left:22px;color:#cfcce8}'
  '\n.faq-item h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--text)}'
  '\n.faq-item p{font-size:1rem;color:var(--muted);line-height:1.75;margin:0}\n')
 
+# Ícone de pin (mesmo da timeline de roteiro do app OND).
+PIN_SVG = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 '
+ '5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>')
+
+def roteirize(prose):
+    """Converte o bloco 'Dia N: ...' num timeline visual (cards de dia + paradas com pin),
+    replicando a cara do roteiro dentro do app OND. Só é chamada para a categoria roteiros."""
+    block_re = re.compile(r'(?:<p><strong>Dia\s*\d+:.*?</strong>.*?</p>\s*)+', re.S)
+    day_re   = re.compile(r'<p><strong>(Dia\s*\d+):\s*(.*?)\.?</strong>\s*(.*?)</p>', re.S)
+    def build(m):
+        out = ['<div class="roteiro-timeline">']
+        for num, title, body in day_re.findall(m.group(0)):
+            body = re.sub(r'\s+', ' ', body).strip()
+            note = ''
+            mm = re.match(r'(.*?[^.])\.\s+([A-ZÀ-Ý].*?)\.?$', body, re.S)
+            if mm and ',' in mm.group(2):           # frase-nota depois da lista de paradas
+                body, note = mm.group(1), mm.group(2)
+            body  = re.sub(r'\s+e\s+', ', ', body.strip().rstrip('.'))
+            stops = [s.strip() for s in body.split(',') if s.strip()]
+            out.append('<div class="rt-day"><div class="rt-day-head">'
+                       f'<span class="rt-day-badge">{esc(num)}</span>'
+                       f'<h3 class="rt-day-title">{esc(title.strip())}</h3></div><div class="rt-card">')
+            out += [f'<div class="rt-stop"><span class="rt-pin">{PIN_SVG}</span>'
+                    f'<span class="rt-stop-text">{esc(s)}</span></div>' for s in stops]
+            if note:
+                out.append(f'<p class="rt-note">{esc(note)}</p>')
+            out.append('</div></div>')
+        out.append('</div>')
+        return ''.join(out)
+    return block_re.sub(build, prose, count=1)
+
 def esc(s): return html.escape(s or '', quote=True)
 def cslug(s): return re.sub(r'^blog-', '', s)
 def fmt_date(iso):
@@ -127,6 +158,8 @@ def build_article(p, cs, cover, cat):
         items = '\n  '.join(f'<div class="faq-item"><h3>{esc(f["q"])}</h3><p>{esc(f["a"])}</p></div>' for f in faqs)
         faq_html = f'\n  <section class="faq">\n  <h2>Perguntas frequentes</h2>\n  {items}\n  </section>\n'
     prose = absolutize(p['html'])
+    if cat == 'roteiros':
+        prose = roteirize(prose)
     return (f'<article class="article">\n'
       f'  <div class="breadcrumb"><a href="/blog.html">← Vai para onde?</a> · {esc(tag)}</div>\n'
       f'  <span class="art-tag">{esc(tag)}</span>\n'
