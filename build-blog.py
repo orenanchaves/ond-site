@@ -379,6 +379,17 @@ def main():
     print('blog.html atualizado (%d cards, chips: %s)' % (len(meta), ', '.join(present)))
 
     write_sitemap(meta)
+    # Reaplica a seção de marketing multi-idioma (alternates hreflang) por cima:
+    # build-i18n preserva os <url> do blog que acabamos de escrever e reescreve o
+    # marketing com os alternates. Assim o sitemap final fica correto mesmo quando
+    # build-blog.py é o último a rodar (evita perder as URLs en/es/fr/it).
+    try:
+        import importlib.util
+        _spec = importlib.util.spec_from_file_location('build_i18n', os.path.join(ROOT, 'build-i18n.py'))
+        _i18n = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_i18n)
+        _i18n.write_sitemap()
+    except Exception as e:
+        print('  aviso: nao reapliquei os alternates i18n no sitemap (%s)' % e)
     print('OK')
 
 if __name__ == '__main__':
