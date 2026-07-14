@@ -75,15 +75,14 @@ EXTRA_CSS = ('\n.prose ol{margin:0 0 22px 0;padding-left:22px;color:#cfcce8}'
  '\n.prose .tldr{font-style:normal;border-left-color:var(--green);background:var(--green-dim)}'
  '\n.prose .tldr strong{color:var(--green)}'
  '\n.art-cover-credit{font-size:.72rem;color:var(--muted2);margin:-22px 0 30px;text-align:center}'
- '\n.faq{margin:50px 0 0}'
- '\n.faq h2{font-size:1.72rem;font-weight:800;letter-spacing:-.02em;margin-bottom:18px}'
+ '\n.faq{margin:36px 0 0}'
+ '\n.faq h2{font-size:1.72rem;font-weight:800;letter-spacing:-.02em;margin-bottom:16px}'
  '\n.faq-item{border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin-bottom:12px;background:var(--card)}'
  '\n.faq-item h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--text)}'
  '\n.faq-item p{font-size:1rem;color:var(--muted);line-height:1.75;margin:0}'
- '\n.roteiro-sim-wrap{margin:60px auto 40px;padding-top:40px;border-top:1px solid var(--border);text-align:center}'
- '\n.roteiro-sim-wrap>h2{font-size:1.8rem;font-weight:800;letter-spacing:-.02em;margin:0 0 10px}'
- '\n.rsim-sub{font-size:1.02rem;color:var(--muted);max-width:560px;margin:0 auto 30px;line-height:1.6}'
- '\n@media(min-width:760px){.roteiro-sim-wrap{margin:72px auto 48px;padding-top:48px}.rsim-sub{margin-bottom:36px}}\n')
+ '\n.roteiro-sim-wrap{margin:40px auto 26px;text-align:center}'
+ '\n.roteiro-sim-wrap>h2{font-size:1.72rem;font-weight:800;letter-spacing:-.02em;margin:0 0 10px}'
+ '\n.rsim-sub{font-size:1rem;color:var(--muted);max-width:560px;margin:0 auto 22px;line-height:1.6}\n')
 
 # Ícone de pin (mesmo da timeline de roteiro do app OND).
 PIN_SVG = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 '
