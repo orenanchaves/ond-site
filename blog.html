@@ -151,6 +151,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 :focus-visible{outline:2px solid var(--ond-color-focus);outline-offset:2px}
 .news-form button:hover{background:var(--purple-light);transform:translateY(-2px)}
 .news-ok{color:var(--green);font-weight:600;margin-top:16px;font-size:.9rem;display:none}
+.news-err{color:#e05252;font-weight:600;margin-top:16px;font-size:.9rem;display:none}
 
 /* ── FOOTER ── */
 footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 32px;margin-top:72px}
@@ -396,11 +397,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <div class="news">
     <h3>Recebe o próximo no seu e-mail</h3>
     <p>Uma vez por semana: um destino novo, uma dica boa e nada de spam. Curtiu? Entra na lista do "Vai para onde?".</p>
-    <form class="news-form" onsubmit="subscribe(event)">
-      <input type="email" placeholder="seu@email.com" required aria-label="Seu e-mail">
+    <form class="news-form" action="https://formspree.io/f/mjgngkwz" method="POST" onsubmit="subscribe(event)">
+      <input type="email" name="email" placeholder="seu@email.com" required aria-label="Seu e-mail">
+      <input type="hidden" name="_subject" value="Nova inscrição na newsletter do OND">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button type="submit">Quero receber</button>
     </form>
     <div class="news-ok" id="newsOk">✓ Pronto! Em breve você recebe nossas novidades.</div>
+    <div class="news-err" id="newsErr">Ops, não deu. Tenta de novo?</div>
   </div>
 
 </div>
@@ -512,7 +516,19 @@ function filterCat(btn,cat){
   })
   document.getElementById('empty').style.display=visible?'none':'block'
 }
-function subscribe(e){e.preventDefault();document.getElementById('newsOk').style.display='block';e.target.reset()}
+function subscribe(e){
+  e.preventDefault();
+  var form=e.target, btn=form.querySelector('button[type="submit"]');
+  var ok=document.getElementById('newsOk'), err=document.getElementById('newsErr');
+  ok.style.display='none'; err.style.display='none'; btn.disabled=true;
+  fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+    .then(function(r){
+      if(r.ok){ok.style.display='block';form.reset();}
+      else{err.style.display='block';}
+    })
+    .catch(function(){err.style.display='block';})
+    .then(function(){btn.disabled=false;});
+}
 </script>
 <script src="assets/app-modal.js" defer></script>
 <script src="assets/vai-widget.js" defer></script>
