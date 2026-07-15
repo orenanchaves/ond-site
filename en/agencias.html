@@ -317,6 +317,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 
 <style>
 .langsel{position:relative;flex-shrink:0}
+@media(max-width:960px){.langsel{display:none}.header-actions{flex:0 0 auto}}
+.mobile-lang{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:18px 0 2px}
+.mobile-lang>span{font-size:.85rem;color:var(--muted);margin-right:2px}
+.mobile-nav .mobile-lang a{padding:5px 10px;border:1px solid var(--border);border-radius:8px;font-size:.82rem;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)}
+.mobile-nav .mobile-lang a[aria-current="true"]{color:var(--text);border-color:var(--text)}
 .langsel>summary{list-style:none;display:flex;align-items:center;gap:6px;height:34px;padding:0 10px;
   border:1px solid var(--border);border-radius:17px;color:var(--muted);cursor:pointer;font-size:.82rem;
   font-weight:600;background:none;transition:border-color .2s,background .2s,color .2s}
@@ -386,6 +391,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   <a href="#modelo" onclick="closeMenu()">Model</a>
   <a href="#plataforma" onclick="closeMenu()">Platform</a>
   <a href="https://pci.jotform.com/form/252517268656062" style="color:var(--green);font-weight:700" target="_blank" rel="noopener">I want it for my agency →</a>
+  <div class="mobile-lang"><span>Idioma</span><a href="/agencias.html">PT</a><a href="/en/agencias.html" aria-current="true">EN</a><a href="/es/agencias.html">ES</a><a href="/fr/agencias.html">FR</a><a href="/it/agencias.html">IT</a></div>
 </nav>
 
 <!-- HERO -->

@@ -70,6 +70,11 @@ GLOBE = ('<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="cu
 LANGSEL_CSS = """
 <style>
 .langsel{position:relative;flex-shrink:0}
+@media(max-width:960px){.langsel{display:none}.header-actions{flex:0 0 auto}}
+.mobile-lang{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:18px 0 2px}
+.mobile-lang>span{font-size:.85rem;color:var(--muted);margin-right:2px}
+.mobile-nav .mobile-lang a{padding:5px 10px;border:1px solid var(--border);border-radius:8px;font-size:.82rem;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)}
+.mobile-nav .mobile-lang a[aria-current="true"]{color:var(--text);border-color:var(--text)}
 .langsel>summary{list-style:none;display:flex;align-items:center;gap:6px;height:34px;padding:0 10px;
   border:1px solid var(--border);border-radius:17px;color:var(--muted);cursor:pointer;font-size:.82rem;
   font-weight:600;background:none;transition:border-color .2s,background .2s,color .2s}
@@ -103,6 +108,16 @@ def build_selector(cur_loc, base):
         '<span class="langsel-cur">%s</span><span class="langsel-caret">▾</span></summary>\n'
         '  <ul class="langsel-menu">\n%s\n  </ul>\n</details>\n  '
         % (GLOBE, cur_short, '\n'.join(items)))
+
+
+def build_mobile_lang(cur_loc, base):
+    """Seletor de idioma dentro do menu hamburguer (mobile). Links -> versao
+    equivalente da propria pagina em cada idioma; idioma atual marcado."""
+    links = []
+    for code, htmllang, ogloc, name, short, hreflang in LOCALES:
+        cur = ' aria-current="true"' if code == cur_loc else ''
+        links.append('<a href="%s"%s>%s</a>' % (page_path(code, base), cur, short))
+    return '<div class="mobile-lang"><span>Idioma</span>%s</div>' % ''.join(links)
 
 
 def build_hreflang(base):
@@ -177,6 +192,8 @@ def render_page(base, strings):
         # seletor de idioma antes do botao de tema
         doc = doc.replace('<button class="theme-btn"',
                           build_selector(code, base) + '<button class="theme-btn"', 1)
+        # seletor de idioma dentro do menu hamburguer (mobile)
+        doc = doc.replace('<!--@@MOBILE_LANG@@-->', build_mobile_lang(code, base), 1)
         # hreflang + css do seletor antes do </head>
         doc = doc.replace('</head>', LANGSEL_CSS + build_hreflang(base) + '</head>', 1)
 
