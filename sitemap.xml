@@ -133,6 +133,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ondviajar.com.br/links.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ondviajar.com.br/en/assessoria.html</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ondviajar.com.br/assessoria.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://ondviajar.com.br/en/assessoria.html"/>
