@@ -560,6 +560,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <nav><ul class="header-nav">
     <li><a href="#como-funciona">Como funciona</a></li>
     <li><a href="#recursos">Recursos</a></li>
+    <li><a href="#destinos" onclick="openGlobe(event)">Destinos</a></li>
     <li><a href="assessoria.html">Assessoria</a></li>
     <li><a href="/blog.html">Blog</a></li>
     <li><a href="#" onclick="openContact(event)">Contato</a></li>
@@ -582,6 +583,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <nav class="mobile-nav" id="mobileNav">
   <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
   <a href="#recursos" onclick="closeMenu()">Recursos</a>
+  <a href="#destinos" onclick="openGlobe(event);closeMenu()">Destinos</a>
   <a href="assessoria.html" onclick="closeMenu()">Assessoria</a>
   <a href="/blog.html" onclick="closeMenu()">Blog</a>
   <a href="#" onclick="openContact(event);closeMenu()">Contato</a>
@@ -1262,6 +1264,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 })();
 </script>
 <script src="/assets/app-modal.js" defer></script>
+<script src="/assets/globe.js" defer></script>
 <script src="/assets/vai-widget.js" defer></script>
 </body>
 </html>
