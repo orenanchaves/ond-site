@@ -37,6 +37,15 @@
   /* destinos que já têm roteiro publicado no blog */
   var POST={ 'Lisboa':'/blog/roteiro-lisboa/', 'Buenos Aires':'/blog/roteiro-buenos-aires/' };
 
+  /* lojas do app (mesmos links do app-modal.js) — o seletor do globo é próprio
+     porque o popup global fica em z-index 901, atrás do globo (100001). */
+  var PLAY='https://play.google.com/store/apps/details?id=com.agamatec.ond';
+  var APPSTORE='https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427';
+  var WEB='https://web.ondviajar.com.br/';
+  var IC_ANDROID='<svg viewBox="0 0 24 24" width="24" height="24" style="fill:#3DDC84"><path d="M17.523 15.34c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m-11.046 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m11.405-6.02l1.997-3.46a.42.42 0 00-.72-.42l-2.02 3.5A12.3 12.3 0 0012 7.85c-1.85 0-3.59.39-5.14 1.1L4.84 5.45a.42.42 0 00-.72.42l2 3.46C2.69 11.19.34 14.66 0 18.76h24c-.34-4.1-2.69-7.57-6.12-9.44"/></svg>';
+  var IC_APPLE='<svg viewBox="0 0 24 24" width="23" height="23" style="fill:currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>';
+  var IC_WEB='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 4 9 15 15 0 0 1-4 9 15 15 0 0 1-4-9 15 15 0 0 1 4-9z"/></svg>';
+
   var PAISES=[{"n":"Estados Unidos","cc":"US","lat":36.4465,"lon":-93.838,"cities":[{"n":"Washington","lat":38.8951,"lon":-77.0364},{"n":"San Diego","lat":32.7174,"lon":-117.1628},{"n":"Atlanta","lat":33.7545,"lon":-84.3898},{"n":"Las Vegas","lat":36.1674,"lon":-115.1484},{"n":"Nova Iorque","lat":40.7127,"lon":-74.006},{"n":"San Antonio","lat":29.4246,"lon":-98.4951},{"n":"Chicago","lat":41.8756,"lon":-87.6244},{"n":"Orlando","lat":28.5421,"lon":-81.379},{"n":"São Francisco","lat":37.7879,"lon":-122.4075},{"n":"Filadélfia","lat":39.9527,"lon":-75.1635},{"n":"Denver","lat":39.7392,"lon":-104.9849},{"n":"Los Angeles","lat":34.0537,"lon":-118.2428},{"n":"Miami","lat":25.7742,"lon":-80.1936},{"n":"Boston","lat":42.3588,"lon":-71.0578},{"n":"Houston","lat":29.7589,"lon":-95.3677},{"n":"Dallas","lat":32.7763,"lon":-96.7969}]},{"n":"Brasil","cc":"BR","lat":-18.2019,"lon":-44.5591,"cities":[{"n":"Natal","lat":-5.8054,"lon":-35.2081},{"n":"Balneário Camboriú","lat":-26.9924,"lon":-48.634},{"n":"Manaus","lat":-3.1316,"lon":-59.9825},{"n":"Canela","lat":-29.3447,"lon":-50.7604},{"n":"Paraty","lat":-23.2196,"lon":-44.7154},{"n":"Arraial do Cabo","lat":-22.9663,"lon":-42.0244},{"n":"Araçatuba","lat":-21.208,"lon":-50.439},{"n":"Recife","lat":-8.0585,"lon":-34.8848},{"n":"Santos","lat":-23.9609,"lon":-46.3166},{"n":"Curitiba","lat":-25.4296,"lon":-49.2713},{"n":"Jundiaí","lat":-23.1888,"lon":-46.8845},{"n":"Porto Seguro","lat":-16.4435,"lon":-39.0643},{"n":"Penha","lat":-26.7754,"lon":-48.6465},{"n":"Sabará","lat":-19.89,"lon":-43.8108},{"n":"Mogi das Cruzes","lat":-23.5234,"lon":-46.1927},{"n":"Praia Grande","lat":-24.009,"lon":-46.4145},{"n":"Campos do Jordão","lat":-22.7383,"lon":-45.5904},{"n":"São José de Piranhas","lat":-7.1199,"lon":-38.4991},{"n":"Atibaia","lat":-23.1177,"lon":-46.5548},{"n":"Tiradentes","lat":-21.1105,"lon":-44.1743},{"n":"Holambra","lat":-22.6332,"lon":-47.0545},{"n":"Carolina","lat":-7.3313,"lon":-47.4739},{"n":"Maceió","lat":-9.6477,"lon":-35.7339},{"n":"Brasília","lat":-15.794,"lon":-47.8828},{"n":"Ubatuba","lat":-23.4332,"lon":-45.0834},{"n":"Cajazeiras","lat":-6.8898,"lon":-38.557},{"n":"Santo Amaro do Maranhão","lat":-2.4988,"lon":-43.2533},{"n":"Ilhabela","lat":-23.8166,"lon":-45.3687},{"n":"João Pessoa","lat":-7.1216,"lon":-34.882},{"n":"Registro","lat":-24.4979,"lon":-47.8449},{"n":"Congonhas","lat":-20.5015,"lon":-43.8565},{"n":"Cabreúva","lat":-23.3077,"lon":-47.1325},{"n":"Fortaleza","lat":-3.7932,"lon":-38.528},{"n":"Foz do Iguaçu","lat":-25.5304,"lon":-54.5831},{"n":"Salvador","lat":-12.9822,"lon":-38.4813},{"n":"Florianópolis","lat":-27.5973,"lon":-48.5496},{"n":"Ouro Preto","lat":-20.3857,"lon":-43.5036},{"n":"Rio de Janeiro","lat":-22.911,"lon":-43.2094},{"n":"Gramado","lat":-29.3793,"lon":-50.8737},{"n":"Barreirinhas","lat":-2.7541,"lon":-42.826},{"n":"São Luís","lat":-2.5295,"lon":-44.2964},{"n":"Belo Horizonte","lat":-19.9227,"lon":-43.9451},{"n":"Domingos Martins","lat":-20.3646,"lon":-40.6586},{"n":"Serro","lat":-18.6044,"lon":-43.3794},{"n":"Aparecida","lat":-22.8516,"lon":-45.2341}]},{"n":"Alemanha","cc":"DE","lat":50.9077,"lon":9.8462,"cities":[{"n":"Hamburg","lat":53.5502,"lon":10.0013},{"n":"Freiburg im Breisgau","lat":47.9961,"lon":7.8494},{"n":"Munique","lat":48.1371,"lon":11.5754},{"n":"Stuttgart","lat":48.7784,"lon":9.18},{"n":"Potsdam","lat":52.4009,"lon":13.0591},{"n":"Hannover","lat":52.3745,"lon":9.7386},{"n":"Dortmund","lat":51.5142,"lon":7.4653},{"n":"Düsseldorf","lat":51.2254,"lon":6.7763},{"n":"Frankfurt am Main","lat":50.1106,"lon":8.6821},{"n":"Köln","lat":50.9384,"lon":6.96},{"n":"Dresden","lat":51.0493,"lon":13.7381},{"n":"Berlin","lat":52.5174,"lon":13.3951}]},{"n":"Itália","cc":"IT","lat":42.8192,"lon":11.7501,"cities":[{"n":"Palermo","lat":38.1112,"lon":13.3524},{"n":"Pisa","lat":43.4715,"lon":10.6798},{"n":"Sorrento","lat":40.6249,"lon":14.3748},{"n":"Verona","lat":45.4425,"lon":10.9857},{"n":"Génova","lat":44.4073,"lon":8.9339},{"n":"Veneza","lat":45.4046,"lon":12.3105},{"n":"Napoli","lat":40.8359,"lon":14.2488},{"n":"Siracusa","lat":37.0316,"lon":15.2124},{"n":"Torino","lat":45.0678,"lon":7.6825},{"n":"Milão","lat":45.4642,"lon":9.1896},{"n":"Siena","lat":43.1672,"lon":11.4676},{"n":"Firenze","lat":43.7698,"lon":11.2556},{"n":"Bologna","lat":44.4938,"lon":11.3426},{"n":"Roma","lat":41.8933,"lon":12.4829}]},{"n":"Luxemburgo","cc":"LU","lat":49.7325,"lon":6.1994,"cities":[{"n":"Echternach","lat":49.8121,"lon":6.4215},{"n":"Larochette","lat":49.787,"lon":6.2189},{"n":"Vianden","lat":49.9389,"lon":6.1996},{"n":"Esch-sur-Alzette","lat":49.496,"lon":5.985},{"n":"Ettelbruck","lat":49.847,"lon":6.0985},{"n":"Mondorf-les-Bains","lat":49.5136,"lon":6.2737}]},{"n":"Chile","cc":"CL","lat":-42.7841,"lon":-72.3545,"cities":[{"n":"Puerto Natales","lat":-51.7262,"lon":-72.506},{"n":"Frutillar","lat":-41.1258,"lon":-73.0605},{"n":"Puerto Varas","lat":-41.3178,"lon":-72.9829},{"n":"Punta Arenas","lat":-53.1626,"lon":-70.9078},{"n":"Los Lagos","lat":-42.3008,"lon":-73.1054},{"n":"Santiago","lat":-33.4377,"lon":-70.6511},{"n":"Pucón","lat":-39.2731,"lon":-71.9778},{"n":"Llanquihue","lat":-41.2576,"lon":-73.0047},{"n":"Puerto Montt","lat":-41.4718,"lon":-72.9396}]},{"n":"Romênia","cc":"RO","lat":46.2065,"lon":24.4363,"cities":[{"n":"Cluj-Napoca","lat":46.7694,"lon":23.59},{"n":"Transilvânia","lat":46.5972,"lon":24.374},{"n":"Sibiu","lat":45.7974,"lon":24.1519},{"n":"Brașov","lat":45.6525,"lon":25.6106}]},{"n":"Finlândia","cc":"FI","lat":62.1598,"lon":24.1023,"cities":[{"n":"Tampere","lat":61.4978,"lon":23.7616},{"n":"Helsinque","lat":60.1666,"lon":24.9435},{"n":"Turku","lat":60.4516,"lon":22.267},{"n":"Rovaniemi","lat":66.5026,"lon":25.7304}]},{"n":"Dinamarca","cc":"DK","lat":55.75,"lon":11.0579,"cities":[{"n":"Odense","lat":55.3997,"lon":10.3852},{"n":"Copenhague","lat":55.6867,"lon":12.5701},{"n":"Aarhus","lat":56.1496,"lon":10.2134}]},{"n":"Inglaterra","cc":"GB","lat":52.833,"lon":-1.3784,"cities":[{"n":"Manchester","lat":53.4425,"lon":-2.2325},{"n":"Brighton","lat":50.8215,"lon":-0.1401},{"n":"Londres","lat":51.5074,"lon":-0.1278},{"n":"Liverpool","lat":53.3933,"lon":-2.9166},{"n":"Newcastle upon Tyne","lat":54.9738,"lon":-1.6132}]},{"n":"Croácia","cc":"HR","lat":43.0833,"lon":17.2728,"cities":[{"n":"Split","lat":43.5116,"lon":16.44},{"n":"Dubrovnik","lat":42.6491,"lon":18.094}]},{"n":"México","cc":"MX","lat":21.949,"lon":-100.1562,"cities":[{"n":"Cozumel","lat":20.4321,"lon":-86.9207},{"n":"Cabo San Lucas","lat":22.8939,"lon":-109.9201},{"n":"Puerto Vallarta","lat":20.6407,"lon":-105.2203},{"n":"Cancún","lat":21.1527,"lon":-86.8426},{"n":"Monterrei","lat":25.6802,"lon":-100.3153},{"n":"Guadalajara","lat":20.672,"lon":-103.3384},{"n":"Cidade do México","lat":19.3208,"lon":-99.1515},{"n":"San José del Cabo","lat":23.0598,"lon":-109.7025}]},{"n":"Grécia","cc":"GR","lat":37.2807,"lon":24.8667,"cities":[{"n":"Atenas","lat":37.9756,"lon":23.7348},{"n":"Santorini","lat":36.4071,"lon":25.4567},{"n":"Míconos","lat":37.4514,"lon":25.3923}]},{"n":"Suécia","cc":"SE","lat":60.1595,"lon":15.4109,"cities":[{"n":"Kiruna","lat":67.8496,"lon":20.3062},{"n":"Gotemburgo","lat":57.7072,"lon":11.967},{"n":"Estocolmo","lat":59.3251,"lon":18.0711},{"n":"Malmö","lat":55.6053,"lon":13.0002}]},{"n":"Noruega","cc":"NO","lat":62.5434,"lon":9.6276,"cities":[{"n":"Trondheim","lat":63.4304,"lon":10.3952},{"n":"Bergen","lat":60.3943,"lon":5.3259},{"n":"Stavanger","lat":58.97,"lon":5.7318},{"n":"Oslo","lat":59.9133,"lon":10.739},{"n":"Tromsø","lat":69.6516,"lon":18.9559}]},{"n":"França","cc":"FR","lat":45.3222,"lon":3.8901,"cities":[{"n":"Paris","lat":48.8535,"lon":2.3484},{"n":"Bordeaux","lat":44.8412,"lon":-0.58},{"n":"Lyon","lat":45.7578,"lon":4.832},{"n":"Nice","lat":43.7009,"lon":7.2684},{"n":"Marselha","lat":43.2964,"lon":5.3778}]},{"n":"Colômbia","cc":"CO","lat":7.9501,"lon":-75.707,"cities":[{"n":"Cáli","lat":3.4108,"lon":-76.5812},{"n":"San Andrés","lat":12.5376,"lon":-81.7204},{"n":"Cartagena","lat":10.4266,"lon":-75.5442},{"n":"Bogotá","lat":4.6534,"lon":-74.0836},{"n":"Medellín","lat":6.2697,"lon":-75.6026},{"n":"Pereira","lat":4.7855,"lon":-75.7883},{"n":"Barranquilla","lat":11.0102,"lon":-74.8232},{"n":"Bucaramanga","lat":7.167,"lon":-73.1047},{"n":"Santa Marta","lat":11.2321,"lon":-74.1951}]},{"n":"Emirados Árabes Unidos","cc":"AE","lat":25.0009,"lon":55.4999,"cities":[{"n":"Ras al-Khaimah","lat":25.7738,"lon":55.9382},{"n":"Alaine","lat":24.2249,"lon":55.7452},{"n":"Sharjah","lat":25.3461,"lon":55.4211},{"n":"Abu Dhabi","lat":24.4538,"lon":54.3774},{"n":"Fujairah","lat":25.1245,"lon":56.3355},{"n":"Dubai","lat":25.0743,"lon":55.1885}]},{"n":"Bélgica","cc":"BE","lat":50.9436,"lon":4.5149,"cities":[{"n":"Antwerpen","lat":51.2211,"lon":4.3997},{"n":"Liège","lat":50.6451,"lon":5.5736},{"n":"Gent","lat":51.0538,"lon":3.725},{"n":"Bruxelas","lat":50.8467,"lon":4.3525}]},{"n":"Uruguai","cc":"UY","lat":-34.6589,"lon":-55.5564,"cities":[{"n":"Piriápolis","lat":-34.8689,"lon":-55.2724},{"n":"Punta del Diablo","lat":-34.0449,"lon":-53.5398},{"n":"Colônia do Sacramento","lat":-34.4699,"lon":-57.8434},{"n":"Punta del Este","lat":-34.9632,"lon":-54.944},{"n":"Montevidéu","lat":-34.9059,"lon":-56.1913}]},{"n":"Argentina","cc":"AR","lat":-40.527,"lon":-67.4716,"cities":[{"n":"Bariloche","lat":-41.1335,"lon":-71.3101},{"n":"El Chaltén","lat":-49.332,"lon":-72.886},{"n":"Puerto Iguazú","lat":-25.6336,"lon":-54.5829},{"n":"Villa La Angostura","lat":-40.7621,"lon":-71.6472},{"n":"Neuquén","lat":-38.8503,"lon":-69.8323},{"n":"Buenos Aires","lat":-34.6096,"lon":-58.3888},{"n":"Córdoba","lat":-31.4167,"lon":-64.1834},{"n":"Ushuaia","lat":-54.8073,"lon":-68.3084},{"n":"San Martín de los Andes","lat":-40.1569,"lon":-71.3526},{"n":"El Calafate","lat":-50.3387,"lon":-72.2737},{"n":"Mendoza","lat":-34.597,"lon":-68.7305},{"n":"Esquel","lat":-42.9173,"lon":-71.3217}]},{"n":"Paraguai","cc":"PY","lat":-25.9302,"lon":-55.6837,"cities":[{"n":"Cidade do Leste","lat":-25.5169,"lon":-54.6169},{"n":"Assunção","lat":-25.28,"lon":-57.6344},{"n":"Presidente Franco","lat":-25.5652,"lon":-54.6156},{"n":"Encarnación","lat":-27.3376,"lon":-55.8669}]},{"n":"Portugal","cc":"PT","lat":40.423,"lon":-8.5969,"cities":[{"n":"Aveiro","lat":40.6405,"lon":-8.6538},{"n":"São João da Madeira","lat":40.8974,"lon":-8.4907},{"n":"Porto","lat":41.1502,"lon":-8.6103},{"n":"Coimbra","lat":40.2112,"lon":-8.4295},{"n":"Lisboa","lat":38.7078,"lon":-9.1366},{"n":"Arouca","lat":40.9289,"lon":-8.2442}]},{"n":"Eslovênia","cc":"SI","lat":46.05,"lon":14.5069,"cities":[{"n":"Liubliana","lat":46.05,"lon":14.5069}]},{"n":"Venezuela","cc":"VE","lat":10.0495,"lon":-67.3382,"cities":[{"n":"Mérida","lat":8.5817,"lon":-71.1658},{"n":"Caracas","lat":10.5061,"lon":-66.9146},{"n":"Ilha de Margarita","lat":11.0206,"lon":-63.9074}]},{"n":"Polónia","cc":"PL","lat":52.0454,"lon":18.7171,"cities":[{"n":"Gdańsk","lat":54.3483,"lon":18.654},{"n":"Varsóvia","lat":52.2334,"lon":21.0711},{"n":"Poznań","lat":52.4007,"lon":16.9197},{"n":"Wrocław","lat":51.1263,"lon":16.9782},{"n":"Kraków","lat":50.0619,"lon":19.9369}]},{"n":"Montenegro","cc":"ME","lat":42.3568,"lon":18.8067,"cities":[{"n":"Budva","lat":42.2886,"lon":18.842},{"n":"Kotor","lat":42.4249,"lon":18.7713}]},{"n":"Holanda","cc":"NL","lat":51.8663,"lon":4.9041,"cities":[{"n":"Utrecht","lat":52.0907,"lon":5.1216},{"n":"Haia","lat":52.08,"lon":4.3113},{"n":"Maastricht","lat":50.858,"lon":5.697},{"n":"Roterdão","lat":51.9244,"lon":4.4778},{"n":"Amesterdã","lat":52.3731,"lon":4.8925}]}];
 
   /* ── CSS ── */
@@ -207,6 +216,39 @@
     +'font-size:.88rem;font-weight:700;text-decoration:none;border:none;cursor:pointer;width:100%;font-family:inherit;'
     +'transition:background .2s,transform .15s}'
   +'.gl-btn:hover{background:var(--purple-light,#9d6fff);transform:translateY(-1px)}'
+  /* link secundário (roteiro do blog, quando existe) */
+  +'.gl-btn2{display:block;text-align:center;margin-top:10px;color:var(--purple-light,#9d6fff);'
+    +'font-size:.82rem;font-weight:600;text-decoration:none}'
+  +'.gl-btn2:hover{text-decoration:underline}'
+
+  /* ── SELETOR "montar viagem" (iOS/Android/Web), acima do globo ── */
+  +'.gl-tio{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:100010;'
+    +'opacity:0;pointer-events:none;transition:opacity .2s}'
+  +'.gl-tio.on{opacity:1;pointer-events:all}'
+  +'.gl-tm{position:fixed;top:50%;left:50%;transform:translate(-50%,-52%) scale(.96);z-index:100011;'
+    +'width:calc(100% - 40px);max-width:430px;background:var(--surface,#16161f);border:1px solid var(--border,#2a2a3a);'
+    +'border-radius:20px;padding:28px;box-shadow:0 24px 64px rgba(0,0,0,.6);opacity:0;pointer-events:none;'
+    +'transition:opacity .22s,transform .25s cubic-bezier(.34,1.56,.64,1)}'
+  +'.gl-tm.on{opacity:1;pointer-events:all;transform:translate(-50%,-50%) scale(1)}'
+  +'.gl-t-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px}'
+  +'.gl-t-title{font-size:1.18rem;font-weight:800;letter-spacing:-.02em;color:var(--text,#f0eeff);display:flex;align-items:center;gap:9px}'
+  +'.gl-t-close{background:none;border:1px solid var(--border,#2a2a3a);border-radius:50%;width:32px;height:32px;cursor:pointer;'
+    +'color:var(--muted,#8b8ba7);font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;'
+    +'transition:border-color .15s,color .15s}'
+  +'.gl-t-close:hover{border-color:var(--purple,#7c3fff);color:var(--text,#f0eeff)}'
+  +'.gl-t-sub{font-size:.84rem;color:var(--muted,#8b8ba7);margin:2px 0 20px}'
+  +'.gl-t-opts{display:flex;flex-direction:column;gap:10px}'
+  +'.gl-t-opt{display:flex;align-items:center;gap:14px;background:var(--card,#1c1c26);border:1px solid var(--border,#2a2a3a);'
+    +'border-radius:14px;padding:14px 16px;text-decoration:none;color:var(--text,#f0eeff);transition:border-color .15s,transform .15s}'
+  +'.gl-t-opt:hover{transform:translateX(4px)}'
+  +'.gl-t-opt.ios:hover{border-color:#e6e6ea}.gl-t-opt.android:hover{border-color:#3DDC84}.gl-t-opt.web:hover{border-color:var(--purple,#7c3fff)}'
+  +'.gl-t-ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}'
+  +'.gl-t-opt.ios .gl-t-ic{background:color-mix(in srgb,var(--text,#f0eeff) 10%,transparent);border:1px solid color-mix(in srgb,var(--text,#f0eeff) 18%,transparent);color:var(--text,#f0eeff)}'
+  +'.gl-t-opt.android .gl-t-ic{background:rgba(61,220,132,.12);border:1px solid rgba(61,220,132,.3)}'
+  +'.gl-t-opt.web .gl-t-ic{background:var(--purple-dim,rgba(124,63,255,.14));border:1px solid color-mix(in srgb,var(--purple,#7c3fff) 25%,transparent);color:var(--purple-light,#9d6fff)}'
+  +'.gl-t-lbl{font-size:.95rem;font-weight:700;margin-bottom:2px}'
+  +'.gl-t-desc{font-size:.78rem;color:var(--muted,#8b8ba7)}'
+  +'.gl-t-arrow{margin-left:auto;color:var(--muted2,#6b6880);flex-shrink:0}'
   /* mobile: globo em cima, painel embaixo */
   +'@media(max-width:820px){'
     +'.gl-modal{flex-direction:column;height:min(680px, calc(100vh - 40px))}'
@@ -277,9 +319,25 @@
         +'<p class="gl-card-c" id="glC"></p>'
         +'<p class="gl-card-d" id="glD"></p>'
         +'<p class="gl-card-km" id="glKm"></p>'
-        +'<div class="gl-card-cta"><a class="gl-btn" id="glCta"></a></div>'
+        +'<div class="gl-card-cta"><a class="gl-btn" id="glCta"></a>'
+          +'<a class="gl-btn2" id="glRot" style="display:none"></a></div>'
       +'</div>'
     +'</aside>'
+  +'</div>'
+  /* seletor "montar viagem" — fora do modal, z-index acima do globo */
+  +'<div class="gl-tio" id="glTripOv"></div>'
+  +'<div class="gl-tm" id="glTripModal" role="dialog" aria-modal="true" aria-label="Montar viagem com OND vAI">'
+    +'<div class="gl-t-head"><div class="gl-t-title" id="glTripTitle"></div>'
+      +'<button class="gl-t-close" id="glTripClose" aria-label="Fechar">✕</button></div>'
+    +'<div class="gl-t-sub" id="glTripSub"></div>'
+    +'<div class="gl-t-opts">'
+      +'<a class="gl-t-opt ios" href="'+APPSTORE+'" target="_blank" rel="noopener"><div class="gl-t-ic">'+IC_APPLE+'</div>'
+        +'<div><div class="gl-t-lbl">App Store</div><div class="gl-t-desc">iPhone e iPad</div></div><div class="gl-t-arrow">→</div></a>'
+      +'<a class="gl-t-opt android" href="'+PLAY+'" target="_blank" rel="noopener"><div class="gl-t-ic">'+IC_ANDROID+'</div>'
+        +'<div><div class="gl-t-lbl">Google Play</div><div class="gl-t-desc">Celular e tablet Android</div></div><div class="gl-t-arrow">→</div></a>'
+      +'<a class="gl-t-opt web" href="'+WEB+'" target="_blank" rel="noopener"><div class="gl-t-ic">'+IC_WEB+'</div>'
+        +'<div><div class="gl-t-lbl">Abrir na Web</div><div class="gl-t-desc">Sem instalar, direto no navegador</div></div><div class="gl-t-arrow">→</div></a>'
+    +'</div>'
   +'</div>';
   document.body.appendChild(host);
 
@@ -292,6 +350,9 @@
   var elImg=document.getElementById('glImg'), elName=document.getElementById('glName');
   var elC=document.getElementById('glC'), elD=document.getElementById('glD');
   var elKm=document.getElementById('glKm'), elCta=document.getElementById('glCta');
+  var elRot=document.getElementById('glRot');
+  var elTripOv=document.getElementById('glTripOv'), elTripModal=document.getElementById('glTripModal');
+  var elTripTitle=document.getElementById('glTripTitle'), elTripSub=document.getElementById('glTripSub');
   var elInput=document.getElementById('glInput'), elSugs=document.getElementById('glSugs');
   var elBub=document.getElementById('glBubble'), elBubFlag=document.getElementById('glBubbleFlag');
   var elBubN=document.getElementById('glBubbleN'), elBubC=document.getElementById('glBubbleC');
@@ -312,7 +373,8 @@
   ov.addEventListener('click',function(){ closeGlobe() });
   document.addEventListener('keydown',function(e){
     if(e.key!=='Escape'||!isOpen) return;
-    if(elSugs.classList.contains('on')){ hideSugs(); elInput.blur(); return }  // 1º Esc fecha a busca
+    if(elTripModal.classList.contains('on')){ closeTrip(); return }             // 1º Esc fecha o seletor
+    if(elSugs.classList.contains('on')){ hideSugs(); elInput.blur(); return }   // depois a busca
     closeGlobe();
   });
 
@@ -584,12 +646,26 @@
     elD.textContent=c.d||('Monte seu roteiro em '+c.n+' com o OND vAI: o que fazer, em que ordem e quanto custa.');
     elKm.textContent=ME?('A '+fmtKm(haversine(ME.lat,ME.lon,c.lat,c.lon))+' de você'):'';
     setBubble(c.n, p.n, p.cc);
-    if(c.href){ elCta.textContent='Ver roteiro'; elCta.href=c.href; elCta.onclick=null }
-    else{ elCta.textContent='Montar no app'; elCta.href='#app';
-          elCta.onclick=function(ev){ ev.preventDefault(); if(window.openApp) openApp(ev); else location.href='/links.html' } }
+    /* CTA principal: montar a viagem no OND vAI -> seletor iOS/Android/Web */
+    elCta.textContent='Montar viagem com OND vAI'; elCta.href='#';
+    elCta.onclick=function(ev){ ev.preventDefault(); openTrip(c.n, p.cc) };
+    /* link secundário só quando há roteiro publicado no blog */
+    if(c.href){ elRot.textContent='Ver roteiro de '+c.n+' →'; elRot.href=c.href; elRot.style.display='' }
+    else elRot.style.display='none';
     hideSugs(); elInput.value='';
     flyTo(c.lat,c.lon,3.2);
   }
+
+  /* ── seletor "montar viagem" (iOS/Android/Web) ── */
+  function openTrip(cidade,cc){
+    elTripTitle.innerHTML=flag(cc)+'<span>Montar viagem para '+cidade+'</span>';
+    elTripSub.textContent='Abra o OND vAI e monte seu roteiro em '+cidade+' — escolha por onde começar.';
+    elTripOv.classList.add('on'); elTripModal.classList.add('on');
+  }
+  function closeTrip(){ elTripOv.classList.remove('on'); elTripModal.classList.remove('on') }
+  elTripOv.addEventListener('click',closeTrip);
+  document.getElementById('glTripClose').addEventListener('click',closeTrip);
+  elTripModal.addEventListener('click',function(e){ if(e.target.closest('.gl-t-opt')) closeTrip() });
 
   /* ── busca (global: cidades + países) ── */
   var norm=function(s){ return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim() };
@@ -689,7 +765,7 @@
     isOpen=false;
     ov.classList.remove('open'); md.classList.remove('open');
     document.body.style.overflow='';
-    hideSugs();
+    hideSugs(); closeTrip();
     if(raf){ cancelAnimationFrame(raf); raf=0 }   // não queima CPU fechado
   };
 })();
