@@ -172,7 +172,13 @@
   +'.gl-title{font-size:1.12rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 5px;color:var(--text,#f0eeff);display:flex;align-items:center;gap:9px}'
   +'.gl-sub{font-size:.8rem;color:var(--muted,#8b8ba7);line-height:1.55}'
   /* grade de países */
-  +'.gl-countries{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px}'
+  +'.gl-countries{list-style:none;margin:14px 0 0;padding:0}'
+  /* cabeçalho de continente */
+  +'.gl-cont{margin-top:16px}.gl-cont:first-child{margin-top:4px}'
+  +'.gl-cont-h{display:flex;align-items:baseline;gap:7px;margin:0 0 8px 2px}'
+  +'.gl-cont-t{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--purple-light,#9d6fff)}'
+  +'.gl-cont-q{font-size:.68rem;color:var(--muted2,#5a5a72)}'
+  +'.gl-cont-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}'
   +'.gl-c{display:flex;align-items:center;gap:8px;padding:8px 9px;border-radius:11px;cursor:pointer;width:100%;'
     +'border:1px solid transparent;background:none;color:var(--text,#f0eeff);font-family:inherit;font-size:.8rem;text-align:left;'
     +'transition:background .16s,border-color .16s}'
@@ -298,7 +304,7 @@
         +'<span class="gl-kicker">Explorar</span>'
         +'<h3 class="gl-title">'+CITIES.length+' destinos em '+PAISES.length+' países</h3>'
         +'<p class="gl-sub">Escolha um país no globo ou aqui — depois clique no destino.</p>'
-        +'<ul class="gl-countries" id="glCountries"></ul>'
+        +'<div class="gl-countries" id="glCountries"></div>'
         +'<button class="gl-geo" id="glGeo">'
           +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'
           +'Ativar localização</button>'
@@ -358,11 +364,30 @@
   var elBubN=document.getElementById('glBubbleN'), elBubC=document.getElementById('glBubbleC');
   var elGeo=document.getElementById('glGeo'), elGeoMsg=document.getElementById('glGeoMsg');
 
-  /* grade de países */
-  elCountries.innerHTML=PAISES.map(function(p,i){
-    return '<li><button class="gl-c" data-p="'+i+'">'+flag(p.cc)
-      +'<span class="gl-c-n">'+p.n+'</span><span class="gl-c-q">'+p.cities.length+'</span></button></li>';
-  }).join('');
+  /* países agrupados por continente (data-p continua o índice em PAISES) */
+  var CONT={ BR:'América do Sul',AR:'América do Sul',CL:'América do Sul',CO:'América do Sul',
+    UY:'América do Sul',PY:'América do Sul',VE:'América do Sul',
+    US:'América do Norte',MX:'América do Norte',
+    DE:'Europa',IT:'Europa',LU:'Europa',RO:'Europa',FI:'Europa',DK:'Europa',GB:'Europa',HR:'Europa',
+    GR:'Europa',SE:'Europa',NO:'Europa',FR:'Europa',BE:'Europa',PT:'Europa',SI:'Europa',PL:'Europa',
+    ME:'Europa',NL:'Europa', AE:'Oriente Médio' };
+  var CONT_ORDER=['América do Sul','América do Norte','Europa','Oriente Médio','Ásia','África','Oceania'];
+  (function(){
+    var grp={};
+    PAISES.forEach(function(p,i){ var k=CONT[p.cc]||'Outros'; (grp[k]=grp[k]||[]).push(i) });
+    var html='';
+    CONT_ORDER.concat(Object.keys(grp).filter(function(k){ return CONT_ORDER.indexOf(k)<0 })).forEach(function(cont){
+      var idxs=grp[cont]; if(!idxs) return;
+      var dest=idxs.reduce(function(s,i){ return s+PAISES[i].cities.length },0);
+      html+='<div class="gl-cont"><div class="gl-cont-h"><span class="gl-cont-t">'+cont+'</span>'
+        +'<span class="gl-cont-q">'+idxs.length+' '+(idxs.length===1?'país':'países')+' · '+dest+' destinos</span></div>'
+        +'<div class="gl-cont-grid">'+idxs.map(function(i){ var p=PAISES[i];
+          return '<button class="gl-c" data-p="'+i+'">'+flag(p.cc)
+            +'<span class="gl-c-n">'+p.n+'</span><span class="gl-c-q">'+p.cities.length+'</span></button>';
+        }).join('')+'</div></div>';
+    });
+    elCountries.innerHTML=html;
+  })();
   elCountries.addEventListener('click',function(e){ var b=e.target.closest('.gl-c'); if(b) openCountry(+b.dataset.p) });
   elList.addEventListener('click',function(e){ var b=e.target.closest('.gl-li'); if(b) openCity(+b.dataset.p, +b.dataset.c) });
   md.addEventListener('click',function(e){
