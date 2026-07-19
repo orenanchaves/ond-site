@@ -375,7 +375,7 @@
       yaw=fly.y0+fly.dy*e; pitch=fly.p0+fly.dp*e;
       if(k>=1) fly=null;
     } else if(!drag){
-      if(selIdx()<0) yaw+=SPIN;    // gira sozinho só quando nada está selecionado
+      if(mode==='world' && selP<0) yaw+=SPIN;  // gira só no mundo pristino; clicou em algo, para
       yaw+=vyaw; vyaw*=0.94;
       if(Math.abs(vyaw)<1e-5) vyaw=0;
     }
