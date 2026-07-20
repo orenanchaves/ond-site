@@ -93,6 +93,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--blue-dim);border:1px solid color-mix(in srgb, var(--blue) 30%, transparent);color:var(--blue-light);font-size:.78rem;font-weight:700;padding:6px 14px;border-radius:50px;margin-bottom:22px;letter-spacing:.06em;text-transform:uppercase}
 .hero-eyebrow-dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s infinite;box-shadow:0 0 6px var(--blue)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+/* ── SWITCH agências / hotéis ── */
+.seg{display:inline-flex;align-items:center;gap:2px;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:4px;margin-bottom:22px}
+.seg-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 18px;border-radius:50px;font-size:.84rem;font-weight:700;color:var(--muted);text-decoration:none;transition:background .2s,color .2s,box-shadow .2s;white-space:nowrap;cursor:pointer}
+.seg-btn:hover{color:var(--text)}
+.seg-btn.active{background:var(--blue);color:var(--ond-color-onPrimary);box-shadow:0 4px 14px var(--blue-glow)}
+.seg-btn.active:hover{color:var(--ond-color-onPrimary)}
 .hero-title{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:18px;letter-spacing:-.025em}
 .hero-title em{font-style:normal;color:var(--green)}
 .hero-sub{font-size:1.05rem;color:var(--muted);max-width:480px;line-height:1.75;margin-bottom:32px}
@@ -359,6 +365,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <!-- HERO -->
 <section class="hero">
   <div>
+    <div class="seg" role="tablist" aria-label="Escolha seu perfil">
+      <a class="seg-btn" href="agencias.html" role="tab">🏢 Agências</a>
+      <a class="seg-btn active" href="hoteis.html" role="tab" aria-current="page" aria-selected="true">🏨 Hotéis</a>
+    </div>
     <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Para hotéis, pousadas e resorts</div>
     <h1 class="hero-title">Seu hóspede não quer<br>só um quarto. <em>Quer a viagem.</em></h1>
     <p class="hero-sub">O OND é o concierge digital com IA que monta o roteiro do destino para cada hóspede — com a marca do seu hotel. Menos fila na recepção, mais experiências vendidas, hóspedes que ficam mais e voltam.</p>
