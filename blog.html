@@ -399,9 +399,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <div class="news">
     <h3>Recebe o próximo no seu e-mail</h3>
     <p>Uma vez por semana: um destino novo, uma dica boa e nada de spam. Curtiu? Entra na lista do "Vai para onde?".</p>
-    <form class="news-form" action="https://formspree.io/f/mjgngkwz" method="POST" onsubmit="subscribe(event)">
+    <form class="news-form" action="https://ond-firma.ond-jarvis.workers.dev/api/newsletter/subscribe" method="POST" onsubmit="subscribe(event)">
       <input type="email" name="email" placeholder="seu@email.com" required aria-label="Seu e-mail">
-      <input type="hidden" name="_subject" value="Nova inscrição na newsletter do OND">
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button type="submit">Quero receber</button>
     </form>
@@ -523,7 +522,8 @@ function subscribe(e){
   var form=e.target, btn=form.querySelector('button[type="submit"]');
   var ok=document.getElementById('newsOk'), err=document.getElementById('newsErr');
   ok.style.display='none'; err.style.display='none'; btn.disabled=true;
-  fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+  var payload={email:form.email.value, _gotcha:form._gotcha.value};
+  fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
     .then(function(r){
       if(r.ok){ok.style.display='block';form.reset();}
       else{err.style.display='block';}
