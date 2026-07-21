@@ -99,6 +99,16 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .seg-btn:hover{color:var(--text)}
 .seg-btn.active{background:var(--blue);color:var(--ond-color-onPrimary);box-shadow:0 4px 14px var(--blue-glow)}
 .seg-btn.active:hover{color:var(--ond-color-onPrimary)}
+/* switch dentro do menu do topo (desktop) e do menu mobile */
+.header-nav li{display:flex;align-items:center}
+.header-nav .seg{margin-bottom:0;padding:3px;gap:2px}
+.header-nav .seg-btn{padding:5px 12px;font-size:.8rem;border-radius:50px;background:none;color:var(--muted)}
+.header-nav .seg-btn:hover{background:none;color:var(--text)}
+.header-nav .seg-btn.active,.header-nav .seg-btn.active:hover{background:var(--blue);color:var(--ond-color-onPrimary)}
+.mobile-nav .seg{margin:10px 0;padding:4px;align-self:flex-start}
+.mobile-nav .seg-btn{padding:9px 22px;font-size:.92rem;border-bottom:none;color:var(--muted)}
+.mobile-nav .seg-btn:hover{color:var(--text)}
+.mobile-nav .seg-btn.active,.mobile-nav .seg-btn.active:hover{background:var(--blue);color:var(--ond-color-onPrimary)}
 .hero-title{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:18px;letter-spacing:-.025em}
 .hero-title em{font-style:normal;color:var(--green)}
 .hero-sub{font-size:1.05rem;color:var(--muted);max-width:480px;line-height:1.75;margin-bottom:32px}
@@ -346,7 +356,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <li><a href="#como-funciona">Como funciona</a></li>
     <li><a href="#modelo">Modelo</a></li>
     <li><a href="#plataforma">Plataforma</a></li>
-    <li><a href="agencias.html" class="nav-alt">Para agências</a></li>
+    <li><div class="seg" role="tablist" aria-label="Escolha seu perfil">
+      <a class="seg-btn" href="agencias.html" role="tab">Agências</a>
+      <a class="seg-btn active" href="hoteis.html" role="tab" aria-current="page" aria-selected="true">Hotéis</a>
+    </div></li>
   </ul></nav>
   <div class="header-actions">
   <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
@@ -358,17 +371,16 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
   <a href="#modelo" onclick="closeMenu()">Modelo</a>
   <a href="#plataforma" onclick="closeMenu()">Plataforma</a>
-  <a href="agencias.html" style="color:var(--blue-light)">Para agências →</a>
+  <div class="seg" role="tablist" aria-label="Escolha seu perfil">
+    <a class="seg-btn" href="agencias.html" role="tab">Agências</a>
+    <a class="seg-btn active" href="hoteis.html" role="tab" aria-current="page" aria-selected="true">Hotéis</a>
+  </div>
   <a href="https://pci.jotform.com/form/252517268656062" style="color:var(--green);font-weight:700" target="_blank" rel="noopener">Quero para meu hotel →</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div>
-    <div class="seg" role="tablist" aria-label="Escolha seu perfil">
-      <a class="seg-btn" href="agencias.html" role="tab">Agências</a>
-      <a class="seg-btn active" href="hoteis.html" role="tab" aria-current="page" aria-selected="true">Hotéis</a>
-    </div>
     <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Para hotéis, pousadas e resorts</div>
     <h1 class="hero-title">Seu hóspede não quer<br>só um quarto. <em>Quer a viagem.</em></h1>
     <p class="hero-sub">O OND é o concierge digital com IA que monta o roteiro do destino para cada hóspede — com a marca do seu hotel. Menos fila na recepção, mais experiências vendidas, hóspedes que ficam mais e voltam.</p>
