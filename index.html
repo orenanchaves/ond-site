@@ -575,7 +575,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <li><a href="/it/" hreflang="it" lang="it">Italiano</a></li>
   </ul>
 </details>
-  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
+  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
   <a href="#app" onclick="openApp(event)" class="header-cta">Teste o app →</a>
   <button class="header-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button></div>
 </header>
@@ -596,7 +596,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <div class="hero-badge"><span class="hero-badge-dot"></span><span style="text-transform:none">OND vAI</span> · planejador de viagem</div>
     <h1 class="hero-title">Mais tempo <em>viajando</em>,<br>menos tempo planejando.</h1>
     <div class="hero-proof">
-      Viajantes acessam mais de <strong>100 páginas</strong> e gastam até <strong>6 horas</strong> para planejar uma viagem. O OND faz isso em <strong>5 minutos</strong> — roteiro completo, rotas e OND vAI.
+      Viajantes acessam mais de <strong>100 páginas</strong> e gastam até <strong>6 horas</strong> para planejar uma viagem. O OND faz isso em <strong>5 minutos</strong>, roteiro completo, rotas e OND vAI.
       <cite>Fontes: Expedia Group (2023) · Jet2holidays via The Sun (2025)</cite>
     </div>
     <div class="hero-app-btns">
@@ -897,49 +897,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
 </section>
 
-<!-- B2B -->
-<section class="b2b" id="agencias">
-  <div class="b2b-inner">
-    <div>
-      <span class="b2b-tag">Para agências &amp; hotéis</span>
-      <h2 class="b2b-title">Roteiro montado na mão não escala.</h2>
-      <p class="b2b-desc">Sua equipe perde horas em tarefas que a IA faz em minutos. O OND entrega roteiros personalizados em escala, com a identidade do seu negócio — e libera seu time para o que realmente gera valor: o relacionamento com o cliente.</p>
-      <ul class="b2b-points">
-        <li><span class="b2b-check">✓</span>Roteiros gerados por IA em minutos, não horas</li>
-        <li><span class="b2b-check">✓</span>Portal com a identidade visual do seu negócio</li>
-        <li><span class="b2b-check">✓</span>Entrega por PDF, WhatsApp, e-mail ou app</li>
-        <li><span class="b2b-check">✓</span>Gestão de múltiplos clientes e status em tempo real</li>
-        <li><span class="b2b-check">✓</span>Cross-sell de hospedagem, experiências e traslados</li>
-      </ul>
-      <a href="https://pci.jotform.com/form/252517268656062" class="btn-primary" target="_blank" rel="noopener">Quero o OND no meu negócio →</a>
-    </div>
-    <div class="b2b-cards">
-      <div class="b2b-card">
-        <div class="b2b-card-icon">⏱️</div>
-        <div class="b2b-card-stat">75%</div>
-        <div class="b2b-card-title">menos tempo por roteiro</div>
-        <p class="b2b-card-desc">O que levava horas sai em minutos com o OND vAI.</p>
-      </div>
-      <div class="b2b-card">
-        <div class="b2b-card-icon">📈</div>
-        <div class="b2b-card-stat">3×</div>
-        <div class="b2b-card-title">mais capacidade de atendimento</div>
-        <p class="b2b-card-desc">Mesma equipe, muito mais roteiros entregues.</p>
-      </div>
-      <a class="b2b-card" href="agencias.html" style="text-decoration:none;color:inherit;display:block">
-        <div class="b2b-card-icon">🏢</div>
-        <div class="b2b-card-title">Para agências de viagem →</div>
-        <p class="b2b-card-desc">Crie, personalize e entregue roteiros com a sua marca.</p>
-      </a>
-      <a class="b2b-card" href="hoteis.html" style="text-decoration:none;color:inherit;display:block">
-        <div class="b2b-card-icon">🏨</div>
-        <div class="b2b-card-title">Para hotéis e pousadas →</div>
-        <p class="b2b-card-desc">Concierge digital que monta o roteiro do destino pro hóspede.</p>
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- APP CTA -->
 <section class="app-cta" id="app">
   <div class="app-cta-inner">
@@ -1057,12 +1014,14 @@ document.addEventListener('click',function(e){
   const nav=document.getElementById('mobileNav'),btn=document.querySelector('.header-menu-btn')
   if(nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target))closeMenu()
 })
+var ICON_MOON='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>';
+var ICON_SUN='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
 function toggleTheme(){
   const isLight=document.documentElement.getAttribute('data-theme')==='light'
-  if(isLight){document.documentElement.setAttribute('data-theme','dark');document.getElementById('themeBtn').textContent='🌙';localStorage.setItem('ond_theme','dark')}
-  else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☀️';localStorage.setItem('ond_theme','light')}
+  if(isLight){document.documentElement.setAttribute('data-theme','dark');document.getElementById('themeBtn').innerHTML=ICON_MOON;localStorage.setItem('ond_theme','dark')}
+  else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').innerHTML=ICON_SUN;localStorage.setItem('ond_theme','light')}
 }
-;(function(){if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.textContent='☀️'}})()
+;(function(){if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.innerHTML=ICON_SUN}})()
 
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',function(e){
