@@ -110,6 +110,10 @@ def build_selector(cur_loc, base):
         % (GLOBE, cur_short, '\n'.join(items)))
 
 
+# rótulo do seletor mobile, por idioma (evita "Idioma" em pt aparecer na versão en/fr/...)
+MOBILE_LANG_LABEL = {'pt': 'Idioma', 'en': 'Language', 'es': 'Idioma', 'fr': 'Langue', 'it': 'Lingua'}
+
+
 def build_mobile_lang(cur_loc, base):
     """Seletor de idioma dentro do menu hamburguer (mobile). Links -> versao
     equivalente da propria pagina em cada idioma; idioma atual marcado."""
@@ -117,7 +121,7 @@ def build_mobile_lang(cur_loc, base):
     for code, htmllang, ogloc, name, short, hreflang in LOCALES:
         cur = ' aria-current="true"' if code == cur_loc else ''
         links.append('<a href="%s"%s>%s</a>' % (page_path(code, base), cur, short))
-    return '<div class="mobile-lang"><span>Idioma</span>%s</div>' % ''.join(links)
+    return '<div class="mobile-lang"><span>%s</span>%s</div>' % (MOBILE_LANG_LABEL[cur_loc], ''.join(links))
 
 
 def build_hreflang(base):
