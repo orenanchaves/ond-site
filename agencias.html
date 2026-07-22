@@ -371,18 +371,19 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 
 /* ── JORNADA ponta a ponta (mockup CSS puro na seção Plataforma) ── */
 .journey{max-width:1280px;margin:56px auto 0;padding-top:44px;border-top:1px solid var(--border)}
-.journey-strip{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:56px 5%;overflow:hidden}
+.journey-strip{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:76px 5%;overflow:hidden}
 .journey-strip .journey{margin-top:0;padding-top:0;border-top:none}
-.journey-head{text-align:center;max-width:700px;margin:0 auto 40px}
-.journey-head h3{font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:800;line-height:1.2;letter-spacing:-.02em;margin-bottom:12px}
-.journey-head p{font-size:.98rem;color:var(--muted);line-height:1.65}
+.journey-head{text-align:center;max-width:720px;margin:0 auto 52px}
+.journey-head h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;line-height:1.18;letter-spacing:-.025em;margin:14px 0 14px}
+.journey-head p{font-size:1.02rem;color:var(--muted);line-height:1.7;max-width:600px;margin:0 auto}
 .journey-track{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
 .jstep{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 16px 18px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s}
 .jstep::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--purple))}
 .jstep:hover{transform:translateY(-4px);border-color:var(--border-hi);box-shadow:0 12px 30px rgba(0,0,0,.35)}
 .jstep-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .jstep-num{width:30px;height:30px;border-radius:50%;background:var(--blue);color:var(--ond-color-onPrimary);font-size:.9rem;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px var(--blue-glow)}
-.jstep-emoji{font-size:1.35rem;line-height:1;color:var(--blue)}
+.jstep-emoji{width:36px;height:36px;border-radius:10px;background:var(--blue-dim);border:1px solid color-mix(in srgb, var(--blue) 22%, transparent);display:flex;align-items:center;justify-content:center;color:var(--blue);flex-shrink:0}
+.jstep-soon .jstep-emoji{background:var(--purple-dim);border-color:color-mix(in srgb, var(--purple) 32%, transparent);color:var(--purple-light)}
 .jstep-tag{align-self:flex-start;font-size:.63rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:50px;margin-bottom:10px}
 .jstep-tag-now{color:var(--green);background:var(--green-dim);border:1px solid color-mix(in srgb, var(--green) 28%, transparent)}
 .jstep-tag-soon{color:var(--purple-light);background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 40%, transparent)}
@@ -401,6 +402,50 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 @media(max-width:1100px){.journey-track{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:720px){.journey-track{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.journey-track{grid-template-columns:1fr}}
+/* ── PREVIEW DA PLATAFORMA (mockup proposta) ── */
+.platform-preview{max-width:1000px;margin:60px auto 0;padding-top:52px;border-top:1px solid var(--border)}
+.pp-head{text-align:center;max-width:660px;margin:0 auto 32px}
+.pp-head h3{font-size:clamp(1.35rem,2.5vw,1.9rem);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin:12px 0 12px}
+.pp-head p{font-size:.96rem;color:var(--muted);line-height:1.65}
+.pp-window{border:1px solid var(--border-hi);border-radius:16px;overflow:hidden;background:var(--card);box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.pp-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:var(--surface);border-bottom:1px solid var(--border)}
+.pp-dot{width:11px;height:11px;border-radius:50%;background:color-mix(in srgb, var(--muted) 40%, transparent)}
+.pp-url{margin-left:10px;display:inline-flex;align-items:center;gap:7px;font-size:.75rem;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:5px 12px}
+.pp-url .ic{color:var(--green)}
+.pp-app{padding:18px 18px 20px}
+.pp-app-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.pp-brand{display:flex;align-items:center;gap:11px}
+.pp-brand-logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--purple),var(--blue));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;flex-shrink:0}
+.pp-brand-name{font-weight:800;font-size:.96rem;line-height:1.15}
+.pp-brand-sub{font-size:.73rem;color:var(--muted)}
+.pp-status{font-size:.66rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);background:var(--gold-dim);border:1px solid color-mix(in srgb, var(--gold) 30%, transparent);padding:5px 11px;border-radius:50px;white-space:nowrap}
+.pp-trip{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding:12px 14px;margin-bottom:16px;background:var(--blue-dim);border:1px solid color-mix(in srgb, var(--blue) 20%, transparent);border-radius:12px;font-size:.83rem}
+.pp-trip-item{display:inline-flex;align-items:center;gap:7px}
+.pp-trip-item .ic{color:var(--blue);flex-shrink:0}
+.pp-trip-item span{color:var(--muted)}
+.pp-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;align-items:start}
+.pp-day{border:1px solid var(--border);border-radius:12px;padding:13px 15px;background:var(--bg)}
+.pp-day+.pp-day{margin-top:10px}
+.pp-day-h{display:flex;align-items:center;gap:10px;margin-bottom:11px;font-weight:700;font-size:.92rem}
+.pp-day-n{font-size:.64rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb, var(--blue) 24%, transparent);padding:3px 10px;border-radius:50px}
+.pp-items{list-style:none;display:flex;flex-direction:column;gap:9px}
+.pp-items li{display:flex;align-items:center;gap:11px;font-size:.83rem;color:var(--text);line-height:1.4}
+.pp-items .ic{color:var(--blue);flex-shrink:0}
+.pp-more{margin-top:10px;font-size:.8rem;color:var(--muted);text-align:center;padding:10px;border:1px dashed var(--border);border-radius:12px}
+.pp-sum{border:1px solid var(--border);border-radius:12px;padding:15px;background:var(--surface)}
+.pp-sum-title{font-weight:800;font-size:.92rem;margin-bottom:8px}
+.pp-sum-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.83rem;padding:8px 0;border-bottom:1px solid var(--border)}
+.pp-sum-row>span{display:inline-flex;align-items:center;gap:9px;color:var(--muted)}
+.pp-sum-row .ic{color:var(--blue);flex-shrink:0}
+.pp-sum-row b{font-weight:700;color:var(--text);white-space:nowrap}
+.pp-sum-total{display:flex;align-items:center;justify-content:space-between;margin-top:12px;font-weight:800}
+.pp-sum-total .v{font-size:1.15rem;color:var(--green)}
+.pp-send{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:14px;padding:12px;border:none;border-radius:50px;background:var(--green);color:#04120a;font-weight:800;font-size:.9rem;cursor:pointer;font-family:inherit}
+.pp-send .ic{color:#04120a}
+.pp-opt{font-size:.73rem;color:var(--muted);text-align:center;margin-top:11px;line-height:1.45}
+.pp-note{text-align:center;font-size:.8rem;color:var(--muted2);margin-top:18px}
+.pp-soon{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-light);background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 40%, transparent);padding:2px 8px;border-radius:50px}
+@media(max-width:720px){.pp-grid{grid-template-columns:1fr}}
 
 /* ── SEÇÃO Depois da venda (retenção / recorrência) ── */
 .retention{background:var(--bg);padding:80px 5%;border-bottom:1px solid var(--border)}
@@ -627,6 +672,76 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         <div class="jstep-gain"><b>No roadmap</b>A 2ª e a 3ª viagem do mesmo cliente: recorrência e LTV.</div>
       </div>
     </div>
+    <div class="platform-preview">
+      <div class="pp-head">
+        <span class="section-label">Exemplo da plataforma</span>
+        <h3>Assim a sua agência monta a proposta</h3>
+        <p>Um roteiro dia a dia com a sua marca, pronto pra enviar. Dados de exemplo.</p>
+      </div>
+      <div class="pp-window">
+        <div class="pp-bar">
+          <span class="pp-dot"></span><span class="pp-dot"></span><span class="pp-dot"></span>
+          <span class="pp-url"><svg class="ic" width="12" height="12" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>app.ond.com.br/proposta/lisboa</span>
+        </div>
+        <div class="pp-app">
+          <div class="pp-app-top">
+            <div class="pp-brand">
+              <div class="pp-brand-logo">VP</div>
+              <div>
+                <div class="pp-brand-name">Viagens Premium</div>
+                <div class="pp-brand-sub">Proposta para Marcos e Ana</div>
+              </div>
+            </div>
+            <span class="pp-status">Rascunho</span>
+          </div>
+          <div class="pp-trip">
+            <span class="pp-trip-item"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><b>Lisboa, Portugal</b></span>
+            <span class="pp-trip-item"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg><span>12 a 16 set</span></span>
+            <span class="pp-trip-item"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>2 pax, 5 dias</span></span>
+          </div>
+          <div class="pp-grid">
+            <div class="pp-itinerary">
+              <div class="pp-day">
+                <div class="pp-day-h"><span class="pp-day-n">Dia 1</span> Chegada e Alfama</div>
+                <ul class="pp-items">
+                  <li><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>Voo TP1234 e check-in no hotel</li>
+                  <li><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Caminhada pelos miradouros de Alfama</li>
+                  <li><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z"/><path d="M6 1v3"/><path d="M10 1v3"/><path d="M14 1v3"/></svg>Jantar com fado ao vivo</li>
+                </ul>
+              </div>
+              <div class="pp-day">
+                <div class="pp-day-h"><span class="pp-day-n">Dia 2</span> Belém e descobrimentos</div>
+                <ul class="pp-items">
+                  <li><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Torre de Belém e Mosteiro dos Jerónimos</li>
+                  <li><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z"/><path d="M6 1v3"/><path d="M10 1v3"/><path d="M14 1v3"/></svg>Pastéis de Belém na origem</li>
+                  <li><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Pôr do sol no Cais do Sodré</li>
+                </ul>
+              </div>
+              <div class="pp-day">
+                <div class="pp-day-h"><span class="pp-day-n">Dia 3</span> Bate-volta a Sintra</div>
+                <ul class="pp-items">
+                  <li><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Palácio da Pena e Quinta da Regaleira</li>
+                  <li><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z"/><path d="M6 1v3"/><path d="M10 1v3"/><path d="M14 1v3"/></svg>Almoço típico em Colares</li>
+                </ul>
+              </div>
+              <div class="pp-more">Dia 4 · Cascais e praia    ·    Dia 5 · Bairro Alto e partida</div>
+            </div>
+            <div class="pp-sum">
+              <div class="pp-sum-title">Resumo da proposta</div>
+              <div class="pp-sum-row"><span><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Hospedagem</span><b>R$ 3.200</b></div>
+              <div class="pp-sum-row"><span><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>Voos (ida e volta)</span><b>R$ 4.100</b></div>
+              <div class="pp-sum-row"><span><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Passeios</span><b>R$ 1.450</b></div>
+              <div class="pp-sum-row"><span><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Seguro viagem</span><b>R$ 320</b></div>
+              <div class="pp-sum-total"><span>Total</span><span class="v">R$ 9.070</span></div>
+              <button class="pp-send" type="button"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>Enviar proposta</button>
+              <p class="pp-opt">Transfer e upgrades entram como opção, o cliente adiciona sozinho.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="pp-note">Exemplo com dados fictícios. Montar proposta e roteiro já funciona hoje. CRM e recompra do cliente chegam <span class="pp-soon">em breve</span>.</p>
+    </div>
+
     <div class="journey-foot">
       <div class="journey-foot-ctas">
         <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Agendar reunião →</a>
