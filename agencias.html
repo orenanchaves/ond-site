@@ -371,6 +371,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 
 /* ── JORNADA ponta a ponta (mockup CSS puro na seção Plataforma) ── */
 .journey{max-width:1280px;margin:56px auto 0;padding-top:44px;border-top:1px solid var(--border)}
+.journey-strip{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:56px 5%;overflow:hidden}
+.journey-strip .journey{margin-top:0;padding-top:0;border-top:none}
 .journey-head{text-align:center;max-width:700px;margin:0 auto 40px}
 .journey-head h3{font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:800;line-height:1.2;letter-spacing:-.02em;margin-bottom:12px}
 .journey-head p{font-size:.98rem;color:var(--muted);line-height:1.65}
@@ -573,6 +575,71 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   <div class="stat"><div class="stat-num green">100%</div><div class="stat-label">com a sua marca</div></div>
 </div>
 
+<!-- JORNADA — mockup ponta a ponta (perto da dobra) -->
+<section class="journey-strip">
+  <div class="journey">
+    <div class="journey-head">
+      <span class="section-label">A jornada ponta a ponta</span>
+      <h3>Da pessoa que chega na agência à próxima viagem</h3>
+      <p>O que a agência ganha em cada etapa — do primeiro "quero viajar" ao pós-viagem que gera a próxima venda.</p>
+    </div>
+    <div class="journey-track">
+      <div class="jstep">
+        <div class="jstep-top"><span class="jstep-num">1</span><span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></span></div>
+        <span class="jstep-tag jstep-tag-now">Hoje</span>
+        <h4 class="jstep-title">Lead entra</h4>
+        <p class="jstep-desc">O viajante chega ("quero Sicília em setembro") e o OND vAI captura o briefing.</p>
+        <div class="jstep-gain"><b>Ganho</b>Começa sem fricção, inclusive fora do horário.</div>
+      </div>
+      <div class="jstep">
+        <div class="jstep-top"><span class="jstep-num">2</span><span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span></div>
+        <span class="jstep-tag jstep-tag-now">Hoje</span>
+        <h4 class="jstep-title">Proposta de boas-vindas</h4>
+        <p class="jstep-desc">Roteiro dia a dia com a marca da agência e estimativa de custo, em minutos.</p>
+        <div class="jstep-gain"><b>Ganho</b>Efeito uau: responde antes do concorrente e captura o lead.</div>
+      </div>
+      <div class="jstep">
+        <div class="jstep-top"><span class="jstep-num">3</span><span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg></span></div>
+        <span class="jstep-tag jstep-tag-now">Hoje · parcial</span>
+        <h4 class="jstep-title">Personalização</h4>
+        <p class="jstep-desc">O cliente ajusta o roteiro no próprio link, sem troca infinita de e-mail.</p>
+        <div class="jstep-gain"><b>Ganho</b>Mais propostas por hora, com menos ida e volta.</div>
+      </div>
+      <div class="jstep">
+        <div class="jstep-top"><span class="jstep-num">4</span><span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg></span></div>
+        <span class="jstep-tag jstep-tag-now">Hoje</span>
+        <h4 class="jstep-title">Fechamento</h4>
+        <p class="jstep-desc">A agência fecha pelos próprios fornecedores e fica com a comissão. O OND não é o merchant.</p>
+        <div class="jstep-gain"><b>Ganho</b>Margem da agência, no fluxo dela — sem virar concorrente.</div>
+      </div>
+      <div class="jstep">
+        <div class="jstep-top"><span class="jstep-num">5</span><span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span></div>
+        <span class="jstep-tag jstep-tag-now">Hoje</span>
+        <h4 class="jstep-title">Durante a viagem</h4>
+        <p class="jstep-desc">Concierge 24h, áudio guia, controle de gastos e alertas para o cliente.</p>
+        <div class="jstep-gain"><b>Ganho</b>Presente onde o Booking e a CVC abandonam o cliente.</div>
+      </div>
+      <div class="jstep jstep-soon">
+        <div class="jstep-top"><span class="jstep-num">6</span><span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span></div>
+        <span class="jstep-tag jstep-tag-soon">Em breve · visão</span>
+        <h4 class="jstep-title">Pós-viagem</h4>
+        <p class="jstep-desc">O perfil de hábito do cliente (destino, gasto, ritmo) alimenta a próxima venda proativa.</p>
+        <div class="jstep-gain"><b>No roadmap</b>A 2ª e a 3ª viagem do mesmo cliente — recorrência e LTV.</div>
+      </div>
+    </div>
+    <div class="journey-foot">
+      <div class="journey-foot-ctas">
+        <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Agendar reunião →</a>
+        <a href="https://wa.me/5511910214133?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+      <p class="journey-note">A etapa 6 está no roadmap (marcada como <b>visão</b>) — mostramos a direção, não vendemos como pronto.</p>
+    </div>
+  </div>
+</section>
+
 <!-- PROBLEMA -->
 <section class="problema">
   <div class="problema-inner">
@@ -682,71 +749,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         <div class="app-client-status status-green">Fechado</div>
       </div>
     </div>
-  </div>
-
-  <!-- Jornada ponta a ponta (mockup CSS puro) -->
-  <div class="journey">
-    <div class="journey-head">
-      <span class="section-label">A jornada ponta a ponta</span>
-      <h3>Da pessoa que chega na agência à próxima viagem</h3>
-      <p>O que a agência ganha em cada etapa — do primeiro "quero viajar" ao pós-viagem que gera a próxima venda.</p>
-    </div>
-    <div class="journey-track">
-      <div class="jstep">
-        <div class="jstep-top"><span class="jstep-num">1</span><span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></span></div>
-        <span class="jstep-tag jstep-tag-now">Hoje</span>
-        <h4 class="jstep-title">Lead entra</h4>
-        <p class="jstep-desc">O viajante chega ("quero Sicília em setembro") e o OND vAI captura o briefing.</p>
-        <div class="jstep-gain"><b>Ganho</b>Começa sem fricção, inclusive fora do horário.</div>
-      </div>
-      <div class="jstep">
-        <div class="jstep-top"><span class="jstep-num">2</span><span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span></div>
-        <span class="jstep-tag jstep-tag-now">Hoje</span>
-        <h4 class="jstep-title">Proposta de boas-vindas</h4>
-        <p class="jstep-desc">Roteiro dia a dia com a marca da agência e estimativa de custo, em minutos.</p>
-        <div class="jstep-gain"><b>Ganho</b>Efeito uau: responde antes do concorrente e captura o lead.</div>
-      </div>
-      <div class="jstep">
-        <div class="jstep-top"><span class="jstep-num">3</span><span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg></span></div>
-        <span class="jstep-tag jstep-tag-now">Hoje · parcial</span>
-        <h4 class="jstep-title">Personalização</h4>
-        <p class="jstep-desc">O cliente ajusta o roteiro no próprio link, sem troca infinita de e-mail.</p>
-        <div class="jstep-gain"><b>Ganho</b>Mais propostas por hora, com menos ida e volta.</div>
-      </div>
-      <div class="jstep">
-        <div class="jstep-top"><span class="jstep-num">4</span><span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg></span></div>
-        <span class="jstep-tag jstep-tag-now">Hoje</span>
-        <h4 class="jstep-title">Fechamento</h4>
-        <p class="jstep-desc">A agência fecha pelos próprios fornecedores e fica com a comissão. O OND não é o merchant.</p>
-        <div class="jstep-gain"><b>Ganho</b>Margem da agência, no fluxo dela — sem virar concorrente.</div>
-      </div>
-      <div class="jstep">
-        <div class="jstep-top"><span class="jstep-num">5</span><span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span></div>
-        <span class="jstep-tag jstep-tag-now">Hoje</span>
-        <h4 class="jstep-title">Durante a viagem</h4>
-        <p class="jstep-desc">Concierge 24h, áudio guia, controle de gastos e alertas para o cliente.</p>
-        <div class="jstep-gain"><b>Ganho</b>Presente onde o Booking e a CVC abandonam o cliente.</div>
-      </div>
-      <div class="jstep jstep-soon">
-        <div class="jstep-top"><span class="jstep-num">6</span><span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span></div>
-        <span class="jstep-tag jstep-tag-soon">Em breve · visão</span>
-        <h4 class="jstep-title">Pós-viagem</h4>
-        <p class="jstep-desc">O perfil de hábito do cliente (destino, gasto, ritmo) alimenta a próxima venda proativa.</p>
-        <div class="jstep-gain"><b>No roadmap</b>A 2ª e a 3ª viagem do mesmo cliente — recorrência e LTV.</div>
-      </div>
-    </div>
-    <div class="journey-foot">
-      <div class="journey-foot-ctas">
-        <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Agendar reunião →</a>
-        <a href="https://wa.me/5511910214133?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
-          Falar no WhatsApp
-        </a>
-      </div>
-      <p class="journey-note">A etapa 6 está no roadmap (marcada como <b>visão</b>) — mostramos a direção, não vendemos como pronto.</p>
-    </div>
-  </div>
-</section>
+  </div></section>
 
 <!-- FUNCIONALIDADES + MODELO -->
 <section class="features" id="modelo">
@@ -895,6 +898,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       O OND foi apresentado para o conselho da BeFly Leadership — uma das maiores redes de agências de viagem do Brasil — e recebeu aprovação técnica e estratégica para integração com a rede de franquias e turismo corporativo.
     </p>
     <div class="proof-source"><span class="proof-dot"></span> Pitch Day · Desafio Turismo Inteligente BeFly · 2026</div>
+    <div style="margin-top:28px">
+      <a href="https://wa.me/5511910214133?text=Olá! Vi a página do OND para agências e queria falar com um dos fundadores" class="btn-whatsapp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        Somos gente de verdade — fale direto com um fundador
+      </a>
+    </div>
   </div>
 </section>
 
