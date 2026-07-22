@@ -403,7 +403,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 @media(max-width:720px){.journey-track{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.journey-track{grid-template-columns:1fr}}
 /* ── PREVIEW DA PLATAFORMA (mockup proposta) ── */
-.platform-preview{max-width:1120px;margin:60px auto 0;padding-top:52px;border-top:1px solid var(--border)}
+.platform-preview{max-width:1160px;margin:60px auto 0;padding-top:52px;border-top:1px solid var(--border)}
 .pp-head{text-align:center;max-width:660px;margin:0 auto 32px}
 .pp-head h3{font-size:clamp(1.35rem,2.5vw,1.9rem);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin:12px 0 12px}
 .pp-head p{font-size:.96rem;color:var(--muted);line-height:1.65}
@@ -423,7 +423,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-trip-item{display:inline-flex;align-items:center;gap:7px}
 .pp-trip-item .ic{color:var(--blue);flex-shrink:0}
 .pp-trip-item span{color:var(--muted)}
-.pp-grid{display:flex;flex-direction:column;gap:14px}
+.pp-grid{display:grid;grid-template-columns:1.7fr 1fr;gap:18px;align-items:start}
 .pp-day{border:1px solid var(--border);border-radius:12px;padding:13px 15px;background:var(--bg)}
 .pp-day+.pp-day{margin-top:10px}
 .pp-day-h{display:flex;align-items:center;gap:10px;margin-bottom:11px;font-weight:700;font-size:.92rem}
@@ -446,21 +446,22 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-note{text-align:center;font-size:.8rem;color:var(--muted2);margin-top:18px}
 .pp-soon{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-light);background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 40%, transparent);padding:2px 8px;border-radius:50px}
 /* ── DEMO INTERATIVO DA PLATAFORMA ── */
-.pp-cols{display:grid;grid-template-columns:0.92fr 1.08fr;gap:36px;align-items:start}
+.pp-cols{display:block}
+.pp-copy{max-width:780px;margin:0 auto 30px;text-align:center}
 .pp-copy h3{font-size:clamp(1.35rem,2.5vw,1.95rem);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin:12px 0 14px}
 .pp-copy>p{font-size:.98rem;color:var(--muted);line-height:1.7;margin-bottom:22px}
-.pp-copy-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:22px}
+.pp-copy-list{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin:18px 0 14px}
 .pp-copy-list li{display:flex;align-items:center;gap:11px;font-size:.9rem;color:var(--text)}
 .pp-copy-list .ic{color:var(--green);flex-shrink:0}
 .pp-demo-note{font-size:.8rem;color:var(--muted2);line-height:1.5}
-.pp-controls{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 18px;margin-bottom:16px}
-.pp-ctrl-group{display:flex;flex-direction:column;gap:8px}
+.pp-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding:13px 16px;background:var(--surface);border-bottom:1px solid var(--border)}
+.pp-tool-group{display:flex;align-items:center;gap:10px}
 .pp-ctrl-label{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .pp-chips{display:flex;flex-wrap:wrap;gap:7px}
 .pp-chip{font-family:inherit;font-size:.82rem;font-weight:700;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:50px;padding:7px 14px;cursor:pointer;transition:color .15s,background .15s,border-color .15s,box-shadow .15s}
 .pp-chip:hover{color:var(--text);border-color:var(--border-hi)}
 .pp-chip.active{color:var(--ond-color-onPrimary);background:var(--blue);border-color:var(--blue);box-shadow:0 4px 12px var(--blue-glow)}
-.pp-generate{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:.86rem;font-weight:800;color:#04120a;background:var(--green);border:none;border-radius:50px;padding:11px 20px;cursor:pointer;transition:transform .15s,filter .15s}
+.pp-generate{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:.86rem;font-weight:800;color:#04120a;background:var(--green);border:none;border-radius:50px;padding:11px 20px;margin-left:auto;cursor:pointer;transition:transform .15s,filter .15s}
 .pp-generate:hover{transform:translateY(-1px);filter:brightness(1.06)}
 .pp-generate .ic{color:#04120a}
 .pp-live{margin-left:auto;font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--green);background:var(--green-dim);border:1px solid color-mix(in srgb, var(--green) 30%, transparent);padding:3px 9px;border-radius:50px;white-space:nowrap}
@@ -474,7 +475,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .sk-bar{height:42px}
 .sk-day{height:76px}
 .sk-sum{height:200px}
-@media(max-width:860px){.pp-cols{grid-template-columns:1fr;gap:26px}.pp-live{margin-left:0}}
+@media(max-width:600px){.pp-tool-group{flex-direction:column;align-items:flex-start;gap:7px;width:100%}.pp-generate{margin-left:0;width:100%;justify-content:center}.pp-toolbar{padding:12px 14px}}
 @media(max-width:720px){.pp-grid{grid-template-columns:1fr}}
 /* ── PLANOS E PREÇOS ── */
 .pricing{padding:80px 5%;background:var(--bg)}
@@ -751,34 +752,34 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
             <li><svg class="ic" width="17" height="17" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Com a sua marca no lugar da nossa</li>
             <li><svg class="ic" width="17" height="17" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Valores e link prontos pra enviar</li>
           </ul>
-          <p class="pp-demo-note">Demonstração com dados de exemplo. Teste aqui do lado.</p>
+          <p class="pp-demo-note">Demonstração com dados de exemplo. Teste no app abaixo.</p>
         </div>
         <div class="pp-demo">
-          <div class="pp-controls">
-            <div class="pp-ctrl-group">
-              <span class="pp-ctrl-label">Destino</span>
-              <div class="pp-chips" id="ppDest">
-                <button class="pp-chip active" type="button" data-dest="lisboa">Lisboa</button>
-                <button class="pp-chip" type="button" data-dest="bsas">Buenos Aires</button>
-                <button class="pp-chip" type="button" data-dest="orlando">Orlando</button>
-                <button class="pp-chip" type="button" data-dest="surpresa">Surpreenda</button>
-              </div>
-            </div>
-            <div class="pp-ctrl-group">
-              <span class="pp-ctrl-label">Dias</span>
-              <div class="pp-chips" id="ppDays">
-                <button class="pp-chip" type="button" data-days="3">3</button>
-                <button class="pp-chip active" type="button" data-days="5">5</button>
-                <button class="pp-chip" type="button" data-days="7">7</button>
-              </div>
-            </div>
-            <button class="pp-generate" id="ppGen" type="button"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg>Gerar proposta</button>
-          </div>
           <div class="pp-window">
             <div class="pp-bar">
               <span class="pp-dot"></span><span class="pp-dot"></span><span class="pp-dot"></span>
               <span class="pp-url"><svg class="ic" width="12" height="12" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>app.ond.com.br/proposta</span>
               <span class="pp-live">Demonstração</span>
+            </div>
+            <div class="pp-toolbar">
+              <div class="pp-tool-group">
+                <span class="pp-ctrl-label">Destino</span>
+                <div class="pp-chips" id="ppDest">
+                  <button class="pp-chip active" type="button" data-dest="lisboa">Lisboa</button>
+                  <button class="pp-chip" type="button" data-dest="bsas">Buenos Aires</button>
+                  <button class="pp-chip" type="button" data-dest="orlando">Orlando</button>
+                  <button class="pp-chip" type="button" data-dest="surpresa">Surpreenda</button>
+                </div>
+              </div>
+              <div class="pp-tool-group">
+                <span class="pp-ctrl-label">Dias</span>
+                <div class="pp-chips" id="ppDays">
+                  <button class="pp-chip" type="button" data-days="3">3</button>
+                  <button class="pp-chip active" type="button" data-days="5">5</button>
+                  <button class="pp-chip" type="button" data-days="7">7</button>
+                </div>
+              </div>
+              <button class="pp-generate" id="ppGen" type="button"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg>Gerar proposta</button>
             </div>
             <div class="pp-app" id="ppApp">
             </div>
