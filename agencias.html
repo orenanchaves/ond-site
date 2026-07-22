@@ -305,7 +305,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   .diff-grid{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr}
   .hero-ctas{flex-direction:column;align-items:stretch}
-  .hero-ctas .btn-green,.hero-ctas .btn-whatsapp{width:100%;justify-content:center}
+  .hero-ctas .btn-green,.hero-ctas .btn-whatsapp{width:100%;justify-content:center;text-align:center}
+  .hero-ctas .btn-green{font-size:.9rem;padding:14px 20px}
   .cta-final-btns{flex-direction:column;align-items:center}
   .btn-green,.btn-whatsapp{width:100%;max-width:300px;justify-content:center}
   .stats{flex-direction:column;align-items:center}.stat{border-right:none;border-bottom:1px solid var(--border);width:100%;max-width:280px;padding:14px 0}
@@ -315,6 +316,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 @media(max-width:400px){
   /* telas bem estreitas: garante respiro e alvos de toque confortáveis */
   .hero{padding:48px 20px 40px}
+  .hero-ctas .btn-green{font-size:.82rem;padding:14px 16px}
   .problema,.how,.features,.diff,.proof,.cta-final{padding-left:20px;padding-right:20px}
   .side-stat-grid{grid-template-columns:1fr 1fr}
 }
@@ -697,7 +699,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <section class="hero">
   <div>
     <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Plataforma de vendas para agências</div>
-    <h1 class="hero-title">O cliente monta a viagem.<br>Você <em>fecha a venda.</em></h1>
+    <h1 class="hero-title">O cliente monta a viagem, e você <em>fecha a venda.</em></h1>
     <p class="hero-sub">O OND vira o motor de vendas da sua agência: monte a proposta em minutos e envie um link com a sua marca onde o próprio cliente personaliza tudo, adiciona seguro e upgrades, e fecha. Mais ticket, menos ida e volta no e-mail.</p>
     <div class="hero-ctas">
       <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Quero o OND na minha agência&nbsp;→</a>
