@@ -476,6 +476,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 @media(max-width:1080px){.plans-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){.plans-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.plans-grid{grid-template-columns:1fr}}
+.plan-custom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;margin-top:16px;padding:26px 28px;border-radius:var(--radius);background:linear-gradient(120deg,color-mix(in srgb, var(--purple) 15%, var(--card)),color-mix(in srgb, var(--blue) 12%, var(--card)));border:1px solid color-mix(in srgb, var(--purple) 38%, transparent)}
+.pc-text{flex:1 1 380px;min-width:0}
+.pc-badge{display:inline-flex;align-items:center;font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-light);background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 42%, transparent);padding:4px 11px;border-radius:50px;margin-bottom:12px}
+.pc-text h3{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:8px}
+.pc-text p{font-size:.9rem;color:var(--muted);line-height:1.6;max-width:640px}
+.pc-cta{display:flex;flex-direction:column;align-items:flex-start;gap:10px;flex-shrink:0}
+.pc-price{font-size:.82rem;font-weight:700;color:var(--purple-light)}
+@media(max-width:620px){.plan-custom{padding:22px 20px}.pc-cta{align-items:stretch;width:100%}}
 
 /* ── SEÇÃO Depois da venda (retenção / recorrência) ── */
 .retention{background:var(--bg);padding:80px 5%;border-bottom:1px solid var(--border)}
@@ -1049,7 +1057,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">1</span><span class="plan-per">/mês</span></div>
         <div class="plan-for">Pra experimentar a tecnologia.</div>
         <ul class="plan-feats">
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>3 roteiros no total</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>3 propostas no total</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Acesso à plataforma</li>
         </ul>
         <a class="plan-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Agendar reunião</a>
@@ -1059,7 +1067,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">469</span><span class="plan-per">/mês</span></div>
         <div class="plan-for">Pequenas agências começando no digital.</div>
         <ul class="plan-feats">
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 50 roteiros por mês</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 50 propostas por mês</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Portal com a sua marca</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Suporte por e-mail</li>
         </ul>
@@ -1071,7 +1079,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">937</span><span class="plan-per">/mês</span></div>
         <div class="plan-for">Fluxo constante e vários consultores.</div>
         <ul class="plan-feats">
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 100 roteiros por mês</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 100 propostas por mês</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Múltiplos consultores</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Painel de propostas em tempo real</li>
         </ul>
@@ -1082,7 +1090,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">1.406</span><span class="plan-per">/mês</span></div>
         <div class="plan-for">Volume alto com suporte dedicado.</div>
         <ul class="plan-feats">
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 150 roteiros por mês</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 150 propostas por mês</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Suporte prioritário</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Setup assistido</li>
         </ul>
@@ -1091,13 +1099,24 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <div class="plan">
         <div class="plan-name">OND Infinity</div>
         <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">1.875</span><span class="plan-per">/mês</span></div>
-        <div class="plan-for">Operação sem limite de roteiros.</div>
+        <div class="plan-for">Operação sem limite de propostas.</div>
         <ul class="plan-feats">
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Roteiros ilimitados</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Propostas ilimitadas</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Setup completo</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Customização com a marca da agência</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Acesso antecipado a novos recursos</li>
         </ul>
+        <a class="plan-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Agendar reunião</a>
+      </div>
+    </div>
+    <div class="plan-custom">
+      <div class="pc-text">
+        <div class="pc-badge">Sob medida</div>
+        <h3>OND Personalizado</h3>
+        <p>Construa seu software personalizado de agência: white-label completo, com a cara e as regras da sua operação. O escopo e o preço saem na conversa.</p>
+      </div>
+      <div class="pc-cta">
+        <div class="pc-price">Sob consulta</div>
         <a class="plan-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Agendar reunião</a>
       </div>
     </div>
