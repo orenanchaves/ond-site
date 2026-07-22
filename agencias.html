@@ -118,11 +118,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 /* No tema claro o verde é escuro (#008833) — texto preto fica com baixo contraste.
    Texto/seta/ícones em branco só no claro; no escuro (#11f558 neon) mantém preto. */
 [data-theme="light"] .btn-green,
-[data-theme="light"] .header-cta,
-[data-theme="light"] .sticky-cta{color:#fff}
+[data-theme="light"] .header-cta{color:#fff}
 [data-theme="light"] .btn-green .ic,
-[data-theme="light"] .header-cta .ic,
-[data-theme="light"] .sticky-cta .ic{color:#fff}
+[data-theme="light"] .header-cta .ic{color:#fff}
 .btn-blue{display:inline-flex;align-items:center;gap:8px;background:var(--blue-dim);color:var(--blue-light);border:1.5px solid color-mix(in srgb, var(--blue) 30%, transparent);padding:13px 24px;border-radius:50px;font-size:.97rem;font-weight:600;text-decoration:none;transition:all .2s}
 .btn-blue:hover{background:color-mix(in srgb, var(--blue) 20%, transparent);border-color:var(--blue);transform:translateY(-2px)}
 .btn-whatsapp{display:inline-flex;align-items:center;gap:8px;background:color-mix(in srgb, var(--ond-color-whatsapp) 10%, transparent);color:var(--ond-color-whatsapp);border:1.5px solid color-mix(in srgb, var(--ond-color-whatsapp) 25%, transparent);padding:13px 24px;border-radius:50px;font-size:.97rem;font-weight:600;text-decoration:none;transition:all .2s}
@@ -548,16 +546,25 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 @media(max-width:760px){.retention-grid{grid-template-columns:1fr}}
 
 /* ── STICKY CTA (mobile) ── */
-.sticky-cta{display:none}
+/* CTA de reunião no mobile: orb flutuante (estilo OND vAI) no lugar da antiga
+   barra full-width. Verde do CTA + balão-rótulo pra não virar ícone misterioso. */
+.orb-cta{display:none}
+@keyframes orb-pulse{
+  0%{box-shadow:0 8px 24px color-mix(in srgb,var(--green) 45%,transparent),0 0 0 0 color-mix(in srgb,var(--green) 45%,transparent)}
+  70%{box-shadow:0 8px 24px color-mix(in srgb,var(--green) 45%,transparent),0 0 0 14px transparent}
+  100%{box-shadow:0 8px 24px color-mix(in srgb,var(--green) 45%,transparent),0 0 0 0 transparent}}
 @media(max-width:600px){
-  .sticky-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:300;align-items:center;justify-content:center;gap:8px;
-    background:var(--green);color:#000;font-weight:800;font-size:1rem;text-decoration:none;
-    padding:15px 20px;padding-bottom:calc(15px + env(safe-area-inset-bottom));
-    box-shadow:0 -6px 24px rgba(0,0,0,.35);border-top:1px solid color-mix(in srgb,var(--green),#000 20%)}
-  /* folga = altura da barra (~56px) + safe-area do aparelho, pra nada ficar
-     escondido atrás da sticky-cta (links de onboarding / e-mail no CTA final) */
-  body{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  .orb-cta{display:flex;align-items:center;gap:10px;position:fixed;right:16px;z-index:300;text-decoration:none;
+    bottom:calc(16px + env(safe-area-inset-bottom))}
+  .orb-cta-label{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:50px;
+    padding:9px 14px;font-size:.82rem;font-weight:700;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.28)}
+  .orb-cta-btn{width:58px;height:58px;border-radius:50%;background:var(--green);color:#000;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;animation:orb-pulse 2.6s ease-out infinite}
+  .orb-cta-btn .ic{width:26px;height:26px}
+  /* orb é pequeno e canto direito; folga leve só pra respeitar a safe-area */
+  body{padding-bottom:calc(20px + env(safe-area-inset-bottom))}
 }
+[data-theme="light"] .orb-cta-btn{color:#fff}
 /* OND vAI (assets/vai-widget.js): a estrela/orb roxa fixa e o balao de saudacao
    se empilham sobre a sticky-cta e sobre o texto do CTA final no mobile. Nesta
    pagina B2B a acao principal ja e a sticky-cta "Agendar reuniao", entao ocultamos
@@ -1287,7 +1294,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </footer>
 
 <!-- STICKY CTA (só mobile) -->
-<a class="sticky-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener" aria-label="Agendar reunião"><svg class="ic" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg> Agendar reunião</a>
+<a class="orb-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener" aria-label="Agendar reunião"><span class="orb-cta-label">Agendar reunião</span><span class="orb-cta-btn"><svg class="ic" width="26" height="26" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></span></a>
 
 <script>
 function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open')}
