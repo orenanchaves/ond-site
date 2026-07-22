@@ -467,6 +467,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-chip{font-family:inherit;font-size:.82rem;font-weight:700;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:50px;padding:7px 14px;cursor:pointer;transition:color .15s,background .15s,border-color .15s,box-shadow .15s}
 .pp-chip:hover{color:var(--text);border-color:var(--border-hi)}
 .pp-chip.active{color:var(--ond-color-onPrimary);background:var(--blue);border-color:var(--blue);box-shadow:0 4px 12px var(--blue-glow)}
+.pp-dest-input{width:100%;max-width:340px;font-family:inherit;font-size:.86rem;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:10px;padding:9px 13px;transition:border-color .15s,box-shadow .15s}
+.pp-dest-input::placeholder{color:var(--muted)}
+.pp-dest-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-glow)}
 .pp-generate{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:.86rem;font-weight:800;color:#04120a;background:var(--green);border:none;border-radius:50px;padding:11px 20px;margin-left:auto;cursor:pointer;transition:transform .15s,filter .15s}
 .pp-generate:hover{transform:translateY(-1px);filter:brightness(1.06)}
 .pp-generate .ic{color:#04120a}
@@ -500,6 +503,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   .pp-toolbar{padding:12px 13px;gap:12px 14px}
   .pp-chips{gap:8px}
   .pp-chip{padding:8px 15px}
+  /* input full-width e 16px pra bom toque e sem zoom automático no iOS */
+  .pp-dest-input{max-width:none;font-size:16px;padding:10px 14px}
   .pp-generate{width:100%}
   /* proposta gerada compacta */
   .pp-app{padding:14px 13px 16px}
@@ -834,11 +839,21 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
             <div class="pp-toolbar">
               <div class="pp-tool-group">
                 <span class="pp-ctrl-label">Destino</span>
+                <input class="pp-dest-input" id="ppDestInput" type="text" autocomplete="off" list="ppDestList" value="Lisboa, Portugal" aria-label="Destino da viagem" placeholder="Pra onde? Ex.: Lisboa, Roma, Fernando de Noronha...">
+                <datalist id="ppDestList">
+                  <option value="Lisboa, Portugal"></option>
+                  <option value="Buenos Aires, Argentina"></option>
+                  <option value="Orlando, Estados Unidos"></option>
+                  <option value="Roma, Itália"></option>
+                  <option value="Fernando de Noronha"></option>
+                  <option value="Paris, França"></option>
+                  <option value="Cancún, México"></option>
+                </datalist>
                 <div class="pp-chips" id="ppDest">
-                  <button class="pp-chip active" type="button" data-dest="lisboa">Lisboa</button>
-                  <button class="pp-chip" type="button" data-dest="bsas">Buenos Aires</button>
-                  <button class="pp-chip" type="button" data-dest="orlando">Orlando</button>
-                  <button class="pp-chip" type="button" data-dest="surpresa">Surpreenda</button>
+                  <button class="pp-chip" type="button" data-fill="Lisboa, Portugal">Lisboa</button>
+                  <button class="pp-chip" type="button" data-fill="Buenos Aires, Argentina">Buenos Aires</button>
+                  <button class="pp-chip" type="button" data-fill="Orlando, Estados Unidos">Orlando</button>
+                  <button class="pp-chip" type="button" data-fill="Surpreenda">Surpreenda</button>
                 </div>
               </div>
               <div class="pp-tool-group">
@@ -877,6 +892,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       };
       function ic(k,s){s=s||16;return '<svg class="ic" width="'+s+'" height="'+s+'" viewBox="0 0 24 24">'+(ICONS[k]||'')+'</svg>';}
       function brl(n){return 'R$ '+n.toLocaleString('pt-BR');}
+      function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+      function titleCase(s){var small={de:1,da:1,do:1,dos:1,das:1,e:1};return String(s).trim().replace(/\s+/g,' ').toLowerCase().split(' ').map(function(w,i){if(!w)return w;if(i>0&&small[w])return w;return w.charAt(0).toUpperCase()+w.slice(1);}).join(' ');}
       var DATA={
         lisboa:{name:'Lisboa, Portugal',flight:4100,hotel:640,tour:480,ins:64,days:[
           {t:'Chegada e Alfama',items:[['plane','Voo e check-in no hotel'],['pin','Miradouros de Alfama'],['food','Jantar com fado ao vivo']]},
@@ -903,13 +920,31 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           {t:'Experiência local',items:[['star','Atração imperdível'],['food','Mercado gastronômico'],['bag','Artesanato local']]}
         ]}
       };
+      function genericDays(name){return [
+        {t:'Chegada em '+name,items:[['plane','Voo e check-in no hotel'],['pin','City tour pelo centro'],['food','Jantar de boas-vindas']]},
+        {t:'Principais pontos',items:[['cam','Passeio guiado pelos cartões-postais'],['pin','Bairro histórico'],['food','Almoço em restaurante típico']]},
+        {t:'Cultura e gastronomia',items:[['star','Museu ou atração imperdível'],['food','Gastronomia local'],['bag','Mercado e artesanato']]},
+        {t:'Dia livre em '+name,items:[['sun','Manhã livre no seu ritmo'],['cam','Mirante ou parque da cidade'],['food','Café especial da região']]},
+        {t:'Bate-volta cênico',items:[['pin','Passeio a uma cidade próxima'],['cam','Paisagens no caminho'],['food','Almoço fora da rota turística']]},
+        {t:'Compras e despedida',items:[['bag','Compras de última hora'],['star','Atração que ficou pra depois'],['plane','Preparativos para a partida']]}
+      ];}
+      function resolve(raw){
+        var t=(raw||'').trim(),key=t.toLowerCase();
+        if(/lisbo|lisbon/.test(key))return DATA.lisboa;
+        if(/buenos|bsas|aires|argentin/.test(key))return DATA.bsas;
+        if(/orlando|disney/.test(key))return DATA.orlando;
+        if(/surpreend|surpres/.test(key))return DATA.surpresa;
+        if(!t)return DATA.lisboa;
+        var name=titleCase(t);
+        return {name:name,flight:3400,hotel:580,tour:460,ins:60,days:genericDays(name)};
+      }
       var SKELETON='<div class="pp-skel"><div class="sk sk-top"></div><div class="sk sk-bar"></div><div class="sk sk-day"></div><div class="sk sk-day"></div><div class="sk sk-sum"></div></div>';
       function itinerary(d,days){
         var out='',shown=Math.min(days,d.days.length),i,j,day,items;
         for(i=0;i<shown;i++){
           day=d.days[i];items='';
-          for(j=0;j<day.items.length;j++){items+='<li>'+ic(day.items[j][0],16)+day.items[j][1]+'</li>';}
-          out+='<div class="pp-day"><div class="pp-day-h"><span class="pp-day-n">Dia '+(i+1)+'</span> '+day.t+'</div><ul class="pp-items">'+items+'</ul></div>';
+          for(j=0;j<day.items.length;j++){items+='<li>'+ic(day.items[j][0],16)+esc(day.items[j][1])+'</li>';}
+          out+='<div class="pp-day"><div class="pp-day-h"><span class="pp-day-n">Dia '+(i+1)+'</span> '+esc(day.t)+'</div><ul class="pp-items">'+items+'</ul></div>';
         }
         if(days>shown){
           var label=(days>shown+1)?('Dia '+(shown+1)+' a Dia '+days):('Dia '+(shown+1));
@@ -917,8 +952,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         }
         return out;
       }
-      function render(dest,days){
-        var d=DATA[dest]||DATA.lisboa;
+      function render(d,days){
         var hotel=d.hotel*days,tour=d.tour*days,ins=d.ins*days,flight=d.flight;
         var total=hotel+tour+ins+flight;
         return ''
@@ -928,7 +962,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
             +'<span class="pp-status">Rascunho</span>'
           +'</div>'
           +'<div class="pp-trip">'
-            +'<span class="pp-trip-item">'+ic('pin',15)+'<b>'+d.name+'</b></span>'
+            +'<span class="pp-trip-item">'+ic('pin',15)+'<b>'+esc(d.name)+'</b></span>'
             +'<span class="pp-trip-item">'+ic('cal',15)+'<span>'+days+' dias</span></span>'
             +'<span class="pp-trip-item">'+ic('users',15)+'<span>2 pax</span></span>'
           +'</div>'
@@ -948,10 +982,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       }
       var app=document.getElementById('ppApp');
       if(!app) return;
-      var state={dest:'lisboa',days:5};
-      function paint(){app.innerHTML=render(state.dest,state.days);}
+      var input=document.getElementById('ppDestInput');
+      var state={destText:(input&&input.value)||'Lisboa, Portugal',days:5};
+      function paint(){app.innerHTML=render(resolve(state.destText),state.days);}
       var timer=null;
       function generate(){
+        var raw=input?input.value.trim():'';
+        if(!raw){if(input)input.focus();return;}
+        state.destText=raw;
         app.innerHTML=SKELETON;
         if(timer) clearTimeout(timer);
         timer=setTimeout(paint,800);
@@ -964,8 +1002,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       var destWrap=document.getElementById('ppDest');
       if(destWrap){destWrap.addEventListener('click',function(e){
         var b=e.target.closest('.pp-chip');if(!b)return;
-        state.dest=b.getAttribute('data-dest');setActive(destWrap,b);
+        if(input){input.value=b.getAttribute('data-fill')||b.textContent;}
+        setActive(destWrap,b);generate();
       });}
+      if(input){input.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();generate();}});}
       var daysWrap=document.getElementById('ppDays');
       if(daysWrap){daysWrap.addEventListener('click',function(e){
         var b=e.target.closest('.pp-chip');if(!b)return;
