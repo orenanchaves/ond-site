@@ -62,69 +62,9 @@
   </url>
   <url>
     <loc>https://ondviajar.com.br/agencias.html</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ondviajar.com.br/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ondviajar.com.br/en/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://ondviajar.com.br/es/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/agencias.html"/>
     <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ondviajar.com.br/hoteis.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ondviajar.com.br/en/agencias.html</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ondviajar.com.br/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ondviajar.com.br/en/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://ondviajar.com.br/es/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/agencias.html"/>
-    <lastmod>2026-07-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ondviajar.com.br/es/agencias.html</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ondviajar.com.br/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ondviajar.com.br/en/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://ondviajar.com.br/es/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/agencias.html"/>
-    <lastmod>2026-07-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ondviajar.com.br/fr/agencias.html</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ondviajar.com.br/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ondviajar.com.br/en/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://ondviajar.com.br/es/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/agencias.html"/>
-    <lastmod>2026-07-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ondviajar.com.br/it/agencias.html</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ondviajar.com.br/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ondviajar.com.br/en/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://ondviajar.com.br/es/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/agencias.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/agencias.html"/>
-    <lastmod>2026-07-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ondviajar.com.br/assessoria.html</loc>
