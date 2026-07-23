@@ -909,6 +909,30 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           {t:'Universal Studios',items:[['star','Universal Studios'],['star','Mundo do Harry Potter'],['food','Almoço no parque']]},
           {t:'Compras e outlets',items:[['bag','Premium Outlets'],['bag','Malls e eletrônicos'],['food','Jantar especial']]}
         ]},
+        paris:{name:'Paris, França',flight:4300,hotel:720,tour:520,ins:66,days:[
+          {t:'Chegada e Torre Eiffel',items:[['plane','Voo e check-in no hotel'],['cam','Torre Eiffel ao entardecer'],['food','Jantar em bistrô parisiense']]},
+          {t:'Louvre e Champs-Élysées',items:[['star','Museu do Louvre'],['pin','Arco do Triunfo e Champs-Élysées'],['food','Café em Saint-Germain']]},
+          {t:'Montmartre e Sacré-Cœur',items:[['pin','Basílica de Sacré-Cœur'],['cam','Ruelas de Montmartre'],['star','Cabaré à noite']]},
+          {t:'Bate-volta a Versalhes',items:[['cam','Palácio de Versalhes'],['pin','Jardins reais'],['bag','Compras nas galerias']]}
+        ]},
+        roma:{name:'Roma, Itália',flight:4200,hotel:680,tour:500,ins:64,days:[
+          {t:'Chegada e Coliseu',items:[['plane','Voo e check-in'],['star','Coliseu e Arco de Constantino'],['food','Jantar em Trastevere']]},
+          {t:'Vaticano',items:[['cam','Museus do Vaticano'],['star','Basílica de São Pedro'],['food','Gelato artesanal']]},
+          {t:'Centro histórico',items:[['pin','Fontana di Trevi'],['cam','Panteão'],['food','Almoço na Piazza Navona']]},
+          {t:'Roma antiga',items:[['cam','Fórum Romano e Palatino'],['pin','Boca da Verdade'],['bag','Vias de compras do centro']]}
+        ]},
+        cancun:{name:'Cancún, México',flight:3600,hotel:650,tour:560,ins:62,days:[
+          {t:'Chegada e praia',items:[['plane','Voo e check-in no resort'],['sun','Praia de águas turquesa'],['food','Jantar à beira-mar']]},
+          {t:'Chichén Itzá',items:[['cam','Ruínas maias de Chichén Itzá'],['sun','Banho em cenote'],['food','Almoço típico yucateco']]},
+          {t:'Isla Mujeres',items:[['plane','Catamarã até Isla Mujeres'],['star','Snorkel no recife'],['sun','Pôr do sol no barco']]},
+          {t:'Parques e cenotes',items:[['star','Parque ecológico Xcaret'],['pin','Nado em cenote'],['star','Show noturno mexicano']]}
+        ]},
+        noronha:{name:'Fernando de Noronha',flight:3900,hotel:890,tour:620,ins:70,days:[
+          {t:'Chegada e Vila dos Remédios',items:[['plane','Voo e check-in na pousada'],['pin','Vila dos Remédios'],['sun','Pôr do sol no Forte']]},
+          {t:'Mar de dentro',items:[['sun','Baía do Sancho'],['pin','Baía dos Porcos'],['star','Mergulho com tartarugas']]},
+          {t:'Passeio de barco',items:[['plane','Passeio de barco pela ilha'],['star','Golfinhos-rotadores'],['sun','Praia do Leão']]},
+          {t:'Trilhas e mirantes',items:[['cam','Trilha do Atalaia'],['pin','Mirante dos Dois Irmãos'],['food','Jantar com vista pro mar']]}
+        ]},
         surpresa:{name:'Seu próximo destino',flight:3200,hotel:600,tour:500,ins:60,days:[
           {t:'Chegada e city tour',items:[['plane','Voo e check-in'],['pin','City tour pelo centro'],['food','Jantar de boas-vindas']]},
           {t:'Cultura e história',items:[['cam','Museus e pontos históricos'],['pin','Bairro icônico'],['food','Gastronomia local']]},
@@ -929,6 +953,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         if(/lisbo|lisbon/.test(key))return DATA.lisboa;
         if(/buenos|bsas|aires|argentin/.test(key))return DATA.bsas;
         if(/orlando|disney/.test(key))return DATA.orlando;
+        if(/paris/.test(key))return DATA.paris;
+        if(/roma|rome/.test(key))return DATA.roma;
+        if(/cancun|cancún/.test(key))return DATA.cancun;
+        if(/noronha|fernando/.test(key))return DATA.noronha;
         if(/surpreend|surpres/.test(key))return DATA.surpresa;
         if(!t)return DATA.lisboa;
         var name=titleCase(t);
@@ -1006,6 +1034,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       if(daysWrap){daysWrap.addEventListener('click',function(e){
         var b=e.target.closest('.pp-chip');if(!b)return;
         state.days=parseInt(b.getAttribute('data-days'),10);setActive(daysWrap,b);
+        if(input&&input.value.trim())state.destText=input.value.trim();
+        paint();   // atualiza roteiro + preços na hora (sem precisar clicar Gerar)
       });}
       var gen=document.getElementById('ppGen');
       if(gen){gen.addEventListener('click',generate);}
