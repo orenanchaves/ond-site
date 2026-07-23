@@ -453,6 +453,29 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-opt{font-size:.73rem;color:var(--muted);text-align:center;margin-top:11px;line-height:1.45}
 .pp-note{text-align:center;font-size:.8rem;color:var(--muted2);margin-top:18px}
 .pp-soon{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-light);background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 40%, transparent);padding:2px 8px;border-radius:50px}
+/* ── CHAT de geração (estrutura App Clone, cor B2B) ── */
+.pp-chat{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 16px}
+.pp-log{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;max-height:168px;overflow-y:auto}
+.pp-msg{display:flex;gap:9px;align-items:flex-end;max-width:90%}
+.pp-msg.me{margin-left:auto;flex-direction:row-reverse}
+.pp-av{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;background:var(--blue-dim);color:var(--blue-light);border:1px solid color-mix(in srgb, var(--blue) 30%, transparent)}
+.pp-bubble{font-size:.83rem;line-height:1.45;padding:9px 13px;border-radius:14px}
+.pp-msg.ai .pp-bubble{background:var(--card);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:5px}
+.pp-msg.me .pp-bubble{background:var(--blue);color:var(--ond-color-onPrimary);border-bottom-right-radius:5px;font-weight:600}
+.pp-typing{display:inline-flex;gap:4px;padding:3px 0}
+.pp-typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:pptype 1s infinite}
+.pp-typing i:nth-child(2){animation-delay:.15s}.pp-typing i:nth-child(3){animation-delay:.3s}
+@keyframes pptype{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-2px)}}
+.pp-compose{display:flex;flex-direction:column;gap:10px}
+.pp-inline{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.pp-days-label{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+/* ── ABAS da proposta ── */
+.pp-tabs{display:flex;gap:5px;padding:4px;background:var(--surface);border:1px solid var(--border);border-radius:50px;margin-bottom:14px}
+.pp-tab{flex:1;font-family:inherit;font-size:.82rem;font-weight:800;color:var(--muted);background:none;border:none;border-radius:50px;padding:8px 12px;cursor:pointer;transition:color .15s,background .15s}
+.pp-tab:hover{color:var(--text)}
+.pp-tab.active{color:var(--ond-color-onPrimary);background:var(--blue);box-shadow:0 3px 10px var(--blue-glow)}
+.pp-pane[hidden]{display:none}
+.pp-pane .pp-itinerary{display:flex;flex-direction:column;gap:12px}
 /* ── DEMO INTERATIVO DA PLATAFORMA ── */
 .pp-cols{display:block}
 .pp-copy{max-width:780px;margin:0 auto 30px;text-align:center}
@@ -832,35 +855,34 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
               <span class="pp-url"><svg class="ic" width="12" height="12" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>app.ond.com.br/proposta</span>
               <span class="pp-live">Demonstração</span>
             </div>
-            <div class="pp-toolbar">
-              <div class="pp-tool-group">
-                <span class="pp-ctrl-label">Destino</span>
-                <input class="pp-dest-input" id="ppDestInput" type="text" autocomplete="off" list="ppDestList" value="Lisboa, Portugal" aria-label="Destino da viagem" placeholder="Pra onde? Ex.: Lisboa, Roma, Fernando de Noronha...">
-                <datalist id="ppDestList">
-                  <option value="Lisboa, Portugal"></option>
-                  <option value="Buenos Aires, Argentina"></option>
-                  <option value="Orlando, Estados Unidos"></option>
-                  <option value="Roma, Itália"></option>
-                  <option value="Fernando de Noronha"></option>
-                  <option value="Paris, França"></option>
-                  <option value="Cancún, México"></option>
-                </datalist>
+            <div class="pp-chat">
+              <div class="pp-log" id="ppLog"></div>
+              <div class="pp-compose">
                 <div class="pp-chips" id="ppDest">
                   <button class="pp-chip" type="button" data-fill="Lisboa, Portugal">Lisboa</button>
                   <button class="pp-chip" type="button" data-fill="Buenos Aires, Argentina">Buenos Aires</button>
                   <button class="pp-chip" type="button" data-fill="Orlando, Estados Unidos">Orlando</button>
+                  <button class="pp-chip" type="button" data-fill="Paris, França">Paris</button>
+                  <button class="pp-chip" type="button" data-fill="Roma, Itália">Roma</button>
                   <button class="pp-chip" type="button" data-fill="Surpreenda">Surpreenda</button>
                 </div>
-              </div>
-              <div class="pp-tool-group">
-                <span class="pp-ctrl-label">Dias</span>
-                <div class="pp-chips" id="ppDays">
-                  <button class="pp-chip" type="button" data-days="3">3</button>
-                  <button class="pp-chip active" type="button" data-days="5">5</button>
-                  <button class="pp-chip" type="button" data-days="7">7</button>
+                <div class="pp-inline">
+                  <input class="pp-dest-input" id="ppDestInput" type="text" autocomplete="off" list="ppDestList" value="Lisboa, Portugal" aria-label="Destino da viagem" placeholder="Pra onde? Ex.: Lisboa, Roma, Noronha...">
+                  <datalist id="ppDestList">
+                    <option value="Lisboa, Portugal"></option><option value="Buenos Aires, Argentina"></option>
+                    <option value="Orlando, Estados Unidos"></option><option value="Roma, Itália"></option>
+                    <option value="Fernando de Noronha"></option><option value="Paris, França"></option>
+                    <option value="Cancún, México"></option>
+                  </datalist>
+                  <span class="pp-days-label">Dias</span>
+                  <div class="pp-chips" id="ppDays">
+                    <button class="pp-chip" type="button" data-days="3">3</button>
+                    <button class="pp-chip active" type="button" data-days="5">5</button>
+                    <button class="pp-chip" type="button" data-days="7">7</button>
+                  </div>
+                  <button class="pp-generate" id="ppGen" type="button"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg>Gerar</button>
                 </div>
               </div>
-              <button class="pp-generate" id="ppGen" type="button"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg>Gerar proposta</button>
             </div>
             <div class="pp-app" id="ppApp">
             </div>
@@ -976,9 +998,21 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         }
         return out;
       }
+      var CURTAB='rot';   // aba ativa persiste entre re-renders
+      function summaryHTML(d,days){
+        var hotel=d.hotel*days,tour=d.tour*days,ins=d.ins*days,flight=d.flight,total=hotel+tour+ins+flight;
+        return '<div class="pp-sum">'
+          +'<div class="pp-sum-title">Resumo da proposta</div>'
+          +'<div class="pp-sum-row"><span>'+ic('home',15)+'Hospedagem</span><b>'+brl(hotel)+'</b></div>'
+          +'<div class="pp-sum-row"><span>'+ic('plane',15)+'Voos (ida e volta)</span><b>'+brl(flight)+'</b></div>'
+          +'<div class="pp-sum-row"><span>'+ic('cam',15)+'Passeios</span><b>'+brl(tour)+'</b></div>'
+          +'<div class="pp-sum-row"><span>'+ic('shield',15)+'Seguro viagem</span><b>'+brl(ins)+'</b></div>'
+          +'<div class="pp-sum-total"><span>Total</span><span class="v">'+brl(total)+'</span></div>'
+          +'<button class="pp-send" type="button">'+ic('send',16)+'Enviar proposta ao cliente</button>'
+          +'<p class="pp-opt">Transfer e upgrades entram como opção, o cliente adiciona sozinho.</p>'
+        +'</div>';
+      }
       function render(d,days){
-        var hotel=d.hotel*days,tour=d.tour*days,ins=d.ins*days,flight=d.flight;
-        var total=hotel+tour+ins+flight;
         return ''
           +'<div class="pp-app-top">'
             +'<div class="pp-brand"><span class="pp-brand-mark">'+ic('image',15)+'Sua Marca</span>'
@@ -990,33 +1024,39 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
             +'<span class="pp-trip-item">'+ic('cal',15)+'<span>'+days+' dias</span></span>'
             +'<span class="pp-trip-item">'+ic('users',15)+'<span>2 pax</span></span>'
           +'</div>'
-          +'<div class="pp-grid">'
-            +'<div class="pp-itinerary">'+itinerary(d,days)+'</div>'
-            +'<div class="pp-sum">'
-              +'<div class="pp-sum-title">Resumo da proposta</div>'
-              +'<div class="pp-sum-row"><span>'+ic('home',15)+'Hospedagem</span><b>'+brl(hotel)+'</b></div>'
-              +'<div class="pp-sum-row"><span>'+ic('plane',15)+'Voos (ida e volta)</span><b>'+brl(flight)+'</b></div>'
-              +'<div class="pp-sum-row"><span>'+ic('cam',15)+'Passeios</span><b>'+brl(tour)+'</b></div>'
-              +'<div class="pp-sum-row"><span>'+ic('shield',15)+'Seguro viagem</span><b>'+brl(ins)+'</b></div>'
-              +'<div class="pp-sum-total"><span>Total</span><span class="v">'+brl(total)+'</span></div>'
-              +'<button class="pp-send" type="button">'+ic('send',16)+'Enviar proposta ao cliente</button>'
-              +'<p class="pp-opt">Transfer e upgrades entram como opção, o cliente adiciona sozinho.</p>'
-            +'</div>'
-          +'</div>';
+          +'<div class="pp-tabs">'
+            +'<button class="pp-tab'+(CURTAB==='rot'?' active':'')+'" type="button" data-tab="rot">Roteiro</button>'
+            +'<button class="pp-tab'+(CURTAB==='fin'?' active':'')+'" type="button" data-tab="fin">Financeiro</button>'
+          +'</div>'
+          +'<div class="pp-pane" data-pane="rot"'+(CURTAB==='rot'?'':' hidden')+'><div class="pp-itinerary">'+itinerary(d,days)+'</div></div>'
+          +'<div class="pp-pane" data-pane="fin"'+(CURTAB==='fin'?'':' hidden')+'>'+summaryHTML(d,days)+'</div>';
       }
       var app=document.getElementById('ppApp');
       if(!app) return;
       var input=document.getElementById('ppDestInput');
+      var logEl=document.getElementById('ppLog');
       var state={destText:(input&&input.value)||'Lisboa, Portugal',days:5};
       function paint(){app.innerHTML=render(resolve(state.destText),state.days);}
+      function shortName(){return resolve(state.destText).name.split(',')[0];}
+      function bubble(role,html){
+        if(!logEl)return null;
+        var m=document.createElement('div');m.className='pp-msg '+role;
+        m.innerHTML=(role==='ai'?'<span class="pp-av">✦</span>':'')+'<div class="pp-bubble">'+html+'</div>';
+        logEl.appendChild(m);logEl.scrollTop=logEl.scrollHeight;return m;
+      }
       var timer=null;
-      function generate(){
+      function generate(fromUser){
         var raw=input?input.value.trim():'';
         if(!raw){if(input)input.focus();return;}
         state.destText=raw;
+        if(fromUser){CURTAB='rot';bubble('me',esc(shortName())+' · '+state.days+' dias');}
+        var typing=bubble('ai','<span class="pp-typing"><i></i><i></i><i></i></span>');
         app.innerHTML=SKELETON;
-        if(timer) clearTimeout(timer);
-        timer=setTimeout(paint,800);
+        if(timer)clearTimeout(timer);
+        timer=setTimeout(function(){
+          paint();
+          if(typing)typing.querySelector('.pp-bubble').innerHTML='Pronto! Sua proposta de <b>'+esc(shortName())+'</b> 👇';
+        },800);
       }
       function setActive(wrap,btn){
         var all=wrap.querySelectorAll('.pp-chip'),i;
@@ -1027,25 +1067,36 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       if(destWrap){destWrap.addEventListener('click',function(e){
         var b=e.target.closest('.pp-chip');if(!b)return;
         if(input){input.value=b.getAttribute('data-fill')||b.textContent;}
-        setActive(destWrap,b);generate();
+        setActive(destWrap,b);generate(true);
       });}
-      if(input){input.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();generate();}});}
+      if(input){input.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();generate(true);}});}
       var daysWrap=document.getElementById('ppDays');
       if(daysWrap){daysWrap.addEventListener('click',function(e){
         var b=e.target.closest('.pp-chip');if(!b)return;
         state.days=parseInt(b.getAttribute('data-days'),10);setActive(daysWrap,b);
         if(input&&input.value.trim())state.destText=input.value.trim();
-        paint();   // atualiza roteiro + preços na hora (sem precisar clicar Gerar)
+        paint();   // muda dias e atualiza roteiro + preços na hora
       });}
       var gen=document.getElementById('ppGen');
-      if(gen){gen.addEventListener('click',generate);}
+      if(gen){gen.addEventListener('click',function(){generate(true);});}
       app.addEventListener('click',function(e){
+        var t=e.target.closest('.pp-tab');
+        if(t){
+          CURTAB=t.getAttribute('data-tab');
+          var tabs=app.querySelectorAll('.pp-tab'),panes=app.querySelectorAll('.pp-pane'),i;
+          for(i=0;i<tabs.length;i++){tabs[i].classList.toggle('active',tabs[i]===t);}
+          for(i=0;i<panes.length;i++){panes[i].hidden=(panes[i].getAttribute('data-pane')!==CURTAB);}
+          return;
+        }
         if(e.target.closest('.pp-send')){
           var f=document.querySelector('.journey-foot');
           if(f){f.scrollIntoView({behavior:'smooth',block:'center'});}
         }
       });
+      // início: saudação + proposta de exemplo já montada (chat vivo)
+      bubble('ai','Oi! Aqui você monta uma proposta em segundos. Escolha um destino ou digite 👇');
       paint();
+      bubble('ai','Fiz uma de exemplo pra <b>'+esc(shortName())+'</b>. Troque o destino ou os dias quando quiser.');
     })();
     </script>
 
