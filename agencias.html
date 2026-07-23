@@ -476,6 +476,21 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-tab.active{color:var(--ond-color-onPrimary);background:var(--blue);box-shadow:0 3px 10px var(--blue-glow)}
 .pp-pane[hidden]{display:none}
 .pp-pane .pp-itinerary{display:flex;flex-direction:column;gap:12px}
+/* ── Fase 2: editar dia a dia + add-ons ── */
+.pp-add{margin-top:10px;display:inline-flex;align-items:center;gap:5px;font-family:inherit;font-size:.75rem;font-weight:800;color:var(--blue-light);background:var(--blue-dim);border:1px dashed color-mix(in srgb,var(--blue) 38%,transparent);border-radius:50px;padding:6px 13px;cursor:pointer;transition:background .15s,border-color .15s}
+.pp-add:hover{background:color-mix(in srgb,var(--blue) 15%,transparent);border-style:solid}
+.pp-items li.pp-extra{background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 22%,transparent);border-radius:9px;padding:7px 10px}
+.pp-items li.pp-extra .ic{color:var(--blue-light)}
+.pp-extra-p{margin-left:auto;font-size:.75rem;font-weight:800;color:var(--green);white-space:nowrap}
+.pp-x{flex-shrink:0;width:20px;height:20px;border-radius:50%;border:none;background:none;color:var(--muted);font-size:12px;line-height:1;cursor:pointer;padding:0;transition:color .15s,background .15s}
+.pp-x:hover{color:#ff6b6b;background:color-mix(in srgb,var(--muted) 16%,transparent)}
+.pp-addons-label{font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
+.pp-addons{display:flex;flex-wrap:wrap;gap:7px}
+.pp-addon{display:inline-flex;align-items:center;gap:6px;font-family:inherit;font-size:.75rem;font-weight:700;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:50px;padding:6px 12px;cursor:pointer;transition:color .15s,background .15s,border-color .15s}
+.pp-addon:hover{color:var(--text);border-color:var(--border-hi)}
+.pp-addon.on{color:var(--ond-color-onPrimary);background:var(--blue);border-color:var(--blue)}
+.pp-addon .ic{color:var(--blue-light);flex-shrink:0}
+.pp-addon.on .ic{color:var(--ond-color-onPrimary)}
 /* ── DEMO INTERATIVO DA PLATAFORMA ── */
 .pp-cols{display:block}
 .pp-copy{max-width:780px;margin:0 auto 30px;text-align:center}
@@ -985,12 +1000,28 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         return {name:name,flight:3400,hotel:580,tour:460,ins:60,days:genericDays(name)};
       }
       var SKELETON='<div class="pp-skel"><div class="sk sk-top"></div><div class="sk sk-bar"></div><div class="sk sk-day"></div><div class="sk sk-day"></div><div class="sk sk-sum"></div></div>';
+      var CURTAB='rot';   // aba ativa persiste entre re-renders
+      var PASSEIOS=[
+        ['star','Tour guiado pelos ícones',180],['food','Experiência gastronômica',150],
+        ['plane','Passeio de barco',220],['cam','Museu com ingresso',90],
+        ['sun','Dia de praia estruturado',120],['pin','Bate-volta cênico',260]
+      ];
+      var ADDONS=[
+        ['transfer','plane','Transfer aeroporto',180],['upgrade','home','Upgrade de quarto',480],
+        ['noite','home','Noite extra no hotel',560],['vip','star','Passeio VIP privativo',390]
+      ];
+      var trip={extras:[],addons:{}};   // extras:[{id,day,icon,label,price}]; addons:{id:bool}
+      var extraSeq=0;
       function itinerary(d,days){
-        var out='',shown=Math.min(days,d.days.length),i,j,day,items;
+        var out='',shown=Math.min(days,d.days.length),i,j,k,day,items;
         for(i=0;i<shown;i++){
           day=d.days[i];items='';
-          for(j=0;j<day.items.length;j++){items+='<li>'+ic(day.items[j][0],16)+esc(day.items[j][1])+'</li>';}
-          out+='<div class="pp-day"><div class="pp-day-h"><span class="pp-day-n">Dia '+(i+1)+'</span> '+esc(day.t)+'</div><ul class="pp-items">'+items+'</ul></div>';
+          for(j=0;j<day.items.length;j++){items+='<li>'+ic(day.items[j][0],16)+'<span>'+esc(day.items[j][1])+'</span></li>';}
+          for(k=0;k<trip.extras.length;k++){
+            if(trip.extras[k].day!==i)continue;
+            items+='<li class="pp-extra">'+ic(trip.extras[k].icon,16)+'<span>'+esc(trip.extras[k].label)+'</span><span class="pp-extra-p">+'+brl(trip.extras[k].price)+'</span><button class="pp-x" type="button" data-x="'+trip.extras[k].id+'" aria-label="Remover passeio">✕</button></li>';
+          }
+          out+='<div class="pp-day"><div class="pp-day-h"><span class="pp-day-n">Dia '+(i+1)+'</span> '+esc(day.t)+'</div><ul class="pp-items">'+items+'</ul><button class="pp-add" type="button" data-add="'+i+'">＋ Adicionar passeio</button></div>';
         }
         if(days>shown){
           var label=(days>shown+1)?('Dia '+(shown+1)+' a Dia '+days):('Dia '+(shown+1));
@@ -998,18 +1029,30 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         }
         return out;
       }
-      var CURTAB='rot';   // aba ativa persiste entre re-renders
+      function totals(d,days){
+        var hotel=d.hotel*days,tour=d.tour*days,ins=d.ins*days,flight=d.flight,extras=0,addon=0,i;
+        for(i=0;i<trip.extras.length;i++){if(trip.extras[i].day<days)extras+=trip.extras[i].price;}
+        for(i=0;i<ADDONS.length;i++){if(trip.addons[ADDONS[i][0]])addon+=ADDONS[i][3];}
+        return {hotel:hotel,tour:tour,ins:ins,flight:flight,extras:extras,total:hotel+tour+ins+flight+extras+addon};
+      }
       function summaryHTML(d,days){
-        var hotel=d.hotel*days,tour=d.tour*days,ins=d.ins*days,flight=d.flight,total=hotel+tour+ins+flight;
+        var t=totals(d,days),i,rows=''
+          +'<div class="pp-sum-row"><span>'+ic('home',15)+'Hospedagem</span><b>'+brl(t.hotel)+'</b></div>'
+          +'<div class="pp-sum-row"><span>'+ic('plane',15)+'Voos (ida e volta)</span><b>'+brl(t.flight)+'</b></div>'
+          +'<div class="pp-sum-row"><span>'+ic('cam',15)+'Passeios</span><b>'+brl(t.tour)+'</b></div>'
+          +'<div class="pp-sum-row"><span>'+ic('shield',15)+'Seguro viagem</span><b>'+brl(t.ins)+'</b></div>';
+        if(t.extras>0)rows+='<div class="pp-sum-row"><span>'+ic('star',15)+'Passeios extras</span><b>'+brl(t.extras)+'</b></div>';
+        for(i=0;i<ADDONS.length;i++){if(trip.addons[ADDONS[i][0]])rows+='<div class="pp-sum-row"><span>'+ic(ADDONS[i][1],15)+esc(ADDONS[i][2])+'</span><b>'+brl(ADDONS[i][3])+'</b></div>';}
+        var chips='';
+        for(i=0;i<ADDONS.length;i++){chips+='<button class="pp-addon'+(trip.addons[ADDONS[i][0]]?' on':'')+'" type="button" data-addon="'+ADDONS[i][0]+'">'+ic(ADDONS[i][1],14)+esc(ADDONS[i][2])+' '+brl(ADDONS[i][3])+'</button>';}
         return '<div class="pp-sum">'
           +'<div class="pp-sum-title">Resumo da proposta</div>'
-          +'<div class="pp-sum-row"><span>'+ic('home',15)+'Hospedagem</span><b>'+brl(hotel)+'</b></div>'
-          +'<div class="pp-sum-row"><span>'+ic('plane',15)+'Voos (ida e volta)</span><b>'+brl(flight)+'</b></div>'
-          +'<div class="pp-sum-row"><span>'+ic('cam',15)+'Passeios</span><b>'+brl(tour)+'</b></div>'
-          +'<div class="pp-sum-row"><span>'+ic('shield',15)+'Seguro viagem</span><b>'+brl(ins)+'</b></div>'
-          +'<div class="pp-sum-total"><span>Total</span><span class="v">'+brl(total)+'</span></div>'
+          +rows
+          +'<div class="pp-sum-total"><span>Total</span><span class="v">'+brl(t.total)+'</span></div>'
+          +'<div class="pp-addons-label">Adicionar à proposta</div>'
+          +'<div class="pp-addons">'+chips+'</div>'
           +'<button class="pp-send" type="button">'+ic('send',16)+'Enviar proposta ao cliente</button>'
-          +'<p class="pp-opt">Transfer e upgrades entram como opção, o cliente adiciona sozinho.</p>'
+          +'<p class="pp-opt">O cliente adiciona ou tira tudo isso sozinho no link, e o preço recalcula na hora.</p>'
         +'</div>';
       }
       function render(d,days){
@@ -1049,6 +1092,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         var raw=input?input.value.trim():'';
         if(!raw){if(input)input.focus();return;}
         state.destText=raw;
+        trip.extras=[];trip.addons={};   // proposta nova: zera edições e add-ons
         if(fromUser){CURTAB='rot';bubble('me',esc(shortName())+' · '+state.days+' dias');}
         var typing=bubble('ai','<span class="pp-typing"><i></i><i></i><i></i></span>');
         app.innerHTML=SKELETON;
@@ -1074,6 +1118,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       if(daysWrap){daysWrap.addEventListener('click',function(e){
         var b=e.target.closest('.pp-chip');if(!b)return;
         state.days=parseInt(b.getAttribute('data-days'),10);setActive(daysWrap,b);
+        trip.extras=trip.extras.filter(function(x){return x.day<state.days;});  // solta passeios de dias que sumiram
         if(input&&input.value.trim())state.destText=input.value.trim();
         paint();   // muda dias e atualiza roteiro + preços na hora
       });}
@@ -1088,6 +1133,25 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           for(i=0;i<panes.length;i++){panes[i].hidden=(panes[i].getAttribute('data-pane')!==CURTAB);}
           return;
         }
+        var addBtn=e.target.closest('.pp-add');
+        if(addBtn){
+          var dday=parseInt(addBtn.getAttribute('data-add'),10);
+          var p=PASSEIOS[trip.extras.length % PASSEIOS.length];
+          trip.extras.push({id:++extraSeq,day:dday,icon:p[0],label:p[1],price:p[2]});
+          paint();return;
+        }
+        var xBtn=e.target.closest('.pp-x');
+        if(xBtn){
+          var xid=parseInt(xBtn.getAttribute('data-x'),10);
+          trip.extras=trip.extras.filter(function(z){return z.id!==xid;});
+          paint();return;
+        }
+        var addonBtn=e.target.closest('.pp-addon');
+        if(addonBtn){
+          var aid=addonBtn.getAttribute('data-addon');
+          trip.addons[aid]=!trip.addons[aid];
+          paint();return;
+        }
         if(e.target.closest('.pp-send')){
           var f=document.querySelector('.journey-foot');
           if(f){f.scrollIntoView({behavior:'smooth',block:'center'});}
@@ -1096,7 +1160,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       // início: saudação + proposta de exemplo já montada (chat vivo)
       bubble('ai','Oi! Aqui você monta uma proposta em segundos. Escolha um destino ou digite 👇');
       paint();
-      bubble('ai','Fiz uma de exemplo pra <b>'+esc(shortName())+'</b>. Troque o destino ou os dias quando quiser.');
+      bubble('ai','Fiz uma de exemplo pra <b>'+esc(shortName())+'</b>. Troque destino/dias, adicione passeios no roteiro e upgrades no financeiro 👇');
     })();
     </script>
 
