@@ -635,6 +635,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/agencias.html">
 <link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/agencias.html">
 <link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/agencias.html">
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EC1FKH0HES"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EC1FKH0HES');
+</script>
 </head>
 <body>
 
@@ -1406,5 +1414,55 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 })
 </script>
 <script src="/assets/vai-widget.js" defer></script>
+<script>
+(function () {
+  var GA_ID = 'G-EC1FKH0HES';
+  function calendlyLinks() { return document.querySelectorAll('a[href*="calendly.com"]'); }
+
+  function gaClientIdFromCookie() {
+    var match = document.cookie.match(/_ga=GA\d\.\d\.(\d+\.\d+)/);
+    return match ? match[1] : null;
+  }
+
+  function forwardTracking(clientId) {
+    var pageParams = new URLSearchParams(window.location.search);
+    calendlyLinks().forEach(function (link) {
+      var url = new URL(link.href);
+      if (clientId) { url.searchParams.set('salesforce_uuid', clientId); }
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (key) {
+        var value = pageParams.get(key);
+        if (value) { url.searchParams.set(key, value); }
+      });
+      link.href = url.toString();
+    });
+  }
+
+  function stampOnLoad() {
+    if (typeof gtag === 'function') {
+      gtag('get', GA_ID, 'client_id', function (clientId) { forwardTracking(clientId || gaClientIdFromCookie()); });
+    } else {
+      forwardTracking(gaClientIdFromCookie());
+    }
+  }
+
+  function bindClicks() {
+    calendlyLinks().forEach(function (link) {
+      link.addEventListener('click', function () {
+        forwardTracking(gaClientIdFromCookie());
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { method: 'calendly', context: 'agencias_b2b' });
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { stampOnLoad(); bindClicks(); });
+  } else {
+    stampOnLoad();
+    bindClicks();
+  }
+})();
+</script>
 </body>
 </html>
