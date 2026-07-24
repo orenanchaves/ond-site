@@ -78,7 +78,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .header-nav .nav-home:hover{background:color-mix(in srgb, #7c3fff 12%, transparent);color:#9d6fff}
 .header-nav .nav-alt{color:var(--blue-light);border:1px solid color-mix(in srgb, var(--blue) 32%, transparent)}
 .header-nav .nav-alt:hover{background:var(--blue-dim);color:var(--blue-light)}
-.header-cta{background:var(--green);color:#000;padding:9px 20px;border-radius:50px;font-size:.84rem;font-weight:700;text-decoration:none;transition:all .15s;white-space:nowrap;flex-shrink:0}
+.header-cta{background:var(--green);color:#fff;padding:9px 20px;border-radius:50px;font-size:.84rem;font-weight:700;text-decoration:none;transition:all .15s;white-space:nowrap;flex-shrink:0}
 .header-cta:hover{background:var(--ond-palette-green-400);transform:translateY(-1px)}
 .header-menu-btn{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;padding:4px}
 .mobile-nav{display:none;position:fixed;top:68px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);z-index:199;padding:20px 5%;flex-direction:column;gap:0}
@@ -109,11 +109,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .mobile-nav .seg-btn{padding:9px 22px;font-size:.92rem;border-bottom:none;color:var(--muted)}
 .mobile-nav .seg-btn:hover{color:var(--text)}
 .mobile-nav .seg-btn.active,.mobile-nav .seg-btn.active:hover{background:var(--blue);color:var(--ond-color-onPrimary)}
-.hero-title{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:18px;letter-spacing:-.025em}
+.hero-title{font-size:clamp(1.9rem,3.7vw,3rem);font-weight:800;line-height:1.12;margin-bottom:18px;letter-spacing:-.025em}
 .hero-title em{font-style:normal;color:var(--green)}
 .hero-sub{font-size:1.05rem;color:var(--muted);max-width:480px;line-height:1.75;margin-bottom:32px}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
-.btn-green{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#000;padding:14px 28px;border-radius:50px;font-size:.97rem;font-weight:700;text-decoration:none;transition:all .2s;box-shadow:0 4px 20px color-mix(in srgb, var(--green) 25%, transparent)}
+.btn-green{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;padding:14px 28px;border-radius:50px;font-size:.97rem;font-weight:700;text-decoration:none;transition:all .2s;box-shadow:0 4px 20px color-mix(in srgb, var(--green) 25%, transparent)}
 .btn-green:hover{background:var(--ond-palette-green-400);transform:translateY(-2px);box-shadow:0 8px 32px color-mix(in srgb, var(--green) 40%, transparent)}
 /* No tema claro o verde é escuro (#008833) — texto preto fica com baixo contraste.
    Texto/seta/ícones em branco só no claro; no escuro (#11f558 neon) mantém preto. */
@@ -450,8 +450,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-sum-row b{font-weight:700;color:var(--text);white-space:nowrap}
 .pp-sum-total{display:flex;align-items:center;justify-content:space-between;margin-top:12px;font-weight:800}
 .pp-sum-total .v{font-size:1.15rem;color:var(--green)}
-.pp-send{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:14px;padding:12px;border:none;border-radius:50px;background:var(--green);color:#04120a;font-weight:800;font-size:.9rem;cursor:pointer;font-family:inherit}
-.pp-send .ic{color:#04120a}
+.pp-send{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:14px;padding:12px;border:none;border-radius:50px;background:var(--green);color:#fff;font-weight:800;font-size:.9rem;cursor:pointer;font-family:inherit}
+.pp-send .ic{color:#fff}
 .pp-opt{font-size:.73rem;color:var(--muted);text-align:center;margin-top:11px;line-height:1.45}
 .pp-note{text-align:center;font-size:.8rem;color:var(--muted2);margin-top:18px}
 .pp-soon{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-light);background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 40%, transparent);padding:2px 8px;border-radius:50px}
@@ -549,9 +549,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-dest-input{width:100%;max-width:340px;font-family:inherit;font-size:.86rem;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:10px;padding:9px 13px;transition:border-color .15s,box-shadow .15s}
 .pp-dest-input::placeholder{color:var(--muted)}
 .pp-dest-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-glow)}
-.pp-generate{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:.86rem;font-weight:800;color:#04120a;background:var(--green);border:none;border-radius:50px;padding:11px 20px;margin-left:auto;cursor:pointer;transition:transform .15s,filter .15s}
+.pp-generate{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:.86rem;font-weight:800;color:#fff;background:var(--green);border:none;border-radius:50px;padding:11px 20px;margin-left:auto;cursor:pointer;transition:transform .15s,filter .15s}
 .pp-generate:hover{transform:translateY(-1px);filter:brightness(1.06)}
-.pp-generate .ic{color:#04120a}
+.pp-generate .ic{color:#fff}
 .pp-live{margin-left:auto;font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--green);background:var(--green-dim);border:1px solid color-mix(in srgb, var(--green) 30%, transparent);padding:3px 9px;border-radius:50px;white-space:nowrap}
 .pp-brand-mark{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:.9rem;padding:6px 11px;border-radius:9px;border:1px dashed color-mix(in srgb, var(--purple) 50%, transparent);background:var(--purple-dim);color:var(--purple-light)}
 .pp-brand-mark .ic{color:var(--purple-light)}
@@ -637,7 +637,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .plan-feats .ic{color:var(--green);flex-shrink:0;margin-top:2px}
 .plan-cta{display:flex;align-items:center;justify-content:center;gap:7px;padding:11px;border-radius:50px;background:var(--blue);color:var(--ond-color-onPrimary);font-weight:700;font-size:.85rem;text-decoration:none;transition:background .2s,transform .2s}
 .plan-cta:hover{background:var(--blue-light);transform:translateY(-1px)}
-.plan.featured .plan-cta{background:var(--green);color:#04120a}
+.plan.featured .plan-cta{background:var(--green);color:#fff}
 .pricing-foot{text-align:center;margin-top:36px;max-width:600px;margin-left:auto;margin-right:auto}
 .pricing-foot p{font-size:.92rem;color:var(--muted);line-height:1.6;margin-bottom:16px}
 .pricing-foot-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:18px}
@@ -687,7 +687,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     bottom:calc(16px + env(safe-area-inset-bottom))}
   .orb-cta-label{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:50px;
     padding:9px 14px;font-size:.82rem;font-weight:700;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.28)}
-  .orb-cta-btn{width:58px;height:58px;border-radius:50%;background:var(--green);color:#000;flex-shrink:0;
+  .orb-cta-btn{width:58px;height:58px;border-radius:50%;background:var(--green);color:#fff;flex-shrink:0;
     display:flex;align-items:center;justify-content:center;animation:orb-pulse 2.6s ease-out infinite}
   .orb-cta-btn .ic{width:26px;height:26px}
   /* orb é pequeno e canto direito; folga leve só pra respeitar a safe-area */
@@ -770,7 +770,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <section class="hero">
   <div>
     <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Plataforma de vendas para agências</div>
-    <h1 class="hero-title">O cliente monta<br class="mbr"> a viagem, e você <br class="mbr"><em>fecha a venda.</em></h1>
+    <h1 class="hero-title">O cliente monta a viagem,<br>e você <em>fecha a venda.</em></h1>
     <p class="hero-sub">O OND vira o motor de vendas da sua agência: monte a proposta em minutos e envie um link com a sua marca onde o próprio cliente personaliza tudo, adiciona seguro e upgrades, e fecha. Mais ticket, menos ida e volta no e-mail.</p>
     <div class="hero-ctas">
       <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Quero o OND na minha agência&nbsp;→</a>
@@ -893,7 +893,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <div class="pp-cols">
         <div class="pp-copy">
           <span class="section-label">Exemplo da plataforma</span>
-          <h3>Monte uma proposta<br class="mbr">agora, do seu jeito</h3>
+          <h3>Monte uma proposta <br class="mbr">agora, do seu jeito.</h3>
           <p>Escolha um destino e a duração. Em segundos o OND monta o roteiro dia a dia com a sua marca, os valores e um link pronto pra enviar. É o que a sua agência faz na plataforma, todo dia.</p>
           <ul class="pp-copy-list">
             <li><svg class="ic" width="17" height="17" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Roteiro dia a dia em segundos</li>
@@ -1235,7 +1235,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   <div class="problema-inner">
     <span class="section-label">O problema</span>
     <h2 class="section-title">Orçamento estático<br>não fecha venda</h2>
-    <p class="section-sub">O cliente de hoje quer mexer: trocar um passeio, mudar a data, ver o preço já com seguro. Se a proposta é um PDF que ele não pode tocar, cada ajuste vira e-mail e a venda esfria.</p>
+    <p class="section-sub">O cliente de hoje quer mexer: trocar um passeio, mudar a data, ver o preço já com seguro. Se a proposta é um PDF que ele não pode tocar, cada ajuste vira <span style="white-space:nowrap">e-mail</span> e a venda esfria.</p>
     <div class="problema-cards">
       <div class="problema-card">
         <div class="problema-icon"><svg class="ic" width="26" height="26" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></div>
