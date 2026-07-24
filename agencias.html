@@ -46,6 +46,7 @@
   --blue-light:var(--ond-color-primaryHover);
   --green:var(--ond-color-success);
   --green-dim:color-mix(in srgb, var(--ond-color-success) 10%, transparent);
+  --on-green:#fff; /* claro: verde escuro → texto branco */
   --gold:var(--ond-palette-gold-500);
   --gold-dim:color-mix(in srgb, var(--ond-palette-gold-500) 12%, transparent);
   --text:var(--ond-color-text);
@@ -54,6 +55,7 @@
   --radius:var(--ond-radius-lg);--radius-sm:var(--ond-radius-md);
   --header-bg:color-mix(in srgb, var(--ond-color-bg) 96%, transparent);
 }
+[data-theme="dark"]{--on-green:#04120a;} /* escuro: verde neon → texto preto */
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-base);overflow-x:hidden;line-height:1.6;transition:background .25s,color .25s}
 
@@ -113,7 +115,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .hero-title em{font-style:normal;color:var(--green)}
 .hero-sub{font-size:1.05rem;color:var(--muted);max-width:480px;line-height:1.75;margin-bottom:32px}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
-.btn-green{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;padding:14px 28px;border-radius:50px;font-size:.97rem;font-weight:700;text-decoration:none;transition:all .2s;box-shadow:0 4px 20px color-mix(in srgb, var(--green) 25%, transparent)}
+.btn-green{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:var(--on-green);padding:14px 28px;border-radius:50px;font-size:.97rem;font-weight:700;text-decoration:none;transition:all .2s;box-shadow:0 4px 20px color-mix(in srgb, var(--green) 25%, transparent)}
+.btn-green svg{fill:var(--on-green)}
 .btn-green:hover{background:var(--ond-palette-green-400);transform:translateY(-2px);box-shadow:0 8px 32px color-mix(in srgb, var(--green) 40%, transparent)}
 /* No tema claro o verde é escuro (#008833) — texto preto fica com baixo contraste.
    Texto/seta/ícones em branco só no claro; no escuro (#11f558 neon) mantém preto. */
@@ -123,7 +126,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 [data-theme="light"] .header-cta .ic{color:#fff}
 .btn-blue{display:inline-flex;align-items:center;gap:8px;background:var(--blue-dim);color:var(--blue-light);border:1.5px solid color-mix(in srgb, var(--blue) 30%, transparent);padding:13px 24px;border-radius:50px;font-size:.97rem;font-weight:600;text-decoration:none;transition:all .2s}
 .btn-blue:hover{background:color-mix(in srgb, var(--blue) 20%, transparent);border-color:var(--blue);transform:translateY(-2px)}
-.btn-whatsapp{display:inline-flex;align-items:center;gap:8px;background:color-mix(in srgb, var(--ond-color-whatsapp) 10%, transparent);color:var(--ond-color-whatsapp);border:1.5px solid color-mix(in srgb, var(--ond-color-whatsapp) 25%, transparent);padding:13px 24px;border-radius:50px;font-size:.97rem;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-whatsapp{display:inline-flex;align-items:center;gap:8px;background:color-mix(in srgb, var(--ond-color-whatsapp) 10%, transparent);color:var(--text);border:1.5px solid color-mix(in srgb, var(--ond-color-whatsapp) 25%, transparent);padding:13px 24px;border-radius:50px;font-size:.97rem;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-whatsapp svg{fill:var(--ond-color-whatsapp)}
 .btn-whatsapp:hover{background:color-mix(in srgb, var(--ond-color-whatsapp) 18%, transparent);border-color:var(--ond-color-whatsapp);transform:translateY(-2px)}
 .hero-trust{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .trust-chip{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted)}
@@ -266,6 +270,16 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .cta-final-sub{font-size:1.05rem;color:var(--muted);max-width:520px;margin:0 auto 36px;line-height:1.7}
 .cta-final-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:20px}
 .cta-final-note{font-size:.82rem;color:var(--muted2)}
+/* Quem somos (clique pra revelar, no final) */
+.wwa{max-width:600px;margin:26px auto 0;text-align:left;border:1px solid var(--border);border-radius:16px;background:var(--card);overflow:hidden}
+.wwa-sum{list-style:none;cursor:pointer;display:flex;align-items:center;gap:9px;padding:14px 18px;font-size:.9rem;font-weight:700;color:var(--text)}
+.wwa-sum::-webkit-details-marker{display:none}
+.wwa-sum .ic{color:var(--blue-light);flex-shrink:0}
+.wwa-caret{margin-left:auto;color:var(--muted);font-size:.8rem;transition:transform .2s}
+.wwa[open] .wwa-caret{transform:rotate(180deg)}
+.wwa-body{padding:0 18px 18px;border-top:1px solid var(--border)}
+.wwa-body p{font-size:.86rem;color:var(--muted);line-height:1.65;margin-top:12px}
+.wwa-body a{color:var(--blue-light);text-decoration:none;border-bottom:1px solid var(--border-hi)}
 .cta-final-note a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border)}
 
 /* ── FOOTER ── */
@@ -382,7 +396,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 /* ── JORNADA ponta a ponta (mockup CSS puro na seção Plataforma) ── */
 .journey{max-width:1280px;margin:56px auto 0;padding-top:44px;border-top:1px solid var(--border)}
 .journey-strip{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:76px 5%;overflow:hidden}
-.journey-strip .journey{margin-top:0;padding-top:0;border-top:none}
+.journey-strip .journey{margin-top:0;padding-top:0;border-top:none;display:flex;flex-direction:column}
+/* Demo interativa vem primeiro, logo depois dos grandes números */
+.journey-strip .platform-preview{order:-1}
+.journey-strip .journey-head{order:0}
 .journey-head{text-align:center;max-width:720px;margin:0 auto 52px}
 .journey-head h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;line-height:1.18;letter-spacing:-.025em;margin:14px 0 14px}
 .journey-head p{font-size:1.02rem;color:var(--muted);line-height:1.7;max-width:600px;margin:0 auto}
@@ -413,7 +430,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 @media(max-width:720px){.journey-track{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.journey-track{grid-template-columns:1fr}}
 /* ── PREVIEW DA PLATAFORMA (mockup proposta) ── */
-.platform-preview{max-width:1160px;margin:60px auto 0;padding-top:52px;border-top:1px solid var(--border)}
+.platform-preview{max-width:1160px;margin:0 auto;padding-top:0;border-top:none}
+/* Separador acima da jornada (agora que a demo veio pra cima) */
+.journey-strip .journey-head{margin-top:64px;padding-top:52px;border-top:1px solid var(--border)}
 .pp-head{text-align:center;max-width:660px;margin:0 auto 32px}
 .pp-head h3{font-size:clamp(1.35rem,2.5vw,1.9rem);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin:12px 0 12px}
 .pp-head p{font-size:.96rem;color:var(--muted);line-height:1.65}
@@ -450,8 +469,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-sum-row b{font-weight:700;color:var(--text);white-space:nowrap}
 .pp-sum-total{display:flex;align-items:center;justify-content:space-between;margin-top:12px;font-weight:800}
 .pp-sum-total .v{font-size:1.15rem;color:var(--green)}
-.pp-send{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:14px;padding:12px;border:none;border-radius:50px;background:var(--green);color:#fff;font-weight:800;font-size:.9rem;cursor:pointer;font-family:inherit}
-.pp-send .ic{color:#fff}
+.pp-send{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:14px;padding:12px;border:none;border-radius:50px;background:var(--green);color:var(--on-green);font-weight:800;font-size:.9rem;cursor:pointer;font-family:inherit}
+.pp-send .ic{color:var(--on-green)}
 .pp-opt{font-size:.73rem;color:var(--muted);text-align:center;margin-top:11px;line-height:1.45}
 .pp-note{text-align:center;font-size:.8rem;color:var(--muted2);margin-top:18px}
 .pp-soon{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-light);background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 40%, transparent);padding:2px 8px;border-radius:50px}
@@ -488,6 +507,21 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-side-nav span.on{color:var(--ond-color-onPrimary);background:var(--blue)}
 .pp-side-nav span.on .ic{color:var(--ond-color-onPrimary)}
 .pp-side-foot{margin-top:auto;font-size:.7rem;color:var(--muted2);line-height:1.55;border-top:1px solid var(--border);padding-top:12px}
+.pp-side-brand{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pp-side-nav span[data-nav]{cursor:pointer;transition:background .15s,color .15s}
+.pp-side-nav span[data-nav]:hover{color:var(--text);background:var(--blue-dim)}
+.pp-side-nav span[data-nav="marca"] .ic{color:var(--purple-light)}
+.pp-collapse{flex-shrink:0;width:26px;height:26px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid var(--border);border-radius:8px;color:var(--muted);cursor:pointer;transition:color .15s,border-color .15s,transform .2s}
+.pp-collapse:hover{color:var(--text);border-color:var(--blue)}
+/* Sidebar recolhida: fica só a marca + ícones */
+.pp-shell.pp-collapsed{grid-template-columns:58px minmax(0,1fr) 310px}
+.pp-shell.pp-collapsed .pp-side{padding:16px 9px}
+.pp-shell.pp-collapsed .pp-brand-txt,
+.pp-shell.pp-collapsed .pp-nav-txt,
+.pp-shell.pp-collapsed .pp-side-foot{display:none}
+.pp-shell.pp-collapsed .pp-brand-mark{padding:6px;justify-content:center}
+.pp-shell.pp-collapsed .pp-side-nav span{justify-content:center;padding:9px 0}
+.pp-shell.pp-collapsed .pp-collapse{transform:rotate(180deg)}
 .pp-main{min-width:0;padding:16px;display:flex;flex-direction:column;gap:14px}
 .pp-fin{border-left:1px solid var(--border);background:var(--surface);padding:16px 14px;overflow-y:auto}
 /* banner do destino (como no app) */
@@ -498,6 +532,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-banner-t b{display:block;font-size:1.08rem;font-weight:800;letter-spacing:-.02em}
 .pp-banner-t span{font-size:.76rem;opacity:.92}
 .pp-banner-chip{position:absolute;right:12px;top:12px;z-index:2;font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:rgba(4,10,22,.55);color:#fff;border:1px solid rgba(255,255,255,.28);padding:4px 10px;border-radius:50px}
+.pp-banner-brand{position:absolute;left:12px;top:12px;z-index:2;display:inline-flex;align-items:center;gap:6px;font-size:.66rem;font-weight:800;color:#fff;background:rgba(4,10,22,.5);border:1px dashed rgba(255,255,255,.5);padding:4px 10px;border-radius:8px;backdrop-filter:blur(2px)}
+.pp-banner-brand .ic{color:#fff}
 /* financeiro estilo app: total em gradiente + média/dia */
 .pp-fintotal{background:linear-gradient(120deg,var(--blue),#0a3a8f);border-radius:14px;padding:15px;color:#fff;margin-bottom:11px}
 .pp-fintotal span{font-size:.76rem;opacity:.88}
@@ -549,9 +585,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-dest-input{width:100%;max-width:340px;font-family:inherit;font-size:.86rem;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:10px;padding:9px 13px;transition:border-color .15s,box-shadow .15s}
 .pp-dest-input::placeholder{color:var(--muted)}
 .pp-dest-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-glow)}
-.pp-generate{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:.86rem;font-weight:800;color:#fff;background:var(--green);border:none;border-radius:50px;padding:11px 20px;margin-left:auto;cursor:pointer;transition:transform .15s,filter .15s}
+.pp-generate{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:.86rem;font-weight:800;color:var(--on-green);background:var(--green);border:none;border-radius:50px;padding:11px 20px;margin-left:auto;cursor:pointer;transition:transform .15s,filter .15s}
 .pp-generate:hover{transform:translateY(-1px);filter:brightness(1.06)}
-.pp-generate .ic{color:#fff}
+.pp-generate .ic{color:var(--on-green)}
 .pp-live{margin-left:auto;font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--green);background:var(--green-dim);border:1px solid color-mix(in srgb, var(--green) 30%, transparent);padding:3px 9px;border-radius:50px;white-space:nowrap}
 .pp-brand-mark{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:.9rem;padding:6px 11px;border-radius:9px;border:1px dashed color-mix(in srgb, var(--purple) 50%, transparent);background:var(--purple-dim);color:var(--purple-light)}
 .pp-brand-mark .ic{color:var(--purple-light)}
@@ -619,7 +655,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pricing-inner{max-width:1240px;margin:0 auto}
 .pricing-head{text-align:center;max-width:640px;margin:0 auto 48px}
 .pricing-head h2{margin-bottom:14px}
-.plans-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:stretch}
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch;margin-bottom:16px}
+.plan-plabel{font-size:.9rem;font-weight:700;color:var(--blue-light);margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)}
 .plan{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 18px 20px;position:relative;transition:transform .2s,border-color .2s,box-shadow .2s}
 .plan:hover{transform:translateY(-4px);border-color:var(--border-hi);box-shadow:0 14px 34px rgba(0,0,0,.32)}
 .plan.featured{border-color:color-mix(in srgb, var(--blue) 55%, transparent);box-shadow:0 0 0 1px color-mix(in srgb, var(--blue) 40%, transparent),0 16px 42px var(--blue-glow)}
@@ -911,12 +948,16 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
             </div>
             <div class="pp-shell" id="ppShell" data-tab="rot">
             <aside class="pp-side">
-              <div class="pp-side-brand"><span class="pp-brand-mark"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>Sua Marca</span></div>
+              <div class="pp-side-brand">
+                <span class="pp-brand-mark"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="pp-brand-txt">Sua Marca</span></span>
+                <button class="pp-collapse" id="ppCollapse" type="button" aria-label="Recolher menu" title="Recolher menu"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+              </div>
               <nav class="pp-side-nav">
-                <span class="on"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Propostas</span>
-                <span><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Clientes</span>
-                <span><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg>OND vAI</span>
-                <span><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-4"/></svg>Relatórios</span>
+                <span class="on" data-nav="propostas"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><span class="pp-nav-txt">Propostas</span></span>
+                <span data-nav="clientes"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span class="pp-nav-txt">Clientes</span></span>
+                <span data-nav="vai"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg><span class="pp-nav-txt">OND vAI</span></span>
+                <span data-nav="relatorios"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-4"/></svg><span class="pp-nav-txt">Relatórios</span></span>
+                <span data-nav="marca" title="Sua marca"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996C18.928 15.398 22 12.87 22 9.5 22 5.36 17.64 2 12 2z"/></svg><span class="pp-nav-txt">Sua marca</span></span>
               </nav>
               <div class="pp-side-foot">Plano Pro<br>12 propostas ativas</div>
             </aside>
@@ -1115,6 +1156,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       function bannerHTML(d,days){
         var im=d.img?(d.img.charAt(0)==='/'?d.img:'https://images.unsplash.com/'+d.img+'?w=900&q=70&auto=format'):'';
         return '<div class="pp-banner">'+(im?'<img src="'+im+'" alt="" loading="lazy">':'')
+          +'<span class="pp-banner-brand">'+ic('image',13)+'Sua Marca</span>'
           +'<span class="pp-banner-chip">Rascunho</span>'
           +'<div class="pp-banner-t"><b>'+esc(d.name)+'</b><span>'+days+' dias · 2 viajantes · proposta da sua agência</span></div>'
         +'</div>';
@@ -1185,6 +1227,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         for(i=0;i<tabs.length;i++){tabs[i].classList.toggle('active',tabs[i].getAttribute('data-tab')===which);}
       }
       (shell||app).addEventListener('click',function(e){
+        var col=e.target.closest('.pp-collapse');
+        if(col){if(shell)shell.classList.toggle('pp-collapsed');return;}
+        var nav=e.target.closest('.pp-side-nav span[data-nav]');
+        if(nav){
+          var navs=shell.querySelectorAll('.pp-side-nav span[data-nav]'),k;
+          for(k=0;k<navs.length;k++){navs[k].classList.toggle('on',navs[k]===nav);}
+          var which=nav.getAttribute('data-nav');
+          if(which==='marca'){bubble('ai','Aqui você troca <b>logo, cores e domínio</b>: a proposta sai 100% com a marca da sua agência, sem o nome do OND aparecer pro cliente.');}
+          else if(which==='vai'){bubble('ai','O OND vAI monta e ajusta a proposta pra você. Escolha um destino ou digite acima 👇');}
+          else if(which==='clientes'){bubble('ai','Cada proposta fica salva no card do cliente: histórico, viagens e recompra num lugar só.');}
+          return;
+        }
         var t=e.target.closest('.pp-tab');
         if(t){setTab(t.getAttribute('data-tab'));return;}
         var addBtn=e.target.closest('.pp-add');
@@ -1341,11 +1395,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
             <div class="model-badge badge-green">Previsível</div>
           </div>
           <div class="model-row">
-            <div class="model-icon"><svg class="ic" width="18" height="18" viewBox="0 0 24 24"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></div>
-            <div><div class="model-label">Rev-share por venda</div><div class="model-desc">Nosso ganho é vinculado ao seu resultado</div></div>
-            <div class="model-badge badge-blue">Alinhado</div>
-          </div>
-          <div class="model-row">
             <div class="model-icon"><svg class="ic" width="18" height="18" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><path d="M7 7h.01"/></svg></div>
             <div><div class="model-label">Você define o preço</div><div class="model-desc">Cobre do seu cliente o valor que achar justo</div></div>
             <div class="model-badge badge-gold">Controle total</div>
@@ -1424,6 +1473,44 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <h2 class="section-title">Planos sob medida pra sua agência</h2>
       <p class="section-sub" style="margin:0 auto">As condições a gente alinha numa conversa rápida, do tamanho da sua operação.</p>
     </div>
+    <div class="plans-grid">
+      <div class="plan">
+        <div class="plan-name">OND Start</div>
+        <div class="plan-for">Pra agências entrando agora no digital.</div>
+        <div class="plan-plabel">Valores na conversa</div>
+        <ul class="plan-feats">
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Propostas interativas com a sua marca</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>OND vAI monta o roteiro dia a dia</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Link pronto pra enviar ao cliente</li>
+        </ul>
+        <a class="plan-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Começar conversa</a>
+      </div>
+      <div class="plan featured">
+        <span class="plan-tag rec">Mais popular</span>
+        <div class="plan-name">OND Pro</div>
+        <div class="plan-for">Pra quem vive de volume de propostas.</div>
+        <div class="plan-plabel">Valores na conversa</div>
+        <ul class="plan-feats">
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Tudo do Start</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Cliente personaliza sozinho pelo link</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Add-ons e seguro que aumentam o ticket</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Painel de clientes e recompra</li>
+        </ul>
+        <a class="plan-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Falar com a gente</a>
+      </div>
+      <div class="plan">
+        <div class="plan-name">OND Rede</div>
+        <div class="plan-for">Pra redes e franquias com vários consultores.</div>
+        <div class="plan-plabel">Valores na conversa</div>
+        <ul class="plan-feats">
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Tudo do Pro</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Multiusuário por consultor</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Relatórios consolidados da rede</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Onboarding e suporte dedicados</li>
+        </ul>
+        <a class="plan-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agendar reunião</a>
+      </div>
+    </div>
     <div class="plan-custom">
       <div class="pc-text">
         <div class="pc-badge">Sob medida</div>
@@ -1477,6 +1564,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       </a>
     </div>
     <div class="cta-final-note">Já conversou com a gente? <a href="https://pci.jotform.com/form/252517268656062" class="onboarding-link" target="_blank" rel="noopener">Fazer o onboarding</a> · Dúvidas? Escreva para <a href="mailto:renan@agamatec.com">renan@agamatec.com</a></div>
+    <details class="wwa">
+      <summary class="wwa-sum"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Quem somos por trás do OND<span class="wwa-caret">▾</span></summary>
+      <div class="wwa-body">
+        <p>O OND é da <b>Agama Tec</b>, uma empresa brasileira de tecnologia para viagem. Fundada por <b>Renan Rodrigues</b> e <b>Renan Chaves</b>, a Agama nasceu pra levar IA de verdade pro turismo, do viajante à agência.</p>
+        <p>Não somos um SaaS distante: a gente entra junto no onboarding, customiza pra sua operação e evolui o produto lado a lado com você. Quer conhecer a gente? <a href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agende 30 min</a> ou fale com um fundador no <a href="https://wa.me/5511910214133" target="_blank" rel="noopener">WhatsApp</a>.</p>
+      </div>
+    </details>
   </div>
 </section>
 
