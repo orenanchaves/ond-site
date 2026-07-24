@@ -478,7 +478,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-soon{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-light);background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 40%, transparent);padding:2px 8px;border-radius:50px}
 /* ── CHAT de geração (estrutura App Clone, cor B2B) ── */
 .pp-chat{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 16px}
-.pp-log{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;max-height:168px;overflow-y:auto}
+.pp-log{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;max-height:280px;overflow-y:auto}
 .pp-msg{display:flex;gap:9px;align-items:flex-end;max-width:90%}
 .pp-msg.me{margin-left:auto;flex-direction:row-reverse}
 .pp-av{width:34px;height:34px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#7c3fff,#9d6fff);box-shadow:0 4px 14px rgba(124,63,255,.4)}
@@ -491,8 +491,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-typing i:nth-child(2){animation-delay:.15s}.pp-typing i:nth-child(3){animation-delay:.3s}
 @keyframes pptype{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-2px)}}
 .pp-compose{display:flex;flex-direction:column;gap:10px}
-.pp-inline{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-.pp-days-label{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pp-log-chips{display:flex;flex-wrap:wrap;gap:7px;margin:2px 0 6px 43px}
 /* ── ABAS da proposta ── */
 .pp-tabs{display:flex;gap:5px;padding:4px;background:var(--surface);border:1px solid var(--border);border-radius:50px;margin-bottom:14px}
 .pp-tab{flex:1;font-family:inherit;font-size:.82rem;font-weight:800;color:var(--muted);background:none;border:none;border-radius:50px;padding:8px 12px;cursor:pointer;transition:color .15s,background .15s}
@@ -599,12 +598,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-chip{font-family:inherit;font-size:.82rem;font-weight:700;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:50px;padding:7px 14px;cursor:pointer;transition:color .15s,background .15s,border-color .15s,box-shadow .15s}
 .pp-chip:hover{color:var(--text);border-color:var(--border-hi)}
 .pp-chip.active{color:var(--ond-color-onPrimary);background:var(--blue);border-color:var(--blue);box-shadow:0 4px 12px var(--blue-glow)}
-.pp-dest-input{width:100%;max-width:340px;font-family:inherit;font-size:.86rem;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:10px;padding:9px 13px;transition:border-color .15s,box-shadow .15s}
+.pp-dest-input{width:100%;font-family:inherit;font-size:.86rem;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:10px;padding:9px 13px;transition:border-color .15s,box-shadow .15s}
 .pp-dest-input::placeholder{color:var(--muted)}
 .pp-dest-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-glow)}
-.pp-generate{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:.86rem;font-weight:800;color:var(--on-green);background:var(--green);border:none;border-radius:50px;padding:11px 20px;margin-left:auto;cursor:pointer;transition:transform .15s,filter .15s}
-.pp-generate:hover{transform:translateY(-1px);filter:brightness(1.06)}
-.pp-generate .ic{color:var(--on-green)}
 .pp-live{margin-left:auto;font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--green);background:var(--green-dim);border:1px solid color-mix(in srgb, var(--green) 30%, transparent);padding:3px 9px;border-radius:50px;white-space:nowrap}
 .pp-brand-mark{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:.9rem;padding:6px 11px;border-radius:9px;border:1px dashed color-mix(in srgb, var(--purple) 50%, transparent);background:var(--purple-dim);color:var(--purple-light)}
 .pp-brand-mark .ic{color:var(--purple-light)}
@@ -618,7 +614,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .sk-sum{height:200px}
 /* toolbar wide no mobile: o "Gerar proposta" (margin-left:auto) cai pra propria
    linha full-width em vez de espremer os chips; os chips ja usam flex-wrap. */
-@media(max-width:720px){.pp-grid{grid-template-columns:1fr;gap:14px}.pp-toolbar{gap:12px 16px}.pp-generate{margin-left:0;flex-basis:100%;justify-content:center}}
+@media(max-width:720px){.pp-grid{grid-template-columns:1fr;gap:14px}.pp-toolbar{gap:12px 16px}}
 /* passe mobile do demo: seção compacta, barra sem overflow, controles empilhados
    e o app gerado com paddings/fonts reduzidos pra parecer um app real no celular. */
 @media(max-width:600px){
@@ -637,7 +633,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   .pp-chip{padding:8px 15px}
   /* input full-width e 16px pra bom toque e sem zoom automático no iOS */
   .pp-dest-input{max-width:none;font-size:16px;padding:10px 14px}
-  .pp-generate{width:100%}
   /* proposta gerada compacta */
   .pp-app{padding:14px 13px 16px}
   .pp-app-top{gap:10px;margin-bottom:13px}
@@ -1051,31 +1046,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
             <div class="pp-chat">
               <div class="pp-log" id="ppLog"></div>
               <div class="pp-compose">
-                <div class="pp-chips" id="ppDest">
-                  <button class="pp-chip" type="button" data-fill="Lisboa, Portugal">Lisboa</button>
-                  <button class="pp-chip" type="button" data-fill="Buenos Aires, Argentina">Buenos Aires</button>
-                  <button class="pp-chip" type="button" data-fill="Orlando, Estados Unidos">Orlando</button>
-                  <button class="pp-chip" type="button" data-fill="Paris, França">Paris</button>
-                  <button class="pp-chip" type="button" data-fill="Roma, Itália">Roma</button>
-                  <button class="pp-chip" type="button" data-fill="Surpreenda">Surpreenda</button>
-                </div>
-                <div class="pp-inline">
-                  <input class="pp-dest-input" id="ppDestInput" type="text" autocomplete="off" list="ppDestList" value="Lisboa, Portugal" aria-label="Destino da viagem" placeholder="Pra onde? Ex.: Lisboa, Roma, Noronha...">
-                  <datalist id="ppDestList">
-                    <option value="Lisboa, Portugal"></option><option value="Buenos Aires, Argentina"></option>
-                    <option value="Orlando, Estados Unidos"></option><option value="Roma, Itália"></option>
-                    <option value="Fernando de Noronha"></option><option value="Paris, França"></option>
-                    <option value="Cancún, México"></option>
-                  </datalist>
-                  <span class="pp-days-label">Dias</span>
-                  <div class="pp-chips" id="ppDays">
-                    <button class="pp-chip" type="button" data-days="3">3</button>
-                    <button class="pp-chip active" type="button" data-days="5">5</button>
-                    <button class="pp-chip" type="button" data-days="7">7</button>
-                  </div>
-                  <button class="pp-generate" id="ppGen" type="button"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg>Gerar</button>
-                </div>
+                <input class="pp-dest-input" id="ppDestInput" type="text" autocomplete="off" list="ppDestList" aria-label="Responder no chat" placeholder="Pra onde? Ex.: Lisboa, Roma, Noronha...">
+                <datalist id="ppDestList">
+                  <option value="Lisboa, Portugal"></option><option value="Buenos Aires, Argentina"></option>
+                  <option value="Orlando, Estados Unidos"></option><option value="Roma, Itália"></option>
+                  <option value="Fernando de Noronha"></option><option value="Paris, França"></option>
+                  <option value="Cancún, México"></option>
+                </datalist>
               </div>
+            </div>
             </div>
             </div>
             <div class="pp-screen" data-screen="proposta" id="ppScrProposta">
@@ -1260,7 +1239,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       var shell=document.getElementById('ppShell');
       var input=document.getElementById('ppDestInput');
       var logEl=document.getElementById('ppLog');
-      var state={destText:(input&&input.value)||'Lisboa, Portugal',days:5,view:'proposta',screen:'conversa'};
+      var state={destText:'Lisboa, Portugal',days:5,view:'proposta',screen:'conversa',stage:'dest'};
       function setScreen(which){
         state.screen=which;
         if(shell)shell.dataset.screen=which;
@@ -1345,42 +1324,104 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         logEl.appendChild(m);logEl.scrollTop=logEl.scrollHeight;return m;
       }
       var timer=null;
-      function generate(fromUser){
-        var raw=input?input.value.trim():'';
-        if(!raw){if(input)input.focus();return;}
+      // ── Chat guiado: aguardando_destino -> aguardando_dias -> gerado ──
+      var DEST_OPTIONS=[
+        {label:'Lisboa',value:'Lisboa, Portugal'},
+        {label:'Buenos Aires',value:'Buenos Aires, Argentina'},
+        {label:'Orlando',value:'Orlando, Estados Unidos'},
+        {label:'Paris',value:'Paris, França'},
+        {label:'Roma',value:'Roma, Itália'},
+        {label:'Surpreenda',value:'Surpreenda'}
+      ];
+      var DAYS_OPTIONS=[{label:'3 dias',value:'3'},{label:'5 dias',value:'5'},{label:'7 dias',value:'7'}];
+      var FINAL_OPTIONS=[{label:'Ver proposta',value:'ver'},{label:'Tentar outro destino',value:'outro'}];
+      var pendingRow=null;
+      function clearPendingChips(){
+        if(pendingRow&&pendingRow.parentNode)pendingRow.parentNode.removeChild(pendingRow);
+        pendingRow=null;
+      }
+      function chipsRow(options,onPick){
+        if(!logEl)return null;
+        clearPendingChips();
+        var row=document.createElement('div');
+        row.className='pp-log-chips';
+        row.innerHTML=options.map(function(o){return '<button class="pp-chip" type="button" data-val="'+esc(o.value)+'" data-label="'+esc(o.label)+'">'+esc(o.label)+'</button>';}).join('');
+        logEl.appendChild(row);logEl.scrollTop=logEl.scrollHeight;
+        pendingRow=row;
+        row.addEventListener('click',function(e){
+          var b=e.target.closest('.pp-chip');if(!b)return;
+          var val=b.getAttribute('data-val'),label=b.getAttribute('data-label');
+          if(pendingRow===row)clearPendingChips();
+          onPick(val,label);
+        });
+        return row;
+      }
+      function updatePlaceholder(){
+        if(!input)return;
+        input.placeholder=state.stage==='days'?'Ou digite os dias, ex.: 5':'Pra onde? Ex.: Lisboa, Roma, Noronha...';
+      }
+      function askDestino(){
+        state.stage='dest';
+        bubble('ai','Pra onde vamos?');
+        chipsRow(DEST_OPTIONS,onDestinoPicked);
+        updatePlaceholder();
+      }
+      function onDestinoPicked(raw,label){
+        raw=(raw||'').trim();if(!raw)return;
+        clearPendingChips();
         state.destText=raw;
+        bubble('me',esc(label||raw));
+        askDias();
+      }
+      function askDias(){
+        state.stage='days';
+        bubble('ai','Boa, <b>'+esc(shortName())+'</b>! Quantos dias?');
+        chipsRow(DAYS_OPTIONS,onDiasPicked);
+        updatePlaceholder();
+      }
+      function onDiasPicked(raw,label){
+        var n=parseInt(raw,10);if(!n||n<1)n=5;
+        clearPendingChips();
+        state.days=n;
+        bubble('me',label||(n+' dias'));
+        runGeneration();
+      }
+      function runGeneration(){
+        state.stage='gerado';
+        updatePlaceholder();
         trip.extras=[];trip.addons={};   // proposta nova: zera edições e add-ons
-        if(fromUser){if(shell)shell.dataset.tab='rot';setTab('rot');bubble('me',esc(shortName())+' · '+state.days+' dias');setScreen('proposta');}
-        var typing=bubble('ai','<span class="pp-typing"><i></i><i></i><i></i></span>');
+        if(shell)shell.dataset.tab='rot';setTab('rot');
+        var typing=bubble('ai','Fechando sua proposta de <b>'+esc(shortName())+'</b>, '+state.days+' dias <span class="pp-typing"><i></i><i></i><i></i></span>');
         app.innerHTML=SKELETON;
         if(timer)clearTimeout(timer);
         timer=setTimeout(function(){
           paint();
-          if(typing)typing.querySelector('.pp-bubble').innerHTML='Pronto! Sua proposta de <b>'+esc(shortName())+'</b> 👇';
+          if(typing)typing.querySelector('.pp-bubble').innerHTML='Pronto! Sua proposta de <b>'+esc(shortName())+'</b> está aqui 👉';
+          setScreen('proposta');
+          chipsRow(FINAL_OPTIONS,onFinalPicked);
         },800);
       }
-      function setActive(wrap,btn){
-        var all=wrap.querySelectorAll('.pp-chip'),i;
-        for(i=0;i<all.length;i++){all[i].classList.remove('active');}
-        btn.classList.add('active');
+      function onFinalPicked(val){
+        clearPendingChips();
+        if(val==='outro'){restart();}
+        else{setScreen('proposta');}
       }
-      var destWrap=document.getElementById('ppDest');
-      if(destWrap){destWrap.addEventListener('click',function(e){
-        var b=e.target.closest('.pp-chip');if(!b)return;
-        if(input){input.value=b.getAttribute('data-fill')||b.textContent;}
-        setActive(destWrap,b);generate(true);
+      function restart(){
+        setScreen('conversa');
+        bubble('ai','Show! Vamos de novo, pra onde vamos agora?');
+        state.stage='dest';
+        chipsRow(DEST_OPTIONS,onDestinoPicked);
+        updatePlaceholder();
+      }
+      if(input){input.addEventListener('keydown',function(e){
+        if(e.key!=='Enter')return;
+        e.preventDefault();
+        var raw=input.value.trim();
+        if(!raw)return;
+        input.value='';
+        if(state.stage==='days'){onDiasPicked(raw,raw+' dias');}
+        else{onDestinoPicked(raw,raw);}
       });}
-      if(input){input.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();generate(true);}});}
-      var daysWrap=document.getElementById('ppDays');
-      if(daysWrap){daysWrap.addEventListener('click',function(e){
-        var b=e.target.closest('.pp-chip');if(!b)return;
-        state.days=parseInt(b.getAttribute('data-days'),10);setActive(daysWrap,b);
-        trip.extras=trip.extras.filter(function(x){return x.day<state.days;});  // solta passeios de dias que sumiram
-        if(input&&input.value.trim())state.destText=input.value.trim();
-        paint();   // muda dias e atualiza roteiro + preços na hora
-      });}
-      var gen=document.getElementById('ppGen');
-      if(gen){gen.addEventListener('click',function(){generate(true);});}
       function setTab(which){
         if(shell)shell.dataset.tab=which;
         var tabs=document.querySelectorAll('#ppTabs .pp-tab'),i;
@@ -1399,7 +1440,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           if(which==='destinos'){state.view='destinos';setTab('rot');paint();setScreen('proposta');bubble('ai','Explore destinos 👇 <b>Criar proposta</b> monta o roteiro na hora; <b>Ajudar a decidir</b> compara pro cliente.');}
           else if(which==='clientes'){state.view='proposta';paint();setScreen('conversa');bubble('ai','No card do cliente ficam as <b>propostas</b> e o histórico dele: viagens, recompra e contato num lugar só.');}
           else if(which==='marca'){setScreen('conversa');bubble('ai','Aqui você troca <b>logo, cores e domínio</b>: a proposta sai 100% com a marca da sua agência, sem o nome do OND aparecer pro cliente.');}
-          else if(which==='vai'){setScreen('conversa');bubble('ai','O OND vAI monta e ajusta a proposta pra você. Escolha um destino ou digite acima 👇');}
+          else if(which==='vai'){setScreen('conversa');bubble('ai','O OND vAI monta e ajusta a proposta pra você. É só responder no chat 👇');}
           else if(which==='relatorios'){setScreen('conversa');bubble('ai','Relatórios: propostas enviadas, taxa de fechamento e ticket médio da sua agência, em tempo real.');}
           return;
         }
@@ -1443,10 +1484,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         }
         if(e.target.closest('.pp-send')){openSendModal();return;}
       });
-      // início: saudação + proposta de exemplo já montada (chat vivo)
-      bubble('ai','Oi! Aqui você monta uma proposta em segundos. Escolha um destino ou digite 👇');
+      // início: aba Proposta pronta em segundo plano + chat guiado começa perguntando o destino
       paint();
-      bubble('ai','Fiz uma de exemplo pra <b>'+esc(shortName())+'</b>. Troque destino/dias, adicione passeios no roteiro e upgrades no financeiro 👇');
+      bubble('ai','Oi! Eu sou o OND vAI 👋');
+      askDestino();
     })();
     </script>
 
