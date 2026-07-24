@@ -618,7 +618,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 /* passe mobile do demo: seção compacta, barra sem overflow, controles empilhados
    e o app gerado com paddings/fonts reduzidos pra parecer um app real no celular. */
 @media(max-width:600px){
-  .platform-preview{margin-top:40px;padding-top:36px}
   .pp-copy{margin-bottom:22px}
   .pp-copy h3{font-size:1.3rem;margin:10px 0 12px}
   .pp-copy>p{font-size:.92rem;margin-bottom:18px}
@@ -853,9 +852,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   </a>
   <nav><ul class="header-nav">
     <li><a href="index.html" class="nav-home">← Para viajantes</a></li>
+    <li><a href="#plataforma">Plataforma</a></li>
     <li><a href="#como-funciona">Como funciona</a></li>
     <li><a href="#modelo">Modelo</a></li>
-    <li><a href="#plataforma">Plataforma</a></li>
     <li><div class="seg" role="tablist" aria-label="Escolha seu perfil">
       <a class="seg-btn active" href="agencias.html" role="tab" aria-current="page" aria-selected="true">Para Agências de Viagem</a>
       <a class="seg-btn" href="hoteis.html" role="tab" style="display:none">Hotéis</a>
@@ -867,9 +866,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </header>
 <nav class="mobile-nav" id="mobileNav">
   <a href="index.html" class="nav-home">← Para viajantes</a>
+  <a href="#plataforma" onclick="closeMenu()">Plataforma</a>
   <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
   <a href="#modelo" onclick="closeMenu()">Modelo</a>
-  <a href="#plataforma" onclick="closeMenu()">Plataforma</a>
   <div class="seg" role="tablist" aria-label="Escolha seu perfil">
     <a class="seg-btn active" href="agencias.html" role="tab" aria-current="page" aria-selected="true">Para Agências de Viagem</a>
     <a class="seg-btn" href="hoteis.html" role="tab" style="display:none">Hotéis</a>
