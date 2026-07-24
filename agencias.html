@@ -436,7 +436,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-head{text-align:center;max-width:660px;margin:0 auto 32px}
 .pp-head h3{font-size:clamp(1.35rem,2.5vw,1.9rem);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin:12px 0 12px}
 .pp-head p{font-size:.96rem;color:var(--muted);line-height:1.65}
-.pp-window{border:1px solid var(--border-hi);border-radius:16px;overflow:hidden;background:var(--card);box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.pp-window{position:relative;border:1px solid var(--border-hi);border-radius:16px;overflow:hidden;background:var(--card);box-shadow:0 30px 70px rgba(0,0,0,.4)}
 .pp-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:var(--surface);border-bottom:1px solid var(--border)}
 .pp-dot{width:11px;height:11px;border-radius:50%;background:color-mix(in srgb, var(--muted) 40%, transparent)}
 .pp-url{margin-left:10px;display:inline-flex;align-items:center;gap:7px;font-size:.75rem;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:5px 12px}
@@ -650,6 +650,47 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   .pp-sum-total .v{font-size:1.08rem}
   .pp-send{font-size:.86rem}
 }
+/* ── DESTINOS (galeria dentro do app) ── */
+.pp-dhead{margin-bottom:14px}
+.pp-dhead b{display:block;font-size:1.02rem;font-weight:800;letter-spacing:-.01em}
+.pp-dhead span{font-size:.82rem;color:var(--muted)}
+.pp-dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.pp-dcard{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface);display:flex;flex-direction:column;transition:border-color .18s,transform .18s}
+.pp-dcard:hover{border-color:var(--border-hi);transform:translateY(-2px)}
+.pp-dcard-img{position:relative;height:82px;background:linear-gradient(135deg,var(--blue),#08152b)}
+.pp-dcard-img img{width:100%;height:100%;object-fit:cover;display:block}
+.pp-dcard-name{position:absolute;left:9px;bottom:7px;z-index:2;color:#fff;font-weight:800;font-size:.86rem;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.pp-dcard-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,10,22,.6),transparent 55%)}
+.pp-dcard-body{padding:9px 10px 10px;display:flex;flex-direction:column;gap:8px}
+.pp-dcard-from{font-size:.72rem;color:var(--muted)}
+.pp-dcard-acts{display:flex;flex-direction:column;gap:6px}
+.pp-dcreate{border:none;border-radius:8px;background:var(--blue);color:var(--ond-color-onPrimary);font-family:inherit;font-weight:700;font-size:.76rem;padding:8px;cursor:pointer;transition:filter .15s}
+.pp-dcreate:hover{filter:brightness(1.08)}
+.pp-ddecide{border:1px solid var(--border-hi);border-radius:8px;background:none;color:var(--blue-light);font-family:inherit;font-weight:700;font-size:.76rem;padding:7px;cursor:pointer;transition:background .15s}
+.pp-ddecide:hover{background:var(--blue-dim)}
+.pp-dfin{text-align:center;padding:8px 6px}
+.pp-dfin .ic{color:var(--gold)}
+.pp-dfin b{display:block;margin:8px 0 6px;font-size:.92rem}
+.pp-dfin p{font-size:.8rem;color:var(--muted);line-height:1.55}
+/* ── POPUP Enviar proposta ── */
+.pp-modal{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(4,8,18,.62);backdrop-filter:blur(3px);opacity:0;transition:opacity .2s}
+.pp-modal.on{opacity:1}
+.pp-modal-card{width:100%;max-width:340px;background:var(--surface);border:1px solid var(--border-hi);border-radius:16px;padding:22px 20px;text-align:center;transform:translateY(10px) scale(.98);transition:transform .22s;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.pp-modal.on .pp-modal-card{transform:none}
+.pp-modal-ico{width:46px;height:46px;margin:0 auto 12px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--blue-dim);color:var(--blue-light)}
+.pp-modal-ico .ic{stroke:currentColor}
+.pp-modal-ico.ok{background:var(--green-dim);color:var(--green)}
+.pp-modal-card h4{font-size:1.05rem;font-weight:800;letter-spacing:-.01em;margin-bottom:12px}
+.pp-modal-prop{border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:12px;background:var(--card)}
+.pp-modal-prop b{display:block;font-size:.95rem;font-weight:800}
+.pp-modal-prop span{display:block;font-size:.76rem;color:var(--muted);margin-top:2px}
+.pp-modal-total{margin-top:8px;font-size:1.35rem;font-weight:800;color:var(--blue-light)}
+.pp-modal-sub{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:16px}
+.pp-modal-acts{display:flex;flex-direction:column;gap:9px}
+.pp-modal-send{display:flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:50px;background:var(--green);color:var(--on-green);font-family:inherit;font-weight:800;font-size:.9rem;padding:12px;cursor:pointer}
+.pp-modal-send .ic{stroke:var(--on-green)}
+.pp-modal-edit,.pp-modal-close{border:1px solid var(--border-hi);border-radius:50px;background:none;color:var(--text);font-family:inherit;font-weight:700;font-size:.85rem;padding:10px;cursor:pointer;transition:background .15s}
+.pp-modal-edit:hover,.pp-modal-close:hover{background:var(--blue-dim)}
 /* ── PLANOS E PREÇOS ── */
 .pricing{padding:80px 5%;background:var(--bg)}
 .pricing-inner{max-width:1240px;margin:0 auto}
@@ -953,8 +994,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
                 <button class="pp-collapse" id="ppCollapse" type="button" aria-label="Recolher menu" title="Recolher menu"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
               </div>
               <nav class="pp-side-nav">
-                <span class="on" data-nav="propostas"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><span class="pp-nav-txt">Propostas</span></span>
-                <span data-nav="clientes"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span class="pp-nav-txt">Clientes</span></span>
+                <span class="on" data-nav="clientes"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="pp-nav-txt">Clientes</span></span>
+                <span data-nav="destinos"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg><span class="pp-nav-txt">Destinos</span></span>
                 <span data-nav="vai"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg><span class="pp-nav-txt">OND vAI</span></span>
                 <span data-nav="relatorios"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-4"/></svg><span class="pp-nav-txt">Relatórios</span></span>
                 <span data-nav="marca" title="Sua marca"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996C18.928 15.398 22 12.87 22 9.5 22 5.36 17.64 2 12 2z"/></svg><span class="pp-nav-txt">Sua marca</span></span>
@@ -1171,11 +1212,75 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       var shell=document.getElementById('ppShell');
       var input=document.getElementById('ppDestInput');
       var logEl=document.getElementById('ppLog');
-      var state={destText:(input&&input.value)||'Lisboa, Portugal',days:5};
+      var state={destText:(input&&input.value)||'Lisboa, Portugal',days:5,view:'proposta'};
+      // ── Destinos (galeria: criar proposta ou ajudar a decidir) ──
+      var DESTINOS=['lisboa','bsas','orlando','paris','roma','cancun','noronha'];
+      var DECIDE={
+        lisboa:'<b>Lisboa</b> é ótima pra primeira viagem à Europa: clima ameno, todo mundo se vira no português e o custo-benefício é o melhor do continente.',
+        bsas:'<b>Buenos Aires</b> é perto, barato e cheio de charme: gastronomia, tango e compras. Cai bem pra quem tem menos dias e quer sair do país.',
+        orlando:'<b>Orlando</b> é imbatível pra família com crianças: parques, compras e estrutura. Vale reservar mais dias e já incluir ingressos.',
+        paris:'<b>Paris</b> é o clássico romântico e cultural. Rende mais em 5+ dias e combina bem com um bate-volta de trem.',
+        roma:'<b>Roma</b> entrega história a cada esquina. Ideal pra quem curte caminhar, arte e boa comida, e emenda com outras cidades italianas.',
+        cancun:'<b>Cancún</b> é praia e all-inclusive sem complicação: perfeito pra descansar ou lua de mel, com pouco planejamento.',
+        noronha:'<b>Noronha</b> é o paraíso brasileiro pra natureza e mergulho. Tem taxa ambiental e voos limitados, então antecipar a proposta faz diferença.'
+      };
+      function destFrom(d){return d.flight+d.hotel*3+d.tour+d.ins*3;}
+      function destinosHTML(){
+        var cards=DESTINOS.map(function(k){
+          var d=DATA[k];
+          var im=d.img?(d.img.charAt(0)==='/'?d.img:'https://images.unsplash.com/'+d.img+'?w=520&q=60&auto=format'):'';
+          return '<div class="pp-dcard">'
+            +'<div class="pp-dcard-img">'+(im?'<img src="'+im+'" alt="" loading="lazy">':'')+'<span class="pp-dcard-name">'+esc(d.name.split(',')[0])+'</span></div>'
+            +'<div class="pp-dcard-body">'
+              +'<span class="pp-dcard-from">a partir de '+brl(destFrom(d))+'</span>'
+              +'<div class="pp-dcard-acts">'
+                +'<button class="pp-dcreate" type="button" data-dest="'+esc(d.name)+'">Criar proposta</button>'
+                +'<button class="pp-ddecide" type="button" data-decide="'+k+'">Ajudar a decidir</button>'
+              +'</div>'
+            +'</div>'
+          +'</div>';
+        }).join('');
+        return '<div class="pp-dhead"><b>Destinos</b><span>Monte a proposta na hora ou ajude o cliente a decidir.</span></div><div class="pp-dgrid">'+cards+'</div>';
+      }
+      function destinosFinHTML(){
+        return '<div class="pp-dfin">'+ic('star',20)+'<b>Ajude o cliente a escolher</b>'
+          +'<p>Clique em <b>Ajudar a decidir</b> pra o OND vAI comparar os destinos, ou em <b>Criar proposta</b> pra montar o roteiro na hora.</p></div>';
+      }
       function paint(){
         var d=resolve(state.destText);
-        app.innerHTML=mainHTML(d,state.days);
-        if(fin)fin.innerHTML=summaryHTML(d,state.days);
+        if(state.view==='destinos'){
+          app.innerHTML=destinosHTML();
+          if(fin)fin.innerHTML=destinosFinHTML();
+        }else{
+          app.innerHTML=mainHTML(d,state.days);
+          if(fin)fin.innerHTML=summaryHTML(d,state.days);
+        }
+      }
+      // ── Popup "Enviar proposta ao cliente" ──
+      function closeModal(m){m.classList.remove('on');setTimeout(function(){if(m&&m.parentNode)m.parentNode.removeChild(m);},220);}
+      function openSendModal(){
+        var d=resolve(state.destText),t=totals(d,state.days);
+        var win=document.querySelector('.pp-window');if(!win)return;
+        var m=document.createElement('div');m.className='pp-modal';
+        m.innerHTML='<div class="pp-modal-card">'
+          +'<div class="pp-modal-ico">'+ic('send',22)+'</div>'
+          +'<h4>Essa é a proposta para o seu cliente</h4>'
+          +'<div class="pp-modal-prop"><b>'+esc(d.name)+'</b><span>'+state.days+' dias · 2 viajantes · com a sua marca</span><div class="pp-modal-total">'+brl(t.total)+'</div></div>'
+          +'<p class="pp-modal-sub">Ele recebe um link com a sua marca pra ver, personalizar e fechar direto com você.</p>'
+          +'<div class="pp-modal-acts"><button class="pp-modal-send" type="button">'+ic('send',15)+'Enviar ao cliente</button><button class="pp-modal-edit" type="button">Modificar</button></div>'
+        +'</div>';
+        win.appendChild(m);
+        m.querySelector('.pp-modal-edit').addEventListener('click',function(){closeModal(m);});
+        m.addEventListener('click',function(ev){if(ev.target===m)closeModal(m);});
+        m.querySelector('.pp-modal-send').addEventListener('click',function(){
+          m.querySelector('.pp-modal-card').innerHTML='<div class="pp-modal-ico ok">'+ic('star',22)+'</div>'
+            +'<h4>Proposta enviada!</h4>'
+            +'<p class="pp-modal-sub">O cliente já recebeu o link com a sua marca. Assim que ele mexer ou aceitar, você é avisado.</p>'
+            +'<div class="pp-modal-acts"><button class="pp-modal-close" type="button">Fechar</button></div>';
+          m.querySelector('.pp-modal-close').addEventListener('click',function(){closeModal(m);});
+          bubble('ai','Proposta de <b>'+esc(shortName())+'</b> enviada ✓ Você recebe um aviso quando o cliente abrir o link.');
+        });
+        setTimeout(function(){m.classList.add('on');},20);
       }
       function shortName(){return resolve(state.destText).name.split(',')[0];}
       function bubble(role,html){
@@ -1234,11 +1339,29 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           var navs=shell.querySelectorAll('.pp-side-nav span[data-nav]'),k;
           for(k=0;k<navs.length;k++){navs[k].classList.toggle('on',navs[k]===nav);}
           var which=nav.getAttribute('data-nav');
-          if(which==='marca'){bubble('ai','Aqui você troca <b>logo, cores e domínio</b>: a proposta sai 100% com a marca da sua agência, sem o nome do OND aparecer pro cliente.');}
+          if(which==='destinos'){state.view='destinos';setTab('rot');paint();bubble('ai','Explore destinos 👇 <b>Criar proposta</b> monta o roteiro na hora; <b>Ajudar a decidir</b> compara pro cliente.');}
+          else if(which==='clientes'){state.view='proposta';paint();bubble('ai','No card do cliente ficam as <b>propostas</b> e o histórico dele: viagens, recompra e contato num lugar só.');}
+          else if(which==='marca'){bubble('ai','Aqui você troca <b>logo, cores e domínio</b>: a proposta sai 100% com a marca da sua agência, sem o nome do OND aparecer pro cliente.');}
           else if(which==='vai'){bubble('ai','O OND vAI monta e ajusta a proposta pra você. Escolha um destino ou digite acima 👇');}
-          else if(which==='clientes'){bubble('ai','Cada proposta fica salva no card do cliente: histórico, viagens e recompra num lugar só.');}
+          else if(which==='relatorios'){bubble('ai','Relatórios: propostas enviadas, taxa de fechamento e ticket médio da sua agência, em tempo real.');}
           return;
         }
+        var dcreate=e.target.closest('.pp-dcreate');
+        if(dcreate){
+          var dn=dcreate.getAttribute('data-dest');
+          if(input)input.value=dn;
+          state.destText=dn;state.view='proposta';
+          trip.extras=[];trip.addons={};
+          setTab('rot');
+          var ns=shell.querySelectorAll('.pp-side-nav span[data-nav]');
+          for(var q=0;q<ns.length;q++){ns[q].classList.toggle('on',ns[q].getAttribute('data-nav')==='clientes');}
+          bubble('me','Criar proposta · '+esc(dn.split(',')[0]));
+          paint();
+          bubble('ai','Prontinho! Proposta de <b>'+esc(dn.split(',')[0])+'</b> montada 👇 Ajuste o que quiser.');
+          return;
+        }
+        var ddecide=e.target.closest('.pp-ddecide');
+        if(ddecide){bubble('ai',DECIDE[ddecide.getAttribute('data-decide')]||'Boa escolha!');return;}
         var t=e.target.closest('.pp-tab');
         if(t){setTab(t.getAttribute('data-tab'));return;}
         var addBtn=e.target.closest('.pp-add');
@@ -1260,10 +1383,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           trip.addons[aid]=!trip.addons[aid];
           paint();return;
         }
-        if(e.target.closest('.pp-send')){
-          var f=document.querySelector('.journey-foot');
-          if(f){f.scrollIntoView({behavior:'smooth',block:'center'});}
-        }
+        if(e.target.closest('.pp-send')){openSendModal();return;}
       });
       // início: saudação + proposta de exemplo já montada (chat vivo)
       bubble('ai','Oi! Aqui você monta uma proposta em segundos. Escolha um destino ou digite 👇');
