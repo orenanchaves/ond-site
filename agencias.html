@@ -554,6 +554,20 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   .pp-shell[data-tab="rot"] .pp-fin{display:none}
   .pp-shell[data-tab="fin"] .pp-app{display:none}
 }
+/* ── Telas do app: Conversa (vAI) x Proposta, nunca juntas ── */
+.pp-scr{display:flex;gap:5px;padding:4px;background:var(--surface);border:1px solid var(--border);border-radius:50px;margin-bottom:14px;flex-shrink:0}
+.pp-scr-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:inherit;font-size:.84rem;font-weight:800;color:var(--muted);background:none;border:none;border-radius:50px;padding:9px 14px;cursor:pointer;transition:color .15s,background .15s}
+.pp-scr-btn .ic{color:currentColor}
+.pp-scr-btn:hover{color:var(--text)}
+.pp-scr-btn.active{color:var(--ond-color-onPrimary);background:var(--blue);box-shadow:0 3px 10px var(--blue-glow)}
+.pp-screen{min-width:0}
+.pp-shell[data-screen="conversa"] .pp-screen[data-screen="proposta"]{display:none}
+.pp-shell[data-screen="proposta"] .pp-screen[data-screen="conversa"]{display:none}
+.pp-shell[data-screen="conversa"] .pp-fin{display:none}
+@media(min-width:1001px){
+  .pp-shell[data-screen="conversa"]{grid-template-columns:186px minmax(0,1fr) 0}
+  .pp-shell.pp-collapsed[data-screen="conversa"]{grid-template-columns:58px minmax(0,1fr) 0}
+}
 /* ── Fase 2: editar dia a dia + add-ons ── */
 .pp-add{margin-top:10px;display:inline-flex;align-items:center;gap:5px;font-family:inherit;font-size:.75rem;font-weight:800;color:var(--blue-light);background:var(--blue-dim);border:1px dashed color-mix(in srgb,var(--blue) 38%,transparent);border-radius:50px;padding:6px 13px;cursor:pointer;transition:background .15s,border-color .15s}
 .pp-add:hover{background:color-mix(in srgb,var(--blue) 15%,transparent);border-style:solid}
@@ -1029,6 +1043,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
               <div class="pp-side-foot">Plano Pro<br>12 propostas ativas</div>
             </aside>
             <main class="pp-main">
+            <div class="pp-scr" id="ppScr">
+              <button class="pp-scr-btn active" type="button" data-screen="conversa"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Conversa</button>
+              <button class="pp-scr-btn" type="button" data-screen="proposta"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Proposta</button>
+            </div>
+            <div class="pp-screen" data-screen="conversa" id="ppScrConversa">
             <div class="pp-chat">
               <div class="pp-log" id="ppLog"></div>
               <div class="pp-compose">
@@ -1058,11 +1077,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
                 </div>
               </div>
             </div>
+            </div>
+            <div class="pp-screen" data-screen="proposta" id="ppScrProposta">
             <div class="pp-tabs" id="ppTabs">
               <button class="pp-tab active" type="button" data-tab="rot">Roteiro</button>
               <button class="pp-tab" type="button" data-tab="fin">Financeiro</button>
             </div>
             <div class="pp-app" id="ppApp"></div>
+            </div>
             </main>
             <aside class="pp-fin" id="ppFin"></aside>
             </div>
@@ -1238,7 +1260,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       var shell=document.getElementById('ppShell');
       var input=document.getElementById('ppDestInput');
       var logEl=document.getElementById('ppLog');
-      var state={destText:(input&&input.value)||'Lisboa, Portugal',days:5,view:'proposta'};
+      var state={destText:(input&&input.value)||'Lisboa, Portugal',days:5,view:'proposta',screen:'conversa'};
+      function setScreen(which){
+        state.screen=which;
+        if(shell)shell.dataset.screen=which;
+        var btns=document.querySelectorAll('#ppScr .pp-scr-btn'),i;
+        for(i=0;i<btns.length;i++){btns[i].classList.toggle('active',btns[i].getAttribute('data-screen')===which);}
+      }
+      if(shell)shell.dataset.screen='conversa';
       // ── Destinos (galeria: criar proposta ou ajudar a decidir) ──
       var DESTINOS=['lisboa','bsas','orlando','paris','roma','cancun','noronha'];
       var DECIDE={
@@ -1321,7 +1350,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         if(!raw){if(input)input.focus();return;}
         state.destText=raw;
         trip.extras=[];trip.addons={};   // proposta nova: zera edições e add-ons
-        if(fromUser){if(shell)shell.dataset.tab='rot';setTab('rot');bubble('me',esc(shortName())+' · '+state.days+' dias');}
+        if(fromUser){if(shell)shell.dataset.tab='rot';setTab('rot');bubble('me',esc(shortName())+' · '+state.days+' dias');setScreen('proposta');}
         var typing=bubble('ai','<span class="pp-typing"><i></i><i></i><i></i></span>');
         app.innerHTML=SKELETON;
         if(timer)clearTimeout(timer);
@@ -1358,6 +1387,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         for(i=0;i<tabs.length;i++){tabs[i].classList.toggle('active',tabs[i].getAttribute('data-tab')===which);}
       }
       (shell||app).addEventListener('click',function(e){
+        var scrBtn=e.target.closest('.pp-scr-btn');
+        if(scrBtn){setScreen(scrBtn.getAttribute('data-screen'));return;}
         var col=e.target.closest('.pp-collapse');
         if(col){if(shell)shell.classList.toggle('pp-collapsed');return;}
         var nav=e.target.closest('.pp-side-nav span[data-nav]');
@@ -1365,11 +1396,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           var navs=shell.querySelectorAll('.pp-side-nav span[data-nav]'),k;
           for(k=0;k<navs.length;k++){navs[k].classList.toggle('on',navs[k]===nav);}
           var which=nav.getAttribute('data-nav');
-          if(which==='destinos'){state.view='destinos';setTab('rot');paint();bubble('ai','Explore destinos 👇 <b>Criar proposta</b> monta o roteiro na hora; <b>Ajudar a decidir</b> compara pro cliente.');}
-          else if(which==='clientes'){state.view='proposta';paint();bubble('ai','No card do cliente ficam as <b>propostas</b> e o histórico dele: viagens, recompra e contato num lugar só.');}
-          else if(which==='marca'){bubble('ai','Aqui você troca <b>logo, cores e domínio</b>: a proposta sai 100% com a marca da sua agência, sem o nome do OND aparecer pro cliente.');}
-          else if(which==='vai'){bubble('ai','O OND vAI monta e ajusta a proposta pra você. Escolha um destino ou digite acima 👇');}
-          else if(which==='relatorios'){bubble('ai','Relatórios: propostas enviadas, taxa de fechamento e ticket médio da sua agência, em tempo real.');}
+          if(which==='destinos'){state.view='destinos';setTab('rot');paint();setScreen('proposta');bubble('ai','Explore destinos 👇 <b>Criar proposta</b> monta o roteiro na hora; <b>Ajudar a decidir</b> compara pro cliente.');}
+          else if(which==='clientes'){state.view='proposta';paint();setScreen('conversa');bubble('ai','No card do cliente ficam as <b>propostas</b> e o histórico dele: viagens, recompra e contato num lugar só.');}
+          else if(which==='marca'){setScreen('conversa');bubble('ai','Aqui você troca <b>logo, cores e domínio</b>: a proposta sai 100% com a marca da sua agência, sem o nome do OND aparecer pro cliente.');}
+          else if(which==='vai'){setScreen('conversa');bubble('ai','O OND vAI monta e ajusta a proposta pra você. Escolha um destino ou digite acima 👇');}
+          else if(which==='relatorios'){setScreen('conversa');bubble('ai','Relatórios: propostas enviadas, taxa de fechamento e ticket médio da sua agência, em tempo real.');}
           return;
         }
         var dcreate=e.target.closest('.pp-dcreate');
@@ -1383,11 +1414,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           for(var q=0;q<ns.length;q++){ns[q].classList.toggle('on',ns[q].getAttribute('data-nav')==='clientes');}
           bubble('me','Criar proposta · '+esc(dn.split(',')[0]));
           paint();
+          setScreen('proposta');
           bubble('ai','Prontinho! Proposta de <b>'+esc(dn.split(',')[0])+'</b> montada 👇 Ajuste o que quiser.');
           return;
         }
         var ddecide=e.target.closest('.pp-ddecide');
-        if(ddecide){bubble('ai',DECIDE[ddecide.getAttribute('data-decide')]||'Boa escolha!');return;}
+        if(ddecide){setScreen('conversa');bubble('ai',DECIDE[ddecide.getAttribute('data-decide')]||'Boa escolha!');return;}
         var t=e.target.closest('.pp-tab');
         if(t){setTab(t.getAttribute('data-tab'));return;}
         var addBtn=e.target.closest('.pp-add');
