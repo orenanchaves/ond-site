@@ -9,6 +9,9 @@
   var WEB = 'https://web.ondviajar.com.br/';
   var WA = 'https://wa.me/5511910214133';
   var MAIL = 'renan@agamatec.com';
+  var CAL = 'https://calendly.com/renanfr1047/30min';
+  // contexto: na LP de agencias/hoteis o vAI responde como B2B (propostas, reunião)
+  var B2B = /\/(agencias|hoteis)/.test(location.pathname) || !!document.querySelector('link[href*="ond-b2b"]');
 
   var SYMBOL = '<svg viewBox="0 0 497.26 497.26"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg>';
   var IC_ANDROID = '<svg viewBox="0 0 24 24" style="fill:#3DDC84"><path d="M17.523 15.34c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m-11.046 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m11.405-6.02l1.997-3.46a.42.42 0 00-.72-.42l-2.02 3.5A12.3 12.3 0 0012 7.85c-1.85 0-3.59.39-5.14 1.1L4.84 5.45a.42.42 0 00-.72.42l2 3.46C2.69 11.19.34 14.66 0 18.76h24c-.34-4.1-2.69-7.57-6.12-9.44"/></svg>';
@@ -21,20 +24,32 @@
     function (d) { return 'Adorei — ' + d + '! 🗺️ Te entrego um plano sob medida: o que fazer, quanto custa e como se locomover, tudo organizado pra você só curtir.'; }
   ];
 
-  // respostas fixas (aceitam HTML)
-  var ANSWERS = {
+  // respostas fixas (aceitam HTML) — B2C (viajante)
+  var ANSWERS_B2C = {
     ola: 'Oi! 👋 Eu sou o <b>OND vAI</b>, seu planejador de viagem. Me pergunta o que quiser — <i>o que é o OND</i>, <i>como funciona</i>, <i>contato</i> — ou já me diz um destino que eu te dou um gostinho do roteiro. ✈️',
     oque: 'O <b>OND</b> é a sua agência de viagem <b>conversacional com IA</b>. 🧭 Em vez de pesquisar em dezenas de sites, você conversa comigo e eu monto o <b>roteiro completo</b> — com voos, hospedagem e passeios — em minutos.',
     faz: 'Eu <b>planejo sua viagem numa conversa</b>: monto o roteiro dia a dia, <b>indico e comparo voos, hotéis e passeios</b>, estimo os custos e ainda te acompanho durante a viagem. Tudo no app — iOS, Android e Web. 📲',
     preco: 'Dá pra <b>começar de graça</b>! 🎉 Você monta e testa o seu roteiro sem pagar nada. Quer experimentar? Baixa o app aqui embaixo. 👇',
     contato: 'Bora falar! 💬<br>📱 WhatsApp: <a href="' + WA + '" target="_blank" rel="noopener">(11) 91021-4133</a><br>✉️ E-mail: <a href="mailto:' + MAIL + '">' + MAIL + '</a><br><span style="opacity:.85">O OND é da <b>Agama Tec</b> — dos fundadores <b>Renan Rodrigues</b> e <b>Renan Chaves</b>.</span>'
   };
+  // respostas B2B (agência)
+  var ANSWERS_B2B = {
+    ola: 'Oi! 👋 Sou o <b>OND vAI</b>. Aqui pra sua <b>agência</b>: me pergunte <i>o que é o OND</i>, <i>como funciona pra agências</i>, <i>o modelo</i>, ou já <i>agende uma reunião</i>. 🤝',
+    oque: 'O <b>OND</b> é a <b>plataforma de vendas</b> da sua agência. 🧭 Você monta uma <b>proposta de viagem</b> em minutos e envia um link com a <b>sua marca</b> onde o cliente personaliza tudo — troca passeios, adiciona seguro e upgrades — e fecha. Mais ticket, menos ida e volta no e-mail.',
+    faz: 'Você monta a proposta (roteiro, voos, hotéis e preços) em minutos com a IA; o cliente abre o link com a <b>sua marca</b> e <b>personaliza sozinho</b>, adicionando seguro e add-ons; o preço recalcula na hora e a venda fecha. Você acompanha tudo no painel de propostas. 📊',
+    preco: 'O modelo é <b>fee fixo mensal + rev-share por venda</b>, e <b>você define o preço</b> que cobra do seu cliente. As condições a gente alinha numa <b>reunião de 30 min</b>, do tamanho da sua operação. 👇',
+    marca: 'Sim, é <b>white-label</b>! 🏷️ O portal e a proposta saem com o <b>seu logo, suas cores e seu domínio</b>. O cliente vê a sua agência, não a OND — a tecnologia trabalha nos bastidores.',
+    contato: 'Bora conversar! 💬 O melhor caminho é uma <b>reunião de 30 min</b> 👇<br>📱 WhatsApp: <a href="' + WA + '" target="_blank" rel="noopener">(11) 91021-4133</a><br>✉️ E-mail: <a href="mailto:' + MAIL + '">' + MAIL + '</a><br><span style="opacity:.85">O OND é da <b>Agama Tec</b>, dos fundadores <b>Renan Rodrigues</b> e <b>Renan Chaves</b>.</span>'
+  };
+  var ANSWERS = B2B ? ANSWERS_B2B : ANSWERS_B2C;
 
   function intentOf(t) {
     var s = (t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
     if (/(^|\s)(oi|ola|opa|e ?ai|bom dia|boa tarde|boa noite|hello|hi|hey)(\s|!|\?|$)/.test(s)) return 'ola';
+    if (B2B && /marca|white ?label|whitelabel|branding|meu logo|meu dominio|minha cara/.test(s)) return 'marca';
+    if (B2B && /reuniao|agendar|marcar|demonstra|demo|comecar|contratar|onboarding/.test(s)) return 'contato';
     if (/contato|falar com|fale com|email|e-mail|whats|suporte|fundador|renan|quem criou|quem fez|quem e voc|agama/.test(s)) return 'contato';
-    if (/quanto custa|preco|preco|valor|gratis|gratuito|de graca|pagar|assinatura|caro/.test(s)) return 'preco';
+    if (/quanto custa|preco|preco|valor|gratis|gratuito|de graca|pagar|assinatura|caro|modelo|rev.?share|comissao/.test(s)) return 'preco';
     if (/o que e|que e o ond|que e isso|what is|voce e|sobre o ond|para que serve|pra que serve/.test(s)) return 'oque';
     if (/o que faz|o que voce faz|como funciona|como voce funciona|como monta|what do you do|recursos|funcionalidade/.test(s)) return 'faz';
     return 'destino';
@@ -95,16 +110,25 @@
   function ready() {
     var style = document.createElement('style'); style.textContent = CSS; document.head.appendChild(style);
 
+    var GREET = B2B
+      ? 'Oi! 👋 Sou o <b>OND vAI</b>. Aqui pra sua <b>agência</b>: pergunte o que quiser sobre o OND, ou já agende uma reunião. 🤝'
+      : 'Oi! 👋 Eu sou o <b>OND vAI</b>. Pergunte qualquer coisa — ou me diga um destino que eu já te dou um gostinho do roteiro. ✈️';
+    var CHIPS = B2B
+      ? '<button class="ondvai-chip" data-q="O que é o OND?">O que é o OND?</button><button class="ondvai-chip" data-q="Como funciona pra agências?">Como funciona pra agências?</button><button class="ondvai-chip" data-q="Qual o modelo?">Qual o modelo?</button><button class="ondvai-chip" data-q="Agendar reunião">Agendar reunião</button>'
+      : '<button class="ondvai-chip" data-q="O que é o OND?">O que é o OND?</button><button class="ondvai-chip" data-q="O que você faz?">O que você faz?</button><button class="ondvai-chip" data-q="Quanto custa?">Quanto custa?</button><button class="ondvai-chip" data-q="Contato">Contato</button>';
+    var NOTE = B2B ? 'Prévia do OND vAI — fale com a gente pra ver tudo.' : 'Prévia do OND vAI — o roteiro completo é no app.';
+    var PH = B2B ? 'Pergunte sobre o OND pra agências...' : 'Pergunte qualquer coisa pro OND vAI...';
+
     var root = document.createElement('div');
     root.innerHTML =
       '<button class="ondvai-orb" id="ondvaiOrb" aria-label="Abrir OND vAI">' + SYMBOL + '</button>' +
       '<div class="ondvai-panel" id="ondvaiPanel" role="dialog" aria-label="OND vAI">' +
         '<div class="ondvai-head"><div class="ondvai-hh">' + SYMBOL + '</div><div><div class="ondvai-ht">OND vAI <span class="ondvai-tag">prévia</span></div><div class="ondvai-on">online agora</div></div><button class="ondvai-x" id="ondvaiClose" aria-label="Fechar">✕</button></div>' +
         '<div class="ondvai-body" id="ondvaiBody">' +
-          '<div class="ondvai-msg ondvai-bot">Oi! 👋 Eu sou o <b>OND vAI</b>. Pergunte qualquer coisa — ou me diga um destino que eu já te dou um gostinho do roteiro. ✈️</div>' +
-          '<div class="ondvai-chips" id="ondvaiChips"><button class="ondvai-chip" data-q="O que é o OND?">O que é o OND?</button><button class="ondvai-chip" data-q="O que você faz?">O que você faz?</button><button class="ondvai-chip" data-q="Quanto custa?">Quanto custa?</button><button class="ondvai-chip" data-q="Contato">Contato</button></div>' +
+          '<div class="ondvai-msg ondvai-bot">' + GREET + '</div>' +
+          '<div class="ondvai-chips" id="ondvaiChips">' + CHIPS + '</div>' +
         '</div>' +
-        '<div class="ondvai-foot"><form class="ondvai-form" id="ondvaiForm"><input class="ondvai-in" id="ondvaiInput" type="text" placeholder="Pergunte qualquer coisa pro OND vAI..." autocomplete="off"><button class="ondvai-snd" type="submit" aria-label="Enviar">→</button></form><div class="ondvai-note">Prévia do OND vAI — o roteiro completo é no app.</div></div>' +
+        '<div class="ondvai-foot"><form class="ondvai-form" id="ondvaiForm"><input class="ondvai-in" id="ondvaiInput" type="text" placeholder="' + PH + '" autocomplete="off"><button class="ondvai-snd" type="submit" aria-label="Enviar">→</button></form><div class="ondvai-note">' + NOTE + '</div></div>' +
       '</div>';
     document.body.appendChild(root);
 
@@ -165,7 +189,7 @@
     function showBubble() {
       if (document.getElementById('ondvaiBubble') || panel.classList.contains('open')) return;
       var b = document.createElement('div'); b.className = 'ondvai-bubble'; b.id = 'ondvaiBubble';
-      b.innerHTML = '<span>👋 Pergunte qualquer coisa pro OND vAI</span><button class="bx" aria-label="Fechar">✕</button>';
+      b.innerHTML = '<span>' + (B2B ? '👋 Dúvidas do OND pra agências?' : '👋 Pergunte qualquer coisa pro OND vAI') + '</span><button class="bx" aria-label="Fechar">✕</button>';
       document.body.appendChild(b);
       var r = orb.getBoundingClientRect(), bw = b.offsetWidth, bh = b.offsetHeight;
       var left = r.left - bw - 12; if (left < 8) left = Math.min(r.right + 12, window.innerWidth - bw - 8);
@@ -197,11 +221,29 @@
     }
     function typing() { var t = document.createElement('div'); t.className = 'ondvai-typing'; t.innerHTML = '<span></span><span></span><span></span>'; body.appendChild(t); scroll(); return t; }
 
+    function meetingCta() {
+      var el = document.createElement('div'); el.className = 'ondvai-cta';
+      el.innerHTML = '<b>Vamos falar? Agende 30 min 👇</b><div class="ondvai-btns">' +
+        '<a class="ondvai-ab pri" href="' + CAL + '" target="_blank" rel="noopener">📅 Agendar reunião</a>' +
+        '<a class="ondvai-ab" href="' + WA + '?text=' + encodeURIComponent('Olá! Tenho uma agência e quero saber mais sobre o OND') + '" target="_blank" rel="noopener">WhatsApp</a>' +
+        '</div>';
+      body.appendChild(el); scroll();
+    }
     function reply(text) {
       var intent = intentOf(text);
       var t = typing();
       setTimeout(function () {
         t.remove();
+        if (B2B) {
+          if (intent === 'destino') {
+            add('ondvai-bot', 'Boa! Pra <b>' + esc(text) + '</b> você monta a proposta em segundos aqui na página — roteiro, preços e a sua marca. Quer ver ao vivo? 👇');
+            setTimeout(meetingCta, 400);
+          } else {
+            add('ondvai-bot', ANSWERS[intent] || ANSWERS.oque);
+            if (intent === 'faz' || intent === 'preco' || intent === 'marca' || intent === 'contato') setTimeout(meetingCta, 450);
+          }
+          return;
+        }
         if (intent === 'destino') {
           add('ondvai-bot', REPLIES[Math.floor(Math.random() * REPLIES.length)](esc(text)));
           setTimeout(function () { appCta(text); }, 400);
