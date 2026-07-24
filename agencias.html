@@ -113,6 +113,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .mobile-nav .seg-btn.active,.mobile-nav .seg-btn.active:hover{background:var(--blue);color:var(--ond-color-onPrimary)}
 .hero-title{font-size:clamp(1.9rem,3.7vw,3rem);font-weight:800;line-height:1.12;margin-bottom:18px;letter-spacing:-.025em}
 .hero-title em{font-style:normal;color:var(--green)}
+.hero-title .hl{display:inline}
+@media(max-width:600px){.hero-title{font-size:1.7rem}.hero-title .hl{display:block}}
 .hero-sub{font-size:1.05rem;color:var(--muted);max-width:480px;line-height:1.75;margin-bottom:32px}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
 .btn-green{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:var(--on-green);padding:14px 28px;border-radius:50px;font-size:.97rem;font-weight:700;text-decoration:none;transition:all .2s;box-shadow:0 4px 20px color-mix(in srgb, var(--green) 25%, transparent)}
@@ -479,7 +481,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-log{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;max-height:168px;overflow-y:auto}
 .pp-msg{display:flex;gap:9px;align-items:flex-end;max-width:90%}
 .pp-msg.me{margin-left:auto;flex-direction:row-reverse}
-.pp-av{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;background:var(--blue-dim);color:var(--blue-light);border:1px solid color-mix(in srgb, var(--blue) 30%, transparent)}
+.pp-av{width:34px;height:34px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#7c3fff,#9d6fff);box-shadow:0 4px 14px rgba(124,63,255,.4)}
+.pp-av svg{width:16px;height:16px;fill:#fff}
 .pp-bubble{font-size:.83rem;line-height:1.45;padding:9px 13px;border-radius:14px}
 .pp-msg.ai .pp-bubble{background:var(--card);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:5px}
 .pp-msg.me .pp-bubble{background:var(--blue);color:var(--ond-color-onPrimary);border-bottom-right-radius:5px;font-weight:600}
@@ -798,6 +801,29 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </head>
 <body>
 
+<!-- Reveal de entrada (continua o swipe roxo→azul vindo da home) -->
+<style>
+.pgt{position:fixed;inset:0;z-index:99999;background:linear-gradient(120deg,#7c3fff 0%,#0066ff 100%);display:flex;align-items:center;justify-content:center;transform:translateX(100%);pointer-events:none;will-change:transform}
+.pgt.cover{transform:translateX(0);animation:pgtOut .55s .04s cubic-bezier(.76,0,.24,1) forwards;pointer-events:auto}
+@keyframes pgtOut{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+.pgt-orb{width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff,rgba(255,255,255,.7) 42%,rgba(255,255,255,.12) 72%);box-shadow:0 0 46px rgba(255,255,255,.55);opacity:0}
+.pgt.cover .pgt-orb{animation:pgtOrbOut .5s ease forwards}
+@keyframes pgtOrbOut{0%{opacity:1;transform:scale(1)}70%{opacity:1}100%{opacity:0;transform:scale(.7)}}
+@media(prefers-reduced-motion:reduce){.pgt{display:none!important}}
+</style>
+<div id="pgt" class="pgt" aria-hidden="true"><span class="pgt-orb"></span></div>
+<script>
+(function(){
+  var o=document.getElementById('pgt');if(!o)return;
+  var go=false;
+  try{go=sessionStorage.getItem('ond_pgt')==='1';if(go)sessionStorage.removeItem('ond_pgt');}catch(_){}
+  if(!go||matchMedia('(prefers-reduced-motion:reduce)').matches){if(o.parentNode)o.parentNode.removeChild(o);return;}
+  o.classList.add('cover');
+  var done=function(){if(o&&o.parentNode)o.parentNode.removeChild(o);};
+  o.addEventListener('animationend',done);setTimeout(done,1000);
+})();
+</script>
+
 <svg style="display:none">
   <symbol id="ond-icon" viewBox="0 0 497.26 497.26">
     <path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/>
@@ -848,7 +874,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <section class="hero">
   <div>
     <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Plataforma de vendas para agências</div>
-    <h1 class="hero-title">O cliente monta a viagem,<br>e você <em>fecha a venda.</em></h1>
+    <h1 class="hero-title"><span class="hl">O cliente monta</span> <span class="hl">a viagem, e você</span> <span class="hl"><em>fecha a venda.</em></span></h1>
     <p class="hero-sub">O OND vira o motor de vendas da sua agência: monte a proposta em minutos e envie um link com a sua marca onde o próprio cliente personaliza tudo, adiciona seguro e upgrades, e fecha. Mais ticket, menos ida e volta no e-mail.</p>
     <div class="hero-ctas">
       <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Quero o OND na minha agência&nbsp;→</a>
@@ -1286,7 +1312,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       function bubble(role,html){
         if(!logEl)return null;
         var m=document.createElement('div');m.className='pp-msg '+role;
-        m.innerHTML=(role==='ai'?'<span class="pp-av">✦</span>':'')+'<div class="pp-bubble">'+html+'</div>';
+        m.innerHTML=(role==='ai'?'<span class="pp-av"><svg viewBox="0 0 497.26 497.26"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span>':'')+'<div class="pp-bubble">'+html+'</div>';
         logEl.appendChild(m);logEl.scrollTop=logEl.scrollHeight;return m;
       }
       var timer=null;
