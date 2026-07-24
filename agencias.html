@@ -476,6 +476,43 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-tab.active{color:var(--ond-color-onPrimary);background:var(--blue);box-shadow:0 3px 10px var(--blue-glow)}
 .pp-pane[hidden]{display:none}
 .pp-pane .pp-itinerary{display:flex;flex-direction:column;gap:12px}
+/* ── Layout de app: 3 colunas no desktop (menu · roteiro · financeiro) ── */
+.pp-shell{display:grid;grid-template-columns:186px minmax(0,1fr) 310px;align-items:stretch;min-height:560px}
+.pp-side{border-right:1px solid var(--border);background:var(--surface);padding:16px 13px;display:flex;flex-direction:column;gap:14px}
+.pp-side-brand{padding-bottom:13px;border-bottom:1px solid var(--border)}
+.pp-side-nav{display:flex;flex-direction:column;gap:3px}
+.pp-side-nav span{display:flex;align-items:center;gap:9px;font-size:.81rem;font-weight:700;color:var(--muted);padding:9px 11px;border-radius:10px}
+.pp-side-nav span .ic{color:var(--muted);flex-shrink:0}
+.pp-side-nav span.on{color:var(--ond-color-onPrimary);background:var(--blue)}
+.pp-side-nav span.on .ic{color:var(--ond-color-onPrimary)}
+.pp-side-foot{margin-top:auto;font-size:.7rem;color:var(--muted2);line-height:1.55;border-top:1px solid var(--border);padding-top:12px}
+.pp-main{min-width:0;padding:16px;display:flex;flex-direction:column;gap:14px}
+.pp-fin{border-left:1px solid var(--border);background:var(--surface);padding:16px 14px;overflow-y:auto}
+/* banner do destino (como no app) */
+.pp-banner{position:relative;height:136px;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,var(--blue),#08152b)}
+.pp-banner img{width:100%;height:100%;object-fit:cover;display:block}
+.pp-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,20,.15) 30%,rgba(6,10,20,.88))}
+.pp-banner-t{position:absolute;left:15px;bottom:12px;z-index:2;color:#fff}
+.pp-banner-t b{display:block;font-size:1.08rem;font-weight:800;letter-spacing:-.02em}
+.pp-banner-t span{font-size:.76rem;opacity:.92}
+.pp-banner-chip{position:absolute;right:12px;top:12px;z-index:2;font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:rgba(4,10,22,.55);color:#fff;border:1px solid rgba(255,255,255,.28);padding:4px 10px;border-radius:50px}
+/* financeiro estilo app: total em gradiente + média/dia */
+.pp-fintotal{background:linear-gradient(120deg,var(--blue),#0a3a8f);border-radius:14px;padding:15px;color:#fff;margin-bottom:11px}
+.pp-fintotal span{font-size:.76rem;opacity:.88}
+.pp-fintotal b{display:block;font-size:1.55rem;margin-top:2px;font-weight:800;letter-spacing:-.02em}
+.pp-finday{display:flex;align-items:center;justify-content:space-between;background:var(--green-dim);border:1px solid color-mix(in srgb,var(--green) 26%,transparent);border-radius:12px;padding:11px 13px;font-size:.78rem;color:var(--green);margin-bottom:12px}
+.pp-finday b{font-size:.98rem}
+.pp-fin-title{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+/* abas: só no mobile (no desktop o financeiro fica fixo à direita) */
+.pp-tabs{display:none}
+@media(max-width:1000px){
+  .pp-shell{grid-template-columns:1fr;min-height:0}
+  .pp-side{display:none}
+  .pp-fin{border-left:none;border-top:1px solid var(--border)}
+  .pp-tabs{display:flex}
+  .pp-shell[data-tab="rot"] .pp-fin{display:none}
+  .pp-shell[data-tab="fin"] .pp-app{display:none}
+}
 /* ── Fase 2: editar dia a dia + add-ons ── */
 .pp-add{margin-top:10px;display:inline-flex;align-items:center;gap:5px;font-family:inherit;font-size:.75rem;font-weight:800;color:var(--blue-light);background:var(--blue-dim);border:1px dashed color-mix(in srgb,var(--blue) 38%,transparent);border-radius:50px;padding:6px 13px;cursor:pointer;transition:background .15s,border-color .15s}
 .pp-add:hover{background:color-mix(in srgb,var(--blue) 15%,transparent);border-style:solid}
@@ -870,6 +907,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
               <span class="pp-url"><svg class="ic" width="12" height="12" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>app.ond.com.br/proposta</span>
               <span class="pp-live">Demonstração</span>
             </div>
+            <div class="pp-shell" id="ppShell" data-tab="rot">
+            <aside class="pp-side">
+              <div class="pp-side-brand"><span class="pp-brand-mark"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>Sua Marca</span></div>
+              <nav class="pp-side-nav">
+                <span class="on"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Propostas</span>
+                <span><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Clientes</span>
+                <span><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg>OND vAI</span>
+                <span><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-4"/></svg>Relatórios</span>
+              </nav>
+              <div class="pp-side-foot">Plano Pro<br>12 propostas ativas</div>
+            </aside>
+            <main class="pp-main">
             <div class="pp-chat">
               <div class="pp-log" id="ppLog"></div>
               <div class="pp-compose">
@@ -899,7 +948,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
                 </div>
               </div>
             </div>
-            <div class="pp-app" id="ppApp">
+            <div class="pp-tabs" id="ppTabs">
+              <button class="pp-tab active" type="button" data-tab="rot">Roteiro</button>
+              <button class="pp-tab" type="button" data-tab="fin">Financeiro</button>
+            </div>
+            <div class="pp-app" id="ppApp"></div>
+            </main>
+            <aside class="pp-fin" id="ppFin"></aside>
             </div>
           </div>
         </div>
@@ -928,43 +983,43 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
       function titleCase(s){var small={de:1,da:1,do:1,dos:1,das:1,e:1};return String(s).trim().replace(/\s+/g,' ').toLowerCase().split(' ').map(function(w,i){if(!w)return w;if(i>0&&small[w])return w;return w.charAt(0).toUpperCase()+w.slice(1);}).join(' ');}
       var DATA={
-        lisboa:{name:'Lisboa, Portugal',flight:4100,hotel:640,tour:480,ins:64,days:[
+        lisboa:{name:'Lisboa, Portugal',img:'photo-1585208798174-6cedd86e019a',flight:4100,hotel:640,tour:480,ins:64,days:[
           {t:'Chegada e Alfama',items:[['plane','Voo e check-in no hotel'],['pin','Miradouros de Alfama'],['food','Jantar com fado ao vivo']]},
           {t:'Belém e descobrimentos',items:[['cam','Torre de Belém e Jerónimos'],['food','Pastéis de Belém na origem'],['pin','Pôr do sol no Cais do Sodré']]},
           {t:'Bate-volta a Sintra',items:[['cam','Palácio da Pena'],['pin','Quinta da Regaleira'],['food','Almoço típico em Colares']]},
           {t:'Cascais e praia',items:[['sun','Dia de praia em Cascais'],['pin','Boca do Inferno'],['bag','Compras no centro']]}
         ]},
-        bsas:{name:'Buenos Aires, Argentina',flight:2600,hotel:520,tour:420,ins:58,days:[
+        bsas:{name:'Buenos Aires, Argentina',img:'photo-1589909202802-8f4aadce1849',flight:2600,hotel:520,tour:420,ins:58,days:[
           {t:'Recoleta e café portenho',items:[['plane','Voo e check-in'],['pin','Cemitério da Recoleta'],['food','Café clássico portenho']]},
           {t:'San Telmo e tango',items:[['pin','Feira de San Telmo'],['cam','Plaza Dorrego'],['star','Show de tango à noite']]},
           {t:'Palermo e Puerto Madero',items:[['pin','Bosques de Palermo'],['cam','Puente de la Mujer'],['food','Parrilla em Puerto Madero']]},
           {t:'La Boca e Caminito',items:[['cam','Caminito colorido'],['star','Estádio La Bombonera'],['bag','Feira de artesanato']]}
         ]},
-        orlando:{name:'Orlando, Estados Unidos',flight:3800,hotel:700,tour:900,ins:72,days:[
+        orlando:{name:'Orlando, Estados Unidos',img:'photo-1597466599360-3b9775841aec',flight:3800,hotel:700,tour:900,ins:72,days:[
           {t:'Magic Kingdom',items:[['plane','Voo e check-in'],['star','Magic Kingdom'],['cam','Fogos no castelo']]},
           {t:'Epcot',items:[['star','Epcot e World Showcase'],['food','Volta gastronômica'],['cam','Spaceship Earth']]},
           {t:'Universal Studios',items:[['star','Universal Studios'],['star','Mundo do Harry Potter'],['food','Almoço no parque']]},
           {t:'Compras e outlets',items:[['bag','Premium Outlets'],['bag','Malls e eletrônicos'],['food','Jantar especial']]}
         ]},
-        paris:{name:'Paris, França',flight:4300,hotel:720,tour:520,ins:66,days:[
+        paris:{name:'Paris, França',img:'photo-1502602898657-3e91760cbb34',flight:4300,hotel:720,tour:520,ins:66,days:[
           {t:'Chegada e Torre Eiffel',items:[['plane','Voo e check-in no hotel'],['cam','Torre Eiffel ao entardecer'],['food','Jantar em bistrô parisiense']]},
           {t:'Louvre e Champs-Élysées',items:[['star','Museu do Louvre'],['pin','Arco do Triunfo e Champs-Élysées'],['food','Café em Saint-Germain']]},
           {t:'Montmartre e Sacré-Cœur',items:[['pin','Basílica de Sacré-Cœur'],['cam','Ruelas de Montmartre'],['star','Cabaré à noite']]},
           {t:'Bate-volta a Versalhes',items:[['cam','Palácio de Versalhes'],['pin','Jardins reais'],['bag','Compras nas galerias']]}
         ]},
-        roma:{name:'Roma, Itália',flight:4200,hotel:680,tour:500,ins:64,days:[
+        roma:{name:'Roma, Itália',img:'photo-1552832230-c0197dd311b5',flight:4200,hotel:680,tour:500,ins:64,days:[
           {t:'Chegada e Coliseu',items:[['plane','Voo e check-in'],['star','Coliseu e Arco de Constantino'],['food','Jantar em Trastevere']]},
           {t:'Vaticano',items:[['cam','Museus do Vaticano'],['star','Basílica de São Pedro'],['food','Gelato artesanal']]},
           {t:'Centro histórico',items:[['pin','Fontana di Trevi'],['cam','Panteão'],['food','Almoço na Piazza Navona']]},
           {t:'Roma antiga',items:[['cam','Fórum Romano e Palatino'],['pin','Boca da Verdade'],['bag','Vias de compras do centro']]}
         ]},
-        cancun:{name:'Cancún, México',flight:3600,hotel:650,tour:560,ins:62,days:[
+        cancun:{name:'Cancún, México',img:'photo-1552074284-5e88ef1aef18',flight:3600,hotel:650,tour:560,ins:62,days:[
           {t:'Chegada e praia',items:[['plane','Voo e check-in no resort'],['sun','Praia de águas turquesa'],['food','Jantar à beira-mar']]},
           {t:'Chichén Itzá',items:[['cam','Ruínas maias de Chichén Itzá'],['sun','Banho em cenote'],['food','Almoço típico yucateco']]},
           {t:'Isla Mujeres',items:[['plane','Catamarã até Isla Mujeres'],['star','Snorkel no recife'],['sun','Pôr do sol no barco']]},
           {t:'Parques e cenotes',items:[['star','Parque ecológico Xcaret'],['pin','Nado em cenote'],['star','Show noturno mexicano']]}
         ]},
-        noronha:{name:'Fernando de Noronha',flight:3900,hotel:890,tour:620,ins:70,days:[
+        noronha:{name:'Fernando de Noronha',img:'/assets/blog/noronha.jpg',flight:3900,hotel:890,tour:620,ins:70,days:[
           {t:'Chegada e Vila dos Remédios',items:[['plane','Voo e check-in na pousada'],['pin','Vila dos Remédios'],['sun','Pôr do sol no Forte']]},
           {t:'Mar de dentro',items:[['sun','Baía do Sancho'],['pin','Baía dos Porcos'],['star','Mergulho com tartarugas']]},
           {t:'Passeio de barco',items:[['plane','Passeio de barco pela ilha'],['star','Golfinhos-rotadores'],['sun','Praia do Leão']]},
@@ -1000,7 +1055,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         return {name:name,flight:3400,hotel:580,tour:460,ins:60,days:genericDays(name)};
       }
       var SKELETON='<div class="pp-skel"><div class="sk sk-top"></div><div class="sk sk-bar"></div><div class="sk sk-day"></div><div class="sk sk-day"></div><div class="sk sk-sum"></div></div>';
-      var CURTAB='rot';   // aba ativa persiste entre re-renders
+      /* no desktop o financeiro fica fixo na direita; as abas só existem no mobile */
       var PASSEIOS=[
         ['star','Tour guiado pelos ícones',180],['food','Experiência gastronômica',150],
         ['plane','Passeio de barco',220],['cam','Museu com ingresso',90],
@@ -1045,41 +1100,39 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         for(i=0;i<ADDONS.length;i++){if(trip.addons[ADDONS[i][0]])rows+='<div class="pp-sum-row"><span>'+ic(ADDONS[i][1],15)+esc(ADDONS[i][2])+'</span><b>'+brl(ADDONS[i][3])+'</b></div>';}
         var chips='';
         for(i=0;i<ADDONS.length;i++){chips+='<button class="pp-addon'+(trip.addons[ADDONS[i][0]]?' on':'')+'" type="button" data-addon="'+ADDONS[i][0]+'">'+ic(ADDONS[i][1],14)+esc(ADDONS[i][2])+' '+brl(ADDONS[i][3])+'</button>';}
-        return '<div class="pp-sum">'
-          +'<div class="pp-sum-title">Resumo da proposta</div>'
+        return ''
+          +'<div class="pp-fintotal"><span>Investimento total</span><b>'+brl(t.total)+'</b></div>'
+          +'<div class="pp-finday"><span>Média por dia</span><b>'+brl(Math.round(t.total/days))+'</b></div>'
+          +'<div class="pp-fin-title">Composição</div>'
           +rows
-          +'<div class="pp-sum-total"><span>Total</span><span class="v">'+brl(t.total)+'</span></div>'
           +'<div class="pp-addons-label">Adicionar à proposta</div>'
           +'<div class="pp-addons">'+chips+'</div>'
           +'<button class="pp-send" type="button">'+ic('send',16)+'Enviar proposta ao cliente</button>'
-          +'<p class="pp-opt">O cliente adiciona ou tira tudo isso sozinho no link, e o preço recalcula na hora.</p>'
+          +'<p class="pp-opt">O cliente adiciona ou tira tudo isso sozinho no link, e o preço recalcula na hora.</p>';
+      }
+      function bannerHTML(d,days){
+        var im=d.img?(d.img.charAt(0)==='/'?d.img:'https://images.unsplash.com/'+d.img+'?w=900&q=70&auto=format'):'';
+        return '<div class="pp-banner">'+(im?'<img src="'+im+'" alt="" loading="lazy">':'')
+          +'<span class="pp-banner-chip">Rascunho</span>'
+          +'<div class="pp-banner-t"><b>'+esc(d.name)+'</b><span>'+days+' dias · 2 viajantes · proposta da sua agência</span></div>'
         +'</div>';
       }
-      function render(d,days){
-        return ''
-          +'<div class="pp-app-top">'
-            +'<div class="pp-brand"><span class="pp-brand-mark">'+ic('image',15)+'Sua Marca</span>'
-            +'<div><div class="pp-brand-name">Proposta de viagem</div><div class="pp-brand-sub">Montada na plataforma OND</div></div></div>'
-            +'<span class="pp-status">Rascunho</span>'
-          +'</div>'
-          +'<div class="pp-trip">'
-            +'<span class="pp-trip-item">'+ic('pin',15)+'<b>'+esc(d.name)+'</b></span>'
-            +'<span class="pp-trip-item">'+ic('cal',15)+'<span>'+days+' dias</span></span>'
-            +'<span class="pp-trip-item">'+ic('users',15)+'<span>2 pax</span></span>'
-          +'</div>'
-          +'<div class="pp-tabs">'
-            +'<button class="pp-tab'+(CURTAB==='rot'?' active':'')+'" type="button" data-tab="rot">Roteiro</button>'
-            +'<button class="pp-tab'+(CURTAB==='fin'?' active':'')+'" type="button" data-tab="fin">Financeiro</button>'
-          +'</div>'
-          +'<div class="pp-pane" data-pane="rot"'+(CURTAB==='rot'?'':' hidden')+'><div class="pp-itinerary">'+itinerary(d,days)+'</div></div>'
-          +'<div class="pp-pane" data-pane="fin"'+(CURTAB==='fin'?'':' hidden')+'>'+summaryHTML(d,days)+'</div>';
+      // centro = banner + roteiro; o financeiro vive na coluna da direita
+      function mainHTML(d,days){
+        return bannerHTML(d,days)+'<div class="pp-itinerary">'+itinerary(d,days)+'</div>';
       }
       var app=document.getElementById('ppApp');
       if(!app) return;
+      var fin=document.getElementById('ppFin');
+      var shell=document.getElementById('ppShell');
       var input=document.getElementById('ppDestInput');
       var logEl=document.getElementById('ppLog');
       var state={destText:(input&&input.value)||'Lisboa, Portugal',days:5};
-      function paint(){app.innerHTML=render(resolve(state.destText),state.days);}
+      function paint(){
+        var d=resolve(state.destText);
+        app.innerHTML=mainHTML(d,state.days);
+        if(fin)fin.innerHTML=summaryHTML(d,state.days);
+      }
       function shortName(){return resolve(state.destText).name.split(',')[0];}
       function bubble(role,html){
         if(!logEl)return null;
@@ -1093,7 +1146,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         if(!raw){if(input)input.focus();return;}
         state.destText=raw;
         trip.extras=[];trip.addons={};   // proposta nova: zera edições e add-ons
-        if(fromUser){CURTAB='rot';bubble('me',esc(shortName())+' · '+state.days+' dias');}
+        if(fromUser){if(shell)shell.dataset.tab='rot';setTab('rot');bubble('me',esc(shortName())+' · '+state.days+' dias');}
         var typing=bubble('ai','<span class="pp-typing"><i></i><i></i><i></i></span>');
         app.innerHTML=SKELETON;
         if(timer)clearTimeout(timer);
@@ -1124,15 +1177,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       });}
       var gen=document.getElementById('ppGen');
       if(gen){gen.addEventListener('click',function(){generate(true);});}
-      app.addEventListener('click',function(e){
+      function setTab(which){
+        if(shell)shell.dataset.tab=which;
+        var tabs=document.querySelectorAll('#ppTabs .pp-tab'),i;
+        for(i=0;i<tabs.length;i++){tabs[i].classList.toggle('active',tabs[i].getAttribute('data-tab')===which);}
+      }
+      (shell||app).addEventListener('click',function(e){
         var t=e.target.closest('.pp-tab');
-        if(t){
-          CURTAB=t.getAttribute('data-tab');
-          var tabs=app.querySelectorAll('.pp-tab'),panes=app.querySelectorAll('.pp-pane'),i;
-          for(i=0;i<tabs.length;i++){tabs[i].classList.toggle('active',tabs[i]===t);}
-          for(i=0;i<panes.length;i++){panes[i].hidden=(panes[i].getAttribute('data-pane')!==CURTAB);}
-          return;
-        }
+        if(t){setTab(t.getAttribute('data-tab'));return;}
         var addBtn=e.target.closest('.pp-add');
         if(addBtn){
           var dday=parseInt(addBtn.getAttribute('data-add'),10);
