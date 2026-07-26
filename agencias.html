@@ -329,6 +329,20 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .wwa-body{padding:0 18px 18px;border-top:1px solid var(--border)}
 .wwa-body p{font-size:.86rem;color:var(--muted);line-height:1.65;margin-top:12px}
 .wwa-body a{color:var(--blue-light);text-decoration:none;border-bottom:1px solid var(--border-hi)}
+.wwa-founders{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.wwa-person{display:flex;gap:13px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px}
+.wwa-photo{width:54px;height:54px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--border-hi);background:var(--card)}
+.wwa-name{font-size:.92rem;font-weight:800;color:var(--text);line-height:1.2}
+.wwa-name span{display:block;font-size:.72rem;font-weight:700;color:var(--blue-light);margin-top:3px}
+.wwa-bio{font-size:.8rem;color:var(--muted);line-height:1.55;margin-top:7px}
+.wwa-wins{margin-top:16px;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 22%,transparent);border-radius:14px;padding:14px 16px}
+.wwa-wins-title{display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:800;color:var(--text);margin-bottom:10px}
+.wwa-wins-title .ic{color:var(--gold)}
+.wwa-wins ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.wwa-wins li{position:relative;padding-left:18px;font-size:.82rem;color:var(--muted);line-height:1.5}
+.wwa-wins li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;background:var(--blue-light)}
+.wwa-wins li b{color:var(--text)}
+@media(max-width:560px){.wwa-founders{grid-template-columns:1fr}}
 .cta-final-note a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border)}
 
 /* ── FOOTER ── */
@@ -1963,8 +1977,32 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <details class="wwa">
       <summary class="wwa-sum"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Quem somos por trás do OND<span class="wwa-caret">▾</span></summary>
       <div class="wwa-body">
-        <p>O OND é da <b>Agama Tec</b>, uma empresa brasileira de tecnologia para viagem. Fundada por <b>Renan Rodrigues</b> e <b>Renan Chaves</b>, a Agama nasceu pra levar IA de verdade pro turismo, do viajante à agência.</p>
-        <p>Não somos um SaaS distante: a gente entra junto no onboarding, customiza pra sua operação e evolui o produto lado a lado com você. Quer conhecer a gente? <a href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agende 30 min</a> ou fale com um fundador no <a href="https://wa.me/5511910214133" target="_blank" rel="noopener">WhatsApp</a>.</p>
+        <p>O OND é da <b>Agama Tec</b>, uma empresa brasileira de tecnologia para viagem. Nasceu pra levar IA de verdade pro turismo, do viajante à agência, e é tocada de perto por quem fundou:</p>
+        <div class="wwa-founders">
+          <div class="wwa-person">
+            <img class="wwa-photo" src="https://static.wixstatic.com/media/689a94_70a214f635264fefa54218716b4d01af~mv2.png" alt="Renan Rodrigues" loading="lazy">
+            <div class="wwa-person-txt">
+              <div class="wwa-name">Renan Rodrigues <span>Co-fundador · Tecnologia</span></div>
+              <p class="wwa-bio">Desenvolvedor Java e arquiteto de software desde 2018, em projetos desafiadores e com certificações em nuvem (AWS, Azure e GCP). Lidera a engenharia e a IA do OND.</p>
+            </div>
+          </div>
+          <div class="wwa-person">
+            <img class="wwa-photo" src="https://static.wixstatic.com/media/689a94_22dd2a8ea994432799caafb76ae9ff3e~mv2.png" alt="Renan Chaves" loading="lazy">
+            <div class="wwa-person-txt">
+              <div class="wwa-name">Renan Chaves <span>Co-fundador · Design & Produto</span></div>
+              <p class="wwa-bio">Designer e diretor de criação com 7 anos em design e publicidade (imobiliário, finanças e marketing), formado em Publicidade pela Universidade Paulista. Cuida da marca, do produto e da experiência.</p>
+            </div>
+          </div>
+        </div>
+        <div class="wwa-wins">
+          <div class="wwa-wins-title"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg>Conquistas do OND</div>
+          <ul>
+            <li>Apresentado e aprovado pelo conselho da <b>BeFly Leadership</b>, uma das maiores redes de agências de viagem do Brasil.</li>
+            <li>Concierge de viagens com IA <b>no ar</b> (B2C) e plataforma <b>white-label</b> para agências (B2B).</li>
+            <li>Roteiros que unem IA às regras reais do turismo, não um wrapper genérico de ChatGPT.</li>
+          </ul>
+        </div>
+        <p>Não somos um SaaS distante: a gente entra junto no onboarding, customiza pra sua operação e evolui o produto lado a lado com você. <a href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agende 30 min</a> ou fale com um fundador no <a href="https://wa.me/5511910214133" target="_blank" rel="noopener">WhatsApp</a>.</p>
       </div>
     </details>
   </div>
