@@ -641,7 +641,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   .pp-vai-orb{left:12px;bottom:12px}
 }
 /* ── App: proposta editável como tela principal; vAI no orb ── */
-.pp-bar .pp-restart{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:color .15s,background .15s,border-color .15s}
+.pp-bar .pp-restart{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:none;border:none;color:var(--muted);cursor:pointer;transition:color .15s,background .15s}
+.pp-bar .pp-restart:hover{color:var(--text);background:color-mix(in srgb,var(--ond-app-white) 8%,transparent)}
 .pp-restart:hover{color:var(--text);background:var(--blue-dim);border-color:var(--blue)}
 .pp-restart:active{transform:rotate(-90deg)}
 .pp-main>.pp-app{min-width:0;flex:1;min-height:0;overflow-y:auto}
@@ -698,7 +699,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-dest-input{width:100%;font-family:inherit;font-size:.86rem;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:10px;padding:9px 13px;transition:border-color .15s,box-shadow .15s}
 .pp-dest-input::placeholder{color:var(--muted)}
 .pp-dest-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-glow)}
-.pp-live{margin-left:auto;font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--green);background:var(--green-dim);border:1px solid color-mix(in srgb, var(--green) 30%, transparent);padding:3px 9px;border-radius:50px;white-space:nowrap}
+.pp-live{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:.64rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--green);white-space:nowrap}
+.pp-live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green);animation:blink 2s infinite}
 .pp-brand-mark{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:.9rem;padding:6px 11px;border-radius:9px;border:1px dashed color-mix(in srgb, var(--purple) 50%, transparent);background:var(--purple-dim);color:var(--purple-light)}
 .pp-brand-mark .ic{color:var(--purple-light)}
 .pp-skel{display:flex;flex-direction:column;gap:14px}
@@ -1236,7 +1238,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
             <div class="pp-bar">
               <span class="pp-dot"></span><span class="pp-dot"></span><span class="pp-dot"></span>
               <span class="pp-url"><svg class="ic" width="12" height="12" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>app.ond.com.br/proposta</span>
-              <span class="pp-live">Demonstração</span>
+              <span class="pp-live"><span class="pp-live-dot"></span>Demo</span>
               <button class="pp-restart" id="ppRestart" type="button" aria-label="Reiniciar demo" title="Reiniciar demo"><svg class="ic" width="14" height="14" viewBox="0 0 24 24"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></button>
             </div>
             <div class="pp-shell" id="ppShell" data-tab="rot">
