@@ -134,13 +134,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .hero-trust{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .trust-chip{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted)}
 .trust-chip::before{content:'✓';color:var(--green);font-weight:700}
-.hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
-.hero-card-stack{position:relative;width:100%;max-width:380px;margin:0 auto}
+.hero-visual{position:relative}
+.hero-card-stack{position:relative;width:100%;max-width:468px;margin:0 auto}
 .hero-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;position:relative}
 .hero-card-main{z-index:2;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 1px color-mix(in srgb, var(--blue) 10%, transparent)}
 .hero-card-behind{position:absolute;top:-12px;left:12px;right:-12px;height:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);z-index:1;opacity:.5}
 /* Hero storytelling em loop (monta → envia → cliente → fecha → viagem) */
-.hero-story{position:relative}
+.hero-story{position:relative;width:100%;max-width:468px;margin:0 auto}
 .hero-card-main{min-height:322px;opacity:0;transform:translateY(10px) scale(.99);transition:opacity .28s ease,transform .28s ease}
 .hero-card-main.in{opacity:1;transform:none}
 .hs-build .card-day{opacity:0;animation:hsDayIn .4s ease forwards}
@@ -173,11 +173,15 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .hs-fi.shield{background:var(--green-dim);color:var(--green)}
 .hs-fi.pin{background:var(--purple-dim);color:var(--purple-light)}
 .hs-fi.plane{background:var(--blue-dim);color:var(--blue-light)}
-.hs-progress{display:flex;align-items:center;gap:12px;max-width:380px;margin:16px auto 0}
+.hs-progress{display:flex;align-items:center;gap:12px;max-width:468px;margin:16px auto 0}
 .hs-cap{font-size:.82rem;font-weight:700;color:var(--muted);flex:1}
 .hs-dots{display:flex;gap:6px}
-.hs-dots i{width:7px;height:7px;border-radius:50%;background:var(--border);transition:background .3s,width .3s}
+.hs-dots i{width:7px;height:7px;border-radius:50%;background:var(--border);transition:background .3s,width .3s;cursor:pointer}
 .hs-dots i.on{background:var(--blue);width:18px;border-radius:50px}
+.hs-controls{display:flex;align-items:center;justify-content:center;gap:10px;max-width:468px;margin:12px auto 0}
+.hs-nav{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:color .15s,border-color .15s,background .15s}
+.hs-nav:hover{color:var(--text);border-color:var(--blue);background:var(--blue-dim)}
+.hs-play{width:40px;height:40px;color:var(--blue-light);border-color:color-mix(in srgb,var(--blue) 32%,transparent)}
 .card-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .card-agency-dot{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0044cc,var(--blue));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;flex-shrink:0;box-shadow:0 4px 12px color-mix(in srgb, var(--blue) 35%, transparent)}
 .card-agency-name{font-size:.9rem;font-weight:700}
@@ -1040,6 +1044,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <div class="hero-card hero-card-main" id="hsCard" aria-hidden="true"></div>
     </div>
     <div class="hs-progress"><span class="hs-cap" id="hsCap">Você monta a proposta</span><span class="hs-dots" id="hsDots"></span></div>
+    <div class="hs-controls">
+      <button class="hs-nav" id="hsPrev" type="button" aria-label="Cena anterior"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="hs-nav hs-play" id="hsPlay" type="button" aria-label="Pausar"></button>
+      <button class="hs-nav" id="hsNext" type="button" aria-label="Próxima cena"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+    </div>
   </div>
   <script>
   (function(){
@@ -1055,22 +1064,30 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       {cap:'Fecha a venda no próprio link',html:hd('✓ vendido','g')+'<div class="hs-mid hs-center"><div class="hs-check"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div><div class="hs-big-ok">Proposta aceita · paga no link</div><div class="hs-sub">A comissão fica com a agência. O OND não é o merchant.</div></div>'},
       {cap:'E acompanha a viagem inteira',html:hd('◎ em viagem','b')+'<div class="hs-mid"><div class="hs-feed"><div class="hs-feed-row"><span class="hs-fi shield"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>Seguro contratado dias antes ✓</div><div class="hs-feed-row"><span class="hs-fi pin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Passeio extra amanhã, 9h</div><div class="hs-feed-row"><span class="hs-fi plane"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2"/></svg></span>Concierge 24h no OND vAI</div></div></div>'}
     ];
-    var dots=SCENES.map(function(_,i){return '<i'+(i===0?' class="on"':'')+'></i>';}).join('');
+    var dots=SCENES.map(function(_,k){return '<i data-i="'+k+'"'+(k===0?' class="on"':'')+'></i>';}).join('');
     dotsEl.innerHTML=dots;
     var dotI=dotsEl.querySelectorAll('i');
-    var i=-1;
-    function next(){
-      i=(i+1)%SCENES.length;
+    var prevBtn=document.getElementById('hsPrev'),nextBtn=document.getElementById('hsNext'),playBtn=document.getElementById('hsPlay');
+    var PAUSE='<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+    var PLAY='<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M7 5l12 7-12 7z"/></svg>';
+    var i=-1,timer=null,playing=true,DUR=4200;
+    function render(){
       card.classList.remove('in');
       setTimeout(function(){
-        card.innerHTML=SCENES[i].html;
-        cap.textContent=SCENES[i].cap;
+        card.innerHTML=SCENES[i].html; cap.textContent=SCENES[i].cap;
         for(var k=0;k<dotI.length;k++)dotI[k].className=(k===i?'on':'');
         void card.offsetWidth; card.classList.add('in');
       },180);
     }
-    if(!matchMedia('(prefers-reduced-motion:reduce)').matches){ next(); setInterval(next,2800); }
-    else { i=0; card.innerHTML=SCENES[0].html; cap.textContent=SCENES[0].cap; card.classList.add('in'); }
+    function go(dir){ i=(i+dir+SCENES.length)%SCENES.length; render(); }
+    function startTimer(){ if(timer)clearInterval(timer); if(playing)timer=setInterval(function(){go(1);},DUR); }
+    function setPlaying(p){ playing=p; if(playBtn){playBtn.innerHTML=p?PAUSE:PLAY; playBtn.setAttribute('aria-label',p?'Pausar':'Reproduzir');} startTimer(); }
+    if(prevBtn)prevBtn.onclick=function(){ go(-1); startTimer(); };
+    if(nextBtn)nextBtn.onclick=function(){ go(1); startTimer(); };
+    if(playBtn)playBtn.onclick=function(){ setPlaying(!playing); };
+    for(var k=0;k<dotI.length;k++){ dotI[k].onclick=(function(idx){return function(){ i=idx; render(); startTimer(); };})(k); }
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches){ i=0; render(); playing=false; if(playBtn)playBtn.innerHTML=PLAY; }
+    else { setPlaying(true); go(1); }
   })();
   </script>
 </section>
