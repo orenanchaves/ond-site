@@ -854,6 +854,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-modal-acts{display:flex;flex-direction:column;gap:9px}
 .pp-modal-send{display:flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:50px;background:var(--green);color:var(--on-green);font-family:inherit;font-weight:800;font-size:.9rem;padding:12px;cursor:pointer}
 .pp-modal-send .ic{stroke:var(--on-green)}
+.pp-modal-see{display:flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:50px;background:var(--blue);color:var(--ond-color-onPrimary);font-family:inherit;font-weight:800;font-size:.88rem;padding:12px;cursor:pointer;transition:filter .15s}
+.pp-modal-see .ic{color:var(--ond-color-onPrimary)}
+.pp-modal-see:hover{filter:brightness(1.08)}
 .pp-modal-edit,.pp-modal-close{border:1px solid var(--border-hi);border-radius:50px;background:none;color:var(--text);font-family:inherit;font-weight:700;font-size:.85rem;padding:10px;cursor:pointer;transition:background .15s}
 .pp-modal-edit:hover,.pp-modal-close:hover{background:var(--blue-dim)}
 /* ── PLANOS E PREÇOS ── */
@@ -1508,6 +1511,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         {cli:'Grupo Sênior',dest:'Roma, Itália',val:22800,st:'rascunho',when:'agora'}
       ];
       var PST={fechada:['Fechada','s-win'],personalizou:['Cliente personalizou','s-edit'],aberta:['Aberta pelo cliente','s-open'],enviada:['Enviada','s-sent'],rascunho:['Rascunho','s-draft']};
+      var NEWCLI=['Camila R.','Pedro Alves','Juliana T.','Marcos & Bia','Fernanda L.','Grupo Aventura','Lucas & Sofia'],cliN=0;
+      function goPropostas(){state.view='propostas';setTab('rot');paint();setScreen('proposta');var ns=shell.querySelectorAll('.pp-side-nav span[data-nav]');for(var z=0;z<ns.length;z++){ns[z].classList.toggle('on',ns[z].getAttribute('data-nav')==='propostas');}}
       function propostasHTML(){
         var rows=PROPOSTAS.map(function(p){var s=PST[p.st];
           return '<div class="pp-prow"><div class="pp-prow-main"><b>'+esc(p.cli)+'</b><span>'+esc(p.dest.split(',')[0])+' · '+p.when+'</span></div><div class="pp-prow-val">'+brl(p.val)+'</div><span class="pp-status '+s[1]+'">'+s[0]+'</span></div>';
@@ -1593,12 +1598,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         m.querySelector('.pp-modal-edit').addEventListener('click',function(){closeModal(m);});
         m.addEventListener('click',function(ev){if(ev.target===m)closeModal(m);});
         m.querySelector('.pp-modal-send').addEventListener('click',function(){
+          // a proposta enviada entra no topo do acompanhamento
+          PROPOSTAS.unshift({cli:NEWCLI[cliN++%NEWCLI.length],dest:d.name,val:t.total,st:'enviada',when:'agora'});
           m.querySelector('.pp-modal-card').innerHTML='<div class="pp-modal-ico ok">'+ic('star',22)+'</div>'
             +'<h4>Proposta enviada!</h4>'
-            +'<p class="pp-modal-sub">O cliente já recebeu o link com a sua marca. Assim que ele mexer ou aceitar, você é avisado.</p>'
-            +'<div class="pp-modal-acts"><button class="pp-modal-close" type="button">Fechar</button></div>';
+            +'<p class="pp-modal-sub">O cliente já recebeu o link com a sua marca. Ela já está no seu acompanhamento de propostas.</p>'
+            +'<div class="pp-modal-acts"><button class="pp-modal-see" type="button">'+ic('star',15)+'Ver em Propostas</button><button class="pp-modal-close" type="button">Fechar</button></div>';
           m.querySelector('.pp-modal-close').addEventListener('click',function(){closeModal(m);});
-          bubble('ai','Proposta de <b>'+esc(shortName())+'</b> enviada ✓ Você recebe um aviso quando o cliente abrir o link.');
+          m.querySelector('.pp-modal-see').addEventListener('click',function(){closeModal(m);goPropostas();});
+          bubble('ai','Proposta de <b>'+esc(shortName())+'</b> enviada ✓ Já está no seu acompanhamento, lá em <b>Propostas</b>.');
         });
         setTimeout(function(){m.classList.add('on');},20);
       }
