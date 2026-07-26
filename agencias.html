@@ -822,6 +822,21 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-meter-fill{height:100%;background:linear-gradient(90deg,var(--green),color-mix(in srgb,var(--green),white 20%));border-radius:50px}
 .pp-meter-lbl{display:flex;align-items:center;justify-content:space-between;margin-top:6px;font-size:.76rem;color:var(--muted)}
 .pp-meter-lbl b{color:var(--green)}
+/* ── PROPOSTAS (lista/acompanhamento) ── */
+.pp-plist{display:flex;flex-direction:column;gap:8px}
+.pp-prow{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:11px 13px;transition:border-color .15s,transform .15s;cursor:default}
+.pp-prow:hover{border-color:var(--border-hi);transform:translateY(-1px)}
+.pp-prow-main{flex:1;min-width:0}
+.pp-prow-main b{display:block;font-size:.86rem;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pp-prow-main span{font-size:.72rem;color:var(--muted)}
+.pp-prow-val{font-size:.84rem;font-weight:800;color:var(--text);flex-shrink:0}
+.pp-status{font-size:.66rem;font-weight:800;padding:4px 9px;border-radius:50px;white-space:nowrap;flex-shrink:0}
+.pp-status.s-win{color:var(--green);background:var(--green-dim);border:1px solid color-mix(in srgb,var(--green) 30%,transparent)}
+.pp-status.s-edit{color:var(--purple-light);background:var(--purple-dim);border:1px solid color-mix(in srgb,var(--purple) 32%,transparent)}
+.pp-status.s-open{color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent)}
+.pp-status.s-sent{color:var(--muted);background:var(--card);border:1px solid var(--border)}
+.pp-status.s-draft{color:var(--muted2);background:var(--card);border:1px dashed var(--border)}
+@media(max-width:1000px){.pp-prow-val{display:none}}
 /* ── POPUP Enviar proposta ── */
 .pp-modal{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(4,8,18,.62);backdrop-filter:blur(3px);opacity:0;transition:opacity .2s}
 .pp-modal.on{opacity:1}
@@ -1205,7 +1220,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
                 <button class="pp-collapse" id="ppCollapse" type="button" aria-label="Recolher menu" title="Recolher menu"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
               </div>
               <nav class="pp-side-nav">
-                <span class="on" data-nav="clientes"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="pp-nav-txt">Clientes</span></span>
+                <span class="on" data-nav="propostas"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg><span class="pp-nav-txt">Propostas</span></span>
                 <span data-nav="destinos"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg><span class="pp-nav-txt">Destinos</span></span>
                 <span data-nav="vai"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg><span class="pp-nav-txt">OND vAI</span></span>
                 <span data-nav="relatorios"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-4"/></svg><span class="pp-nav-txt">Relatórios</span></span>
@@ -1484,6 +1499,30 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           +'<div class="pp-meter"><div class="pp-meter-fill" style="width:72%"></div></div>'
           +'<div class="pp-meter-lbl"><span>R$ 214k de R$ 300k</span><b>72%</b></div>';
       }
+      // ── Propostas (acompanhar o que foi enviado) ──
+      var PROPOSTAS=[
+        {cli:'Marina & João',dest:'Lisboa, Portugal',val:10020,st:'fechada',when:'há 2 dias'},
+        {cli:'Família Costa',dest:'Orlando, Estados Unidos',val:18400,st:'personalizou',when:'ontem'},
+        {cli:'Ana Beatriz',dest:'Buenos Aires, Argentina',val:6200,st:'aberta',when:'há 5h'},
+        {cli:'Ricardo M.',dest:'Paris, França',val:14300,st:'enviada',when:'há 1h'},
+        {cli:'Grupo Sênior',dest:'Roma, Itália',val:22800,st:'rascunho',when:'agora'}
+      ];
+      var PST={fechada:['Fechada','s-win'],personalizou:['Cliente personalizou','s-edit'],aberta:['Aberta pelo cliente','s-open'],enviada:['Enviada','s-sent'],rascunho:['Rascunho','s-draft']};
+      function propostasHTML(){
+        var rows=PROPOSTAS.map(function(p){var s=PST[p.st];
+          return '<div class="pp-prow"><div class="pp-prow-main"><b>'+esc(p.cli)+'</b><span>'+esc(p.dest.split(',')[0])+' · '+p.when+'</span></div><div class="pp-prow-val">'+brl(p.val)+'</div><span class="pp-status '+s[1]+'">'+s[0]+'</span></div>';
+        }).join('');
+        return '<div class="pp-dhead"><b>Propostas</b><span>Acompanhe o que você enviou, em tempo real.</span></div>'
+          +'<div class="pp-kpis"><div class="pp-kpi"><span class="pp-kpi-label">Enviadas</span><b class="pp-kpi-val">5</b></div><div class="pp-kpi"><span class="pp-kpi-label">Abertas</span><b class="pp-kpi-val">3</b></div><div class="pp-kpi"><span class="pp-kpi-label">Fechadas</span><b class="pp-kpi-val">1</b></div></div>'
+          +'<div class="pp-plist">'+rows+'</div>';
+      }
+      function propostasFinHTML(){
+        return '<div class="pp-fin-title">Nova proposta</div>'
+          +'<div class="pp-vai-insight">'+ic('star',20)+'<b>Monte em segundos com o OND vAI.</b><p>Vá pra <b>Conversa</b> e diga o destino — a proposta entra aqui automaticamente.</p></div>'
+          +'<div class="pp-fin-title" style="margin-top:16px">Taxa de fechamento</div>'
+          +'<div class="pp-meter"><div class="pp-meter-fill" style="width:20%"></div></div>'
+          +'<div class="pp-meter-lbl"><span>1 de 5 no mês</span><b>20%</b></div>';
+      }
       // ── Destinos (galeria: criar proposta ou ajudar a decidir) ──
       var DESTINOS=['lisboa','bsas','orlando','paris','roma','cancun','noronha'];
       var DECIDE={
@@ -1528,6 +1567,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         }else if(state.view==='relatorios'){
           app.innerHTML=relatoriosHTML();
           if(fin)fin.innerHTML=relatoriosFinHTML();
+        }else if(state.view==='propostas'){
+          app.innerHTML=propostasHTML();
+          if(fin)fin.innerHTML=propostasFinHTML();
         }else{
           app.innerHTML=mainHTML(d,state.days);
           if(fin)fin.innerHTML=summaryHTML(d,state.days);
@@ -1682,7 +1724,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           for(k=0;k<navs.length;k++){navs[k].classList.toggle('on',navs[k]===nav);}
           var which=nav.getAttribute('data-nav');
           if(which==='destinos'){state.view='destinos';setTab('rot');paint();setScreen('proposta');bubble('ai','Explore destinos 👇 <b>Criar proposta</b> monta o roteiro na hora; <b>Ajudar a decidir</b> compara pro cliente.');}
-          else if(which==='clientes'){state.view='proposta';paint();setScreen('conversa');bubble('ai','No card do cliente ficam as <b>propostas</b> e o histórico dele: viagens, recompra e contato num lugar só.');}
+          else if(which==='propostas'){state.view='propostas';setTab('rot');paint();setScreen('proposta');bubble('ai','Aqui você acompanha as propostas que enviou 👉 status, valor e quando o cliente abriu o link.');}
           else if(which==='marca'){state.view='marca';setTab('rot');paint();setScreen('proposta');bubble('ai','Deixe a proposta <b>100% com a sua cara</b>: nome, cor e logo. Mexa aqui 👉 e veja o preview mudar.');}
           else if(which==='vai'){if(state.view!=='proposta'){state.view='proposta';paint();}setScreen('conversa');bubble('ai','O OND vAI monta e ajusta a proposta pra você. É só responder no chat 👇');}
           else if(which==='relatorios'){state.view='relatorios';setTab('rot');paint();setScreen('proposta');bubble('ai','Seu painel de vendas 👉 propostas, taxa de fechamento e ticket médio, com insights do OND vAI dentro dos gráficos.');}
@@ -1696,7 +1738,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           trip.extras=[];trip.addons={};
           setTab('rot');
           var ns=shell.querySelectorAll('.pp-side-nav span[data-nav]');
-          for(var q=0;q<ns.length;q++){ns[q].classList.toggle('on',ns[q].getAttribute('data-nav')==='clientes');}
+          for(var q=0;q<ns.length;q++){ns[q].classList.toggle('on',ns[q].getAttribute('data-nav')==='propostas');}
           bubble('me','Criar proposta · '+esc(dn.split(',')[0]));
           paint();
           setScreen('proposta');
@@ -1753,7 +1795,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         if(input)input.value='';
         if(logEl)logEl.innerHTML='';clearPendingChips();
         var ns=shell.querySelectorAll('.pp-side-nav span[data-nav]'),i;
-        for(i=0;i<ns.length;i++){ns[i].classList.toggle('on',ns[i].getAttribute('data-nav')==='clientes');}
+        for(i=0;i<ns.length;i++){ns[i].classList.toggle('on',ns[i].getAttribute('data-nav')==='propostas');}
         shell.classList.remove('pp-collapsed');
         setTab('rot');applyBrand();paint();setScreen('conversa');
         bubble('ai','Oi! Eu sou o OND vAI 👋');
