@@ -541,14 +541,20 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <body>
 
 <!-- Transição de página → /agencias (swipe roxo→azul: do mundo B2C pro B2B) -->
-<div id="pgt" class="pgt" aria-hidden="true"><span class="pgt-orb"></span></div>
+<div id="pgt" class="pgt" aria-hidden="true"><span class="pgt-orb"><svg class="pgt-star" viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span></div>
 <style>
 .pgt{position:fixed;inset:0;z-index:99999;background:linear-gradient(120deg,#7c3fff 0%,#0066ff 100%);display:flex;align-items:center;justify-content:center;transform:translateX(100%);pointer-events:none;will-change:transform}
 .pgt.in{animation:pgtIn .5s cubic-bezier(.76,0,.24,1) forwards;pointer-events:auto}
 @keyframes pgtIn{to{transform:translateX(0)}}
-.pgt-orb{width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff,rgba(255,255,255,.7) 42%,rgba(255,255,255,.12) 72%);box-shadow:0 0 46px rgba(255,255,255,.55);opacity:0;transform:scale(.4)}
-.pgt.in .pgt-orb{animation:pgtOrb .55s .08s ease forwards}
-@keyframes pgtOrb{55%{opacity:1;transform:scale(1.12)}100%{opacity:1;transform:scale(1)}}
+.pgt-orb{position:relative;width:88px;height:88px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 38% 32%,#fff,rgba(255,255,255,.85) 46%,rgba(255,255,255,.16) 74%);box-shadow:0 0 64px rgba(255,255,255,.6),inset 0 0 22px rgba(124,17,244,.28);opacity:0;transform:scale(.3)}
+.pgt-orb::before{content:"";position:absolute;inset:-9px;border-radius:50%;border:2px solid rgba(255,255,255,.55);opacity:0}
+.pgt-star{width:46px;height:46px;fill:#7F11F4;filter:drop-shadow(0 2px 7px rgba(124,17,244,.55))}
+.pgt.in .pgt-orb{animation:pgtOrbIn .6s .05s cubic-bezier(.34,1.56,.64,1) forwards}
+.pgt.in .pgt-orb::before{animation:pgtRing .85s .28s ease-out forwards}
+.pgt.in .pgt-star{transform-origin:50% 50%;animation:pgtStar .7s .12s cubic-bezier(.34,1.56,.64,1) forwards}
+@keyframes pgtOrbIn{0%{opacity:0;transform:scale(.3)}55%{opacity:1}100%{opacity:1;transform:scale(1)}}
+@keyframes pgtStar{0%{opacity:0;transform:rotate(-150deg) scale(.35)}55%{opacity:1}100%{opacity:1;transform:rotate(0) scale(1)}}
+@keyframes pgtRing{0%{opacity:.7;transform:scale(.7)}100%{opacity:0;transform:scale(1.55)}}
 @media(prefers-reduced-motion:reduce){.pgt{display:none!important}}
 </style>
 <script>

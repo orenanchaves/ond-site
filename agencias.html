@@ -528,7 +528,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-main{min-width:0;min-height:0;padding:16px;display:flex;flex-direction:column;gap:14px}
 .pp-fin{border-left:1px solid var(--border);background:var(--surface);padding:16px 14px;overflow-y:auto;min-height:0}
 /* banner do destino (como no app) */
-.pp-banner{position:relative;height:136px;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,var(--blue),#08152b)}
+.pp-banner{position:relative;height:136px;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,var(--brand,var(--blue)),#08152b)}
 .pp-banner img{width:100%;height:100%;object-fit:cover;display:block}
 .pp-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,20,.15) 30%,rgba(6,10,20,.88))}
 .pp-banner-t{position:absolute;left:15px;bottom:12px;z-index:2;color:#fff}
@@ -538,7 +538,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-banner-brand{position:absolute;left:12px;top:12px;z-index:2;display:inline-flex;align-items:center;gap:6px;font-size:.66rem;font-weight:800;color:#fff;background:rgba(4,10,22,.5);border:1px dashed rgba(255,255,255,.5);padding:4px 10px;border-radius:8px;backdrop-filter:blur(2px)}
 .pp-banner-brand .ic{color:#fff}
 /* financeiro estilo app: total em gradiente + média/dia */
-.pp-fintotal{background:linear-gradient(120deg,var(--blue),#0a3a8f);border-radius:14px;padding:15px;color:#fff;margin-bottom:11px}
+.pp-fintotal{background:linear-gradient(120deg,var(--brand,var(--blue)),color-mix(in srgb,var(--brand,var(--blue)) 45%,#06122e));border-radius:14px;padding:15px;color:#fff;margin-bottom:11px}
 .pp-fintotal span{font-size:.76rem;opacity:.88}
 .pp-fintotal b{display:block;font-size:1.55rem;margin-top:2px;font-weight:800;letter-spacing:-.02em}
 .pp-finday{display:flex;align-items:center;justify-content:space-between;background:var(--green-dim);border:1px solid color-mix(in srgb,var(--green) 26%,transparent);border-radius:12px;padding:11px 13px;font-size:.78rem;color:var(--green);margin-bottom:12px}
@@ -547,17 +547,24 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 /* abas: só no mobile (no desktop o financeiro fica fixo à direita) */
 .pp-tabs{display:none}
 @media(max-width:1000px){
-  .pp-shell{grid-template-columns:1fr;height:auto;min-height:0}
-  .pp-screen{flex:none;overflow:visible;min-height:auto}
+  /* Formato mobile fixo: moldura de app (altura fixa) com rolagem interna */
+  .pp-shell{display:flex;flex-direction:column;grid-template-columns:none;height:min(78vh,600px);min-height:440px}
   .pp-side{display:none}
-  .pp-fin{border-left:none;border-top:1px solid var(--border)}
+  .pp-main{flex:1;min-height:0;display:flex;flex-direction:column}
+  .pp-screen{flex:1;min-height:0;overflow-y:auto}
+  .pp-fin{border-left:none;border-top:1px solid var(--border);flex:1;min-height:0;overflow-y:auto}
   .pp-tabs{display:flex}
   .pp-shell[data-tab="rot"] .pp-fin{display:none}
   .pp-shell[data-tab="fin"] .pp-app{display:none}
+  .pp-shell[data-tab="fin"] .pp-main{flex:0 0 auto}
+  .pp-shell[data-screen="conversa"] .pp-fin{display:none}
 }
 /* ── Telas do app: Conversa (vAI) x Proposta, nunca juntas ── */
 .pp-scr{display:flex;gap:5px;padding:4px;background:var(--surface);border:1px solid var(--border);border-radius:50px;margin-bottom:14px;flex-shrink:0}
 .pp-scr-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:inherit;font-size:.84rem;font-weight:800;color:var(--muted);background:none;border:none;border-radius:50px;padding:9px 14px;cursor:pointer;transition:color .15s,background .15s}
+.pp-restart{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50px;background:none;border:none;color:var(--muted);cursor:pointer;transition:color .15s,background .15s}
+.pp-restart:hover{color:var(--text);background:var(--blue-dim)}
+.pp-restart:active{transform:rotate(-90deg)}
 .pp-scr-btn .ic{color:currentColor}
 .pp-scr-btn:hover{color:var(--text)}
 .pp-scr-btn.active{color:var(--ond-color-onPrimary);background:var(--blue);box-shadow:0 3px 10px var(--blue-glow)}
@@ -685,6 +692,31 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-dfin .ic{color:var(--gold)}
 .pp-dfin b{display:block;margin:8px 0 6px;font-size:.92rem}
 .pp-dfin p{font-size:.8rem;color:var(--muted);line-height:1.55}
+/* ── SUA MARCA (painel de personalização) ── */
+.pp-brandform{display:flex;flex-direction:column;gap:8px}
+.pp-bf-label{font-size:.72rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.pp-bf-input{font-family:inherit;font-size:.92rem;font-weight:700;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;width:100%}
+.pp-bf-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-dim)}
+.pp-swatches{display:flex;flex-wrap:wrap;gap:9px}
+.pp-sw{width:30px;height:30px;border-radius:50%;border:2px solid var(--border);cursor:pointer;padding:0;transition:transform .12s,box-shadow .12s}
+.pp-sw:hover{transform:scale(1.08)}
+.pp-sw.on{border-color:var(--text);box-shadow:0 0 0 2px var(--surface),0 0 0 4px currentColor}
+.pp-bf-logo{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pp-bf-upload{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;color:var(--blue-light);background:var(--blue-dim);border:1px dashed color-mix(in srgb,var(--blue) 42%,transparent);border-radius:10px;padding:10px 14px;cursor:pointer}
+.pp-bf-upload .ic{color:var(--blue-light)}
+.pp-bf-logoprev{height:34px;width:auto;max-width:120px;object-fit:contain;border-radius:6px;background:#fff;padding:3px}
+.pp-bf-logorm{font-family:inherit;font-size:.78rem;font-weight:700;color:var(--muted);background:none;border:none;cursor:pointer;text-decoration:underline}
+.pp-bf-logorm:hover{color:var(--danger,#e24b4a)}
+.pp-brand-logo{height:16px;width:auto;max-width:64px;object-fit:contain}
+.pp-bb-logo{height:14px;width:auto;max-width:56px;object-fit:contain;background:#fff;border-radius:3px;padding:1px 2px}
+/* preview "como o cliente vê" (coluna direita da aba Sua marca) */
+.pp-mini-banner{position:relative;height:120px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,var(--brand,var(--blue)),#08152b);margin-bottom:10px}
+.pp-mini-banner img{width:100%;height:100%;object-fit:cover;display:block}
+.pp-mini-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,10,22,.7),transparent 60%)}
+.pp-mini-t{position:absolute;left:12px;bottom:10px;z-index:2;color:#fff}
+.pp-mini-t b{display:block;font-size:1rem;font-weight:800}
+.pp-mini-t span{font-size:.72rem;opacity:.92}
+.pp-dfin-note{font-size:.78rem;color:var(--muted);line-height:1.55}
 /* ── POPUP Enviar proposta ── */
 .pp-modal{position:absolute;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(4,8,18,.62);backdrop-filter:blur(3px);opacity:0;transition:opacity .2s}
 .pp-modal.on{opacity:1}
@@ -817,12 +849,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pgt{position:fixed;inset:0;z-index:99999;background:linear-gradient(120deg,#7c3fff 0%,#0066ff 100%);display:flex;align-items:center;justify-content:center;transform:translateX(100%);pointer-events:none;will-change:transform}
 .pgt.cover{transform:translateX(0);animation:pgtOut .55s .04s cubic-bezier(.76,0,.24,1) forwards;pointer-events:auto}
 @keyframes pgtOut{from{transform:translateX(0)}to{transform:translateX(-100%)}}
-.pgt-orb{width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff,rgba(255,255,255,.7) 42%,rgba(255,255,255,.12) 72%);box-shadow:0 0 46px rgba(255,255,255,.55);opacity:0}
+.pgt-orb{position:relative;width:88px;height:88px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 38% 32%,#fff,rgba(255,255,255,.85) 46%,rgba(255,255,255,.16) 74%);box-shadow:0 0 64px rgba(255,255,255,.6),inset 0 0 22px rgba(124,17,244,.28);opacity:0}
+.pgt-star{width:46px;height:46px;fill:#7F11F4;filter:drop-shadow(0 2px 7px rgba(124,17,244,.55))}
 .pgt.cover .pgt-orb{animation:pgtOrbOut .5s ease forwards}
-@keyframes pgtOrbOut{0%{opacity:1;transform:scale(1)}70%{opacity:1}100%{opacity:0;transform:scale(.7)}}
+.pgt.cover .pgt-star{transform-origin:50% 50%;animation:pgtStarOut .5s ease forwards}
+@keyframes pgtOrbOut{0%{opacity:1;transform:scale(1)}70%{opacity:1}100%{opacity:0;transform:scale(.62)}}
+@keyframes pgtStarOut{0%{transform:rotate(0) scale(1)}100%{transform:rotate(130deg) scale(.5)}}
 @media(prefers-reduced-motion:reduce){.pgt{display:none!important}}
 </style>
-<div id="pgt" class="pgt" aria-hidden="true"><span class="pgt-orb"></span></div>
+<div id="pgt" class="pgt" aria-hidden="true"><span class="pgt-orb"><svg class="pgt-star" viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span></div>
 <script>
 (function(){
   var o=document.getElementById('pgt');if(!o)return;
@@ -885,7 +920,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <section class="hero">
   <div>
     <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Plataforma de vendas para agências</div>
-    <h1 class="hero-title"><span class="hl">O cliente monta</span> <span class="hl">a viagem, e você</span> <span class="hl"><em>fecha a venda.</em></span></h1>
+    <h1 class="hero-title">O cliente monta a viagem,<br>e você <em>fecha a venda.</em></h1>
     <p class="hero-sub">O OND vira o motor de vendas da sua agência: monte a proposta em minutos e envie um link com a sua marca onde o próprio cliente personaliza tudo, adiciona seguro e upgrades, e fecha. Mais ticket, menos ida e volta no e-mail.</p>
     <div class="hero-ctas">
       <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Quero o OND na minha agência&nbsp;→</a>
@@ -1043,6 +1078,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
             <div class="pp-scr" id="ppScr">
               <button class="pp-scr-btn active" type="button" data-screen="conversa"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Conversa</button>
               <button class="pp-scr-btn" type="button" data-screen="proposta"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Proposta</button>
+              <button class="pp-restart" id="ppRestart" type="button" aria-label="Reiniciar demo" title="Reiniciar demo"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></button>
             </div>
             <div class="pp-screen" data-screen="conversa" id="ppScrConversa">
             <div class="pp-chat">
@@ -1225,9 +1261,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       function bannerHTML(d,days){
         var im=d.img?(d.img.charAt(0)==='/'?d.img:'https://images.unsplash.com/'+d.img+'?w=900&q=70&auto=format'):'';
         return '<div class="pp-banner">'+(im?'<img src="'+im+'" alt="" loading="lazy">':'')
-          +'<span class="pp-banner-brand">'+ic('image',13)+'Sua Marca</span>'
+          +brandBadge()
           +'<span class="pp-banner-chip">Rascunho</span>'
-          +'<div class="pp-banner-t"><b>'+esc(d.name)+'</b><span>'+days+' dias · 2 viajantes · proposta da sua agência</span></div>'
+          +'<div class="pp-banner-t"><b>'+esc(d.name)+'</b><span>'+days+' dias · 2 viajantes · proposta de '+esc(brand.name)+'</span></div>'
         +'</div>';
       }
       // centro = banner + roteiro; o financeiro vive na coluna da direita
@@ -1248,6 +1284,39 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         for(i=0;i<btns.length;i++){btns[i].classList.toggle('active',btns[i].getAttribute('data-screen')===which);}
       }
       if(shell)shell.dataset.screen='conversa';
+      // ── Sua marca (personalização que reflete na proposta) ──
+      var brand={name:'Sua Marca',color:'#0066ff',logo:''};
+      var BRAND_COLORS=['#0066ff','#7c3fff','#00b37e','#e8484a','#ff7a00','#0b1220'];
+      function applyBrand(){
+        var win=document.querySelector('.pp-window');
+        if(win)win.style.setProperty('--brand',brand.color);
+        var bm=document.querySelector('.pp-brand-mark');
+        if(bm)bm.innerHTML=(brand.logo?'<img class="pp-brand-logo" src="'+brand.logo+'" alt="">':'<svg class="ic" width="15" height="15" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>')+'<span class="pp-brand-txt">'+esc(brand.name)+'</span>';
+      }
+      function brandBadge(){
+        return '<span class="pp-banner-brand">'+(brand.logo?'<img class="pp-bb-logo" src="'+brand.logo+'" alt="">':ic('image',13))+esc(brand.name)+'</span>';
+      }
+      function marcaHTML(){
+        var sw=BRAND_COLORS.map(function(c){return '<button class="pp-sw'+(c.toLowerCase()===brand.color.toLowerCase()?' on':'')+'" type="button" data-color="'+c+'" style="background:'+c+'" aria-label="Cor de destaque"></button>';}).join('');
+        return '<div class="pp-dhead"><b>Sua marca</b><span>Personalize e veja refletir na proposta na hora.</span></div>'
+          +'<div class="pp-brandform">'
+            +'<label class="pp-bf-label" for="ppBrandName">Nome da agência</label>'
+            +'<input class="pp-bf-input" id="ppBrandName" type="text" value="'+esc(brand.name)+'" placeholder="Sua Agência" autocomplete="off" maxlength="28">'
+            +'<label class="pp-bf-label">Cor de destaque</label>'
+            +'<div class="pp-swatches">'+sw+'</div>'
+            +'<label class="pp-bf-label">Logo</label>'
+            +'<div class="pp-bf-logo"><label class="pp-bf-upload">'+ic('image',15)+'<span>'+(brand.logo?'Trocar logo':'Enviar logo')+'</span><input id="ppBrandLogo" type="file" accept="image/*" hidden></label>'
+              +(brand.logo?'<img class="pp-bf-logoprev" src="'+brand.logo+'" alt=""><button class="pp-bf-logorm" type="button">Remover</button>':'')
+            +'</div>'
+          +'</div>';
+      }
+      function marcaFinHTML(){
+        var d=resolve(state.destText);
+        var im=d.img?(d.img.charAt(0)==='/'?d.img:'https://images.unsplash.com/'+d.img+'?w=520&q=60&auto=format'):'';
+        return '<div class="pp-fin-title">Como o cliente vê</div>'
+          +'<div class="pp-mini-banner">'+(im?'<img src="'+im+'" alt="">':'')+brandBadge()+'<div class="pp-mini-t"><b>'+esc(d.name.split(',')[0])+'</b><span>proposta de '+esc(brand.name)+'</span></div></div>'
+          +'<p class="pp-dfin-note">Logo, cor e nome entram na proposta e no link que o cliente recebe. O nome do OND não aparece pra ele.</p>';
+      }
       // ── Destinos (galeria: criar proposta ou ajudar a decidir) ──
       var DESTINOS=['lisboa','bsas','orlando','paris','roma','cancun','noronha'];
       var DECIDE={
@@ -1286,10 +1355,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         if(state.view==='destinos'){
           app.innerHTML=destinosHTML();
           if(fin)fin.innerHTML=destinosFinHTML();
+        }else if(state.view==='marca'){
+          app.innerHTML=marcaHTML();
+          if(fin)fin.innerHTML=marcaFinHTML();
         }else{
           app.innerHTML=mainHTML(d,state.days);
           if(fin)fin.innerHTML=summaryHTML(d,state.days);
         }
+        applyBrand();
       }
       // ── Popup "Enviar proposta ao cliente" ──
       function closeModal(m){m.classList.remove('on');setTimeout(function(){if(m&&m.parentNode)m.parentNode.removeChild(m);},220);}
@@ -1440,9 +1513,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           var which=nav.getAttribute('data-nav');
           if(which==='destinos'){state.view='destinos';setTab('rot');paint();setScreen('proposta');bubble('ai','Explore destinos 👇 <b>Criar proposta</b> monta o roteiro na hora; <b>Ajudar a decidir</b> compara pro cliente.');}
           else if(which==='clientes'){state.view='proposta';paint();setScreen('conversa');bubble('ai','No card do cliente ficam as <b>propostas</b> e o histórico dele: viagens, recompra e contato num lugar só.');}
-          else if(which==='marca'){setScreen('conversa');bubble('ai','Aqui você troca <b>logo, cores e domínio</b>: a proposta sai 100% com a marca da sua agência, sem o nome do OND aparecer pro cliente.');}
-          else if(which==='vai'){setScreen('conversa');bubble('ai','O OND vAI monta e ajusta a proposta pra você. É só responder no chat 👇');}
-          else if(which==='relatorios'){setScreen('conversa');bubble('ai','Relatórios: propostas enviadas, taxa de fechamento e ticket médio da sua agência, em tempo real.');}
+          else if(which==='marca'){state.view='marca';setTab('rot');paint();setScreen('proposta');bubble('ai','Deixe a proposta <b>100% com a sua cara</b>: nome, cor e logo. Mexa aqui 👉 e veja o preview mudar.');}
+          else if(which==='vai'){if(state.view!=='proposta'){state.view='proposta';paint();}setScreen('conversa');bubble('ai','O OND vAI monta e ajusta a proposta pra você. É só responder no chat 👇');}
+          else if(which==='relatorios'){if(state.view!=='proposta'){state.view='proposta';paint();}setScreen('conversa');bubble('ai','Relatórios: propostas enviadas, taxa de fechamento e ticket médio da sua agência, em tempo real.');}
           return;
         }
         var dcreate=e.target.closest('.pp-dcreate');
@@ -1462,6 +1535,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         }
         var ddecide=e.target.closest('.pp-ddecide');
         if(ddecide){setScreen('conversa');bubble('ai',DECIDE[ddecide.getAttribute('data-decide')]||'Boa escolha!');return;}
+        var sw=e.target.closest('.pp-sw');
+        if(sw){
+          brand.color=sw.getAttribute('data-color');applyBrand();
+          var sws=app.querySelectorAll('.pp-sw'),z;for(z=0;z<sws.length;z++){sws[z].classList.toggle('on',sws[z]===sw);}
+          if(fin)fin.innerHTML=marcaFinHTML();return;
+        }
+        if(e.target.closest('.pp-bf-logorm')){brand.logo='';applyBrand();paint();return;}
         var t=e.target.closest('.pp-tab');
         if(t){setTab(t.getAttribute('data-tab'));return;}
         var addBtn=e.target.closest('.pp-add');
@@ -1485,7 +1565,34 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         }
         if(e.target.closest('.pp-send')){openSendModal();return;}
       });
+      // Sua marca: nome (input) e logo (upload) refletem na hora
+      (shell||app).addEventListener('input',function(e){
+        if(e.target&&e.target.id==='ppBrandName'){brand.name=(e.target.value||'').trim()||'Sua Marca';applyBrand();if(fin)fin.innerHTML=marcaFinHTML();}
+      });
+      (shell||app).addEventListener('change',function(e){
+        if(e.target&&e.target.id==='ppBrandLogo'){
+          var f=e.target.files&&e.target.files[0];if(!f)return;
+          var r=new FileReader();r.onload=function(ev){brand.logo=ev.target.result;applyBrand();paint();};r.readAsDataURL(f);
+        }
+      });
+      // Reiniciar a demo do zero
+      function resetDemo(){
+        state.destText='Lisboa, Portugal';state.days=5;state.view='proposta';state.stage='dest';
+        trip.extras=[];trip.addons={};extraSeq=0;
+        brand.name='Sua Marca';brand.color='#0066ff';brand.logo='';
+        if(input)input.value='';
+        if(logEl)logEl.innerHTML='';clearPendingChips();
+        var ns=shell.querySelectorAll('.pp-side-nav span[data-nav]'),i;
+        for(i=0;i<ns.length;i++){ns[i].classList.toggle('on',ns[i].getAttribute('data-nav')==='clientes');}
+        shell.classList.remove('pp-collapsed');
+        setTab('rot');applyBrand();paint();setScreen('conversa');
+        bubble('ai','Oi! Eu sou o OND vAI 👋');
+        askDestino();
+      }
+      var rb=document.getElementById('ppRestart');
+      if(rb)rb.addEventListener('click',resetDemo);
       // início: aba Proposta pronta em segundo plano + chat guiado começa perguntando o destino
+      applyBrand();
       paint();
       bubble('ai','Oi! Eu sou o OND vAI 👋');
       askDestino();
