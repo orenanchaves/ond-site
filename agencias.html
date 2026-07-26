@@ -139,26 +139,45 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .hero-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;position:relative}
 .hero-card-main{z-index:2;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 1px color-mix(in srgb, var(--blue) 10%, transparent)}
 .hero-card-behind{position:absolute;top:-12px;left:12px;right:-12px;height:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);z-index:1;opacity:.5}
-/* "Proposta se montando": os blocos entram em sequência, em loop */
-.hero-card-main .card-header,
-.hero-card-main .card-day,
-.hero-card-main .card-footer{animation:heroAssemble 7s cubic-bezier(.22,1,.36,1) infinite both}
-.hero-card-main .card-day:nth-child(1){animation-delay:.45s}
-.hero-card-main .card-day:nth-child(2){animation-delay:.7s}
-.hero-card-main .card-day:nth-child(3){animation-delay:.95s}
-.hero-card-main .card-footer{animation-delay:1.3s}
-.hero-card-main .card-badge{animation:heroBadgePulse 7s ease-in-out infinite}
-@keyframes heroAssemble{
-  0%{opacity:0;transform:translateY(16px) scale(.97)}
-  7%{opacity:1;transform:none}
-  86%{opacity:1;transform:none}
-  95%{opacity:0;transform:translateY(-9px) scale(.99)}
-  100%{opacity:0;transform:translateY(16px) scale(.97)}
-}
-@keyframes heroBadgePulse{0%,6%{opacity:.5;transform:scale(.9)}12%{opacity:1;transform:scale(1)}86%{opacity:1}95%,100%{opacity:.4}}
-@media(prefers-reduced-motion:reduce){
-  .hero-card-main .card-header,.hero-card-main .card-day,.hero-card-main .card-footer,.hero-card-main .card-badge{animation:none}
-}
+/* Hero storytelling em loop (monta → envia → cliente → fecha → viagem) */
+.hero-story{position:relative}
+.hero-card-main{min-height:322px;opacity:0;transform:translateY(10px) scale(.99);transition:opacity .28s ease,transform .28s ease}
+.hero-card-main.in{opacity:1;transform:none}
+.hs-build .card-day{opacity:0;animation:hsDayIn .4s ease forwards}
+.hs-build .card-day:nth-child(1){animation-delay:.1s}
+.hs-build .card-day:nth-child(2){animation-delay:.25s}
+.hs-build .card-day:nth-child(3){animation-delay:.4s}
+@keyframes hsDayIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+.card-badge.g{background:var(--green-dim);color:var(--green);border-color:color-mix(in srgb,var(--green) 30%,transparent)}
+.card-badge.p{background:var(--purple-dim);color:var(--purple-light);border-color:color-mix(in srgb,var(--purple) 34%,transparent)}
+.card-badge.b{background:var(--blue-dim);color:var(--blue-light);border-color:color-mix(in srgb,var(--blue) 30%,transparent)}
+.hs-mid{padding:8px 2px}
+.hs-center{text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:14px}
+.hs-link{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:700;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 26%,transparent);border-radius:8px;padding:8px 12px;margin-bottom:14px}
+.hs-big-ok{font-size:1.05rem;font-weight:800;letter-spacing:-.01em;margin-bottom:5px}
+.hs-sub{font-size:.82rem;color:var(--muted);line-height:1.5}
+.hs-tag{margin-left:auto;font-size:.66rem;font-weight:800;padding:5px 10px;border-radius:50px;white-space:nowrap}
+.hs-tag.blue{background:var(--blue-dim);color:var(--blue-light)}
+.hs-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.hs-chip{font-size:.78rem;font-weight:700;padding:7px 12px;border-radius:50px;border:1px solid var(--border);color:var(--muted);background:var(--surface)}
+.hs-chip.on{color:var(--green);background:var(--green-dim);border-color:color-mix(in srgb,var(--green) 32%,transparent)}
+.hs-price-row{display:flex;align-items:center;gap:9px;font-size:.9rem;color:var(--muted);padding-top:6px;border-top:1px solid var(--border)}
+.hs-price-row svg{color:var(--green)}
+.hs-old{color:var(--muted);text-decoration:line-through;font-weight:700}
+.hs-new{color:var(--green);font-weight:800;font-size:1.05rem}
+.hs-check{width:56px;height:56px;border-radius:50%;background:var(--green-dim);color:var(--green);display:flex;align-items:center;justify-content:center;border:1px solid color-mix(in srgb,var(--green) 34%,transparent)}
+.hs-feed{display:flex;flex-direction:column;gap:10px}
+.hs-feed-row{display:flex;align-items:center;gap:11px;font-size:.86rem;font-weight:600;opacity:0;animation:hsDayIn .4s ease forwards}
+.hs-feed-row:nth-child(1){animation-delay:.1s}.hs-feed-row:nth-child(2){animation-delay:.28s}.hs-feed-row:nth-child(3){animation-delay:.46s}
+.hs-fi{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hs-fi.shield{background:var(--green-dim);color:var(--green)}
+.hs-fi.pin{background:var(--purple-dim);color:var(--purple-light)}
+.hs-fi.plane{background:var(--blue-dim);color:var(--blue-light)}
+.hs-progress{display:flex;align-items:center;gap:12px;max-width:380px;margin:16px auto 0}
+.hs-cap{font-size:.82rem;font-weight:700;color:var(--muted);flex:1}
+.hs-dots{display:flex;gap:6px}
+.hs-dots i{width:7px;height:7px;border-radius:50%;background:var(--border);transition:background .3s,width .3s}
+.hs-dots i.on{background:var(--blue);width:18px;border-radius:50px}
 .card-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .card-agency-dot{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0044cc,var(--blue));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;flex-shrink:0;box-shadow:0 4px 12px color-mix(in srgb, var(--blue) 35%, transparent)}
 .card-agency-name{font-size:.9rem;font-weight:700}
@@ -1002,48 +1021,44 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     </div>
   </div>
   <div class="hero-visual">
-    <div class="hero-card-stack">
+    <div class="hero-story">
       <div class="hero-card-behind"></div>
-      <div class="hero-card hero-card-main">
-        <div class="card-header">
-          <div class="card-agency-dot"><svg class="ic" width="18" height="18" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
-          <div>
-            <div class="card-agency-name">Viagens Premium</div>
-            <div class="card-agency-sub">Proposta · o cliente personaliza</div>
-          </div>
-          <div class="card-badge"><svg class="ic" width="12" height="12" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg> 4 min</div>
-        </div>
-        <div class="card-itinerary">
-          <div class="card-day">
-            <div class="card-day-num">D1</div>
-            <div class="card-day-content">
-              <div class="card-day-title">Chegada em Lisboa · Alfama</div>
-              <div class="card-day-desc">Castelo de São Jorge · Miradouro da Graça · Fado no Bairro Alto</div>
-            </div>
-          </div>
-          <div class="card-day">
-            <div class="card-day-num">D2</div>
-            <div class="card-day-content">
-              <div class="card-day-title">Belém · LX Factory</div>
-              <div class="card-day-desc">Torre de Belém · Pastéis de Belém · Museu dos Coches</div>
-            </div>
-          </div>
-          <div class="card-day">
-            <div class="card-day-num">D3</div>
-            <div class="card-day-content">
-              <div class="card-day-title">Sintra · Cascais</div>
-              <div class="card-day-desc">Palácio da Pena · Quinta da Regaleira · Costa do Estoril</div>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="card-footer-stat"><div class="card-footer-num">R$4.200</div><div class="card-footer-label">estimativa total</div></div>
-          <div class="card-footer-stat"><div class="card-footer-num">7d · 2pax</div><div class="card-footer-label">duração · grupo</div></div>
-          <button class="card-footer-cta">Enviar proposta →</button>
-        </div>
-      </div>
+      <div class="hero-card hero-card-main" id="hsCard" aria-hidden="true"></div>
     </div>
+    <div class="hs-progress"><span class="hs-cap" id="hsCap">Você monta a proposta</span><span class="hs-dots" id="hsDots"></span></div>
   </div>
+  <script>
+  (function(){
+    var card=document.getElementById('hsCard'),cap=document.getElementById('hsCap'),dotsEl=document.getElementById('hsDots');
+    if(!card)return;
+    function day(n,t,d){return '<div class="card-day"><div class="card-day-num">'+n+'</div><div class="card-day-content"><div class="card-day-title">'+t+'</div><div class="card-day-desc">'+d+'</div></div></div>';}
+    function hd(status,cls){return '<div class="card-header"><div class="card-agency-dot"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div><div><div class="card-agency-name">Viagens Premium</div><div class="card-agency-sub">com a sua marca</div></div><div class="card-badge '+(cls||'')+'">'+status+'</div></div>';}
+    var days=day('D1','Chegada em Lisboa · Alfama','Castelo de São Jorge · Fado no Bairro Alto')+day('D2','Belém · LX Factory','Torre de Belém · Pastéis de Belém')+day('D3','Sintra · Cascais','Palácio da Pena · Costa do Estoril');
+    var SCENES=[
+      {cap:'Você monta a proposta',html:hd('◍ montando')+'<div class="card-itinerary hs-build">'+days+'</div><div class="card-footer"><div class="card-footer-stat"><div class="card-footer-num">R$&nbsp;4.200</div><div class="card-footer-label">estimativa</div></div><div class="card-footer-stat"><div class="card-footer-num">7d · 2pax</div><div class="card-footer-label">roteiro</div></div><span class="hs-tag blue">OND vAI sugeriu</span></div>'},
+      {cap:'Envia um link com a sua marca',html:hd('▲ enviando','g')+'<div class="hs-mid"><div class="hs-link"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>viagenspremium.com/p/lisboa</div><div class="hs-big-ok">Proposta enviada ao cliente</div><div class="hs-sub">Ele abre no navegador, sem instalar nada.</div></div>'},
+      {cap:'O cliente personaliza sozinho',html:hd('✎ cliente ajustando','p')+'<div class="hs-mid"><div class="hs-chips"><span class="hs-chip on">+ Seguro viagem</span><span class="hs-chip on">+ Passeio em Sintra</span><span class="hs-chip">Upgrade de hotel</span></div><div class="hs-price-row"><span>Ticket</span><b class="hs-old">R$ 4.200</b><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg><b class="hs-new">R$ 4.680</b></div></div>'},
+      {cap:'Fecha a venda no próprio link',html:hd('✓ vendido','g')+'<div class="hs-mid hs-center"><div class="hs-check"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div><div class="hs-big-ok">Proposta aceita · paga no link</div><div class="hs-sub">A comissão fica com a agência. O OND não é o merchant.</div></div>'},
+      {cap:'E acompanha a viagem inteira',html:hd('◎ em viagem','b')+'<div class="hs-mid"><div class="hs-feed"><div class="hs-feed-row"><span class="hs-fi shield"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>Seguro contratado dias antes ✓</div><div class="hs-feed-row"><span class="hs-fi pin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Passeio extra amanhã, 9h</div><div class="hs-feed-row"><span class="hs-fi plane"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2"/></svg></span>Concierge 24h no OND vAI</div></div></div>'}
+    ];
+    var dots=SCENES.map(function(_,i){return '<i'+(i===0?' class="on"':'')+'></i>';}).join('');
+    dotsEl.innerHTML=dots;
+    var dotI=dotsEl.querySelectorAll('i');
+    var i=-1;
+    function next(){
+      i=(i+1)%SCENES.length;
+      card.classList.remove('in');
+      setTimeout(function(){
+        card.innerHTML=SCENES[i].html;
+        cap.textContent=SCENES[i].cap;
+        for(var k=0;k<dotI.length;k++)dotI[k].className=(k===i?'on':'');
+        void card.offsetWidth; card.classList.add('in');
+      },180);
+    }
+    if(!matchMedia('(prefers-reduced-motion:reduce)').matches){ next(); setInterval(next,2800); }
+    else { i=0; card.innerHTML=SCENES[0].html; cap.textContent=SCENES[0].cap; card.classList.add('in'); }
+  })();
+  </script>
 </section>
 
 <!-- STATS -->
