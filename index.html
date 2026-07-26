@@ -540,6 +540,39 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 </head>
 <body>
 
+<!-- Transição de página → /agencias (swipe roxo→azul: do mundo B2C pro B2B) -->
+<div id="pgt" class="pgt" aria-hidden="true"><span class="pgt-orb"></span></div>
+<style>
+.pgt{position:fixed;inset:0;z-index:99999;background:linear-gradient(120deg,#7c3fff 0%,#0066ff 100%);display:flex;align-items:center;justify-content:center;transform:translateX(100%);pointer-events:none;will-change:transform}
+.pgt.in{animation:pgtIn .5s cubic-bezier(.76,0,.24,1) forwards;pointer-events:auto}
+@keyframes pgtIn{to{transform:translateX(0)}}
+.pgt-orb{width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff,rgba(255,255,255,.7) 42%,rgba(255,255,255,.12) 72%);box-shadow:0 0 46px rgba(255,255,255,.55);opacity:0;transform:scale(.4)}
+.pgt.in .pgt-orb{animation:pgtOrb .55s .08s ease forwards}
+@keyframes pgtOrb{55%{opacity:1;transform:scale(1.12)}100%{opacity:1;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.pgt{display:none!important}}
+</style>
+<script>
+(function(){
+  function bind(){
+    var o=document.getElementById('pgt');if(!o)return;
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+    var links=document.querySelectorAll('a[href$="agencias.html"],a[href$="/agencias"]');
+    Array.prototype.forEach.call(links,function(a){
+      a.addEventListener('click',function(e){
+        if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+        var href=a.getAttribute('href');if(!href)return;
+        e.preventDefault();
+        try{sessionStorage.setItem('ond_pgt','1');}catch(_){}
+        o.classList.add('in');
+        setTimeout(function(){window.location.href=href;},460);
+      });
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);
+  else bind();
+})();
+</script>
+
 <svg style="display:none">
   <symbol id="ond-icon" viewBox="0 0 497.26 497.26">
     <path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/>

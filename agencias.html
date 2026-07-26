@@ -805,6 +805,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
   gtag('js', new Date());
   gtag('config', 'G-EC1FKH0HES');
+  gtag('config', 'AW-XXXXXXXXXX');  /* Google Ads conversion ID - TROCAR pelo ID real (placeholder) */
 </script>
 </head>
 <body>
@@ -1861,6 +1862,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <script>
 (function () {
   var GA_ID = 'G-EC1FKH0HES';
+  var GCLID_KEY = 'ond_gclid';
+  var gclid = new URLSearchParams(window.location.search).get('gclid');
+  if (gclid) { try { sessionStorage.setItem(GCLID_KEY, gclid); } catch (e) {} }
+  else { try { gclid = sessionStorage.getItem(GCLID_KEY); } catch (e) {} }
   function calendlyLinks() { return document.querySelectorAll('a[href*="calendly.com"]'); }
 
   function gaClientIdFromCookie() {
