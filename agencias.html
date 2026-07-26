@@ -173,9 +173,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .hs-fi.shield{background:var(--green-dim);color:var(--green)}
 .hs-fi.pin{background:var(--purple-dim);color:var(--purple-light)}
 .hs-fi.plane{background:var(--blue-dim);color:var(--blue-light)}
-.hs-progress{display:flex;align-items:center;gap:12px;max-width:468px;margin:16px auto 0}
-.hs-cap{font-size:.82rem;font-weight:700;color:var(--muted);flex:1}
-.hs-dots{display:flex;gap:6px}
+.hs-cap{text-align:center;font-size:1.02rem;font-weight:800;letter-spacing:-.01em;color:var(--text);max-width:468px;margin:0 auto 16px}
+.hs-dots{display:flex;justify-content:center;gap:6px;margin:16px auto 0}
 .hs-dots i{width:7px;height:7px;border-radius:50%;background:var(--border);transition:background .3s,width .3s;cursor:pointer}
 .hs-dots i.on{background:var(--blue);width:18px;border-radius:50px}
 .hs-controls{display:flex;align-items:center;justify-content:center;gap:10px;max-width:468px;margin:12px auto 0}
@@ -1103,11 +1102,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     </div>
   </div>
   <div class="hero-visual">
+    <div class="hs-cap" id="hsCap">Você monta a proposta</div>
     <div class="hero-story">
       <div class="hero-card-behind"></div>
       <div class="hero-card hero-card-main" id="hsCard" aria-hidden="true"></div>
     </div>
-    <div class="hs-progress"><span class="hs-cap" id="hsCap">Você monta a proposta</span><span class="hs-dots" id="hsDots"></span></div>
+    <div class="hs-dots" id="hsDots"></div>
     <div class="hs-controls">
       <button class="hs-nav" id="hsPrev" type="button" aria-label="Cena anterior"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
       <button class="hs-nav hs-play" id="hsPlay" type="button" aria-label="Pausar"></button>
