@@ -184,8 +184,14 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .hs-play{width:40px;height:40px;color:var(--blue-light);border-color:color-mix(in srgb,var(--blue) 32%,transparent)}
 .card-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .card-agency-dot{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0044cc,var(--blue));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;flex-shrink:0;box-shadow:0 4px 12px color-mix(in srgb, var(--blue) 35%, transparent)}
-.card-agency-name{font-size:.9rem;font-weight:700}
+.card-agency-name{font-size:.92rem;font-weight:800;letter-spacing:-.01em}
 .card-agency-sub{font-size:.75rem;color:var(--muted)}
+.card-header{align-items:flex-start}
+.card-brand{margin-left:auto;flex-shrink:0;font-size:.66rem;font-weight:800;color:var(--muted);background:var(--surface);border:1px dashed var(--border-hi);border-radius:7px;padding:4px 9px;white-space:nowrap}
+.card-status{display:inline-block;margin-top:5px;font-size:.68rem;font-weight:800;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 26%,transparent);border-radius:50px;padding:2px 9px}
+.card-status.g{color:var(--green);background:var(--green-dim);border-color:color-mix(in srgb,var(--green) 30%,transparent)}
+.card-status.p{color:var(--purple-light);background:var(--purple-dim);border-color:color-mix(in srgb,var(--purple) 32%,transparent)}
+.card-status.b{color:var(--blue-light);background:var(--blue-dim)}
 .card-badge{margin-left:auto;background:color-mix(in srgb, var(--green) 10%, transparent);border:1px solid color-mix(in srgb, var(--green) 25%, transparent);color:var(--green);font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:50px}
 .card-itinerary{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
 .card-day{display:flex;align-items:flex-start;gap:10px}
@@ -618,34 +624,43 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   .pp-shell{display:flex;flex-direction:column;grid-template-columns:none;height:min(78vh,600px);min-height:440px}
   .pp-side{display:none}
   .pp-main{flex:1;min-height:0;display:flex;flex-direction:column}
-  .pp-screen{flex:1;min-height:0;overflow-y:auto}
+  .pp-main>.pp-app{flex:1;min-height:0;overflow-y:auto}
   .pp-fin{border-left:none;border-top:1px solid var(--border);flex:1;min-height:0;overflow-y:auto}
   .pp-tabs{display:flex}
   .pp-shell[data-tab="rot"] .pp-fin{display:none}
   .pp-shell[data-tab="fin"] .pp-app{display:none}
   .pp-shell[data-tab="fin"] .pp-main{flex:0 0 auto}
-  .pp-shell[data-screen="conversa"] .pp-fin{display:none}
+  .pp-vai-panel{width:auto;left:12px;right:12px;bottom:12px}
+  .pp-vai-orb{right:12px;bottom:12px}
 }
-/* ── Telas do app: Conversa (vAI) x Proposta, nunca juntas ── */
-.pp-scr{display:flex;gap:5px;padding:4px;background:var(--surface);border:1px solid var(--border);border-radius:50px;margin-bottom:14px;flex-shrink:0}
-.pp-scr-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:inherit;font-size:.84rem;font-weight:800;color:var(--muted);background:none;border:none;border-radius:50px;padding:9px 14px;cursor:pointer;transition:color .15s,background .15s}
-.pp-restart{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50px;background:none;border:none;color:var(--muted);cursor:pointer;transition:color .15s,background .15s}
-.pp-restart:hover{color:var(--text);background:var(--blue-dim)}
+/* ── App: proposta editável como tela principal; vAI no orb ── */
+.pp-toolbar{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-shrink:0}
+.pp-restart{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50px;background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:color .15s,background .15s,border-color .15s}
+.pp-restart:hover{color:var(--text);background:var(--blue-dim);border-color:var(--blue)}
 .pp-restart:active{transform:rotate(-90deg)}
-.pp-scr-btn .ic{color:currentColor}
-.pp-scr-btn:hover{color:var(--text)}
-.pp-scr-btn.active{color:var(--ond-color-onPrimary);background:var(--blue);box-shadow:0 3px 10px var(--blue-glow)}
-.pp-screen{min-width:0;flex:1;min-height:0;overflow-y:auto}
-.pp-shell[data-screen="conversa"] .pp-screen[data-screen="proposta"]{display:none}
-.pp-shell[data-screen="proposta"] .pp-screen[data-screen="conversa"]{display:none}
-.pp-shell[data-screen="conversa"] .pp-fin{display:none}
-@media(min-width:1001px){
-  .pp-shell[data-screen="conversa"]{grid-template-columns:186px minmax(0,1fr) 0}
-  .pp-shell.pp-collapsed[data-screen="conversa"]{grid-template-columns:58px minmax(0,1fr) 0}
-}
+.pp-main>.pp-app{min-width:0;flex:1;min-height:0;overflow-y:auto}
+/* vAI orb flutuante (permeia o app) */
+.pp-vai-orb{position:absolute;right:16px;bottom:16px;z-index:14;width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px var(--blue-glow),0 0 0 0 color-mix(in srgb,var(--blue) 45%,transparent);animation:vaiPulse 2.6s ease-out infinite;transition:transform .15s,opacity .2s}
+.pp-vai-orb:hover{transform:scale(1.06)}
+.pp-vai-orb.hidden{opacity:0;transform:scale(.6);pointer-events:none}
+@keyframes vaiPulse{0%{box-shadow:0 8px 24px var(--blue-glow),0 0 0 0 color-mix(in srgb,var(--blue) 40%,transparent)}70%{box-shadow:0 8px 24px var(--blue-glow),0 0 0 12px transparent}100%{box-shadow:0 8px 24px var(--blue-glow),0 0 0 0 transparent}}
+.pp-vai-panel{position:absolute;right:16px;bottom:16px;z-index:15;width:300px;max-width:calc(100% - 32px);max-height:calc(100% - 32px);display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border-hi);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.5);opacity:0;transform:translateY(12px) scale(.98);transform-origin:bottom right;pointer-events:none;transition:opacity .2s,transform .2s}
+.pp-vai-panel.open{opacity:1;transform:none;pointer-events:auto}
+.pp-vai-head{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-bottom:1px solid var(--border)}
+.pp-vai-title{display:flex;align-items:center;gap:8px;font-size:.86rem;font-weight:800}
+.pp-vai-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.pp-vai-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1rem;line-height:1;padding:2px 4px}
+.pp-vai-close:hover{color:var(--text)}
+.pp-vai-panel .pp-log{flex:1;min-height:120px;max-height:280px;overflow-y:auto;padding:12px 14px}
+.pp-vai-panel .pp-compose{padding:10px 12px;border-top:1px solid var(--border)}
 /* ── Fase 2: editar dia a dia + add-ons ── */
 .pp-add{margin-top:10px;display:inline-flex;align-items:center;gap:5px;font-family:inherit;font-size:.75rem;font-weight:800;color:var(--blue-light);background:var(--blue-dim);border:1px dashed color-mix(in srgb,var(--blue) 38%,transparent);border-radius:50px;padding:6px 13px;cursor:pointer;transition:background .15s,border-color .15s}
 .pp-add:hover{background:color-mix(in srgb,var(--blue) 15%,transparent);border-style:solid}
+/* Dropdown de fornecedores cadastrados (edição manual) */
+.pp-day-add{margin-top:10px;display:flex;align-items:center;gap:7px;background:var(--blue-dim);border:1px dashed color-mix(in srgb,var(--blue) 38%,transparent);border-radius:10px;padding:5px 6px 5px 11px}
+.pp-day-add .ic{color:var(--blue-light);flex-shrink:0}
+.pp-add-sel{flex:1;min-width:0;font-family:inherit;font-size:.76rem;font-weight:700;color:var(--blue-light);background:none;border:none;cursor:pointer;padding:5px 4px;outline:none}
+.pp-add-sel option{color:var(--text);background:var(--surface);font-weight:600}
 .pp-items li.pp-extra{background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 22%,transparent);border-radius:9px;padding:7px 10px}
 .pp-items li.pp-extra .ic{color:var(--blue-light)}
 .pp-extra-p{margin-left:auto;font-size:.75rem;font-weight:800;color:var(--green);white-space:nowrap}
@@ -1101,10 +1116,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     var card=document.getElementById('hsCard'),cap=document.getElementById('hsCap'),dotsEl=document.getElementById('hsDots');
     if(!card)return;
     function day(n,t,d){return '<div class="card-day"><div class="card-day-num">'+n+'</div><div class="card-day-content"><div class="card-day-title">'+t+'</div><div class="card-day-desc">'+d+'</div></div></div>';}
-    function hd(status,cls){return '<div class="card-header"><div class="card-agency-dot"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div><div><div class="card-agency-name">Viagens Premium</div><div class="card-agency-sub">com a sua marca</div></div><div class="card-badge '+(cls||'')+'">'+status+'</div></div>';}
+    function hd(status,cls){return '<div class="card-header"><div class="card-agency-dot"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div><div><div class="card-agency-name">Viagem de 5 dias para Lisboa</div><div class="card-status '+(cls||'')+'">'+status+'</div></div><span class="card-brand">Sua Marca</span></div>';}
     var days=day('D1','Chegada em Lisboa · Alfama','Castelo de São Jorge · Fado no Bairro Alto')+day('D2','Belém · LX Factory','Torre de Belém · Pastéis de Belém')+day('D3','Sintra · Cascais','Palácio da Pena · Costa do Estoril');
     var SCENES=[
-      {cap:'Você monta a proposta',html:hd('◍ montando')+'<div class="card-itinerary hs-build">'+days+'</div><div class="card-footer"><div class="card-footer-stat"><div class="card-footer-num">R$&nbsp;4.200</div><div class="card-footer-label">estimativa</div></div><div class="card-footer-stat"><div class="card-footer-num">7d · 2pax</div><div class="card-footer-label">roteiro</div></div><span class="hs-tag blue">OND vAI sugeriu</span></div>'},
+      {cap:'Você monta a proposta',html:hd('◍ montando')+'<div class="card-itinerary hs-build">'+days+'</div><div class="card-footer"><div class="card-footer-stat"><div class="card-footer-num">R$&nbsp;4.200</div><div class="card-footer-label">estimativa</div></div><div class="card-footer-stat"><div class="card-footer-num">5d · 2pax</div><div class="card-footer-label">roteiro</div></div><span class="hs-tag blue">OND vAI sugeriu</span></div>'},
       {cap:'Envia um link com a sua marca',html:hd('▲ enviando','g')+'<div class="hs-mid"><div class="hs-link"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>viagenspremium.com/p/lisboa</div><div class="hs-big-ok">Proposta enviada ao cliente</div><div class="hs-sub">Ele abre no navegador, sem instalar nada.</div></div>'},
       {cap:'O cliente personaliza sozinho',html:hd('✎ cliente ajustando','p')+'<div class="hs-mid"><div class="hs-chips"><span class="hs-chip on">+ Seguro viagem</span><span class="hs-chip on">+ Passeio em Sintra</span><span class="hs-chip">Upgrade de hotel</span></div><div class="hs-price-row"><span>Ticket</span><b class="hs-old">R$ 4.200</b><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg><b class="hs-new">R$ 4.680</b></div></div>'},
       {cap:'Fecha a venda no próprio link',html:hd('✓ vendido','g')+'<div class="hs-mid hs-center"><div class="hs-check"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div><div class="hs-big-ok">Proposta aceita · paga no link</div><div class="hs-sub">A comissão fica com a agência. O OND não é o merchant.</div></div>'},
@@ -1225,23 +1240,30 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
               <nav class="pp-side-nav">
                 <span class="on" data-nav="propostas"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg><span class="pp-nav-txt">Propostas</span></span>
                 <span data-nav="destinos"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg><span class="pp-nav-txt">Destinos</span></span>
-                <span data-nav="vai"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg><span class="pp-nav-txt">OND vAI</span></span>
                 <span data-nav="relatorios"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-4"/></svg><span class="pp-nav-txt">Relatórios</span></span>
                 <span data-nav="marca" title="Sua marca"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996C18.928 15.398 22 12.87 22 9.5 22 5.36 17.64 2 12 2z"/></svg><span class="pp-nav-txt">Sua marca</span></span>
               </nav>
               <div class="pp-side-foot">Plano Pro<br>12 propostas ativas</div>
             </aside>
             <main class="pp-main">
-            <div class="pp-scr" id="ppScr">
-              <button class="pp-scr-btn active" type="button" data-screen="conversa"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Conversa</button>
-              <button class="pp-scr-btn" type="button" data-screen="proposta"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Proposta</button>
+            <div class="pp-toolbar">
+              <div class="pp-tabs" id="ppTabs">
+                <button class="pp-tab active" type="button" data-tab="rot">Roteiro</button>
+                <button class="pp-tab" type="button" data-tab="fin">Financeiro</button>
+              </div>
               <button class="pp-restart" id="ppRestart" type="button" aria-label="Reiniciar demo" title="Reiniciar demo"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></button>
             </div>
-            <div class="pp-screen" data-screen="conversa" id="ppScrConversa">
-            <div class="pp-chat">
+            <div class="pp-app" id="ppApp"></div>
+            </main>
+            <aside class="pp-fin" id="ppFin"></aside>
+            </div>
+            <!-- OND vAI permeando: orb flutuante + painel de conversa -->
+            <button class="pp-vai-orb" id="ppVaiOrb" type="button" aria-label="Falar com o OND vAI"><svg viewBox="0 0 497.26 497.26" width="24" height="24" fill="#fff" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></button>
+            <div class="pp-vai-panel" id="ppVaiPanel">
+              <div class="pp-vai-head"><span class="pp-vai-title"><span class="pp-vai-dot"></span>OND vAI</span><button class="pp-vai-close" id="ppVaiClose" type="button" aria-label="Fechar">✕</button></div>
               <div class="pp-log" id="ppLog"></div>
               <div class="pp-compose">
-                <input class="pp-dest-input" id="ppDestInput" type="text" autocomplete="off" list="ppDestList" aria-label="Responder no chat" placeholder="Pra onde? Ex.: Lisboa, Roma, Noronha...">
+                <input class="pp-dest-input" id="ppDestInput" type="text" autocomplete="off" list="ppDestList" aria-label="Falar com o OND vAI" placeholder="Mude o destino, os dias, um passeio...">
                 <datalist id="ppDestList">
                   <option value="Lisboa, Portugal"></option><option value="Buenos Aires, Argentina"></option>
                   <option value="Orlando, Estados Unidos"></option><option value="Roma, Itália"></option>
@@ -1249,17 +1271,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
                   <option value="Cancún, México"></option>
                 </datalist>
               </div>
-            </div>
-            </div>
-            <div class="pp-screen" data-screen="proposta" id="ppScrProposta">
-            <div class="pp-tabs" id="ppTabs">
-              <button class="pp-tab active" type="button" data-tab="rot">Roteiro</button>
-              <button class="pp-tab" type="button" data-tab="fin">Financeiro</button>
-            </div>
-            <div class="pp-app" id="ppApp"></div>
-            </div>
-            </main>
-            <aside class="pp-fin" id="ppFin"></aside>
             </div>
           </div>
         </div>
@@ -1371,16 +1382,36 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       ];
       var trip={extras:[],addons:{}};   // extras:[{id,day,icon,label,price}]; addons:{id:bool}
       var extraSeq=0;
+      // Fornecedores/parceiros cadastrados por destino (opções dos dropdowns)
+      var SUP={
+        lisboa:[['cam','Tour privativo em Sintra','Lisbon Tours',210],['food','Jantar de fado premium','Casa de Fado',160],['plane','Passeio de barco no Tejo','Sail Lisboa',190],['pin','Bate-volta a Óbidos','Portugal Trails',240],['bag','Wine tasting no centro','Vinho & Co',120]],
+        bsas:[['star','Show de tango com jantar','Tango Porteño',180],['food','Parrilla premium em Palermo','Don Julio Tours',150],['cam','City tour histórico','BA Walks',90],['pin','Delta do Tigre de barco','Tigre River',160]],
+        orlando:[['star','Universal 2 dias','Orlando Tickets',890],['star','Disney Park Hopper','Magic Access',1120],['bag','Premium Outlets tour','Shop & Go',110],['cam','Kennedy Space Center','Space Tours',260]],
+        paris:[['cam','Louvre com guia privativo','Paris Art Tours',220],['food','Cruzeiro com jantar no Sena','Bateaux Privé',280],['pin','Bate-volta a Versalhes','Château Trips',240],['star','Torre Eiffel VIP','Eiffel Access',150]],
+        roma:[['cam','Coliseu e Fórum com guia','Rome Legends',210],['pin','Vaticano sem fila','Vatican Skip',190],['food','Aula de massa fresca','Cucina Roma',140],['star','Toscana bate-volta','Italy Day Trips',320]],
+        cancun:[['sun','Chichén Itzá + cenote','Maya Tours',260],['plane','Isla Mujeres de catamarã','Caribe Sail',210],['star','Xcaret all-inclusive','Xcaret Access',430],['sun','Mergulho no recife','Blue Reef',180]],
+        noronha:[['sun','Barco Baía dos Golfinhos','Noronha Mar',320],['pin','Trilha guiada Atalaia','Eco Noronha',150],['sun','Mergulho de cilindro','Dive Noronha',390],['cam','Ilha tour 4x4','Noronha Adventure',280]]
+      };
+      var SUP_GEN=[['star','City tour guiado','Parceiros Locais',180],['food','Experiência gastronômica','Sabores Locais',150],['plane','Passeio panorâmico','Scenic Co',220],['cam','Museu com ingresso','Culture Pass',90]];
+      function supList(d){
+        var n=(d.name||'').toLowerCase();
+        if(/lisbo/.test(n))return SUP.lisboa; if(/buenos|aires|argentin/.test(n))return SUP.bsas;
+        if(/orlando|disney/.test(n))return SUP.orlando; if(/paris/.test(n))return SUP.paris;
+        if(/roma|rome/.test(n))return SUP.roma; if(/cancun|cancún/.test(n))return SUP.cancun;
+        if(/noronha/.test(n))return SUP.noronha; return SUP_GEN;
+      }
       function itinerary(d,days){
-        var out='',shown=Math.min(days,d.days.length),i,j,k,day,items;
+        var out='',shown=Math.min(days,d.days.length),i,j,k,day,items,sup=supList(d);
+        var opts='<option value="" selected disabled>＋ Adicionar de fornecedores</option>';
+        for(j=0;j<sup.length;j++){opts+='<option value="'+j+'">'+esc(sup[j][1])+' — '+esc(sup[j][2])+' · '+brl(sup[j][3])+'</option>';}
         for(i=0;i<shown;i++){
           day=d.days[i];items='';
           for(j=0;j<day.items.length;j++){items+='<li>'+ic(day.items[j][0],16)+'<span>'+esc(day.items[j][1])+'</span></li>';}
           for(k=0;k<trip.extras.length;k++){
             if(trip.extras[k].day!==i)continue;
-            items+='<li class="pp-extra">'+ic(trip.extras[k].icon,16)+'<span>'+esc(trip.extras[k].label)+'</span><span class="pp-extra-p">+'+brl(trip.extras[k].price)+'</span><button class="pp-x" type="button" data-x="'+trip.extras[k].id+'" aria-label="Remover passeio">✕</button></li>';
+            items+='<li class="pp-extra">'+ic(trip.extras[k].icon,16)+'<span>'+esc(trip.extras[k].label)+'</span><span class="pp-extra-p">+'+brl(trip.extras[k].price)+'</span><button class="pp-x" type="button" data-x="'+trip.extras[k].id+'" aria-label="Remover">✕</button></li>';
           }
-          out+='<div class="pp-day"><div class="pp-day-h"><span class="pp-day-n">Dia '+(i+1)+'</span> '+esc(day.t)+'</div><ul class="pp-items">'+items+'</ul><button class="pp-add" type="button" data-add="'+i+'">＋ Adicionar passeio</button></div>';
+          out+='<div class="pp-day"><div class="pp-day-h"><span class="pp-day-n">Dia '+(i+1)+'</span> '+esc(day.t)+'</div><ul class="pp-items">'+items+'</ul><div class="pp-day-add"><svg class="ic" width="13" height="13" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><select class="pp-add-sel" data-add="'+i+'" aria-label="Adicionar de fornecedores no dia '+(i+1)+'">'+opts+'</select></div></div>';
         }
         if(days>shown){
           var label=(days>shown+1)?('Dia '+(shown+1)+' a Dia '+days):('Dia '+(shown+1));
@@ -1433,13 +1464,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       var input=document.getElementById('ppDestInput');
       var logEl=document.getElementById('ppLog');
       var state={destText:'Lisboa, Portugal',days:5,view:'proposta',screen:'conversa',stage:'dest'};
+      // vAI permeia: 'conversa' abre o painel do orb; 'proposta' fecha
       function setScreen(which){
         state.screen=which;
-        if(shell)shell.dataset.screen=which;
-        var btns=document.querySelectorAll('#ppScr .pp-scr-btn'),i;
-        for(i=0;i<btns.length;i++){btns[i].classList.toggle('active',btns[i].getAttribute('data-screen')===which);}
+        var panel=document.getElementById('ppVaiPanel'),orb=document.getElementById('ppVaiOrb');
+        var open=(which==='conversa');
+        if(panel)panel.classList.toggle('open',open);
+        if(orb)orb.classList.toggle('hidden',open);
       }
-      if(shell)shell.dataset.screen='conversa';
       // ── Sua marca (personalização que reflete na proposta) ──
       var brand={name:'Sua Marca',color:'#0066ff',logo:''};
       var BRAND_COLORS=['#0066ff','#7c3fff','#00b37e','#e8484a','#ff7a00','#0b1220'];
@@ -1650,62 +1682,33 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         });
         return row;
       }
-      function updatePlaceholder(){
-        if(!input)return;
-        input.placeholder=state.stage==='days'?'Ou digite os dias, ex.: 5':'Pra onde? Ex.: Lisboa, Roma, Noronha...';
+      function greeting(){
+        bubble('ai','Oi! Sou o OND vAI 👋 Eu permeio o app todo: me chame aqui pra trocar o <b>destino</b>, os <b>dias</b> ou um passeio, sem sair da proposta.');
+        chipsRow(DEST_OPTIONS,function(v){pickDest(v);});
       }
-      function askDestino(){
-        state.stage='dest';
-        bubble('ai','Pra onde vamos?');
-        chipsRow(DEST_OPTIONS,onDestinoPicked);
-        updatePlaceholder();
-      }
-      function onDestinoPicked(raw,label){
+      function pickDest(raw){
         raw=(raw||'').trim();if(!raw)return;
         clearPendingChips();
-        state.destText=raw;
-        bubble('me',esc(label||raw));
-        askDias();
-      }
-      function askDias(){
-        state.stage='days';
-        bubble('ai','Boa, <b>'+esc(shortName())+'</b>! Quantos dias?');
-        chipsRow(DAYS_OPTIONS,onDiasPicked);
-        updatePlaceholder();
-      }
-      function onDiasPicked(raw,label){
-        var n=parseInt(raw,10);if(!n||n<1)n=5;
-        clearPendingChips();
-        state.days=n;
-        bubble('me',label||(n+' dias'));
-        runGeneration();
-      }
-      function runGeneration(){
-        state.stage='gerado';
-        updatePlaceholder();
-        trip.extras=[];trip.addons={};   // proposta nova: zera edições e add-ons
-        if(shell)shell.dataset.tab='rot';setTab('rot');
-        var typing=bubble('ai','Fechando sua proposta de <b>'+esc(shortName())+'</b>, '+state.days+' dias <span class="pp-typing"><i></i><i></i><i></i></span>');
-        app.innerHTML=SKELETON;
+        state.destText=raw;state.view='proposta';
+        trip.extras=[];trip.addons={};
+        bubble('me',esc(shortName()));
+        var typing=bubble('ai','Montando <span class="pp-typing"><i></i><i></i><i></i></span>');
+        setTab('rot');app.innerHTML=SKELETON;
         if(timer)clearTimeout(timer);
         timer=setTimeout(function(){
           paint();
-          if(typing)typing.querySelector('.pp-bubble').innerHTML='Pronto! Sua proposta de <b>'+esc(shortName())+'</b> está aqui 👉';
-          setScreen('proposta');
-          chipsRow(FINAL_OPTIONS,onFinalPicked);
-        },800);
+          if(typing)typing.querySelector('.pp-bubble').innerHTML='Pronto! Proposta de <b>'+esc(shortName())+'</b> 👉 ajuste no roteiro (dropdowns) ou me diga o que mudar.';
+          chipsRow(DAYS_OPTIONS,function(v){pickDays(v);});
+        },700);
       }
-      function onFinalPicked(val){
+      function pickDays(raw){
+        var n=parseInt(raw,10);if(!n||n<1)n=5;
         clearPendingChips();
-        if(val==='outro'){restart();}
-        else{setScreen('proposta');}
-      }
-      function restart(){
-        setScreen('conversa');
-        bubble('ai','Show! Vamos de novo, pra onde vamos agora?');
-        state.stage='dest';
-        chipsRow(DEST_OPTIONS,onDestinoPicked);
-        updatePlaceholder();
+        state.days=n;
+        trip.extras=trip.extras.filter(function(x){return x.day<n;});
+        bubble('me',n+' dias');
+        paint();
+        bubble('ai','Feito, <b>'+n+' dias</b>. Preço e roteiro já atualizados 👉');
       }
       if(input){input.addEventListener('keydown',function(e){
         if(e.key!=='Enter')return;
@@ -1713,8 +1716,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         var raw=input.value.trim();
         if(!raw)return;
         input.value='';
-        if(state.stage==='days'){onDiasPicked(raw,raw+' dias');}
-        else{onDestinoPicked(raw,raw);}
+        var dm=raw.match(/(\d+)\s*dias?/i);
+        if(dm){pickDays(dm[1]);}else{pickDest(raw);}
       });}
       function setTab(which){
         if(shell)shell.dataset.tab=which;
@@ -1722,8 +1725,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         for(i=0;i<tabs.length;i++){tabs[i].classList.toggle('active',tabs[i].getAttribute('data-tab')===which);}
       }
       (shell||app).addEventListener('click',function(e){
-        var scrBtn=e.target.closest('.pp-scr-btn');
-        if(scrBtn){setScreen(scrBtn.getAttribute('data-screen'));return;}
         var col=e.target.closest('.pp-collapse');
         if(col){if(shell)shell.classList.toggle('pp-collapsed');return;}
         var nav=e.target.closest('.pp-side-nav span[data-nav]');
@@ -1793,8 +1794,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         if(e.target&&e.target.id==='ppBrandLogo'){
           var f=e.target.files&&e.target.files[0];if(!f)return;
           var r=new FileReader();r.onload=function(ev){brand.logo=ev.target.result;applyBrand();paint();};r.readAsDataURL(f);
+        }else if(e.target&&e.target.classList.contains('pp-add-sel')){
+          var day=parseInt(e.target.getAttribute('data-add'),10),idx=parseInt(e.target.value,10);
+          var o=supList(resolve(state.destText))[idx];
+          if(o){trip.extras.push({id:++extraSeq,day:day,icon:o[0],label:o[1]+' · '+o[2],price:o[3]});paint();}
         }
       });
+      var vaiOrb=document.getElementById('ppVaiOrb'),vaiClose=document.getElementById('ppVaiClose');
+      if(vaiOrb)vaiOrb.addEventListener('click',function(){setScreen('conversa');});
+      if(vaiClose)vaiClose.addEventListener('click',function(){setScreen('proposta');});
       // Reiniciar a demo do zero
       function resetDemo(){
         state.destText='Lisboa, Portugal';state.days=5;state.view='proposta';state.stage='dest';
@@ -1805,17 +1813,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         var ns=shell.querySelectorAll('.pp-side-nav span[data-nav]'),i;
         for(i=0;i<ns.length;i++){ns[i].classList.toggle('on',ns[i].getAttribute('data-nav')==='propostas');}
         shell.classList.remove('pp-collapsed');
-        setTab('rot');applyBrand();paint();setScreen('conversa');
-        bubble('ai','Oi! Eu sou o OND vAI 👋');
-        askDestino();
+        setTab('rot');applyBrand();paint();setScreen('proposta');
+        greeting();
       }
       var rb=document.getElementById('ppRestart');
       if(rb)rb.addEventListener('click',resetDemo);
-      // início: aba Proposta pronta em segundo plano + chat guiado começa perguntando o destino
+      // início: proposta já montada como tela principal; o vAI fica no orb (clique pra falar)
       applyBrand();
       paint();
-      bubble('ai','Oi! Eu sou o OND vAI 👋');
-      askDestino();
+      greeting();
     })();
     </script>
 
