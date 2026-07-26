@@ -1878,10 +1878,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     calendlyLinks().forEach(function (link) {
       var url = new URL(link.href);
       if (clientId) { url.searchParams.set('salesforce_uuid', clientId); }
+      var hasUtmContent = false;
       ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (key) {
         var value = pageParams.get(key);
-        if (value) { url.searchParams.set(key, value); }
+        if (value) { url.searchParams.set(key, value); if (key === 'utm_content') { hasUtmContent = true; } }
       });
+      if (!hasUtmContent && gclid) { url.searchParams.set('utm_content', 'gclid_' + gclid); }
       link.href = url.toString();
     });
   }
@@ -1900,16 +1902,26 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
         forwardTracking(gaClientIdFromCookie());
         if (typeof gtag === 'function') {
           gtag('event', 'generate_lead', { method: 'calendly', context: 'agencias_b2b' });
+          gtag('event', 'clique_agendar');
         }
       });
     });
   }
 
+  function bindScheduled() {
+    window.addEventListener('message', function (e) {
+      if (e && e.data && e.data.event === 'calendly.event_scheduled' && typeof gtag === 'function') {
+        gtag('event', 'reuniao_agendada');
+      }
+    });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { stampOnLoad(); bindClicks(); });
+    document.addEventListener('DOMContentLoaded', function () { stampOnLoad(); bindClicks(); bindScheduled(); });
   } else {
     stampOnLoad();
     bindClicks();
+    bindScheduled();
   }
 })();
 </script>
