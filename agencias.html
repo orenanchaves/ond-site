@@ -199,8 +199,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .card-day-content{flex:1}
 .card-day-title{font-size:.82rem;font-weight:700;color:var(--text)}
 .card-day-desc{font-size:.75rem;color:var(--muted);line-height:1.4}
-.card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border)}
-.card-footer-stat{text-align:center}
+.card-footer{display:flex;align-items:center;gap:20px;padding-top:14px;border-top:1px solid var(--border)}
+.card-footer-stat{text-align:left;white-space:nowrap}
 .card-footer-num{font-size:1rem;font-weight:800;color:var(--green)}
 .card-footer-label{font-size:.68rem;color:var(--muted)}
 .card-footer-cta{background:var(--blue);color:var(--ond-color-onPrimary);font-size:.76rem;font-weight:700;padding:7px 14px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 4px 12px var(--blue-glow)}
@@ -328,6 +328,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .cta-final-title em{font-style:normal;color:var(--green)}
 .cta-final-sub{font-size:1.05rem;color:var(--muted);max-width:520px;margin:0 auto 36px;line-height:1.7}
 .cta-final-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.cta-final-demo{margin:0 0 20px}
+.btn-demo{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;padding:13px 26px;border-radius:50px;font-size:.95rem;font-weight:800;text-decoration:none;box-shadow:0 8px 24px var(--blue-glow);transition:transform .15s,filter .15s}
+.btn-demo:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn-demo svg{fill:#fff;flex-shrink:0}
 .cta-final-note{font-size:.82rem;color:var(--muted2)}
 /* Quem somos (clique pra revelar, no final) */
 .wwa{max-width:600px;margin:26px auto 0;text-align:left;border:1px solid var(--border);border-radius:16px;background:var(--card);overflow:hidden}
@@ -630,21 +634,20 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   .pp-shell[data-tab="rot"] .pp-fin{display:none}
   .pp-shell[data-tab="fin"] .pp-app{display:none}
   .pp-shell[data-tab="fin"] .pp-main{flex:0 0 auto}
-  .pp-vai-panel{width:auto;left:12px;right:12px;bottom:12px}
-  .pp-vai-orb{right:12px;bottom:12px}
+  .pp-vai-panel{width:auto;left:12px;right:12px;bottom:12px;transform-origin:bottom center}
+  .pp-vai-orb{left:12px;bottom:12px}
 }
 /* ── App: proposta editável como tela principal; vAI no orb ── */
-.pp-toolbar{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-shrink:0}
-.pp-restart{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50px;background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:color .15s,background .15s,border-color .15s}
+.pp-bar .pp-restart{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:color .15s,background .15s,border-color .15s}
 .pp-restart:hover{color:var(--text);background:var(--blue-dim);border-color:var(--blue)}
 .pp-restart:active{transform:rotate(-90deg)}
 .pp-main>.pp-app{min-width:0;flex:1;min-height:0;overflow-y:auto}
 /* vAI orb flutuante (permeia o app) */
-.pp-vai-orb{position:absolute;right:16px;bottom:16px;z-index:14;width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px var(--blue-glow),0 0 0 0 color-mix(in srgb,var(--blue) 45%,transparent);animation:vaiPulse 2.6s ease-out infinite;transition:transform .15s,opacity .2s}
+.pp-vai-orb{position:absolute;left:16px;bottom:16px;z-index:14;width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px var(--blue-glow),0 0 0 0 color-mix(in srgb,var(--blue) 45%,transparent);animation:vaiPulse 2.6s ease-out infinite;transition:transform .15s,opacity .2s}
 .pp-vai-orb:hover{transform:scale(1.06)}
 .pp-vai-orb.hidden{opacity:0;transform:scale(.6);pointer-events:none}
 @keyframes vaiPulse{0%{box-shadow:0 8px 24px var(--blue-glow),0 0 0 0 color-mix(in srgb,var(--blue) 40%,transparent)}70%{box-shadow:0 8px 24px var(--blue-glow),0 0 0 12px transparent}100%{box-shadow:0 8px 24px var(--blue-glow),0 0 0 0 transparent}}
-.pp-vai-panel{position:absolute;right:16px;bottom:16px;z-index:15;width:300px;max-width:calc(100% - 32px);max-height:calc(100% - 32px);display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border-hi);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.5);opacity:0;transform:translateY(12px) scale(.98);transform-origin:bottom right;pointer-events:none;transition:opacity .2s,transform .2s}
+.pp-vai-panel{position:absolute;left:16px;bottom:16px;z-index:15;width:300px;max-width:calc(100% - 32px);max-height:calc(100% - 32px);display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border-hi);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.5);opacity:0;transform:translateY(12px) scale(.98);transform-origin:bottom left;pointer-events:none;transition:opacity .2s,transform .2s}
 .pp-vai-panel.open{opacity:1;transform:none;pointer-events:auto}
 .pp-vai-head{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-bottom:1px solid var(--border)}
 .pp-vai-title{display:flex;align-items:center;gap:8px;font-size:.86rem;font-weight:800}
@@ -1230,6 +1233,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
               <span class="pp-dot"></span><span class="pp-dot"></span><span class="pp-dot"></span>
               <span class="pp-url"><svg class="ic" width="12" height="12" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>app.ond.com.br/proposta</span>
               <span class="pp-live">Demonstração</span>
+              <button class="pp-restart" id="ppRestart" type="button" aria-label="Reiniciar demo" title="Reiniciar demo"><svg class="ic" width="14" height="14" viewBox="0 0 24 24"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></button>
             </div>
             <div class="pp-shell" id="ppShell" data-tab="rot">
             <aside class="pp-side">
@@ -1246,12 +1250,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
               <div class="pp-side-foot">Plano Pro<br>12 propostas ativas</div>
             </aside>
             <main class="pp-main">
-            <div class="pp-toolbar">
-              <div class="pp-tabs" id="ppTabs">
-                <button class="pp-tab active" type="button" data-tab="rot">Roteiro</button>
-                <button class="pp-tab" type="button" data-tab="fin">Financeiro</button>
-              </div>
-              <button class="pp-restart" id="ppRestart" type="button" aria-label="Reiniciar demo" title="Reiniciar demo"><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></button>
+            <div class="pp-tabs" id="ppTabs">
+              <button class="pp-tab active" type="button" data-tab="rot">Roteiro</button>
+              <button class="pp-tab" type="button" data-tab="fin">Financeiro</button>
             </div>
             <div class="pp-app" id="ppApp"></div>
             </main>
@@ -2074,6 +2075,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         Falar no WhatsApp
       </a>
     </div>
+    <div class="cta-final-demo"><a href="#plataforma" class="btn-demo"><svg viewBox="0 0 497.26 497.26" width="18" height="18" fill="#fff" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg>Testar a demo agora</a></div>
     <div class="cta-final-note">Já conversou com a gente? <a href="https://pci.jotform.com/form/252517268656062" class="onboarding-link" target="_blank" rel="noopener">Fazer o onboarding</a> · Dúvidas? Escreva para <a href="mailto:renan@agamatec.com">renan@agamatec.com</a></div>
     <details class="wwa">
       <summary class="wwa-sum"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Quem somos por trás do OND<span class="wwa-caret">▾</span></summary>
