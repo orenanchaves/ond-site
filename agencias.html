@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#060a14">
 <meta name="description" content="OND para agências: monte propostas de viagem em minutos e envie um link com a sua marca onde o cliente personaliza tudo, adiciona seguro e upgrades, e fecha. Mais vendas, mais ticket.">
-<title>OND para Agências: Propostas que o cliente fecha</title>
+<title>Plataforma de vendas para agências de viagem — OND</title>
 <link rel="icon" type="image/svg+xml" href="/assets/ond-symbol.svg">
 <link rel="canonical" href="https://ondviajar.com.br/agencias.html">
 <!-- Open Graph -->
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="OND">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://ondviajar.com.br/agencias.html">
-<meta property="og:title" content="OND para Agências: Propostas que o cliente fecha">
+<meta property="og:title" content="Plataforma de vendas para agências de viagem — OND">
 <meta property="og:description" content="OND para agências: monte propostas de viagem em minutos e envie um link com a sua marca onde o cliente personaliza tudo, adiciona seguro e upgrades, e fecha.">
 <meta property="og:image" content="https://ondviajar.com.br/assets/og-cover.jpg">
 <meta property="og:image:width" content="1200">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="OND para agências: roteiros personalizados com IA">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="OND para Agências: Propostas que o cliente fecha">
+<meta name="twitter:title" content="Plataforma de vendas para agências de viagem — OND">
 <meta name="twitter:description" content="OND para agências: monte propostas de viagem em minutos e envie um link com a sua marca onde o cliente personaliza tudo, adiciona seguro e upgrades, e fecha.">
 <meta name="twitter:image" content="https://ondviajar.com.br/assets/og-cover.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -139,6 +139,26 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .hero-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;position:relative}
 .hero-card-main{z-index:2;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 1px color-mix(in srgb, var(--blue) 10%, transparent)}
 .hero-card-behind{position:absolute;top:-12px;left:12px;right:-12px;height:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);z-index:1;opacity:.5}
+/* "Proposta se montando": os blocos entram em sequência, em loop */
+.hero-card-main .card-header,
+.hero-card-main .card-day,
+.hero-card-main .card-footer{animation:heroAssemble 7s cubic-bezier(.22,1,.36,1) infinite both}
+.hero-card-main .card-day:nth-child(1){animation-delay:.45s}
+.hero-card-main .card-day:nth-child(2){animation-delay:.7s}
+.hero-card-main .card-day:nth-child(3){animation-delay:.95s}
+.hero-card-main .card-footer{animation-delay:1.3s}
+.hero-card-main .card-badge{animation:heroBadgePulse 7s ease-in-out infinite}
+@keyframes heroAssemble{
+  0%{opacity:0;transform:translateY(16px) scale(.97)}
+  7%{opacity:1;transform:none}
+  86%{opacity:1;transform:none}
+  95%{opacity:0;transform:translateY(-9px) scale(.99)}
+  100%{opacity:0;transform:translateY(16px) scale(.97)}
+}
+@keyframes heroBadgePulse{0%,6%{opacity:.5;transform:scale(.9)}12%{opacity:1;transform:scale(1)}86%{opacity:1}95%,100%{opacity:.4}}
+@media(prefers-reduced-motion:reduce){
+  .hero-card-main .card-header,.hero-card-main .card-day,.hero-card-main .card-footer,.hero-card-main .card-badge{animation:none}
+}
 .card-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .card-agency-dot{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0044cc,var(--blue));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;flex-shrink:0;box-shadow:0 4px 12px color-mix(in srgb, var(--blue) 35%, transparent)}
 .card-agency-name{font-size:.9rem;font-weight:700}
@@ -891,7 +911,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   <nav><ul class="header-nav">
     <li><a href="index.html" class="nav-home">← Para viajantes</a></li>
     <li><a href="#plataforma">Plataforma</a></li>
-    <li><a href="#como-funciona">Como funciona</a></li>
     <li><a href="#modelo">Modelo</a></li>
     <li><div class="seg" role="tablist" aria-label="Escolha seu perfil">
       <a class="seg-btn active" href="agencias.html" role="tab" aria-current="page" aria-selected="true">Para Agências de Viagem</a>
@@ -905,7 +924,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <nav class="mobile-nav" id="mobileNav">
   <a href="index.html" class="nav-home">← Para viajantes</a>
   <a href="#plataforma" onclick="closeMenu()">Plataforma</a>
-  <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
   <a href="#modelo" onclick="closeMenu()">Modelo</a>
   <div class="seg" role="tablist" aria-label="Escolha seu perfil">
     <a class="seg-btn active" href="agencias.html" role="tab" aria-current="page" aria-selected="true">Para Agências de Viagem</a>
@@ -1637,39 +1655,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   </div>
 </section>
 
-<!-- COMO FUNCIONA -->
-<section class="how" id="como-funciona">
-  <div style="max-width:1280px;margin:0 auto">
-    <div style="text-align:center;margin-bottom:48px">
-      <span class="section-label">Como funciona</span>
-      <h2 class="section-title">Da proposta ao fechamento em 4 passos</h2>
-      <p class="section-sub" style="margin:0 auto">Você monta. O cliente personaliza. A venda fecha.</p>
-    </div>
-    <div class="steps-row">
-      <div class="step-item">
-        <div class="step-circle"><svg class="ic" width="28" height="28" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="M9 15h6"/></svg></div>
-        <h3 class="step-title">Monte a proposta</h3>
-        <p class="step-desc">Em minutos: roteiro, voos, hotéis e preços. O OND vAI já sugere tudo pronto pra você só ajustar.</p>
-      </div>
-      <div class="step-item">
-        <div class="step-circle"><svg class="ic" width="27" height="27" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
-        <h3 class="step-title">Envie o link com a sua marca</h3>
-        <p class="step-desc">O cliente abre no navegador, sem instalar nada, vendo a experiência da sua agência do começo ao fim.</p>
-      </div>
-      <div class="step-item">
-        <div class="step-circle"><svg class="ic" width="27" height="27" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></div>
-        <h3 class="step-title">O cliente personaliza</h3>
-        <p class="step-desc">Ele troca passeios, muda datas, adiciona seguro e upgrades sozinho. A proposta recalcula o preço na hora.</p>
-      </div>
-      <div class="step-item">
-        <div class="step-circle"><svg class="ic" width="28" height="28" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></div>
-        <h3 class="step-title">Fecha e paga</h3>
-        <p class="step-desc">Proposta aprovada vira reserva. Você acompanha cada negociação no painel de vendas, em tempo real.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FUNCIONALIDADES + MODELO -->
 <section class="features" id="modelo">
   <div class="features-inner">
@@ -1704,15 +1689,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       </div>
     </div>
     <div class="features-side">
-      <div class="side-block">
-        <div class="side-block-title"><svg class="ic ic-b" width="18" height="18" viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-4"/></svg> Impacto real</div>
-        <div class="side-stat-grid">
-          <div class="side-stat"><div class="side-stat-num">5min</div><div class="side-stat-label">para montar a proposta</div></div>
-          <div class="side-stat"><div class="side-stat-num">+ticket</div><div class="side-stat-label">com seguro e add-ons</div></div>
-          <div class="side-stat"><div class="side-stat-num">24h</div><div class="side-stat-label">o cliente ajusta sozinho</div></div>
-          <div class="side-stat"><div class="side-stat-num">100%</div><div class="side-stat-label">com a sua marca</div></div>
-        </div>
-      </div>
       <div class="side-block">
         <div class="side-block-title"><svg class="ic ic-b" width="18" height="18" viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Modelo de negócio</div>
         <div class="model-rows">
@@ -1777,7 +1753,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <div class="diff-card">
       <div class="diff-num">03</div>
       <h3 class="diff-title">Receita alinhada ao resultado</h3>
-      <p class="diff-desc">Fee fixo + rev-share significa que nosso ganho cresce junto com o seu. Não é SaaS frio com cobrança independente de uso, é uma parceria real.</p>
+      <p class="diff-desc">Fee fixo mensal e você define o preço que cobra do cliente. Nosso ganho não depende de te cobrar por uso: é uma parceria real, do tamanho da sua operação.</p>
     </div>
     <div class="diff-card">
       <div class="diff-num">04</div>
@@ -1911,8 +1887,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <div class="footer-col">
       <h4>Agências</h4>
       <ul>
-        <li><a href="#como-funciona">Como funciona</a></li>
-        <li><a href="#modelo">Modelo e preços</a></li>
+            <li><a href="#modelo">Modelo e preços</a></li>
         <li><a href="#plataforma">Ver plataforma</a></li>
         <li><a href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agendar reunião</a></li>
         <li style="display:none"><a href="hoteis.html" class="footer-home">Para hotéis →</a></li>
