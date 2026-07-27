@@ -61,6 +61,7 @@
 .ondvai-orb.dragging{cursor:grabbing;transform:scale(1.06);animation:none}\
 .ondvai-orb svg{width:30px;height:30px;fill:#fff;pointer-events:none}\
 .ondvai-orb.hide{display:none}\
+.ondvai-orb.ondvai-b2b{background:radial-gradient(circle at 36% 28%,#7db0ff,#1f6bff 50%,#6a3fff 95%);box-shadow:0 8px 24px rgba(0,102,255,.5)}\
 @keyframes ondvai-pulse{0%{box-shadow:0 8px 24px rgba(124,63,255,.45),0 0 0 0 rgba(124,63,255,.45)}70%{box-shadow:0 8px 24px rgba(124,63,255,.45),0 0 0 15px rgba(124,63,255,0)}100%{box-shadow:0 8px 24px rgba(124,63,255,.45),0 0 0 0 rgba(124,63,255,0)}}\
 .ondvai-bubble{position:fixed;z-index:99997;background:var(--ond-color-surface,#16161f);color:var(--ond-color-text,#f0eeff);border:1px solid var(--ond-color-border,#2a2a44);border-radius:14px;padding:10px 10px 10px 13px;font-size:.82rem;font-weight:600;max-width:216px;box-shadow:0 12px 34px rgba(0,0,0,.5);display:flex;align-items:center;gap:8px;cursor:pointer;animation:ondvai-bub .3s ease}\
 .ondvai-bubble .bx{background:none;border:none;color:var(--ond-color-muted,#8888b0);cursor:pointer;font-size:.85rem;line-height:1;padding:0 2px;flex-shrink:0}\
@@ -121,7 +122,7 @@
 
     var root = document.createElement('div');
     root.innerHTML =
-      '<button class="ondvai-orb" id="ondvaiOrb" aria-label="Abrir OND vAI">' + SYMBOL + '</button>' +
+      '<button class="ondvai-orb' + (B2B ? ' ondvai-b2b' : '') + '" id="ondvaiOrb" aria-label="Abrir OND vAI">' + SYMBOL + '</button>' +
       '<div class="ondvai-panel" id="ondvaiPanel" role="dialog" aria-label="OND vAI">' +
         '<div class="ondvai-head"><div class="ondvai-hh">' + SYMBOL + '</div><div><div class="ondvai-ht">OND vAI <span class="ondvai-tag">prévia</span></div><div class="ondvai-on">online agora</div></div><button class="ondvai-x" id="ondvaiClose" aria-label="Fechar">✕</button></div>' +
         '<div class="ondvai-body" id="ondvaiBody">' +

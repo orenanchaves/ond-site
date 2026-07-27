@@ -665,7 +665,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pp-restart:active{transform:rotate(-90deg)}
 .pp-main>.pp-app{min-width:0;flex:1;min-height:0;overflow-y:auto}
 /* vAI orb flutuante (permeia o app) */
-.pp-vai-orb{position:absolute;left:16px;bottom:16px;z-index:14;width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px var(--blue-glow),0 0 0 0 color-mix(in srgb,var(--blue) 45%,transparent);animation:vaiPulse 2.6s ease-out infinite;transition:transform .15s,opacity .2s}
+.pp-vai-orb{position:absolute;left:16px;bottom:16px;z-index:14;width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;background:radial-gradient(circle at 36% 28%,#7db0ff,#1f6bff 50%,#6a3fff 95%);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px var(--blue-glow),0 0 0 0 color-mix(in srgb,var(--blue) 45%,transparent);animation:vaiPulse 2.6s ease-out infinite;transition:transform .15s,opacity .2s}
 .pp-vai-orb:hover{transform:scale(1.06)}
 .pp-vai-orb.hidden{opacity:0;transform:scale(.6);pointer-events:none}
 @keyframes vaiPulse{0%{box-shadow:0 8px 24px var(--blue-glow),0 0 0 0 color-mix(in srgb,var(--blue) 40%,transparent)}70%{box-shadow:0 8px 24px var(--blue-glow),0 0 0 12px transparent}100%{box-shadow:0 8px 24px var(--blue-glow),0 0 0 0 transparent}}
@@ -1016,7 +1016,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pgt.arriving{opacity:1;pointer-events:auto;animation:pgtFadeOut .55s .4s ease forwards}
 @keyframes pgtFadeIn{from{opacity:0}to{opacity:1}}
 @keyframes pgtFadeOut{from{opacity:1}to{opacity:0}}
-.pgt-orb{width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 38% 30%,#b088ff,#7c3fff 55%,#5b21d6);box-shadow:0 0 70px rgba(124,63,255,.75),inset 0 -6px 18px rgba(0,0,0,.22);opacity:0;transform:scale(.3)}
+.pgt-orb{width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 36% 28%,#7db0ff,#1f6bff 50%,#6a3fff 95%);box-shadow:0 0 70px rgba(0,102,255,.7),inset 0 -6px 18px rgba(0,0,0,.22);opacity:0;transform:scale(.3)}
 .pgt-star{width:40px;height:40px;fill:#fff;filter:drop-shadow(0 0 8px rgba(255,255,255,.55))}
 .pgt.leaving .pgt-orb{animation:pgtOrbSpring .5s .04s cubic-bezier(.34,1.56,.64,1) forwards}
 .pgt.arriving .pgt-orb{opacity:1;transform:scale(1);animation:pgtOrbBurst .72s .12s cubic-bezier(.6,0,.35,1) forwards}
