@@ -1010,27 +1010,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 
 <!-- Transição de página bidirecional: home→agências (roxo→azul), agências→home (azul→roxo), com orb do OND -->
 <style>
-.pgt{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;transform:translateX(100%);pointer-events:none;will-change:transform}
-.pgt.g-blue{background:linear-gradient(120deg,#7c3fff 0%,#0066ff 100%)}
-.pgt.g-purple{background:linear-gradient(120deg,#0066ff 0%,#7c3fff 100%)}
-.pgt.in-fwd{animation:pgtInFwd .5s cubic-bezier(.76,0,.24,1) forwards;pointer-events:auto}
-.pgt.in-back{animation:pgtInBack .5s cubic-bezier(.76,0,.24,1) forwards;pointer-events:auto}
-.pgt.out-fwd{transform:translateX(0);animation:pgtOutFwd .55s .04s cubic-bezier(.76,0,.24,1) forwards;pointer-events:auto}
-.pgt.out-back{transform:translateX(0);animation:pgtOutBack .55s .04s cubic-bezier(.76,0,.24,1) forwards;pointer-events:auto}
-@keyframes pgtInFwd{from{transform:translateX(100%)}to{transform:translateX(0)}}
-@keyframes pgtInBack{from{transform:translateX(-100%)}to{transform:translateX(0)}}
-@keyframes pgtOutFwd{from{transform:translateX(0)}to{transform:translateX(-100%)}}
-@keyframes pgtOutBack{from{transform:translateX(0)}to{transform:translateX(100%)}}
-.pgt-orb{position:relative;width:88px;height:88px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 38% 32%,#fff,rgba(255,255,255,.85) 46%,rgba(255,255,255,.16) 74%);box-shadow:0 0 64px rgba(255,255,255,.6),inset 0 0 22px rgba(124,17,244,.28);opacity:0}
-.pgt-star{width:46px;height:46px;fill:#7F11F4;filter:drop-shadow(0 2px 7px rgba(124,17,244,.55))}
-.pgt.in-fwd .pgt-orb,.pgt.in-back .pgt-orb{animation:pgtOrbIn .6s .05s cubic-bezier(.34,1.56,.64,1) forwards}
-.pgt.in-fwd .pgt-star,.pgt.in-back .pgt-star{transform-origin:50% 50%;animation:pgtStarIn .7s .1s cubic-bezier(.34,1.56,.64,1) forwards}
-.pgt.out-fwd .pgt-orb,.pgt.out-back .pgt-orb{opacity:1;animation:pgtOrbOut .5s ease forwards}
-.pgt.out-fwd .pgt-star,.pgt.out-back .pgt-star{transform-origin:50% 50%;animation:pgtStarOut .5s ease forwards}
-@keyframes pgtOrbIn{0%{opacity:0;transform:scale(.3)}55%{opacity:1}100%{opacity:1;transform:scale(1)}}
-@keyframes pgtStarIn{0%{opacity:0;transform:rotate(-150deg) scale(.35)}55%{opacity:1}100%{opacity:1;transform:rotate(0) scale(1)}}
-@keyframes pgtOrbOut{0%{opacity:1;transform:scale(1)}70%{opacity:1}100%{opacity:0;transform:scale(.62)}}
-@keyframes pgtStarOut{0%{transform:rotate(0) scale(1)}100%{transform:rotate(130deg) scale(.5)}}
+/* Transição: fundo na cor do site + orb do OND que surge (saída) e explode/some (chegada) */
+.pgt{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:var(--bg);opacity:0;pointer-events:none}
+.pgt.leaving{opacity:1;pointer-events:auto;animation:pgtFadeIn .4s ease forwards}
+.pgt.arriving{opacity:1;pointer-events:auto;animation:pgtFadeOut .55s .4s ease forwards}
+@keyframes pgtFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pgtFadeOut{from{opacity:1}to{opacity:0}}
+.pgt-orb{width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 38% 30%,#b088ff,#7c3fff 55%,#5b21d6);box-shadow:0 0 70px rgba(124,63,255,.75),inset 0 -6px 18px rgba(0,0,0,.22);opacity:0;transform:scale(.3)}
+.pgt-star{width:40px;height:40px;fill:#fff;filter:drop-shadow(0 0 8px rgba(255,255,255,.55))}
+.pgt.leaving .pgt-orb{animation:pgtOrbSpring .5s .04s cubic-bezier(.34,1.56,.64,1) forwards}
+.pgt.arriving .pgt-orb{opacity:1;transform:scale(1);animation:pgtOrbBurst .72s .12s cubic-bezier(.6,0,.35,1) forwards}
+@keyframes pgtOrbSpring{0%{opacity:0;transform:scale(.3)}60%{opacity:1}100%{opacity:1;transform:scale(1)}}
+@keyframes pgtOrbBurst{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(9)}}
 @media(prefers-reduced-motion:reduce){.pgt{display:none!important}}
 </style>
 <div id="pgt" class="pgt" aria-hidden="true"><span class="pgt-orb"><svg class="pgt-star" viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span></div>
@@ -1038,10 +1029,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 (function(){
   var o=document.getElementById('pgt');if(!o)return;
   var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var dir='';try{dir=sessionStorage.getItem('ond_pgt')||'';if(dir)sessionStorage.removeItem('ond_pgt');}catch(_){}
-  if(dir && !reduce){
-    o.classList.add(dir==='fwd'?'g-blue':'g-purple', dir==='fwd'?'out-fwd':'out-back');
-    var reset=function(){o.className='pgt';};o.addEventListener('animationend',reset);setTimeout(reset,1100);
+  var came=false;try{came=sessionStorage.getItem('ond_pgt')==='1';if(came)sessionStorage.removeItem('ond_pgt');}catch(_){}
+  if(came&&!reduce){
+    o.classList.add('arriving');
+    var reset=function(){o.classList.remove('arriving');};
+    o.addEventListener('animationend',function(e){if(e.animationName==='pgtFadeOut')reset();});
+    setTimeout(reset,1500);
   }
   function bind(){
     if(reduce)return;
@@ -1052,9 +1045,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         var href=a.getAttribute('href');if(!href)return;
         e.preventDefault();
         try{if(typeof closeMenu==='function')closeMenu();}catch(_){}
-        try{sessionStorage.setItem('ond_pgt','back');}catch(_){}
-        o.className='pgt g-purple in-back';
-        setTimeout(function(){window.location.href=href;},460);
+        try{sessionStorage.setItem('ond_pgt','1');}catch(_){}
+        o.classList.add('leaving');
+        setTimeout(function(){window.location.href=href;},520);
       });
     });
   }
