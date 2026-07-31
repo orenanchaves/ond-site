@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0d0d14">
 <meta name="description" content="OND — organize sua viagem com o OND vAI. Roteiro completo, rotas e concierge inteligente em 5 minutos. Disponível no Android, iOS e na web.">
 <title>Roteiro de viagem com IA em 5 minutos — OND vAI</title>
-<link rel="icon" type="image/svg+xml" href="assets/ond-symbol.svg">
+<link rel="icon" type="image/svg+xml" href="/assets/ond-symbol.svg">
 <link rel="canonical" href="https://ondviajar.com.br/">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -28,8 +28,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <!-- OND Design System (vendorizado — ver tokens/SYNC.md) -->
-<link rel="stylesheet" href="tokens/ond-core.css">
-<link rel="stylesheet" href="tokens/ond-b2c.css">
+<link rel="stylesheet" href="/tokens/ond-core.css">
+<link rel="stylesheet" href="/tokens/ond-b2c.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 /* Cores remapeadas para os tokens do OND Design System (ond-b2c.css).
@@ -510,8 +510,57 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   ]
 }
 </script>
+
 </head>
 <body>
+
+<!-- Transição de página bidirecional: home→agências (roxo→azul), agências→home (azul→roxo), com orb do OND -->
+<div id="pgt" class="pgt" aria-hidden="true"><span class="pgt-orb"><svg class="pgt-star" viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span></div>
+<style>
+/* Transição: fundo na cor do site + orb do OND que surge (saída) e explode/some (chegada) */
+.pgt{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:var(--bg);opacity:0;pointer-events:none}
+.pgt.leaving{opacity:1;pointer-events:auto;animation:pgtFadeIn .4s ease forwards}
+.pgt.arriving{opacity:1;pointer-events:auto;animation:pgtFadeOut .55s .4s ease forwards}
+@keyframes pgtFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pgtFadeOut{from{opacity:1}to{opacity:0}}
+.pgt-orb{width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 38% 30%,#b088ff,#7c3fff 55%,#5b21d6);box-shadow:0 0 70px rgba(124,63,255,.75),inset 0 -6px 18px rgba(0,0,0,.22);opacity:0;transform:scale(.3)}
+.pgt-star{width:40px;height:40px;fill:#fff;filter:drop-shadow(0 0 8px rgba(255,255,255,.55))}
+.pgt.leaving .pgt-orb{animation:pgtOrbSpring .5s .04s cubic-bezier(.34,1.56,.64,1) forwards}
+.pgt.arriving .pgt-orb{opacity:1;transform:scale(1);animation:pgtOrbBurst .72s .12s cubic-bezier(.6,0,.35,1) forwards}
+@keyframes pgtOrbSpring{0%{opacity:0;transform:scale(.3)}60%{opacity:1}100%{opacity:1;transform:scale(1)}}
+@keyframes pgtOrbBurst{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(9)}}
+@media(prefers-reduced-motion:reduce){.pgt{display:none!important}}
+</style>
+<script>
+(function(){
+  var o=document.getElementById('pgt');if(!o)return;
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var came=false;try{came=sessionStorage.getItem('ond_pgt')==='1';if(came)sessionStorage.removeItem('ond_pgt');}catch(_){}
+  if(came&&!reduce){
+    o.classList.add('arriving');
+    var reset=function(){o.classList.remove('arriving');};
+    o.addEventListener('animationend',function(e){if(e.animationName==='pgtFadeOut')reset();});
+    setTimeout(reset,1500);
+  }
+  function bind(){
+    if(reduce)return;
+    var links=document.querySelectorAll('a[href$="agencias.html"],a[href$="/agencias"]');
+    Array.prototype.forEach.call(links,function(a){
+      a.addEventListener('click',function(e){
+        if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+        var href=a.getAttribute('href');if(!href)return;
+        e.preventDefault();
+        try{if(typeof closeMenu==='function')closeMenu();}catch(_){}
+        try{sessionStorage.setItem('ond_pgt','1');}catch(_){}
+        o.classList.add('leaving');
+        setTimeout(function(){window.location.href=href;},520);
+      });
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);
+  else bind();
+})();
+</script>
 
 <svg style="display:none">
   <symbol id="ond-icon" viewBox="0 0 497.26 497.26">
@@ -532,8 +581,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </a>
   <nav><ul class="header-nav">
     <li><a href="#como-funciona">Como funciona</a></li>
+    <li><a href="#destinos" onclick="openGlobe(event)">Destinos</a></li>
     <li><a href="assessoria.html">Assessoria</a></li>
-    <li><a href="blog.html">Blog</a></li>
+    <li><a href="/blog.html">Blog</a></li>
     <li><a href="#" onclick="openContact(event)">Contato</a></li>
     <li><a href="agencias.html" class="nav-agencias">Para Agências →</a></li>
   </ul></nav>
@@ -543,8 +593,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 </header>
 <nav class="mobile-nav" id="mobileNav">
   <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
+  <a href="#destinos" onclick="openGlobe(event);closeMenu()">Destinos</a>
   <a href="assessoria.html" onclick="closeMenu()">Assessoria</a>
-  <a href="blog.html" onclick="closeMenu()">Blog</a>
+  <a href="/blog.html" onclick="closeMenu()">Blog</a>
   <a href="#" onclick="openContact(event);closeMenu()">Contato</a>
   <a href="agencias.html" onclick="closeMenu()" style="color:#0066ff;font-weight:600">Para Agências →</a>
   <a href="#app" onclick="openApp(event);closeMenu()" style="color:var(--purple);font-weight:700">Teste o app →</a>
@@ -557,7 +608,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <div class="hero-badge"><span class="hero-badge-dot"></span><span style="text-transform:none">OND vAI</span> · planejador de viagem</div>
     <h1 class="hero-title">Mais tempo <em>viajando</em>,<br>menos tempo planejando.</h1>
     <div class="hero-proof">
-      Viajantes acessam mais de <strong>100 páginas</strong> e gastam até <strong>6 horas</strong> para planejar uma viagem. O OND faz isso em <strong>5 minutos</strong> — roteiro completo, rotas e OND vAI.
+      Viajantes acessam mais de <strong>100 páginas</strong> e gastam até <strong>6 horas</strong> para planejar uma viagem. O OND faz isso em <strong>5 minutos</strong>, roteiro completo, rotas e OND vAI.
       <cite>Fontes: Expedia Group (2023) · Jet2holidays via The Sun (2025)</cite>
     </div>
     <div class="hero-app-btns">
@@ -582,7 +633,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     </div>
   </div>
   <div class="hero-image">
-    <img src="assets/ondino-caminhando.svg" alt="Ondino, o planejador de viagem do OND, caminhando com o celular na mão e a mala" loading="eager">
+    <img src="/assets/ondino-caminhando.svg" alt="Ondino, o planejador de viagem do OND, caminhando com o celular na mão e a mala" loading="eager">
   </div>
 </section>
 
@@ -632,7 +683,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
           </div>
           <!-- 3) ROTEIRO gerado (fiel ao app) -->
           <div class="mk-rot">
-            <div class="rot-banner" id="rotBanner"><div class="rot-ava"><img src="assets/ondino.png" alt="Ondino, o planejador do OND"></div></div>
+            <div class="rot-banner" id="rotBanner"><div class="rot-ava"><img src="/assets/ondino.png" alt="Ondino, o planejador do OND"></div></div>
             <div class="rot-scroll">
               <div class="rot-tabs" id="rotTabs">
                 <span class="ttab loc" id="rotLoc">🇺🇸 Orlando</span>
@@ -857,49 +908,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
 </section>
 
-<!-- B2B -->
-<section class="b2b" id="agencias">
-  <div class="b2b-inner">
-    <div>
-      <span class="b2b-tag">Para agências &amp; hotéis</span>
-      <h2 class="b2b-title">Roteiro montado na mão não escala.</h2>
-      <p class="b2b-desc">Sua equipe perde horas em tarefas que a IA faz em minutos. O OND entrega roteiros personalizados em escala, com a identidade da sua agência — e libera seu time para o que realmente gera valor: o relacionamento com o cliente.</p>
-      <ul class="b2b-points">
-        <li><span class="b2b-check">✓</span>Roteiros gerados por IA em minutos, não horas</li>
-        <li><span class="b2b-check">✓</span>Portal com a identidade visual da sua agência</li>
-        <li><span class="b2b-check">✓</span>Entrega por PDF, WhatsApp, e-mail ou app</li>
-        <li><span class="b2b-check">✓</span>Gestão de múltiplos clientes e status em tempo real</li>
-        <li><span class="b2b-check">✓</span>Cross-sell de hospedagem, experiências e traslados</li>
-      </ul>
-      <a href="https://pci.jotform.com/form/252517268656062" class="btn-primary" target="_blank" rel="noopener">Quero o OND na minha agência →</a>
-    </div>
-    <div class="b2b-cards">
-      <div class="b2b-card">
-        <div class="b2b-card-icon">⏱️</div>
-        <div class="b2b-card-stat">75%</div>
-        <div class="b2b-card-title">menos tempo por roteiro</div>
-        <p class="b2b-card-desc">O que levava horas sai em minutos com o OND vAI.</p>
-      </div>
-      <div class="b2b-card">
-        <div class="b2b-card-icon">📈</div>
-        <div class="b2b-card-stat">3×</div>
-        <div class="b2b-card-title">mais capacidade de atendimento</div>
-        <p class="b2b-card-desc">Mesma equipe, muito mais roteiros entregues.</p>
-      </div>
-      <div class="b2b-card">
-        <div class="b2b-card-icon">🏢</div>
-        <div class="b2b-card-title">Para agências de viagem</div>
-        <p class="b2b-card-desc">Crie, personalize e entregue roteiros com a sua marca.</p>
-      </div>
-      <div class="b2b-card">
-        <div class="b2b-card-icon">🏨</div>
-        <div class="b2b-card-title">Para hotéis e pousadas</div>
-        <p class="b2b-card-desc">Ofereça roteiros locais ao hóspede via QR Code na recepção.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- APP CTA -->
 <section class="app-cta" id="app">
   <div class="app-cta-inner">
@@ -923,7 +931,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     </div>
   </div>
   <div class="app-cta-image">
-    <img src="assets/viajante-laptop.svg" alt="Viajante planejando a viagem com o OND, tudo confirmado" loading="lazy">
+    <img src="/assets/viajante-laptop.svg" alt="Viajante planejando a viagem com o OND, tudo confirmado" loading="lazy">
   </div>
   </div>
 </section>
@@ -947,8 +955,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <div class="footer-col">
       <h4>Parceiros</h4>
       <ul>
-        <li><a href="https://pci.jotform.com/form/252517268656062" target="_blank" rel="noopener">Para agências</a></li>
-        <li><a href="https://pci.jotform.com/form/252517268656062" target="_blank" rel="noopener">Para hotéis</a></li>
+        <li><a href="agencias.html">Para agências</a></li>
         <li><a href="assessoria.html">Assessoria</a></li>
       </ul>
     </div>
@@ -1223,7 +1230,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   later(begin,2500);
 })();
 </script>
-<script src="assets/app-modal.js" defer></script>
-<script src="assets/vai-widget.js" defer></script>
+<script src="/assets/app-modal.js" defer></script>
+<script src="/assets/globe.js" defer></script>
+<script src="/assets/vai-widget.js" defer></script>
+<script src="/assets/analytics.js" defer></script>
 </body>
 </html>

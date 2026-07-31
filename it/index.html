@@ -208,6 +208,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .feature-icon{font-size:1.5rem;margin-bottom:12px}
 /* ── O QUE VOCÊ RESERVA ── */
 .booking{background:var(--bg);padding:80px 5%;border-top:1px solid var(--border)}
+/* 5 cards não enchem uma grade de 3 colunas: usa flex-wrap centralizado pra não sobrar buraco na última linha */
+.booking .features-grid{display:flex;flex-wrap:wrap;justify-content:center}
+.booking .feature-card{flex:1 1 300px;max-width:380px}
 .soon{display:inline-block;font-size:.58rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--green);background:var(--green-dim);border:1px solid color-mix(in srgb, var(--green) 25%, transparent);padding:2px 7px;border-radius:20px;margin-left:7px;vertical-align:middle}
 .feature-title{font-size:.93rem;font-weight:700;margin-bottom:6px}
 .feature-desc{font-size:.84rem;color:var(--muted);line-height:1.6}
@@ -508,6 +511,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 }
 </script>
 
+
 <style>
 .langsel{position:relative;flex-shrink:0}
 @media(max-width:960px){.langsel{display:none}.header-actions{flex:0 0 auto}}
@@ -540,6 +544,54 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 </head>
 <body>
 
+<!-- Transição de página bidirecional: home→agências (roxo→azul), agências→home (azul→roxo), com orb do OND -->
+<div id="pgt" class="pgt" aria-hidden="true"><span class="pgt-orb"><svg class="pgt-star" viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span></div>
+<style>
+/* Transição: fundo na cor do site + orb do OND que surge (saída) e explode/some (chegada) */
+.pgt{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:var(--bg);opacity:0;pointer-events:none}
+.pgt.leaving{opacity:1;pointer-events:auto;animation:pgtFadeIn .4s ease forwards}
+.pgt.arriving{opacity:1;pointer-events:auto;animation:pgtFadeOut .55s .4s ease forwards}
+@keyframes pgtFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pgtFadeOut{from{opacity:1}to{opacity:0}}
+.pgt-orb{width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 38% 30%,#b088ff,#7c3fff 55%,#5b21d6);box-shadow:0 0 70px rgba(124,63,255,.75),inset 0 -6px 18px rgba(0,0,0,.22);opacity:0;transform:scale(.3)}
+.pgt-star{width:40px;height:40px;fill:#fff;filter:drop-shadow(0 0 8px rgba(255,255,255,.55))}
+.pgt.leaving .pgt-orb{animation:pgtOrbSpring .5s .04s cubic-bezier(.34,1.56,.64,1) forwards}
+.pgt.arriving .pgt-orb{opacity:1;transform:scale(1);animation:pgtOrbBurst .72s .12s cubic-bezier(.6,0,.35,1) forwards}
+@keyframes pgtOrbSpring{0%{opacity:0;transform:scale(.3)}60%{opacity:1}100%{opacity:1;transform:scale(1)}}
+@keyframes pgtOrbBurst{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(9)}}
+@media(prefers-reduced-motion:reduce){.pgt{display:none!important}}
+</style>
+<script>
+(function(){
+  var o=document.getElementById('pgt');if(!o)return;
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var came=false;try{came=sessionStorage.getItem('ond_pgt')==='1';if(came)sessionStorage.removeItem('ond_pgt');}catch(_){}
+  if(came&&!reduce){
+    o.classList.add('arriving');
+    var reset=function(){o.classList.remove('arriving');};
+    o.addEventListener('animationend',function(e){if(e.animationName==='pgtFadeOut')reset();});
+    setTimeout(reset,1500);
+  }
+  function bind(){
+    if(reduce)return;
+    var links=document.querySelectorAll('a[href$="agencias.html"],a[href$="/agencias"]');
+    Array.prototype.forEach.call(links,function(a){
+      a.addEventListener('click',function(e){
+        if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+        var href=a.getAttribute('href');if(!href)return;
+        e.preventDefault();
+        try{if(typeof closeMenu==='function')closeMenu();}catch(_){}
+        try{sessionStorage.setItem('ond_pgt','1');}catch(_){}
+        o.classList.add('leaving');
+        setTimeout(function(){window.location.href=href;},520);
+      });
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);
+  else bind();
+})();
+</script>
+
 <svg style="display:none">
   <symbol id="ond-icon" viewBox="0 0 497.26 497.26">
     <path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/>
@@ -559,7 +611,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </a>
   <nav><ul class="header-nav">
     <li><a href="#como-funciona">Come funziona</a></li>
-    <li><a href="#recursos">Funzionalità</a></li>
+    <li><a href="#destinos" onclick="openGlobe(event)">Destinazioni</a></li>
     <li><a href="assessoria.html">Consulenza</a></li>
     <li><a href="/blog.html">Blog</a></li>
     <li><a href="#" onclick="openContact(event)">Contatti</a></li>
@@ -575,13 +627,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <li><a href="/it/" hreflang="it" lang="it" aria-current="true">Italiano</a></li>
   </ul>
 </details>
-  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Cambia tema">🌙</button>
+  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Cambia tema"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
   <a href="#app" onclick="openApp(event)" class="header-cta">Prova l'app →</a>
   <button class="header-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button></div>
 </header>
 <nav class="mobile-nav" id="mobileNav">
   <a href="#como-funciona" onclick="closeMenu()">Come funziona</a>
-  <a href="#recursos" onclick="closeMenu()">Funzionalità</a>
+  <a href="#destinos" onclick="openGlobe(event);closeMenu()">Destinazioni</a>
   <a href="assessoria.html" onclick="closeMenu()">Consulenza</a>
   <a href="/blog.html" onclick="closeMenu()">Blog</a>
   <a href="#" onclick="openContact(event);closeMenu()">Contatti</a>
@@ -596,7 +648,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <div class="hero-badge"><span class="hero-badge-dot"></span><span style="text-transform:none">OND vAI</span> · pianificatore di viaggi</div>
     <h1 class="hero-title">Più tempo a <em>viaggiare</em>,<br>meno tempo a pianificare.</h1>
     <div class="hero-proof">
-      I viaggiatori visitano oltre <strong>100 pagine</strong> e impiegano fino a <strong>6 ore</strong> per pianificare un viaggio. OND lo fa in <strong>5 minuti</strong> — itinerario completo, percorsi e OND vAI.
+      I viaggiatori visitano oltre <strong>100 pagine</strong> e impiegano fino a <strong>6 ore</strong> per pianificare un viaggio. OND lo fa in <strong>5 minuti</strong>, itinerario completo, percorsi e OND vAI.
       <cite>Fonti: Expedia Group (2023) · Jet2holidays via The Sun (2025)</cite>
     </div>
     <div class="hero-app-btns">
@@ -888,55 +940,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <p class="section-sub">OND è il livello che organizza tutto e ti collega ai fornitori. Voli, alloggi e tour passano dalla conversazione direttamente al tuo viaggio.</p>
   </div>
   <div class="features-grid">
-    <div class="feature-card"><div class="feature-icon">✈️</div><h3 class="feature-title">Voli</h3><p class="feature-desc">Azul, Gol e LATAM confrontate in secondi. OND mostra le migliori opzioni di volo da prenotare.</p></div>
-    <div class="feature-card"><div class="feature-icon">🏨</div><h3 class="feature-title">Alloggio</h3><p class="feature-desc">Hotel e pensioni, dall'economico al boutique — già nelle tue date e inseriti nell'itinerario.</p></div>
+    <div class="feature-card"><div class="feature-icon">🏨</div><h3 class="feature-title">Alloggio</h3><p class="feature-desc">Alloggio al miglior prezzo, con link diretto al partner, dall'economico al boutique.</p></div>
     <div class="feature-card"><div class="feature-icon">🎫</div><h3 class="feature-title">Tour &amp; biglietti</h3><p class="feature-desc">Tour, attrazioni ed esperienze (via GetYourGuide) prenotati salta-fila, direttamente nel piano di viaggio.</p></div>
     <div class="feature-card"><div class="feature-icon">🛡️</div><h3 class="feature-title">Assicurazione viaggio <span class="soon">in arrivo</span></h3><p class="feature-desc">Copertura per l'intero viaggio, quotata insieme al resto della pianificazione.</p></div>
     <div class="feature-card"><div class="feature-icon">🚗</div><h3 class="feature-title">Transfer &amp; auto <span class="soon">in arrivo</span></h3><p class="feature-desc">Transfer dall'aeroporto e noleggio auto per muoverti senza stress a destinazione.</p></div>
     <div class="feature-card"><div class="feature-icon">💬</div><h3 class="feature-title">Tutto in una conversazione</h3><p class="feature-desc">Chiedi, confronta e risolvi la logistica chiacchierando con OND. Tu ti godi solo il viaggio.</p></div>
-  </div>
-</section>
-
-<!-- B2B -->
-<section class="b2b" id="agencias">
-  <div class="b2b-inner">
-    <div>
-      <span class="b2b-tag">Per agenzie &amp; hotel</span>
-      <h2 class="b2b-title">Un itinerario fatto a mano non scala.</h2>
-      <p class="b2b-desc">Il tuo team perde ore in attività che l'IA fa in minuti. OND consegna itinerari personalizzati su larga scala, con l'identità della tua agenzia — e libera il team per ciò che crea davvero valore: la relazione con il cliente.</p>
-      <ul class="b2b-points">
-        <li><span class="b2b-check">✓</span>Itinerari generati dall'IA in minuti, non ore</li>
-        <li><span class="b2b-check">✓</span>Un portale con l'identità visiva della tua agenzia</li>
-        <li><span class="b2b-check">✓</span>Consegna via PDF, WhatsApp, e-mail o app</li>
-        <li><span class="b2b-check">✓</span>Gestione di più clienti e stato in tempo reale</li>
-        <li><span class="b2b-check">✓</span>Cross-sell di alloggi, esperienze e transfer</li>
-      </ul>
-      <a href="https://pci.jotform.com/form/252517268656062" class="btn-primary" target="_blank" rel="noopener">Voglio OND nella mia agenzia →</a>
-    </div>
-    <div class="b2b-cards">
-      <div class="b2b-card">
-        <div class="b2b-card-icon">⏱️</div>
-        <div class="b2b-card-stat">75%</div>
-        <div class="b2b-card-title">meno tempo per itinerario</div>
-        <p class="b2b-card-desc">Ciò che richiedeva ore esce in minuti con OND vAI.</p>
-      </div>
-      <div class="b2b-card">
-        <div class="b2b-card-icon">📈</div>
-        <div class="b2b-card-stat">3×</div>
-        <div class="b2b-card-title">più capacità di servizio</div>
-        <p class="b2b-card-desc">Stesso team, molti più itinerari consegnati.</p>
-      </div>
-      <div class="b2b-card">
-        <div class="b2b-card-icon">🏢</div>
-        <div class="b2b-card-title">Per le agenzie di viaggio</div>
-        <p class="b2b-card-desc">Crea, personalizza e consegna itinerari con il tuo marchio.</p>
-      </div>
-      <div class="b2b-card">
-        <div class="b2b-card-icon">🏨</div>
-        <div class="b2b-card-title">Per hotel e pensioni</div>
-        <p class="b2b-card-desc">Offri itinerari locali agli ospiti tramite QR code alla reception.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -987,8 +995,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <div class="footer-col">
       <h4>Partner</h4>
       <ul>
-        <li><a href="https://pci.jotform.com/form/252517268656062" target="_blank" rel="noopener">Per le agenzie</a></li>
-        <li><a href="https://pci.jotform.com/form/252517268656062" target="_blank" rel="noopener">Per gli hotel</a></li>
+        <li><a href="agencias.html">Per le agenzie</a></li>
         <li><a href="assessoria.html">Consulenza</a></li>
       </ul>
     </div>
@@ -1057,12 +1064,14 @@ document.addEventListener('click',function(e){
   const nav=document.getElementById('mobileNav'),btn=document.querySelector('.header-menu-btn')
   if(nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target))closeMenu()
 })
+var ICON_MOON='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>';
+var ICON_SUN='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
 function toggleTheme(){
   const isLight=document.documentElement.getAttribute('data-theme')==='light'
-  if(isLight){document.documentElement.setAttribute('data-theme','dark');document.getElementById('themeBtn').textContent='🌙';localStorage.setItem('ond_theme','dark')}
-  else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☀️';localStorage.setItem('ond_theme','light')}
+  if(isLight){document.documentElement.setAttribute('data-theme','dark');document.getElementById('themeBtn').innerHTML=ICON_MOON;localStorage.setItem('ond_theme','dark')}
+  else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').innerHTML=ICON_SUN;localStorage.setItem('ond_theme','light')}
 }
-;(function(){if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.textContent='☀️'}})()
+;(function(){if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.innerHTML=ICON_SUN}})()
 
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',function(e){
@@ -1262,6 +1271,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 })();
 </script>
 <script src="/assets/app-modal.js" defer></script>
+<script src="/assets/globe.js" defer></script>
 <script src="/assets/vai-widget.js" defer></script>
+<script src="/assets/analytics.js" defer></script>
 </body>
 </html>
