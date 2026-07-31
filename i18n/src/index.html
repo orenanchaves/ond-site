@@ -208,6 +208,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .feature-icon{font-size:1.5rem;margin-bottom:12px}
 /* ── O QUE VOCÊ RESERVA ── */
 .booking{background:var(--bg);padding:80px 5%;border-top:1px solid var(--border)}
+/* 5 cards não enchem uma grade de 3 colunas: usa flex-wrap centralizado pra não sobrar buraco na última linha */
+.booking .features-grid{display:flex;flex-wrap:wrap;justify-content:center}
+.booking .feature-card{flex:1 1 300px;max-width:380px}
 .soon{display:inline-block;font-size:.58rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--green);background:var(--green-dim);border:1px solid color-mix(in srgb, var(--green) 25%, transparent);padding:2px 7px;border-radius:20px;margin-left:7px;vertical-align:middle}
 .feature-title{font-size:.93rem;font-weight:700;margin-bottom:6px}
 .feature-desc{font-size:.84rem;color:var(--muted);line-height:1.6}
@@ -846,8 +849,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <p class="section-sub">O OND é a camada que organiza tudo e te conecta aos fornecedores. Voo, hospedagem e passeios saem da conversa direto pra sua viagem.</p>
   </div>
   <div class="features-grid">
-    <div class="feature-card"><div class="feature-icon">✈️</div><h3 class="feature-title">Passagens aéreas</h3><p class="feature-desc">Azul, Gol e LATAM comparadas em segundos. O OND mostra as melhores opções de voo pra você fechar.</p></div>
-    <div class="feature-card"><div class="feature-icon">🏨</div><h3 class="feature-title">Hospedagem</h3><p class="feature-desc">Hotéis e pousadas, do econômico ao boutique — já nas suas datas e encaixados no roteiro.</p></div>
+    <div class="feature-card"><div class="feature-icon">🏨</div><h3 class="feature-title">Hospedagem</h3><p class="feature-desc">Hospedagem pelo melhor preço, com link direto pro parceiro, do econômico ao boutique.</p></div>
     <div class="feature-card"><div class="feature-icon">🎫</div><h3 class="feature-title">Passeios &amp; ingressos</h3><p class="feature-desc">Tours, atrações e experiências (via GetYourGuide) reservados sem fila, direto no plano da viagem.</p></div>
     <div class="feature-card"><div class="feature-icon">🛡️</div><h3 class="feature-title">Seguro viagem <span class="soon">em breve</span></h3><p class="feature-desc">Proteção para a viagem inteira, cotada junto com o resto do planejamento.</p></div>
     <div class="feature-card"><div class="feature-icon">🚗</div><h3 class="feature-title">Transfer &amp; carro <span class="soon">em breve</span></h3><p class="feature-desc">Transfer do aeroporto e aluguel de carro para você rodar sem stress no destino.</p></div>
