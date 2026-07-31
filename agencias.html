@@ -279,6 +279,57 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .badge-gold{background:var(--gold-dim);color:var(--gold);border:1px solid color-mix(in srgb, var(--gold) 20%, transparent)}
 
 /* ── DIFERENCIAIS ── */
+/* ── LEAD GEN (OND vAI B2C → lead pro agente) ── */
+.leadgen{padding:82px 5%;background:var(--bg)}
+.leadgen-inner{max-width:1180px;margin:0 auto}
+.leadgen-head{text-align:center;max-width:700px;margin:0 auto 46px}
+.leadgen-head .section-label{display:inline-flex;align-items:center;gap:7px}
+.lg-live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green);animation:blink 2s infinite}
+.leadgen-flow{display:grid;grid-template-columns:1fr auto 1fr;gap:26px;align-items:center;max-width:1040px;margin:0 auto}
+.lg-phone{background:var(--card);border:1px solid var(--border-hi);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.lg-phone-head{display:flex;align-items:center;gap:10px;padding:13px 15px;background:var(--surface);border-bottom:1px solid var(--border)}
+.lg-av{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 36% 28%,#7db0ff,#1f6bff 50%,#6a3fff 95%);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lg-phone-t{flex:1;min-width:0;line-height:1.2}
+.lg-phone-t b{display:block;font-size:.86rem;font-weight:800}
+.lg-phone-t span{font-size:.72rem;color:var(--muted)}
+.lg-live{display:inline-flex;align-items:center;gap:5px;font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--green)}
+.lg-chat{padding:16px 15px;display:flex;flex-direction:column;gap:9px}
+.lg-b{max-width:82%;font-size:.83rem;line-height:1.5;padding:9px 13px;border-radius:14px;opacity:0;transform:translateY(8px);animation:lgIn .5s ease forwards}
+.lg-b.ai{align-self:flex-start;background:var(--surface);border:1px solid var(--border);border-bottom-left-radius:5px;color:var(--text)}
+.lg-b.me{align-self:flex-end;background:var(--blue);color:var(--ond-color-onPrimary);border-bottom-right-radius:5px}
+.lg-chat>*:nth-child(1){animation-delay:.05s}.lg-chat>*:nth-child(2){animation-delay:.35s}.lg-chat>*:nth-child(3){animation-delay:.7s}.lg-chat>*:nth-child(4){animation-delay:1.05s}.lg-chat>*:nth-child(5){animation-delay:1.5s}
+@keyframes lgIn{to{opacity:1;transform:none}}
+.lg-rot{align-self:stretch;background:var(--surface);border:1px solid var(--border-hi);border-radius:13px;padding:12px;opacity:0;transform:translateY(8px);animation:lgIn .5s 1.05s ease forwards}
+.lg-rot-row{display:flex;gap:9px;font-size:.8rem;color:var(--text);line-height:1.4;padding:5px 0}
+.lg-rot-row+.lg-rot-row{border-top:1px solid var(--border)}
+.lg-d{flex-shrink:0;font-size:.64rem;font-weight:800;color:var(--blue-light);background:var(--blue-dim);border-radius:6px;padding:2px 7px;height:fit-content}
+.lg-rot-foot{margin-top:8px;padding-top:9px;border-top:1px solid var(--border);font-size:.82rem;color:var(--muted)}
+.lg-rot-foot b{color:var(--green);font-weight:800;font-size:.98rem}
+.lg-arrow{display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--blue-light)}
+.lg-arrow span{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:center;white-space:nowrap}
+.lg-arrow svg{padding:9px;border-radius:50%;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);animation:lgPush 2.2s ease-in-out infinite}
+@keyframes lgPush{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+.lg-agency{background:var(--card);border:1px solid var(--border-hi);border-radius:20px;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.lg-agency-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.lg-ag-name{font-size:.82rem;font-weight:800;color:var(--muted)}
+.lg-ag-tag{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);padding:3px 9px;border-radius:50px}
+.lg-lead{background:var(--surface);border:1px solid var(--border-hi);border-radius:14px;padding:15px;box-shadow:0 0 0 1px color-mix(in srgb,var(--blue) 20%,transparent),0 12px 30px var(--blue-glow);animation:lgLeadIn .6s 1.7s both}
+@keyframes lgLeadIn{0%{opacity:0;transform:translateY(14px) scale(.97)}100%{opacity:1;transform:none}}
+.lg-lead-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
+.lg-lead-top b{font-size:1rem;font-weight:800}
+.lg-lead-hot{font-size:.64rem;font-weight:800;color:var(--danger,#f09595);white-space:nowrap}
+.lg-lead-sub{font-size:.8rem;color:var(--muted)}
+.lg-lead-val{margin-top:8px;font-size:1.05rem;font-weight:800;color:var(--green)}
+.lg-lead-val span{font-size:.74rem;font-weight:700;color:var(--muted)}
+.lg-lead-brief{margin-top:10px;font-size:.8rem;color:var(--muted);font-style:italic;line-height:1.5;padding:9px 11px;background:var(--card);border-radius:10px;border:1px solid var(--border)}
+.lg-lead-cta{display:block;text-align:center;margin-top:13px;background:var(--blue);color:var(--ond-color-onPrimary);font-weight:800;font-size:.86rem;padding:11px;border-radius:50px;text-decoration:none;transition:filter .15s}
+.lg-lead-cta:hover{filter:brightness(1.08)}
+@media(max-width:860px){
+  .leadgen-flow{grid-template-columns:1fr;gap:18px;max-width:460px}
+  .lg-arrow{flex-direction:row;gap:10px}
+  .lg-arrow svg{transform:rotate(90deg)}
+  @keyframes lgPush{0%,100%{transform:rotate(90deg) translateX(-3px)}50%{transform:rotate(90deg) translateX(3px)}}
+}
 .diff{background:var(--surface);padding:80px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;max-width:1280px;margin-left:auto;margin-right:auto}
 .diff-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:border-color .2s,transform .2s}
@@ -1968,6 +2019,52 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           <li><span class="ri"><svg class="ic" width="17" height="17" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span><span>Áudio guia nos destinos, como um guia de bolso.</span></li>
           <li><span class="ri"><svg class="ic" width="17" height="17" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span><span>Alertas de voo, clima e mudanças no roteiro em tempo real.</span></li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD GEN: OND vAI (B2C) conversa e entrega o lead pro agente -->
+<section class="leadgen" id="leads">
+  <div class="leadgen-inner">
+    <div class="leadgen-head">
+      <span class="section-label"><span class="lg-live-dot"></span>Demanda pronta, ao vivo</span>
+      <h2 class="section-title">O viajante conversa com o OND vAI.<br>Você recebe o lead pronto.</h2>
+      <p class="section-sub" style="margin:0 auto">Todo dia milhares de viajantes planejam a viagem conversando com o OND vAI. A sua agência entra nesse fluxo e recebe o lead com o briefing e o roteiro já montado — é só assumir e fechar.</p>
+    </div>
+    <div class="leadgen-flow">
+      <div class="lg-phone">
+        <div class="lg-phone-head">
+          <span class="lg-av"><svg viewBox="0 0 497.26 497.26" width="17" height="17" fill="#fff"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span>
+          <div class="lg-phone-t"><b>OND vAI</b><span>conversando com um viajante</span></div>
+          <span class="lg-live"><span class="lg-live-dot"></span>ao vivo</span>
+        </div>
+        <div class="lg-chat">
+          <div class="lg-b ai">Oi! Bora planejar sua próxima viagem? Pra onde você sonha em ir?</div>
+          <div class="lg-b me">Itália em outubro, algo romântico 🍝</div>
+          <div class="lg-b ai">Amei! Pensei em 7 dias entre Roma, Florença e Costa Amalfitana. Montei um roteiro 👇</div>
+          <div class="lg-rot">
+            <div class="lg-rot-row"><span class="lg-d">D1–2</span>Roma clássica + jantar no Trastevere</div>
+            <div class="lg-rot-row"><span class="lg-d">D3–4</span>Florença e Toscana</div>
+            <div class="lg-rot-row"><span class="lg-d">D5–7</span>Positano e Costa Amalfitana</div>
+            <div class="lg-rot-foot"><b>~R$ 18.400</b> · 2 viajantes</div>
+          </div>
+          <div class="lg-b me">Perfeito! Quero fechar isso 🙌</div>
+        </div>
+      </div>
+      <div class="lg-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        <span>lead + roteiro</span>
+      </div>
+      <div class="lg-agency">
+        <div class="lg-agency-head"><span class="lg-ag-name">Painel da sua agência</span><span class="lg-ag-tag">Novo lead</span></div>
+        <div class="lg-lead">
+          <div class="lg-lead-top"><b>Marina &amp; João</b><span class="lg-lead-hot">● Quente</span></div>
+          <div class="lg-lead-sub">Itália · 7 dias · 2 pax · outubro/2026</div>
+          <div class="lg-lead-val">~R$ 18.400 <span>· roteiro pronto</span></div>
+          <div class="lg-lead-brief">“Viagem romântica; curtem gastronomia e vinho.”</div>
+          <a class="lg-lead-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Assumir e enviar proposta →</a>
+        </div>
       </div>
     </div>
   </div>
