@@ -1360,13 +1360,24 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </section>
 <script>
 (function(){
-  // números "ao vivo": sobem devagar pra dar a sensação de tempo real (ilustrativo)
-  function up(id){var el=document.getElementById(id);if(!el)return;var v=parseInt(el.textContent.replace(/\D/g,''),10)+(Math.random()<.55?1:0);el.textContent=v.toLocaleString('pt-BR');}
-  function tick(){
-    up('lgS1');up('lgS3');up('lgS4');
-    var a=document.getElementById('lgS2');if(a){var av=parseInt(a.textContent,10)+(Math.random()<.5?-1:1);a.textContent=Math.max(6,Math.min(22,av));}
+  var METRICS_API = 'https://ond.agamatec.com/api/ond-vai/live/metrics';
+  function setStat(id, value){
+    var el = document.getElementById(id);
+    if(el) el.textContent = value.toLocaleString('pt-BR');
   }
-  if(!matchMedia('(prefers-reduced-motion:reduce)').matches){setInterval(tick,2800);}
+  function refresh(){
+    fetch(METRICS_API).then(function(res){
+      if(!res.ok) throw new Error('metrics request failed');
+      return res.json();
+    }).then(function(data){
+      setStat('lgS1', data.activeToday);
+      setStat('lgS2', data.active);
+      setStat('lgS3', data.completed);
+      setStat('lgS4', data.abandoned);
+    }).catch(function(){});
+  }
+  refresh();
+  setInterval(refresh, 30000);
 })();
 </script>
 
