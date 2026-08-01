@@ -95,7 +95,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .mobile-nav a.nav-home{color:#7c3fff}
 
 /* ── HERO ── */
-.hero{padding:88px 5% 68px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.hero{padding:88px 5% 68px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
 .hero::before{content:'';position:absolute;top:-200px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,color-mix(in srgb, var(--blue) 14%, transparent) 0%,transparent 70%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,color-mix(in srgb, var(--blue) 8%, transparent) 0%,transparent 70%);pointer-events:none}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--blue-dim);border:1px solid color-mix(in srgb, var(--blue) 30%, transparent);color:var(--blue-light);font-size:.78rem;font-weight:700;padding:6px 14px;border-radius:50px;margin-bottom:22px;letter-spacing:.06em;text-transform:uppercase}
@@ -139,76 +139,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .btn-whatsapp:hover{background:color-mix(in srgb, var(--ond-color-whatsapp) 18%, transparent);border-color:var(--ond-color-whatsapp);transform:translateY(-2px)}
 .hero-trust{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .trust-chip{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted)}
+.trust-chip-metric{color:var(--green);opacity:.85;font-weight:700;font-size:.92em}
 .trust-chip::before{content:'✓';color:var(--green);font-weight:700}
 .hero-visual{position:relative}
-.hero-card-stack{position:relative;width:100%;max-width:468px;margin:0 auto}
-.hero-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;position:relative}
-.hero-card-main{z-index:2;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 1px color-mix(in srgb, var(--blue) 10%, transparent)}
-.hero-card-behind{position:absolute;top:-12px;left:12px;right:-12px;height:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);z-index:1;opacity:.5}
-/* Hero storytelling em loop (monta → envia → cliente → fecha → viagem) */
-.hero-story{position:relative;width:100%;max-width:468px;margin:0 auto}
-.hero-card-main{min-height:322px;opacity:0;transform:translateY(10px) scale(.99);transition:opacity .28s ease,transform .28s ease}
-.hero-card-main.in{opacity:1;transform:none}
-.hs-build .card-day{opacity:0;animation:hsDayIn .4s ease forwards}
-.hs-build .card-day:nth-child(1){animation-delay:.1s}
-.hs-build .card-day:nth-child(2){animation-delay:.25s}
-.hs-build .card-day:nth-child(3){animation-delay:.4s}
-@keyframes hsDayIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
-.card-badge.g{background:var(--green-dim);color:var(--green);border-color:color-mix(in srgb,var(--green) 30%,transparent)}
-.card-badge.p{background:var(--purple-dim);color:var(--purple-light);border-color:color-mix(in srgb,var(--purple) 34%,transparent)}
-.card-badge.b{background:var(--blue-dim);color:var(--blue-light);border-color:color-mix(in srgb,var(--blue) 30%,transparent)}
-.hs-mid{padding:8px 2px}
-.hs-center{text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:14px}
-.hs-link{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:700;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 26%,transparent);border-radius:8px;padding:8px 12px;margin-bottom:14px}
-.hs-big-ok{font-size:1.05rem;font-weight:800;letter-spacing:-.01em;margin-bottom:5px}
-.hs-sub{font-size:.82rem;color:var(--muted);line-height:1.5}
-.hs-tag{margin-left:auto;font-size:.66rem;font-weight:800;padding:5px 10px;border-radius:50px;white-space:nowrap}
-.hs-tag.blue{background:var(--blue-dim);color:var(--blue-light)}
-.hs-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-.hs-chip{font-size:.78rem;font-weight:700;padding:7px 12px;border-radius:50px;border:1px solid var(--border);color:var(--muted);background:var(--surface)}
-.hs-chip.on{color:var(--green);background:var(--green-dim);border-color:color-mix(in srgb,var(--green) 32%,transparent)}
-.hs-price-row{display:flex;align-items:center;gap:9px;font-size:.9rem;color:var(--muted);padding-top:6px;border-top:1px solid var(--border)}
-.hs-price-row svg{color:var(--green)}
-.hs-old{color:var(--muted);text-decoration:line-through;font-weight:700}
-.hs-new{color:var(--green);font-weight:800;font-size:1.05rem}
-.hs-check{width:56px;height:56px;border-radius:50%;background:var(--green-dim);color:var(--green);display:flex;align-items:center;justify-content:center;border:1px solid color-mix(in srgb,var(--green) 34%,transparent)}
-.hs-feed{display:flex;flex-direction:column;gap:10px}
-.hs-feed-row{display:flex;align-items:center;gap:11px;font-size:.86rem;font-weight:600;opacity:0;animation:hsDayIn .4s ease forwards}
-.hs-feed-row:nth-child(1){animation-delay:.1s}.hs-feed-row:nth-child(2){animation-delay:.28s}.hs-feed-row:nth-child(3){animation-delay:.46s}
-.hs-fi{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.hs-fi.shield{background:var(--green-dim);color:var(--green)}
-.hs-fi.pin{background:var(--purple-dim);color:var(--purple-light)}
-.hs-fi.plane{background:var(--blue-dim);color:var(--blue-light)}
-.hs-cap{text-align:center;font-size:1.02rem;font-weight:800;letter-spacing:-.01em;color:var(--text);max-width:468px;margin:0 auto 16px}
-.hs-dots{display:flex;justify-content:center;gap:6px;margin:16px auto 0}
-.hs-dots i{width:7px;height:7px;border-radius:50%;background:var(--border);transition:background .3s,width .3s;cursor:pointer}
-.hs-dots i.on{background:var(--blue);width:18px;border-radius:50px}
-.hs-controls{display:flex;align-items:center;justify-content:center;gap:10px;max-width:468px;margin:12px auto 0}
-.hs-nav{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:color .15s,border-color .15s,background .15s}
-.hs-nav:hover{color:var(--text);border-color:var(--blue);background:var(--blue-dim)}
-.hs-play{width:40px;height:40px;color:var(--blue-light);border-color:color-mix(in srgb,var(--blue) 32%,transparent)}
-.card-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.card-agency-dot{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0044cc,var(--blue));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;flex-shrink:0;box-shadow:0 4px 12px color-mix(in srgb, var(--blue) 35%, transparent)}
-.card-agency-name{font-size:.92rem;font-weight:800;letter-spacing:-.01em}
-.card-agency-sub{font-size:.75rem;color:var(--muted)}
-.card-header{align-items:flex-start}
-.card-brand{margin-left:auto;flex-shrink:0;font-size:.66rem;font-weight:800;color:var(--muted);background:var(--surface);border:1px dashed var(--border-hi);border-radius:7px;padding:4px 9px;white-space:nowrap}
-.card-status{display:inline-block;margin-top:5px;font-size:.68rem;font-weight:800;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 26%,transparent);border-radius:50px;padding:2px 9px}
-.card-status.g{color:var(--green);background:var(--green-dim);border-color:color-mix(in srgb,var(--green) 30%,transparent)}
-.card-status.p{color:var(--purple-light);background:var(--purple-dim);border-color:color-mix(in srgb,var(--purple) 32%,transparent)}
-.card-status.b{color:var(--blue-light);background:var(--blue-dim)}
-.card-badge{margin-left:auto;background:color-mix(in srgb, var(--green) 10%, transparent);border:1px solid color-mix(in srgb, var(--green) 25%, transparent);color:var(--green);font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:50px}
-.card-itinerary{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
-.card-day{display:flex;align-items:flex-start;gap:10px}
-.card-day-num{min-width:26px;height:26px;border-radius:50%;background:var(--blue-dim);border:1px solid color-mix(in srgb, var(--blue) 30%, transparent);color:var(--blue-light);font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.card-day-content{flex:1}
-.card-day-title{font-size:.82rem;font-weight:700;color:var(--text)}
-.card-day-desc{font-size:.75rem;color:var(--muted);line-height:1.4}
-.card-footer{display:flex;align-items:center;gap:20px;padding-top:14px;border-top:1px solid var(--border)}
-.card-footer-stat{text-align:left;white-space:nowrap}
-.card-footer-num{font-size:1rem;font-weight:800;color:var(--green)}
-.card-footer-label{font-size:.68rem;color:var(--muted)}
-.card-footer-cta{background:var(--blue);color:var(--ond-color-onPrimary);font-size:.76rem;font-weight:700;padding:7px 14px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 4px 12px var(--blue-glow)}
 
 /* ── STATS ── */
 .stats{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 5%;display:flex;justify-content:center;gap:0;flex-wrap:wrap}
@@ -223,6 +156,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 /* ── PROBLEMA ── */
 .problema{padding:80px 5%;background:var(--bg)}
 .problema-inner{max-width:920px;margin:0 auto;text-align:center}
+.origin{padding:80px 5%;background:var(--bg)}
+.origin-inner{max-width:820px;margin:0 auto;text-align:center}
 .section-label{display:inline-block;color:var(--green);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
 .section-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;line-height:1.2;margin-bottom:16px;letter-spacing:-.02em}
 .section-sub{font-size:1rem;color:var(--muted);max-width:580px;line-height:1.7;margin:0 auto}
@@ -279,41 +214,23 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .badge-gold{background:var(--gold-dim);color:var(--gold);border:1px solid color-mix(in srgb, var(--gold) 20%, transparent)}
 
 /* ── DIFERENCIAIS ── */
-/* ── LEAD GEN (OND vAI B2C → lead pro agente) ── */
-.leadgen{padding:82px 5%;background:var(--bg)}
-.leadgen-inner{max-width:1180px;margin:0 auto}
-.leadgen-head{text-align:center;max-width:700px;margin:0 auto 46px}
-.leadgen-head .section-label{display:inline-flex;align-items:center;gap:7px}
+/* ── LEADS (mockup do OND vAI trazendo o lead pronto, embutido no hero) ── */
 .lg-live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green);animation:blink 2s infinite}
-.lg-live-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 30px;margin-top:26px}
+.lg-live-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 26px;margin-bottom:22px}
+.lg-real-label{text-align:center;font-size:.76rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
 .lg-stat{display:flex;flex-direction:column;align-items:center;min-width:86px}
-.lg-stat b{font-size:1.9rem;font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--text)}
+.lg-stat b{font-size:1.7rem;font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--text)}
 .lg-stat span{font-size:.74rem;color:var(--muted);margin-top:6px}
 .lg-stat-live{color:var(--green)!important}
-.leadgen-flow{display:grid;grid-template-columns:1fr auto 1fr;gap:26px;align-items:center;max-width:1040px;margin:0 auto}
-.lg-phone{background:var(--card);border:1px solid var(--border-hi);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}
-.lg-phone-head{display:flex;align-items:center;gap:10px;padding:13px 15px;background:var(--surface);border-bottom:1px solid var(--border)}
-.lg-av{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 36% 28%,#7db0ff,#1f6bff 50%,#6a3fff 95%);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.lg-phone-t{flex:1;min-width:0;line-height:1.2}
-.lg-phone-t b{display:block;font-size:.86rem;font-weight:800}
-.lg-phone-t span{font-size:.72rem;color:var(--muted)}
-.lg-live{display:inline-flex;align-items:center;gap:5px;font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--green)}
-.lg-chat{padding:16px 15px;display:flex;flex-direction:column;gap:9px}
-.lg-b{max-width:82%;font-size:.83rem;line-height:1.5;padding:9px 13px;border-radius:14px;opacity:0;transform:translateY(8px);animation:lgIn .5s ease forwards}
-.lg-b.ai{align-self:flex-start;background:var(--surface);border:1px solid var(--border);border-bottom-left-radius:5px;color:var(--text)}
-.lg-b.me{align-self:flex-end;background:var(--blue);color:var(--ond-color-onPrimary);border-bottom-right-radius:5px}
-.lg-chat>*:nth-child(1){animation-delay:.05s}.lg-chat>*:nth-child(2){animation-delay:.35s}.lg-chat>*:nth-child(3){animation-delay:.7s}.lg-chat>*:nth-child(4){animation-delay:1.05s}.lg-chat>*:nth-child(5){animation-delay:1.5s}
-@keyframes lgIn{to{opacity:1;transform:none}}
-.lg-rot{align-self:stretch;background:var(--surface);border:1px solid var(--border-hi);border-radius:13px;padding:12px;opacity:0;transform:translateY(8px);animation:lgIn .5s 1.05s ease forwards}
-.lg-rot-row{display:flex;gap:9px;font-size:.8rem;color:var(--text);line-height:1.4;padding:5px 0}
-.lg-rot-row+.lg-rot-row{border-top:1px solid var(--border)}
-.lg-d{flex-shrink:0;font-size:.64rem;font-weight:800;color:var(--blue-light);background:var(--blue-dim);border-radius:6px;padding:2px 7px;height:fit-content}
-.lg-rot-foot{margin-top:8px;padding-top:9px;border-top:1px solid var(--border);font-size:.82rem;color:var(--muted)}
-.lg-rot-foot b{color:var(--green);font-weight:800;font-size:.98rem}
-.lg-arrow{display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--blue-light)}
+.leadgen-flow{display:grid;grid-template-columns:1fr;gap:16px;max-width:420px;margin:0 auto}
+.lg-live{display:inline-flex;align-items:center;gap:5px;font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--green);flex-shrink:0}
+.lg-quote{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border-hi);border-radius:16px;padding:15px 18px;box-shadow:0 16px 40px rgba(0,0,0,.35)}
+.lg-quote-ic{flex-shrink:0;color:var(--blue-light)}
+.lg-quote-text{flex:1;font-size:.9rem;font-style:italic;color:var(--text);line-height:1.4}
+.lg-arrow{display:flex;flex-direction:row;align-items:center;gap:10px;color:var(--blue-light)}
 .lg-arrow span{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:center;white-space:nowrap}
-.lg-arrow svg{padding:9px;border-radius:50%;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);animation:lgPush 2.2s ease-in-out infinite}
-@keyframes lgPush{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+.lg-arrow svg{padding:9px;border-radius:50%;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);transform:rotate(90deg);animation:lgPush 2.2s ease-in-out infinite}
+@keyframes lgPush{0%,100%{transform:rotate(90deg) translateX(-3px)}50%{transform:rotate(90deg) translateX(3px)}}
 .lg-agency{background:var(--card);border:1px solid var(--border-hi);border-radius:20px;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
 .lg-agency-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
 .lg-ag-name{font-size:.82rem;font-weight:800;color:var(--muted)}
@@ -329,12 +246,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .lg-lead-brief{margin-top:10px;font-size:.8rem;color:var(--muted);font-style:italic;line-height:1.5;padding:9px 11px;background:var(--card);border-radius:10px;border:1px solid var(--border)}
 .lg-lead-cta{display:block;text-align:center;margin-top:13px;background:var(--blue);color:var(--ond-color-onPrimary);font-weight:800;font-size:.86rem;padding:11px;border-radius:50px;text-decoration:none;transition:filter .15s}
 .lg-lead-cta:hover{filter:brightness(1.08)}
-@media(max-width:860px){
-  .leadgen-flow{grid-template-columns:1fr;gap:18px;max-width:460px}
-  .lg-arrow{flex-direction:row;gap:10px}
-  .lg-arrow svg{transform:rotate(90deg)}
-  @keyframes lgPush{0%,100%{transform:rotate(90deg) translateX(-3px)}50%{transform:rotate(90deg) translateX(3px)}}
-}
 .diff{background:var(--surface);padding:80px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;max-width:1280px;margin-left:auto;margin-right:auto}
 .diff-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:border-color .2s,transform .2s}
@@ -448,7 +359,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 @media(max-width:960px){
   .header-nav{display:none}.header-menu-btn{display:block}
   .hero{grid-template-columns:1fr;padding:56px 5% 44px;gap:36px}
-  .hero-visual{display:none}
   .problema-cards{grid-template-columns:1fr 1fr}
   .steps-row{grid-template-columns:1fr 1fr}.steps-row::before{display:none}
   .features-inner{grid-template-columns:1fr}
@@ -545,8 +455,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .journey-head h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;line-height:1.18;letter-spacing:-.025em;margin:14px 0 14px}
 .journey-head p{font-size:1.02rem;color:var(--muted);line-height:1.7;max-width:600px;margin:0 auto}
 /* Timeline: nós numerados numa linha, cards embaixo */
-.journey-track{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.journey-track::before{content:'';position:absolute;top:17px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,var(--blue),var(--purple-light));opacity:.5;z-index:0}
+.journey-track{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.journey-track::before{content:'';position:absolute;top:17px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--blue),var(--purple-light));opacity:.5;z-index:0}
 .jstep{position:relative;display:flex;flex-direction:column}
 .jstep-node{display:flex;justify-content:center;margin-bottom:16px}
 .jstep-num{position:relative;z-index:1;width:34px;height:34px;border-radius:50%;background:var(--blue);color:var(--ond-color-onPrimary);font-size:.92rem;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px var(--surface),0 4px 12px var(--blue-glow)}
@@ -998,6 +908,38 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pc-cta{display:flex;flex-direction:column;align-items:flex-start;gap:10px;flex-shrink:0}
 .pc-price{font-size:.82rem;font-weight:700;color:var(--purple-light)}
 @media(max-width:620px){.plan-custom{padding:22px 20px}.pc-cta{align-items:stretch;width:100%}}
+.plans-grid-5{grid-template-columns:repeat(5,1fr)}
+@media(max-width:1080px){.plans-grid-5{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.plans-grid-5{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.plans-grid-5{grid-template-columns:1fr}}
+.plan-img{width:72px;height:72px;object-fit:contain;margin-bottom:10px}
+.plan-cta-btn{border:none;cursor:pointer;font-family:inherit;width:100%}
+.onboard-overlay{display:none;position:fixed;inset:0;background:rgba(6,10,20,.72);z-index:500;padding:24px;overflow-y:auto}
+.onboard-overlay.open{display:flex;align-items:flex-start;justify-content:center}
+.onboard-modal{position:relative;width:100%;max-width:640px;margin:auto 0;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 28px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.onboard-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:8px;border:none;background:var(--surface);color:var(--muted);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.onboard-close:hover{color:var(--text)}
+.onboard-head{margin-bottom:22px}
+.onboard-plan-badge{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb, var(--blue) 30%, transparent);padding:4px 11px;border-radius:50px;margin-bottom:12px}
+.onboard-head h3{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+.onboard-head p{font-size:.86rem;color:var(--muted);line-height:1.5}
+.ob-section{margin-bottom:22px}
+.ob-section h4{font-size:.92rem;font-weight:800;margin-bottom:4px}
+.ob-section-note{font-size:.78rem;color:var(--muted2);margin-bottom:12px}
+.ob-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+.ob-field{display:flex;flex-direction:column;gap:6px;font-size:.82rem;color:var(--muted)}
+.ob-field-full{grid-column:1 / -1}
+.ob-field input,.ob-field select{font-family:inherit;font-size:.9rem;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 12px;width:100%}
+.ob-field input:focus,.ob-field select:focus{outline:none;border-color:var(--blue)}
+@media(max-width:560px){.ob-grid{grid-template-columns:1fr}}
+.ob-agent-row{display:grid;grid-template-columns:1.2fr 1.2fr .8fr auto;gap:10px;align-items:end;margin-bottom:10px}
+@media(max-width:560px){.ob-agent-row{grid-template-columns:1fr}}
+.ob-agent-remove{width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;flex-shrink:0}
+.ob-agent-remove:hover{color:var(--text);border-color:var(--border-hi)}
+.ob-add-agent{font-family:inherit;font-size:.82rem;font-weight:700;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb, var(--blue) 26%, transparent);border-radius:10px;padding:9px 14px;cursor:pointer}
+.ob-error{font-size:.84rem;color:#ff6b6b;background:color-mix(in srgb, #ff6b6b 12%, transparent);border:1px solid color-mix(in srgb, #ff6b6b 35%, transparent);border-radius:10px;padding:10px 12px;margin-bottom:16px}
+.ob-submit{width:100%;border:none;font-family:inherit;cursor:pointer}
+.ob-submit:disabled{opacity:.6;cursor:default}
 
 /* ── SEÇÃO After the sale (retenção / recorrência) ── */
 .retention{background:var(--bg);padding:80px 5%;border-bottom:1px solid var(--border)}
@@ -1162,8 +1104,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   </a>
   <nav><ul class="header-nav">
     <li><a href="index.html" class="nav-home">← For travelers</a></li>
-    <li><a href="#plataforma">Try the platform</a></li>
-    <li><a href="#modelo">Features</a></li>
+    <li><a href="#plataforma">How it works</a></li>
     <li><a href="#planos">Plans</a></li>
     <li><a href="#quem-somos">About us</a></li>
     <li><div class="seg" role="tablist" aria-label="Escolha seu perfil">
@@ -1187,8 +1128,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </header>
 <nav class="mobile-nav" id="mobileNav">
   <a href="index.html" class="nav-home">← For travelers</a>
-  <a href="#plataforma" onclick="closeMenu()">Try the platform</a>
-  <a href="#modelo" onclick="closeMenu()">Features</a>
+  <a href="#plataforma" onclick="closeMenu()">How it works</a>
   <a href="#planos" onclick="closeMenu()">Plans</a>
   <a href="#quem-somos" onclick="closeMenu()">About us</a>
   <div class="seg" role="tablist" aria-label="Escolha seu perfil">
@@ -1196,8 +1136,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <a class="seg-btn" href="hoteis.html" role="tab" style="display:none">Hotels</a>
   </div>
   <a href="https://calendly.com/renanfr1047/30min" style="color:var(--green);font-weight:700" target="_blank" rel="noopener">Book a meeting →</a>
-  <a href="https://wa.me/5511910214133?text=Olá! Tenho uma agência e quero saber mais sobre o OND" target="_blank" rel="noopener">Chat on WhatsApp</a>
-  <a href="https://pci.jotform.com/form/252517268656062" class="onboarding-link" style="padding-top:14px;border-bottom:none;font-size:.85rem" target="_blank" rel="noopener">Already talked to us? Do onboarding</a>
+  <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" target="_blank" rel="noopener">Chat on WhatsApp</a>
   <div class="mobile-lang"><span>Language</span><a href="/agencias.html">PT</a><a href="/en/agencias.html" aria-current="true">EN</a><a href="/es/agencias.html">ES</a><a href="/fr/agencias.html">FR</a><a href="/it/agencias.html">IT</a></div>
 </nav>
 
@@ -1205,122 +1144,45 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <section class="hero">
   <div>
     <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Sales platform for agencies</div>
-    <h1 class="hero-title">OND vAI brings the lead ready,<br>and you <em>close the sale.</em></h1>
-    <p class="hero-sub">OND becomes your agency's sales engine: build the proposal in minutes and send a link with your brand where the client personalizes everything, adds insurance and upgrades, and closes. Bigger tickets, less back and forth by&nbsp;e-mail.</p>
+    <h1 class="hero-title">Chega de esperar o cliente entrar pela porta.<br>Ele <em>já decidiu viajar</em>, só não sabe que você existe.</h1>
+    <p class="hero-sub">Todo dia, centenas de pessoas fecham destino, data e orçamento conversando com o OND vAI. Zero agências aparecem pra elas hoje. Isso muda agora.</p>
     <div class="hero-ctas">
       <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">I want OND in my&nbsp;agency&nbsp;→</a>
-      <a href="https://wa.me/5511910214133?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
+      <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         Chat on WhatsApp
       </a>
-      <a href="#plataforma" class="btn-demo"><svg viewBox="0 0 497.26 497.26" width="18" height="18" fill="#fff" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg>Try the platform</a>
     </div>
     <div class="hero-trust">
-      <span class="trust-chip">No long-term contract</span>
-      <span class="trust-chip">Your brand on the proposal</span>
-      <span class="trust-chip">Dedicated support</span>
+      <span class="trust-chip">Venda pra quem já quer comprar <span class="trust-chip-metric">(-CAC)</span></span>
+      <span class="trust-chip">Leads chegam prontos pra fechar <span class="trust-chip-metric">(+LTV, cross/upsell)</span></span>
+      <span class="trust-chip">Sua marca continua na viagem <span class="trust-chip-metric">(+NPS)</span></span>
     </div>
   </div>
   <div class="hero-visual">
-    <div class="hs-cap" id="hsCap">Você monta a proposta</div>
-    <div class="hero-story">
-      <div class="hero-card-behind"></div>
-      <div class="hero-card hero-card-main" id="hsCard" aria-hidden="true"></div>
+    <div class="lg-live-stats">
+      <div class="lg-stat"><b id="lgS1">208</b><span>conversas no total</span></div>
+      <div class="lg-stat"><b id="lgS2" class="lg-stat-live">14</b><span>active now</span></div>
+      <div class="lg-stat"><b id="lgS3">171</b><span>itineraries generated</span></div>
+      <div class="lg-stat"><b id="lgS4">42</b><span>leads available</span></div>
     </div>
-    <div class="hs-dots" id="hsDots"></div>
-    <div class="hs-controls">
-      <button class="hs-nav" id="hsPrev" type="button" aria-label="Cena anterior"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-      <button class="hs-nav hs-play" id="hsPlay" type="button" aria-label="Pausar"></button>
-      <button class="hs-nav" id="hsNext" type="button" aria-label="Próxima cena"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
-    </div>
-  </div>
-  <script>
-  (function(){
-    var card=document.getElementById('hsCard'),cap=document.getElementById('hsCap'),dotsEl=document.getElementById('hsDots');
-    if(!card)return;
-    function day(n,t,d){return '<div class="card-day"><div class="card-day-num">'+n+'</div><div class="card-day-content"><div class="card-day-title">'+t+'</div><div class="card-day-desc">'+d+'</div></div></div>';}
-    function hd(status,cls){return '<div class="card-header"><div class="card-agency-dot"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div><div><div class="card-agency-name">Viagem de 5 dias para Lisboa</div><div class="card-status '+(cls||'')+'">'+status+'</div></div><span class="card-brand">Sua Marca</span></div>';}
-    var days=day('D1','Chegada em Lisboa · Alfama','Castelo de São Jorge · Fado no Bairro Alto')+day('D2','Belém · LX Factory','Torre de Belém · Pastéis de Belém')+day('D3','Sintra · Cascais','Palácio da Pena · Costa do Estoril');
-    var SCENES=[
-      {cap:'Você monta a proposta',html:hd('◍ montando')+'<div class="card-itinerary hs-build">'+days+'</div><div class="card-footer"><div class="card-footer-stat"><div class="card-footer-num">R$&nbsp;4.200</div><div class="card-footer-label">estimativa</div></div><div class="card-footer-stat"><div class="card-footer-num">5d · 2pax</div><div class="card-footer-label">roteiro</div></div><span class="hs-tag blue">OND vAI sugeriu</span></div>'},
-      {cap:'Envia um link com a sua marca',html:hd('▲ enviando','g')+'<div class="hs-mid"><div class="hs-link"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>viagenspremium.com/p/lisboa</div><div class="hs-big-ok">Proposta enviada ao cliente</div><div class="hs-sub">Ele abre no navegador, sem instalar nada.</div></div>'},
-      {cap:'O cliente personaliza sozinho',html:hd('✎ cliente ajustando','p')+'<div class="hs-mid"><div class="hs-chips"><span class="hs-chip on">+ Seguro viagem</span><span class="hs-chip on">+ Passeio em Sintra</span><span class="hs-chip">Upgrade de hotel</span></div><div class="hs-price-row"><span>Ticket</span><b class="hs-old">R$ 4.200</b><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg><b class="hs-new">R$ 4.680</b></div></div>'},
-      {cap:'Fecha a venda no próprio link',html:hd('✓ vendido','g')+'<div class="hs-mid hs-center"><div class="hs-check"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div><div class="hs-big-ok">Proposta aceita · paga no link</div><div class="hs-sub">A comissão fica com a agência. O OND não é o merchant.</div></div>'},
-      {cap:'E acompanha a viagem inteira',html:hd('◎ em viagem','b')+'<div class="hs-mid"><div class="hs-feed"><div class="hs-feed-row"><span class="hs-fi shield"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>Seguro contratado dias antes ✓</div><div class="hs-feed-row"><span class="hs-fi pin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Passeio extra amanhã, 9h</div><div class="hs-feed-row"><span class="hs-fi plane"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2"/></svg></span>Concierge 24h no OND vAI</div></div></div>'}
-    ];
-    var dots=SCENES.map(function(_,k){return '<i data-i="'+k+'"'+(k===0?' class="on"':'')+'></i>';}).join('');
-    dotsEl.innerHTML=dots;
-    var dotI=dotsEl.querySelectorAll('i');
-    var prevBtn=document.getElementById('hsPrev'),nextBtn=document.getElementById('hsNext'),playBtn=document.getElementById('hsPlay');
-    var PAUSE='<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
-    var PLAY='<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M7 5l12 7-12 7z"/></svg>';
-    var i=-1,timer=null,playing=true,DUR=4200;
-    function render(){
-      card.classList.remove('in');
-      setTimeout(function(){
-        card.innerHTML=SCENES[i].html; cap.textContent=SCENES[i].cap;
-        for(var k=0;k<dotI.length;k++)dotI[k].className=(k===i?'on':'');
-        void card.offsetWidth; card.classList.add('in');
-      },180);
-    }
-    function go(dir){ i=(i+dir+SCENES.length)%SCENES.length; render(); }
-    function startTimer(){ if(timer)clearInterval(timer); if(playing)timer=setInterval(function(){go(1);},DUR); }
-    function setPlaying(p){ playing=p; if(playBtn){playBtn.innerHTML=p?PAUSE:PLAY; playBtn.setAttribute('aria-label',p?'Pausar':'Reproduzir');} startTimer(); }
-    if(prevBtn)prevBtn.onclick=function(){ go(-1); startTimer(); };
-    if(nextBtn)nextBtn.onclick=function(){ go(1); startTimer(); };
-    if(playBtn)playBtn.onclick=function(){ setPlaying(!playing); };
-    for(var k=0;k<dotI.length;k++){ dotI[k].onclick=(function(idx){return function(){ i=idx; render(); startTimer(); };})(k); }
-    if(matchMedia('(prefers-reduced-motion:reduce)').matches){ i=0; render(); playing=false; if(playBtn)playBtn.innerHTML=PLAY; }
-    else { setPlaying(true); go(1); }
-  })();
-  </script>
-</section>
-
-<!-- LEAD GEN (conceito central): o OND vAI traz os leads prontos, live -->
-<section class="leadgen" id="leads">
-  <div class="leadgen-inner">
-    <div class="leadgen-head">
-      <span class="section-label"><span class="lg-live-dot"></span>Live · now</span>
-      <h2 class="section-title">You don't start from zero:<br>OND vAI already brings leads&nbsp;talking.</h2>
-      <p class="section-sub" style="margin:0 auto">Thousands of travelers plan their trip talking to OND vAI. Your agency enters that flow and receives the lead with the briefing and itinerary already built: just take it and close.</p>
-      <div class="lg-live-stats">
-        <div class="lg-stat"><b id="lgS1">208</b><span>chats today</span></div>
-        <div class="lg-stat"><b id="lgS2" class="lg-stat-live">14</b><span>active now</span></div>
-        <div class="lg-stat"><b id="lgS3">171</b><span>itineraries generated</span></div>
-        <div class="lg-stat"><b id="lgS4">42</b><span>leads available</span></div>
-      </div>
-    </div>
+    <div class="lg-real-label">Isso não é exemplo. É gente real, agora</div>
     <div class="leadgen-flow">
-      <div class="lg-phone">
-        <div class="lg-phone-head">
-          <span class="lg-av"><svg viewBox="0 0 497.26 497.26" width="17" height="17" fill="#fff"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span>
-          <div class="lg-phone-t"><b>OND vAI</b><span>chatting with a traveler</span></div>
-          <span class="lg-live"><span class="lg-live-dot"></span>live</span>
-        </div>
-        <div class="lg-chat">
-          <div class="lg-b ai">Hi! Ready to plan your next trip? Where do you dream of going?</div>
-          <div class="lg-b me">Italy in October, something romantic 🍝</div>
-          <div class="lg-b ai">Love it! I thought of 7 days between Rome, Florence and the Amalfi Coast. I put together an itinerary 👇</div>
-          <div class="lg-rot">
-            <div class="lg-rot-row"><span class="lg-d">D1–2</span>Classic Rome + dinner in Trastevere</div>
-            <div class="lg-rot-row"><span class="lg-d">D3–4</span>Florence and Tuscany</div>
-            <div class="lg-rot-row"><span class="lg-d">D5–7</span>Positano and the Amalfi Coast</div>
-            <div class="lg-rot-foot"><b>~R$ 18.400</b> · 2 travelers</div>
-          </div>
-          <div class="lg-b me">Perfect! I want to close this 🙌</div>
-        </div>
+      <div class="lg-quote">
+        <svg class="lg-quote-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span class="lg-quote-text" id="lgIntentQuote">"Italy in October, something romantic 🍝"</span>
+        <span class="lg-live"><span class="lg-live-dot"></span>live</span>
       </div>
       <div class="lg-arrow" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-        <span>lead + itinerary</span>
+        <span>lead + itinerary pronto</span>
       </div>
       <div class="lg-agency">
         <div class="lg-agency-head"><span class="lg-ag-name">Your agency's dashboard</span><span class="lg-ag-tag">New lead</span></div>
         <div class="lg-lead">
-          <div class="lg-lead-top"><b>Marina &amp; João</b><span class="lg-lead-hot">● Hot</span></div>
-          <div class="lg-lead-sub">Itália · 7 dias · 2 pax · outubro/2026</div>
-          <div class="lg-lead-val">~R$ 18.400 <span>· itinerary ready</span></div>
-          <div class="lg-lead-brief">“Romantic trip; they enjoy food and wine.”</div>
+          <div class="lg-lead-top"><b id="lgLeadName">Casal em busca de gastronomia</b><span class="lg-lead-hot">● Hot</span></div>
+          <div class="lg-lead-sub" id="lgLeadSub">Itália · 7 dias · 2 pax · outubro/2026</div>
+          <div class="lg-lead-val" id="lgLeadVal">~R$ 18.400 <span>· itinerary ready</span></div>
           <a class="lg-lead-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Take it and send proposal →</a>
         </div>
       </div>
@@ -1329,15 +1191,79 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </section>
 <script>
 (function(){
-  // números "ao vivo": sobem devagar pra dar a sensação de tempo real (ilustrativo)
-  function up(id){var el=document.getElementById(id);if(!el)return;var v=parseInt(el.textContent.replace(/\D/g,''),10)+(Math.random()<.55?1:0);el.textContent=v.toLocaleString('pt-BR');}
-  function tick(){
-    up('lgS1');up('lgS3');up('lgS4');
-    var a=document.getElementById('lgS2');if(a){var av=parseInt(a.textContent,10)+(Math.random()<.5?-1:1);a.textContent=Math.max(6,Math.min(22,av));}
+  var METRICS_API = 'https://ond.agamatec.com/api/ond-vai/live/metrics';
+  function setStat(id, value){
+    var el = document.getElementById(id);
+    if(el) el.textContent = value.toLocaleString('pt-BR');
   }
-  if(!matchMedia('(prefers-reduced-motion:reduce)').matches){setInterval(tick,2800);}
+  function refresh(){
+    fetch(METRICS_API).then(function(res){
+      if(!res.ok) throw new Error('metrics request failed');
+      return res.json();
+    }).then(function(data){
+      setStat('lgS1', data.conversations);
+      setStat('lgS2', data.active);
+      setStat('lgS3', data.completed);
+    }).catch(function(){});
+  }
+  refresh();
+  setInterval(refresh, 30000);
 })();
 </script>
+<script>
+(function(){
+  var SHOWCASE_API = 'https://ond.agamatec.com/api/ond-vai/live/lead-showcase';
+  var leads = [];
+  var current = 0;
+  function formatMoney(value){
+    return Number(value).toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  }
+  function render(){
+    if(!leads.length) return;
+    var lead = leads[current % leads.length];
+    current++;
+    var nameEl = document.getElementById('lgLeadName');
+    var subEl = document.getElementById('lgLeadSub');
+    var valEl = document.getElementById('lgLeadVal');
+    var quoteEl = document.getElementById('lgIntentQuote');
+    if(nameEl) nameEl.textContent = lead.partyLabel;
+    if(subEl) subEl.textContent = [lead.destinationLabel,
+      lead.durationDays ? lead.durationDays + ' dias' : null,
+      lead.partySize ? lead.partySize + ' pax' : null,
+      lead.periodLabel].filter(Boolean).join(' · ');
+    if(valEl) valEl.innerHTML = '~R$ ' + formatMoney(lead.budgetEstimate) + ' <span>· roteiro pronto</span>';
+    if(quoteEl && lead.destinationLabel){
+      var quote = lead.intentQuote || (lead.destinationLabel + (lead.periodLabel ? ' em ' + lead.periodLabel : ''));
+      quoteEl.textContent = '"' + quote + '"';
+    }
+  }
+  function load(){
+    fetch(SHOWCASE_API).then(function(res){
+      if(!res.ok) throw new Error('lead showcase request failed');
+      return res.json();
+    }).then(function(data){
+      if(Array.isArray(data) && data.length){
+        leads = data;
+        current = 0;
+        render();
+        var countEl = document.getElementById('lgS4');
+        if(countEl) countEl.textContent = data.length.toLocaleString('pt-BR');
+      }
+    }).catch(function(){});
+  }
+  load();
+  setInterval(load, 60000);
+  setInterval(render, 6000);
+})();
+</script>
+
+<section class="origin">
+  <div class="origin-inner">
+    <span class="section-label">Por que existimos</span>
+    <h2 class="section-title">Construímos um app que virou hábito de viajante.<br>O que não temos é o que vender pra eles.</h2>
+    <p class="section-sub">Milhares de pessoas sonham o destino, montam o roteiro e viajam com o OND do lado. Mas não somos agência: não vendemos pacote, não emitimos passagem. Ficamos com um monte de gente pronta pra comprar e ninguém pra vender pra ela. Por isso existe o OND para agências. Quer faturar com esse tanto de gente pronta pra fechar?</p>
+  </div>
+</section>
 
 <!-- STATS -->
 <div class="stats">
@@ -1353,7 +1279,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <div class="journey-head">
       <span class="section-label">The sale journey</span>
       <h3>From the first "I want to travel" to closing</h3>
-      <p>What the agency gains at each step until closing the sale. After that, OND stays on for the trip (right below).</p>
+      <p>O que acontece em cada etapa até a agência fechar a venda. Depois dela, o OND continua na viagem (logo abaixo).</p>
     </div>
     <div class="journey-track">
       <div class="jstep">
@@ -1362,8 +1288,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           <span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></span>
           <span class="jstep-tag jstep-tag-now">Today</span>
           <h4 class="jstep-title">Lead comes in</h4>
-          <p class="jstep-desc">The traveler arrives ("I want Sicily in September") and OND vAI captures the briefing.</p>
-          <div class="jstep-gain"><b>Gain</b>Starts frictionless, even outside business hours.</div>
+          <p class="jstep-desc">Tráfego pago traz o viajante pro OND vAI, que capta destino, data e orçamento numa conversa.</p>
+          <div class="jstep-gain"><b>Gain</b>Leads qualificados, sem custo de prospecção pra agência.</div>
         </div>
       </div>
       <div class="jstep">
@@ -1371,23 +1297,33 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         <div class="jstep-card">
           <span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span>
           <span class="jstep-tag jstep-tag-now">Today</span>
-          <h4 class="jstep-title">Welcome proposal</h4>
-          <p class="jstep-desc">Day-by-day itinerary with cost estimate, ready in minutes.</p>
-          <div class="jstep-gain"><b>Gain</b>Wow effect: you respond before the competitor and capture the lead.</div>
+          <h4 class="jstep-title">Roteiro pronto, automático</h4>
+          <p class="jstep-desc">O OND gera o roteiro dia a dia e a estimativa de custo sozinho, antes de qualquer agência entrar.</p>
+          <div class="jstep-gain"><b>Gain</b>Zero esforço da agência até aqui.</div>
         </div>
       </div>
       <div class="jstep">
         <div class="jstep-node"><span class="jstep-num">3</span></div>
         <div class="jstep-card">
-          <span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg></span>
-          <span class="jstep-tag jstep-tag-now">Today · partial</span>
-          <h4 class="jstep-title">Personalization</h4>
-          <p class="jstep-desc">The client adjusts the itinerary right in the link, no endless back and forth by&nbsp;e-mail.</p>
-          <div class="jstep-gain"><b>Gain</b>More proposals per hour, with less back and forth.</div>
+          <span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+          <span class="jstep-tag jstep-tag-now">Today</span>
+          <h4 class="jstep-title">Viajante conecta com uma agência</h4>
+          <p class="jstep-desc">De dentro do próprio app, o viajante escolhe se conectar com uma agência parceira pra fechar.</p>
+          <div class="jstep-gain"><b>Gain</b>Chega já qualificado e quente, sem prospecção fria.</div>
         </div>
       </div>
       <div class="jstep">
         <div class="jstep-node"><span class="jstep-num">4</span></div>
+        <div class="jstep-card">
+          <span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg></span>
+          <span class="jstep-tag jstep-tag-now">Today · partial</span>
+          <h4 class="jstep-title">Agency assume e refina</h4>
+          <p class="jstep-desc">Recebe o lead com o itinerary ready, ajusta com a própria marca e valores e manda o&nbsp;link.</p>
+          <div class="jstep-gain"><b>Gain</b>More proposals per hour, with less back and forth.</div>
+        </div>
+      </div>
+      <div class="jstep">
+        <div class="jstep-node"><span class="jstep-num">5</span></div>
         <div class="jstep-card">
           <span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg></span>
           <span class="jstep-tag jstep-tag-now">Today</span>
@@ -1407,6 +1343,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
             <li><svg class="ic" width="17" height="17" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Day-by-day itinerary in seconds</li>
             <li><svg class="ic" width="17" height="17" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>With your brand instead of ours</li>
             <li><svg class="ic" width="17" height="17" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Prices and link ready to send</li>
+            <li><svg class="ic" width="17" height="17" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Funciona também pros seus próprios leads, não só pros que vêm do OND</li>
           </ul>
         </div>
         <div class="pp-demo">
@@ -2012,7 +1949,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <div class="journey-foot">
       <div class="journey-foot-ctas">
         <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">See it working with us →</a>
-        <a href="https://wa.me/5511910214133?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
+        <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
           Chat on WhatsApp
         </a>
@@ -2022,7 +1959,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </section>
 
 <!-- PROBLEMA -->
-<section class="problema">
+<section class="problema" style="display:none">
   <div class="problema-inner">
     <span class="section-label">The problem</span>
     <h2 class="section-title">A static quote<br>doesn't close sales</h2>
@@ -2048,7 +1985,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </section>
 
 <!-- FUNCIONALIDADES + MODELO -->
-<section class="features" id="modelo">
+<section class="features" id="modelo" style="display:none">
   <div class="features-inner">
     <div class="features-head">
       <span class="section-label">Features</span>
@@ -2125,7 +2062,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </section>
 
 <!-- DIFERENCIAIS -->
-<section class="diff">
+<section class="diff" style="display:none">
   <div style="text-align:center;max-width:720px;margin:0 auto">
     <span class="section-label">Why OND</span>
     <h2 class="section-title" style="margin-bottom:12px">It's not just a ChatGPT<br>with a travel wrapper</h2>
@@ -2165,45 +2102,70 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   <div class="pricing-inner">
     <div class="pricing-head">
       <span class="section-label">Plans</span>
-      <h2 class="section-title">Plans tailored to your agency</h2>
-      <p class="section-sub" style="margin:0 auto">We line up the terms in a quick conversation, sized to your operation.</p>
+      <h2 class="section-title">Escolha o plano e comece agora</h2>
+      <p class="section-sub" style="margin:0 auto">Contrate direto pela página. Sem reunião, sem espera: seu acesso chega por e-mail assim que o pagamento é confirmado.</p>
     </div>
-    <div class="plans-grid">
+    <div class="plans-grid plans-grid-5">
       <div class="plan">
-        <div class="plan-name">OND Start</div>
-        <div class="plan-for">For agencies just getting started digitally.</div>
-        <div class="plan-plabel">Pricing in the conversation</div>
+        <img class="plan-img" src="/assets/plans/plan-trial.png" alt="" loading="lazy">
+        <div class="plan-name">OND Trial</div>
+        <div class="plan-for">Teste o OND com 3 propostas antes de escalar.</div>
+        <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">1</span><span class="plan-per">/mês</span></div>
         <ul class="plan-feats">
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>3 propostas pra testar a plataforma</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Sem compromisso de continuidade</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Sinta o ganho de eficiência na prática</li>
+        </ul>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="TRIAL" data-plan-name="OND Trial">Contratar</button>
+      </div>
+      <div class="plan">
+        <img class="plan-img" src="/assets/plans/plan-launch.png" alt="" loading="lazy">
+        <div class="plan-name">OND Launch</div>
+        <div class="plan-for">Pra quem está começando no digital.</div>
+        <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">469</span><span class="plan-per">/mês</span></div>
+        <ul class="plan-feats">
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 50 propostas por mês</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Interactive proposals with your brand</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>OND vAI builds the day-by-day itinerary</li>
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Link ready to send to the client</li>
         </ul>
-        <a class="plan-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Start the conversation</a>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="LAUNCH" data-plan-name="OND Launch">Contratar</button>
       </div>
       <div class="plan featured">
         <span class="plan-tag rec">Most popular</span>
-        <div class="plan-name">OND Pro</div>
-        <div class="plan-for">For those who live on proposal volume.</div>
-        <div class="plan-plabel">Pricing in the conversation</div>
+        <img class="plan-img" src="/assets/plans/plan-scale.png" alt="" loading="lazy">
+        <div class="plan-name">OND Scale</div>
+        <div class="plan-for">Pra agências com fluxo constante de clientes.</div>
+        <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">937</span><span class="plan-per">/mês</span></div>
         <ul class="plan-feats">
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Everything in Start</li>
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Client personalizes alone via the link</li>
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Add-ons and insurance that raise the ticket</li>
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Client dashboard and repeat business</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 100 propostas por mês</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Automações de entrega</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Painel de desempenho dos agentes</li>
         </ul>
-        <a class="plan-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Talk to us</a>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="SCALE" data-plan-name="OND Scale">Contratar</button>
       </div>
       <div class="plan">
-        <div class="plan-name">OND Rede</div>
-        <div class="plan-for">For networks and franchises with multiple consultants.</div>
-        <div class="plan-plabel">Pricing in the conversation</div>
+        <img class="plan-img" src="/assets/plans/plan-pro.png" alt="" loading="lazy">
+        <div class="plan-name">OND Pro</div>
+        <div class="plan-for">Full control pra agências consolidadas.</div>
+        <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">1.406</span><span class="plan-per">/mês</span></div>
         <ul class="plan-feats">
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Everything in Pro</li>
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Multi-user per consultant</li>
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Consolidated network reports</li>
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Dedicated onboarding and support</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 150 propostas por mês</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Suporte prioritário</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Setup assistido e treinamento da equipe</li>
         </ul>
-        <a class="plan-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Book a meeting</a>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="PRO" data-plan-name="OND Pro">Contratar</button>
+      </div>
+      <div class="plan">
+        <img class="plan-img" src="/assets/plans/plan-infinity.png" alt="" loading="lazy">
+        <div class="plan-name">OND Infinity</div>
+        <div class="plan-for">Propostas ilimitadas e white-label completo.</div>
+        <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">1.875</span><span class="plan-per">/mês</span></div>
+        <ul class="plan-feats">
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Propostas ilimitadas</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>White-label completo with your brand</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Acesso antecipado a novos recursos</li>
+        </ul>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="INFINITY" data-plan-name="OND Infinity">Contratar</button>
       </div>
     </div>
     <div class="plan-custom">
@@ -2220,8 +2182,68 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   </div>
 </section>
 
+<div class="onboard-overlay" id="onboardOverlay">
+  <div class="onboard-modal" role="dialog" aria-modal="true" aria-labelledby="onboardTitle">
+    <button type="button" class="onboard-close" id="onboardClose" aria-label="Fechar">✕</button>
+    <div class="onboard-head">
+      <span class="onboard-plan-badge" id="onboardPlanBadge">Plano</span>
+      <h3 id="onboardTitle">Contratar o OND</h3>
+      <p>Preencha os dados da sua agência. No próximo passo você confirma o pagamento com segurança pela Stripe.</p>
+    </div>
+    <form id="onboardForm">
+      <input type="hidden" id="obPlanCode" name="planCode">
+      <div class="ob-section">
+        <h4>Dados da agência</h4>
+        <div class="ob-grid">
+          <label class="ob-field">
+            <span>Nome da agência *</span>
+            <input type="text" id="obAgencyName" required autocomplete="organization">
+          </label>
+          <label class="ob-field">
+            <span>Razão social</span>
+            <input type="text" id="obLegalName" autocomplete="off">
+          </label>
+          <label class="ob-field">
+            <span>CNPJ/CPF *</span>
+            <input type="text" id="obTaxId" required autocomplete="off">
+          </label>
+          <label class="ob-field">
+            <span>Website</span>
+            <input type="url" id="obWebsite" placeholder="https://" autocomplete="url">
+          </label>
+          <label class="ob-field ob-field-full">
+            <span>URL do logotipo</span>
+            <input type="url" id="obLogoUrl" placeholder="https://" autocomplete="off">
+          </label>
+        </div>
+      </div>
+      <div class="ob-section">
+        <h4>Administrador responsável</h4>
+        <div class="ob-grid">
+          <label class="ob-field">
+            <span>Nome completo *</span>
+            <input type="text" id="obAdminName" required autocomplete="name">
+          </label>
+          <label class="ob-field">
+            <span>E-mail *</span>
+            <input type="email" id="obAdminEmail" required autocomplete="email">
+          </label>
+        </div>
+      </div>
+      <div class="ob-section">
+        <h4>Equipe da agência</h4>
+        <p class="ob-section-note">Opcional. O administrador já entra como usuário automaticamente.</p>
+        <div id="obAgents"></div>
+        <button type="button" class="ob-add-agent" id="obAddAgent">+ Adicionar agente</button>
+      </div>
+      <div class="ob-error" id="obError" hidden></div>
+      <button type="submit" class="btn-green ob-submit" id="obSubmit">Ir para o pagamento →</button>
+    </form>
+  </div>
+</div>
+
 <!-- PROVA SOCIAL -->
-<section class="proof">
+<section class="proof" style="display:none">
   <div class="proof-inner">
     <span class="section-label">Validation</span>
     <h2 class="section-title" style="margin-bottom:32px">Presented to Brazil's largest<br>travel networks</h2>
@@ -2238,7 +2260,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         </div>
       </div>
       <div class="proof-founder-ctas">
-        <a href="https://wa.me/5511910214133?text=Olá! Vi a página do OND para agências e queria falar com um dos fundadores" class="btn-whatsapp" target="_blank" rel="noopener">
+        <a href="https://wa.me/5511943615412?text=Olá! Vi a página do OND para agências e queria falar com um dos fundadores" class="btn-whatsapp" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
           Chat with him on WhatsApp
         </a>
@@ -2256,13 +2278,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <p class="cta-final-sub">Book a 30-minute meeting or chat directly on WhatsApp. We'll understand your agency's context and put together the best proposal: the conversation is the next step, not a checkout.</p>
     <div class="cta-final-btns">
       <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">I want OND in my&nbsp;agency&nbsp;→</a>
-      <a href="https://wa.me/5511910214133?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
+      <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         Chat on WhatsApp
       </a>
     </div>
-    <div class="cta-final-demo"><a href="#plataforma" class="btn-demo"><svg viewBox="0 0 497.26 497.26" width="18" height="18" fill="#fff" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg>Try the platform</a></div>
-    <div class="cta-final-note">Already talked to us? <a href="https://pci.jotform.com/form/252517268656062" class="onboarding-link" target="_blank" rel="noopener">Do the onboarding</a> · Questions? Write to <a href="mailto:renan@agamatec.com">renan@agamatec.com</a></div>
+    <div class="cta-final-note">Já escolheu um plano? <a href="#planos" class="onboarding-link">Contrate direto na página</a> · Questions? Write to <a href="mailto:renan@agamatec.com">renan@agamatec.com</a></div>
     <details class="wwa" id="quem-somos">
       <summary class="wwa-sum"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Who's behind OND<span class="wwa-caret">▾</span></summary>
       <div class="wwa-body">
@@ -2293,7 +2314,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
             <li>Itineraries that combine AI with real tourism rules, not a generic ChatGPT wrapper.</li>
           </ul>
         </div>
-        <p>We're not a distant SaaS: we join you in onboarding, customize for your operation and evolve the product side by side with you. <a href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Book 30 min</a> or talk to a founder on <a href="https://wa.me/5511910214133" target="_blank" rel="noopener">WhatsApp</a>.</p>
+        <p>We're not a distant SaaS: we join you in onboarding, customize for your operation and evolve the product side by side with you. <a href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Book 30 min</a> or talk to a founder on <a href="https://wa.me/5511943615412" target="_blank" rel="noopener">WhatsApp</a>.</p>
       </div>
     </details>
   </div>
@@ -2309,8 +2330,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <div class="footer-col">
       <h4>Agencies</h4>
       <ul>
-            <li><a href="#modelo">Model and pricing</a></li>
-        <li><a href="#plataforma">See the platform</a></li>
         <li><a href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Book a meeting</a></li>
         <li style="display:none"><a href="hoteis.html" class="footer-home">For hotels →</a></li>
       </ul>
@@ -2328,8 +2347,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <h4>Company</h4>
       <ul>
         <li><a href="mailto:renan@agamatec.com">renan@agamatec.com</a></li>
-        <li><a href="https://wa.me/5511910214133" target="_blank" rel="noopener">WhatsApp</a></li>
-        <li><a href="https://pci.jotform.com/form/252517268656062" class="onboarding-link" target="_blank" rel="noopener">Onboarding (post-meeting)</a></li>
+        <li><a href="https://wa.me/5511943615412" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="#planos">Contratar um plano</a></li>
       </ul>
     </div>
   </div>
@@ -2429,6 +2448,111 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     bindClicks();
     bindScheduled();
   }
+})();
+</script>
+<script>
+(function(){
+  var API = 'https://ond.agamatec.com/api/travel-partners/onboarding/checkout-session';
+  var overlay = document.getElementById('onboardOverlay');
+  var form = document.getElementById('onboardForm');
+  var agentsBox = document.getElementById('obAgents');
+  var errorBox = document.getElementById('obError');
+  var submitBtn = document.getElementById('obSubmit');
+
+  function openOnboarding(planCode, planName){
+    form.reset();
+    agentsBox.innerHTML = '';
+    errorBox.hidden = true;
+    document.getElementById('obPlanCode').value = planCode;
+    document.getElementById('onboardPlanBadge').textContent = planName;
+    overlay.classList.add('open');
+  }
+
+  function closeOnboarding(){
+    overlay.classList.remove('open');
+  }
+
+  function addAgentRow(){
+    var row = document.createElement('div');
+    row.className = 'ob-agent-row';
+    row.innerHTML =
+      '<label class="ob-field"><span>Nome do agente</span><input type="text" class="ob-agent-name" autocomplete="off"></label>' +
+      '<label class="ob-field"><span>E-mail do agente</span><input type="email" class="ob-agent-email" autocomplete="off"></label>' +
+      '<label class="ob-field"><span>Papel</span><select class="ob-agent-role"><option value="AGENT">Agente</option><option value="AGENCY_ADMIN">Administrador</option></select></label>' +
+      '<button type="button" class="ob-agent-remove" aria-label="Remover agente">✕</button>';
+    row.querySelector('.ob-agent-remove').addEventListener('click', function(){ row.remove(); });
+    agentsBox.appendChild(row);
+  }
+
+  function collectAgents(){
+    var rows = agentsBox.querySelectorAll('.ob-agent-row');
+    var agents = [];
+    rows.forEach(function(row){
+      var email = row.querySelector('.ob-agent-email').value.trim();
+      if (!email) return;
+      agents.push({
+        name: row.querySelector('.ob-agent-name').value.trim(),
+        email: email,
+        role: row.querySelector('.ob-agent-role').value
+      });
+    });
+    return agents;
+  }
+
+  function showError(message){
+    errorBox.textContent = message;
+    errorBox.hidden = false;
+  }
+
+  document.querySelectorAll('.plan-cta-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      openOnboarding(btn.getAttribute('data-plan'), btn.getAttribute('data-plan-name'));
+    });
+  });
+
+  document.getElementById('obAddAgent').addEventListener('click', addAgentRow);
+  document.getElementById('onboardClose').addEventListener('click', closeOnboarding);
+  overlay.addEventListener('click', function(e){ if (e.target === overlay) closeOnboarding(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeOnboarding(); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errorBox.hidden = true;
+
+    var payload = {
+      travelPartnerName: document.getElementById('obAgencyName').value.trim(),
+      legalName: document.getElementById('obLegalName').value.trim(),
+      taxId: document.getElementById('obTaxId').value.trim(),
+      website: document.getElementById('obWebsite').value.trim(),
+      logoUrl: document.getElementById('obLogoUrl').value.trim(),
+      adminName: document.getElementById('obAdminName').value.trim(),
+      adminEmail: document.getElementById('obAdminEmail').value.trim(),
+      agents: collectAgents(),
+      planCode: document.getElementById('obPlanCode').value,
+      currency: 'BRL',
+      source: 'site_selfservice'
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Preparando pagamento...';
+
+    fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function(res){
+      if (!res.ok) {
+        return res.text().then(function(text){ throw new Error(text || 'Falha ao iniciar o checkout.'); });
+      }
+      return res.json();
+    }).then(function(data){
+      window.location.href = data.checkoutUrl;
+    }).catch(function(err){
+      showError('Não foi possível iniciar o pagamento. Confira os dados e tente novamente, ou fale com a gente no WhatsApp.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Ir para o pagamento →';
+    });
+  });
 })();
 </script>
 <script src="/assets/analytics.js" defer></script>
