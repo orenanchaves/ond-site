@@ -1121,7 +1121,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   </div>
   <div class="hero-visual">
     <div class="lg-live-stats">
-      <div class="lg-stat"><b id="lgS1">208</b><span>conversas hoje</span></div>
+      <div class="lg-stat"><b id="lgS1">208</b><span>conversas no total</span></div>
       <div class="lg-stat"><b id="lgS2" class="lg-stat-live">14</b><span>ativas agora</span></div>
       <div class="lg-stat"><b id="lgS3">171</b><span>roteiros gerados</span></div>
       <div class="lg-stat"><b id="lgS4">42</b><span>leads disponíveis</span></div>
@@ -1161,7 +1161,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       if(!res.ok) throw new Error('metrics request failed');
       return res.json();
     }).then(function(data){
-      setStat('lgS1', data.activeToday);
+      setStat('lgS1', data.conversations);
       setStat('lgS2', data.active);
       setStat('lgS3', data.completed);
     }).catch(function(){});
