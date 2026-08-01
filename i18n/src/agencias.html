@@ -1164,7 +1164,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       setStat('lgS1', data.activeToday);
       setStat('lgS2', data.active);
       setStat('lgS3', data.completed);
-      setStat('lgS4', data.abandoned);
     }).catch(function(){});
   }
   refresh();
@@ -1207,6 +1206,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         leads = data;
         current = 0;
         render();
+        var countEl = document.getElementById('lgS4');
+        if(countEl) countEl.textContent = data.length.toLocaleString('pt-BR');
       }
     }).catch(function(){});
   }
