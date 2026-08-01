@@ -455,8 +455,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .journey-head h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;line-height:1.18;letter-spacing:-.025em;margin:14px 0 14px}
 .journey-head p{font-size:1.02rem;color:var(--muted);line-height:1.7;max-width:600px;margin:0 auto}
 /* Timeline: nós numerados numa linha, cards embaixo */
-.journey-track{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.journey-track::before{content:'';position:absolute;top:17px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,var(--blue),var(--purple-light));opacity:.5;z-index:0}
+.journey-track{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.journey-track::before{content:'';position:absolute;top:17px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--blue),var(--purple-light));opacity:.5;z-index:0}
 .jstep{position:relative;display:flex;flex-direction:column}
 .jstep-node{display:flex;justify-content:center;margin-bottom:16px}
 .jstep-num{position:relative;z-index:1;width:34px;height:34px;border-radius:50%;background:var(--blue);color:var(--ond-color-onPrimary);font-size:.92rem;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px var(--surface),0 4px 12px var(--blue-glow)}
@@ -1239,7 +1239,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <div class="journey-head">
       <span class="section-label">A jornada da venda</span>
       <h3>Do primeiro "quero viajar" ao fechamento</h3>
-      <p>O que a agência ganha em cada etapa até fechar a venda. Depois dela, o OND continua na viagem (logo abaixo).</p>
+      <p>O que acontece em cada etapa até a agência fechar a venda. Depois dela, o OND continua na viagem (logo abaixo).</p>
     </div>
     <div class="journey-track">
       <div class="jstep">
@@ -1248,8 +1248,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           <span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></span>
           <span class="jstep-tag jstep-tag-now">Hoje</span>
           <h4 class="jstep-title">Lead entra</h4>
-          <p class="jstep-desc">O viajante chega ("quero Sicília em setembro") e o OND vAI captura o briefing.</p>
-          <div class="jstep-gain"><b>Ganho</b>Começa sem fricção, inclusive fora do horário.</div>
+          <p class="jstep-desc">Tráfego pago traz o viajante pro OND vAI, que capta destino, data e orçamento numa conversa.</p>
+          <div class="jstep-gain"><b>Ganho</b>Leads qualificados, sem custo de prospecção pra agência.</div>
         </div>
       </div>
       <div class="jstep">
@@ -1257,23 +1257,33 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         <div class="jstep-card">
           <span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span>
           <span class="jstep-tag jstep-tag-now">Hoje</span>
-          <h4 class="jstep-title">Proposta de boas-vindas</h4>
-          <p class="jstep-desc">Roteiro dia a dia com estimativa de custo, pronto em minutos.</p>
-          <div class="jstep-gain"><b>Ganho</b>Efeito uau: responde antes do concorrente e captura o lead.</div>
+          <h4 class="jstep-title">Roteiro pronto, automático</h4>
+          <p class="jstep-desc">O OND gera o roteiro dia a dia e a estimativa de custo sozinho, antes de qualquer agência entrar.</p>
+          <div class="jstep-gain"><b>Ganho</b>Zero esforço da agência até aqui.</div>
         </div>
       </div>
       <div class="jstep">
         <div class="jstep-node"><span class="jstep-num">3</span></div>
         <div class="jstep-card">
-          <span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg></span>
-          <span class="jstep-tag jstep-tag-now">Hoje · parcial</span>
-          <h4 class="jstep-title">Personalização</h4>
-          <p class="jstep-desc">O cliente ajusta o roteiro no próprio link, sem troca infinita de&nbsp;e-mail.</p>
-          <div class="jstep-gain"><b>Ganho</b>Mais propostas por hora, com menos ida e volta.</div>
+          <span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+          <span class="jstep-tag jstep-tag-now">Hoje</span>
+          <h4 class="jstep-title">Viajante conecta com uma agência</h4>
+          <p class="jstep-desc">De dentro do próprio app, o viajante escolhe se conectar com uma agência parceira pra fechar.</p>
+          <div class="jstep-gain"><b>Ganho</b>Chega já qualificado e quente, sem prospecção fria.</div>
         </div>
       </div>
       <div class="jstep">
         <div class="jstep-node"><span class="jstep-num">4</span></div>
+        <div class="jstep-card">
+          <span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg></span>
+          <span class="jstep-tag jstep-tag-now">Hoje · parcial</span>
+          <h4 class="jstep-title">Agência assume e refina</h4>
+          <p class="jstep-desc">Recebe o lead com o roteiro pronto, ajusta com a própria marca e valores e manda o&nbsp;link.</p>
+          <div class="jstep-gain"><b>Ganho</b>Mais propostas por hora, com menos ida e volta.</div>
+        </div>
+      </div>
+      <div class="jstep">
+        <div class="jstep-node"><span class="jstep-num">5</span></div>
         <div class="jstep-card">
           <span class="jstep-emoji"><svg class="ic" width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg></span>
           <span class="jstep-tag jstep-tag-now">Hoje</span>
@@ -1293,6 +1303,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
             <li><svg class="ic" width="17" height="17" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Roteiro dia a dia em segundos</li>
             <li><svg class="ic" width="17" height="17" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Com a sua marca no lugar da nossa</li>
             <li><svg class="ic" width="17" height="17" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Valores e link prontos pra enviar</li>
+            <li><svg class="ic" width="17" height="17" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Funciona também pros seus próprios leads, não só pros que vêm do OND</li>
           </ul>
         </div>
         <div class="pp-demo">
