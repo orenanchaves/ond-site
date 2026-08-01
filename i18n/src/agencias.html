@@ -1318,10 +1318,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <div class="lg-agency">
         <div class="lg-agency-head"><span class="lg-ag-name">Painel da sua agência</span><span class="lg-ag-tag">Novo lead</span></div>
         <div class="lg-lead">
-          <div class="lg-lead-top"><b>Marina &amp; João</b><span class="lg-lead-hot">● Quente</span></div>
-          <div class="lg-lead-sub">Itália · 7 dias · 2 pax · outubro/2026</div>
-          <div class="lg-lead-val">~R$ 18.400 <span>· roteiro pronto</span></div>
-          <div class="lg-lead-brief">“Viagem romântica; curtem gastronomia e vinho.”</div>
+          <div class="lg-lead-top"><b id="lgLeadName">Casal em busca de gastronomia</b><span class="lg-lead-hot">● Quente</span></div>
+          <div class="lg-lead-sub" id="lgLeadSub">Itália · 7 dias · 2 pax · outubro/2026</div>
+          <div class="lg-lead-val" id="lgLeadVal">~R$ 18.400 <span>· roteiro pronto</span></div>
           <a class="lg-lead-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Assumir e enviar proposta →</a>
         </div>
       </div>
@@ -1348,6 +1347,45 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   }
   refresh();
   setInterval(refresh, 30000);
+})();
+</script>
+<script>
+(function(){
+  var SHOWCASE_API = 'https://ond.agamatec.com/api/ond-vai/live/lead-showcase';
+  var leads = [];
+  var current = 0;
+  function formatMoney(value){
+    return Number(value).toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  }
+  function render(){
+    if(!leads.length) return;
+    var lead = leads[current % leads.length];
+    current++;
+    var nameEl = document.getElementById('lgLeadName');
+    var subEl = document.getElementById('lgLeadSub');
+    var valEl = document.getElementById('lgLeadVal');
+    if(nameEl) nameEl.textContent = lead.partyLabel;
+    if(subEl) subEl.textContent = [lead.destinationLabel,
+      lead.durationDays ? lead.durationDays + ' dias' : null,
+      lead.partySize ? lead.partySize + ' pax' : null,
+      lead.periodLabel].filter(Boolean).join(' · ');
+    if(valEl) valEl.innerHTML = '~R$ ' + formatMoney(lead.budgetEstimate) + ' <span>· roteiro pronto</span>';
+  }
+  function load(){
+    fetch(SHOWCASE_API).then(function(res){
+      if(!res.ok) throw new Error('lead showcase request failed');
+      return res.json();
+    }).then(function(data){
+      if(Array.isArray(data) && data.length){
+        leads = data;
+        current = 0;
+        render();
+      }
+    }).catch(function(){});
+  }
+  load();
+  setInterval(load, 60000);
+  setInterval(render, 6000);
 })();
 </script>
 
