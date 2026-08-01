@@ -998,6 +998,38 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .pc-cta{display:flex;flex-direction:column;align-items:flex-start;gap:10px;flex-shrink:0}
 .pc-price{font-size:.82rem;font-weight:700;color:var(--purple-light)}
 @media(max-width:620px){.plan-custom{padding:22px 20px}.pc-cta{align-items:stretch;width:100%}}
+.plans-grid-5{grid-template-columns:repeat(5,1fr)}
+@media(max-width:1080px){.plans-grid-5{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.plans-grid-5{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.plans-grid-5{grid-template-columns:1fr}}
+.plan-img{width:72px;height:72px;object-fit:contain;margin-bottom:10px}
+.plan-cta-btn{border:none;cursor:pointer;font-family:inherit;width:100%}
+.onboard-overlay{display:none;position:fixed;inset:0;background:rgba(6,10,20,.72);z-index:500;padding:24px;overflow-y:auto}
+.onboard-overlay.open{display:flex;align-items:flex-start;justify-content:center}
+.onboard-modal{position:relative;width:100%;max-width:640px;margin:auto 0;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 28px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.onboard-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:8px;border:none;background:var(--surface);color:var(--muted);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.onboard-close:hover{color:var(--text)}
+.onboard-head{margin-bottom:22px}
+.onboard-plan-badge{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb, var(--blue) 30%, transparent);padding:4px 11px;border-radius:50px;margin-bottom:12px}
+.onboard-head h3{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+.onboard-head p{font-size:.86rem;color:var(--muted);line-height:1.5}
+.ob-section{margin-bottom:22px}
+.ob-section h4{font-size:.92rem;font-weight:800;margin-bottom:4px}
+.ob-section-note{font-size:.78rem;color:var(--muted2);margin-bottom:12px}
+.ob-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+.ob-field{display:flex;flex-direction:column;gap:6px;font-size:.82rem;color:var(--muted)}
+.ob-field-full{grid-column:1 / -1}
+.ob-field input,.ob-field select{font-family:inherit;font-size:.9rem;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 12px;width:100%}
+.ob-field input:focus,.ob-field select:focus{outline:none;border-color:var(--blue)}
+@media(max-width:560px){.ob-grid{grid-template-columns:1fr}}
+.ob-agent-row{display:grid;grid-template-columns:1.2fr 1.2fr .8fr auto;gap:10px;align-items:end;margin-bottom:10px}
+@media(max-width:560px){.ob-agent-row{grid-template-columns:1fr}}
+.ob-agent-remove{width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;flex-shrink:0}
+.ob-agent-remove:hover{color:var(--text);border-color:var(--border-hi)}
+.ob-add-agent{font-family:inherit;font-size:.82rem;font-weight:700;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb, var(--blue) 26%, transparent);border-radius:10px;padding:9px 14px;cursor:pointer}
+.ob-error{font-size:.84rem;color:#ff6b6b;background:color-mix(in srgb, #ff6b6b 12%, transparent);border:1px solid color-mix(in srgb, #ff6b6b 35%, transparent);border-radius:10px;padding:10px 12px;margin-bottom:16px}
+.ob-submit{width:100%;border:none;font-family:inherit;cursor:pointer}
+.ob-submit:disabled{opacity:.6;cursor:default}
 
 /* ── SEÇÃO Depois da venda (retenção / recorrência) ── */
 .retention{background:var(--bg);padding:80px 5%;border-bottom:1px solid var(--border)}
@@ -1196,8 +1228,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <a class="seg-btn" href="hoteis.html" role="tab" style="display:none">Hotéis</a>
   </div>
   <a href="https://calendly.com/renanfr1047/30min" style="color:var(--green);font-weight:700" target="_blank" rel="noopener">Agendar reunião →</a>
-  <a href="https://wa.me/5511910214133?text=Olá! Tenho uma agência e quero saber mais sobre o OND" target="_blank" rel="noopener">Falar no WhatsApp</a>
-  <a href="https://pci.jotform.com/form/252517268656062" class="onboarding-link" style="padding-top:14px;border-bottom:none;font-size:.85rem" target="_blank" rel="noopener">Já conversou? Fazer onboarding</a>
+  <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" target="_blank" rel="noopener">Falar no WhatsApp</a>
   <div class="mobile-lang"><span>Idioma</span><a href="/agencias.html" aria-current="true">PT</a><a href="/en/agencias.html">EN</a><a href="/es/agencias.html">ES</a><a href="/fr/agencias.html">FR</a><a href="/it/agencias.html">IT</a></div>
 </nav>
 
@@ -1209,7 +1240,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <p class="hero-sub">O OND vira o motor de vendas da sua agência: monte a proposta em minutos e envie um link com a sua marca onde o próprio cliente personaliza tudo, adiciona seguro e upgrades, e fecha. Mais ticket, menos ida e volta no&nbsp;e-mail.</p>
     <div class="hero-ctas">
       <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Quero o OND na minha&nbsp;agência&nbsp;→</a>
-      <a href="https://wa.me/5511910214133?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
+      <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         Falar no WhatsApp
       </a>
@@ -2012,7 +2043,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <div class="journey-foot">
       <div class="journey-foot-ctas">
         <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Ver funcionando com a gente →</a>
-        <a href="https://wa.me/5511910214133?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
+        <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
           Falar no WhatsApp
         </a>
@@ -2165,45 +2196,70 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   <div class="pricing-inner">
     <div class="pricing-head">
       <span class="section-label">Planos</span>
-      <h2 class="section-title">Planos sob medida pra sua agência</h2>
-      <p class="section-sub" style="margin:0 auto">As condições a gente alinha numa conversa rápida, do tamanho da sua operação.</p>
+      <h2 class="section-title">Escolha o plano e comece agora</h2>
+      <p class="section-sub" style="margin:0 auto">Contrate direto pela página. Sem reunião, sem espera: seu acesso chega por e-mail assim que o pagamento é confirmado.</p>
     </div>
-    <div class="plans-grid">
+    <div class="plans-grid plans-grid-5">
       <div class="plan">
-        <div class="plan-name">OND Start</div>
-        <div class="plan-for">Pra agências entrando agora no digital.</div>
-        <div class="plan-plabel">Valores na conversa</div>
+        <img class="plan-img" src="/assets/plans/plan-trial.png" alt="" loading="lazy">
+        <div class="plan-name">OND Trial</div>
+        <div class="plan-for">Teste o OND com 3 roteiros antes de escalar.</div>
+        <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">1</span><span class="plan-per">/mês</span></div>
         <ul class="plan-feats">
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>3 roteiros pra testar a plataforma</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Sem compromisso de continuidade</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Sinta o ganho de eficiência na prática</li>
+        </ul>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="TRIAL" data-plan-name="OND Trial">Contratar</button>
+      </div>
+      <div class="plan">
+        <img class="plan-img" src="/assets/plans/plan-launch.png" alt="" loading="lazy">
+        <div class="plan-name">OND Launch</div>
+        <div class="plan-for">Pra quem está começando no digital.</div>
+        <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">469</span><span class="plan-per">/mês</span></div>
+        <ul class="plan-feats">
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 50 roteiros por mês</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Propostas interativas com a sua marca</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>OND vAI monta o roteiro dia a dia</li>
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Link pronto pra enviar ao cliente</li>
         </ul>
-        <a class="plan-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Começar conversa</a>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="LAUNCH" data-plan-name="OND Launch">Contratar</button>
       </div>
       <div class="plan featured">
         <span class="plan-tag rec">Mais popular</span>
-        <div class="plan-name">OND Pro</div>
-        <div class="plan-for">Pra quem vive de volume de propostas.</div>
-        <div class="plan-plabel">Valores na conversa</div>
+        <img class="plan-img" src="/assets/plans/plan-scale.png" alt="" loading="lazy">
+        <div class="plan-name">OND Scale</div>
+        <div class="plan-for">Pra agências com fluxo constante de clientes.</div>
+        <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">937</span><span class="plan-per">/mês</span></div>
         <ul class="plan-feats">
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Tudo do Start</li>
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Cliente personaliza sozinho pelo link</li>
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Add-ons e seguro que aumentam o ticket</li>
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Painel de clientes e recompra</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 100 roteiros por mês</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Automações de entrega</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Painel de desempenho dos agentes</li>
         </ul>
-        <a class="plan-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Falar com a gente</a>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="SCALE" data-plan-name="OND Scale">Contratar</button>
       </div>
       <div class="plan">
-        <div class="plan-name">OND Rede</div>
-        <div class="plan-for">Pra redes e franquias com vários consultores.</div>
-        <div class="plan-plabel">Valores na conversa</div>
+        <img class="plan-img" src="/assets/plans/plan-pro.png" alt="" loading="lazy">
+        <div class="plan-name">OND Pro</div>
+        <div class="plan-for">Controle total pra agências consolidadas.</div>
+        <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">1.406</span><span class="plan-per">/mês</span></div>
         <ul class="plan-feats">
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Tudo do Pro</li>
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Multiusuário por consultor</li>
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Relatórios consolidados da rede</li>
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Onboarding e suporte dedicados</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 150 roteiros por mês</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Suporte prioritário</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Setup assistido e treinamento da equipe</li>
         </ul>
-        <a class="plan-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agendar reunião</a>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="PRO" data-plan-name="OND Pro">Contratar</button>
+      </div>
+      <div class="plan">
+        <img class="plan-img" src="/assets/plans/plan-infinity.png" alt="" loading="lazy">
+        <div class="plan-name">OND Infinity</div>
+        <div class="plan-for">Roteiros ilimitados e white-label completo.</div>
+        <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">1.875</span><span class="plan-per">/mês</span></div>
+        <ul class="plan-feats">
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Roteiros ilimitados</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>White-label completo com a sua marca</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Acesso antecipado a novos recursos</li>
+        </ul>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="INFINITY" data-plan-name="OND Infinity">Contratar</button>
       </div>
     </div>
     <div class="plan-custom">
@@ -2219,6 +2275,66 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     </div>
   </div>
 </section>
+
+<div class="onboard-overlay" id="onboardOverlay">
+  <div class="onboard-modal" role="dialog" aria-modal="true" aria-labelledby="onboardTitle">
+    <button type="button" class="onboard-close" id="onboardClose" aria-label="Fechar">✕</button>
+    <div class="onboard-head">
+      <span class="onboard-plan-badge" id="onboardPlanBadge">Plano</span>
+      <h3 id="onboardTitle">Contratar o OND</h3>
+      <p>Preencha os dados da sua agência. No próximo passo você confirma o pagamento com segurança pela Stripe.</p>
+    </div>
+    <form id="onboardForm">
+      <input type="hidden" id="obPlanCode" name="planCode">
+      <div class="ob-section">
+        <h4>Dados da agência</h4>
+        <div class="ob-grid">
+          <label class="ob-field">
+            <span>Nome da agência *</span>
+            <input type="text" id="obAgencyName" required autocomplete="organization">
+          </label>
+          <label class="ob-field">
+            <span>Razão social</span>
+            <input type="text" id="obLegalName" autocomplete="off">
+          </label>
+          <label class="ob-field">
+            <span>CNPJ/CPF *</span>
+            <input type="text" id="obTaxId" required autocomplete="off">
+          </label>
+          <label class="ob-field">
+            <span>Website</span>
+            <input type="url" id="obWebsite" placeholder="https://" autocomplete="url">
+          </label>
+          <label class="ob-field ob-field-full">
+            <span>URL do logotipo</span>
+            <input type="url" id="obLogoUrl" placeholder="https://" autocomplete="off">
+          </label>
+        </div>
+      </div>
+      <div class="ob-section">
+        <h4>Administrador responsável</h4>
+        <div class="ob-grid">
+          <label class="ob-field">
+            <span>Nome completo *</span>
+            <input type="text" id="obAdminName" required autocomplete="name">
+          </label>
+          <label class="ob-field">
+            <span>E-mail *</span>
+            <input type="email" id="obAdminEmail" required autocomplete="email">
+          </label>
+        </div>
+      </div>
+      <div class="ob-section">
+        <h4>Equipe da agência</h4>
+        <p class="ob-section-note">Opcional. O administrador já entra como usuário automaticamente.</p>
+        <div id="obAgents"></div>
+        <button type="button" class="ob-add-agent" id="obAddAgent">+ Adicionar agente</button>
+      </div>
+      <div class="ob-error" id="obError" hidden></div>
+      <button type="submit" class="btn-green ob-submit" id="obSubmit">Ir para o pagamento →</button>
+    </form>
+  </div>
+</div>
 
 <!-- PROVA SOCIAL -->
 <section class="proof">
@@ -2238,7 +2354,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         </div>
       </div>
       <div class="proof-founder-ctas">
-        <a href="https://wa.me/5511910214133?text=Olá! Vi a página do OND para agências e queria falar com um dos fundadores" class="btn-whatsapp" target="_blank" rel="noopener">
+        <a href="https://wa.me/5511943615412?text=Olá! Vi a página do OND para agências e queria falar com um dos fundadores" class="btn-whatsapp" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
           Falar com ele no WhatsApp
         </a>
@@ -2256,13 +2372,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <p class="cta-final-sub">Agende uma reunião de 30 minutos ou fale direto no WhatsApp. A gente entende o contexto da sua agência e monta a melhor proposta: a conversa é o próximo passo, não um checkout.</p>
     <div class="cta-final-btns">
       <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Quero o OND na minha&nbsp;agência&nbsp;→</a>
-      <a href="https://wa.me/5511910214133?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
+      <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         Falar no WhatsApp
       </a>
     </div>
     <div class="cta-final-demo"><a href="#plataforma" class="btn-demo"><svg viewBox="0 0 497.26 497.26" width="18" height="18" fill="#fff" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg>Testar a plataforma</a></div>
-    <div class="cta-final-note">Já conversou com a gente? <a href="https://pci.jotform.com/form/252517268656062" class="onboarding-link" target="_blank" rel="noopener">Fazer o onboarding</a> · Dúvidas? Escreva para <a href="mailto:renan@agamatec.com">renan@agamatec.com</a></div>
+    <div class="cta-final-note">Já escolheu um plano? <a href="#planos" class="onboarding-link">Contrate direto na página</a> · Dúvidas? Escreva para <a href="mailto:renan@agamatec.com">renan@agamatec.com</a></div>
     <details class="wwa" id="quem-somos">
       <summary class="wwa-sum"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Quem está por trás do OND<span class="wwa-caret">▾</span></summary>
       <div class="wwa-body">
@@ -2293,7 +2409,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
             <li>Roteiros que unem IA às regras reais do turismo, não um wrapper genérico de ChatGPT.</li>
           </ul>
         </div>
-        <p>Não somos um SaaS distante: a gente entra junto no onboarding, customiza pra sua operação e evolui o produto lado a lado com você. <a href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agende 30 min</a> ou fale com um fundador no <a href="https://wa.me/5511910214133" target="_blank" rel="noopener">WhatsApp</a>.</p>
+        <p>Não somos um SaaS distante: a gente entra junto no onboarding, customiza pra sua operação e evolui o produto lado a lado com você. <a href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agende 30 min</a> ou fale com um fundador no <a href="https://wa.me/5511943615412" target="_blank" rel="noopener">WhatsApp</a>.</p>
       </div>
     </details>
   </div>
@@ -2328,8 +2444,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <h4>Empresa</h4>
       <ul>
         <li><a href="mailto:renan@agamatec.com">renan@agamatec.com</a></li>
-        <li><a href="https://wa.me/5511910214133" target="_blank" rel="noopener">WhatsApp</a></li>
-        <li><a href="https://pci.jotform.com/form/252517268656062" class="onboarding-link" target="_blank" rel="noopener">Onboarding (pós-reunião)</a></li>
+        <li><a href="https://wa.me/5511943615412" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="#planos">Contratar um plano</a></li>
       </ul>
     </div>
   </div>
@@ -2429,6 +2545,111 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     bindClicks();
     bindScheduled();
   }
+})();
+</script>
+<script>
+(function(){
+  var API = 'https://ond.agamatec.com/api/travel-partners/onboarding/checkout-session';
+  var overlay = document.getElementById('onboardOverlay');
+  var form = document.getElementById('onboardForm');
+  var agentsBox = document.getElementById('obAgents');
+  var errorBox = document.getElementById('obError');
+  var submitBtn = document.getElementById('obSubmit');
+
+  function openOnboarding(planCode, planName){
+    form.reset();
+    agentsBox.innerHTML = '';
+    errorBox.hidden = true;
+    document.getElementById('obPlanCode').value = planCode;
+    document.getElementById('onboardPlanBadge').textContent = planName;
+    overlay.classList.add('open');
+  }
+
+  function closeOnboarding(){
+    overlay.classList.remove('open');
+  }
+
+  function addAgentRow(){
+    var row = document.createElement('div');
+    row.className = 'ob-agent-row';
+    row.innerHTML =
+      '<label class="ob-field"><span>Nome do agente</span><input type="text" class="ob-agent-name" autocomplete="off"></label>' +
+      '<label class="ob-field"><span>E-mail do agente</span><input type="email" class="ob-agent-email" autocomplete="off"></label>' +
+      '<label class="ob-field"><span>Papel</span><select class="ob-agent-role"><option value="AGENT">Agente</option><option value="AGENCY_ADMIN">Administrador</option></select></label>' +
+      '<button type="button" class="ob-agent-remove" aria-label="Remover agente">✕</button>';
+    row.querySelector('.ob-agent-remove').addEventListener('click', function(){ row.remove(); });
+    agentsBox.appendChild(row);
+  }
+
+  function collectAgents(){
+    var rows = agentsBox.querySelectorAll('.ob-agent-row');
+    var agents = [];
+    rows.forEach(function(row){
+      var email = row.querySelector('.ob-agent-email').value.trim();
+      if (!email) return;
+      agents.push({
+        name: row.querySelector('.ob-agent-name').value.trim(),
+        email: email,
+        role: row.querySelector('.ob-agent-role').value
+      });
+    });
+    return agents;
+  }
+
+  function showError(message){
+    errorBox.textContent = message;
+    errorBox.hidden = false;
+  }
+
+  document.querySelectorAll('.plan-cta-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      openOnboarding(btn.getAttribute('data-plan'), btn.getAttribute('data-plan-name'));
+    });
+  });
+
+  document.getElementById('obAddAgent').addEventListener('click', addAgentRow);
+  document.getElementById('onboardClose').addEventListener('click', closeOnboarding);
+  overlay.addEventListener('click', function(e){ if (e.target === overlay) closeOnboarding(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeOnboarding(); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errorBox.hidden = true;
+
+    var payload = {
+      travelPartnerName: document.getElementById('obAgencyName').value.trim(),
+      legalName: document.getElementById('obLegalName').value.trim(),
+      taxId: document.getElementById('obTaxId').value.trim(),
+      website: document.getElementById('obWebsite').value.trim(),
+      logoUrl: document.getElementById('obLogoUrl').value.trim(),
+      adminName: document.getElementById('obAdminName').value.trim(),
+      adminEmail: document.getElementById('obAdminEmail').value.trim(),
+      agents: collectAgents(),
+      planCode: document.getElementById('obPlanCode').value,
+      currency: 'BRL',
+      source: 'site_selfservice'
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Preparando pagamento...';
+
+    fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function(res){
+      if (!res.ok) {
+        return res.text().then(function(text){ throw new Error(text || 'Falha ao iniciar o checkout.'); });
+      }
+      return res.json();
+    }).then(function(data){
+      window.location.href = data.checkoutUrl;
+    }).catch(function(err){
+      showError('Não foi possível iniciar o pagamento. Confira os dados e tente novamente, ou fale com a gente no WhatsApp.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Ir para o pagamento →';
+    });
+  });
 })();
 </script>
 <script src="/assets/analytics.js" defer></script>
