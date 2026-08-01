@@ -95,7 +95,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .mobile-nav a.nav-home{color:#7c3fff}
 
 /* ── HERO ── */
-.hero{padding:88px 5% 68px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.hero{padding:88px 5% 68px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
 .hero::before{content:'';position:absolute;top:-200px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,color-mix(in srgb, var(--blue) 14%, transparent) 0%,transparent 70%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,color-mix(in srgb, var(--blue) 8%, transparent) 0%,transparent 70%);pointer-events:none}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--blue-dim);border:1px solid color-mix(in srgb, var(--blue) 30%, transparent);color:var(--blue-light);font-size:.78rem;font-weight:700;padding:6px 14px;border-radius:50px;margin-bottom:22px;letter-spacing:.06em;text-transform:uppercase}
@@ -141,74 +141,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .trust-chip{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted)}
 .trust-chip::before{content:'✓';color:var(--green);font-weight:700}
 .hero-visual{position:relative}
-.hero-card-stack{position:relative;width:100%;max-width:468px;margin:0 auto}
-.hero-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;position:relative}
-.hero-card-main{z-index:2;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 1px color-mix(in srgb, var(--blue) 10%, transparent)}
-.hero-card-behind{position:absolute;top:-12px;left:12px;right:-12px;height:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);z-index:1;opacity:.5}
-/* Hero storytelling em loop (monta → envia → cliente → fecha → viagem) */
-.hero-story{position:relative;width:100%;max-width:468px;margin:0 auto}
-.hero-card-main{min-height:322px;opacity:0;transform:translateY(10px) scale(.99);transition:opacity .28s ease,transform .28s ease}
-.hero-card-main.in{opacity:1;transform:none}
-.hs-build .card-day{opacity:0;animation:hsDayIn .4s ease forwards}
-.hs-build .card-day:nth-child(1){animation-delay:.1s}
-.hs-build .card-day:nth-child(2){animation-delay:.25s}
-.hs-build .card-day:nth-child(3){animation-delay:.4s}
-@keyframes hsDayIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
-.card-badge.g{background:var(--green-dim);color:var(--green);border-color:color-mix(in srgb,var(--green) 30%,transparent)}
-.card-badge.p{background:var(--purple-dim);color:var(--purple-light);border-color:color-mix(in srgb,var(--purple) 34%,transparent)}
-.card-badge.b{background:var(--blue-dim);color:var(--blue-light);border-color:color-mix(in srgb,var(--blue) 30%,transparent)}
-.hs-mid{padding:8px 2px}
-.hs-center{text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:14px}
-.hs-link{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:700;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 26%,transparent);border-radius:8px;padding:8px 12px;margin-bottom:14px}
-.hs-big-ok{font-size:1.05rem;font-weight:800;letter-spacing:-.01em;margin-bottom:5px}
-.hs-sub{font-size:.82rem;color:var(--muted);line-height:1.5}
-.hs-tag{margin-left:auto;font-size:.66rem;font-weight:800;padding:5px 10px;border-radius:50px;white-space:nowrap}
-.hs-tag.blue{background:var(--blue-dim);color:var(--blue-light)}
-.hs-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-.hs-chip{font-size:.78rem;font-weight:700;padding:7px 12px;border-radius:50px;border:1px solid var(--border);color:var(--muted);background:var(--surface)}
-.hs-chip.on{color:var(--green);background:var(--green-dim);border-color:color-mix(in srgb,var(--green) 32%,transparent)}
-.hs-price-row{display:flex;align-items:center;gap:9px;font-size:.9rem;color:var(--muted);padding-top:6px;border-top:1px solid var(--border)}
-.hs-price-row svg{color:var(--green)}
-.hs-old{color:var(--muted);text-decoration:line-through;font-weight:700}
-.hs-new{color:var(--green);font-weight:800;font-size:1.05rem}
-.hs-check{width:56px;height:56px;border-radius:50%;background:var(--green-dim);color:var(--green);display:flex;align-items:center;justify-content:center;border:1px solid color-mix(in srgb,var(--green) 34%,transparent)}
-.hs-feed{display:flex;flex-direction:column;gap:10px}
-.hs-feed-row{display:flex;align-items:center;gap:11px;font-size:.86rem;font-weight:600;opacity:0;animation:hsDayIn .4s ease forwards}
-.hs-feed-row:nth-child(1){animation-delay:.1s}.hs-feed-row:nth-child(2){animation-delay:.28s}.hs-feed-row:nth-child(3){animation-delay:.46s}
-.hs-fi{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.hs-fi.shield{background:var(--green-dim);color:var(--green)}
-.hs-fi.pin{background:var(--purple-dim);color:var(--purple-light)}
-.hs-fi.plane{background:var(--blue-dim);color:var(--blue-light)}
-.hs-cap{text-align:center;font-size:1.02rem;font-weight:800;letter-spacing:-.01em;color:var(--text);max-width:468px;margin:0 auto 16px}
-.hs-dots{display:flex;justify-content:center;gap:6px;margin:16px auto 0}
-.hs-dots i{width:7px;height:7px;border-radius:50%;background:var(--border);transition:background .3s,width .3s;cursor:pointer}
-.hs-dots i.on{background:var(--blue);width:18px;border-radius:50px}
-.hs-controls{display:flex;align-items:center;justify-content:center;gap:10px;max-width:468px;margin:12px auto 0}
-.hs-nav{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:color .15s,border-color .15s,background .15s}
-.hs-nav:hover{color:var(--text);border-color:var(--blue);background:var(--blue-dim)}
-.hs-play{width:40px;height:40px;color:var(--blue-light);border-color:color-mix(in srgb,var(--blue) 32%,transparent)}
-.card-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.card-agency-dot{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0044cc,var(--blue));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;flex-shrink:0;box-shadow:0 4px 12px color-mix(in srgb, var(--blue) 35%, transparent)}
-.card-agency-name{font-size:.92rem;font-weight:800;letter-spacing:-.01em}
-.card-agency-sub{font-size:.75rem;color:var(--muted)}
-.card-header{align-items:flex-start}
-.card-brand{margin-left:auto;flex-shrink:0;font-size:.66rem;font-weight:800;color:var(--muted);background:var(--surface);border:1px dashed var(--border-hi);border-radius:7px;padding:4px 9px;white-space:nowrap}
-.card-status{display:inline-block;margin-top:5px;font-size:.68rem;font-weight:800;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 26%,transparent);border-radius:50px;padding:2px 9px}
-.card-status.g{color:var(--green);background:var(--green-dim);border-color:color-mix(in srgb,var(--green) 30%,transparent)}
-.card-status.p{color:var(--purple-light);background:var(--purple-dim);border-color:color-mix(in srgb,var(--purple) 32%,transparent)}
-.card-status.b{color:var(--blue-light);background:var(--blue-dim)}
-.card-badge{margin-left:auto;background:color-mix(in srgb, var(--green) 10%, transparent);border:1px solid color-mix(in srgb, var(--green) 25%, transparent);color:var(--green);font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:50px}
-.card-itinerary{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
-.card-day{display:flex;align-items:flex-start;gap:10px}
-.card-day-num{min-width:26px;height:26px;border-radius:50%;background:var(--blue-dim);border:1px solid color-mix(in srgb, var(--blue) 30%, transparent);color:var(--blue-light);font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.card-day-content{flex:1}
-.card-day-title{font-size:.82rem;font-weight:700;color:var(--text)}
-.card-day-desc{font-size:.75rem;color:var(--muted);line-height:1.4}
-.card-footer{display:flex;align-items:center;gap:20px;padding-top:14px;border-top:1px solid var(--border)}
-.card-footer-stat{text-align:left;white-space:nowrap}
-.card-footer-num{font-size:1rem;font-weight:800;color:var(--green)}
-.card-footer-label{font-size:.68rem;color:var(--muted)}
-.card-footer-cta{background:var(--blue);color:var(--ond-color-onPrimary);font-size:.76rem;font-weight:700;padding:7px 14px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 4px 12px var(--blue-glow)}
 
 /* ── STATS ── */
 .stats{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 5%;display:flex;justify-content:center;gap:0;flex-wrap:wrap}
@@ -281,41 +213,22 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .badge-gold{background:var(--gold-dim);color:var(--gold);border:1px solid color-mix(in srgb, var(--gold) 20%, transparent)}
 
 /* ── DIFERENCIAIS ── */
-/* ── LEAD GEN (OND vAI B2C → lead pro agente) ── */
-.leadgen{padding:82px 5%;background:var(--bg)}
-.leadgen-inner{max-width:1180px;margin:0 auto}
-.leadgen-head{text-align:center;max-width:700px;margin:0 auto 46px}
-.leadgen-head .section-label{display:inline-flex;align-items:center;gap:7px}
+/* ── LEADS (mockup do OND vAI trazendo o lead pronto, embutido no hero) ── */
 .lg-live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green);animation:blink 2s infinite}
-.lg-live-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 30px;margin-top:26px}
+.lg-live-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 26px;margin-bottom:22px}
 .lg-stat{display:flex;flex-direction:column;align-items:center;min-width:86px}
-.lg-stat b{font-size:1.9rem;font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--text)}
+.lg-stat b{font-size:1.7rem;font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--text)}
 .lg-stat span{font-size:.74rem;color:var(--muted);margin-top:6px}
 .lg-stat-live{color:var(--green)!important}
-.leadgen-flow{display:grid;grid-template-columns:1fr auto 1fr;gap:26px;align-items:center;max-width:1040px;margin:0 auto}
-.lg-phone{background:var(--card);border:1px solid var(--border-hi);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}
-.lg-phone-head{display:flex;align-items:center;gap:10px;padding:13px 15px;background:var(--surface);border-bottom:1px solid var(--border)}
-.lg-av{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 36% 28%,#7db0ff,#1f6bff 50%,#6a3fff 95%);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.lg-phone-t{flex:1;min-width:0;line-height:1.2}
-.lg-phone-t b{display:block;font-size:.86rem;font-weight:800}
-.lg-phone-t span{font-size:.72rem;color:var(--muted)}
-.lg-live{display:inline-flex;align-items:center;gap:5px;font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--green)}
-.lg-chat{padding:16px 15px;display:flex;flex-direction:column;gap:9px}
-.lg-b{max-width:82%;font-size:.83rem;line-height:1.5;padding:9px 13px;border-radius:14px;opacity:0;transform:translateY(8px);animation:lgIn .5s ease forwards}
-.lg-b.ai{align-self:flex-start;background:var(--surface);border:1px solid var(--border);border-bottom-left-radius:5px;color:var(--text)}
-.lg-b.me{align-self:flex-end;background:var(--blue);color:var(--ond-color-onPrimary);border-bottom-right-radius:5px}
-.lg-chat>*:nth-child(1){animation-delay:.05s}.lg-chat>*:nth-child(2){animation-delay:.35s}.lg-chat>*:nth-child(3){animation-delay:.7s}.lg-chat>*:nth-child(4){animation-delay:1.05s}.lg-chat>*:nth-child(5){animation-delay:1.5s}
-@keyframes lgIn{to{opacity:1;transform:none}}
-.lg-rot{align-self:stretch;background:var(--surface);border:1px solid var(--border-hi);border-radius:13px;padding:12px;opacity:0;transform:translateY(8px);animation:lgIn .5s 1.05s ease forwards}
-.lg-rot-row{display:flex;gap:9px;font-size:.8rem;color:var(--text);line-height:1.4;padding:5px 0}
-.lg-rot-row+.lg-rot-row{border-top:1px solid var(--border)}
-.lg-d{flex-shrink:0;font-size:.64rem;font-weight:800;color:var(--blue-light);background:var(--blue-dim);border-radius:6px;padding:2px 7px;height:fit-content}
-.lg-rot-foot{margin-top:8px;padding-top:9px;border-top:1px solid var(--border);font-size:.82rem;color:var(--muted)}
-.lg-rot-foot b{color:var(--green);font-weight:800;font-size:.98rem}
-.lg-arrow{display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--blue-light)}
+.leadgen-flow{display:grid;grid-template-columns:1fr;gap:16px;max-width:420px;margin:0 auto}
+.lg-live{display:inline-flex;align-items:center;gap:5px;font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--green);flex-shrink:0}
+.lg-quote{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border-hi);border-radius:16px;padding:15px 18px;box-shadow:0 16px 40px rgba(0,0,0,.35)}
+.lg-quote-ic{flex-shrink:0;color:var(--blue-light)}
+.lg-quote-text{flex:1;font-size:.9rem;font-style:italic;color:var(--text);line-height:1.4}
+.lg-arrow{display:flex;flex-direction:row;align-items:center;gap:10px;color:var(--blue-light)}
 .lg-arrow span{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:center;white-space:nowrap}
-.lg-arrow svg{padding:9px;border-radius:50%;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);animation:lgPush 2.2s ease-in-out infinite}
-@keyframes lgPush{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+.lg-arrow svg{padding:9px;border-radius:50%;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);transform:rotate(90deg);animation:lgPush 2.2s ease-in-out infinite}
+@keyframes lgPush{0%,100%{transform:rotate(90deg) translateX(-3px)}50%{transform:rotate(90deg) translateX(3px)}}
 .lg-agency{background:var(--card);border:1px solid var(--border-hi);border-radius:20px;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
 .lg-agency-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
 .lg-ag-name{font-size:.82rem;font-weight:800;color:var(--muted)}
@@ -331,12 +244,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .lg-lead-brief{margin-top:10px;font-size:.8rem;color:var(--muted);font-style:italic;line-height:1.5;padding:9px 11px;background:var(--card);border-radius:10px;border:1px solid var(--border)}
 .lg-lead-cta{display:block;text-align:center;margin-top:13px;background:var(--blue);color:var(--ond-color-onPrimary);font-weight:800;font-size:.86rem;padding:11px;border-radius:50px;text-decoration:none;transition:filter .15s}
 .lg-lead-cta:hover{filter:brightness(1.08)}
-@media(max-width:860px){
-  .leadgen-flow{grid-template-columns:1fr;gap:18px;max-width:460px}
-  .lg-arrow{flex-direction:row;gap:10px}
-  .lg-arrow svg{transform:rotate(90deg)}
-  @keyframes lgPush{0%,100%{transform:rotate(90deg) translateX(-3px)}50%{transform:rotate(90deg) translateX(3px)}}
-}
 .diff{background:var(--surface);padding:80px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;max-width:1280px;margin-left:auto;margin-right:auto}
 .diff-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:border-color .2s,transform .2s}
@@ -450,7 +357,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 @media(max-width:960px){
   .header-nav{display:none}.header-menu-btn{display:block}
   .hero{grid-template-columns:1fr;padding:56px 5% 44px;gap:36px}
-  .hero-visual{display:none}
   .problema-cards{grid-template-columns:1fr 1fr}
   .steps-row{grid-template-columns:1fr 1fr}.steps-row::before{display:none}
   .features-inner{grid-template-columns:1fr}
@@ -1196,8 +1102,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   </a>
   <nav><ul class="header-nav">
     <li><a href="index.html" class="nav-home">← Para viajeros</a></li>
-    <li><a href="#plataforma">Prueba la plataforma</a></li>
-    <li><a href="#modelo">Funcionalidades</a></li>
     <li><a href="#planos">Planes</a></li>
     <li><a href="#quem-somos">Quiénes somos</a></li>
     <li><div class="seg" role="tablist" aria-label="Escolha seu perfil">
@@ -1221,8 +1125,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </header>
 <nav class="mobile-nav" id="mobileNav">
   <a href="index.html" class="nav-home">← Para viajeros</a>
-  <a href="#plataforma" onclick="closeMenu()">Prueba la plataforma</a>
-  <a href="#modelo" onclick="closeMenu()">Funcionalidades</a>
   <a href="#planos" onclick="closeMenu()">Planes</a>
   <a href="#quem-somos" onclick="closeMenu()">Quiénes somos</a>
   <div class="seg" role="tablist" aria-label="Escolha seu perfil">
@@ -1246,7 +1148,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         Hablar por WhatsApp
       </a>
-      <a href="#plataforma" class="btn-demo"><svg viewBox="0 0 497.26 497.26" width="18" height="18" fill="#fff" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg>Probar la plataforma</a>
     </div>
     <div class="hero-trust">
       <span class="trust-chip">Sin contrato a largo plazo</span>
@@ -1255,105 +1156,21 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     </div>
   </div>
   <div class="hero-visual">
-    <div class="hs-cap" id="hsCap">Você monta a proposta</div>
-    <div class="hero-story">
-      <div class="hero-card-behind"></div>
-      <div class="hero-card hero-card-main" id="hsCard" aria-hidden="true"></div>
-    </div>
-    <div class="hs-dots" id="hsDots"></div>
-    <div class="hs-controls">
-      <button class="hs-nav" id="hsPrev" type="button" aria-label="Cena anterior"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-      <button class="hs-nav hs-play" id="hsPlay" type="button" aria-label="Pausar"></button>
-      <button class="hs-nav" id="hsNext" type="button" aria-label="Próxima cena"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
-    </div>
-  </div>
-  <script>
-  (function(){
-    var card=document.getElementById('hsCard'),cap=document.getElementById('hsCap'),dotsEl=document.getElementById('hsDots');
-    if(!card)return;
-    function day(n,t,d){return '<div class="card-day"><div class="card-day-num">'+n+'</div><div class="card-day-content"><div class="card-day-title">'+t+'</div><div class="card-day-desc">'+d+'</div></div></div>';}
-    function hd(status,cls){return '<div class="card-header"><div class="card-agency-dot"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div><div><div class="card-agency-name">Viagem de 5 dias para Lisboa</div><div class="card-status '+(cls||'')+'">'+status+'</div></div><span class="card-brand">Sua Marca</span></div>';}
-    var days=day('D1','Chegada em Lisboa · Alfama','Castelo de São Jorge · Fado no Bairro Alto')+day('D2','Belém · LX Factory','Torre de Belém · Pastéis de Belém')+day('D3','Sintra · Cascais','Palácio da Pena · Costa do Estoril');
-    var SCENES=[
-      {cap:'Você monta a proposta',html:hd('◍ montando')+'<div class="card-itinerary hs-build">'+days+'</div><div class="card-footer"><div class="card-footer-stat"><div class="card-footer-num">R$&nbsp;4.200</div><div class="card-footer-label">estimativa</div></div><div class="card-footer-stat"><div class="card-footer-num">5d · 2pax</div><div class="card-footer-label">roteiro</div></div><span class="hs-tag blue">OND vAI sugeriu</span></div>'},
-      {cap:'Envia um link com a sua marca',html:hd('▲ enviando','g')+'<div class="hs-mid"><div class="hs-link"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>viagenspremium.com/p/lisboa</div><div class="hs-big-ok">Proposta enviada ao cliente</div><div class="hs-sub">Ele abre no navegador, sem instalar nada.</div></div>'},
-      {cap:'O cliente personaliza sozinho',html:hd('✎ cliente ajustando','p')+'<div class="hs-mid"><div class="hs-chips"><span class="hs-chip on">+ Seguro viagem</span><span class="hs-chip on">+ Passeio em Sintra</span><span class="hs-chip">Upgrade de hotel</span></div><div class="hs-price-row"><span>Ticket</span><b class="hs-old">R$ 4.200</b><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg><b class="hs-new">R$ 4.680</b></div></div>'},
-      {cap:'Fecha a venda no próprio link',html:hd('✓ vendido','g')+'<div class="hs-mid hs-center"><div class="hs-check"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div><div class="hs-big-ok">Proposta aceita · paga no link</div><div class="hs-sub">A comissão fica com a agência. O OND não é o merchant.</div></div>'},
-      {cap:'E acompanha a viagem inteira',html:hd('◎ em viagem','b')+'<div class="hs-mid"><div class="hs-feed"><div class="hs-feed-row"><span class="hs-fi shield"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>Seguro contratado dias antes ✓</div><div class="hs-feed-row"><span class="hs-fi pin"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Passeio extra amanhã, 9h</div><div class="hs-feed-row"><span class="hs-fi plane"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2"/></svg></span>Concierge 24h no OND vAI</div></div></div>'}
-    ];
-    var dots=SCENES.map(function(_,k){return '<i data-i="'+k+'"'+(k===0?' class="on"':'')+'></i>';}).join('');
-    dotsEl.innerHTML=dots;
-    var dotI=dotsEl.querySelectorAll('i');
-    var prevBtn=document.getElementById('hsPrev'),nextBtn=document.getElementById('hsNext'),playBtn=document.getElementById('hsPlay');
-    var PAUSE='<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
-    var PLAY='<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M7 5l12 7-12 7z"/></svg>';
-    var i=-1,timer=null,playing=true,DUR=4200;
-    function render(){
-      card.classList.remove('in');
-      setTimeout(function(){
-        card.innerHTML=SCENES[i].html; cap.textContent=SCENES[i].cap;
-        for(var k=0;k<dotI.length;k++)dotI[k].className=(k===i?'on':'');
-        void card.offsetWidth; card.classList.add('in');
-      },180);
-    }
-    function go(dir){ i=(i+dir+SCENES.length)%SCENES.length; render(); }
-    function startTimer(){ if(timer)clearInterval(timer); if(playing)timer=setInterval(function(){go(1);},DUR); }
-    function setPlaying(p){ playing=p; if(playBtn){playBtn.innerHTML=p?PAUSE:PLAY; playBtn.setAttribute('aria-label',p?'Pausar':'Reproduzir');} startTimer(); }
-    if(prevBtn)prevBtn.onclick=function(){ go(-1); startTimer(); };
-    if(nextBtn)nextBtn.onclick=function(){ go(1); startTimer(); };
-    if(playBtn)playBtn.onclick=function(){ setPlaying(!playing); };
-    for(var k=0;k<dotI.length;k++){ dotI[k].onclick=(function(idx){return function(){ i=idx; render(); startTimer(); };})(k); }
-    if(matchMedia('(prefers-reduced-motion:reduce)').matches){ i=0; render(); playing=false; if(playBtn)playBtn.innerHTML=PLAY; }
-    else { setPlaying(true); go(1); }
-  })();
-  </script>
-</section>
-
-<section class="origin">
-  <div class="origin-inner">
-    <span class="section-label">Por que existimos</span>
-    <h2 class="section-title">Construímos um app que virou hábito de viajante.<br>O que não temos é o que vender pra eles.</h2>
-    <p class="section-sub">Milhares de pessoas sonham o destino, montam o roteiro e viajam com o OND do lado. Mas não somos agência: não vendemos pacote, não emitimos passagem. Ficamos com um monte de gente pronta pra comprar e ninguém pra vender pra ela. Por isso existe o OND para agências. Quer faturar com esse tanto de gente pronta pra fechar?</p>
-  </div>
-</section>
-
-<!-- LEAD GEN (conceito central): o OND vAI traz os leads prontos, en vivo -->
-<section class="leadgen" id="leads">
-  <div class="leadgen-inner">
-    <div class="leadgen-head">
-      <span class="section-label"><span class="lg-live-dot"></span>En vivo · ahora</span>
-      <h2 class="section-title">No empiezas de cero:<br>el OND vAI ya trae leads&nbsp;conversando.</h2>
-      <p class="section-sub" style="margin:0 auto">Miles de viajeros planean su viaje hablando con el OND vAI. Tu agencia entra en ese flujo y recibe el lead con el briefing y el itinerario ya armado: solo tienes que asumirlo y cerrar.</p>
-      <div class="lg-live-stats">
-        <div class="lg-stat"><b id="lgS1">208</b><span>conversaciones hoy</span></div>
-        <div class="lg-stat"><b id="lgS2" class="lg-stat-live">14</b><span>activas ahora</span></div>
-        <div class="lg-stat"><b id="lgS3">171</b><span>itinerarios generados</span></div>
-        <div class="lg-stat"><b id="lgS4">42</b><span>leads disponibles</span></div>
-      </div>
+    <div class="lg-live-stats">
+      <div class="lg-stat"><b id="lgS1">208</b><span>conversaciones hoy</span></div>
+      <div class="lg-stat"><b id="lgS2" class="lg-stat-live">14</b><span>activas ahora</span></div>
+      <div class="lg-stat"><b id="lgS3">171</b><span>itinerarios generados</span></div>
+      <div class="lg-stat"><b id="lgS4">42</b><span>leads disponibles</span></div>
     </div>
     <div class="leadgen-flow">
-      <div class="lg-phone">
-        <div class="lg-phone-head">
-          <span class="lg-av"><svg viewBox="0 0 497.26 497.26" width="17" height="17" fill="#fff"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span>
-          <div class="lg-phone-t"><b>OND vAI</b><span>conversando con un viajero</span></div>
-          <span class="lg-live"><span class="lg-live-dot"></span>en vivo</span>
-        </div>
-        <div class="lg-chat">
-          <div class="lg-b ai">¡Hola! ¿Vamos a planear tu próximo viaje? ¿A dónde sueñas con ir?</div>
-          <div class="lg-b me">Italia en octubre, algo romántico 🍝</div>
-          <div class="lg-b ai">¡Me encanta! Pensé en 7 días entre Roma, Florencia y la Costa Amalfitana. Armé un itinerario 👇</div>
-          <div class="lg-rot">
-            <div class="lg-rot-row"><span class="lg-d">D1–2</span>Roma clásica + cena en Trastevere</div>
-            <div class="lg-rot-row"><span class="lg-d">D3–4</span>Florencia y Toscana</div>
-            <div class="lg-rot-row"><span class="lg-d">D5–7</span>Positano y la Costa Amalfitana</div>
-            <div class="lg-rot-foot"><b>~R$ 18.400</b> · 2 viajeros</div>
-          </div>
-          <div class="lg-b me">¡Perfecto! Quiero cerrarlo 🙌</div>
-        </div>
+      <div class="lg-quote">
+        <svg class="lg-quote-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span class="lg-quote-text" id="lgIntentQuote">"Italia en octubre, algo romántico 🍝"</span>
+        <span class="lg-live"><span class="lg-live-dot"></span>en vivo</span>
       </div>
       <div class="lg-arrow" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-        <span>lead + itinerario</span>
+        <span>lead + itinerario pronto</span>
       </div>
       <div class="lg-agency">
         <div class="lg-agency-head"><span class="lg-ag-name">Panel de tu agencia</span><span class="lg-ag-tag">Nuevo lead</span></div>
@@ -1404,12 +1221,17 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     var nameEl = document.getElementById('lgLeadName');
     var subEl = document.getElementById('lgLeadSub');
     var valEl = document.getElementById('lgLeadVal');
+    var quoteEl = document.getElementById('lgIntentQuote');
     if(nameEl) nameEl.textContent = lead.partyLabel;
     if(subEl) subEl.textContent = [lead.destinationLabel,
       lead.durationDays ? lead.durationDays + ' dias' : null,
       lead.partySize ? lead.partySize + ' pax' : null,
       lead.periodLabel].filter(Boolean).join(' · ');
     if(valEl) valEl.innerHTML = '~R$ ' + formatMoney(lead.budgetEstimate) + ' <span>· roteiro pronto</span>';
+    if(quoteEl && lead.destinationLabel){
+      var quote = lead.intentQuote || (lead.destinationLabel + (lead.periodLabel ? ' em ' + lead.periodLabel : ''));
+      quoteEl.textContent = '"' + quote + '"';
+    }
   }
   function load(){
     fetch(SHOWCASE_API).then(function(res){
@@ -1429,6 +1251,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 })();
 </script>
 
+<section class="origin">
+  <div class="origin-inner">
+    <span class="section-label">Por que existimos</span>
+    <h2 class="section-title">Construímos um app que virou hábito de viajante.<br>O que não temos é o que vender pra eles.</h2>
+    <p class="section-sub">Milhares de pessoas sonham o destino, montam o roteiro e viajam com o OND do lado. Mas não somos agência: não vendemos pacote, não emitimos passagem. Ficamos com um monte de gente pronta pra comprar e ninguém pra vender pra ela. Por isso existe o OND para agências. Quer faturar com esse tanto de gente pronta pra fechar?</p>
+  </div>
+</section>
+
 <!-- STATS -->
 <div class="stats">
   <div class="stat"><div class="stat-num green">5min</div><div class="stat-label">para armar la propuesta</div></div>
@@ -1438,7 +1268,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </div>
 
 <!-- JORNADA: mockup ponta a ponta (perto da dobra) -->
-<section class="journey-strip" id="plataforma">
+<section class="journey-strip" id="plataforma" style="display:none">
   <div class="journey">
     <div class="journey-head">
       <span class="section-label">El recorrido de la venta</span>
@@ -2112,7 +1942,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </section>
 
 <!-- PROBLEMA -->
-<section class="problema">
+<section class="problema" style="display:none">
   <div class="problema-inner">
     <span class="section-label">El problema</span>
     <h2 class="section-title">Un presupuesto estático<br>no cierra ventas</h2>
@@ -2138,7 +1968,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </section>
 
 <!-- FUNCIONALIDADES + MODELO -->
-<section class="features" id="modelo">
+<section class="features" id="modelo" style="display:none">
   <div class="features-inner">
     <div class="features-head">
       <span class="section-label">Funcionalidades</span>
@@ -2436,7 +2266,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         Hablar por WhatsApp
       </a>
     </div>
-    <div class="cta-final-demo"><a href="#plataforma" class="btn-demo"><svg viewBox="0 0 497.26 497.26" width="18" height="18" fill="#fff" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg>Probar la plataforma</a></div>
     <div class="cta-final-note">Já escolheu um plano? <a href="#planos" class="onboarding-link">Contrate direto na página</a> · ¿Dudas? Escribe a <a href="mailto:renan@agamatec.com">renan@agamatec.com</a></div>
     <details class="wwa" id="quem-somos">
       <summary class="wwa-sum"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Quién está detrás de OND<span class="wwa-caret">▾</span></summary>
@@ -2484,8 +2313,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <div class="footer-col">
       <h4>Agencias</h4>
       <ul>
-            <li><a href="#modelo">Modelo y precios</a></li>
-        <li><a href="#plataforma">Ver plataforma</a></li>
         <li><a href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agendar reunión</a></li>
         <li style="display:none"><a href="hoteis.html" class="footer-home">Para hoteles →</a></li>
       </ul>
