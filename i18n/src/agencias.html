@@ -139,6 +139,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .btn-whatsapp:hover{background:color-mix(in srgb, var(--ond-color-whatsapp) 18%, transparent);border-color:var(--ond-color-whatsapp);transform:translateY(-2px)}
 .hero-trust{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .trust-chip{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted)}
+.trust-chip-metric{color:var(--green);opacity:.85;font-weight:700;font-size:.92em}
 .trust-chip::before{content:'✓';color:var(--green);font-weight:700}
 .hero-visual{position:relative}
 
@@ -216,6 +217,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 /* ── LEADS (mockup do OND vAI trazendo o lead pronto, embutido no hero) ── */
 .lg-live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green);animation:blink 2s infinite}
 .lg-live-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 26px;margin-bottom:22px}
+.lg-real-label{text-align:center;font-size:.76rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
 .lg-stat{display:flex;flex-direction:column;align-items:center;min-width:86px}
 .lg-stat b{font-size:1.7rem;font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--text)}
 .lg-stat span{font-size:.74rem;color:var(--muted);margin-top:6px}
@@ -1072,6 +1074,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   </a>
   <nav><ul class="header-nav">
     <li><a href="index.html" class="nav-home">← Para viajantes</a></li>
+    <li><a href="#plataforma">Como funciona</a></li>
     <li><a href="#planos">Planos</a></li>
     <li><a href="#quem-somos">Quem somos</a></li>
     <li><div class="seg" role="tablist" aria-label="Escolha seu perfil">
@@ -1085,6 +1088,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </header>
 <nav class="mobile-nav" id="mobileNav">
   <a href="index.html" class="nav-home">← Para viajantes</a>
+  <a href="#plataforma" onclick="closeMenu()">Como funciona</a>
   <a href="#planos" onclick="closeMenu()">Planos</a>
   <a href="#quem-somos" onclick="closeMenu()">Quem somos</a>
   <div class="seg" role="tablist" aria-label="Escolha seu perfil">
@@ -1100,8 +1104,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <section class="hero">
   <div>
     <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Plataforma de vendas para agências</div>
-    <h1 class="hero-title">Você não precisa de mais visitante.<br>Precisa de gente que <em>já decidiu viajar.</em></h1>
-    <p class="hero-sub">No OND, viajantes reais chegam com destino, data e orçamento definidos. Conectamos essas pessoas com agências prontas pra fechar.</p>
+    <h1 class="hero-title">Chega de esperar o cliente entrar pela porta.<br>Ele <em>já decidiu viajar</em>, só não sabe que você existe.</h1>
+    <p class="hero-sub">Todo dia, centenas de pessoas fecham destino, data e orçamento conversando com o OND vAI. Zero agências aparecem pra elas hoje. Isso muda agora.</p>
     <div class="hero-ctas">
       <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Quero o OND na minha&nbsp;agência&nbsp;→</a>
       <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
@@ -1110,9 +1114,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       </a>
     </div>
     <div class="hero-trust">
-      <span class="trust-chip">Sem contrato de longo prazo</span>
-      <span class="trust-chip">Sua marca na proposta</span>
-      <span class="trust-chip">Suporte dedicado</span>
+      <span class="trust-chip">Venda pra quem já quer comprar <span class="trust-chip-metric">(-CAC)</span></span>
+      <span class="trust-chip">Leads chegam prontos pra fechar <span class="trust-chip-metric">(+LTV, cross/upsell)</span></span>
+      <span class="trust-chip">Sua marca continua na viagem <span class="trust-chip-metric">(+NPS)</span></span>
     </div>
   </div>
   <div class="hero-visual">
@@ -1122,6 +1126,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <div class="lg-stat"><b id="lgS3">171</b><span>roteiros gerados</span></div>
       <div class="lg-stat"><b id="lgS4">42</b><span>leads disponíveis</span></div>
     </div>
+    <div class="lg-real-label">Isso não é exemplo. É gente real, agora</div>
     <div class="leadgen-flow">
       <div class="lg-quote">
         <svg class="lg-quote-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -1228,7 +1233,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </div>
 
 <!-- JORNADA: mockup ponta a ponta (perto da dobra) -->
-<section class="journey-strip" id="plataforma" style="display:none">
+<section class="journey-strip" id="plataforma">
   <div class="journey">
     <div class="journey-head">
       <span class="section-label">A jornada da venda</span>
@@ -2005,7 +2010,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </section>
 
 <!-- DIFERENCIAIS -->
-<section class="diff">
+<section class="diff" style="display:none">
   <div style="text-align:center;max-width:720px;margin:0 auto">
     <span class="section-label">Por que o OND</span>
     <h2 class="section-title" style="margin-bottom:12px">Não é só um ChatGPT<br>com wrapper de viagem</h2>
@@ -2052,10 +2057,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <div class="plan">
         <img class="plan-img" src="assets/plans/plan-trial.png" alt="" loading="lazy">
         <div class="plan-name">OND Trial</div>
-        <div class="plan-for">Teste o OND com 3 roteiros antes de escalar.</div>
+        <div class="plan-for">Teste o OND com 3 propostas antes de escalar.</div>
         <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">1</span><span class="plan-per">/mês</span></div>
         <ul class="plan-feats">
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>3 roteiros pra testar a plataforma</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>3 propostas pra testar a plataforma</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Sem compromisso de continuidade</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Sinta o ganho de eficiência na prática</li>
         </ul>
@@ -2067,7 +2072,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         <div class="plan-for">Pra quem está começando no digital.</div>
         <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">469</span><span class="plan-per">/mês</span></div>
         <ul class="plan-feats">
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 50 roteiros por mês</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 50 propostas por mês</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Propostas interativas com a sua marca</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>OND vAI monta o roteiro dia a dia</li>
         </ul>
@@ -2080,7 +2085,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         <div class="plan-for">Pra agências com fluxo constante de clientes.</div>
         <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">937</span><span class="plan-per">/mês</span></div>
         <ul class="plan-feats">
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 100 roteiros por mês</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 100 propostas por mês</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Automações de entrega</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Painel de desempenho dos agentes</li>
         </ul>
@@ -2092,7 +2097,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         <div class="plan-for">Controle total pra agências consolidadas.</div>
         <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">1.406</span><span class="plan-per">/mês</span></div>
         <ul class="plan-feats">
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 150 roteiros por mês</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Até 150 propostas por mês</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Suporte prioritário</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Setup assistido e treinamento da equipe</li>
         </ul>
@@ -2101,10 +2106,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <div class="plan">
         <img class="plan-img" src="assets/plans/plan-infinity.png" alt="" loading="lazy">
         <div class="plan-name">OND Infinity</div>
-        <div class="plan-for">Roteiros ilimitados e white-label completo.</div>
+        <div class="plan-for">Propostas ilimitadas e white-label completo.</div>
         <div class="plan-price"><span class="plan-cur">R$</span><span class="plan-val">1.875</span><span class="plan-per">/mês</span></div>
         <ul class="plan-feats">
-          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Roteiros ilimitados</li>
+          <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Propostas ilimitadas</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>White-label completo com a sua marca</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Acesso antecipado a novos recursos</li>
         </ul>
@@ -2186,7 +2191,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 </div>
 
 <!-- PROVA SOCIAL -->
-<section class="proof">
+<section class="proof" style="display:none">
   <div class="proof-inner">
     <span class="section-label">Validação</span>
     <h2 class="section-title" style="margin-bottom:32px">Apresentado para as maiores<br>redes de viagem do Brasil</h2>
