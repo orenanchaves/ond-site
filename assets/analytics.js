@@ -59,7 +59,7 @@
   + '.ond-ck-btn:hover{transform:translateY(-1px)}'
   + '.ond-ck-no{background:none;color:var(--muted,#9a97b5);border:1px solid var(--border,#2a2a3a)}'
   + '.ond-ck-no:hover{color:var(--text,#f0eeff);border-color:var(--muted,#9a97b5)}'
-  + '.ond-ck-yes{background:var(--ond-color-primary,#7c3fff);color:#fff}'
+  + '.ond-ck-yes{background:var(--ond-color-primary,#7f11f4);color:#fff}'
   + '@media(max-width:520px){.ond-ck{flex-direction:column;align-items:stretch}.ond-ck-btns{justify-content:flex-end}}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 

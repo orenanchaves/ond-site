@@ -35,11 +35,11 @@
   --ond-palette-purple-200: #e7ddff;
   --ond-palette-purple-300: #c9b6ff;
   --ond-palette-purple-400: #9d6fff;
-  --ond-palette-purple-500: #7c3fff;
+  --ond-palette-purple-500: #7f11f4;
   --ond-palette-purple-600: #6b2fff;
-  --ond-palette-purple-700: #5e17c7;
+  --ond-palette-purple-700: #560fb2;
   --ond-palette-purple-800: #4e1a9e;
-  --ond-palette-purple-900: #2b0a5e;
+  --ond-palette-purple-900: #290756;
   --ond-palette-blue-50: #eef3ff;
   --ond-palette-blue-100: #e8f0ff;
   --ond-palette-blue-200: #c8d8f0;
@@ -59,6 +59,8 @@
   --ond-palette-gold-400: #ffd60a;
   --ond-palette-gold-500: #ffab40;
   --ond-palette-gold-700: #a07800;
+  --ond-palette-orange-500: #f59811;
+  --ond-palette-orange-700: #c67810;
   --ond-palette-red-50: #fcebeb;
   --ond-palette-red-300: #f09595;
   --ond-palette-red-500: #e24b4a;

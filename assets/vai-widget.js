@@ -56,24 +56,24 @@
   }
 
   var CSS = '\
-.ondvai-orb{position:fixed;right:22px;bottom:22px;z-index:99998;width:60px;height:60px;border-radius:50%;border:none;cursor:grab;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#7c3fff,#9d6fff);box-shadow:0 8px 24px rgba(124,63,255,.45);animation:ondvai-pulse 2.6s ease-out infinite;transition:transform .18s;touch-action:none}\
+.ondvai-orb{position:fixed;right:22px;bottom:22px;z-index:99998;width:60px;height:60px;border-radius:50%;border:none;cursor:grab;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#7f11f4,#9d6fff);box-shadow:0 8px 24px rgba(127, 17, 244,.45);animation:ondvai-pulse 2.6s ease-out infinite;transition:transform .18s;touch-action:none}\
 .ondvai-orb:hover{transform:scale(1.08)}\
 .ondvai-orb.dragging{cursor:grabbing;transform:scale(1.06);animation:none}\
 .ondvai-orb svg{width:30px;height:30px;fill:#fff;pointer-events:none}\
 .ondvai-orb.hide{display:none}\
 .ondvai-orb.ondvai-b2b{background:radial-gradient(circle at 36% 28%,#7db0ff,#1f6bff 50%,#6a3fff 95%);box-shadow:0 8px 24px rgba(0,102,255,.5)}\
-@keyframes ondvai-pulse{0%{box-shadow:0 8px 24px rgba(124,63,255,.45),0 0 0 0 rgba(124,63,255,.45)}70%{box-shadow:0 8px 24px rgba(124,63,255,.45),0 0 0 15px rgba(124,63,255,0)}100%{box-shadow:0 8px 24px rgba(124,63,255,.45),0 0 0 0 rgba(124,63,255,0)}}\
+@keyframes ondvai-pulse{0%{box-shadow:0 8px 24px rgba(127, 17, 244,.45),0 0 0 0 rgba(127, 17, 244,.45)}70%{box-shadow:0 8px 24px rgba(127, 17, 244,.45),0 0 0 15px rgba(127, 17, 244,0)}100%{box-shadow:0 8px 24px rgba(127, 17, 244,.45),0 0 0 0 rgba(127, 17, 244,0)}}\
 .ondvai-bubble{position:fixed;z-index:99997;background:var(--ond-color-surface,#16161f);color:var(--ond-color-text,#f0eeff);border:1px solid var(--ond-color-border,#2a2a44);border-radius:14px;padding:10px 10px 10px 13px;font-size:.82rem;font-weight:600;max-width:216px;box-shadow:0 12px 34px rgba(0,0,0,.5);display:flex;align-items:center;gap:8px;cursor:pointer;animation:ondvai-bub .3s ease}\
 .ondvai-bubble .bx{background:none;border:none;color:var(--ond-color-muted,#8888b0);cursor:pointer;font-size:.85rem;line-height:1;padding:0 2px;flex-shrink:0}\
 .ondvai-bubble .bx:hover{color:var(--ond-color-text,#f0eeff)}\
 @keyframes ondvai-bub{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}\
 .ondvai-panel{position:fixed;right:22px;bottom:94px;z-index:99999;width:360px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 130px);background:var(--ond-color-surface,#16161f);border:1px solid var(--ond-color-border,#252540);border-radius:18px;box-shadow:0 24px 64px rgba(0,0,0,.55);display:flex;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(14px) scale(.98);pointer-events:none;transition:opacity .22s,transform .24s cubic-bezier(.34,1.56,.64,1);font-family:inherit}\
 .ondvai-panel.open{opacity:1;transform:none;pointer-events:auto}\
-.ondvai-head{display:flex;align-items:center;gap:10px;padding:13px 16px;background:linear-gradient(135deg,rgba(124,63,255,.18),transparent);border-bottom:1px solid var(--ond-color-border,#252540)}\
-.ondvai-hh{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#7c3fff,#9d6fff);display:flex;align-items:center;justify-content:center;flex-shrink:0}\
+.ondvai-head{display:flex;align-items:center;gap:10px;padding:13px 16px;background:linear-gradient(135deg,rgba(127, 17, 244,.18),transparent);border-bottom:1px solid var(--ond-color-border,#252540)}\
+.ondvai-hh{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#7f11f4,#9d6fff);display:flex;align-items:center;justify-content:center;flex-shrink:0}\
 .ondvai-hh svg{width:18px;height:18px;fill:#fff}\
 .ondvai-ht{font-weight:800;font-size:.98rem;color:var(--ond-color-text,#f0eeff);display:flex;align-items:center;gap:7px;line-height:1.2}\
-.ondvai-tag{font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#b79bff;background:rgba(124,63,255,.18);border:1px solid rgba(124,63,255,.35);padding:1px 6px;border-radius:20px}\
+.ondvai-tag{font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#b79bff;background:rgba(127, 17, 244,.18);border:1px solid rgba(127, 17, 244,.35);padding:1px 6px;border-radius:20px}\
 .ondvai-on{font-size:.72rem;color:#00e676;display:flex;align-items:center;gap:5px;margin-top:2px}\
 .ondvai-on::before{content:"";width:6px;height:6px;border-radius:50%;background:#00e676;box-shadow:0 0 6px #00e676}\
 .ondvai-x{margin-left:auto;background:none;border:none;color:var(--ond-color-muted,#8888b0);font-size:1.15rem;cursor:pointer;line-height:1;padding:4px}\
@@ -81,27 +81,27 @@
 .ondvai-body{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:11px}\
 .ondvai-chips{display:flex;flex-wrap:wrap;gap:7px}\
 .ondvai-chip{background:var(--ond-color-card,#1a1a2e);border:1px solid var(--ond-color-border,#252540);color:var(--ond-color-text,#f0eeff);font-size:.78rem;font-weight:600;padding:7px 12px;border-radius:50px;cursor:pointer;font-family:inherit}\
-.ondvai-chip:hover{border-color:#7c3fff;color:#b79bff}\
+.ondvai-chip:hover{border-color:#7f11f4;color:#b79bff}\
 .ondvai-msg{max-width:84%;font-size:.9rem;line-height:1.5;padding:11px 14px;border-radius:14px;word-wrap:break-word}\
 .ondvai-msg a{color:#b79bff}\
 .ondvai-bot{align-self:flex-start;background:var(--ond-color-card,#1a1a2e);color:var(--ond-color-text,#f0eeff);border:1px solid var(--ond-color-border,#252540);border-bottom-left-radius:4px}\
-.ondvai-me{align-self:flex-end;background:#7c3fff;color:#fff;border-bottom-right-radius:4px}\
+.ondvai-me{align-self:flex-end;background:#7f11f4;color:#fff;border-bottom-right-radius:4px}\
 .ondvai-typing{align-self:flex-start;display:flex;gap:4px;padding:13px 14px;background:var(--ond-color-card,#1a1a2e);border:1px solid var(--ond-color-border,#252540);border-radius:14px;border-bottom-left-radius:4px}\
 .ondvai-typing span{width:7px;height:7px;border-radius:50%;background:var(--ond-color-muted,#8888b0);animation:ondvai-blink 1.2s infinite}\
 .ondvai-typing span:nth-child(2){animation-delay:.2s}.ondvai-typing span:nth-child(3){animation-delay:.4s}\
 @keyframes ondvai-blink{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}\
-.ondvai-cta{align-self:stretch;background:linear-gradient(135deg,rgba(124,63,255,.14),transparent);border:1px solid rgba(124,63,255,.28);border-radius:14px;padding:14px}\
+.ondvai-cta{align-self:stretch;background:linear-gradient(135deg,rgba(127, 17, 244,.14),transparent);border:1px solid rgba(127, 17, 244,.28);border-radius:14px;padding:14px}\
 .ondvai-cta b{display:block;font-size:.85rem;color:var(--ond-color-text,#f0eeff);margin-bottom:10px}\
 .ondvai-btns{display:flex;flex-direction:column;gap:8px}\
 .ondvai-ab{display:flex;align-items:center;gap:9px;text-decoration:none;padding:10px 14px;border-radius:11px;font-weight:700;font-size:.85rem;border:1px solid var(--ond-color-border,#252540);background:var(--ond-color-surface,#16161f);color:var(--ond-color-text,#f0eeff);transition:transform .12s,border-color .15s}\
-.ondvai-ab:hover{transform:translateY(-1px);border-color:#7c3fff}\
-.ondvai-ab.pri{background:#7c3fff;color:#fff;border-color:#7c3fff}\
+.ondvai-ab:hover{transform:translateY(-1px);border-color:#7f11f4}\
+.ondvai-ab.pri{background:#7f11f4;color:#fff;border-color:#7f11f4}\
 .ondvai-ab svg{width:18px;height:18px;flex-shrink:0}\
 .ondvai-foot{padding:11px 14px;border-top:1px solid var(--ond-color-border,#252540)}\
 .ondvai-form{display:flex;gap:8px}\
 .ondvai-in{flex:1;min-width:0;background:var(--ond-color-bg,#0d0d14);border:1px solid var(--ond-color-border,#252540);border-radius:50px;padding:11px 16px;color:var(--ond-color-text,#f0eeff);font-size:.9rem;outline:none;font-family:inherit}\
-.ondvai-in:focus{border-color:#7c3fff}\
-.ondvai-snd{background:#7c3fff;border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;color:#fff;flex-shrink:0;font-size:1.15rem;line-height:1}\
+.ondvai-in:focus{border-color:#7f11f4}\
+.ondvai-snd{background:#7f11f4;border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;color:#fff;flex-shrink:0;font-size:1.15rem;line-height:1}\
 .ondvai-snd:hover{background:#9d6fff}\
 .ondvai-note{font-size:.66rem;color:var(--ond-color-muted,#8888b0);text-align:center;margin-top:8px}\
 @media(max-width:480px){.ondvai-panel{right:10px;left:10px;width:auto;bottom:86px;height:72vh}.ondvai-orb{right:16px;bottom:16px}}';
