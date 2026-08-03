@@ -117,7 +117,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .mobile-nav .seg-btn{padding:9px 22px;font-size:.92rem;border-bottom:none;color:var(--muted)}
 .mobile-nav .seg-btn:hover{color:var(--text)}
 .mobile-nav .seg-btn.active,.mobile-nav .seg-btn.active:hover{background:var(--blue);color:var(--ond-color-onPrimary)}
-.hero-title{font-size:clamp(1.9rem,3.7vw,3rem);font-weight:800;line-height:1.12;margin-bottom:18px;letter-spacing:-.025em}
+.hero-title{font-size:clamp(1.9rem,3.7vw,3rem);font-weight:800;line-height:1.12;margin-bottom:18px;letter-spacing:-.025em;text-wrap:balance}
 .hero-title em{font-style:normal;color:var(--green)}
 .hero-title .hl{display:inline}
 @media(max-width:600px){.hero-title{font-size:1.7rem}.hero-title .hl{display:block}}
@@ -400,7 +400,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 
 /* Evita "viúvas" (palavra sozinha na última linha) em títulos, subtítulos,
    parágrafos e rótulos de botão, principalmente no mobile. */
-.hero-title,.hero-sub,.section-title,.section-sub,.cta-final-title,.cta-final-sub,
+.hero-sub,.section-title,.section-sub,.cta-final-title,.cta-final-sub,
 .journey-head h3,.journey-head p,.jstep-title,.jstep-desc,
 .pp-copy h3,.pp-copy>p,
 .problema-title,.problema-desc,.feat-title,.feat-desc,
@@ -1055,17 +1055,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 })();
 </script>
 
-<svg style="display:none">
-  <symbol id="ond-icon" viewBox="0 0 497.26 497.26">
-    <path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/>
-  </symbol>
-  <symbol id="ond-logo" viewBox="0 0 951.32 497.26">
-    <path class="ond-diamond" d="M327.85,243.05l-69.42-45.05-57.11-117.28c-.76-1.55-2.13-2.44-3.59-2.67-1.46.24-2.83,1.12-3.59,2.67l-57.11,117.28-69.42,45.05c-1.53.99-2.26,2.62-2.21,4.23-.04,1.61.69,3.24,2.21,4.23l69.42,45.05,57.11,117.28c.76,1.55,2.13,2.44,3.59,2.67,1.46-.24,2.83-1.12,3.59-2.67l57.11-117.28,69.42-45.05c1.53-.99,2.26-2.62,2.21-4.23.04-1.61-.69-3.24-2.21-4.23Z"/>
-    <path class="ond-letter" d="M373.12,248.52c0-42.54,34.63-76.96,77.17-76.96s77.18,34.42,77.18,76.96-34.63,77.18-77.18,77.18-77.17-34.42-77.17-77.18ZM477.88,248.52c0-15.18-12.4-27.58-27.58-27.58s-27.58,12.4-27.58,27.58,12.4,27.79,27.58,27.79,27.58-12.4,27.58-27.79Z"/>
-    <path class="ond-letter" d="M542.62,171.56h44.05c1.56,0,3.03.73,3.97,1.97l59.71,78.19h1.54v-75.15c0-2.76,2.24-5,5-5h41.53c2.76,0,5,2.24,5,5v144.14c0,2.76-2.24,5-5,5h-44.1c-1.53,0-2.98-.7-3.93-1.91l-59.49-75.6h-1.76v72.51c0,2.76-2.24,5-5,5h-41.53c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5Z"/>
-    <path class="ond-letter" d="M880.82,247.53c0,50.65-43.38,78.17-75.75,78.17h-86.82c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5h88.59c37.87,0,73.99,28.85,73.99,75.97ZM828.86,247.31c0-24.88-15.63-35.01-39.42-35.01h-24.66v72.67h26.42c21.58,0,37.65-14.53,37.65-37.65Z"/>
-  </symbol>
-</svg>
+<script src="/assets/ond-logo.js"></script>
 
 <!-- HEADER -->
 <header class="header">
