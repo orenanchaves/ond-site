@@ -59,10 +59,10 @@
   + '#roteiro-sim .fin-total{background:linear-gradient(120deg,#7f11f4,#5e17c7);border-radius:13px;padding:14px 15px;color:#fff;margin:0 13px 10px}#roteiro-sim .fin-total span{font-size:11.5px;opacity:.85}#roteiro-sim .fin-total b{display:block;font-size:22px;margin-top:2px}'
   + '#roteiro-sim .fin-card{background:#fff;border:1px solid #ece6f7;border-radius:12px;padding:12px 14px;margin:0 13px 10px;box-shadow:0 6px 20px rgba(46,10,94,.06)}#roteiro-sim .fin-row{display:flex;justify-content:space-between;font-size:11.5px;color:#33304a;margin-bottom:8px}'
   + '#roteiro-sim .fin-bar{height:8px;background:#e9e3f6;border-radius:6px;overflow:hidden}#roteiro-sim .fin-bar i{display:block;height:100%;background:#00c853;border-radius:6px}'
-  + '#roteiro-sim .fin-day{display:flex;align-items:center;justify-content:space-between;background:#e8f7ee;border-radius:11px;padding:11px 14px;margin:0 13px 11px;font-size:11.5px;color:#1b5e20;font-weight:700}#roteiro-sim .fin-day b{font-size:14px}'
+  + '#roteiro-sim .fin-day{display:flex;align-items:center;justify-content:space-between;background:#e8f7ee;border-radius:11px;padding:11px 14px;margin:0 13px 11px;font-size:11.5px;color:#085e20;font-weight:700}#roteiro-sim .fin-day b{font-size:14px}'
   + '#roteiro-sim .fin-list{background:#fff;border:1px solid #ece6f7;border-radius:12px;overflow:hidden;margin:0 13px;box-shadow:0 6px 20px rgba(46,10,94,.06)}#roteiro-sim .fin-li{display:flex;justify-content:space-between;padding:11px 14px;font-size:12px;color:#33304a;border-top:1px solid #f1edf8}#roteiro-sim .fin-li:first-child{border-top:none}#roteiro-sim .fin-li b{color:#4e1a9e}'
   + '#roteiro-sim .rfoot{padding:9px 13px 11px;border-top:1px solid #ece6f7;background:#fff;flex:none;font-size:11px;color:#6b6680}'
-  + '#roteiro-sim .rfoot .g{color:#1b5e20;font-weight:700}'
+  + '#roteiro-sim .rfoot .g{color:#085e20;font-weight:700}'
   /* intro "montando" */
   + '#roteiro-sim .rgen{position:absolute;inset:0;background:#f4f1fb;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;z-index:5;transition:opacity .4s}'
   + '#roteiro-sim .rgen.hide{opacity:0;pointer-events:none}'
