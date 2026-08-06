@@ -1116,7 +1116,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <div class="lg-stat"><b id="lgS1">–</b><span>conversas no total</span></div>
       <div class="lg-stat"><b id="lgS2" class="lg-stat-live">–</b><span>ativas agora</span></div>
       <div class="lg-stat"><b id="lgS3">–</b><span>roteiros gerados</span></div>
-      <div class="lg-stat"><b id="lgS4">–</b><span>leads disponíveis</span></div>
+      <div class="lg-stat"><b id="lgS4">–</b><span>leads liberados pra contato</span></div>
     </div>
     <div class="lg-real-label">Isso não é exemplo. É gente real, agora</div>
     <div class="leadgen-flow">
@@ -1166,6 +1166,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       setStat('lgS1', data.conversations);
       setStat('lgS2', data.active);
       setStat('lgS3', data.completed);
+      setStat('lgS4', data.agencyConsentedLeads);
       markHeroLeadsReady('metrics');
     }).catch(function(){});
   }
@@ -1209,8 +1210,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         leads = data;
         current = 0;
         render();
-        var countEl = document.getElementById('lgS4');
-        if(countEl) countEl.textContent = data.length.toLocaleString('pt-BR');
         markHeroLeadsReady('showcase');
       }
     }).catch(function(){});
