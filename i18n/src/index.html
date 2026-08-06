@@ -1224,5 +1224,35 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <script src="/assets/globe.js" defer></script>
 <script src="/assets/vai-widget.js" defer></script>
 <script src="/assets/analytics.js" defer></script>
+<script>
+(function(){
+  var params = new URLSearchParams(location.search);
+  var gclid = params.get('gclid');
+  if (!gclid) return;
+
+  var forwarded = new URLSearchParams();
+  ['gclid','gad_campaignid','gad_source','utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(key){
+    var value = params.get(key);
+    if (value) forwarded.set(key, value);
+  });
+
+  document.addEventListener('click', function(event){
+    var webLink = event.target.closest('a[href^="https://web.ondviajar.com.br"]');
+    if (webLink) {
+      var url = new URL(webLink.href);
+      forwarded.forEach(function(value, key){ url.searchParams.set(key, value); });
+      webLink.href = url.toString();
+      return;
+    }
+    var storeLink = event.target.closest('a[href*="play.google.com"], a[href*="apps.apple.com"]');
+    if (storeLink && window.gtag) {
+      gtag('event', 'ad_store_redirect', {
+        store: storeLink.href.indexOf('play.google.com') !== -1 ? 'google_play' : 'app_store',
+        gad_campaignid: forwarded.get('gad_campaignid') || ''
+      });
+    }
+  }, true);
+})();
+</script>
 </body>
 </html>
