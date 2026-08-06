@@ -1236,6 +1236,27 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if (value) forwarded.set(key, value);
   });
 
+  var branchLinkUrl = null;
+  fetch('https://api2.branch.io/v1/url', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      branch_key: 'key_live_ozugiBzv6sFYSdQEuUSBdimbyqduX09m',
+      channel: 'google_ads',
+      feature: 'search_ads_lp',
+      campaign: forwarded.get('gad_campaignid') || '',
+      data: {
+        gclid: forwarded.get('gclid') || '',
+        gad_campaignid: forwarded.get('gad_campaignid') || '',
+        '$android_url': 'https://play.google.com/store/apps/details?id=com.agamatec.ond',
+        '$ios_url': 'https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427',
+        '$fallback_url': 'https://ondviajar.com.br/'
+      }
+    })
+  }).then(function(res){ return res.json(); }).then(function(data){
+    if (data && data.url) branchLinkUrl = data.url;
+  }).catch(function(){});
+
   document.addEventListener('click', function(event){
     var webLink = event.target.closest('a[href^="https://web.ondviajar.com.br"]');
     if (webLink) {
@@ -1245,11 +1266,14 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       return;
     }
     var storeLink = event.target.closest('a[href*="play.google.com"], a[href*="apps.apple.com"]');
-    if (storeLink && window.gtag) {
-      gtag('event', 'ad_store_redirect', {
-        store: storeLink.href.indexOf('play.google.com') !== -1 ? 'google_play' : 'app_store',
-        gad_campaignid: forwarded.get('gad_campaignid') || ''
-      });
+    if (storeLink) {
+      var store = storeLink.href.indexOf('play.google.com') !== -1 ? 'google_play' : 'app_store';
+      if (window.gtag) {
+        gtag('event', 'ad_store_redirect', { store: store, gad_campaignid: forwarded.get('gad_campaignid') || '' });
+      }
+      if (branchLinkUrl) {
+        storeLink.href = branchLinkUrl;
+      }
     }
   }, true);
 })();
