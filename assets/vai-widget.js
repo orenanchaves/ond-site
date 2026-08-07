@@ -172,6 +172,15 @@
     /* ---------- abrir / fechar ---------- */
     function open() { hideBubble(); positionPanel(); panel.classList.add('open'); orb.classList.add('hide'); setTimeout(function () { try { input.focus(); } catch (e) {} }, 250); }
     function close() { panel.classList.remove('open'); orb.classList.remove('hide'); }
+    function activate() {
+      if (B2B) { open(); return; }
+      hideBubble();
+      var a = document.createElement('a');
+      a.href = WEB; a.target = '_blank'; a.rel = 'noopener';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
     function positionPanel() {
       if (window.innerWidth <= 480) { panel.style.left = ''; panel.style.top = ''; panel.style.right = ''; panel.style.bottom = ''; return; }
       var r = orb.getBoundingClientRect(), pw = panel.offsetWidth || 360, ph = panel.offsetHeight || 520;
@@ -180,7 +189,7 @@
       if (top < 8) { top = Math.min(r.bottom + 12, window.innerHeight - ph - 8); if (top < 8) top = 8; }
       panel.style.left = left + 'px'; panel.style.top = top + 'px'; panel.style.right = 'auto'; panel.style.bottom = 'auto';
     }
-    orb.addEventListener('click', function (e) { if (suppressClick) { suppressClick = false; e.preventDefault(); return; } open(); });
+    orb.addEventListener('click', function (e) { if (suppressClick) { suppressClick = false; e.preventDefault(); return; } activate(); });
     document.getElementById('ondvaiClose').addEventListener('click', close);
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
@@ -197,7 +206,7 @@
       var top = Math.max(8, Math.min(r.top + r.height / 2 - bh / 2, window.innerHeight - bh - 8));
       b.style.left = left + 'px'; b.style.top = top + 'px';
       b.querySelector('.bx').addEventListener('click', function (e) { e.stopPropagation(); hideBubble(); });
-      b.addEventListener('click', open);
+      b.addEventListener('click', activate);
       bubbleTimer = setTimeout(hideBubble, 9000);
     }
     try { if (!sessionStorage.getItem('ondvai_greeted')) { sessionStorage.setItem('ondvai_greeted', '1'); setTimeout(showBubble, 2600); } } catch (e) { setTimeout(showBubble, 2600); }
