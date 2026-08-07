@@ -1,4 +1,4 @@
-/* OND — logo/ícone: FONTE ÚNICA (sprite injetado em runtime).
+/* OND, logo/ícone: FONTE ÚNICA (sprite injetado em runtime).
  * Trocar o ícone ou o wordmark = editar SÓ ESTE ARQUIVO. Propaga pra todas as
  * páginas (PT + en/es/fr/it) porque todas apenas referenciam <use href="#ond-logo">.
  *

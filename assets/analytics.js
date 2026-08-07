@@ -1,4 +1,4 @@
-/* OND — GA4 + consentimento (LGPD), componente único pro site todo.
+/* OND, GA4 + consentimento (LGPD), componente único pro site todo.
    - Consent Mode v2: analytics/ads NEGADOS por padrão; só liberam ao aceitar.
    - Carrega o GA4 só se a página ainda não carregou (a agencias já carrega no <head>).
    - Injeta um banner de cookies discreto; a escolha fica no localStorage e vale

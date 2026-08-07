@@ -1,17 +1,17 @@
-/* Globo 3D dos destinos OND — componente autônomo.
+/* Globo 3D dos destinos OND, componente autônomo.
    Injeta CSS + HTML e define openGlobe()/closeGlobe() globais.
    Incluir com: <script src="/assets/globe.js" defer></script>
    e chamar em qualquer botão: onclick="openGlobe(event)".
 
    Canvas 2D puro, sem libs. A terra é uma máscara de bits (Natural Earth 110m)
    varrida em anéis de latitude com densidade corrigida por cos(lat); a ordem dos
-   pontos aqui é a MESMA usada para gerar a máscara — não mexer sem regerar.
+   pontos aqui é a MESMA usada para gerar a máscara, não mexer sem regerar.
 
    Navegação em 2 níveis, espelhando o app: o globo abre mostrando um pin por PAÍS
    e, ao escolher um, troca para os destinos daquele país.
 
    Bandeiras são desenhadas em CSS (ver .gl-flag): emoji de bandeira NÃO renderiza
-   no Windows — vira "BR", "US". Por isso nada de emoji aqui.
+   no Windows, vira "BR", "US". Por isso nada de emoji aqui.
 
    Coordenadas geocodificadas no Nominatim/OSM, validadas por país. */
 (function(){
@@ -37,7 +37,7 @@
   /* destinos que já têm roteiro publicado no blog */
   var POST={ 'Lisboa':'/blog/roteiro-lisboa/', 'Buenos Aires':'/blog/roteiro-buenos-aires/' };
 
-  /* lojas do app (mesmos links do app-modal.js) — o seletor do globo é próprio
+  /* lojas do app (mesmos links do app-modal.js), o seletor do globo é próprio
      porque o popup global fica em z-index 901, atrás do globo (100001). */
   var PLAY='https://play.google.com/store/apps/details?id=com.agamatec.ond';
   var APPSTORE='https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427';
@@ -50,7 +50,7 @@
 
   /* ── CSS ── */
   var css=''
-  /* acima do orb do vAI (z-index 99999) — senão ele flutua sobre o globo e rouba o clique dos pins */
+  /* acima do orb do vAI (z-index 99999), senão ele flutua sobre o globo e rouba o clique dos pins */
   +'.gl-overlay{position:fixed;inset:0;background:rgba(0,0,0,.62);backdrop-filter:blur(5px);z-index:100000;opacity:0;pointer-events:none;transition:opacity .22s}'
   +'.gl-overlay.open{opacity:1;pointer-events:all}'
   +'.gl-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-52%) scale(.97);z-index:100001;'
@@ -328,7 +328,7 @@
       +'<div id="glWorld">'
         +'<span class="gl-kicker">Explorar</span>'
         +'<h3 class="gl-title">'+CITIES.length+' destinos em '+PAISES.length+' países</h3>'
-        +'<p class="gl-sub">Escolha um país no globo ou aqui — depois clique no destino.</p>'
+        +'<p class="gl-sub">Escolha um país no globo ou aqui, depois clique no destino.</p>'
         +'<div class="gl-countries" id="glCountries"></div>'
         +'<button class="gl-geo" id="glGeo">'
           +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'
@@ -355,7 +355,7 @@
       +'</div>'
     +'</aside>'
   +'</div>'
-  /* seletor "montar viagem" — fora do modal, z-index acima do globo */
+  /* seletor "montar viagem", fora do modal, z-index acima do globo */
   +'<div class="gl-tio" id="glTripOv"></div>'
   +'<div class="gl-tm" id="glTripModal" role="dialog" aria-modal="true" aria-label="Montar viagem com OND vAI">'
     +'<div class="gl-t-head"><div class="gl-t-title" id="glTripTitle"></div>'
@@ -709,7 +709,7 @@
   /* ── seletor "montar viagem" (iOS/Android/Web) ── */
   function openTrip(cidade,cc){
     elTripTitle.innerHTML=flag(cc)+'<span>Montar viagem para '+cidade+'</span>';
-    elTripSub.textContent='Abra o OND vAI e monte seu roteiro em '+cidade+' — escolha por onde começar.';
+    elTripSub.textContent='Abra o OND vAI e monte seu roteiro em '+cidade+', escolha por onde começar.';
     elTripOv.classList.add('on'); elTripModal.classList.add('on');
   }
   function closeTrip(){ elTripOv.classList.remove('on'); elTripModal.classList.remove('on') }
@@ -739,7 +739,7 @@
       });
     }
     if(!items.length){
-      elSugs.innerHTML='<div class="gl-sug-empty">Ainda não temos esse destino — mas o OND vAI monta pra você no app.</div>';
+      elSugs.innerHTML='<div class="gl-sug-empty">Ainda não temos esse destino, mas o OND vAI monta pra você no app.</div>';
       elSugs.classList.add('on'); return;
     }
     elSugs.innerHTML=items.slice(0,40).map(function(o,k){

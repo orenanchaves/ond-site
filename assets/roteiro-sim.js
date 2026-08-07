@@ -1,6 +1,6 @@
-/* roteiro-sim.js — simulação do OND vAI montando o roteiro do post (fiel ao app).
+/* roteiro-sim.js, simulação do OND vAI montando o roteiro do post (fiel ao app).
    Uso: definir window.RSIM = {...} e ter <div id="roteiro-sim"></div>.
-   Depende de app-modal.js (openApp) — já incluído nos posts. */
+   Depende de app-modal.js (openApp), já incluído nos posts. */
 (function(){
   var cfg = window.RSIM, mount = document.getElementById('roteiro-sim');
   if(!cfg || !mount || window.__rsimDone) return; window.__rsimDone = true;

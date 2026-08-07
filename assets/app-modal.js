@@ -1,4 +1,4 @@
-/* "Teste o app" — popup do OND com 3 caminhos: iOS, Android e Web.
+/* "Teste o app", popup do OND com 3 caminhos: iOS, Android e Web.
    Componente autônomo: injeta CSS + HTML e define openApp()/closeApp() globais.
    Incluir em cada página com: <script src="assets/app-modal.js" defer></script>
    e chamar em qualquer botão: onclick="openApp(event)". */
@@ -47,7 +47,7 @@
   + '<div class="appdl-modal" id="appModal" role="dialog" aria-modal="true" aria-label="Teste o app OND">'
   +   '<div class="appdl-head"><div class="appdl-title">Teste o OND grátis</div>'
   +     '<button class="appdl-close" onclick="closeApp()" aria-label="Fechar">✕</button></div>'
-  +   '<div class="appdl-sub">Escolha por onde começar — leva menos de 1 minuto.</div>'
+  +   '<div class="appdl-sub">Escolha por onde começar, leva menos de 1 minuto.</div>'
   +   '<div class="appdl-opts">'
   +     opt('ios', APPSTORE, IC_APPLE, 'App Store', 'iPhone e iPad')
   +     opt('android', PLAY, IC_ANDROID, 'Google Play', 'Celular e tablet Android')

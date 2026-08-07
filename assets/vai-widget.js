@@ -1,4 +1,4 @@
-/* OND vAI — orbe flutuante (arrastável) + assistente prévia.
+/* OND vAI, orbe flutuante (arrastável) + assistente prévia.
    Responde sobre o OND (o que é, o que faz, contato, preço) e simula um roteiro.
    Incluir com: <script src="assets/vai-widget.js" defer></script> */
 (function () {
@@ -19,26 +19,26 @@
   var IC_WEB = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 4 9 15 15 0 0 1-4 9 15 15 0 0 1-4-9 15 15 0 0 1 4-9z"/></svg>';
 
   var REPLIES = [
-    function (d) { return 'Boa pedida, ' + d + '! 🙌 Dá pra montar um roteiro dia a dia com os melhores pontos, as rotas na ordem certa e onde ficar — em minutos, não horas.'; },
+    function (d) { return 'Boa pedida, ' + d + '! 🙌 Dá pra montar um roteiro dia a dia com os melhores pontos, as rotas na ordem certa e onde ficar, em minutos, não horas.'; },
     function (d) { return d + ' é uma ótima escolha! ✨ No app eu monto o roteiro completo, comparo voos e hospedagem e ainda te acompanho durante a viagem.'; },
-    function (d) { return 'Adorei — ' + d + '! 🗺️ Te entrego um plano sob medida: o que fazer, quanto custa e como se locomover, tudo organizado pra você só curtir.'; }
+    function (d) { return 'Adorei, ' + d + '! 🗺️ Te entrego um plano sob medida: o que fazer, quanto custa e como se locomover, tudo organizado pra você só curtir.'; }
   ];
 
-  // respostas fixas (aceitam HTML) — B2C (viajante)
+  // respostas fixas (aceitam HTML), B2C (viajante)
   var ANSWERS_B2C = {
-    ola: 'Oi! 👋 Eu sou o <b>OND vAI</b>, seu planejador de viagem. Me pergunta o que quiser — <i>o que é o OND</i>, <i>como funciona</i>, <i>contato</i> — ou já me diz um destino que eu te dou um gostinho do roteiro. ✈️',
-    oque: 'O <b>OND</b> é a sua agência de viagem <b>conversacional com IA</b>. 🧭 Em vez de pesquisar em dezenas de sites, você conversa comigo e eu monto o <b>roteiro completo</b> — com voos, hospedagem e passeios — em minutos.',
-    faz: 'Eu <b>planejo sua viagem numa conversa</b>: monto o roteiro dia a dia, <b>indico e comparo voos, hotéis e passeios</b>, estimo os custos e ainda te acompanho durante a viagem. Tudo no app — iOS, Android e Web. 📲',
-    preco: 'Dá pra <b>começar de graça</b>! 🎉 Você monta e testa o seu roteiro sem pagar nada. Quer experimentar? Baixa o app aqui embaixo. 👇',
-    contato: 'Bora falar! 💬<br>📱 WhatsApp: <a href="' + WA + '" target="_blank" rel="noopener">(11) 91021-4133</a><br>✉️ E-mail: <a href="mailto:' + MAIL + '">' + MAIL + '</a><br><span style="opacity:.85">O OND é da <b>Agama Tec</b> — dos fundadores <b>Renan Rodrigues</b> e <b>Renan Chaves</b>.</span>'
+    ola: 'Oi! 👋 Eu sou o <b>OND vAI</b>, seu planejador de viagem. Me pergunta o que quiser, <i>o que é o OND</i>, <i>como funciona</i>, <i>contato</i>, ou já me diz um destino que eu te dou um gostinho do roteiro. ✈️',
+    oque: 'O <b>OND</b> é a sua <b>agência de viagem conversacional com IA</b>. 🧭 Numa conversa eu monto o <b>roteiro completo</b> e você ainda <b>reserva voos, hospedagem e passeios</b> comigo, sem pesquisar em dezenas de sites. E planejar é <b>de graça</b>.',
+    faz: 'Eu <b>planejo sua viagem numa conversa</b>, de graça: monto o roteiro dia a dia, <b>comparo e reservo voos, hotéis e passeios</b>, cuido dos custos e te acompanho durante a viagem. Tudo no app, iOS, Android e Web. 📲',
+    preco: 'Planejar com o OND é <b>de graça</b>! 🎉 Você monta o roteiro completo sem pagar nada, organizar não custa. A gente ganha quando você <b>fecha a viagem com a gente</b>: voos, hotéis e passeios você compra aqui. ✈️',
+    contato: 'Bora falar! 💬<br>📱 WhatsApp: <a href="' + WA + '" target="_blank" rel="noopener">(11) 91021-4133</a><br>✉️ E-mail: <a href="mailto:' + MAIL + '">' + MAIL + '</a><br><span style="opacity:.85">O OND é da <b>Agama Tec</b>, dos fundadores <b>Renan Rodrigues</b> e <b>Renan Chaves</b>.</span>'
   };
   // respostas B2B (agência)
   var ANSWERS_B2B = {
     ola: 'Oi! 👋 Sou o <b>OND vAI</b>. Aqui pra sua <b>agência</b>: me pergunte <i>o que é o OND</i>, <i>como funciona pra agências</i>, <i>o modelo</i>, ou já <i>agende uma reunião</i>. 🤝',
-    oque: 'O <b>OND</b> é a <b>plataforma de vendas</b> da sua agência. 🧭 Você monta uma <b>proposta de viagem</b> em minutos e envia um link com a <b>sua marca</b> onde o cliente personaliza tudo — troca passeios, adiciona seguro e upgrades — e fecha. Mais ticket, menos ida e volta no e-mail.',
+    oque: 'O <b>OND</b> é a <b>plataforma de vendas</b> da sua agência. 🧭 Você monta uma <b>proposta de viagem</b> em minutos e envia um link com a <b>sua marca</b> onde o cliente personaliza tudo, troca passeios, adiciona seguro e upgrades, e fecha. Mais ticket, menos ida e volta no e-mail.',
     faz: 'Você monta a proposta (roteiro, voos, hotéis e preços) em minutos com a IA; o cliente abre o link com a <b>sua marca</b> e <b>personaliza sozinho</b>, adicionando seguro e add-ons; o preço recalcula na hora e a venda fecha. Você acompanha tudo no painel de propostas. 📊',
     preco: 'O modelo é <b>fee fixo mensal + rev-share por venda</b>, e <b>você define o preço</b> que cobra do seu cliente. As condições a gente alinha numa <b>reunião de 30 min</b>, do tamanho da sua operação. 👇',
-    marca: 'Sim, é <b>white-label</b>! 🏷️ O portal e a proposta saem com o <b>seu logo, suas cores e seu domínio</b>. O cliente vê a sua agência, não a OND — a tecnologia trabalha nos bastidores.',
+    marca: 'Sim, é <b>white-label</b>! 🏷️ O portal e a proposta saem com o <b>seu logo, suas cores e seu domínio</b>. O cliente vê a sua agência, não a OND, a tecnologia trabalha nos bastidores.',
     contato: 'Bora conversar! 💬 O melhor caminho é uma <b>reunião de 30 min</b> 👇<br>📱 WhatsApp: <a href="' + WA + '" target="_blank" rel="noopener">(11) 91021-4133</a><br>✉️ E-mail: <a href="mailto:' + MAIL + '">' + MAIL + '</a><br><span style="opacity:.85">O OND é da <b>Agama Tec</b>, dos fundadores <b>Renan Rodrigues</b> e <b>Renan Chaves</b>.</span>'
   };
   var ANSWERS = B2B ? ANSWERS_B2B : ANSWERS_B2C;
@@ -113,11 +113,11 @@
 
     var GREET = B2B
       ? 'Oi! 👋 Sou o <b>OND vAI</b>. Aqui pra sua <b>agência</b>: pergunte o que quiser sobre o OND, ou já agende uma reunião. 🤝'
-      : 'Oi! 👋 Eu sou o <b>OND vAI</b>. Pergunte qualquer coisa — ou me diga um destino que eu já te dou um gostinho do roteiro. ✈️';
+      : 'Oi! 👋 Eu sou o <b>OND vAI</b>. Pergunte qualquer coisa, ou me diga um destino que eu já te dou um gostinho do roteiro. ✈️';
     var CHIPS = B2B
       ? '<button class="ondvai-chip" data-q="O que é o OND?">O que é o OND?</button><button class="ondvai-chip" data-q="Como funciona pra agências?">Como funciona pra agências?</button><button class="ondvai-chip" data-q="Qual o modelo?">Qual o modelo?</button><button class="ondvai-chip" data-q="Agendar reunião">Agendar reunião</button>'
       : '<button class="ondvai-chip" data-q="O que é o OND?">O que é o OND?</button><button class="ondvai-chip" data-q="O que você faz?">O que você faz?</button><button class="ondvai-chip" data-q="Quanto custa?">Quanto custa?</button><button class="ondvai-chip" data-q="Contato">Contato</button>';
-    var NOTE = B2B ? 'Prévia do OND vAI — fale com a gente pra ver tudo.' : 'Prévia do OND vAI — o roteiro completo é no app.';
+    var NOTE = B2B ? 'Prévia do OND vAI, fale com a gente pra ver tudo.' : 'Prévia do OND vAI, o roteiro completo é no app.';
     var PH = B2B ? 'Pergunte sobre o OND pra agências...' : 'Pergunte qualquer coisa pro OND vAI...';
 
     var root = document.createElement('div');
@@ -237,7 +237,7 @@
         t.remove();
         if (B2B) {
           if (intent === 'destino') {
-            add('ondvai-bot', 'Boa! Pra <b>' + esc(text) + '</b> você monta a proposta em segundos aqui na página — roteiro, preços e a sua marca. Quer ver ao vivo? 👇');
+            add('ondvai-bot', 'Boa! Pra <b>' + esc(text) + '</b> você monta a proposta em segundos aqui na página, roteiro, preços e a sua marca. Quer ver ao vivo? 👇');
             setTimeout(meetingCta, 400);
           } else {
             add('ondvai-bot', ANSWERS[intent] || ANSWERS.oque);

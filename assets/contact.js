@@ -1,4 +1,4 @@
-/* Contato — modal reutilizável do OND.
+/* Contato, modal reutilizável do OND.
    Injeta CSS + HTML e define openContact()/closeContact() globais.
    Se a página já tiver um #contactModal inline, não faz nada (usa o da página). */
 (function(){
