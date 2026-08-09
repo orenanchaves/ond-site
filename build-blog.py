@@ -32,6 +32,14 @@ COVER_OVERRIDE = {
         'url':'https://images.unsplash.com/photo-1585208798174-6cedd86e019a?w=1200&q=72&auto=format',
         'alt':'O icônico elétrico amarelo 28 numa rua histórica de Lisboa',
         'credit':'Unsplash'},
+    'dia-dos-pais-viagem': {
+        'url':'https://ond-emails.pages.dev/social-html/fotos/br.jpg',
+        'alt':'Cristo Redentor no Rio de Janeiro, ideia de viagem para o Dia dos Pais',
+        'credit':'OND'},
+    'baixa-temporada-agosto': {
+        'url':'https://ond-emails.pages.dev/social-html/fotos/paisagem-praia.jpg',
+        'alt':'Praia paradisíaca de Fernando de Noronha na baixa temporada',
+        'credit':'OND'},
 }
 
 # Alts em PT descritivo p/ as capas cujo coverAlt da API vinha em inglês/genérico.
