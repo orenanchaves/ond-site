@@ -121,66 +121,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ondviajar.com.br/assessoria.html</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ondviajar.com.br/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ondviajar.com.br/en/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://ondviajar.com.br/es/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/assessoria.html"/>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ondviajar.com.br/en/assessoria.html</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ondviajar.com.br/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ondviajar.com.br/en/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://ondviajar.com.br/es/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/assessoria.html"/>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ondviajar.com.br/es/assessoria.html</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ondviajar.com.br/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ondviajar.com.br/en/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://ondviajar.com.br/es/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/assessoria.html"/>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ondviajar.com.br/fr/assessoria.html</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ondviajar.com.br/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ondviajar.com.br/en/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://ondviajar.com.br/es/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/assessoria.html"/>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ondviajar.com.br/it/assessoria.html</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ondviajar.com.br/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ondviajar.com.br/en/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://ondviajar.com.br/es/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/assessoria.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/assessoria.html"/>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://ondviajar.com.br/blog.html</loc>
     <lastmod>2026-07-13</lastmod>
     <changefreq>weekly</changefreq>
