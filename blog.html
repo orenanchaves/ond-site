@@ -532,7 +532,7 @@ function subscribe(e){
   var form=e.target, btn=form.querySelector('button[type="submit"]');
   var ok=document.getElementById('newsOk'), err=document.getElementById('newsErr');
   ok.style.display='none'; err.style.display='none'; btn.disabled=true;
-  var payload={email:form.email.value, _gotcha:form._gotcha.value};
+  var payload={email:form.email.value, _gotcha:form._gotcha.value, page:location.pathname, ref:(document.referrer||'')};
   fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
     .then(function(r){
       if(r.ok){ok.style.display='block';form.reset();}
