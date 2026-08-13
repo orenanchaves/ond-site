@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0d0d14">
 <meta name="keywords" content="como montar um roteiro de viagem, planejar viagem passo a passo, roteiro de viagem">
 <meta name="description" content="Como montar um roteiro de viagem em 7 passos: destino, datas, orçamento, hospedagem e dia a dia. Guia prático mais um jeito de fazer tudo numa conversa com o OND vAI.">
-<title>Como montar um roteiro de viagem: passo a passo (2026) — Vai para onde?</title>
+<title>Como montar um roteiro de viagem: passo a passo (2026), Vai para onde?</title>
 <link rel="icon" type="image/svg+xml" href="/assets/ond-symbol.svg">
 <link rel="canonical" href="https://ondviajar.com.br/blog/como-montar-roteiro/">
 <!-- Open Graph -->
@@ -228,14 +228,25 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </section>
   <div class="art-cta">
     <h3>Pronto pra tirar do papel?</h3>
-    <p>Conte pro OND vAI pra onde quer ir e ele monta o roteiro completo — com voos, hotéis e passeios — em minutos.</p>
+    <p>Conte pro OND vAI pra onde quer ir e ele monta o roteiro completo, com voos, hotéis e passeios, em minutos.</p>
     <a href="https://web.ondviajar.com.br/" onclick="if(window.openApp){openApp(event)}" class="btn-primary" target="_blank" rel="noopener">Planejar minha viagem grátis →</a>
   </div>
   <div class="author-card">
     <img src="/assets/ondino.png" alt="Ondino, o personagem viajante do OND">
     <div><div class="au-name">Ondino 🤠</div>
-    <div class="au-bio">O viajante de chapéu do OND. Já perdeu voo, dormiu em aeroporto e aprendeu na marra — hoje usa o OND vAI pra planejar tudo em minutos e divide aqui os melhores destinos e dicas.</div></div>
+    <div class="au-bio">O viajante de chapéu do OND. Já perdeu voo, dormiu em aeroporto e aprendeu na marra, hoje usa o OND vAI pra planejar tudo em minutos e divide aqui os melhores destinos e dicas.</div></div>
   </div>
+  <div class="art-nl" style="margin-top:28px;padding:24px;border:1px solid var(--border);border-radius:16px;background:color-mix(in srgb,var(--purple) 6%,transparent);text-align:center">
+    <h3 style="margin:0 0 6px;font-size:1.15rem">Recebe o próximo no seu e-mail</h3>
+    <p style="margin:0 0 14px;color:var(--muted);font-size:.95rem">Uma vez por semana: um destino novo e uma dica boa. Sem spam.</p>
+    <form onsubmit="ondPostNl(event)" style="display:flex;gap:8px;max-width:430px;margin:0 auto;flex-wrap:wrap;justify-content:center">
+      <input type="email" name="email" required placeholder="seu@email.com" aria-label="Seu e-mail" style="flex:1;min-width:180px;padding:12px 16px;border-radius:50px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.95rem">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+      <button type="submit" style="padding:12px 22px;border-radius:50px;border:none;background:var(--purple);color:#fff;font-weight:700;cursor:pointer;font-family:inherit">Quero receber</button>
+    </form>
+    <div class="art-nl-msg" style="display:none;margin-top:10px;color:var(--green);font-weight:600">✓ Pronto! Em breve você recebe.</div>
+  </div>
+  <script>function ondPostNl(e){e.preventDefault();var f=e.target,b=f.querySelector("button"),m=f.parentNode.querySelector(".art-nl-msg");b.disabled=true;fetch("https://ond-firma.ond-jarvis.workers.dev/api/newsletter/subscribe",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:f.email.value,_gotcha:f._gotcha.value,page:location.pathname,ref:(document.referrer||"")})}).then(function(r){if(r.ok){f.style.display="none";m.style.display="block";}}).catch(function(){}).then(function(){b.disabled=false;});return false;}</script>
   <a href="/blog.html" class="back-blog">← Voltar para o blog</a>
 </article>
 

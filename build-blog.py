@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-build-blog.py — gera os posts do blog do OND a partir da API do OND Firma.
+build-blog.py, gera os posts do blog do OND a partir da API do OND Firma.
 
 - Puxa https://ond-firma.ond-jarvis.workers.dev/api/blog/posts
 - Para cada post: baixa a capa, gera /blog/<slug>/index.html (a partir do
@@ -166,7 +166,7 @@ _WEBP = {}
 
 def make_webp(jpg_path):
     """Gera <jpg>.webp redimensionado (máx 800px de largura) e guarda as dimensões.
-    Falha silenciosa se Pillow não estiver disponível — o JPG segue como fallback."""
+    Falha silenciosa se Pillow não estiver disponível, o JPG segue como fallback."""
     try:
         from PIL import Image
         im = Image.open(jpg_path).convert('RGB')
@@ -199,7 +199,7 @@ def build_head(head_open, p, cs, cover, cat):
     title, desc, kw = p['title'], p['metaDescription'], p.get('keywords','')
     canon = f'{SITE}/blog/{cs}/'
     ogimg = cover if cover.startswith('http') else SITE+cover
-    s = re.sub(r'<title>.*?</title>', lambda m: f'<title>{esc(title)} — Vai para onde?</title>', s, count=1, flags=re.S)
+    s = re.sub(r'<title>.*?</title>', lambda m: f'<title>{esc(title)}, Vai para onde?</title>', s, count=1, flags=re.S)
     s = rep(r'(<meta name="description" content=")[^"]*(">)', esc(desc), s)
     if 'name="keywords"' in s:
         s = rep(r'(<meta name="keywords" content=")[^"]*(">)', esc(kw), s)
@@ -249,11 +249,25 @@ def build_sim(cs):
     cfg = json.dumps(d, ensure_ascii=False)
     return ('\n  <section class="roteiro-sim-wrap">'
         '\n  <h2>Monte a sua ' + esc(d['dest']) + ' com o OND vAI</h2>'
-        '\n  <p class="rsim-sub">Veja o OND vAI transformar este roteiro num plano completo — dia a dia, voos, hospedagem e orçamento — e leve tudo no app.</p>'
+        '\n  <p class="rsim-sub">Veja o OND vAI transformar este roteiro num plano completo, dia a dia, voos, hospedagem e orçamento, e leve tudo no app.</p>'
         '\n  <div id="roteiro-sim"></div>'
         '\n  </section>'
         '\n  <script>window.RSIM = ' + cfg + ';</script>'
         '\n  <script src="/assets/roteiro-sim.js" defer></script>\n')
+
+POST_NL = (
+  '  <div class="art-nl" style="margin-top:28px;padding:24px;border:1px solid var(--border);border-radius:16px;background:color-mix(in srgb,var(--purple) 6%,transparent);text-align:center">\n'
+  '    <h3 style="margin:0 0 6px;font-size:1.15rem">Recebe o próximo no seu e-mail</h3>\n'
+  '    <p style="margin:0 0 14px;color:var(--muted);font-size:.95rem">Uma vez por semana: um destino novo e uma dica boa. Sem spam.</p>\n'
+  '    <form onsubmit="ondPostNl(event)" style="display:flex;gap:8px;max-width:430px;margin:0 auto;flex-wrap:wrap;justify-content:center">\n'
+  '      <input type="email" name="email" required placeholder="seu@email.com" aria-label="Seu e-mail" style="flex:1;min-width:180px;padding:12px 16px;border-radius:50px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.95rem">\n'
+  '      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">\n'
+  '      <button type="submit" style="padding:12px 22px;border-radius:50px;border:none;background:var(--purple);color:#fff;font-weight:700;cursor:pointer;font-family:inherit">Quero receber</button>\n'
+  '    </form>\n'
+  '    <div class="art-nl-msg" style="display:none;margin-top:10px;color:var(--green);font-weight:600">✓ Pronto! Em breve você recebe.</div>\n'
+  '  </div>\n'
+  '  <script>function ondPostNl(e){e.preventDefault();var f=e.target,b=f.querySelector("button"),m=f.parentNode.querySelector(".art-nl-msg");b.disabled=true;fetch("https://ond-firma.ond-jarvis.workers.dev/api/newsletter/subscribe",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:f.email.value,_gotcha:f._gotcha.value,page:location.pathname,ref:(document.referrer||"")})}).then(function(r){if(r.ok){f.style.display="none";m.style.display="block";}}).catch(function(){}).then(function(){b.disabled=false;});return false;}</script>\n'
+)
 
 def build_article(p, cs, cover, cat):
     tag  = CAT_LABEL.get(cat, cat)
@@ -267,6 +281,7 @@ def build_article(p, cs, cover, cat):
         items = '\n  '.join(f'<div class="faq-item"><h3>{esc(f["q"])}</h3><p>{esc(f["a"])}</p></div>' for f in faqs)
         faq_html = f'\n  <section class="faq">\n  <h2>Perguntas frequentes</h2>\n  {items}\n  </section>\n'
     prose = absolutize(p['html'])
+    prose = re.sub(r' [—–] ', ', ', prose)  # sem travessão (preferência do OND)
     # o html da API ja traz um FAQ proprio -> remove (usamos o nosso estilizado + schema)
     prose = re.sub(r'<h2[^>]*>Perguntas frequentes.*', '', prose, flags=re.S)
     sim_html = build_sim(cs)
@@ -289,14 +304,15 @@ def build_article(p, cs, cover, cat):
       f'  <div class="prose">\n{prose}\n  </div>\n{sim_html}{faq_html}'
       f'  <div class="art-cta">\n'
       f'    <h3>Pronto pra tirar do papel?</h3>\n'
-      f'    <p>Conte pro OND vAI pra onde quer ir e ele monta o roteiro completo — com voos, hotéis e passeios — em minutos.</p>\n'
+      f'    <p>Conte pro OND vAI pra onde quer ir e ele monta o roteiro completo, com voos, hotéis e passeios, em minutos.</p>\n'
       f'    <a href="https://web.ondviajar.com.br/" onclick="if(window.openApp){{openApp(event)}}" class="btn-primary" target="_blank" rel="noopener">Planejar minha viagem grátis →</a>\n'
       f'  </div>\n'
       f'  <div class="author-card">\n'
       f'    <img src="/assets/ondino.png" alt="Ondino, o personagem viajante do OND">\n'
       f'    <div><div class="au-name">Ondino 🤠</div>\n'
-      f'    <div class="au-bio">O viajante de chapéu do OND. Já perdeu voo, dormiu em aeroporto e aprendeu na marra — hoje usa o OND vAI pra planejar tudo em minutos e divide aqui os melhores destinos e dicas.</div></div>\n'
+      f'    <div class="au-bio">O viajante de chapéu do OND. Já perdeu voo, dormiu em aeroporto e aprendeu na marra, hoje usa o OND vAI pra planejar tudo em minutos e divide aqui os melhores destinos e dicas.</div></div>\n'
       f'  </div>\n'
+      f'{POST_NL}'
       f'  <a href="/blog.html" class="back-blog">← Voltar para o blog</a>\n'
       f'</article>')
 
