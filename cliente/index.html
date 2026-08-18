@@ -19,8 +19,9 @@
   --border:var(--ond-color-border);--blue:var(--ond-color-primary);--blue-light:var(--ond-color-primaryHover);
   --blue-dim:color-mix(in srgb, var(--ond-color-primary) 12%, transparent);
   --text:var(--ond-color-text);--muted:var(--ond-color-muted);--green:var(--ond-color-success);
-  /* marca E ai Destino (do logo): azul aço + laranja/salmão */
-  --ead-navy:#0e2033;--ead-panel:#12283f;--ead-blue:#6f8fb5;--ead-orange:#e0895f;--ead-card:#0c1c2e;
+  /* CSS do app OND (B2C, roxo) — do Design System */
+  --ond-bg:#0d0d14;--ond-surface:#16161f;--ond-purple:#7f11f4;--ond-deep:#290756;--ond-mid:#560fb2;
+  --ond-neon:#11f558;--ond-orange:#f59811;--ond-txt:#f0eeff;--ond-mut:#9b8fc0;--ond-line:#2a2440;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-base),'Onest',system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
@@ -43,14 +44,17 @@ a{color:var(--blue-light)}
 
 /* ── LAYOUT ── */
 .wrap{max-width:840px;margin:0 auto;padding:0 22px}
-.hero{padding:60px 0 30px;text-align:center;position:relative}
-.hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:640px;height:420px;max-width:100%;background:radial-gradient(circle,color-mix(in srgb,var(--blue) 14%,transparent),transparent 68%);pointer-events:none}
-.hero-logo{height:32px;width:auto;margin:0 auto 24px;display:block;position:relative}
+.hero{padding:60px 0 30px;text-align:left;position:relative}
+.hero::before{content:'';position:absolute;top:-40px;left:0;width:640px;height:420px;max-width:100%;background:radial-gradient(circle,color-mix(in srgb,var(--blue) 15%,transparent),transparent 66%);pointer-events:none}
+.hero-logo{height:66px;width:auto;margin:0 0 26px;display:block;position:relative}
 .eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);padding:6px 14px;border-radius:50px;margin-bottom:20px;position:relative}
 .hero h1{font-size:clamp(1.9rem,4.6vw,2.7rem);font-weight:800;letter-spacing:-.025em;line-height:1.12;margin-bottom:14px;position:relative;text-wrap:balance}
 .hero h1 em{font-style:normal;color:var(--blue-light)}
-.hero .sub{font-size:1.05rem;color:var(--muted);max-width:560px;margin:0 auto;position:relative}
-.sec{padding:28px 0;border-top:1px solid var(--border)}
+.hero .sub{font-size:1.15rem;color:var(--muted);max-width:600px;margin:0;position:relative}
+/* seções em tela cheia, feito slide adaptável */
+html{scroll-snap-type:y proximity}
+.hero,.sec{min-height:100vh;display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start}
+.sec{padding:34px 0;border-top:1px solid var(--border)}
 .sec-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);margin-bottom:10px}
 .sec h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:12px;text-wrap:balance}
 .sec p{color:var(--muted);font-size:1.02rem;margin-bottom:12px}
@@ -62,23 +66,17 @@ a{color:var(--blue-light)}
 .card p{font-size:.94rem;color:var(--muted);margin:0}
 .ic-mono{width:28px;height:28px;fill:var(--blue-light);display:block;margin-bottom:9px}
 .flow-node .ic-mono{margin:0 auto 8px}
-
-/* passos */
 .steps{display:flex;flex-direction:column;gap:12px;margin-top:6px}
 .step{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px}
 .step-n{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.95rem}
 .step b{display:block;font-size:1rem;margin-bottom:2px}
 .step span{color:var(--muted);font-size:.94rem}
-
-/* fluxo */
 .flow{display:flex;align-items:stretch;gap:8px;margin-top:12px;flex-wrap:wrap}
 .flow-node{flex:1;min-width:150px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 12px;text-align:center}
 .flow-node b{font-size:.92rem;display:block;margin-bottom:2px}
 .flow-node span{font-size:.8rem;color:var(--muted)}
 .flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--blue-light);font-size:1.4rem;font-weight:700}
 @media(max-width:640px){.flow-arrow{transform:rotate(90deg);width:100%;padding:2px 0}}
-
-/* proposta */
 .proposal{background:var(--surface);border:1px solid color-mix(in srgb,var(--blue) 34%,transparent);border-radius:20px;padding:28px;box-shadow:0 22px 54px rgba(0,0,0,.34)}
 .proposal h2{margin-bottom:4px}
 .proposal .psub{color:var(--muted);margin-bottom:18px;font-size:1rem}
@@ -88,8 +86,6 @@ a{color:var(--blue-light)}
 .proposal li b{color:var(--text)}
 .proposal .pmodel{background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 22%,transparent);border-radius:12px;padding:15px 17px;font-size:.98rem;color:var(--muted)}
 .proposal .pmodel b{color:var(--text)}
-
-/* CTA */
 .cta{text-align:center;padding:42px 0 26px}
 .cta h2{font-size:1.5rem;font-weight:800;margin-bottom:8px}
 .cta p{color:var(--muted);margin-bottom:20px}
@@ -99,53 +95,103 @@ a{color:var(--blue-light)}
 .btn-wa{background:transparent;border-color:var(--border);color:var(--text)}
 footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;border-top:1px solid var(--border);margin-top:10px}
 
-/* ══════ LOJA E AI DESTINO (simulação navegável) ══════ */
-.store-frame{max-width:390px;margin:18px auto 6px;background:var(--ead-navy);border:1px solid #1e3654;border-radius:26px;overflow:hidden;box-shadow:0 34px 74px rgba(0,0,0,.55)}
-.store{color:#eaf1fb;font-size:14px;min-height:520px;position:relative}
-.store-scroll{max-height:560px;overflow-y:auto}
-.store-scroll::-webkit-scrollbar{width:0}
-.st-top{display:flex;align-items:center;justify-content:space-between;padding:14px 14px 6px}
-.st-icbtn{width:38px;height:38px;border-radius:11px;background:#173250;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#cfe0f5}
-.st-icbtn svg{width:18px;height:18px;fill:currentColor}
-.st-actions{display:flex;gap:8px}
-.st-actions .wa{color:#eaf1fb}
-.st-head{text-align:center;padding:6px 20px 8px}
-.st-avatar{width:88px;height:88px;margin:0 auto 12px;display:block}
-.st-name{font-size:1.28rem;font-weight:800;margin-bottom:1px}
-.st-handle{color:#8fa8c6;font-size:.86rem;margin-bottom:12px}
-.st-bio{color:#c3d3e6;font-size:.9rem;max-width:300px;margin:0 auto 16px;line-height:1.5}
-.st-stats{display:flex;border-top:1px solid #1c3352;border-bottom:1px solid #1c3352;margin:0 16px 16px}
-.st-stat{flex:1;text-align:center;padding:12px 4px;border-right:1px solid #1c3352}
-.st-stat:last-child{border-right:none}
-.st-stat b{display:block;color:var(--ead-orange);font-size:1.05rem;font-weight:800}
-.st-stat span{color:#8fa8c6;font-size:.72rem}
-.st-wa{display:flex;align-items:center;justify-content:center;gap:9px;margin:0 16px 20px;padding:14px;border-radius:14px;background:var(--ead-orange);color:#1a0f08;font-weight:800;font-size:.95rem;text-decoration:none}
-.st-wa svg{width:20px;height:20px;fill:currentColor}
-.st-sec-t{padding:0 18px 10px;font-weight:800;font-size:.95rem;letter-spacing:.01em}
-.st-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px 20px}
-.dest{background:var(--ead-card);border:1px solid #1c3352;border-radius:14px;overflow:hidden;cursor:pointer;text-align:left;padding:0;font-family:inherit;transition:transform .12s,border-color .15s}
-.dest:hover{transform:translateY(-2px);border-color:var(--ead-orange)}
-.dest-cover{height:66px;background-size:cover;background-position:center;position:relative}
-.dest-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,28,46,.85),transparent 70%)}
-.dest-info{display:flex;align-items:center;gap:8px;padding:9px 11px}
-.dest-flag{font-size:1.15rem;line-height:1}
-.dest-info b{display:block;color:#eaf1fb;font-size:.9rem}
-.dest-info span{color:var(--ead-orange);font-size:.72rem;font-weight:700}
-/* detalhe do destino */
-.st-detail{display:none;padding:0 0 20px}
-.st-detail.on{display:block}
-.st-hero{height:150px;background-size:cover;background-position:center;position:relative;display:flex;align-items:flex-end;padding:14px 18px}
-.st-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--ead-navy),transparent 65%)}
-.st-hero h3{position:relative;font-size:1.4rem;font-weight:800;z-index:1}
-.st-detail-body{padding:16px 18px}
-.st-tagline{color:var(--ead-orange);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
-.st-detail-body>p{color:#c3d3e6;font-size:.92rem;margin-bottom:14px}
-.st-days{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
-.st-day{background:var(--ead-card);border:1px solid #1c3352;border-radius:11px;padding:11px 13px}
-.st-day b{color:#eaf1fb;font-size:.86rem}
-.st-day span{color:#8fa8c6;font-size:.8rem;display:block;margin-top:2px}
-.st-buy{display:block;text-align:center;background:var(--ead-orange);color:#1a0f08;font-weight:800;padding:13px;border-radius:13px;text-decoration:none;font-size:.92rem}
-.store-tag{text-align:center;font-size:.85rem;color:var(--muted);margin-top:14px}
+/* ══════ APP OND (simulação, CSS do Design System B2C) ══════ */
+.demo{display:flex;gap:26px;align-items:center;justify-content:center;flex-wrap:wrap;margin:18px 0 6px}
+.demo-legend{max-width:250px;font-size:.95rem;color:var(--muted)}
+.demo-legend h4{color:var(--text);font-size:1.05rem;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.demo-legend .dl-step{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start}
+.demo-legend .dl-dot{width:9px;height:9px;border-radius:50%;background:var(--ond-purple);margin-top:6px;flex-shrink:0;box-shadow:0 0 8px var(--ond-purple)}
+.demo-legend .dl-dot.on{background:var(--ond-neon);box-shadow:0 0 10px var(--ond-neon)}
+.demo-legend b{color:var(--text)}
+.phone{width:352px;max-width:100%;flex-shrink:0;background:#000;border:10px solid #23233a;border-radius:46px;overflow:hidden;box-shadow:0 44px 100px rgba(124,17,244,.3),0 22px 54px rgba(0,0,0,.6)}
+.app{height:684px;background:var(--ond-bg);color:var(--ond-txt);display:flex;flex-direction:column;font-size:15px;position:relative}
+.app-scroll{flex:1;overflow-y:auto}
+.app-scroll::-webkit-scrollbar{width:0}
+.ap-bar{display:flex;align-items:center;gap:10px;padding:16px 16px 12px;background:linear-gradient(180deg,var(--ond-deep),transparent)}
+.ap-star{width:26px;height:26px;flex-shrink:0}.ap-star path{fill:var(--ond-purple)}
+.ap-bar b{font-size:1rem;letter-spacing:.02em}
+.ap-back{background:rgba(255,255,255,.08);border:none;width:34px;height:34px;border-radius:10px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ap-back svg{width:18px;height:18px;fill:currentColor}
+.ap-search{margin:2px 16px 14px;background:#fff;border-radius:12px;padding:11px 14px;color:#9a9a9a;font-size:.86rem;display:flex;align-items:center;justify-content:space-between}
+.ap-search .st{width:16px;height:16px}.ap-search .st path{fill:var(--ond-purple)}
+.ap-h{padding:2px 16px 10px;font-weight:800;font-size:1rem}
+.ap-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px 18px}
+.dcard{border-radius:12px;overflow:hidden;cursor:pointer;background:var(--ond-deep);border:none;padding:0;text-align:left;font-family:inherit;transition:transform .12s}
+.dcard:active{transform:scale(.97)}
+.dcard .ph{height:88px;background-size:cover;background-position:center}
+.dcard .in{padding:9px 11px 11px}
+.dcard .in b{display:block;font-size:.95rem;color:#fff;letter-spacing:-.3px}
+.dcard .in span{font-size:.74rem;font-weight:700}
+/* roteiro */
+.ap-hero{height:150px;background-size:cover;background-position:center;position:relative;display:flex;align-items:flex-end;padding:14px 16px}
+.ap-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--ond-bg),transparent 60%)}
+.ap-hero h3{position:relative;font-size:1.5rem;font-weight:800;z-index:1}
+.ap-hero .tg{position:relative;z-index:1;font-size:.72rem;font-weight:700;color:var(--ond-neon);display:block;margin-bottom:2px}
+.ap-day{margin:10px 16px;background:var(--ond-surface);border:1px solid var(--ond-line);border-radius:12px;padding:12px 14px}
+.ap-day .dn{color:var(--ond-purple);font-weight:800;font-size:.76rem;text-transform:uppercase;letter-spacing:.04em}
+.ap-day b{display:block;font-size:.92rem;margin:3px 0 2px}
+.ap-day span{color:var(--ond-mut);font-size:.82rem}
+.ag-banner{margin:14px 16px;background:linear-gradient(135deg,var(--ond-mid),var(--ond-deep));border:1px solid var(--ond-purple);border-radius:14px;padding:15px;cursor:pointer}
+.ag-banner .agt{font-size:.72rem;color:#d9c9ff;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.ag-banner .agn{display:flex;align-items:center;gap:9px;margin-top:7px}
+.ag-banner .aglogo{width:38px;height:38px;flex-shrink:0}
+.ag-banner b{font-size:1rem;color:#fff}
+.ag-banner .agp{font-size:.78rem;color:#d9c9ff;margin-top:1px}
+.ag-banner .agcta{margin-top:11px;background:#fff;color:var(--ond-deep);text-align:center;font-weight:800;padding:9px;border-radius:10px;font-size:.85rem}
+/* pacote */
+.pk-head{display:flex;align-items:center;gap:11px;padding:14px 16px;background:var(--ond-surface);border-bottom:1px solid var(--ond-line)}
+.pk-head .lg{width:44px;height:44px;flex-shrink:0}
+.pk-head b{font-size:1rem;display:block}.pk-head span{font-size:.76rem;color:var(--ond-mut)}
+.pk-body{padding:16px}
+.pk-title{font-size:1.3rem;font-weight:800;margin-bottom:3px}
+.pk-sub{color:var(--ond-mut);font-size:.86rem;margin-bottom:14px}
+.pk-inc{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
+.pk-inc li{display:flex;gap:9px;align-items:center;font-size:.9rem;color:#e6ddff}
+.pk-inc li svg{width:18px;height:18px;fill:var(--ond-neon);flex-shrink:0}
+.pk-price{background:var(--ond-surface);border:1px solid var(--ond-line);border-radius:12px;padding:13px 15px;display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.pk-price span{color:var(--ond-mut);font-size:.8rem}.pk-price b{font-size:1.25rem;color:#fff}
+.ap-cta{display:block;width:calc(100% - 32px);margin:0 16px 16px;background:var(--ond-purple);color:#fff;border:none;text-align:center;font-weight:800;padding:14px;border-radius:13px;font-size:.95rem;cursor:pointer;font-family:inherit}
+/* checkout */
+.co-sum{margin:14px 16px;background:var(--ond-surface);border:1px solid var(--ond-line);border-radius:12px;padding:14px}
+.co-sum .r{display:flex;justify-content:space-between;font-size:.88rem;padding:5px 0;color:#d9d2f0}
+.co-sum .r.tot{border-top:1px solid var(--ond-line);margin-top:6px;padding-top:10px;font-weight:800;color:#fff;font-size:1.05rem}
+.co-pay{margin:0 16px 12px}
+.co-pay .pl{font-size:.76rem;color:var(--ond-mut);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.co-opt{display:flex;align-items:center;gap:10px;background:var(--ond-surface);border:1px solid var(--ond-line);border-radius:11px;padding:12px 14px;margin-bottom:8px;font-size:.9rem}
+.co-opt.sel{border-color:var(--ond-purple);background:color-mix(in srgb,var(--ond-purple) 14%,transparent)}
+.co-opt .rd{width:16px;height:16px;border-radius:50%;border:2px solid var(--ond-purple);flex-shrink:0}
+.co-opt.sel .rd{background:var(--ond-purple);box-shadow:inset 0 0 0 3px var(--ond-surface)}
+/* confirmação */
+.cf{padding:44px 22px;text-align:center}
+.cf-check{width:82px;height:82px;margin:0 auto 20px;border-radius:50%;background:color-mix(in srgb,var(--ond-neon) 18%,transparent);display:flex;align-items:center;justify-content:center}
+.cf-check svg{width:44px;height:44px;fill:var(--ond-neon)}
+.cf h3{font-size:1.4rem;font-weight:800;margin-bottom:8px}
+.cf p{color:var(--ond-mut);font-size:.92rem;margin-bottom:18px}
+.cf-note{background:color-mix(in srgb,var(--ond-neon) 12%,transparent);border:1px solid color-mix(in srgb,var(--ond-neon) 40%,transparent);border-radius:12px;padding:13px 15px;font-size:.86rem;color:#cdeede;margin:0 0 18px}
+.cf-note b{color:var(--ond-neon)}
+.demo-tag{text-align:center;font-size:.85rem;color:var(--muted);margin-top:16px}
+@media(max-width:720px){.demo{flex-direction:column}.demo-legend{max-width:340px;text-align:center}.demo-legend .dl-step{text-align:left}}
+/* ── POSSIBILIDADES ── */
+.poss-hi{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:720px){.poss-hi{grid-template-columns:1fr}}
+.poss{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px}
+.poss h3{font-size:1.12rem;font-weight:800;margin-bottom:6px}
+.poss>p{font-size:.94rem;color:var(--muted);margin:0}
+.browser{margin-top:16px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#0e1830}
+.browser-bar{background:#16264a;padding:8px 12px;display:flex;align-items:center;gap:9px}
+.browser-dots{display:flex;gap:5px}.browser-dots i{width:9px;height:9px;border-radius:50%;background:#3a4a6a;display:block}
+.browser-url{flex:1;background:#0b1424;border-radius:6px;padding:4px 11px;font-size:.72rem;color:#8fa8c6;text-align:center}
+.browser-body{height:158px;position:relative;background:linear-gradient(160deg,#123b57,#0b1c2e);padding:18px}
+.browser-body .bt{font-size:1rem;font-weight:800;color:#fff}.browser-body .bx{font-size:.74rem;color:#bcd0e6;margin-top:5px;max-width:180px}
+.vai-orb{position:absolute;right:14px;bottom:14px;width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 36% 28%,#b088ff,#7f11f4 55%,#5b21d6);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(124,17,244,.55)}
+.vai-orb svg{width:26px;height:26px;fill:#fff}
+.vai-bub{position:absolute;right:74px;bottom:22px;background:#fff;color:#1a1a2e;font-size:.74rem;font-weight:600;padding:9px 12px;border-radius:13px;max-width:158px;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.vai-bub::after{content:'';position:absolute;right:-6px;bottom:16px;border:6px solid transparent;border-left-color:#fff}
+.poss-mini-phone{margin:16px auto 0;width:150px;border:6px solid #23233a;border-radius:26px;overflow:hidden;background:var(--ond-bg)}
+.pmp-top{background:linear-gradient(180deg,var(--ond-deep),transparent);padding:11px 11px 8px;display:flex;align-items:center;gap:7px}
+.pmp-top svg{width:16px;height:16px}.pmp-top svg path{fill:var(--ond-purple)}.pmp-top b{font-size:.7rem;color:#fff}
+.pmp-cards{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:8px}
+.pmp-card{height:52px;border-radius:8px;background-size:cover;background-position:center}
 </style>
 </head>
 <body>
@@ -164,16 +210,16 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
   </div>
 </div>
 
-<!-- LOGO SPRITE (E ai Destino) -->
+<!-- SPRITES -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ond-star" viewBox="0 0 497.26 497.26"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></symbol>
   <symbol id="ead-logo" viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="94" fill="none" stroke="#dd8b63" stroke-width="6" stroke-linecap="round" stroke-dasharray="288 8"/>
-    <circle cx="100" cy="100" r="87" fill="#6f8fb5"/>
-    <path d="M77 66c0-9.4 7.6-17 17-17s17 7.6 17 17c0 12-17 27-17 27S77 78 77 66zm17 6a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" fill="#141414" transform="translate(-16,10)"/>
-    <path d="M77 66c0-9.4 7.6-17 17-17s17 7.6 17 17c0 12-17 27-17 27S77 78 77 66zm17 6a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" fill="#141414" transform="translate(28,10)"/>
-    <path d="M74 55c8-16 30-16 44-4" fill="none" stroke="#141414" stroke-width="6" stroke-linecap="round"/>
-    <path d="M118 51l3 12-13-3z" fill="#141414"/>
-    <text x="100" y="168" text-anchor="middle" font-family="'Onest',system-ui,sans-serif" font-weight="800" font-size="21" letter-spacing="1" fill="#141414">E AÍ DESTINO</text>
+    <circle cx="100" cy="100" r="94" fill="none" stroke="#dd8b63" stroke-width="9" stroke-linecap="round" stroke-dasharray="292 5"/>
+    <circle cx="100" cy="100" r="82" fill="#6f8fb5"/>
+    <path d="M60 62c16-17 46-17 66-3" fill="none" stroke="#141414" stroke-width="8" stroke-linecap="round"/>
+    <path d="M126 47l7 18-19-5z" fill="#141414"/>
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="#141414" transform="translate(45,60) scale(2.7)"/>
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="#141414" transform="translate(90,60) scale(2.7)"/>
   </symbol>
 </svg>
 
@@ -185,51 +231,67 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
       <svg class="hero-logo" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
       <span class="eyebrow" id="clientTag">Uma proposta para você</span>
       <h1>Sua agência com uma <em>loja dentro do OND</em>.</h1>
-      <p class="sub">Você veio buscar um canal novo. A gente te dá mais que lead: um ponto de venda com a sua marca, dentro de uma plataforma de viagens com IA e uma comunidade de viajantes já pesquisando destino.</p>
+      <p class="sub">Você veio buscar um canal novo. A gente te dá mais que lead: um ponto de venda com a sua marca, dentro do app que o viajante usa pra planejar, e onde ele compra o seu pacote sem sair dali.</p>
     </section>
 
     <section class="sec">
       <div class="sec-label">Relembrando rápido</div>
       <h2>Você já conhece o OND. Vamos direto ao ponto.</h2>
-      <p>Só pra alinhar: o <strong>OND</strong> é o app onde o viajante planeja a viagem inteira conversando com o <strong>OND vAI</strong>, de graça, o que traz um público qualificado e com intenção real de viajar. A proposta que a gente desenhou pra E ai Destino nasce daí: transformar esse público num canal seu.</p>
+      <p>Só pra alinhar: o <strong>OND</strong> é o app onde o viajante planeja a viagem inteira conversando com o <strong>OND vAI</strong>, de graça. A proposta pra E ai Destino nasce daí: colocar a sua loja no caminho de quem já está decidindo o destino.</p>
     </section>
 
     <section class="sec">
-      <div class="sec-label">A sua loja no OND</div>
-      <h2>É assim que a E ai Destino fica dentro do app.</h2>
-      <p>Sua marca, seus destinos, seu WhatsApp. O viajante navega, escolhe e fala com você, sem sair do OND. <strong>Clique nos destinos abaixo</strong> pra ver funcionando.</p>
+      <div class="sec-label">Veja funcionando · toque na tela</div>
+      <h2>Como o cliente compra o seu pacote dentro do app.</h2>
+      <p>Essa é a tela real do OND. Siga o fluxo: o viajante escolhe o destino, vê o roteiro do OND vAI, encontra a <strong>loja da E ai Destino</strong> e <strong>compra por dentro do app</strong>. O repasse cai na sua conta.</p>
 
-      <div class="store-frame">
-        <div class="store">
-          <!-- LISTA -->
-          <div class="store-scroll" id="storeList">
-            <div class="st-top">
-              <button class="st-icbtn" aria-label="Voltar"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></svg></button>
-              <div class="st-actions">
-                <button class="st-icbtn wa" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12 0C5.37 0 0 5.37 0 12c0 2.1.55 4.07 1.5 5.79L0 24l6.34-1.66A11.9 11.9 0 0 0 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg></button>
-                <button class="st-icbtn" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.35 2.68.93 3.35.63 4.14c-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.12-1.38 5.9 5.9 0 0 0 1.38-2.12c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.12A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></button>
-              </div>
-            </div>
-            <div class="st-head">
-              <svg class="st-avatar" viewBox="0 0 200 200"><use href="#ead-logo"/></svg>
-              <div class="st-name">E ai Destino</div>
-              <div class="st-handle">@eaidestino</div>
-              <p class="st-bio">Pacotes sob medida. Assessoria de visto, passaporte e cidadania europeia.</p>
-            </div>
-            <div class="st-stats">
-              <div class="st-stat"><b>1000+</b><span>pacotes</span></div>
-              <div class="st-stat"><b>4.9</b><span>avaliação</span></div>
-              <div class="st-stat"><b>40+</b><span>destinos</span></div>
-            </div>
-            <a class="st-wa" href="https://wa.me/5511967930315" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12 0C5.37 0 0 5.37 0 12c0 2.1.55 4.07 1.5 5.79L0 24l6.34-1.66A11.9 11.9 0 0 0 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg>Falar no WhatsApp</a>
-            <div class="st-sec-t">Destinos</div>
-            <div class="st-grid" id="destGrid"></div>
+      <div class="demo">
+        <div class="demo-legend">
+          <h4><svg style="width:20px;height:20px" viewBox="0 0 497.26 497.26"><use href="#ond-star"/></svg> O caminho da venda</h4>
+          <div class="dl-step" data-s="destinos"><span class="dl-dot"></span><span><b>1. Escolhe o destino</b><br>no app OND</span></div>
+          <div class="dl-step" data-s="roteiro"><span class="dl-dot"></span><span><b>2. Vê o roteiro</b><br>montado pelo OND vAI</span></div>
+          <div class="dl-step" data-s="pacote"><span class="dl-dot"></span><span><b>3. Acha a sua loja</b><br>o pacote da E ai Destino</span></div>
+          <div class="dl-step" data-s="checkout"><span class="dl-dot"></span><span><b>4. Compra no app</b><br>pagamento por dentro</span></div>
+          <div class="dl-step" data-s="ok"><span class="dl-dot"></span><span><b>5. Repasse pra você</b><br>na sua conta</span></div>
+        </div>
+        <div class="phone"><div class="app"><div class="app-scroll" id="app"></div></div></div>
+      </div>
+      <p class="demo-tag">Simulação com a loja da E ai Destino no app OND (dados de exemplo).</p>
+    </section>
+
+    <section class="sec">
+      <div class="sec-label">Possibilidades</div>
+      <h2>Não é só a loja no app. O OND vira o seu motor de venda.</h2>
+      <p>A mesma tecnologia, nos canais que fizerem sentido pra E ai Destino, sempre com a sua marca.</p>
+      <div class="poss-hi">
+        <div class="poss">
+          <svg class="ic-mono" viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+          <h3>Sua loja no app OND</h3>
+          <p>O que você viu acima: seus pacotes expostos pros viajantes, comprando por dentro do app.</p>
+          <div class="poss-mini-phone">
+            <div class="pmp-top"><svg viewBox="0 0 497.26 497.26"><use href="#ond-star"/></svg><b>E ai Destino</b></div>
+            <div class="pmp-cards"><div class="pmp-card" style="background-image:url(https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=300&q=60&auto=format)"></div><div class="pmp-card" style="background-image:url(https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=300&q=60&auto=format)"></div><div class="pmp-card" style="background-image:url(https://images.unsplash.com/photo-1585208798174-6cedd86e019a?w=300&q=60&auto=format)"></div><div class="pmp-card" style="background-image:url(https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=300&q=60&auto=format)"></div></div>
           </div>
-          <!-- DETALHE -->
-          <div class="store-scroll st-detail" id="storeDetail"></div>
+        </div>
+        <div class="poss">
+          <svg class="ic-mono" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+          <h3>O OND vAI no seu site</h3>
+          <p>Embuta o assistente de viagem no site da E ai Destino: o cliente conversa, monta o roteiro e vira venda sua, sem sair do seu domínio.</p>
+          <div class="browser">
+            <div class="browser-bar"><div class="browser-dots"><i></i><i></i><i></i></div><div class="browser-url">eaidestino.com.br</div></div>
+            <div class="browser-body">
+              <div class="bt">E ai Destino</div>
+              <div class="bx">Pacotes sob medida, com assessoria de visto e cidadania.</div>
+              <div class="vai-bub">Oi! Pra onde você quer viajar? ✈️</div>
+              <div class="vai-orb"><svg viewBox="0 0 497.26 497.26"><use href="#ond-star"/></svg></div>
+            </div>
+          </div>
         </div>
       </div>
-      <p class="store-tag">Simulação da loja da E ai Destino no OND (dados de exemplo).</p>
+      <div class="grid" style="margin-top:16px">
+        <div class="card"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M17 7h-4v2h4c1.65 0 3 1.35 3 3s-1.35 3-3 3h-4v2h4c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-6 8H7c-1.65 0-3-1.35-3-3s1.35-3 3-3h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-2zm-3-4h8v2H8z"/></svg><h3>Link e QR da sua loja</h3><p>Divulgue no Instagram, WhatsApp e material impresso, e cai direto na sua loja no OND.</p></div>
+        <div class="card"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67 0 1.38-1.12 2.5-2.5 2.5zm-5.5-10c.83 0 1.5-.67 1.5-1.5S7.33 9 6.5 9 5 9.67 5 10.5 5.67 12 6.5 12zm3-4c.83 0 1.5-.67 1.5-1.5S10.33 5 9.5 5 8 5.67 8 6.5 8.67 8 9.5 8zm5 0c.83 0 1.5-.67 1.5-1.5S15.33 5 14.5 5 13 5.67 13 6.5 13.67 8 14.5 8zm3 4c.83 0 1.5-.67 1.5-1.5S18.33 9 17.5 9 16 9.67 16 10.5s.67 1.5 1.5 1.5z"/></svg><h3>White-label completo</h3><p>Sua marca, suas cores, seu domínio. A tecnologia do OND trabalha por trás, invisível.</p></div>
+      </div>
     </section>
 
     <section class="sec">
@@ -240,17 +302,6 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
         <div class="card"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg><h3>Ponto de venda</h3><p>O cliente compra o seu pacote por dentro do app, na hora do interesse.</p></div>
         <div class="card"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58s1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41s-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg><h3>Sua marca na frente</h3><p>É a sua loja. O cliente vê a E ai Destino, não a OND.</p></div>
         <div class="card"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg><h3>Sua assessoria fecha</h3><p>Visto, cidadania e suporte humano seguem sendo o seu diferencial.</p></div>
-      </div>
-    </section>
-
-    <section class="sec">
-      <div class="sec-label">Como funciona</div>
-      <h2>Do pacote ao repasse, em 4 passos.</h2>
-      <div class="steps">
-        <div class="step"><div class="step-n">1</div><div><b>Sua loja, sua marca</b><span>Você cadastra seus pacotes e templates no OND com o seu logo e a sua capa.</span></div></div>
-        <div class="step"><div class="step-n">2</div><div><b>O viajante monta o roteiro</b><span>Conversando com o OND vAI, ele descobre e planeja o destino.</span></div></div>
-        <div class="step"><div class="step-n">3</div><div><b>Compra por dentro do app</b><span>Se o destino tem um pacote seu, ele fecha ali mesmo, no momento do interesse.</span></div></div>
-        <div class="step"><div class="step-n">4</div><div><b>O repasse cai na sua conta</b><span>A venda é sua. Sua marca e sua assessoria seguem na frente do cliente.</span></div></div>
       </div>
     </section>
 
@@ -298,7 +349,6 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
 <script src="/assets/ond-logo.js"></script>
 <script>
 (function(){
-  /* ── Gate por senha (material comercial p/ o parceiro; conteúdo interno mora no Firma) ── */
   var CLIENTS = { 'eaidestino': 'E ai Destino' };
   var gate=document.getElementById('gate'), content=document.getElementById('content'),
       form=document.getElementById('gateForm'), pass=document.getElementById('gatePass'),
@@ -307,7 +357,7 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
     gate.classList.add('hide'); content.hidden=false;
     if(name) tag.textContent='Uma proposta para a ' + name;
     try{ sessionStorage.setItem('ond_cli','1'); sessionStorage.setItem('ond_cli_n', name||''); }catch(e){}
-    window.scrollTo(0,0); renderStore();
+    window.scrollTo(0,0); go('destinos');
   }
   try{ if(sessionStorage.getItem('ond_cli')==='1'){ unlock(sessionStorage.getItem('ond_cli_n')); } }catch(e){}
   form.addEventListener('submit', function(e){
@@ -317,65 +367,94 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
     else{ err.textContent='Senha incorreta.'; pass.select(); }
   });
 
-  /* ── Loja E ai Destino (navegável) ── */
+  /* ── App OND: fluxo de compra (destinos → roteiro → pacote → checkout → ok) ── */
+  var app=document.getElementById('app');
   var WA='https://wa.me/5511967930315';
+  var STAR='<svg viewBox="0 0 497.26 497.26"><use href="#ond-star"/></svg>';
+  var COLORS=['#f59811','#11f558','#c9b6ff'];
   var IMG={
     japao:'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=70&auto=format',
     maldivas:'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600&q=70&auto=format',
-    chile:'https://images.unsplash.com/photo-1478827387698-1527781a4887?w=600&q=70&auto=format',
-    suica:'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=600&q=70&auto=format',
     portugal:'https://images.unsplash.com/photo-1585208798174-6cedd86e019a?w=600&q=70&auto=format',
-    espanha:'https://images.unsplash.com/photo-1509840841025-9088ba78a826?w=600&q=70&auto=format',
     italia:'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&q=70&auto=format',
-    noronha:'https://images.unsplash.com/photo-1518639192441-8fce0a366e2e?w=600&q=70&auto=format'
+    chile:'https://images.unsplash.com/photo-1478827387698-1527781a4887?w=600&q=70&auto=format',
+    espanha:'https://images.unsplash.com/photo-1509840841025-9088ba78a826?w=600&q=70&auto=format'
   };
-  var DESTS=[
-    {id:'japao',nome:'Japão',flag:'🇯🇵',tipo:'Internacional',img:IMG.japao,tag:'Sob medida · Ásia',
-      desc:'Tóquio, Kyoto e Monte Fuji, com o cuidado e a assessoria da E ai Destino.',
-      dias:['Dia 1-3 · Tóquio: Shibuya, Shinjuku e a cultura pop','Dia 4-6 · Kyoto: templos, gueixas e o bambuzal','Dia 7-8 · Hakone e Monte Fuji']},
-    {id:'maldivas',nome:'Maldivas',flag:'🇲🇻',tipo:'Internacional',img:IMG.maldivas,tag:'Lua de mel · Resort',
-      desc:'Bangalôs sobre a água, all-inclusive e traslado de hidroavião.',
-      dias:['Dia 1 · Chegada e traslado de hidroavião','Dia 2-6 · Resort, mergulho e spa','Dia 7 · Retorno']},
-    {id:'chile',nome:'Chile',flag:'🇨🇱',tipo:'Internacional',img:IMG.chile,tag:'Natureza · América do Sul',
-      desc:'Santiago, Atacama e Torres del Paine, do deserto à Patagônia.',
-      dias:['Dia 1-2 · Santiago e vinícolas','Dia 3-5 · Deserto do Atacama','Dia 6-8 · Patagônia e Torres del Paine']},
-    {id:'suica',nome:'Suíça',flag:'🇨🇭',tipo:'Internacional',img:IMG.suica,tag:'Alpes · Europa',
-      desc:'Zurique, Interlaken e o trem panorâmico pelos Alpes.',
-      dias:['Dia 1-2 · Zurique e Lucerna','Dia 3-5 · Interlaken e Jungfrau','Dia 6-7 · Genebra e Montreux']},
-    {id:'portugal',nome:'Portugal',flag:'🇵🇹',tipo:'Internacional',img:IMG.portugal,tag:'Clássico · Europa',
-      desc:'Lisboa, Porto e Douro, com apoio de visto e cidadania.',
-      dias:['Dia 1-3 · Lisboa e Sintra','Dia 4-5 · Porto e Douro','Dia 6-7 · Fátima e Coimbra']},
-    {id:'espanha',nome:'Espanha',flag:'🇪🇸',tipo:'Internacional',img:IMG.espanha,tag:'Cultura · Europa',
-      desc:'Madri, Barcelona e Andaluzia, arte, tapas e praia.',
-      dias:['Dia 1-3 · Madri e Toledo','Dia 4-6 · Barcelona e Gaudí','Dia 7-8 · Sevilha e Granada']},
-    {id:'italia',nome:'Itália',flag:'🇮🇹',tipo:'Internacional',img:IMG.italia,tag:'Bucket list · Europa',
-      desc:'Roma, Florença e Veneza, história, arte e gastronomia.',
-      dias:['Dia 1-3 · Roma e Vaticano','Dia 4-5 · Florença e Toscana','Dia 6-7 · Veneza']},
-    {id:'noronha',nome:'Fernando de Noronha',flag:'🇧🇷',tipo:'Nacional',img:IMG.noronha,tag:'Paraíso · Brasil',
-      desc:'O paraíso brasileiro, mergulho, praias e pôr do sol.',
-      dias:['Dia 1-2 · Baía do Sancho e mergulho','Dia 3-4 · Ilha Tour e praias','Dia 5 · Pôr do sol no Boldró']}
-  ];
-  var grid=document.getElementById('destGrid'), detail=document.getElementById('storeDetail'), list=document.getElementById('storeList');
-  function renderStore(){
-    if(!grid || grid.childElementCount) return;
-    DESTS.forEach(function(d){
-      var b=document.createElement('button'); b.className='dest'; b.type='button';
-      b.innerHTML='<div class="dest-cover" style="background-image:url('+d.img+')"></div><div class="dest-info"><span class="dest-flag">'+d.flag+'</span><div><b>'+d.nome+'</b><span>'+d.tipo+'</span></div></div>';
-      b.addEventListener('click', function(){ openDest(d); });
-      grid.appendChild(b);
-    });
-  }
-  function openDest(d){
-    var msg=encodeURIComponent('Olá, E ai Destino! Vi o pacote de '+d.nome+' no OND e quero saber mais.');
-    detail.innerHTML=
-      '<div class="st-top"><button class="st-icbtn" id="stBack" aria-label="Voltar"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></svg></button></div>'+
-      '<div class="st-hero" style="background-image:url('+d.img+')"><h3>'+d.flag+' '+d.nome+'</h3></div>'+
-      '<div class="st-detail-body"><div class="st-tagline">'+d.tag+'</div><p>'+d.desc+'</p><div class="st-days">'+
-      d.dias.map(function(x){var p=x.split(' · ');return '<div class="st-day"><b>'+p[0]+'</b><span>'+(p[1]||'')+'</span></div>';}).join('')+
-      '</div><a class="st-buy" href="'+WA+'?text='+msg+'" target="_blank" rel="noopener">Comprar com a E ai Destino</a></div>';
-    list.style.display='none'; detail.classList.add('on');
-    detail.querySelector('#stBack').addEventListener('click', function(){ detail.classList.remove('on'); list.style.display=''; });
-    detail.scrollTop=0;
+  var DESTS={
+    japao:{nome:'Japão',pais:'Ásia',flag:'🇯🇵',img:IMG.japao,preco:'R$ 18.900',dias:12,
+      rot:[['Dia 1-3','Tóquio','Shibuya, Shinjuku e a cultura pop'],['Dia 4-6','Kyoto','Templos, gueixas e o bambuzal'],['Dia 7-8','Fuji','Hakone e o Monte Fuji']],
+      inc:['Voos de ida e volta','12 noites de hotel','Japan Rail Pass','Passeios guiados']},
+    maldivas:{nome:'Maldivas',pais:'Resort',flag:'🇲🇻',img:IMG.maldivas,preco:'R$ 24.500',dias:7,
+      rot:[['Dia 1','Chegada','Traslado de hidroavião ao resort'],['Dia 2-6','Resort','Bangalô sobre a água, mergulho e spa'],['Dia 7','Retorno','Traslado e voo de volta']],
+      inc:['Voos de ida e volta','7 noites all-inclusive','Traslado de hidroavião','Mergulho e spa']},
+    portugal:{nome:'Portugal',pais:'Europa',flag:'🇵🇹',img:IMG.portugal,preco:'R$ 9.800',dias:8,
+      rot:[['Dia 1-3','Lisboa','Alfama, Belém e Sintra'],['Dia 4-5','Porto','Ribeira e vale do Douro'],['Dia 6-7','Centro','Fátima e Coimbra']],
+      inc:['Voos de ida e volta','7 noites de hotel','Carro alugado','Assessoria de visto/cidadania']},
+    italia:{nome:'Itália',pais:'Europa',flag:'🇮🇹',img:IMG.italia,preco:'R$ 12.400',dias:9,
+      rot:[['Dia 1-3','Roma','Coliseu, Vaticano e Fontana di Trevi'],['Dia 4-5','Toscana','Florença e vinícolas'],['Dia 6-7','Veneza','Canais e Murano']],
+      inc:['Voos de ida e volta','8 noites de hotel','Trem entre cidades','Passeios guiados']},
+    chile:{nome:'Chile',pais:'Am. do Sul',flag:'🇨🇱',img:IMG.chile,preco:'R$ 8.200',dias:8,
+      rot:[['Dia 1-2','Santiago','Cidade e vinícolas'],['Dia 3-5','Atacama','Deserto e geysers'],['Dia 6-8','Patagônia','Torres del Paine']],
+      inc:['Voos de ida e volta','7 noites de hotel','Traslados internos','Excursões']},
+    espanha:{nome:'Espanha',pais:'Europa',flag:'🇪🇸',img:IMG.espanha,preco:'R$ 10.600',dias:8,
+      rot:[['Dia 1-3','Madri','Museu do Prado e Toledo'],['Dia 4-6','Barcelona','Sagrada Família e Gaudí'],['Dia 7-8','Andaluzia','Sevilha e Granada']],
+      inc:['Voos de ida e volta','7 noites de hotel','Trem AVE','Passeios']}
+  };
+  var ORDER=['japao','maldivas','portugal','italia','chile','espanha'];
+  var payMethod='pix';
+
+  function setLegend(s){ document.querySelectorAll('.demo-legend .dl-step').forEach(function(el){ el.querySelector('.dl-dot').classList.toggle('on', el.getAttribute('data-s')===s); }); }
+  function barTitle(t){ return '<div class="ap-bar">'+STAR+'<b>'+t+'</b></div>'; }
+  function backBar(fn,t){ setTimeout(function(){var b=document.getElementById('apBack'); if(b)b.onclick=fn;},0); return '<div class="ap-bar"><button class="ap-back" id="apBack" aria-label="Voltar"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></svg></button><b>'+t+'</b></div>'; }
+
+  function go(screen, id){
+    setLegend(screen==='ok'?'ok':screen);
+    if(screen==='destinos'){
+      var cards=ORDER.map(function(k,i){var d=DESTS[k];
+        return '<button class="dcard" data-k="'+k+'"><div class="ph" style="background-image:url('+d.img+')"></div><div class="in"><b>'+d.nome+'</b><span style="color:'+COLORS[i%3]+'">'+d.pais+'</span></div></button>';}).join('');
+      app.innerHTML=barTitle('OND vAI')+'<div class="ap-search">Vai pra ond? '+STAR.replace('<svg','<svg class="st"')+'</div><div class="ap-h">Pra onde você quer ir?</div><div class="ap-grid">'+cards+'</div>';
+      app.querySelectorAll('.dcard').forEach(function(b){ b.onclick=function(){ go('roteiro', b.getAttribute('data-k')); }; });
+    }
+    else if(screen==='roteiro'){
+      var d=DESTS[id];
+      var days=d.rot.map(function(r){return '<div class="ap-day"><div class="dn">'+r[0]+'</div><b>'+r[1]+'</b><span>'+r[2]+'</span></div>';}).join('');
+      app.innerHTML=backBar(function(){go('destinos');},'Roteiro')+
+        '<div class="ap-hero" style="background-image:url('+d.img+')"><div><span class="tg">OND vAI · '+d.dias+' dias</span><h3>'+d.flag+' '+d.nome+'</h3></div></div>'+days+
+        '<div class="ag-banner" id="agB"><div class="agt">✦ Uma agência atende esse destino</div><div class="agn"><svg class="aglogo" viewBox="0 0 200 200"><use href="#ead-logo"/></svg><div><b>E ai Destino</b><div class="agp">4.9 · pacote sob medida pra '+d.nome+'</div></div></div><div class="agcta">Ver pacote da E ai Destino →</div></div>';
+      app.querySelector('#agB').onclick=function(){ go('pacote', id); };
+      app.scrollTop=0;
+    }
+    else if(screen==='pacote'){
+      var d=DESTS[id];
+      var inc=d.inc.map(function(x){return '<li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>'+x+'</li>';}).join('');
+      app.innerHTML=backBar(function(){go('roteiro',id);},'Pacote')+
+        '<div class="pk-head"><svg class="lg" viewBox="0 0 200 200"><use href="#ead-logo"/></svg><div><b>E ai Destino</b><span>Loja oficial no OND · 4.9</span></div></div>'+
+        '<div class="pk-body"><div class="pk-title">'+d.flag+' '+d.nome+' · '+d.dias+' dias</div><div class="pk-sub">Pacote sob medida pela E ai Destino</div><ul class="pk-inc">'+inc+'</ul>'+
+        '<div class="pk-price"><span>a partir de</span><b>'+d.preco+'</b></div></div>'+
+        '<button class="ap-cta" id="pkBuy">Comprar no app →</button>';
+      app.querySelector('#pkBuy').onclick=function(){ go('checkout', id); };
+      app.scrollTop=0;
+    }
+    else if(screen==='checkout'){
+      var d=DESTS[id];
+      function opt(m,ic,t){return '<div class="co-opt '+(payMethod===m?'sel':'')+'" data-m="'+m+'"><span class="rd"></span>'+ic+' '+t+'</div>';}
+      app.innerHTML=backBar(function(){go('pacote',id);},'Pagamento')+
+        '<div class="co-sum"><div class="r"><span>'+d.nome+' · '+d.dias+' dias</span><span>'+d.preco+'</span></div><div class="r"><span>Agência</span><span>E ai Destino</span></div><div class="r tot"><span>Total</span><span>'+d.preco+'</span></div></div>'+
+        '<div class="co-pay"><div class="pl">Forma de pagamento</div>'+opt('pix','⚡','Pix (à vista)')+opt('cartao','💳','Cartão em até 12x')+'</div>'+
+        '<button class="ap-cta" id="coPay">Pagar '+d.preco+'</button>';
+      app.querySelectorAll('.co-opt').forEach(function(o){ o.onclick=function(){ payMethod=o.getAttribute('data-m'); go('checkout',id); }; });
+      app.querySelector('#coPay').onclick=function(){ go('ok', id); };
+      app.scrollTop=0;
+    }
+    else if(screen==='ok'){
+      var d=DESTS[id];
+      app.innerHTML='<div class="cf"><div class="cf-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>'+
+        '<h3>Compra confirmada!</h3><p>Sua viagem pra '+d.flag+' '+d.nome+' com a E ai Destino está garantida. Ela já vai te chamar pra alinhar os detalhes.</p>'+
+        '<div class="cf-note">💰 <b>O repasse cai na conta da E ai Destino.</b> A venda é dela; o OND fica com a mensalidade + o spread.</div>'+
+        '<button class="ap-cta" id="okHome" style="width:100%;margin:0">Voltar ao início</button></div>';
+      app.querySelector('#okHome').onclick=function(){ go('destinos'); };
+      app.scrollTop=0;
+    }
   }
 })();
 </script>
