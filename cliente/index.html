@@ -43,7 +43,7 @@ a{color:var(--blue-light)}
 .gate-err{color:#f09595;font-size:.85rem;min-height:18px;font-weight:600}
 
 /* ── LAYOUT ── */
-.wrap{max-width:840px;margin:0 auto;padding:0 22px}
+.wrap{max-width:1080px;margin:0;padding:0 clamp(24px,6vw,84px)}
 .hero{padding:60px 0 30px;text-align:left;position:relative}
 .hero::before{content:'';position:absolute;top:-40px;left:0;width:640px;height:420px;max-width:100%;background:radial-gradient(circle,color-mix(in srgb,var(--blue) 15%,transparent),transparent 66%);pointer-events:none}
 .hero-logo{height:clamp(90px,12vw,128px);width:auto;margin:0 0 28px;display:block;position:relative}
@@ -59,7 +59,7 @@ a{color:var(--blue-light)}
 html{scroll-snap-type:y proximity}
 .hero,.sec{min-height:100vh;display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start}
 .sec{padding:34px 0;border-top:1px solid var(--border)}
-.recap-viz{margin-top:24px;max-width:470px;display:flex;flex-direction:column;gap:10px}
+.recap-viz{margin:24px auto 0;max-width:470px;display:flex;flex-direction:column;gap:10px}
 .rv-msg{padding:12px 15px;border-radius:15px;font-size:.98rem;max-width:88%;line-height:1.5}
 .rv-msg.bot{align-self:flex-start;background:var(--card);border:1px solid var(--border);border-bottom-left-radius:4px;display:flex;gap:9px;align-items:flex-start}
 .rv-msg.bot svg{width:20px;height:20px;flex-shrink:0;margin-top:2px}.rv-msg.bot svg path{fill:#7f11f4}
@@ -124,7 +124,9 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
 .demo{display:flex;gap:26px;align-items:center;justify-content:center;flex-wrap:wrap;margin:18px 0 6px}
 .demo-legend{max-width:250px;font-size:.95rem;color:var(--muted)}
 .demo-legend h4{color:var(--text);font-size:1.05rem;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.demo-legend .dl-step{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start}
+.demo-legend .dl-step{display:flex;gap:10px;margin-bottom:6px;align-items:flex-start;cursor:pointer;padding:8px 10px;margin-left:-10px;border-radius:11px;transition:background .15s}
+.demo-legend .dl-step:hover{background:var(--blue-dim)}
+.demo-legend .dl-step.cur{background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);padding:7px 9px}
 .demo-legend .dl-dot{width:9px;height:9px;border-radius:50%;background:var(--ond-purple);margin-top:6px;flex-shrink:0;box-shadow:0 0 8px var(--ond-purple)}
 .demo-legend .dl-dot.on{background:var(--ond-neon);box-shadow:0 0 10px var(--ond-neon)}
 .demo-legend b{color:var(--text)}
@@ -133,12 +135,12 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
 .app-scroll{flex:1;overflow-y:auto}
 .app-scroll::-webkit-scrollbar{width:0}
 .ap-bar{display:flex;align-items:center;gap:10px;padding:16px 16px 12px;background:linear-gradient(180deg,var(--ond-deep),transparent)}
-.ap-star{width:26px;height:26px;flex-shrink:0}.ap-star path{fill:var(--ond-purple)}
+.ap-star{width:26px;height:26px;flex-shrink:0;fill:var(--ond-purple)}
 .ap-bar b{font-size:1rem;letter-spacing:.02em}
 .ap-back{background:rgba(255,255,255,.08);border:none;width:34px;height:34px;border-radius:10px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .ap-back svg{width:18px;height:18px;fill:currentColor}
 .ap-search{margin:2px 16px 14px;background:#fff;border-radius:12px;padding:11px 14px;color:#9a9a9a;font-size:.86rem;display:flex;align-items:center;justify-content:space-between}
-.ap-search .st{width:16px;height:16px}.ap-search .st path{fill:var(--ond-purple)}
+.ap-search .st{width:16px;height:16px;fill:var(--ond-purple)}
 .ap-h{padding:2px 16px 10px;font-weight:800;font-size:1rem}
 .ap-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px 18px}
 .dcard{border-radius:12px;overflow:hidden;cursor:pointer;background:var(--ond-deep);border:none;padding:0;text-align:left;font-family:inherit;transition:transform .12s}
@@ -217,9 +219,24 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
 .vai-bub::after{content:'';position:absolute;right:-6px;bottom:16px;border:6px solid transparent;border-left-color:#fff}
 .poss-mini-phone{margin:16px auto 0;width:150px;border:6px solid #23233a;border-radius:26px;overflow:hidden;background:var(--ond-bg)}
 .pmp-top{background:linear-gradient(180deg,var(--ond-deep),transparent);padding:11px 11px 8px;display:flex;align-items:center;gap:7px}
-.pmp-top svg{width:16px;height:16px}.pmp-top svg path{fill:var(--ond-purple)}.pmp-top b{font-size:.7rem;color:#fff}
+.pmp-top svg{width:16px;height:16px;fill:var(--ond-purple)}.pmp-top b{font-size:.7rem;color:#fff}
 .pmp-cards{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:8px}
 .pmp-card{height:52px;border-radius:8px;background-size:cover;background-position:center}
+/* ── mobile ── */
+@media(max-width:640px){
+  .hero,.sec{min-height:auto;padding:40px 0}
+  .hero{padding-top:48px}
+  .hero-logo{margin-bottom:18px}
+  .sec h2{font-size:1.32rem}
+  .phone{width:min(340px,90vw);border-width:8px}
+  .app{height:76vh;min-height:540px;font-size:14px}
+  .grid,.poss-hi{grid-template-columns:1fr}
+  .demo{gap:18px}
+  .proposal,.poss{padding:18px}
+  .price{padding:16px}
+  .price-now{font-size:2rem}
+  .month{padding:8px 3px}.month b{font-size:.72rem}.month span{font-size:.7rem}
+}
 </style>
 </head>
 <body>
@@ -285,7 +302,7 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
 
       <div class="demo">
         <div class="demo-legend">
-          <h4><svg style="width:20px;height:20px" viewBox="0 0 497.26 497.26"><use href="#ond-star"/></svg> O caminho da venda</h4>
+          <h4><svg style="width:20px;height:20px;fill:#7f11f4" viewBox="0 0 497.26 497.26"><use href="#ond-star"/></svg> O caminho da venda</h4>
           <div class="dl-step" data-s="destinos"><span class="dl-dot"></span><span><b>1. Escolhe o destino</b><br>no app OND</span></div>
           <div class="dl-step" data-s="roteiro"><span class="dl-dot"></span><span><b>2. Vê o roteiro</b><br>montado pelo OND vAI</span></div>
           <div class="dl-step" data-s="pacote"><span class="dl-dot"></span><span><b>3. Acha a sua loja</b><br>o pacote da E ai Destino</span></div>
@@ -347,13 +364,14 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
       <div class="sec-label">O modelo</div>
       <h2>Simples, e alinhado ao seu resultado.</h2>
       <div class="flow">
-        <div class="flow-node"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M12 10.9c-.61 0-1.1.49-1.1 1.1s.49 1.1 1.1 1.1 1.1-.49 1.1-1.1-.49-1.1-1.1-1.1zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm2.19 12.19L6 18l3.81-8.19L18 6l-3.81 8.19z"/></svg><b>Viajante</b><span>compra seu pacote no app</span></div>
+        <div class="flow-node"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg><b>Você cadastra</b><span>suas viagens pra distribuir no app</span></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg><b>Sua loja no OND</b><span>marca + checkout</span></div>
+        <div class="flow-node"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg><b>Cliente compra no app</b><span>o valor entra na OND</span></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-node"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg><b>Repasse</b><span>cai na sua conta</span></div>
+        <div class="flow-node"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg><b>Split de pagamento</b><span>o valor pré-acordado cai na sua conta</span></div>
       </div>
-      <p style="margin-top:14px"><strong>Uma mensalidade simples</strong> pra estar no app, e um <strong>spread só quando vende</strong>. Sem venda, sem custo variável. Os números a gente alinha na conversa.</p>
+      <p style="margin-top:16px">Você define o <strong>valor que quer receber</strong> por viagem. O OND adiciona um <strong>spread de 10% a 20%</strong> sobre o valor final, que é a margem da plataforma, e <strong>não muda o seu faturamento</strong>: você recebe exatamente o combinado. Via <strong>split de pagamento</strong>, o valor entra na OND e o seu montante pré-acordado vai direto pra sua conta.</p>
+      <p><strong>Além disso, uma mensalidade simples</strong> pra manter a sua loja ativa no app.</p>
     </section>
 
     <section class="sec">
@@ -452,13 +470,14 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
       inc:['Voos de ida e volta','7 noites de hotel','Trem AVE','Passeios']}
   };
   var ORDER=['japao','maldivas','portugal','italia','chile','espanha'];
-  var payMethod='pix';
+  var payMethod='pix', cur='japao';
 
-  function setLegend(s){ document.querySelectorAll('.demo-legend .dl-step').forEach(function(el){ el.querySelector('.dl-dot').classList.toggle('on', el.getAttribute('data-s')===s); }); }
-  function barTitle(t){ return '<div class="ap-bar">'+STAR+'<b>'+t+'</b></div>'; }
+  function setLegend(s){ document.querySelectorAll('.demo-legend .dl-step').forEach(function(el){ var on=el.getAttribute('data-s')===s; el.querySelector('.dl-dot').classList.toggle('on', on); el.classList.toggle('cur', on); }); }
+  function barTitle(t){ return '<div class="ap-bar">'+STAR.replace('<svg','<svg class="ap-star"')+'<b>'+t+'</b></div>'; }
   function backBar(fn,t){ setTimeout(function(){var b=document.getElementById('apBack'); if(b)b.onclick=fn;},0); return '<div class="ap-bar"><button class="ap-back" id="apBack" aria-label="Voltar"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></svg></button><b>'+t+'</b></div>'; }
 
   function go(screen, id){
+    if(id) cur=id;
     setLegend(screen==='ok'?'ok':screen);
     if(screen==='destinos'){
       var cards=ORDER.map(function(k,i){var d=DESTS[k];
@@ -507,6 +526,8 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
       app.scrollTop=0;
     }
   }
+
+  document.querySelectorAll('.demo-legend .dl-step').forEach(function(el){ el.addEventListener('click', function(){ go(el.getAttribute('data-s'), cur); }); });
 
   try{ if(sessionStorage.getItem('ond_cli')==='1'){ unlock(sessionStorage.getItem('ond_cli_n')); } }catch(e){}
 })();
