@@ -51,6 +51,10 @@ a{color:var(--blue-light)}
 .hero h1{font-size:clamp(1.9rem,4.6vw,2.7rem);font-weight:800;letter-spacing:-.025em;line-height:1.12;margin-bottom:14px;position:relative;text-wrap:balance}
 .hero h1 em{font-style:normal;color:var(--blue-light)}
 .hero .sub{font-size:1.15rem;color:var(--muted);max-width:600px;margin:0;position:relative}
+.hero-inner{display:flex;gap:44px;align-items:center;position:relative;width:100%}
+.hero-text{flex:1;min-width:0}
+.hero-ill{width:36%;max-width:300px;flex-shrink:0;filter:drop-shadow(0 0 36px color-mix(in srgb,var(--blue) 26%,transparent))}
+@media(max-width:760px){.hero-inner{flex-direction:column-reverse;gap:26px}.hero-ill{width:58%;max-width:220px;align-self:center}}
 /* seções em tela cheia, feito slide adaptável */
 html{scroll-snap-type:y proximity}
 .hero,.sec{min-height:100vh;display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start}
@@ -59,6 +63,7 @@ html{scroll-snap-type:y proximity}
 .rv-msg{padding:12px 15px;border-radius:15px;font-size:.98rem;max-width:88%;line-height:1.5}
 .rv-msg.bot{align-self:flex-start;background:var(--card);border:1px solid var(--border);border-bottom-left-radius:4px;display:flex;gap:9px;align-items:flex-start}
 .rv-msg.bot svg{width:20px;height:20px;flex-shrink:0;margin-top:2px}.rv-msg.bot svg path{fill:#7f11f4}
+.rv-av{width:30px;height:30px;border-radius:50%;flex-shrink:0}
 .rv-msg.me{align-self:flex-end;background:#7f11f4;color:#fff;border-bottom-right-radius:4px}
 .sec-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);margin-bottom:10px}
 .sec h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:12px;text-wrap:balance}
@@ -106,6 +111,7 @@ html{scroll-snap-type:y proximity}
 .month b{display:block;font-size:.78rem;color:var(--text);text-transform:uppercase;letter-spacing:.03em}
 .month span{font-size:.76rem;color:var(--blue-light);font-weight:700}
 .cta{text-align:center;padding:42px 0 26px}
+.cta-ill{width:150px;max-width:46%;margin:0 auto 18px;display:block;filter:drop-shadow(0 0 30px color-mix(in srgb,var(--blue) 24%,transparent))}
 .cta h2{font-size:1.5rem;font-weight:800;margin-bottom:8px}
 .cta p{color:var(--muted);margin-bottom:20px}
 .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -250,10 +256,15 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
   <div class="wrap">
 
     <section class="hero">
-      <svg class="hero-logo" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
-      <span class="eyebrow" id="clientTag">Uma proposta para você</span>
-      <h1>Sua agência com um <em>novo canal de aquisição</em>.</h1>
-      <p class="sub">Uma loja dentro do OND: mais leads qualificados, acesso à tecnologia de IA e um ponto de venda pros viajantes que já estão decidindo o destino, tudo com a sua marca.</p>
+      <div class="hero-inner">
+        <div class="hero-text">
+          <svg class="hero-logo" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+          <span class="eyebrow" id="clientTag">Uma proposta para você</span>
+          <h1>Sua agência com um <em>novo canal de aquisição</em>.</h1>
+          <p class="sub">Uma loja dentro do OND: mais leads qualificados, acesso à tecnologia de IA e um ponto de venda pros viajantes que já estão decidindo o destino, tudo com a sua marca.</p>
+        </div>
+        <img class="hero-ill" src="/assets/ondino-caminhando.svg" alt="Ondino, o viajante do OND, com o celular na mão" loading="eager">
+      </div>
     </section>
 
     <section class="sec">
@@ -261,9 +272,9 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
       <h2>Você já conhece o OND. Vamos direto ao ponto.</h2>
       <p>Só pra alinhar: o <strong>OND</strong> é o app onde o viajante planeja a viagem inteira conversando com o <strong>OND vAI</strong>, de graça. A proposta pra E ai Destino nasce daí: colocar a sua loja no caminho de quem já está decidindo o destino.</p>
       <div class="recap-viz">
-        <div class="rv-msg bot"><svg viewBox="0 0 497.26 497.26"><use href="#ond-star"/></svg><span>Oi! Sou o OND vAI. Pra onde você quer viajar?</span></div>
+        <div class="rv-msg bot"><img class="rv-av" src="/assets/ondino.png" alt="OND vAI"><span>Oi! Sou o OND vAI. Pra onde você quer viajar?</span></div>
         <div class="rv-msg me">Quero conhecer o Japão em setembro ✈️</div>
-        <div class="rv-msg bot"><svg viewBox="0 0 497.26 497.26"><use href="#ond-star"/></svg><span>Fechou! Montei um roteiro de 12 dias: Tóquio, Kyoto e o Monte Fuji. Uma agência parceira pode cuidar de tudo. ✨</span></div>
+        <div class="rv-msg bot"><img class="rv-av" src="/assets/ondino.png" alt="OND vAI"><span>Fechou! Montei um roteiro de 12 dias: Tóquio, Kyoto e o Monte Fuji. Uma agência parceira pode cuidar de tudo. ✨</span></div>
       </div>
     </section>
 
@@ -374,6 +385,7 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
     </section>
 
     <section class="cta">
+      <img class="cta-ill" src="/assets/ondino-espera.svg" alt="Ondino te esperando" loading="lazy">
       <h2>Vamos montar a sua loja?</h2>
       <p>Na nossa conversa, a gente cadastra a loja da E ai Destino ao vivo pra você ver funcionando.</p>
       <div class="cta-btns">
