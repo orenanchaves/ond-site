@@ -309,7 +309,84 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
           <div class="dl-step" data-s="checkout"><span class="dl-dot"></span><span><b>4. Compra no app</b><br>pagamento por dentro</span></div>
           <div class="dl-step" data-s="ok"><span class="dl-dot"></span><span><b>5. Repasse pra você</b><br>na sua conta</span></div>
         </div>
-        <div class="phone"><div class="app"><div class="app-scroll" id="app"></div></div></div>
+        <div class="phone"><div class="app"><div class="app-scroll" id="app">
+<!-- ===== OND · Painel de leads e vendas (colar logo depois de <div id="app"> em cliente/index.html) ===== -->
+<style>
+.ondp{--c:#121928;--s:#0d1220;--b:#1e2a40;--bh:#26314d;--tx:#e8f0ff;--mut:#7a9bc0;--pur:#7f11f4;--pur6:#6b2fff;--grn:#00e676;--blu:#0066ff;--blul:#4d94ff;--dng:#f09595;font-family:'Bio Sans','Onest','Hanken Grotesk',system-ui,sans-serif;color:var(--tx);margin:8px 0 26px}
+.ondp .ey{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blul);font-weight:800;margin:0 0 12px}
+.ondp .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.ondp .kpi{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:15px 17px}
+.ondp .kpi .n{font-size:28px;font-weight:800;line-height:1}
+.ondp .kpi .l{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);margin-top:7px}
+.ondp .kpi.g .n{color:var(--grn)}.ondp .kpi.p .n{color:var(--pur6)}.ondp .kpi.b .n{color:var(--blul)}
+.ondp .grid{display:grid;grid-template-columns:1.3fr .9fr;gap:16px;align-items:start}
+.ondp .ag{background:var(--c);border:1px solid var(--bh);border-radius:20px;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.ondp .agh{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.ondp .agn{font-size:.82rem;font-weight:800;color:var(--mut)}
+.ondp .lv{display:inline-flex;align-items:center;gap:6px;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--grn)}
+.ondp .lv i{width:7px;height:7px;border-radius:50%;background:var(--grn);animation:ondpp 1.6s infinite}
+@keyframes ondpp{0%{box-shadow:0 0 0 0 rgba(0,230,118,.5)}70%{box-shadow:0 0 0 8px rgba(0,230,118,0)}100%{box-shadow:0 0 0 0 rgba(0,230,118,0)}}
+.ondp .feed{display:flex;flex-direction:column;gap:11px}
+.ondp .ld{background:var(--s);border:1px solid var(--bh);border-radius:14px;padding:15px;box-shadow:0 0 0 1px rgba(0,102,255,.2),0 12px 30px rgba(0,102,255,.14)}
+.ondp .ld.en{animation:ondin .5s ease}@keyframes ondin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.ondp .ldt{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
+.ondp .ldt b{font-size:1rem;font-weight:800}
+.ondp .hot{font-size:.64rem;font-weight:800;color:var(--dng);white-space:nowrap}.ondp .hot.w{color:#ffab40}.ondp .hot.n{color:var(--blul)}
+.ondp .lds{font-size:.8rem;color:var(--mut)}
+.ondp .ldv{margin-top:8px;font-size:1.05rem;font-weight:800;color:var(--grn)}.ondp .ldv span{font-size:.74rem;font-weight:700;color:var(--mut)}
+.ondp .cta{display:block;text-align:center;margin-top:13px;background:var(--blu);color:#fff;font-weight:800;font-size:.86rem;padding:11px;border-radius:50px;text-decoration:none;cursor:pointer}
+.ondp .cd{background:var(--c);border:1px solid var(--b);border-radius:16px;overflow:hidden}
+.ondp .cdh{padding:14px 18px;border-bottom:1px solid var(--b);font-weight:700;font-size:15px}
+.ondp .vn{padding:10px 14px 16px}
+.ondp .bars{display:flex;align-items:flex-end;gap:6px;height:66px;margin:6px 4px 14px}
+.ondp .bars span{flex:1;background:linear-gradient(180deg,var(--pur6),var(--pur));border-radius:5px 5px 0 0;opacity:.9}
+.ondp .vr{display:flex;align-items:center;justify-content:space-between;padding:11px 4px;font-size:13px}
+.ondp .vr+.vr{border-top:1px solid var(--b)}.ondp .vr .d{color:var(--mut)}.ondp .vr .v{font-weight:800;color:var(--grn)}
+@media(max-width:760px){.ondp .kpis{grid-template-columns:1fr 1fr}.ondp .grid{grid-template-columns:1fr}}
+</style>
+<div class="ondp">
+  <div class="ey">Painel · seus leads e vendas</div>
+  <div class="kpis">
+    <div class="kpi p"><div class="n" data-c="47">0</div><div class="l">Leads no mês</div></div>
+    <div class="kpi b"><div class="n" data-c="31">0</div><div class="l">Roteiros prontos</div></div>
+    <div class="kpi g"><div class="n" data-c="12">0</div><div class="l">Vendas fechadas</div></div>
+    <div class="kpi g"><div class="n" data-pre="R$ " data-c="86">0</div><div class="l">Receita (R$ mil)</div></div>
+  </div>
+  <div class="grid">
+    <div class="ag">
+      <div class="agh"><span class="agn">Leads da sua conta</span><span class="lv"><i></i> ao vivo</span></div>
+      <div class="feed" id="ondpFeed"></div>
+    </div>
+    <div class="cd">
+      <div class="cdh">Vendas recentes</div>
+      <div class="vn">
+        <div class="bars" id="ondpBars"></div>
+        <div class="vr"><span class="d">Orlando · casal</span><span class="v">R$ 9.400</span></div>
+        <div class="vr"><span class="d">Buenos Aires · família</span><span class="v">R$ 7.100</span></div>
+        <div class="vr"><span class="d">Monte Verde · casal</span><span class="v">R$ 3.900</span></div>
+        <div class="vr"><span class="d">Lisboa · solo</span><span class="v">R$ 6.250</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  document.querySelectorAll('.ondp [data-c]').forEach(function(el){var t=+el.dataset.c,p=el.dataset.pre||'',n=0,s=Math.max(1,Math.round(t/40));var iv=setInterval(function(){n+=s;if(n>=t){n=t;clearInterval(iv);}el.textContent=p+n;},28);});
+  var bars=document.getElementById('ondpBars'); if(bars)bars.innerHTML=[40,55,48,70,62,85,78].map(function(h){return '<span style="height:'+h+'%"></span>';}).join('');
+  var NM=['Casal em busca de cultura','Família com 2 filhos','Lua de mel','Grupo de amigas','Aposentados viajando','Casal gastronômico'];
+  var DS=[['Orlando','5–9 nov · 2 pax'],['Buenos Aires','12–17 dez · 4 pax'],['Monte Verde','set/2026 · 2 pax'],['Lisboa','jan/2027 · 1 pax'],['Cancún','fev · 2 pax'],['Roma','abr · 2 pax']];
+  var HT=[['','● Quente'],['w','● Morno'],['n','● Novo']]; var VL=['7.900','5.200','3.400','6.250','4.700','8.800'];
+  var f=document.getElementById('ondpFeed'); if(!f)return;
+  function add(first){var n=NM[Math.random()*NM.length|0],d=DS[Math.random()*DS.length|0],h=HT[Math.random()*HT.length|0],v=VL[Math.random()*VL.length|0];
+    var e=document.createElement('div');e.className='ld'+(first?'':' en');
+    e.innerHTML='<div class="ldt"><b>'+n+'</b><span class="hot '+h[0]+'">'+h[1]+'</span></div><div class="lds">'+d[0]+' · '+d[1]+'</div><div class="ldv">~R$ '+v+' <span>· roteiro pronto</span></div><a class="cta">Assumir e enviar proposta →</a>';
+    f.prepend(e);while(f.children.length>4)f.lastChild.remove();}
+  for(var i=0;i<3;i++)add(true); setInterval(add,4200);
+})();
+</script>
+
+
+</div></div></div>
       </div>
       <p class="demo-tag">Simulação com a loja da E ai Destino no app OND (dados de exemplo).</p>
     </section>
