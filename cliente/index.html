@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#060a14">
+<meta name="robots" content="noindex, nofollow">
+<title>Área do parceiro · OND</title>
+<link rel="icon" type="image/svg+xml" href="/assets/ond-symbol.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/tokens/ond-core.css">
+<link rel="stylesheet" href="/tokens/ond-b2b.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:var(--ond-color-bg);--surface:var(--ond-color-surface);--card:var(--ond-color-card);
+  --border:var(--ond-color-border);--blue:var(--ond-color-primary);--blue-light:var(--ond-color-primaryHover);
+  --blue-dim:color-mix(in srgb, var(--ond-color-primary) 12%, transparent);
+  --text:var(--ond-color-text);--muted:var(--ond-color-muted);--green:var(--ond-color-success);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-base),'Onest',system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
+.ond-letter{fill:var(--ond-color-text)}.ond-diamond{fill:#7f11f4}
+a{color:var(--blue-light)}
+
+/* ── GATE ── */
+.gate{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px}
+.gate.hide{display:none}
+.gate-card{width:100%;max-width:380px;text-align:center;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:38px 30px;box-shadow:0 24px 64px rgba(0,0,0,.4)}
+.gate-logo{height:30px;width:auto;margin:0 auto 20px;display:block}
+.gate-card h1{font-size:1.25rem;font-weight:800;margin-bottom:6px;letter-spacing:-.01em}
+.gate-card p{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+.gate-form{display:flex;flex-direction:column;gap:10px}
+.gate-input{padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:1rem;outline:none;text-align:center;font-family:inherit}
+.gate-input:focus{border-color:var(--blue)}
+.gate-btn{padding:13px 16px;border-radius:12px;border:none;background:var(--blue);color:#fff;font-weight:700;font-size:1rem;cursor:pointer;font-family:inherit;transition:background .18s}
+.gate-btn:hover{background:var(--blue-light)}
+.gate-err{color:#f09595;font-size:.85rem;min-height:18px;font-weight:600}
+
+/* ── CONTEÚDO ── */
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+.hero{padding:64px 0 34px;text-align:center;position:relative}
+.hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:640px;height:420px;max-width:100%;background:radial-gradient(circle,color-mix(in srgb,var(--blue) 14%,transparent),transparent 68%);pointer-events:none}
+.hero-logo{height:34px;width:auto;margin:0 auto 26px;display:block;position:relative}
+.eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);padding:6px 14px;border-radius:50px;margin-bottom:20px;position:relative}
+.hero h1{font-size:clamp(1.9rem,4.6vw,2.7rem);font-weight:800;letter-spacing:-.025em;line-height:1.12;margin-bottom:14px;position:relative;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--blue-light)}
+.hero .sub{font-size:1.05rem;color:var(--muted);max-width:560px;margin:0 auto;position:relative}
+.sec{padding:26px 0;border-top:1px solid var(--border)}
+.sec-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);margin-bottom:10px}
+.sec h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:12px;text-wrap:balance}
+.sec p{color:var(--muted);font-size:1.02rem;margin-bottom:12px}
+.sec p strong{color:var(--text)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px}
+.card .ic{font-size:1.5rem;display:block;margin-bottom:8px}
+.card h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+.card p{font-size:.94rem;color:var(--muted);margin:0}
+.steps{display:flex;flex-direction:column;gap:12px;margin-top:6px;counter-reset:s}
+.step{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px}
+.step-n{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.step b{display:block;font-size:1rem;margin-bottom:2px}
+.step span{color:var(--muted);font-size:.94rem}
+.model{background:linear-gradient(135deg,var(--blue-dim),transparent);border:1px solid color-mix(in srgb,var(--blue) 28%,transparent);border-radius:18px;padding:26px}
+.model .row{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+.model .row:last-child{margin-bottom:0}
+.model .tick{color:var(--green);font-weight:800;flex-shrink:0;font-size:1.1rem;line-height:1.4}
+.model .row b{color:var(--text)}
+.cta{text-align:center;padding:40px 0 20px}
+.cta h2{font-size:1.5rem;font-weight:800;margin-bottom:8px}
+.cta p{color:var(--muted);margin-bottom:20px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:50px;font-weight:700;text-decoration:none;font-size:.98rem}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-wa{background:transparent;border:1px solid var(--border);color:var(--text)}
+footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;border-top:1px solid var(--border);margin-top:20px}
+</style>
+</head>
+<body>
+
+<!-- GATE DE SENHA -->
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <svg class="gate-logo" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+    <h1>Área do parceiro</h1>
+    <p>Acesso restrito. Informe a senha de acesso.</p>
+    <form class="gate-form" id="gateForm" autocomplete="off">
+      <input class="gate-input" id="gatePass" type="password" placeholder="senha de acesso" aria-label="Senha de acesso" autofocus>
+      <button class="gate-btn" type="submit">Entrar</button>
+      <div class="gate-err" id="gateErr"></div>
+    </form>
+  </div>
+</div>
+
+<!-- CONTEÚDO (revelado após a senha) -->
+<main id="content" hidden>
+  <div class="wrap">
+
+    <section class="hero">
+      <svg class="hero-logo" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+      <span class="eyebrow" id="clientTag">Uma proposta para você</span>
+      <h1>Sua agência com uma <em>loja dentro do OND</em>.</h1>
+      <p class="sub">Você veio buscar um canal novo. A gente te dá mais que lead: um ponto de venda com a sua marca, dentro de uma plataforma de viagens com IA e uma comunidade de viajantes já pesquisando destino.</p>
+    </section>
+
+    <section class="sec">
+      <div class="sec-label">O que é o OND</div>
+      <h2>Uma plataforma de viagens com IA, no bolso do viajante.</h2>
+      <p>O <strong>OND</strong> é um app (iOS, Android e Web) onde a pessoa planeja a viagem inteira numa conversa: o <strong>OND vAI</strong> monta o roteiro dia a dia, indica onde ficar, o que fazer e quanto custa. É de graça pra usar, o que traz um público qualificado, com intenção real de viajar.</p>
+    </section>
+
+    <section class="sec">
+      <div class="sec-label">A oportunidade</div>
+      <h2>Seus pacotes expostos pra quem já está decidindo a viagem.</h2>
+      <p>Em vez de repasse de lead solto, a sua agência ganha uma <strong>loja dentro do OND</strong>, com a <strong>sua marca</strong> (seu logo e sua capa). Seus pacotes aparecem no momento certo: quando o viajante monta o roteiro daquele destino.</p>
+      <div class="grid">
+        <div class="card"><span class="ic">🎯</span><h3>Canal de aquisição</h3><p>Exposição pra um público que já está pesquisando destino, não uma lista fria.</p></div>
+        <div class="card"><span class="ic">🛒</span><h3>Ponto de venda</h3><p>O cliente compra o seu pacote por dentro do app, na hora do interesse.</p></div>
+        <div class="card"><span class="ic">🏷️</span><h3>Sua marca na frente</h3><p>É a sua loja. O cliente vê a E ai Destino, não a OND.</p></div>
+        <div class="card"><span class="ic">🤝</span><h3>Sua assessoria fecha</h3><p>Visto, cidadania e suporte humano continuam sendo o seu diferencial.</p></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-label">Como funciona</div>
+      <h2>Do pacote ao repasse, em 4 passos.</h2>
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div><b>Sua loja, sua marca</b><span>Você cadastra seus pacotes e templates no OND com o seu logo e a sua capa.</span></div></div>
+        <div class="step"><div class="step-n">2</div><div><b>O viajante monta o roteiro</b><span>Conversando com o OND vAI, ele descobre e planeja o destino.</span></div></div>
+        <div class="step"><div class="step-n">3</div><div><b>Compra por dentro do app</b><span>Se o destino tem um pacote seu, ele fecha ali mesmo, no momento do interesse.</span></div></div>
+        <div class="step"><div class="step-n">4</div><div><b>O repasse cai na sua conta</b><span>A venda é sua. Sua marca e sua assessoria seguem na frente do cliente.</span></div></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-label">O modelo</div>
+      <h2>Simples, e alinhado ao seu resultado.</h2>
+      <div class="model">
+        <div class="row"><span class="tick">✓</span><p><b>Uma mensalidade simples</b> pra estar no app e manter a sua loja ativa.</p></div>
+        <div class="row"><span class="tick">✓</span><p><b>Um spread só quando vende:</b> a gente só divide quando você fatura. Sem venda, sem custo variável.</p></div>
+        <div class="row"><span class="tick">✓</span><p><b>Roda em paralelo</b> ao seu site e ao seu processo. É um canal a mais, sem trocar nada do que já funciona.</p></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-label">Por que agora</div>
+      <h2>Entrar cedo é pegar o canal barato.</h2>
+      <p>O OND está no começo, e é justamente por isso que faz sentido entrar agora: você pega o canal enquanto é acessível, ajuda a moldar a loja do seu jeito, e começa a colher os dados de quem compra os seus destinos.</p>
+    </section>
+
+    <section class="cta">
+      <h2>Vamos montar a sua loja?</h2>
+      <p>Na nossa conversa, a gente cadastra a loja da E ai Destino ao vivo pra você ver funcionando.</p>
+      <div class="cta-btns">
+        <a class="btn btn-primary" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agendar 30 min →</a>
+        <a class="btn btn-wa" href="https://wa.me/5511943615412?text=Ol%C3%A1!%20Sou%20da%20E%20ai%20Destino%20e%20quero%20falar%20sobre%20a%20loja%20no%20OND" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+    </section>
+
+    <footer>OND · Agama Tec · Plataforma de vendas para agências de viagem</footer>
+  </div>
+</main>
+
+<script src="/assets/ond-logo.js"></script>
+<script>
+(function(){
+  // Gate leve por senha (a apresentação é material comercial p/ o parceiro, não interno).
+  // Senha por cliente. Trocar aqui quando abrir pra outro parceiro.
+  var CLIENTS = { 'eaidestino': 'E ai Destino' };
+  var gate=document.getElementById('gate'), content=document.getElementById('content'),
+      form=document.getElementById('gateForm'), pass=document.getElementById('gatePass'),
+      err=document.getElementById('gateErr'), tag=document.getElementById('clientTag');
+  function unlock(name){
+    gate.classList.add('hide'); content.hidden=false;
+    if(name) tag.textContent='Uma proposta para a ' + name;
+    try{ sessionStorage.setItem('ond_cli','1'); sessionStorage.setItem('ond_cli_n', name||''); }catch(e){}
+    window.scrollTo(0,0);
+  }
+  try{ if(sessionStorage.getItem('ond_cli')==='1'){ unlock(sessionStorage.getItem('ond_cli_n')); } }catch(e){}
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var key=(pass.value||'').trim().toLowerCase();
+    if(CLIENTS[key]){ err.textContent=''; unlock(CLIENTS[key]); }
+    else{ err.textContent='Senha incorreta.'; pass.select(); }
+  });
+})();
+</script>
+</body>
+</html>
