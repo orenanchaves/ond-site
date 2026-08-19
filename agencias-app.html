@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#060a14">
+<meta name="robots" content="noindex, nofollow">
+<title>Área da agência — OND</title>
+<link rel="icon" type="image/svg+xml" href="/assets/ond-symbol.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/tokens/ond-core.css">
+<link rel="stylesheet" href="/tokens/ond-b2b.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:var(--ond-color-bg);
+  --surface:var(--ond-color-surface);
+  --card:var(--ond-color-card);
+  --border:var(--ond-color-border);
+  --blue:var(--ond-color-primary);
+  --blue-dim:color-mix(in srgb, var(--ond-color-primary) 12%, transparent);
+  --blue-light:var(--ond-color-primaryHover);
+  --green:var(--ond-color-success);
+  --on-green:#fff;
+  --danger:var(--ond-color-danger);
+  --text:var(--ond-color-text);
+  --muted:var(--ond-color-muted);
+  --radius:var(--ond-radius-lg);--radius-sm:var(--ond-radius-md);
+  --header-bg:color-mix(in srgb, var(--ond-color-bg) 96%, transparent);
+}
+[data-theme="dark"]{--on-green:#04120a;}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-base);line-height:1.6;min-height:100vh;transition:background .25s,color .25s}
+.ond-letter{fill:var(--ond-color-text)}
+.ond-diamond{fill:#7f11f4}
+
+.header{position:sticky;top:0;z-index:200;background:var(--header-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;gap:12px}
+.header-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.header-logo-svg{height:38px;width:auto}
+.header-badge{font-size:.72rem;font-weight:700;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb, var(--blue) 30%, transparent);padding:4px 12px;border-radius:50px;letter-spacing:.04em}
+.header-actions{display:flex;align-items:center;gap:10px}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .2s,background .2s;flex-shrink:0}
+.theme-btn:hover{border-color:var(--blue);background:var(--blue-dim)}
+.logout-btn{display:none;background:none;border:1px solid var(--border);color:var(--muted);font-size:.84rem;font-weight:600;padding:8px 16px;border-radius:50px;cursor:pointer;transition:all .15s}
+.logout-btn:hover{border-color:var(--danger);color:var(--danger)}
+
+.wrap{max-width:960px;margin:0 auto;padding:48px 5% 80px}
+
+/* ── LOGIN ── */
+#loginScreen{max-width:400px;margin:64px auto 0;padding:0 5%}
+.login-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px}
+.login-title{font-size:1.4rem;font-weight:800;margin-bottom:6px;letter-spacing:-.01em}
+.login-sub{color:var(--muted);font-size:.92rem;margin-bottom:28px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.82rem;font-weight:600;color:var(--muted);margin-bottom:6px}
+.field input{width:100%;background:var(--card);border:1.5px solid var(--border);color:var(--text);font-family:inherit;font-size:.95rem;padding:12px 14px;border-radius:var(--radius-sm);transition:border-color .15s}
+.field input:focus{outline:none;border-color:var(--blue)}
+.login-error{display:none;background:color-mix(in srgb, var(--danger) 12%, transparent);border:1px solid color-mix(in srgb, var(--danger) 35%, transparent);color:var(--danger);font-size:.86rem;padding:10px 14px;border-radius:var(--radius-sm);margin-bottom:16px}
+.btn-primary{width:100%;background:var(--blue);color:var(--ond-color-onPrimary);border:none;font-family:inherit;font-size:.95rem;font-weight:700;padding:13px;border-radius:50px;cursor:pointer;transition:all .2s}
+.btn-primary:hover{background:var(--blue-light);transform:translateY(-1px)}
+.btn-primary:disabled{opacity:.6;cursor:default;transform:none}
+
+/* ── DASHBOARD ── */
+#dashboard{display:none}
+.dash-head{margin-bottom:28px}
+.dash-title{font-size:1.5rem;font-weight:800;letter-spacing:-.015em;margin-bottom:4px}
+.dash-sub{color:var(--muted);font-size:.92rem}
+.state-box{text-align:center;padding:60px 20px;color:var(--muted)}
+.state-box svg{margin-bottom:12px;opacity:.5}
+
+.lead-list{display:flex;flex-direction:column;gap:14px}
+.lead-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;display:flex;flex-direction:column;gap:10px;width:100%;text-align:left;font-family:inherit;cursor:pointer;transition:border-color .15s,transform .15s}
+.lead-card:hover{border-color:var(--blue);transform:translateY(-1px)}
+.lead-card:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.lead-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.lead-dest{font-size:1.05rem;font-weight:700;color:var(--text)}
+.lead-when{font-size:.78rem;color:var(--muted);white-space:nowrap;flex-shrink:0}
+.lead-meta{display:flex;flex-wrap:wrap;gap:8px}
+.lead-tag{display:inline-flex;align-items:center;gap:5px;background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:.8rem;font-weight:600;padding:5px 11px;border-radius:50px}
+.lead-contact{font-size:.88rem;color:var(--text);padding-top:6px;border-top:1px solid var(--border)}
+.lead-contact b{font-weight:700}
+.lead-contact span{color:var(--muted)}
+.contact-link{color:var(--muted);text-decoration:none}
+.contact-link:hover{color:var(--blue-light);text-decoration:underline}
+.lead-actions{display:flex;gap:10px;margin-top:4px}
+.lead-link{display:inline-flex;align-items:center;gap:6px;color:var(--blue-light);text-decoration:none;font-size:.86rem;font-weight:600}
+.lead-link:hover{text-decoration:underline}
+
+/* ── CONVERSA (painel flutuante, igual ppVaiPanel do protótipo) ── */
+.convo-overlay{position:fixed;inset:0;background:rgba(6,10,20,.35);z-index:290;opacity:0;pointer-events:none;transition:opacity .2s}
+.convo-overlay.open{opacity:1;pointer-events:auto}
+.convo-panel{position:fixed;left:20px;bottom:20px;z-index:300;width:380px;max-width:calc(100% - 40px);max-height:calc(100% - 40px);display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 24px 60px rgba(0,0,0,.35);opacity:0;transform:translateY(12px) scale(.98);transform-origin:bottom left;pointer-events:none;transition:opacity .2s,transform .2s}
+.convo-panel.open{opacity:1;transform:none;pointer-events:auto}
+.convo-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border)}
+.convo-title{display:flex;align-items:center;gap:8px;font-size:.86rem;font-weight:800}
+.convo-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);flex-shrink:0}
+.convo-dest{font-size:1rem;font-weight:800;letter-spacing:-.01em}
+.convo-contact{font-size:.78rem;color:var(--muted);margin-top:2px}
+.convo-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem;line-height:1;padding:2px 4px;flex-shrink:0}
+.convo-close:hover{color:var(--text)}
+.convo-log{flex:1;min-height:160px;max-height:360px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding:14px 16px}
+.convo-msg{display:flex;gap:8px;max-width:88%}
+.convo-msg.ai{align-self:flex-start}
+.convo-msg.me{align-self:flex-end;flex-direction:row-reverse}
+.convo-av{width:24px;height:24px;border-radius:50%;background:var(--blue-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.convo-av svg{width:13px;height:13px;fill:var(--blue)}
+.convo-bubble{font-size:.85rem;line-height:1.5;padding:10px 13px;border-radius:14px;white-space:pre-wrap}
+.convo-msg.ai .convo-bubble{background:var(--card);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:5px}
+.convo-msg.me .convo-bubble{background:var(--blue);color:var(--ond-color-onPrimary);border-bottom-right-radius:5px;font-weight:500}
+.convo-actions{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a href="/" class="header-logo">
+    <svg class="header-logo-svg" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+  </a>
+  <span class="header-badge">Área da agência</span>
+  <div class="header-actions">
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
+    <button class="logout-btn" id="logoutBtn" onclick="logout()">Sair</button>
+  </div>
+</header>
+
+<div id="loginScreen">
+  <div class="login-card">
+    <div class="login-title">Entrar</div>
+    <div class="login-sub">Acesse os leads que o OND repassou pra sua agência.</div>
+    <div class="login-error" id="loginError"></div>
+    <form id="loginForm">
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="password">Senha</label>
+        <input type="password" id="password" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn-primary" id="loginBtn">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<div class="wrap" id="dashboard">
+  <div class="dash-head">
+    <div class="dash-title" id="dashTitle">Seus leads</div>
+    <div class="dash-sub">Viajantes que o OND vAI conectou com a sua agência.</div>
+  </div>
+  <div id="leadsArea">
+    <div class="state-box">Carregando…</div>
+  </div>
+</div>
+
+<div class="convo-overlay" id="convoOverlay"></div>
+<div class="convo-panel" id="convoPanel">
+  <div class="convo-head">
+    <div class="convo-title"><span class="convo-dot"></span>
+      <div>
+        <div class="convo-dest" id="convoDest"></div>
+        <div class="convo-contact" id="convoContact"></div>
+      </div>
+    </div>
+    <button class="convo-close" id="convoClose" type="button" aria-label="Fechar">✕</button>
+  </div>
+  <div class="convo-log" id="convoLog"></div>
+  <div class="convo-actions" id="convoActions"></div>
+</div>
+
+<script src="/assets/ond-logo.js"></script>
+<script>
+const ICON_SUN='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+const ICON_MOON='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>';
+function toggleTheme(){
+  const isLight=document.documentElement.getAttribute('data-theme')==='light';
+  if(isLight){document.documentElement.setAttribute('data-theme','dark');document.getElementById('themeBtn').innerHTML=ICON_MOON;localStorage.setItem('ond_theme','dark');}
+  else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').innerHTML=ICON_SUN;localStorage.setItem('ond_theme','light');}
+}
+(function(){if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.innerHTML=ICON_SUN;}})();
+
+const FIREBASE_API_KEY='AIzaSyCcUFtOlLljrFRVmhhucZB4uqht5C3P95g';
+const API_BASE=(location.hostname==='localhost'||location.hostname==='127.0.0.1')
+  ?'http://localhost:8080/api/'
+  :'https://ond.agamatec.com/api/';
+const SESSION_KEY='ond_agency_session';
+
+function saveSession(session){sessionStorage.setItem(SESSION_KEY,JSON.stringify(session));}
+function loadSession(){try{return JSON.parse(sessionStorage.getItem(SESSION_KEY)||'null');}catch(e){return null;}}
+function clearSession(){sessionStorage.removeItem(SESSION_KEY);}
+
+async function refreshIdToken(session){
+  const res=await fetch('https://securetoken.googleapis.com/v1/token?key='+FIREBASE_API_KEY,{
+    method:'POST',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:'grant_type=refresh_token&refresh_token='+encodeURIComponent(session.refreshToken)
+  });
+  if(!res.ok)return null;
+  const data=await res.json();
+  const refreshed={idToken:data.id_token,refreshToken:data.refresh_token,displayName:session.displayName,email:session.email};
+  saveSession(refreshed);
+  return refreshed;
+}
+
+async function signIn(email,password){
+  const res=await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key='+FIREBASE_API_KEY,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({email,password,returnSecureToken:true})
+  });
+  const data=await res.json();
+  if(!res.ok){
+    const code=(data.error&&data.error.message)||'';
+    const messages={
+      'EMAIL_NOT_FOUND':'E-mail não encontrado.',
+      'INVALID_PASSWORD':'Senha incorreta.',
+      'INVALID_LOGIN_CREDENTIALS':'E-mail ou senha incorretos.',
+      'USER_DISABLED':'Essa conta está desativada.'
+    };
+    throw new Error(messages[code]||'Não foi possível entrar. Tente de novo.');
+  }
+  return {idToken:data.idToken,refreshToken:data.refreshToken,displayName:data.displayName||'',email:data.email};
+}
+
+async function apiGet(session,path,retry){
+  const res=await fetch(API_BASE+path,{headers:{'Authorization':'Bearer '+session.idToken}});
+  if(res.status===401||res.status===403){
+    if(!retry){
+      const refreshed=await refreshIdToken(session);
+      if(refreshed)return apiGet(refreshed,path,true);
+    }
+    throw new Error('SESSION_EXPIRED');
+  }
+  if(!res.ok)throw new Error('SERVER_ERROR');
+  return res.json();
+}
+function fetchLeads(session){return apiGet(session,'agency/leads',false);}
+function fetchTranscript(session,tripId){return apiGet(session,'agency/leads/'+tripId+'/transcript',false);}
+
+function timeAgo(iso){
+  const hasZone=/[Zz]$|[+-]\d{2}:?\d{2}$/.test(iso);
+  const then=new Date(hasZone?iso:iso+'Z').getTime();
+  const diffMin=Math.max(0,Math.round((Date.now()-then)/60000));
+  if(diffMin<1)return 'agora';
+  if(diffMin<60)return 'há '+diffMin+' min';
+  const diffH=Math.round(diffMin/60);
+  if(diffH<24)return 'há '+diffH+'h';
+  const diffD=Math.round(diffH/24);
+  if(diffD===1)return 'ontem';
+  return 'há '+diffD+' dias';
+}
+
+function initials(name){
+  if(!name)return '?';
+  const parts=name.trim().split(/\s+/);
+  return ((parts[0]||'')[0]+(parts[1]||'')[0]).toUpperCase();
+}
+
+function deliverableLinksHTML(lead){
+  const links=[];
+  if(lead.itineraryUrl)links.push('<a class="lead-link" href="'+esc(lead.itineraryUrl)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">Ver roteiro →</a>');
+  if(lead.preBudgetUrl)links.push('<a class="lead-link" href="'+esc(lead.preBudgetUrl)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">Ver estimativa →</a>');
+  return links;
+}
+
+function whatsappLink(phone){
+  const digits=phone.replace(/\D/g,'');
+  return 'https://wa.me/'+digits;
+}
+
+function contactLinksHTML(lead){
+  const bits=[];
+  if(lead.travelerPhone)bits.push('<a class="contact-link" href="'+esc(whatsappLink(lead.travelerPhone))+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">'+esc(lead.travelerPhone)+'</a>');
+  if(lead.travelerEmail)bits.push('<a class="contact-link" href="mailto:'+esc(lead.travelerEmail)+'" onclick="event.stopPropagation()">'+esc(lead.travelerEmail)+'</a>');
+  return bits;
+}
+
+function leadCardHTML(lead){
+  const dest=lead.destination||'Destino a combinar';
+  const contactBits=contactLinksHTML(lead);
+  const contactHTML=lead.travelerName
+    ?'<div class="lead-contact"><b>'+esc(lead.travelerName)+'</b>'+(contactBits.length?' · '+contactBits.join(' · '):'')+'</div>'
+    :'';
+  const tags=[];
+  if(lead.dateRange)tags.push(lead.dateRange);
+  if(lead.numberOfTravelers)tags.push(lead.numberOfTravelers+' pessoa'+(lead.numberOfTravelers>1?'s':''));
+  if(lead.templateTitle)tags.push(esc(lead.templateTitle));
+  tags.push(lead.deliverableLabel||'Viagem');
+  const tagsHTML=tags.map(function(t){return '<span class="lead-tag">'+t+'</span>';}).join('');
+  const links=deliverableLinksHTML(lead);
+  return '<button type="button" class="lead-card" data-trip-id="'+lead.tripId+'">'
+    +'<div class="lead-top"><span class="lead-dest">'+esc(dest)+'</span><span class="lead-when">'+timeAgo(lead.deliveredAt)+'</span></div>'
+    +'<div class="lead-meta">'+tagsHTML+'</div>'
+    +contactHTML
+    +(links.length?'<div class="lead-actions">'+links.join('')+'</div>':'')
+  +'</button>';
+}
+
+function esc(s){
+  return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});
+}
+
+var CURRENT_SESSION=null;
+var LEADS_BY_TRIP={};
+
+async function renderDashboard(session){
+  CURRENT_SESSION=session;
+  document.getElementById('loginScreen').style.display='none';
+  closeConversation();
+  document.getElementById('dashboard').style.display='block';
+  document.getElementById('logoutBtn').style.display='inline-flex';
+  document.getElementById('dashTitle').textContent=session.displayName?('Olá, '+session.displayName.split(' ')[0]):'Seus leads';
+  const area=document.getElementById('leadsArea');
+  area.innerHTML='<div class="state-box">Carregando…</div>';
+  try{
+    const leads=await fetchLeads(session);
+    if(!leads.length){
+      area.innerHTML='<div class="state-box">Nenhum lead repassado ainda. Assim que o OND vAI conectar um viajante com a sua cobertura de destino, ele aparece aqui.</div>';
+      return;
+    }
+    leads.sort(function(a,b){return new Date(b.deliveredAt)-new Date(a.deliveredAt);});
+    LEADS_BY_TRIP={};
+    leads.forEach(function(lead){LEADS_BY_TRIP[lead.tripId]=lead;});
+    area.innerHTML='<div class="lead-list">'+leads.map(leadCardHTML).join('')+'</div>';
+  }catch(err){
+    if(err.message==='SESSION_EXPIRED'){
+      clearSession();
+      showLogin('Sua sessão expirou. Entre de novo.');
+      return;
+    }
+    area.innerHTML='<div class="state-box">Não foi possível carregar seus leads agora. Tente recarregar a página.</div>';
+  }
+}
+
+document.getElementById('leadsArea').addEventListener('click',function(ev){
+  const card=ev.target.closest('.lead-card');
+  if(card)openConversation(card.getAttribute('data-trip-id'));
+});
+document.getElementById('convoClose').addEventListener('click',closeConversation);
+document.getElementById('convoOverlay').addEventListener('click',closeConversation);
+document.addEventListener('keydown',function(ev){
+  if(ev.key==='Escape')closeConversation();
+});
+
+function closeConversation(){
+  document.getElementById('convoPanel').classList.remove('open');
+  document.getElementById('convoOverlay').classList.remove('open');
+}
+
+function ondAvatarHTML(){
+  return '<span class="convo-av"><svg viewBox="0 0 497.26 497.26"><use href="#ond-icon"/></svg></span>';
+}
+
+function convoMsgHTML(message){
+  const bubble='<div class="convo-bubble">'+esc(message.content)+'</div>';
+  if(message.fromTraveler){
+    return '<div class="convo-msg me">'+bubble+'</div>';
+  }
+  return '<div class="convo-msg ai">'+ondAvatarHTML()+bubble+'</div>';
+}
+
+async function openConversation(tripId){
+  const lead=LEADS_BY_TRIP[tripId];
+  document.getElementById('convoPanel').classList.add('open');
+  document.getElementById('convoOverlay').classList.add('open');
+  document.getElementById('convoDest').textContent=(lead&&lead.destination)||'Conversa';
+  const contactBits=lead&&lead.travelerName?[esc(lead.travelerName)]:[];
+  if(lead)contactBits.push.apply(contactBits,contactLinksHTML(lead));
+  document.getElementById('convoContact').innerHTML=contactBits.join(' · ');
+  const links=lead?deliverableLinksHTML(lead):[];
+  document.getElementById('convoActions').innerHTML=links.join('');
+  const log=document.getElementById('convoLog');
+  log.innerHTML='<div class="state-box">Carregando…</div>';
+  try{
+    const messages=await fetchTranscript(CURRENT_SESSION,tripId);
+    if(!messages.length){
+      log.innerHTML='<div class="state-box">Essa conversa não tem transcrição disponível.</div>';
+      return;
+    }
+    log.innerHTML=messages.map(convoMsgHTML).join('');
+  }catch(err){
+    if(err.message==='SESSION_EXPIRED'){
+      clearSession();
+      showLogin('Sua sessão expirou. Entre de novo.');
+      return;
+    }
+    log.innerHTML='<div class="state-box">Não foi possível carregar essa conversa agora.</div>';
+  }
+}
+
+function showLogin(errorMessage){
+  document.getElementById('dashboard').style.display='none';
+  closeConversation();
+  document.getElementById('logoutBtn').style.display='none';
+  document.getElementById('loginScreen').style.display='block';
+  const errBox=document.getElementById('loginError');
+  if(errorMessage){errBox.textContent=errorMessage;errBox.style.display='block';}
+  else{errBox.style.display='none';}
+}
+
+function logout(){
+  clearSession();
+  CURRENT_SESSION=null;
+  showLogin();
+}
+
+document.getElementById('loginForm').addEventListener('submit',async function(ev){
+  ev.preventDefault();
+  const email=document.getElementById('email').value.trim();
+  const password=document.getElementById('password').value;
+  const btn=document.getElementById('loginBtn');
+  const errBox=document.getElementById('loginError');
+  errBox.style.display='none';
+  btn.disabled=true;btn.textContent='Entrando…';
+  try{
+    const session=await signIn(email,password);
+    saveSession(session);
+    await renderDashboard(session);
+  }catch(err){
+    errBox.textContent=err.message||'Não foi possível entrar. Tente de novo.';
+    errBox.style.display='block';
+  }finally{
+    btn.disabled=false;btn.textContent='Entrar';
+  }
+});
+
+(function init(){
+  const session=loadSession();
+  if(session){renderDashboard(session);}
+  else{showLogin();}
+})();
+</script>
+</body>
+</html>
