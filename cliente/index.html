@@ -200,6 +200,21 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
 .cf-note{background:color-mix(in srgb,var(--ond-neon) 12%,transparent);border:1px solid color-mix(in srgb,var(--ond-neon) 40%,transparent);border-radius:12px;padding:13px 15px;font-size:.86rem;color:#cdeede;margin:0 0 18px}
 .cf-note b{color:var(--ond-neon)}
 .demo-tag{text-align:center;font-size:.85rem;color:var(--muted);margin-top:16px}
+#phoneSlot{display:contents}
+.demo-actions{display:flex;justify-content:center;margin-top:16px}
+.fs-btn{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:inherit;font-weight:700;font-size:.9rem;padding:11px 20px;border-radius:50px;cursor:pointer;transition:border-color .18s,background .18s}
+.fs-btn:hover{border-color:var(--blue);background:var(--blue-dim)}
+.fs-btn svg{width:16px;height:16px;fill:var(--blue-light)}
+.fs{position:fixed;inset:0;z-index:120;background:color-mix(in srgb,var(--bg) 88%,#000);backdrop-filter:blur(10px);display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:18px}
+.fs.on{display:flex}
+.fs .phone{width:min(94vw,420px);border-width:8px;border-radius:40px}
+.fs .app{height:min(calc(100dvh - 52px),900px)}
+.fs-close{position:absolute;top:16px;right:18px;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:1.4rem;line-height:1;cursor:pointer;font-family:inherit}
+.fs-close:hover{border-color:var(--blue)}
+.fs-close .fs-lbl{display:none}
+@media(max-width:720px){.fs-close .fs-x{display:none}.fs-close .fs-lbl{display:inline}}
+.fs-hint{position:absolute;left:0;right:0;bottom:10px;margin:0 auto;color:var(--muted);font-size:.8rem;text-align:center;max-width:340px;pointer-events:none}
+@media(max-width:720px){.fs{padding:8px 8px 56px;gap:0;justify-content:flex-start}.fs-close{top:auto;bottom:10px;left:50%;right:auto;transform:translateX(-50%);width:auto;min-width:120px;height:38px;border-radius:50px;font-size:.88rem;font-weight:700}.fs-hint{display:none}.fs .phone{border-width:6px;border-radius:34px}.fs .app{height:min(calc(100dvh - 88px),920px)}}
 @media(max-width:720px){.demo{flex-direction:column}.demo-legend{max-width:340px;text-align:center}.demo-legend .dl-step{text-align:left}}
 /* ── POSSIBILIDADES ── */
 .poss-hi{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
@@ -309,9 +324,18 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
           <div class="dl-step" data-s="checkout"><span class="dl-dot"></span><span><b>4. Compra no app</b><br>pagamento por dentro</span></div>
           <div class="dl-step" data-s="ok"><span class="dl-dot"></span><span><b>5. Repasse pra você</b><br>na sua conta</span></div>
         </div>
-        <!-- ===== OND · Painel de leads e vendas (colar logo depois de <div id="app"> em cliente/index.html) ===== -->
+        <div id="phoneSlot"><div class="phone"><div class="app"><div class="app-scroll" id="app"></div></div></div></div>
+      </div>
+      <div class="demo-actions"><button class="fs-btn" id="fsOpen" type="button"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>Abrir simulação em tela cheia</button></div>
+      <p class="demo-tag">Simulação com a loja da E ai Destino no app OND (dados de exemplo).</p>
+    </section>
+
+    <section class="sec">
+      <div class="sec-label">Do seu lado</div>
+      <h2>Você acompanha tudo por um painel.</h2>
+      <p>Todo viajante que monta um roteiro com o OND vAI e se interessa pelos seus pacotes vira um <strong>lead na sua conta</strong>, com destino, datas, número de pessoas e valor estimado. Você assume, envia a proposta e fecha com a sua assessoria.</p>
 <style>
-.ondp{--c:#121928;--s:#0d1220;--b:#1e2a40;--bh:#26314d;--tx:#e8f0ff;--mut:#7a9bc0;--pur:#7f11f4;--pur6:#6b2fff;--grn:#00e676;--blu:#0066ff;--blul:#4d94ff;--dng:#f09595;font-family:'Bio Sans','Onest','Hanken Grotesk',system-ui,sans-serif;color:var(--tx);margin:8px 0 26px}
+.ondp{--c:var(--card);--s:var(--bg);--b:var(--border);--bh:color-mix(in srgb,var(--border) 70%,var(--blue) 30%);--tx:var(--text);--mut:var(--muted);--pur:var(--ond-purple);--pur6:var(--ond-mid);--grn:var(--green);--blu:var(--blue);--blul:var(--blue-light);--dng:#f09595;font-family:inherit;color:var(--tx);margin:8px 0 26px}
 .ondp .ey{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blul);font-weight:800;margin:0 0 12px}
 .ondp .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
 .ondp .kpi{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:15px 17px}
@@ -383,11 +407,7 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
   for(var i=0;i<3;i++)add(true); setInterval(add,4200);
 })();
 </script>
-
-
-<div class="phone"><div class="app"><div class="app-scroll" id="app"></div></div></div>
-      </div>
-      <p class="demo-tag">Simulação com a loja da E ai Destino no app OND (dados de exemplo).</p>
+      <p class="demo-tag">Painel ilustrativo, com dados de exemplo.</p>
     </section>
 
     <section class="sec">
@@ -605,8 +625,31 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
 
   document.querySelectorAll('.demo-legend .dl-step').forEach(function(el){ el.addEventListener('click', function(){ go(el.getAttribute('data-s'), cur); }); });
 
+  // ── simulacao em tela cheia: move o mesmo .phone pro overlay e devolve ──
+  function fsSet(on){
+    var el=document.getElementById('fs'), inner=document.getElementById('fsInner'),
+        slot=document.getElementById('phoneSlot'), phone=document.querySelector('.phone');
+    if(!el||!inner||!slot||!phone) return;
+    (on?inner:slot).appendChild(phone);
+    el.classList.toggle('on', on);
+    document.body.style.overflow = on ? 'hidden' : '';
+  }
+  function fsAberto(){ var el=document.getElementById('fs'); return !!el && el.classList.contains('on'); }
+  var fsBtn=document.getElementById('fsOpen');
+  if(fsBtn) fsBtn.addEventListener('click', function(){ fsSet(true); });
+  document.addEventListener('click', function(e){
+    if(e.target.closest && e.target.closest('#fsClose')) { fsSet(false); return; }
+    if(e.target.id==='fs') fsSet(false);
+  });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && fsAberto()) fsSet(false); });
+
   try{ if(sessionStorage.getItem('ond_cli')==='1'){ unlock(sessionStorage.getItem('ond_cli_n')); } }catch(e){}
 })();
 </script>
+<div class="fs" id="fs" role="dialog" aria-modal="true" aria-label="Simulação do app OND">
+  <button class="fs-close" id="fsClose" type="button" aria-label="Fechar"><span class="fs-x">×</span><span class="fs-lbl">Fechar</span></button>
+  <div id="fsInner"></div>
+  <p class="fs-hint">Toque nos botões que piscam pra avançar no fluxo. Esc ou × pra fechar.</p>
+</div>
 </body>
 </html>
