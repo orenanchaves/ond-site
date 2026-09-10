@@ -257,12 +257,6 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
 html{scroll-behavior:smooth}
 /* layout centralizado: o container tinha margin:0 e grudava na esquerda */
 .wrap{margin:0 auto}
-.hero{text-align:center}
-.hero::before{left:50%;transform:translateX(-50%)}
-.hero-inner{flex-direction:column-reverse;align-items:center;gap:22px}
-.hero-logo{display:block;margin-left:auto;margin-right:auto}
-.hero .sub{margin:0 auto}
-.hero-ill{width:210px;max-width:52%}
 .sec > .sec-label,.sec > h2,.sec > p{text-align:center;margin-left:auto;margin-right:auto}
 .sec > h2{max-width:760px}
 .sec > p{max-width:720px}
@@ -271,12 +265,47 @@ html{scroll-behavior:smooth}
 .proposal{min-width:0}
 @media(max-width:480px){.proposal table{min-width:0!important;font-size:.84rem}.proposal th,.proposal td{padding:8px 6px!important}.proposal .price{padding-left:14px;padding-right:14px}}
 #topo,.sec{scroll-margin-top:84px}
+/* topo no formato da home do app */
+.hx{min-height:calc(100vh - 64px);display:flex;align-items:center;padding:56px 0 44px;position:relative}
+.hx::before{content:'';position:absolute;top:-60px;left:-120px;width:620px;height:520px;max-width:100vw;background:radial-gradient(circle,color-mix(in srgb,var(--blue) 16%,transparent),transparent 66%);pointer-events:none}
+.hx-in{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:48px;align-items:center;width:100%;position:relative}
+.hx-logo{height:36px;width:auto;display:block;margin-bottom:24px}
+.hx-pill{display:inline-flex;align-items:center;gap:9px;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 24%,transparent);color:var(--blue-light);font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;border-radius:50px;margin-bottom:22px}
+.hx-pill i{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0}
+.hx h1{font-size:clamp(2rem,4.2vw,3.1rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:24px;text-wrap:balance}
+.hx h1 em{font-style:normal;color:var(--green)}
+.hx-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 20px;color:var(--muted);font-size:1rem;line-height:1.65;margin-bottom:28px;max-width:600px}
+.hx-box strong{color:var(--text)}
+.hx-btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+.hx-b1,.hx-b2{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;font-family:inherit;font-weight:800;text-decoration:none;cursor:pointer;line-height:1.2}
+.hx-b1{background:var(--blue);color:#fff;border:1px solid var(--blue);padding:13px 26px;font-size:1rem}
+.hx-b1:hover{background:var(--blue-light);border-color:var(--blue-light)}
+.hx-b2{background:transparent;color:var(--blue-light);border:1px solid color-mix(in srgb,var(--blue) 60%,transparent);padding:12px 20px;font-size:.94rem}
+.hx-b2:hover{background:var(--blue-dim)}
+.hx-b2 svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
+.hx-links{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding-left:12px;font-size:.9rem}
+.hx-links a{color:var(--blue-light);text-decoration:none}
+.hx-links a:hover{text-decoration:underline}
+.hx-links span{color:var(--muted)}
+.hx-ill{width:100%;max-width:380px;max-height:520px;justify-self:center;filter:drop-shadow(0 0 40px color-mix(in srgb,var(--blue) 24%,transparent))}
+@media(max-width:860px){
+  .hx{min-height:auto;padding:28px 0 32px}
+  .hx-in{grid-template-columns:1fr;gap:14px}
+  .hx-ill{order:-1;max-width:150px}
+  .hx-logo{display:none}
+  .hx-btns > *{flex:1 1 100%}
+  .hx-links{padding-left:0;justify-content:center}
+}
+@media(max-width:560px){.tn-logo{height:32px}.hx-pill{font-size:.64rem;letter-spacing:.04em;padding:7px 13px;gap:7px}}
+.painel-cta{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:24px;text-align:center}
+.painel-cta span{font-size:.86rem;color:var(--muted)}
 /* menu superior fixo */
 .topnav{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 84%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-.tn-in{max-width:1080px;margin:0 auto;padding:10px clamp(16px,4vw,40px);display:flex;align-items:center;gap:18px}
+.tn-in{max-width:1180px;margin:0 auto;padding:8px clamp(16px,4vw,40px);min-height:64px;display:flex;align-items:center;gap:18px}
 .tn-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--text);font-weight:800;font-size:.9rem;flex-shrink:0;white-space:nowrap}
-.tn-logo{height:22px;width:auto;fill:currentColor}
-.tn-x{color:var(--muted);font-weight:700}
+.tn-logo{height:40px;width:auto;fill:currentColor}
+.tn-x{color:var(--muted);font-weight:700;font-size:.95rem}
+.tn-brand{gap:12px}
 .tn-links{display:flex;gap:4px;flex:1;justify-content:center;overflow-x:auto;scrollbar-width:none}
 .tn-links::-webkit-scrollbar{display:none}
 .tn-links a{padding:7px 11px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:.86rem;font-weight:600;white-space:nowrap;transition:background .15s,color .15s}
@@ -372,15 +401,21 @@ body.rs-open{overflow:hidden}
 </nav>
   <div class="wrap">
 
-    <section class="hero" id="topo">
-      <div class="hero-inner">
-        <div class="hero-text">
-          <svg class="hero-logo" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
-          <span class="eyebrow" id="clientTag">Uma proposta para você</span>
-          <h1>Sua agência com um <em>novo canal de aquisição</em>.</h1>
-          <p class="sub">Uma loja dentro do OND: mais leads qualificados, acesso à tecnologia de IA e um ponto de venda pros viajantes que já estão decidindo o destino, tudo com a sua marca.</p>
+    <section class="hx" id="topo">
+      <div class="hx-in">
+        <div class="hx-txt">
+          <svg class="hx-logo" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg" aria-label="OND"><use href="#ond-logo"/></svg>
+          <span class="hx-pill"><i aria-hidden="true"></i><span id="clientTag">Uma proposta para você</span></span>
+          <h1>Mais <em>viajantes</em> na sua loja, menos tempo caçando cliente.</h1>
+          <div class="hx-box">Uma <strong>loja da Destinos no Mundo dentro do OND</strong>, com <strong>campanha no Google</strong> levando o viajante até ela. Mais leads qualificados, acesso à <strong>tecnologia de IA</strong> e um ponto de venda pra quem já está decidindo o destino, <strong>com a sua marca</strong>.</div>
+          <div class="hx-btns">
+            <a class="hx-b1" href="#s-proposta">Ver a proposta</a>
+            <button class="hx-b2" id="hxResumo" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>Abrir o resumo</button>
+            <a class="hx-b2" href="https://ondviajar.com.br/agencias-app.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>Ver o painel</a>
+          </div>
+          <div class="hx-links"><a href="#s-funciona">Como funciona</a><span aria-hidden="true">·</span><a href="#s-ganhos">O que você ganha</a><span aria-hidden="true">·</span><a href="#s-modelo">O modelo</a></div>
         </div>
-        <img class="hero-ill" src="/assets/ondino-caminhando.svg" alt="Ondino, o viajante do OND, com o celular na mão" loading="eager">
+        <img class="hx-ill" src="/assets/ondino-caminhando.svg" alt="Ondino, o viajante do OND, com o celular na mão" loading="eager">
       </div>
     </section>
 
@@ -499,6 +534,7 @@ body.rs-open{overflow:hidden}
 })();
 </script>
       <p class="demo-tag">Painel ilustrativo, com dados de exemplo.</p>
+      <div class="painel-cta"><a class="btn btn-primary" href="https://ondviajar.com.br/agencias-app.html" target="_blank" rel="noopener">Conhecer o painel da agência →</a><span>Abre em outra aba</span></div>
     </section>
 
     <section class="sec" id="s-possibilidades">
@@ -808,7 +844,7 @@ body.rs-open{overflow:hidden}
   window.addEventListener('resize',atual);
   function abre(){ ov.hidden=false; document.body.classList.add('rs-open'); try{x.focus();}catch(_){} }
   function fecha(){ ov.hidden=true; document.body.classList.remove('rs-open'); if(location.hash==='#resumo'){ try{history.replaceState(null,'',location.pathname+location.search);}catch(_){} } try{btn.focus();}catch(_){} }
-  btn.addEventListener('click',abre);
+  btn.addEventListener('click',abre); var hxr=document.getElementById('hxResumo'); if(hxr) hxr.addEventListener('click',abre);
   x.addEventListener('click',fecha);
   ov.addEventListener('click',function(e){ if(e.target===ov) fecha(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !ov.hidden) fecha(); });
