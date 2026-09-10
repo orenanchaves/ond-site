@@ -601,8 +601,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </a>
   <nav><ul class="header-nav">
     <li><a href="#como-funciona">Como funciona</a></li>
-    <li><a href="#destinos" onclick="openGlobe(event)">Destinos</a></li>
-    <li><a href="/#reservar">Viajar</a></li>
     <li><a href="/blog.html">Blog</a></li>
     <li><a href="#" onclick="openContact(event)">Contato</a></li>
     <li><a href="agencias.html" class="nav-agencias">Para Agências →</a></li>
@@ -623,8 +621,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 </header>
 <nav class="mobile-nav" id="mobileNav">
   <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
-  <a href="#destinos" onclick="openGlobe(event);closeMenu()">Destinos</a>
-  <a href="/#reservar" onclick="closeMenu()">Viajar</a>
   <a href="/blog.html" onclick="closeMenu()">Blog</a>
   <a href="#" onclick="openContact(event);closeMenu()">Contato</a>
   <a href="agencias.html" onclick="closeMenu()" style="color:#0066ff;font-weight:600">Para Agências →</a>
@@ -987,8 +983,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       <h4>Parceiros</h4>
       <ul>
         <li><a href="agencias.html">Para agências</a></li>
-        <li><a href="/#reservar">Viajar</a></li>
-      </ul>
+          </ul>
     </div>
     <div class="footer-col">
       <h4>Empresa</h4>
@@ -1269,10 +1264,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 (function(){
   var params = new URLSearchParams(location.search);
   var gclid = params.get('gclid');
-  if (!gclid) return;
+  var partner = params.get('partner');
+  if (!gclid && !partner) return;
 
   var forwarded = new URLSearchParams();
-  ['gclid','gad_campaignid','gad_source','utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(key){
+  ['gclid','gad_campaignid','gad_source','utm_source','utm_medium','utm_campaign','utm_term','utm_content','partner','city'].forEach(function(key){
     var value = params.get(key);
     if (value) forwarded.set(key, value);
   });
@@ -1289,6 +1285,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       data: {
         gclid: forwarded.get('gclid') || '',
         gad_campaignid: forwarded.get('gad_campaignid') || '',
+        '$deeplink_path': partner ? '/ond-vai?partner=' + encodeURIComponent(partner) + (forwarded.get('city') ? '&city=' + encodeURIComponent(forwarded.get('city')) : '') : '',
         '$android_url': 'https://play.google.com/store/apps/details?id=com.agamatec.ond',
         '$ios_url': 'https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427',
         '$fallback_url': 'https://ondviajar.com.br/'
@@ -1303,6 +1300,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if (webLink) {
       var url = new URL(webLink.href);
       forwarded.forEach(function(value, key){ url.searchParams.set(key, value); });
+      if (partner && url.pathname === '/') url.pathname = '/ond-vai';
       webLink.href = url.toString();
       return;
     }
