@@ -219,11 +219,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 /* ── DIFERENCIAIS ── */
 /* ── LEADS (mockup do OND vAI trazendo o lead pronto, embutido no hero) ── */
 .lg-live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green);animation:blink 2s infinite}
-.lg-live-stats{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:22px 0;margin:8px 0 0;padding-top:26px;border-top:1px solid var(--border);visibility:hidden;opacity:0}
+.lg-live-stats{display:flex;flex-wrap:wrap;gap:18px 0;margin:0 0 20px;padding-bottom:20px;border-bottom:1px solid var(--border);visibility:hidden;opacity:0}
 .lg-live-stats.is-ready{visibility:visible;opacity:1;transition:opacity .5s ease}
 .lg-real-label{text-align:left;font-size:.76rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
-.lg-stat{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:2px 44px;border-left:1px solid var(--border)}
+.lg-stat{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:2px 30px;border-left:1px solid var(--border)}
 .lg-stat:first-child{padding-left:0;border-left:none}
+.lg-stat:last-child{padding-right:0}
 .lg-stat b{font-size:2rem;font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--text)}
 .lg-stat span{font-size:.74rem;color:var(--muted);margin-top:6px}
 .lg-stat-live{color:var(--green)!important}
@@ -364,7 +365,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 @media(max-width:960px){
   .header-nav{display:none}.header-menu-btn{display:block}
   .hero{grid-template-columns:1fr;padding:56px 5% 44px;gap:36px}
-  .lg-live-stats{gap:20px 0;padding-top:24px}
+  .lg-live-stats{gap:20px 0;padding-bottom:20px}
   .lg-stat{flex:1 1 42%;padding:0;border-left:none}
   .problema-cards{grid-template-columns:1fr 1fr}
   .steps-row{grid-template-columns:1fr 1fr}.steps-row::before{display:none}
@@ -1149,6 +1150,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     </div>
   </div>
   <div class="hero-visual" id="heroVisual">
+    <div class="lg-live-stats" id="heroStats">
+      <div class="lg-stat"><b id="lgS1">–</b><span>conversas no total</span></div>
+      <div class="lg-stat"><b id="lgS2" class="lg-stat-live">–</b><span>active now</span></div>
+      <div class="lg-stat"><b id="lgS3">–</b><span>itineraries generated</span></div>
+      <div class="lg-stat"><b id="lgS4">–</b><span>leads ready to contact</span></div>
+    </div>
     <div class="lg-real-label">Isso não é exemplo. É gente real, agora</div>
     <div class="leadgen-flow">
       <div class="lg-quote">
@@ -1170,12 +1177,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         </div>
       </div>
     </div>
-  </div>
-  <div class="lg-live-stats" id="heroStats">
-    <div class="lg-stat"><b id="lgS1">–</b><span>conversas no total</span></div>
-    <div class="lg-stat"><b id="lgS2" class="lg-stat-live">–</b><span>active now</span></div>
-    <div class="lg-stat"><b id="lgS3">–</b><span>itineraries generated</span></div>
-    <div class="lg-stat"><b id="lgS4">–</b><span>leads ready to contact</span></div>
   </div>
 </section>
 <script>
