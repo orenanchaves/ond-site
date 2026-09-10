@@ -253,6 +253,76 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
   .month{padding:8px 3px}.month b{font-size:.72rem}.month span{font-size:.7rem}
 }
 </style>
+<style id="v2-nav">
+html{scroll-behavior:smooth}
+/* layout centralizado: o container tinha margin:0 e grudava na esquerda */
+.wrap{margin:0 auto}
+.hero{text-align:center}
+.hero::before{left:50%;transform:translateX(-50%)}
+.hero-inner{flex-direction:column-reverse;align-items:center;gap:22px}
+.hero-logo{display:block;margin-left:auto;margin-right:auto}
+.hero .sub{margin:0 auto}
+.hero-ill{width:210px;max-width:52%}
+.sec > .sec-label,.sec > h2,.sec > p{text-align:center;margin-left:auto;margin-right:auto}
+.sec > h2{max-width:760px}
+.sec > p{max-width:720px}
+.proposal{max-width:760px;margin-left:auto;margin-right:auto}
+.proposal h2,.proposal .psub{text-align:center}
+.proposal{min-width:0}
+@media(max-width:480px){.proposal table{min-width:0!important;font-size:.84rem}.proposal th,.proposal td{padding:8px 6px!important}.proposal .price{padding-left:14px;padding-right:14px}}
+#topo,.sec{scroll-margin-top:84px}
+/* menu superior fixo */
+.topnav{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 84%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.tn-in{max-width:1080px;margin:0 auto;padding:10px clamp(16px,4vw,40px);display:flex;align-items:center;gap:18px}
+.tn-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--text);font-weight:800;font-size:.9rem;flex-shrink:0;white-space:nowrap}
+.tn-logo{height:22px;width:auto;fill:currentColor}
+.tn-x{color:var(--muted);font-weight:700}
+.tn-links{display:flex;gap:4px;flex:1;justify-content:center;overflow-x:auto;scrollbar-width:none}
+.tn-links::-webkit-scrollbar{display:none}
+.tn-links a{padding:7px 11px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:.86rem;font-weight:600;white-space:nowrap;transition:background .15s,color .15s}
+.tn-links a:hover{color:var(--text);background:var(--card)}
+.tn-links a.on{color:var(--text);background:color-mix(in srgb,var(--blue) 20%,transparent)}
+.tn-resumo{display:inline-flex;align-items:center;gap:7px;flex-shrink:0;background:var(--blue);color:#fff;border:0;border-radius:10px;padding:9px 16px;font-family:inherit;font-weight:800;font-size:.86rem;line-height:1;cursor:pointer}
+.tn-resumo svg{width:16px;height:16px;fill:currentColor}
+@media(max-width:860px){.tn-in{flex-wrap:wrap;gap:8px 12px}.tn-brand{flex:1}.tn-links{order:3;flex-basis:100%;justify-content:flex-start}}
+@media(max-width:420px){.tn-x{display:none}}
+/* resumo */
+.resumo-ov{position:fixed;inset:0;z-index:100;background:rgba(3,6,14,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;padding:clamp(12px,4vh,48px) 14px;overflow-y:auto}
+.resumo-ov[hidden]{display:none}
+.resumo-box{position:relative;width:100%;max-width:640px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:clamp(22px,4vw,36px);box-shadow:0 30px 80px rgba(0,0,0,.5);text-align:left}
+.resumo-x{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:1rem;cursor:pointer}
+.resumo-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);margin-bottom:8px}
+.resumo-box h2{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px;padding-right:40px}
+.resumo-box h3{font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px}
+.resumo-lead{color:var(--muted);font-size:1rem;line-height:1.6}
+.rs-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+@media(max-width:480px){.rs-grid{grid-template-columns:1fr}}
+.rs-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
+.rs-k{font-size:1.7rem;font-weight:800;letter-spacing:-.02em}
+.rs-k small{font-size:.85rem;color:var(--muted);font-weight:600}
+.rs-l{font-size:.84rem;color:var(--muted);margin-top:4px;line-height:1.45}
+.rs-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.rs-list li{display:flex;gap:9px;font-size:.95rem;line-height:1.5}
+.rs-list li::before{content:'✓';color:var(--blue-light);font-weight:800}
+.rs-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.rs-table th{text-align:left;font-size:.74rem;color:var(--muted);font-weight:700;padding:7px 8px;border-bottom:1px solid var(--border)}
+.rs-table td{padding:8px;border-bottom:1px solid color-mix(in srgb,var(--border) 60%,transparent)}
+.rs-table small{color:var(--muted)}
+.rs-note{font-size:.8rem;color:var(--muted);margin-top:8px;line-height:1.5}
+.rs-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.rs-ctas .btn{flex:1;min-width:150px;justify-content:center;text-align:center}
+.rs-print{background:transparent;border:1px solid var(--border);color:var(--text);border-radius:12px;padding:12px 16px;font-family:inherit;font-weight:700;font-size:.9rem;cursor:pointer}
+body.rs-open{overflow:hidden}
+@media print{
+  body *{visibility:hidden!important}
+  .resumo-ov,.resumo-ov *{visibility:visible!important}
+  .resumo-ov{position:absolute;inset:0;background:#fff;padding:0;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .resumo-box{box-shadow:none;border:0;max-width:none;background:#fff;color:#111}
+  .resumo-x,.rs-ctas{display:none!important}
+  .rs-card{background:#f4f4fa;border-color:#ddd}
+  .resumo-lead,.rs-l,.rs-note,.resumo-box h3,.rs-table th,.rs-table small,.rs-k small{color:#444!important}
+}
+</style>
 </head>
 <body>
 
@@ -285,9 +355,24 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
 
 <!-- CONTEÚDO -->
 <main id="content" hidden>
+<nav class="topnav" id="topnav" aria-label="Seções da proposta">
+  <div class="tn-in">
+    <a class="tn-brand" href="#topo" aria-label="Voltar ao início"><svg class="tn-logo" viewBox="0 0 951.32 497.26" aria-hidden="true"><use href="#ond-logo"/></svg><span class="tn-x">× Destinos no Mundo</span></a>
+    <div class="tn-links" id="tnLinks">
+      <a href="#s-ond">O OND</a>
+      <a href="#s-funciona">Como funciona</a>
+      <a href="#s-painel">Seu painel</a>
+      <a href="#s-possibilidades">Possibilidades</a>
+      <a href="#s-ganhos">Ganhos</a>
+      <a href="#s-modelo">Modelo</a>
+      <a href="#s-proposta">Proposta</a>
+    </div>
+    <button class="tn-resumo" id="btnResumo" type="button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>Resumo</button>
+  </div>
+</nav>
   <div class="wrap">
 
-    <section class="hero">
+    <section class="hero" id="topo">
       <div class="hero-inner">
         <div class="hero-text">
           <svg class="hero-logo" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
@@ -299,7 +384,7 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
       </div>
     </section>
 
-    <section class="sec">
+    <section class="sec" id="s-ond">
       <div class="sec-label">Relembrando rápido</div>
       <h2>Você já conhece o OND. Vamos direto ao ponto.</h2>
       <p>Só pra alinhar: o <strong>OND</strong> é o app onde o viajante planeja a viagem inteira conversando com o <strong>OND vAI</strong>, de graça. A proposta pra Destinos no Mundo nasce daí: colocar a sua loja no caminho de quem já está decidindo o destino.</p>
@@ -310,7 +395,7 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
       </div>
     </section>
 
-    <section class="sec">
+    <section class="sec" id="s-funciona">
       <div class="sec-label">Veja funcionando · toque na tela</div>
       <h2>Como o cliente compra o seu pacote dentro do app.</h2>
       <p>Essa é a tela real do OND. Siga o fluxo: o viajante escolhe o destino, vê o roteiro do OND vAI, encontra a <strong>loja da Destinos no Mundo</strong> e <strong>compra por dentro do app</strong>. O repasse cai na sua conta.</p>
@@ -336,7 +421,7 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
       <script>(function(){var STORE_URL='';var b=document.getElementById('storeBtn'),w=document.getElementById('storeWip');if(STORE_URL){b.href=STORE_URL;w.hidden=true;}else{b.hidden=true;}})();</script>
     </section>
 
-    <section class="sec">
+    <section class="sec" id="s-painel">
       <div class="sec-label">Do seu lado</div>
       <h2>Você acompanha tudo por um painel.</h2>
       <p>Todo viajante que monta um roteiro com o OND vAI e se interessa pelos seus pacotes vira um <strong>lead na sua conta</strong>, com destino, datas, número de pessoas e valor estimado. Você assume, envia a proposta e fecha com a sua assessoria.</p>
@@ -416,7 +501,7 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
       <p class="demo-tag">Painel ilustrativo, com dados de exemplo.</p>
     </section>
 
-    <section class="sec">
+    <section class="sec" id="s-possibilidades">
       <div class="sec-label">Possibilidades</div>
       <h2>Não é só a loja no app. O OND vira o seu motor de venda.</h2>
       <p>A mesma tecnologia, nos canais que fizerem sentido pra Destinos no Mundo, sempre com a sua marca.</p>
@@ -451,7 +536,7 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
       </div>
     </section>
 
-    <section class="sec">
+    <section class="sec" id="s-ganhos">
       <div class="sec-label">O que você ganha</div>
       <h2>Mais que lead: um canal com ponto de venda.</h2>
       <div class="grid">
@@ -462,7 +547,7 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
       </div>
     </section>
 
-    <section class="sec">
+    <section class="sec" id="s-modelo">
       <div class="sec-label">O modelo</div>
       <h2>Simples, e alinhado ao seu resultado.</h2>
       <div class="flow">
@@ -476,7 +561,7 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
       <p><strong>Quanto maior a verba, mais gente chega.</strong> Você decide o ritmo, a partir de um mínimo.</p>
     </section>
 
-    <section class="sec">
+    <section class="sec" id="s-proposta">
       <div class="sec-label">A proposta</div>
       <div class="proposal">
         <h2>OND × Destinos no Mundo</h2>
@@ -521,6 +606,43 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
         <a class="btn btn-wa" href="https://wa.me/5511943615412?text=Ol%C3%A1!%20Sou%20da%20Destinos%20no%20Mundo%20e%20quero%20falar%20sobre%20a%20proposta%20do%20OND" target="_blank" rel="noopener">Falar no WhatsApp</a>
       </div>
     </section>
+
+    <div class="resumo-ov" id="resumoOv" hidden>
+      <div class="resumo-box" role="dialog" aria-modal="true" aria-labelledby="resumoTit">
+        <button class="resumo-x" id="resumoX" type="button" aria-label="Fechar resumo">✕</button>
+        <div class="resumo-eyebrow">Proposta resumida</div>
+        <h2 id="resumoTit">OND × Destinos no Mundo</h2>
+        <p class="resumo-lead">Uma loja da Destinos no Mundo dentro do OND, com uma campanha no Google levando o viajante direto pra ela. Os leads, a venda e a marca continuam seus.</p>
+        <div class="rs-grid">
+          <div class="rs-card"><div class="rs-k">R$ 200<small> /mês</small></div><div class="rs-l">mensalidade · sua loja ativa no app</div></div>
+          <div class="rs-card"><div class="rs-k">R$ 300<small> /mês</small></div><div class="rs-l">verba mínima de mídia · vai inteira pro Google Ads</div></div>
+        </div>
+        <h3>O que está incluso</h3>
+        <ul class="rs-list">
+          <li>Sua loja no OND, com o seu logo e a sua capa</li>
+          <li>Campanha de tráfego pago no Google, levando o viajante até a sua loja</li>
+          <li>Leads direto pra você, com a venda e o atendimento seus</li>
+          <li>Roda em paralelo ao seu site e ao seu processo</li>
+        </ul>
+        <h3>Quanto a verba rende</h3>
+        <div style="overflow-x:auto"><table class="rs-table">
+          <thead><tr><th>Verba por mês</th><th>Cliques no anúncio</th><th>Leads estimados</th></tr></thead>
+          <tbody>
+            <tr><td><b>R$ 300</b> <small>mínimo</small></td><td>~350</td><td><b>~7</b></td></tr>
+            <tr><td><b>R$ 500</b></td><td>~580</td><td><b>~12</b></td></tr>
+            <tr><td><b>R$ 1.000</b></td><td>~1.160</td><td><b>~25</b></td></tr>
+          </tbody>
+        </table></div>
+        <p class="rs-note">Estimativa com base nos resultados das nossas campanhas. Varia com destino, época do ano e oferta.</p>
+        <h3>Para começar</h3>
+        <p class="resumo-lead">Enquanto a sua campanha não entra no ar, a gente roda uma campanha nossa, por nossa conta, e os leads vão pra você.</p>
+        <div class="rs-ctas">
+          <a class="btn btn-primary" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agendar 30 min</a>
+          <a class="btn btn-wa" href="https://wa.me/5511943615412?text=Ol%C3%A1!%20Sou%20da%20Destinos%20no%20Mundo%20e%20quero%20falar%20sobre%20a%20proposta%20do%20OND" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <button class="rs-print" id="resumoPrint" type="button">Salvar em PDF</button>
+        </div>
+      </div>
+    </div>
 
     <footer>OND · Agama Tec · Plataforma de vendas para agências de viagem</footer>
   </div>
@@ -665,5 +787,37 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
   <div id="fsInner"></div>
   <p class="fs-hint">Toque nos botões que piscam pra avançar no fluxo. Esc ou × pra fechar.</p>
 </div>
+<script>
+(function(){
+  var nav=document.getElementById('topnav'), wrapLinks=document.getElementById('tnLinks');
+  var links=[].slice.call(wrapLinks.querySelectorAll('a'));
+  var ov=document.getElementById('resumoOv'), btn=document.getElementById('btnResumo');
+  var x=document.getElementById('resumoX'), pr=document.getElementById('resumoPrint');
+  var content=document.getElementById('content');
+  function vai(id){ var el=document.getElementById(id); if(!el) return; var y=el.getBoundingClientRect().top+window.pageYOffset-(nav?nav.offsetHeight:0)-12; window.scrollTo({top:Math.max(0,y),behavior:'smooth'}); }
+  links.concat([document.querySelector('.tn-brand')]).forEach(function(a){ if(!a) return; a.addEventListener('click',function(e){ var h=a.getAttribute('href')||''; if(h.charAt(0)==='#'){ e.preventDefault(); vai(h.slice(1)); if(links.indexOf(a)>=0) marca(a); } }); });
+  function marca(a){ links.forEach(function(l){ l.classList.toggle('on', l===a); }); if(a){ wrapLinks.scrollLeft=a.offsetLeft-wrapLinks.clientWidth/2+a.offsetWidth/2; } }
+  /* seção ativa pela rolagem; no fim da página marca a última (a Proposta é curta e não chega ao meio da tela) */
+  var alvos=links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+  var tk=null;
+  function atual(){ tk=null; if(content.hidden) return; var lim=(nav?nav.offsetHeight:0)+window.innerHeight*0.35, ativo=null;
+    if(window.innerHeight+window.pageYOffset>=document.documentElement.scrollHeight-4){ ativo=links[links.length-1]; }
+    else { alvos.forEach(function(el,i){ if(el && el.getBoundingClientRect().top<=lim) ativo=links[i]; }); }
+    marca(ativo); }
+  window.addEventListener('scroll',function(){ if(!tk) tk=requestAnimationFrame(atual); },{passive:true});
+  window.addEventListener('resize',atual);
+  function abre(){ ov.hidden=false; document.body.classList.add('rs-open'); try{x.focus();}catch(_){} }
+  function fecha(){ ov.hidden=true; document.body.classList.remove('rs-open'); if(location.hash==='#resumo'){ try{history.replaceState(null,'',location.pathname+location.search);}catch(_){} } try{btn.focus();}catch(_){} }
+  btn.addEventListener('click',abre);
+  x.addEventListener('click',fecha);
+  ov.addEventListener('click',function(e){ if(e.target===ov) fecha(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !ov.hidden) fecha(); });
+  pr.addEventListener('click',function(){ window.print(); });
+  /* link direto .../#resumo: abre o resumo assim que a proposta é desbloqueada */
+  function checaHash(){ atual(); if(location.hash==='#resumo' && !content.hidden) abre(); }
+  new MutationObserver(checaHash).observe(content,{attributes:true,attributeFilter:['hidden']});
+  checaHash();
+})();
+</script>
 </body>
 </html>
