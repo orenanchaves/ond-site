@@ -265,11 +265,52 @@ html{scroll-behavior:smooth}
 .proposal{min-width:0}
 @media(max-width:480px){.proposal table{min-width:0!important;font-size:.84rem}.proposal th,.proposal td{padding:8px 6px!important}.proposal .price{padding-left:14px;padding-right:14px}}
 #topo,.sec{scroll-margin-top:84px}
+/* conversa do "Relembrando rápido" */
+.rc{margin:26px auto 0;max-width:500px;background:var(--surface);border:1px solid color-mix(in srgb,var(--blue) 30%,var(--border));border-radius:22px;overflow:hidden;box-shadow:0 26px 60px rgba(0,0,0,.4);text-align:left}
+.rc-head{display:flex;align-items:center;gap:11px;padding:13px 16px;border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--card) 70%,transparent)}
+.rc-head .rc-av{width:38px;height:38px}
+.rc-head b{display:block;font-size:.95rem;line-height:1.2}
+.rc-head span{display:flex;align-items:center;gap:6px;font-size:.74rem;color:var(--muted)}
+.rc-head span i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green)}
+.rc-head em{margin-left:auto;font-style:normal;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:3px 9px;border-radius:50px}
+.rc-log{display:flex;flex-direction:column;gap:10px;padding:16px 14px;max-height:520px;overflow-y:auto}
+.rc-m{display:flex;gap:8px;align-items:flex-end;max-width:90%}
+.rc-m.me{align-self:flex-end}
+.rc-av{width:28px;height:28px;border-radius:50%;flex-shrink:0;background:var(--card)}
+.rc-m p{margin:0;padding:10px 14px;border-radius:16px;font-size:.93rem;line-height:1.5;color:var(--text)}
+.rc-m.ai p{background:var(--card);border:1px solid var(--border);border-bottom-left-radius:5px}
+.rc-m.me p{background:#7f11f4;color:#fff;border-bottom-right-radius:5px}
+.rc-m b{color:inherit}
+.rc-card{background:var(--card);border:1px solid color-mix(in srgb,#7f11f4 40%,var(--border));border-radius:16px;border-bottom-left-radius:5px;overflow:hidden;min-width:0;flex:1}
+.rc-card-h{padding:12px 14px;background:linear-gradient(135deg,color-mix(in srgb,#7f11f4 30%,transparent),transparent)}
+.rc-card-h b{display:block;font-size:.98rem}
+.rc-card-h span{font-size:.76rem;color:var(--muted)}
+.rc-card ol{list-style:none;margin:0;padding:4px 14px;counter-reset:d}
+.rc-card li{counter-increment:d;display:grid;grid-template-columns:22px 1fr;column-gap:8px;padding:8px 0;border-top:1px solid var(--border);font-size:.86rem;line-height:1.35}
+.rc-card li:first-child{border-top:0}
+.rc-card li::before{content:counter(d);grid-row:span 2;width:22px;height:22px;border-radius:50%;background:#7f11f4;color:#fff;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.rc-card li span{color:var(--muted);font-size:.78rem}
+.rc-card-f{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--border);font-size:.8rem;color:var(--muted)}
+.rc-card-f b{margin-left:auto;color:var(--green);font-size:.92rem}
+.rc-lead{align-self:center;display:flex;align-items:center;gap:8px;margin-top:4px;font-size:.78rem;font-weight:700;color:var(--green);background:color-mix(in srgb,var(--green) 10%,transparent);border:1px solid color-mix(in srgb,var(--green) 30%,transparent);padding:6px 13px;border-radius:50px;text-align:center}
+.rc-lead span{font-weight:800}
+.rc-typing{display:flex;gap:8px;align-items:flex-end}
+.rc-typing[hidden]{display:none}
+.rc-typing span{display:flex;gap:4px;padding:12px 14px;background:var(--card);border:1px solid var(--border);border-radius:16px;border-bottom-left-radius:5px}
+.rc-typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:rcdot 1.2s infinite}
+.rc-typing i:nth-child(2){animation-delay:.15s}.rc-typing i:nth-child(3){animation-delay:.3s}
+@keyframes rcdot{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.rc-hide{display:none!important}
+.rc-in{animation:rcin .35s ease}
+@keyframes rcin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.rc-input{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 12px 12px;padding:10px 10px 10px 16px;border:1px solid var(--border);border-radius:50px;background:var(--bg);font-size:.86rem;color:var(--muted)}
+.rc-input b{width:32px;height:32px;border-radius:50%;background:#7f11f4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem}
+@media(max-width:480px){.rc-m{max-width:96%}.rc-m p{font-size:.88rem}.rc-card li{font-size:.82rem}}
 /* topo no formato da home do app */
 .hx{min-height:calc(100vh - 64px);display:flex;align-items:center;padding:56px 0 44px;position:relative}
 .hx::before{content:'';position:absolute;top:-60px;left:-120px;width:620px;height:520px;max-width:100vw;background:radial-gradient(circle,color-mix(in srgb,var(--blue) 16%,transparent),transparent 66%);pointer-events:none}
 .hx-in{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:48px;align-items:center;width:100%;position:relative}
-.hx-logo{height:36px;width:auto;display:block;margin-bottom:24px}
+.hx-logo{height:72px;width:auto;display:block;margin-bottom:26px}
 .hx-pill{display:inline-flex;align-items:center;gap:9px;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 24%,transparent);color:var(--blue-light);font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;border-radius:50px;margin-bottom:22px}
 .hx-pill i{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0}
 .hx h1{font-size:clamp(2rem,4.2vw,3.1rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:24px;text-wrap:balance}
@@ -413,7 +454,7 @@ body.rs-open{overflow:hidden}
             <button class="hx-b2" id="hxResumo" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>Abrir o resumo</button>
             <a class="hx-b2" href="https://ondviajar.com.br/agencias-app.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>Ver o painel</a>
           </div>
-          <div class="hx-links"><a href="#s-funciona">Como funciona</a><span aria-hidden="true">·</span><a href="#s-ganhos">O que você ganha</a><span aria-hidden="true">·</span><a href="#s-modelo">O modelo</a></div>
+          <div class="hx-links"><a href="#s-funciona">Como funciona</a><span aria-hidden="true">·</span><a href="#s-ganhos">O que você ganha</a><span aria-hidden="true">·</span><a href="#s-modelo">O modelo</a><span aria-hidden="true">·</span><a href="https://ond-clone-prototipos.pages.dev/loja/destinos-no-mundo" target="_blank" rel="noopener">Ver a sua loja ↗</a></div>
         </div>
         <img class="hx-ill" src="/assets/ondino-caminhando.svg" alt="Ondino, o viajante do OND, com o celular na mão" loading="eager">
       </div>
@@ -423,11 +464,35 @@ body.rs-open{overflow:hidden}
       <div class="sec-label">Relembrando rápido</div>
       <h2>Você já conhece o OND. Vamos direto ao ponto.</h2>
       <p>Só pra alinhar: o <strong>OND</strong> é o app onde o viajante planeja a viagem inteira conversando com o <strong>OND vAI</strong>, de graça. A proposta pra Destinos no Mundo nasce daí: colocar a sua loja no caminho de quem já está decidindo o destino.</p>
-      <div class="recap-viz">
-        <div class="rv-msg bot"><img class="rv-av" src="/assets/ondino.png" alt="OND vAI"><span>Oi! Sou o OND vAI. Pra onde você quer viajar?</span></div>
-        <div class="rv-msg me">Quero conhecer o Japão em setembro ✈️</div>
-        <div class="rv-msg bot"><img class="rv-av" src="/assets/ondino.png" alt="OND vAI"><span>Fechou! Montei um roteiro de 12 dias: Tóquio, Kyoto e o Monte Fuji. Uma agência parceira pode cuidar de tudo. ✨</span></div>
+      <div class="rc" id="rc" aria-label="Exemplo de conversa com o OND vAI">
+        <div class="rc-head"><img class="rc-av" src="/assets/ondino.png" alt=""><div><b>OND vAI</b><span><i></i>online agora</span></div><em>Exemplo</em></div>
+        <div class="rc-log" id="rcLog">
+          <div class="rc-m ai"><img class="rc-av" src="/assets/ondino.png" alt=""><p>Oi! Sou o OND vAI 👋 Pra onde você quer viajar?</p></div>
+          <div class="rc-m me"><p>Quero conhecer o Japão em setembro ✈️</p></div>
+          <div class="rc-m ai"><img class="rc-av" src="/assets/ondino.png" alt=""><p>Que viagem! Quantos dias vocês têm e quem vai?</p></div>
+          <div class="rc-m me"><p>12 dias, eu e minha esposa</p></div>
+          <div class="rc-m ai"><img class="rc-av" src="/assets/ondino.png" alt=""><div class="rc-card"><div class="rc-card-h"><b>Japão · 12 dias</b><span>set/2026 · 2 pessoas</span></div>
+            <ol><li><b>Tóquio</b><span>5 dias · Shibuya, Asakusa e teamLab</span></li><li><b>Monte Fuji</b><span>2 dias · Kawaguchiko com vista pro Fuji</span></li><li><b>Kyoto</b><span>5 dias · templos, Arashiyama e Nara</span></li></ol>
+            <div class="rc-card-f">✈️ voo · 🏨 hotel · 🚄 JR Pass <b>~R$ 38 mil</b></div></div></div>
+          <div class="rc-m ai"><img class="rc-av" src="/assets/ondino.png" alt=""><p>A <b>Destinos no Mundo</b> pode cuidar de voo, hotel e passeios pra vocês. Quer que ela te chame?</p></div>
+          <div class="rc-m me"><p>Quero sim! 🙌</p></div>
+          <div class="rc-lead"><span>✓</span>Lead enviado pra Destinos no Mundo, com o roteiro e o contato</div>
+        </div>
+        <div class="rc-typing" id="rcTyping" hidden><img class="rc-av" src="/assets/ondino.png" alt=""><span><i></i><i></i><i></i></span></div>
+        <div class="rc-input"><span>Escreva sua mensagem…</span><b aria-hidden="true">➤</b></div>
       </div>
+      <script>
+      (function(){
+        var box=document.getElementById('rc'), log=document.getElementById('rcLog'), typ=document.getElementById('rcTyping'); if(!box) return;
+        var itens=[].slice.call(log.children), rodou=false;
+        if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        itens.forEach(function(el){ el.classList.add('rc-hide'); });
+        function mostra(k){ if(k>=itens.length){ typ.hidden=true; return; } var el=itens[k], ai=el.classList.contains('ai');
+          if(ai){ typ.hidden=false; log.appendChild(typ); }
+          setTimeout(function(){ typ.hidden=true; el.classList.remove('rc-hide'); el.classList.add('rc-in'); log.scrollTop=log.scrollHeight; setTimeout(function(){ mostra(k+1); }, ai?500:700); }, ai?900:350); }
+        new IntersectionObserver(function(es,o){ es.forEach(function(e){ if(e.isIntersecting && !rodou){ rodou=true; o.disconnect(); mostra(0); } }); },{threshold:.35}).observe(box);
+      })();
+      </script>
     </section>
 
     <section class="sec" id="s-funciona">
@@ -453,87 +518,175 @@ body.rs-open{overflow:hidden}
         <a id="storeBtn" class="btn btn-primary" href="#" target="_blank" rel="noopener">Ver a loja →</a>
         <span id="storeWip" style="font-size:.82rem;color:var(--muted);font-weight:600">Loja em montagem · o link aparece aqui assim que ficar pronta</span>
       </div>
-      <script>(function(){var STORE_URL='';var b=document.getElementById('storeBtn'),w=document.getElementById('storeWip');if(STORE_URL){b.href=STORE_URL;w.hidden=true;}else{b.hidden=true;}})();</script>
+      <script>(function(){var STORE_URL='https://ond-clone-prototipos.pages.dev/loja/destinos-no-mundo';var b=document.getElementById('storeBtn'),w=document.getElementById('storeWip');if(STORE_URL){b.href=STORE_URL;w.hidden=true;}else{b.hidden=true;}})();</script>
     </section>
 
     <section class="sec" id="s-painel">
       <div class="sec-label">Do seu lado</div>
       <h2>Você acompanha tudo por um painel.</h2>
-      <p>Todo viajante que monta um roteiro com o OND vAI e se interessa pelos seus pacotes vira um <strong>lead na sua conta</strong>, com destino, datas, número de pessoas e valor estimado. Você assume, envia a proposta e fecha com a sua assessoria.</p>
+      <p>Todo viajante que monta um roteiro com o OND vAI e se interessa pelos seus pacotes vira um <strong>lead na sua conta</strong>, com destino, datas, número de pessoas, contato e a conversa inteira com o OND vAI. Você assume, envia a proposta e fecha com a sua assessoria.</p>
 <style>
-.ondp{--c:var(--card);--s:var(--bg);--b:var(--border);--bh:color-mix(in srgb,var(--border) 70%,var(--blue) 30%);--tx:var(--text);--mut:var(--muted);--pur:var(--ond-purple);--pur6:var(--ond-mid);--grn:var(--green);--blu:var(--blue);--blul:var(--blue-light);--dng:#f09595;font-family:inherit;color:var(--tx);margin:8px 0 26px}
-.ondp .ey{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blul);font-weight:800;margin:0 0 12px}
-.ondp .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
-.ondp .kpi{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:15px 17px}
-.ondp .kpi .n{font-size:28px;font-weight:800;line-height:1}
-.ondp .kpi .l{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);margin-top:7px}
-.ondp .kpi.g .n{color:var(--grn)}.ondp .kpi.p .n{color:var(--pur6)}.ondp .kpi.b .n{color:var(--blul)}
-.ondp .grid{display:grid;grid-template-columns:1.3fr .9fr;gap:16px;align-items:start}
-.ondp .ag{background:var(--c);border:1px solid var(--bh);border-radius:20px;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
-.ondp .agh{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
-.ondp .agn{font-size:.82rem;font-weight:800;color:var(--mut)}
-.ondp .lv{display:inline-flex;align-items:center;gap:6px;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--grn)}
-.ondp .lv i{width:7px;height:7px;border-radius:50%;background:var(--grn);animation:ondpp 1.6s infinite}
-@keyframes ondpp{0%{box-shadow:0 0 0 0 rgba(0,230,118,.5)}70%{box-shadow:0 0 0 8px rgba(0,230,118,0)}100%{box-shadow:0 0 0 0 rgba(0,230,118,0)}}
-.ondp .feed{display:flex;flex-direction:column;gap:11px}
-.ondp .ld{background:var(--s);border:1px solid var(--bh);border-radius:14px;padding:15px;box-shadow:0 0 0 1px rgba(0,102,255,.2),0 12px 30px rgba(0,102,255,.14)}
-.ondp .ld.en{animation:ondin .5s ease}@keyframes ondin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
-.ondp .ldt{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
-.ondp .ldt b{font-size:1rem;font-weight:800}
-.ondp .hot{font-size:.64rem;font-weight:800;color:var(--dng);white-space:nowrap}.ondp .hot.w{color:#ffab40}.ondp .hot.n{color:var(--blul)}
-.ondp .lds{font-size:.8rem;color:var(--mut)}
-.ondp .ldv{margin-top:8px;font-size:1.05rem;font-weight:800;color:var(--grn)}.ondp .ldv span{font-size:.74rem;font-weight:700;color:var(--mut)}
-.ondp .cta{display:block;text-align:center;margin-top:13px;background:var(--blu);color:#fff;font-weight:800;font-size:.86rem;padding:11px;border-radius:50px;text-decoration:none;cursor:pointer}
-.ondp .cd{background:var(--c);border:1px solid var(--b);border-radius:16px;overflow:hidden}
-.ondp .cdh{padding:14px 18px;border-bottom:1px solid var(--b);font-weight:700;font-size:15px}
-.ondp .vn{padding:10px 14px 16px}
-.ondp .bars{display:flex;align-items:flex-end;gap:6px;height:66px;margin:6px 4px 14px}
-.ondp .bars span{flex:1;background:linear-gradient(180deg,var(--pur6),var(--pur));border-radius:5px 5px 0 0;opacity:.9}
-.ondp .vr{display:flex;align-items:center;justify-content:space-between;padding:11px 4px;font-size:13px}
-.ondp .vr+.vr{border-top:1px solid var(--b)}.ondp .vr .d{color:var(--mut)}.ondp .vr .v{font-weight:800;color:var(--grn)}
-@media(max-width:760px){.ondp .kpis{grid-template-columns:1fr 1fr}.ondp .grid{grid-template-columns:1fr}}
+/* réplica da Área da agência (agencias-app.html), com dados de exemplo */
+.apx{--brand:var(--blue);--brand-on:#fff;--border-hi:color-mix(in srgb,var(--blue) 45%,transparent);--muted2:color-mix(in srgb,var(--muted),var(--bg) 45%);--blue-glow:color-mix(in srgb,var(--blue) 40%,transparent);margin-top:22px;border:1px solid var(--border);border-radius:18px;overflow:hidden;background:var(--bg);text-align:left;box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.apx-hdr{display:flex;align-items:center;gap:12px;height:58px;padding:0 18px;border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--bg) 96%,transparent)}
+.apx-hdr svg{height:32px;width:auto}
+.apx-badge{margin-right:auto;font-size:.7rem;font-weight:700;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);padding:4px 12px;border-radius:50px;letter-spacing:.04em}
+.apx-sair{border:1px solid var(--border);color:var(--muted);font-size:.8rem;font-weight:600;padding:6px 14px;border-radius:50px}
+.apx-body{padding:18px}
+.apx .app-shell{position:relative;display:grid;grid-template-columns:220px minmax(0,1fr);min-height:470px;background:var(--card);border:1px solid var(--border-hi);border-radius:16px;overflow:hidden}
+.apx .app-side{display:flex;flex-direction:column;gap:14px;padding:16px 13px;background:var(--surface);border-right:1px solid var(--border)}
+.apx .app-side-brand{padding-bottom:13px;border-bottom:1px solid var(--border)}
+.apx .app-brand-mark{display:flex;align-items:center;gap:9px;min-width:0;font-weight:800;font-size:.86rem}
+.apx .app-brand-av{width:30px;height:30px;border-radius:9px;background:var(--brand);color:var(--brand-on);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0;transition:background .2s}
+.apx .app-brand-txt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.apx .app-plan{display:flex;align-items:center;gap:8px;padding:8px 11px;background:var(--surface);border:1px solid var(--border);border-radius:10px}
+.apx .app-plan svg{height:22px;width:auto;flex-shrink:0}
+.apx .app-plan-tag{margin-left:auto;font-size:.58rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);padding:2px 7px;border-radius:50px}
+.apx .app-side-nav{display:flex;flex-direction:column;gap:3px}
+.apx .app-side-nav>button{display:flex;align-items:center;gap:9px;width:100%;text-align:left;font-family:inherit;font-size:.81rem;font-weight:700;color:var(--muted);background:none;border:none;padding:9px 11px;border-radius:10px;cursor:pointer;transition:background .15s,color .15s}
+.apx .app-side-nav>button:not(.on):hover{color:var(--text);background:var(--blue-dim)}
+.apx .app-side-nav>button.on{color:#fff;background:var(--blue);box-shadow:0 3px 10px var(--blue-glow)}
+.apx .app-side-foot{margin-top:auto;font-size:.72rem;color:var(--muted2);line-height:1.55;border-top:1px solid var(--border);padding-top:12px}
+.apx .app-side-foot b{color:var(--blue-light)}
+.apx .app-main{min-width:0;padding:22px 24px 26px}
+.apx .app-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px}
+.apx .dash-title{font-size:1.3rem;font-weight:800;letter-spacing:-.015em;margin-bottom:2px;color:var(--text)}
+.apx .dash-sub{color:var(--muted);font-size:.86rem;line-height:1.5}
+.apx .app-count{flex-shrink:0;font-size:.64rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 24%,transparent);padding:4px 11px;border-radius:50px;white-space:nowrap}
+.apx .lead-list{display:flex;flex-direction:column;gap:10px}
+.apx .lead-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:9px;color:var(--text);width:100%;text-align:left;font-family:inherit;cursor:pointer;transition:border-color .15s,transform .15s,box-shadow .15s}
+.apx .lead-card:hover{border-color:var(--border-hi);box-shadow:0 0 0 1px color-mix(in srgb,var(--blue) 20%,transparent),0 12px 30px color-mix(in srgb,var(--blue) 14%,transparent);transform:translateY(-1px)}
+.apx .lead-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.apx .lead-dest{font-size:.96rem;font-weight:700;line-height:1.3}
+.apx .lead-when{flex-shrink:0;font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 24%,transparent);padding:3px 10px;border-radius:50px;white-space:nowrap}
+.apx .lead-meta{display:flex;flex-wrap:wrap;gap:7px}
+.apx .lead-tag{display:inline-flex;align-items:center;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 20%,transparent);color:var(--text);font-size:.77rem;font-weight:600;padding:4px 10px;border-radius:50px}
+.apx .lead-contact{font-size:.84rem;padding-top:9px;border-top:1px solid var(--border)}
+.apx .lead-contact span{color:var(--muted)}
+.apx .lead-actions{display:flex;gap:14px;margin-top:4px}
+.apx .lead-link{color:var(--blue-light);font-size:.82rem;font-weight:800}
+.apx .brand-grid{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px;align-items:start}
+.apx .brand-form{display:flex;flex-direction:column;gap:8px;max-width:440px}
+.apx .bf-label{font-size:.72rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.apx .bf-input{font-family:inherit;font-size:.92rem;font-weight:700;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;width:100%}
+.apx .bf-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-dim)}
+.apx .bf-swatches{display:flex;flex-wrap:wrap;gap:9px}
+.apx .bf-sw{width:30px;height:30px;border-radius:50%;border:2px solid var(--border);cursor:pointer;padding:0;transition:transform .12s,box-shadow .12s}
+.apx .bf-sw:hover{transform:scale(1.08)}
+.apx .bf-sw.on{border-color:var(--text);box-shadow:0 0 0 2px var(--card),0 0 0 4px var(--sw)}
+.apx .bf-upload{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;font-size:.82rem;font-weight:700;color:var(--blue-light);background:var(--blue-dim);border:1px dashed color-mix(in srgb,var(--blue) 42%,transparent);border-radius:10px;padding:10px 14px}
+.apx .brand-preview{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px}
+.apx .bp-title{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.apx .bp-banner{position:relative;height:140px;border-radius:12px;overflow:hidden;background:#08152b;margin-bottom:10px}
+.apx .bp-banner img{width:100%;height:100%;object-fit:cover;display:block}
+.apx .bp-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,color-mix(in srgb,var(--brand) 78%,#040a16),transparent 72%);transition:background .2s}
+.apx .bp-badge{position:absolute;left:12px;top:12px;z-index:2;font-size:.66rem;font-weight:800;color:#fff;background:rgba(4,10,22,.5);border:1px solid rgba(255,255,255,.35);padding:4px 10px;border-radius:8px;max-width:calc(100% - 24px);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.apx .bp-t{position:absolute;left:12px;bottom:10px;z-index:2;color:#fff;line-height:1.35}
+.apx .bp-t b{display:block;font-size:1rem;font-weight:800}
+.apx .bp-t span{font-size:.72rem;opacity:.92}
+.apx .bp-cta{display:block;text-align:center;background:var(--brand);color:var(--brand-on);font-weight:800;font-size:.84rem;padding:10px;border-radius:50px;margin-bottom:10px;transition:background .2s}
+.apx .bp-note{font-size:.76rem;color:var(--muted);line-height:1.55;margin:0}
+.apx .convo-panel{position:absolute;left:16px;bottom:16px;z-index:5;width:360px;max-width:calc(100% - 32px);max-height:calc(100% - 32px);display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border-hi);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.5);opacity:0;transform:translateY(12px) scale(.98);transform-origin:bottom left;pointer-events:none;transition:opacity .2s,transform .2s}
+.apx .convo-panel.open{opacity:1;transform:none;pointer-events:auto}
+.apx .convo-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border)}
+.apx .convo-title{display:flex;align-items:center;gap:8px;font-size:.8rem;font-weight:800;color:var(--muted)}
+.apx .convo-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.apx .convo-dest{font-size:1rem;font-weight:800;margin-top:2px}
+.apx .convo-contact{font-size:.78rem;color:var(--muted);margin-top:2px}
+.apx .convo-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem;line-height:1;padding:2px 4px}
+.apx .convo-log{flex:1;min-height:120px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:14px 16px}
+.apx .convo-msg{display:flex;gap:8px;max-width:88%}
+.apx .convo-msg.me{align-self:flex-end;flex-direction:row-reverse}
+.apx .convo-av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#7f11f4,#9d6fff);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.apx .convo-av img{width:15px;height:15px;filter:brightness(0) invert(1)}
+.apx .convo-bubble{font-size:.84rem;line-height:1.5;padding:9px 12px;border-radius:14px}
+.apx .convo-msg.ai .convo-bubble{background:var(--card);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:5px}
+.apx .convo-msg.me .convo-bubble{background:var(--blue);color:#fff;border-bottom-right-radius:5px;font-weight:500}
+@media(max-width:820px){
+  .apx-body{padding:10px}
+  .apx .app-shell{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+  .apx .app-side{flex-direction:row;align-items:center;gap:8px;overflow-x:auto;border-right:none;border-bottom:1px solid var(--border);padding:10px 12px}
+  .apx .app-side-brand{padding-bottom:0;border-bottom:none;min-width:0}
+  .apx .app-plan,.apx .app-side-foot{display:none}
+  .apx .app-side-nav{flex-direction:row;margin-left:auto;flex-shrink:0}
+  .apx .app-side-nav>button{width:auto;white-space:nowrap}
+  .apx .brand-grid{grid-template-columns:1fr}
+  .apx .app-main{padding:16px 14px 20px}
+  .apx .app-top{flex-direction:column;gap:8px}
+  .apx .convo-panel{left:8px;right:8px;bottom:8px;width:auto;max-width:none}
+}
+@media(max-width:480px){.apx-badge{display:none}.apx-hdr{justify-content:space-between}}
 </style>
-<div class="ondp">
-  <div class="ey">Painel · seus leads e vendas</div>
-  <div class="kpis">
-    <div class="kpi p"><div class="n" data-c="47">0</div><div class="l">Leads no mês</div></div>
-    <div class="kpi b"><div class="n" data-c="31">0</div><div class="l">Roteiros prontos</div></div>
-    <div class="kpi g"><div class="n" data-c="12">0</div><div class="l">Vendas fechadas</div></div>
-    <div class="kpi g"><div class="n" data-pre="R$ " data-c="86">0</div><div class="l">Receita (R$ mil)</div></div>
-  </div>
-  <div class="grid">
-    <div class="ag">
-      <div class="agh"><span class="agn">Leads da sua conta</span><span class="lv"><i></i> ao vivo</span></div>
-      <div class="feed" id="ondpFeed"></div>
-    </div>
-    <div class="cd">
-      <div class="cdh">Vendas recentes</div>
-      <div class="vn">
-        <div class="bars" id="ondpBars"></div>
-        <div class="vr"><span class="d">Orlando · casal</span><span class="v">R$ 9.400</span></div>
-        <div class="vr"><span class="d">Buenos Aires · família</span><span class="v">R$ 7.100</span></div>
-        <div class="vr"><span class="d">Monte Verde · casal</span><span class="v">R$ 3.900</span></div>
-        <div class="vr"><span class="d">Lisboa · solo</span><span class="v">R$ 6.250</span></div>
+<div class="apx" id="apx">
+  <div class="apx-hdr"><svg viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg" aria-label="OND"><use href="#ond-logo"/></svg><span class="apx-badge">Área da agência</span><span class="apx-sair">Sair</span></div>
+  <div class="apx-body">
+    <div class="app-shell">
+      <aside class="app-side">
+        <div class="app-side-brand"><span class="app-brand-mark"><span class="app-brand-av">DM</span><span class="app-brand-txt" id="apxName">Destinos no Mundo</span></span></div>
+        <div class="app-plan"><svg viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg" aria-label="OND"><use href="#ond-logo"/></svg><span class="app-plan-tag">Parceiro</span></div>
+        <nav class="app-side-nav"><button type="button" class="on" data-apv="leads"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Leads</span></button><button type="button" data-apv="marca"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996C18.928 15.398 22 12.87 22 9.5 22 5.36 17.64 2 12 2z"/></svg><span>Sua marca</span></button></nav>
+        <div class="app-side-foot">Dúvida com algum lead?<br><b>Fale com o OND</b></div>
+      </aside>
+      <div class="app-main">
+        <div data-apview="leads">
+          <div class="app-top"><div><div class="dash-title">Seus leads</div><div class="dash-sub">Viajantes que o OND vAI conectou com a sua agência.</div></div><span class="app-count">3 leads</span></div>
+          <div class="lead-list">
+          <button type="button" class="lead-card" data-lead="0"><div class="lead-top"><span class="lead-dest">Lisboa e Porto</span><span class="lead-when">há 12 min</span></div><div class="lead-meta"><span class="lead-tag">10 a 20 jan 2027</span><span class="lead-tag">2 pessoas</span><span class="lead-tag">Portugal clássico</span><span class="lead-tag">Roteiro</span></div><div class="lead-contact"><b>Mariana S.</b> · <span>(11) 9 8765-4321</span></div><div class="lead-actions"><span class="lead-link">Ver roteiro →</span></div></button>
+          <button type="button" class="lead-card" data-lead="1"><div class="lead-top"><span class="lead-dest">Buenos Aires</span><span class="lead-when">há 2h</span></div><div class="lead-meta"><span class="lead-tag">12 a 17 dez</span><span class="lead-tag">4 pessoas</span><span class="lead-tag">Estimativa</span></div><div class="lead-contact"><b>Carlos M.</b> · <span>(21) 9 9876-5432</span></div><div class="lead-actions"><span class="lead-link">Ver estimativa →</span></div></button>
+          <button type="button" class="lead-card" data-lead="2"><div class="lead-top"><span class="lead-dest">Orlando</span><span class="lead-when">ontem</span></div><div class="lead-meta"><span class="lead-tag">5 a 12 nov</span><span class="lead-tag">3 pessoas</span><span class="lead-tag">Parques e compras</span><span class="lead-tag">Roteiro</span></div><div class="lead-contact"><b>Fernanda L.</b> · <span>(31) 9 9123-4567</span></div><div class="lead-actions"><span class="lead-link">Ver roteiro →</span><span class="lead-link">Ver estimativa →</span></div></button>
+          </div>
+        </div>
+        <div data-apview="marca" hidden>
+          <div class="app-top"><div><div class="dash-title">Sua marca</div><div class="dash-sub">Nome, cor e logo da sua agência.</div></div></div>
+          <div class="brand-grid">
+            <div class="brand-form">
+              <label class="bf-label" for="apxNome">Nome da agência</label>
+              <input class="bf-input" id="apxNome" type="text" maxlength="28" autocomplete="off" value="Destinos no Mundo">
+              <span class="bf-label">Cor de destaque</span>
+              <div class="bf-swatches" id="apxSw"></div>
+              <span class="bf-label">Logo</span>
+              <span class="bf-upload"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>Enviar logo</span>
+            </div>
+            <div class="brand-preview">
+              <div class="bp-title">Prévia da proposta</div>
+              <div class="bp-banner"><img src="https://images.unsplash.com/photo-1585208798174-6cedd86e019a?w=600&q=60&auto=format" alt="" loading="lazy"><span class="bp-badge" id="apxBadge">Destinos no Mundo</span><div class="bp-t"><b>Lisboa</b><span id="apxSub">proposta de Destinos no Mundo</span></div></div>
+              <span class="bp-cta">Quero essa viagem</span>
+              <p class="bp-note">É assim que o viajante vê a sua proposta dentro do app.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="convo-panel" id="apxConvo" role="dialog" aria-label="Conversa do lead">
+        <div class="convo-head"><div><div class="convo-title"><span class="convo-dot"></span>Conversa com o OND vAI</div><div class="convo-dest" id="apxCDest"></div><div class="convo-contact" id="apxCCont"></div></div><button class="convo-close" id="apxCClose" type="button" aria-label="Fechar">✕</button></div>
+        <div class="convo-log" id="apxCLog"></div>
       </div>
     </div>
   </div>
 </div>
 <script>
 (function(){
-  document.querySelectorAll('.ondp [data-c]').forEach(function(el){var t=+el.dataset.c,p=el.dataset.pre||'',n=0,s=Math.max(1,Math.round(t/40));var iv=setInterval(function(){n+=s;if(n>=t){n=t;clearInterval(iv);}el.textContent=p+n;},28);});
-  var bars=document.getElementById('ondpBars'); if(bars)bars.innerHTML=[40,55,48,70,62,85,78].map(function(h){return '<span style="height:'+h+'%"></span>';}).join('');
-  var NM=['Casal em busca de cultura','Família com 2 filhos','Lua de mel','Grupo de amigas','Aposentados viajando','Casal gastronômico'];
-  var DS=[['Orlando','5–9 nov · 2 pax'],['Buenos Aires','12–17 dez · 4 pax'],['Monte Verde','set/2026 · 2 pax'],['Lisboa','jan/2027 · 1 pax'],['Cancún','fev · 2 pax'],['Roma','abr · 2 pax']];
-  var HT=[['','● Quente'],['w','● Morno'],['n','● Novo']]; var VL=['7.900','5.200','3.400','6.250','4.700','8.800'];
-  var f=document.getElementById('ondpFeed'); if(!f)return;
-  function add(first){var n=NM[Math.random()*NM.length|0],d=DS[Math.random()*DS.length|0],h=HT[Math.random()*HT.length|0],v=VL[Math.random()*VL.length|0];
-    var e=document.createElement('div');e.className='ld'+(first?'':' en');
-    e.innerHTML='<div class="ldt"><b>'+n+'</b><span class="hot '+h[0]+'">'+h[1]+'</span></div><div class="lds">'+d[0]+' · '+d[1]+'</div><div class="ldv">~R$ '+v+' <span>· roteiro pronto</span></div><a class="cta">Assumir e enviar proposta →</a>';
-    f.prepend(e);while(f.children.length>4)f.lastChild.remove();}
-  for(var i=0;i<3;i++)add(true); setInterval(add,4200);
+  var root=document.getElementById('apx'); if(!root) return;
+  var LEADS=[{"dest":"Lisboa e Porto","nome":"Mariana S.","fone":"(11) 9 8765-4321","conv":[[0,"Oi! Sou o OND vAI. Pra onde você quer viajar?"],[1,"Quero conhecer Portugal com meu marido em janeiro"],[0,"Boa! Quantos dias vocês têm e qual o estilo: mais cidade, praia ou vinho?"],[1,"10 dias, cidade e vinho"],[0,"Montei 10 dias: 6 em Lisboa com bate e volta a Sintra e 4 no Porto com o Douro. A Destinos no Mundo pode cuidar de voo, hotel e passeios. Quer que ela te chame?"],[1,"Quero sim!"]]},{"dest":"Buenos Aires","nome":"Carlos M.","fone":"(21) 9 9876-5432","conv":[[0,"Oi! Sou o OND vAI. Pra onde você quer viajar?"],[1,"Buenos Aires em dezembro, eu, minha esposa e 2 filhos"],[0,"Fechou! Pra 4 pessoas e 5 noites, a estimativa fica entre R$ 14 mil e R$ 18 mil com voo e hotel em Palermo."],[1,"Dá pra alguém me mandar uma proposta?"],[0,"Claro! Passei o seu contato pra Destinos no Mundo, que vai te chamar no WhatsApp."]]},{"dest":"Orlando","nome":"Fernanda L.","fone":"(31) 9 9123-4567","conv":[[0,"Oi! Sou o OND vAI. Pra onde você quer viajar?"],[1,"Orlando em novembro, com minha filha de 9 anos"],[0,"Que demais! Sugiro 7 dias: 4 de parques, 1 de descanso e 2 de compras. Quer ingressos e carro inclusos?"],[1,"Sim, e hotel perto da Disney"],[0,"Anotado! Montei o roteiro e a Destinos no Mundo vai te passar os valores."]]}];
+  var navs=[].slice.call(root.querySelectorAll('[data-apv]')), views=[].slice.call(root.querySelectorAll('[data-apview]'));
+  navs.forEach(function(b){ b.addEventListener('click',function(){ navs.forEach(function(x){ x.classList.toggle('on',x===b); }); views.forEach(function(v){ v.hidden=v.getAttribute('data-apview')!==b.getAttribute('data-apv'); }); fecha(); }); });
+  var pn=document.getElementById('apxConvo'), log=document.getElementById('apxCLog');
+  function esc(t){ return String(t).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function abre(i){ var l=LEADS[i]; document.getElementById('apxCDest').textContent=l.dest; document.getElementById('apxCCont').textContent=l.nome+' · '+l.fone;
+    log.innerHTML=l.conv.map(function(m){ return m[0]? '<div class="convo-msg me"><div class="convo-bubble">'+esc(m[1])+'</div></div>' : '<div class="convo-msg ai"><span class="convo-av"><img src="/assets/ond-symbol.svg" alt=""></span><div class="convo-bubble">'+esc(m[1])+'</div></div>'; }).join('');
+    pn.classList.add('open'); log.scrollTop=0; }
+  function fecha(){ pn.classList.remove('open'); }
+  root.querySelectorAll('.lead-card').forEach(function(c){ c.addEventListener('click',function(){ abre(+c.getAttribute('data-lead')); }); });
+  document.getElementById('apxCClose').addEventListener('click',fecha);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') fecha(); });
+  var CORES=['#0066ff','#7f11f4','#00b37e','#ff7a00','#e8484a','#0b1220'], sw=document.getElementById('apxSw');
+  function on(hex){ var n=parseInt(hex.slice(1),16), r=n>>16&255, g=n>>8&255, bl=n&255; return (0.299*r+0.587*g+0.114*bl)>165?'#0b1220':'#fff'; }
+  sw.innerHTML=CORES.map(function(c,i){ return '<button class="bf-sw'+(i?'':' on')+'" type="button" data-c="'+c+'" style="background:'+c+';--sw:'+c+'" aria-label="Cor '+c+'"></button>'; }).join('');
+  sw.addEventListener('click',function(e){ var b=e.target.closest('.bf-sw'); if(!b) return; [].forEach.call(sw.children,function(x){ x.classList.toggle('on',x===b); }); root.style.setProperty('--brand',b.getAttribute('data-c')); root.style.setProperty('--brand-on',on(b.getAttribute('data-c'))); });
+  var nm=document.getElementById('apxNome');
+  nm.addEventListener('input',function(){ var v=nm.value.trim()||'Sua agência'; document.getElementById('apxName').textContent=v; document.getElementById('apxBadge').textContent=v; document.getElementById('apxSub').textContent='proposta de '+v; });
 })();
 </script>
-      <p class="demo-tag">Painel ilustrativo, com dados de exemplo.</p>
+      <p class="demo-tag">Réplica do painel da agência, com dados de exemplo. Clique num lead para ver a conversa.</p>
       <div class="painel-cta"><a class="btn btn-primary" href="https://ondviajar.com.br/agencias-app.html" target="_blank" rel="noopener">Conhecer o painel da agência →</a><span>Abre em outra aba</span></div>
     </section>
 
@@ -675,6 +828,7 @@ body.rs-open{overflow:hidden}
         <div class="rs-ctas">
           <a class="btn btn-primary" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agendar 30 min</a>
           <a class="btn btn-wa" href="https://wa.me/5511943615412?text=Ol%C3%A1!%20Sou%20da%20Destinos%20no%20Mundo%20e%20quero%20falar%20sobre%20a%20proposta%20do%20OND" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <a class="btn btn-wa" href="https://ond-clone-prototipos.pages.dev/loja/destinos-no-mundo" target="_blank" rel="noopener">Ver a sua loja</a>
           <button class="rs-print" id="resumoPrint" type="button">Salvar em PDF</button>
         </div>
       </div>
