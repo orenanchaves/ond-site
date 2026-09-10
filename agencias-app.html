@@ -55,8 +55,14 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 /* ── LOGIN ── */
 #loginScreen{max-width:400px;margin:64px auto 0;padding:0 20px}
 .login-card{background:var(--surface);border:1px solid var(--border-hi);border-radius:16px;padding:36px 32px;box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.login-eyebrow{font-size:.8rem;font-weight:800;letter-spacing:.01em;color:var(--blue-light);margin-bottom:6px}
 .login-title{font-size:1.4rem;font-weight:800;margin-bottom:6px;letter-spacing:-.01em}
 .login-sub{color:var(--muted);font-size:.92rem;margin-bottom:28px}
+.login-info{margin-top:20px;display:flex;flex-direction:column;gap:8px;text-align:center;font-size:.84rem;color:var(--muted);line-height:1.5}
+.login-info p{margin:0}
+.login-info a{color:var(--blue-light);font-weight:700;text-decoration:none}
+.login-info a:hover{text-decoration:underline}
+.login-info-fine{font-size:.74rem;color:var(--muted2);margin-top:4px!important}
 .field{margin-bottom:16px}
 .field label{display:block;font-size:.82rem;font-weight:600;color:var(--muted);margin-bottom:6px}
 .field input{width:100%;background:var(--card);border:1.5px solid var(--border);color:var(--text);font-family:inherit;font-size:.95rem;padding:12px 14px;border-radius:var(--radius-sm);transition:border-color .15s}
@@ -199,8 +205,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 
 <div id="loginScreen">
   <div class="login-card">
-    <div class="login-title">Entrar</div>
-    <div class="login-sub">Acesse os leads que o OND repassou pra sua agência.</div>
+    <div class="login-eyebrow">OND - Travel Hub</div>
+    <div class="login-title">Login</div>
+    <div class="login-sub">Acesse os leads que o<br>OND repassou pra sua agência.</div>
     <div class="login-error" id="loginError"></div>
     <form id="loginForm">
       <div class="field">
@@ -213,6 +220,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
       </div>
       <button type="submit" class="btn-primary" id="loginBtn">Entrar</button>
     </form>
+  </div>
+  <div class="login-info">
+    <p>Esqueceu a senha ou precisa de acesso? <a href="https://wa.me/5511943615412" target="_blank" rel="noopener">Fale com o OND</a></p>
+    <p>Ainda não é parceiro? <a href="/agencias.html">Conheça o OND para agências</a></p>
+    <p class="login-info-fine">Acesso restrito a agências parceiras.</p>
   </div>
 </div>
 
