@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#060a14">
+<meta name="robots" content="noindex, nofollow">
+<title>Área do parceiro · OND</title>
+<link rel="icon" type="image/svg+xml" href="/assets/ond-symbol.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/tokens/ond-core.css">
+<link rel="stylesheet" href="/tokens/ond-b2b.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:var(--ond-color-bg);--surface:var(--ond-color-surface);--card:var(--ond-color-card);
+  --border:var(--ond-color-border);--blue:var(--ond-color-primary);--blue-light:var(--ond-color-primaryHover);
+  --blue-dim:color-mix(in srgb, var(--ond-color-primary) 12%, transparent);
+  --text:var(--ond-color-text);--muted:var(--ond-color-muted);--green:var(--ond-color-success);
+  /* CSS do app OND (B2C, roxo) — do Design System */
+  --ond-bg:#0d0d14;--ond-surface:#16161f;--ond-purple:#7f11f4;--ond-deep:#290756;--ond-mid:#560fb2;
+  --ond-neon:#11f558;--ond-orange:#f59811;--ond-txt:#f0eeff;--ond-mut:#9b8fc0;--ond-line:#2a2440;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-base),'Onest',system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
+.ond-letter{fill:var(--ond-color-text)}.ond-diamond{fill:#7f11f4}
+a{color:var(--blue-light)}
+
+/* ── GATE ── */
+.gate{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px}
+.gate.hide{display:none}
+.gate-card{width:100%;max-width:380px;text-align:center;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:38px 30px;box-shadow:0 24px 64px rgba(0,0,0,.4)}
+.gate-logo{height:30px;width:auto;margin:0 auto 20px;display:block}
+.gate-card h1{font-size:1.25rem;font-weight:800;margin-bottom:6px;letter-spacing:-.01em}
+.gate-card p{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+.gate-form{display:flex;flex-direction:column;gap:10px}
+.gate-input{padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:1rem;outline:none;text-align:center;font-family:inherit}
+.gate-input:focus{border-color:var(--blue)}
+.gate-btn{padding:13px 16px;border-radius:12px;border:none;background:var(--blue);color:#fff;font-weight:700;font-size:1rem;cursor:pointer;font-family:inherit;transition:background .18s}
+.gate-btn:hover{background:var(--blue-light)}
+.gate-err{color:#f09595;font-size:.85rem;min-height:18px;font-weight:600}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1080px;margin:0;padding:0 clamp(24px,6vw,84px)}
+.hero{padding:60px 0 30px;text-align:left;position:relative}
+.hero::before{content:'';position:absolute;top:-40px;left:0;width:640px;height:420px;max-width:100%;background:radial-gradient(circle,color-mix(in srgb,var(--blue) 15%,transparent),transparent 66%);pointer-events:none}
+.hero-logo{height:clamp(90px,12vw,128px);width:auto;margin:0 0 28px;display:block;position:relative}
+.eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);padding:6px 14px;border-radius:50px;margin-bottom:20px;position:relative}
+.hero h1{font-size:clamp(1.9rem,4.6vw,2.7rem);font-weight:800;letter-spacing:-.025em;line-height:1.12;margin-bottom:14px;position:relative;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--blue-light)}
+.hero .sub{font-size:1.15rem;color:var(--muted);max-width:600px;margin:0;position:relative}
+.hero-inner{display:flex;gap:44px;align-items:center;position:relative;width:100%}
+.hero-text{flex:1;min-width:0}
+.hero-ill{width:36%;max-width:300px;flex-shrink:0;filter:drop-shadow(0 0 36px color-mix(in srgb,var(--blue) 26%,transparent))}
+@media(max-width:760px){.hero-inner{flex-direction:column-reverse;gap:26px}.hero-ill{width:58%;max-width:220px;align-self:center}}
+/* seções em tela cheia, feito slide adaptável */
+html{scroll-snap-type:y proximity}
+.hero,.sec{min-height:100vh;display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start}
+.sec{padding:34px 0;border-top:1px solid var(--border)}
+.recap-viz{margin:24px auto 0;max-width:470px;display:flex;flex-direction:column;gap:10px}
+.rv-msg{padding:12px 15px;border-radius:15px;font-size:.98rem;max-width:88%;line-height:1.5}
+.rv-msg.bot{align-self:flex-start;background:var(--card);border:1px solid var(--border);border-bottom-left-radius:4px;display:flex;gap:9px;align-items:flex-start}
+.rv-msg.bot svg{width:20px;height:20px;flex-shrink:0;margin-top:2px}.rv-msg.bot svg path{fill:#7f11f4}
+.rv-av{width:30px;height:30px;border-radius:50%;flex-shrink:0}
+.rv-msg.me{align-self:flex-end;background:#7f11f4;color:#fff;border-bottom-right-radius:4px}
+.sec-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);margin-bottom:10px}
+.sec h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:12px;text-wrap:balance}
+.sec p{color:var(--muted);font-size:1.02rem;margin-bottom:12px}
+.sec p strong{color:var(--text)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px}
+.card h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+.card p{font-size:.94rem;color:var(--muted);margin:0}
+.ic-mono{width:28px;height:28px;fill:var(--blue-light);display:block;margin-bottom:9px}
+.flow-node .ic-mono{margin:0 auto 8px}
+.steps{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.step{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px}
+.step-n{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.step b{display:block;font-size:1rem;margin-bottom:2px}
+.step span{color:var(--muted);font-size:.94rem}
+.flow{display:flex;align-items:stretch;gap:8px;margin-top:12px;flex-wrap:wrap}
+.flow-node{flex:1;min-width:150px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 12px;text-align:center}
+.flow-node b{font-size:.92rem;display:block;margin-bottom:2px}
+.flow-node span{font-size:.8rem;color:var(--muted)}
+.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--blue-light);font-size:1.4rem;font-weight:700}
+@media(max-width:640px){.flow-arrow{transform:rotate(90deg);width:100%;padding:2px 0}}
+.proposal{background:var(--surface);border:1px solid color-mix(in srgb,var(--blue) 34%,transparent);border-radius:20px;padding:28px;box-shadow:0 22px 54px rgba(0,0,0,.34)}
+.proposal h2{margin-bottom:4px}
+.proposal .psub{color:var(--muted);margin-bottom:18px;font-size:1rem}
+.proposal ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:18px}
+.proposal li{display:flex;gap:11px;align-items:flex-start;font-size:1rem;color:var(--muted)}
+.proposal li svg{width:20px;height:20px;fill:var(--green);flex-shrink:0;margin-top:2px}
+.proposal li b{color:var(--text)}
+.proposal .pmodel{background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 22%,transparent);border-radius:12px;padding:15px 17px;font-size:.98rem;color:var(--muted)}
+.proposal .pmodel b{color:var(--text)}
+.price{background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 32%,transparent);border-radius:14px;padding:20px}
+.price-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.price-old{color:var(--muted);text-decoration:line-through;font-size:1rem;display:block;margin-bottom:2px}
+.price-now{font-size:2.4rem;font-weight:800;color:var(--text);line-height:1}
+.price-now span{font-size:1rem;font-weight:600;color:var(--muted)}
+.price-spread{color:var(--muted);font-size:.86rem;margin-top:5px}
+.price-badge{background:var(--blue);color:#fff;font-size:.74rem;font-weight:700;padding:7px 13px;border-radius:50px;text-align:center}
+.price-inc{color:var(--text);font-size:.95rem;font-weight:600;margin-bottom:14px;display:flex;flex-wrap:wrap;gap:8px 16px}
+.price-inc span{display:inline-flex;align-items:center;gap:6px}
+.price-inc svg{width:16px;height:16px;fill:var(--green)}
+.months{display:flex;gap:8px}
+.month{flex:1;text-align:center;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 4px}
+.month b{display:block;font-size:.78rem;color:var(--text);text-transform:uppercase;letter-spacing:.03em}
+.month span{font-size:.76rem;color:var(--blue-light);font-weight:700}
+.cta{text-align:center;padding:42px 0 26px}
+.cta-ill{width:150px;max-width:46%;margin:0 auto 18px;display:block;filter:drop-shadow(0 0 30px color-mix(in srgb,var(--blue) 24%,transparent))}
+.cta h2{font-size:1.5rem;font-weight:800;margin-bottom:8px}
+.cta p{color:var(--muted);margin-bottom:20px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:50px;font-weight:700;text-decoration:none;font-size:.98rem;border:1px solid transparent;cursor:pointer;font-family:inherit}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-wa{background:transparent;border-color:var(--border);color:var(--text)}
+footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;border-top:1px solid var(--border);margin-top:10px}
+
+/* ══════ APP OND (simulação, CSS do Design System B2C) ══════ */
+.demo{display:flex;gap:26px;align-items:center;justify-content:center;flex-wrap:wrap;margin:18px 0 6px}
+.demo-legend{max-width:250px;font-size:.95rem;color:var(--muted)}
+.demo-legend h4{color:var(--text);font-size:1.05rem;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.demo-legend .dl-step{display:flex;gap:10px;margin-bottom:6px;align-items:flex-start;cursor:pointer;padding:8px 10px;margin-left:-10px;border-radius:11px;transition:background .15s}
+.demo-legend .dl-step:hover{background:var(--blue-dim)}
+.demo-legend .dl-step.cur{background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);padding:7px 9px}
+.demo-legend .dl-dot{width:9px;height:9px;border-radius:50%;background:var(--ond-purple);margin-top:6px;flex-shrink:0;box-shadow:0 0 8px var(--ond-purple)}
+.demo-legend .dl-dot.on{background:var(--ond-neon);box-shadow:0 0 10px var(--ond-neon)}
+.demo-legend b{color:var(--text)}
+.phone{width:352px;max-width:100%;flex-shrink:0;background:#000;border:10px solid #23233a;border-radius:46px;overflow:hidden;box-shadow:0 44px 100px rgba(124,17,244,.3),0 22px 54px rgba(0,0,0,.6)}
+.app{height:684px;background:var(--ond-bg);color:var(--ond-txt);display:flex;flex-direction:column;font-size:15px;position:relative}
+.app-scroll{flex:1;overflow-y:auto}
+.app-scroll::-webkit-scrollbar{width:0}
+.ap-bar{display:flex;align-items:center;gap:10px;padding:16px 16px 12px;background:linear-gradient(180deg,var(--ond-deep),transparent)}
+.ap-star{width:26px;height:26px;flex-shrink:0;fill:var(--ond-purple)}
+.ap-bar b{font-size:1rem;letter-spacing:.02em}
+.ap-back{background:rgba(255,255,255,.08);border:none;width:34px;height:34px;border-radius:10px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ap-back svg{width:18px;height:18px;fill:currentColor}
+.ap-search{margin:2px 16px 14px;background:#fff;border-radius:12px;padding:11px 14px;color:#9a9a9a;font-size:.86rem;display:flex;align-items:center;justify-content:space-between}
+.ap-search .st{width:16px;height:16px;fill:var(--ond-purple)}
+.ap-h{padding:2px 16px 10px;font-weight:800;font-size:1rem}
+.ap-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px 18px}
+.dcard{border-radius:12px;overflow:hidden;cursor:pointer;background:var(--ond-deep);border:none;padding:0;text-align:left;font-family:inherit;transition:transform .12s}
+.dcard:active{transform:scale(.97)}
+.dcard .ph{height:88px;background-size:cover;background-position:center}
+.dcard .in{padding:9px 11px 11px}
+.dcard .in b{display:block;font-size:.95rem;color:#fff;letter-spacing:-.3px}
+.dcard .in span{font-size:.74rem;font-weight:700}
+/* roteiro */
+.ap-hero{height:150px;background-size:cover;background-position:center;position:relative;display:flex;align-items:flex-end;padding:14px 16px}
+.ap-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--ond-bg),transparent 60%)}
+.ap-hero h3{position:relative;font-size:1.5rem;font-weight:800;z-index:1}
+.ap-hero .tg{position:relative;z-index:1;font-size:.72rem;font-weight:700;color:var(--ond-neon);display:block;margin-bottom:2px}
+.ap-day{margin:10px 16px;background:var(--ond-surface);border:1px solid var(--ond-line);border-radius:12px;padding:12px 14px}
+.ap-day .dn{color:var(--ond-purple);font-weight:800;font-size:.76rem;text-transform:uppercase;letter-spacing:.04em}
+.ap-day b{display:block;font-size:.92rem;margin:3px 0 2px}
+.ap-day span{color:var(--ond-mut);font-size:.82rem}
+.ag-banner{margin:14px 16px;background:linear-gradient(135deg,var(--ond-mid),var(--ond-deep));border:1px solid var(--ond-purple);border-radius:14px;padding:15px;cursor:pointer}
+.ag-banner .agt{font-size:.72rem;color:#d9c9ff;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.ag-banner .agn{display:flex;align-items:center;gap:9px;margin-top:7px}
+.ag-banner .aglogo{width:38px;height:38px;flex-shrink:0}
+.ag-banner b{font-size:1rem;color:#fff}
+.ag-banner .agp{font-size:.78rem;color:#d9c9ff;margin-top:1px}
+.ag-banner .agcta{margin-top:11px;background:#fff;color:var(--ond-deep);text-align:center;font-weight:800;padding:9px;border-radius:10px;font-size:.85rem}
+/* pacote */
+.pk-head{display:flex;align-items:center;gap:11px;padding:14px 16px;background:var(--ond-surface);border-bottom:1px solid var(--ond-line)}
+.pk-head .lg{width:44px;height:44px;flex-shrink:0}
+.pk-head b{font-size:1rem;display:block}.pk-head span{font-size:.76rem;color:var(--ond-mut)}
+.pk-body{padding:16px}
+.pk-title{font-size:1.3rem;font-weight:800;margin-bottom:3px}
+.pk-sub{color:var(--ond-mut);font-size:.86rem;margin-bottom:14px}
+.pk-inc{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
+.pk-inc li{display:flex;gap:9px;align-items:center;font-size:.9rem;color:#e6ddff}
+.pk-inc li svg{width:18px;height:18px;fill:var(--ond-neon);flex-shrink:0}
+.pk-price{background:var(--ond-surface);border:1px solid var(--ond-line);border-radius:12px;padding:13px 15px;display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.pk-price span{color:var(--ond-mut);font-size:.8rem}.pk-price b{font-size:1.25rem;color:#fff}
+.ap-cta{display:block;width:calc(100% - 32px);margin:0 16px 16px;background:var(--ond-purple);color:#fff;border:none;text-align:center;font-weight:800;padding:14px;border-radius:13px;font-size:.95rem;cursor:pointer;font-family:inherit}
+@keyframes pulseGuide{0%,100%{box-shadow:0 0 0 0 rgba(124,17,244,.55)}55%{box-shadow:0 0 0 9px rgba(124,17,244,0)}}
+.guide{animation:pulseGuide 1.5s infinite}
+.ap-hint{margin:9px 16px 2px;background:rgba(124,17,244,.16);border:1px solid var(--ond-purple);color:#e9dfff;font-size:.8rem;font-weight:700;padding:9px 12px;border-radius:11px;text-align:center}
+/* checkout */
+.co-sum{margin:14px 16px;background:var(--ond-surface);border:1px solid var(--ond-line);border-radius:12px;padding:14px}
+.co-sum .r{display:flex;justify-content:space-between;font-size:.88rem;padding:5px 0;color:#d9d2f0}
+.co-sum .r.tot{border-top:1px solid var(--ond-line);margin-top:6px;padding-top:10px;font-weight:800;color:#fff;font-size:1.05rem}
+.co-pay{margin:0 16px 12px}
+.co-pay .pl{font-size:.76rem;color:var(--ond-mut);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.co-opt{display:flex;align-items:center;gap:10px;background:var(--ond-surface);border:1px solid var(--ond-line);border-radius:11px;padding:12px 14px;margin-bottom:8px;font-size:.9rem}
+.co-opt.sel{border-color:var(--ond-purple);background:color-mix(in srgb,var(--ond-purple) 14%,transparent)}
+.co-opt .rd{width:16px;height:16px;border-radius:50%;border:2px solid var(--ond-purple);flex-shrink:0}
+.co-opt.sel .rd{background:var(--ond-purple);box-shadow:inset 0 0 0 3px var(--ond-surface)}
+/* confirmação */
+.cf{padding:44px 22px;text-align:center}
+.cf-check{width:82px;height:82px;margin:0 auto 20px;border-radius:50%;background:color-mix(in srgb,var(--ond-neon) 18%,transparent);display:flex;align-items:center;justify-content:center}
+.cf-check svg{width:44px;height:44px;fill:var(--ond-neon)}
+.cf h3{font-size:1.4rem;font-weight:800;margin-bottom:8px}
+.cf p{color:var(--ond-mut);font-size:.92rem;margin-bottom:18px}
+.cf-note{background:color-mix(in srgb,var(--ond-neon) 12%,transparent);border:1px solid color-mix(in srgb,var(--ond-neon) 40%,transparent);border-radius:12px;padding:13px 15px;font-size:.86rem;color:#cdeede;margin:0 0 18px}
+.cf-note b{color:var(--ond-neon)}
+.demo-tag{text-align:center;font-size:.85rem;color:var(--muted);margin-top:16px}
+#phoneSlot{display:contents}
+.demo-actions{display:flex;justify-content:center;margin-top:16px}
+.fs-btn{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:inherit;font-weight:700;font-size:.9rem;padding:11px 20px;border-radius:50px;cursor:pointer;transition:border-color .18s,background .18s}
+.fs-btn:hover{border-color:var(--blue);background:var(--blue-dim)}
+.fs-btn svg{width:16px;height:16px;fill:var(--blue-light)}
+.fs{position:fixed;inset:0;z-index:120;background:color-mix(in srgb,var(--bg) 88%,#000);backdrop-filter:blur(10px);display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:18px}
+.fs.on{display:flex}
+.fs .phone{width:min(94vw,420px);border-width:8px;border-radius:40px}
+.fs .app{height:min(calc(100dvh - 52px),900px)}
+.fs-close{position:absolute;top:16px;right:18px;width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border);color:var(--text);font-size:1.4rem;line-height:1;cursor:pointer;font-family:inherit}
+.fs-close:hover{border-color:var(--blue)}
+.fs-close .fs-lbl{display:none}
+@media(max-width:720px){.fs-close .fs-x{display:none}.fs-close .fs-lbl{display:inline}}
+.fs-hint{position:absolute;left:0;right:0;bottom:10px;margin:0 auto;color:var(--muted);font-size:.8rem;text-align:center;max-width:340px;pointer-events:none}
+@media(max-width:720px){.fs{padding:8px 8px 56px;gap:0;justify-content:flex-start}.fs-close{top:auto;bottom:10px;left:50%;right:auto;transform:translateX(-50%);width:auto;min-width:120px;height:38px;border-radius:50px;font-size:.88rem;font-weight:700}.fs-hint{display:none}.fs .phone{border-width:6px;border-radius:34px}.fs .app{height:min(calc(100dvh - 88px),920px)}}
+@media(max-width:720px){.demo{flex-direction:column}.demo-legend{max-width:340px;text-align:center}.demo-legend .dl-step{text-align:left}}
+/* ── POSSIBILIDADES ── */
+.poss-hi{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:720px){.poss-hi{grid-template-columns:1fr}}
+.poss{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px}
+.poss h3{font-size:1.12rem;font-weight:800;margin-bottom:6px}
+.poss>p{font-size:.94rem;color:var(--muted);margin:0}
+.browser{margin-top:16px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#0e1830}
+.browser-bar{background:#16264a;padding:8px 12px;display:flex;align-items:center;gap:9px}
+.browser-dots{display:flex;gap:5px}.browser-dots i{width:9px;height:9px;border-radius:50%;background:#3a4a6a;display:block}
+.browser-url{flex:1;background:#0b1424;border-radius:6px;padding:4px 11px;font-size:.72rem;color:#8fa8c6;text-align:center}
+.browser-body{height:158px;position:relative;background:linear-gradient(160deg,#123b57,#0b1c2e);padding:18px}
+.browser-body .bt{font-size:1rem;font-weight:800;color:#fff}.browser-body .bx{font-size:.74rem;color:#bcd0e6;margin-top:5px;max-width:180px}
+.vai-orb{position:absolute;right:14px;bottom:14px;width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 36% 28%,#b088ff,#7f11f4 55%,#5b21d6);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(124,17,244,.55)}
+.vai-orb svg{width:26px;height:26px;fill:#fff}
+.vai-bub{position:absolute;right:74px;bottom:22px;background:#fff;color:#1a1a2e;font-size:.74rem;font-weight:600;padding:9px 12px;border-radius:13px;max-width:158px;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.vai-bub::after{content:'';position:absolute;right:-6px;bottom:16px;border:6px solid transparent;border-left-color:#fff}
+.poss-mini-phone{margin:16px auto 0;width:150px;border:6px solid #23233a;border-radius:26px;overflow:hidden;background:var(--ond-bg)}
+.pmp-top{background:linear-gradient(180deg,var(--ond-deep),transparent);padding:11px 11px 8px;display:flex;align-items:center;gap:7px}
+.pmp-top svg{width:16px;height:16px;fill:var(--ond-purple)}.pmp-top b{font-size:.7rem;color:#fff}
+.pmp-cards{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:8px}
+.pmp-card{height:52px;border-radius:8px;background-size:cover;background-position:center}
+/* ── mobile ── */
+@media(max-width:640px){
+  .hero,.sec{min-height:auto;padding:40px 0}
+  .hero{padding-top:48px}
+  .hero-logo{margin-bottom:18px}
+  .sec h2{font-size:1.32rem}
+  .phone{width:min(340px,90vw);border-width:8px}
+  .app{height:76vh;min-height:540px;font-size:14px}
+  .grid,.poss-hi{grid-template-columns:1fr}
+  .demo{gap:18px}
+  .proposal,.poss{padding:18px}
+  .price{padding:16px}
+  .price-now{font-size:2rem}
+  .month{padding:8px 3px}.month b{font-size:.72rem}.month span{font-size:.7rem}
+}
+</style>
+</head>
+<body>
+
+<!-- GATE -->
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <svg class="gate-logo" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+    <h1>Área do parceiro</h1>
+    <p>Acesso restrito. Informe a senha de acesso.</p>
+    <form class="gate-form" id="gateForm" autocomplete="off">
+      <input class="gate-input" id="gatePass" type="password" placeholder="senha de acesso" aria-label="Senha de acesso" autofocus>
+      <button class="gate-btn" type="submit">Entrar</button>
+      <div class="gate-err" id="gateErr"></div>
+    </form>
+  </div>
+</div>
+
+<!-- SPRITES -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ond-star" viewBox="0 0 497.26 497.26"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></symbol>
+  <symbol id="ead-logo" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="94" fill="none" stroke="#dd8b63" stroke-width="9" stroke-linecap="round" stroke-dasharray="292 5"/>
+    <circle cx="100" cy="100" r="82" fill="#6f8fb5"/>
+    <path d="M60 62c16-17 46-17 66-3" fill="none" stroke="#141414" stroke-width="8" stroke-linecap="round"/>
+    <path d="M126 47l7 18-19-5z" fill="#141414"/>
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="#141414" transform="translate(45,60) scale(2.7)"/>
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="#141414" transform="translate(90,60) scale(2.7)"/>
+  </symbol>
+</svg>
+
+<!-- CONTEÚDO -->
+<main id="content" hidden>
+  <div class="wrap">
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <svg class="hero-logo" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+          <span class="eyebrow" id="clientTag">Uma proposta para você</span>
+          <h1>Sua agência com um <em>novo canal de aquisição</em>.</h1>
+          <p class="sub">Uma loja dentro do OND: mais leads qualificados, acesso à tecnologia de IA e um ponto de venda pros viajantes que já estão decidindo o destino, tudo com a sua marca.</p>
+        </div>
+        <img class="hero-ill" src="/assets/ondino-caminhando.svg" alt="Ondino, o viajante do OND, com o celular na mão" loading="eager">
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-label">Relembrando rápido</div>
+      <h2>Você já conhece o OND. Vamos direto ao ponto.</h2>
+      <p>Só pra alinhar: o <strong>OND</strong> é o app onde o viajante planeja a viagem inteira conversando com o <strong>OND vAI</strong>, de graça. A proposta pra Destinos no Mundo nasce daí: colocar a sua loja no caminho de quem já está decidindo o destino.</p>
+      <div class="recap-viz">
+        <div class="rv-msg bot"><img class="rv-av" src="/assets/ondino.png" alt="OND vAI"><span>Oi! Sou o OND vAI. Pra onde você quer viajar?</span></div>
+        <div class="rv-msg me">Quero conhecer o Japão em setembro ✈️</div>
+        <div class="rv-msg bot"><img class="rv-av" src="/assets/ondino.png" alt="OND vAI"><span>Fechou! Montei um roteiro de 12 dias: Tóquio, Kyoto e o Monte Fuji. Uma agência parceira pode cuidar de tudo. ✨</span></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-label">Veja funcionando · toque na tela</div>
+      <h2>Como o cliente compra o seu pacote dentro do app.</h2>
+      <p>Essa é a tela real do OND. Siga o fluxo: o viajante escolhe o destino, vê o roteiro do OND vAI, encontra a <strong>loja da Destinos no Mundo</strong> e <strong>compra por dentro do app</strong>. O repasse cai na sua conta.</p>
+
+      <div class="demo">
+        <div class="demo-legend">
+          <h4><svg style="width:20px;height:20px;fill:#7f11f4" viewBox="0 0 497.26 497.26"><use href="#ond-star"/></svg> O caminho da venda</h4>
+          <div class="dl-step" data-s="destinos"><span class="dl-dot"></span><span><b>1. Escolhe o destino</b><br>no app OND</span></div>
+          <div class="dl-step" data-s="roteiro"><span class="dl-dot"></span><span><b>2. Vê o roteiro</b><br>montado pelo OND vAI</span></div>
+          <div class="dl-step" data-s="pacote"><span class="dl-dot"></span><span><b>3. Acha a sua loja</b><br>o pacote da Destinos no Mundo</span></div>
+          <div class="dl-step" data-s="checkout"><span class="dl-dot"></span><span><b>4. Compra no app</b><br>pagamento por dentro</span></div>
+          <div class="dl-step" data-s="ok"><span class="dl-dot"></span><span><b>5. Repasse pra você</b><br>na sua conta</span></div>
+        </div>
+        <div id="phoneSlot"><div class="phone"><div class="app"><div class="app-scroll" id="app"></div></div></div></div>
+      </div>
+      <div class="demo-actions"><button class="fs-btn" id="fsOpen" type="button"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>Abrir simulação em tela cheia</button></div>
+      <p class="demo-tag">Simulação com a loja da Destinos no Mundo no app OND (dados de exemplo).</p>
+      <div id="storeReal" style="margin-top:18px;padding:16px 18px;border-radius:14px;border:1px solid var(--border);background:var(--card);display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div style="flex:1;min-width:200px"><b>A sua loja de verdade</b><div style="color:var(--muted);font-size:.86rem;margin-top:3px">A simulação acima usa dados de exemplo. A loja real da Destinos no Mundo fica neste link.</div></div>
+        <a id="storeBtn" class="btn btn-primary" href="#" target="_blank" rel="noopener">Ver a loja →</a>
+        <span id="storeWip" style="font-size:.82rem;color:var(--muted);font-weight:600">Loja em montagem · o link aparece aqui assim que ficar pronta</span>
+      </div>
+      <script>(function(){var STORE_URL='';var b=document.getElementById('storeBtn'),w=document.getElementById('storeWip');if(STORE_URL){b.href=STORE_URL;w.hidden=true;}else{b.hidden=true;}})();</script>
+    </section>
+
+    <section class="sec">
+      <div class="sec-label">Do seu lado</div>
+      <h2>Você acompanha tudo por um painel.</h2>
+      <p>Todo viajante que monta um roteiro com o OND vAI e se interessa pelos seus pacotes vira um <strong>lead na sua conta</strong>, com destino, datas, número de pessoas e valor estimado. Você assume, envia a proposta e fecha com a sua assessoria.</p>
+<style>
+.ondp{--c:var(--card);--s:var(--bg);--b:var(--border);--bh:color-mix(in srgb,var(--border) 70%,var(--blue) 30%);--tx:var(--text);--mut:var(--muted);--pur:var(--ond-purple);--pur6:var(--ond-mid);--grn:var(--green);--blu:var(--blue);--blul:var(--blue-light);--dng:#f09595;font-family:inherit;color:var(--tx);margin:8px 0 26px}
+.ondp .ey{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blul);font-weight:800;margin:0 0 12px}
+.ondp .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.ondp .kpi{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:15px 17px}
+.ondp .kpi .n{font-size:28px;font-weight:800;line-height:1}
+.ondp .kpi .l{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);margin-top:7px}
+.ondp .kpi.g .n{color:var(--grn)}.ondp .kpi.p .n{color:var(--pur6)}.ondp .kpi.b .n{color:var(--blul)}
+.ondp .grid{display:grid;grid-template-columns:1.3fr .9fr;gap:16px;align-items:start}
+.ondp .ag{background:var(--c);border:1px solid var(--bh);border-radius:20px;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.ondp .agh{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.ondp .agn{font-size:.82rem;font-weight:800;color:var(--mut)}
+.ondp .lv{display:inline-flex;align-items:center;gap:6px;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--grn)}
+.ondp .lv i{width:7px;height:7px;border-radius:50%;background:var(--grn);animation:ondpp 1.6s infinite}
+@keyframes ondpp{0%{box-shadow:0 0 0 0 rgba(0,230,118,.5)}70%{box-shadow:0 0 0 8px rgba(0,230,118,0)}100%{box-shadow:0 0 0 0 rgba(0,230,118,0)}}
+.ondp .feed{display:flex;flex-direction:column;gap:11px}
+.ondp .ld{background:var(--s);border:1px solid var(--bh);border-radius:14px;padding:15px;box-shadow:0 0 0 1px rgba(0,102,255,.2),0 12px 30px rgba(0,102,255,.14)}
+.ondp .ld.en{animation:ondin .5s ease}@keyframes ondin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.ondp .ldt{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
+.ondp .ldt b{font-size:1rem;font-weight:800}
+.ondp .hot{font-size:.64rem;font-weight:800;color:var(--dng);white-space:nowrap}.ondp .hot.w{color:#ffab40}.ondp .hot.n{color:var(--blul)}
+.ondp .lds{font-size:.8rem;color:var(--mut)}
+.ondp .ldv{margin-top:8px;font-size:1.05rem;font-weight:800;color:var(--grn)}.ondp .ldv span{font-size:.74rem;font-weight:700;color:var(--mut)}
+.ondp .cta{display:block;text-align:center;margin-top:13px;background:var(--blu);color:#fff;font-weight:800;font-size:.86rem;padding:11px;border-radius:50px;text-decoration:none;cursor:pointer}
+.ondp .cd{background:var(--c);border:1px solid var(--b);border-radius:16px;overflow:hidden}
+.ondp .cdh{padding:14px 18px;border-bottom:1px solid var(--b);font-weight:700;font-size:15px}
+.ondp .vn{padding:10px 14px 16px}
+.ondp .bars{display:flex;align-items:flex-end;gap:6px;height:66px;margin:6px 4px 14px}
+.ondp .bars span{flex:1;background:linear-gradient(180deg,var(--pur6),var(--pur));border-radius:5px 5px 0 0;opacity:.9}
+.ondp .vr{display:flex;align-items:center;justify-content:space-between;padding:11px 4px;font-size:13px}
+.ondp .vr+.vr{border-top:1px solid var(--b)}.ondp .vr .d{color:var(--mut)}.ondp .vr .v{font-weight:800;color:var(--grn)}
+@media(max-width:760px){.ondp .kpis{grid-template-columns:1fr 1fr}.ondp .grid{grid-template-columns:1fr}}
+</style>
+<div class="ondp">
+  <div class="ey">Painel · seus leads e vendas</div>
+  <div class="kpis">
+    <div class="kpi p"><div class="n" data-c="47">0</div><div class="l">Leads no mês</div></div>
+    <div class="kpi b"><div class="n" data-c="31">0</div><div class="l">Roteiros prontos</div></div>
+    <div class="kpi g"><div class="n" data-c="12">0</div><div class="l">Vendas fechadas</div></div>
+    <div class="kpi g"><div class="n" data-pre="R$ " data-c="86">0</div><div class="l">Receita (R$ mil)</div></div>
+  </div>
+  <div class="grid">
+    <div class="ag">
+      <div class="agh"><span class="agn">Leads da sua conta</span><span class="lv"><i></i> ao vivo</span></div>
+      <div class="feed" id="ondpFeed"></div>
+    </div>
+    <div class="cd">
+      <div class="cdh">Vendas recentes</div>
+      <div class="vn">
+        <div class="bars" id="ondpBars"></div>
+        <div class="vr"><span class="d">Orlando · casal</span><span class="v">R$ 9.400</span></div>
+        <div class="vr"><span class="d">Buenos Aires · família</span><span class="v">R$ 7.100</span></div>
+        <div class="vr"><span class="d">Monte Verde · casal</span><span class="v">R$ 3.900</span></div>
+        <div class="vr"><span class="d">Lisboa · solo</span><span class="v">R$ 6.250</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  document.querySelectorAll('.ondp [data-c]').forEach(function(el){var t=+el.dataset.c,p=el.dataset.pre||'',n=0,s=Math.max(1,Math.round(t/40));var iv=setInterval(function(){n+=s;if(n>=t){n=t;clearInterval(iv);}el.textContent=p+n;},28);});
+  var bars=document.getElementById('ondpBars'); if(bars)bars.innerHTML=[40,55,48,70,62,85,78].map(function(h){return '<span style="height:'+h+'%"></span>';}).join('');
+  var NM=['Casal em busca de cultura','Família com 2 filhos','Lua de mel','Grupo de amigas','Aposentados viajando','Casal gastronômico'];
+  var DS=[['Orlando','5–9 nov · 2 pax'],['Buenos Aires','12–17 dez · 4 pax'],['Monte Verde','set/2026 · 2 pax'],['Lisboa','jan/2027 · 1 pax'],['Cancún','fev · 2 pax'],['Roma','abr · 2 pax']];
+  var HT=[['','● Quente'],['w','● Morno'],['n','● Novo']]; var VL=['7.900','5.200','3.400','6.250','4.700','8.800'];
+  var f=document.getElementById('ondpFeed'); if(!f)return;
+  function add(first){var n=NM[Math.random()*NM.length|0],d=DS[Math.random()*DS.length|0],h=HT[Math.random()*HT.length|0],v=VL[Math.random()*VL.length|0];
+    var e=document.createElement('div');e.className='ld'+(first?'':' en');
+    e.innerHTML='<div class="ldt"><b>'+n+'</b><span class="hot '+h[0]+'">'+h[1]+'</span></div><div class="lds">'+d[0]+' · '+d[1]+'</div><div class="ldv">~R$ '+v+' <span>· roteiro pronto</span></div><a class="cta">Assumir e enviar proposta →</a>';
+    f.prepend(e);while(f.children.length>4)f.lastChild.remove();}
+  for(var i=0;i<3;i++)add(true); setInterval(add,4200);
+})();
+</script>
+      <p class="demo-tag">Painel ilustrativo, com dados de exemplo.</p>
+    </section>
+
+    <section class="sec">
+      <div class="sec-label">Possibilidades</div>
+      <h2>Não é só a loja no app. O OND vira o seu motor de venda.</h2>
+      <p>A mesma tecnologia, nos canais que fizerem sentido pra Destinos no Mundo, sempre com a sua marca.</p>
+      <div class="poss-hi">
+        <div class="poss">
+          <svg class="ic-mono" viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+          <h3>Sua loja no app OND</h3>
+          <p>O que você viu acima: seus pacotes expostos pros viajantes, comprando por dentro do app.</p>
+          <div class="poss-mini-phone">
+            <div class="pmp-top"><svg viewBox="0 0 497.26 497.26"><use href="#ond-star"/></svg><b>Destinos no Mundo</b></div>
+            <div class="pmp-cards"><div class="pmp-card" style="background-image:url(https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=300&q=60&auto=format)"></div><div class="pmp-card" style="background-image:url(https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=300&q=60&auto=format)"></div><div class="pmp-card" style="background-image:url(https://images.unsplash.com/photo-1585208798174-6cedd86e019a?w=300&q=60&auto=format)"></div><div class="pmp-card" style="background-image:url(https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=300&q=60&auto=format)"></div></div>
+          </div>
+        </div>
+        <div class="poss">
+          <svg class="ic-mono" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+          <h3>O OND vAI no seu site</h3>
+          <p>Embuta o assistente de viagem no site da Destinos no Mundo: o cliente conversa, monta o roteiro e vira venda sua, sem sair do seu domínio.</p>
+          <div class="browser">
+            <div class="browser-bar"><div class="browser-dots"><i></i><i></i><i></i></div><div class="browser-url">destinosnomundo.com.br</div></div>
+            <div class="browser-body">
+              <div class="bt">Destinos no Mundo</div>
+              <div class="bx">Pacotes sob medida, com assessoria de visto e cidadania.</div>
+              <div class="vai-bub">Oi! Pra onde você quer viajar? ✈️</div>
+              <div class="vai-orb"><svg viewBox="0 0 497.26 497.26"><use href="#ond-star"/></svg></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid" style="margin-top:16px">
+        <div class="card"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M17 7h-4v2h4c1.65 0 3 1.35 3 3s-1.35 3-3 3h-4v2h4c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-6 8H7c-1.65 0-3-1.35-3-3s1.35-3 3-3h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-2zm-3-4h8v2H8z"/></svg><h3>Link e QR da sua loja</h3><p>Divulgue no Instagram, WhatsApp e material impresso, e cai direto na sua loja no OND.</p></div>
+        <div class="card"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67 0 1.38-1.12 2.5-2.5 2.5zm-5.5-10c.83 0 1.5-.67 1.5-1.5S7.33 9 6.5 9 5 9.67 5 10.5 5.67 12 6.5 12zm3-4c.83 0 1.5-.67 1.5-1.5S10.33 5 9.5 5 8 5.67 8 6.5 8.67 8 9.5 8zm5 0c.83 0 1.5-.67 1.5-1.5S15.33 5 14.5 5 13 5.67 13 6.5 13.67 8 14.5 8zm3 4c.83 0 1.5-.67 1.5-1.5S18.33 9 17.5 9 16 9.67 16 10.5s.67 1.5 1.5 1.5z"/></svg><h3>White-label completo</h3><p>Sua marca, suas cores, seu domínio. A tecnologia do OND trabalha por trás, invisível.</p></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-label">O que você ganha</div>
+      <h2>Mais que lead: um canal com ponto de venda.</h2>
+      <div class="grid">
+        <div class="card"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M19.07 4.93l-1.41 1.41C19.1 7.79 20 9.79 20 12c0 4.42-3.58 8-8 8s-8-3.58-8-8c0-4.08 3.05-7.44 7-7.93v2.02C8.16 6.57 6 9.03 6 12c0 3.31 2.69 6 6 6s6-2.69 6-6c0-1.66-.67-3.16-1.76-4.24l-1.41 1.41C15.55 9.9 16 10.9 16 12c0 2.21-1.79 4-4 4s-4-1.79-4-4c0-1.86 1.28-3.41 3-3.86v2.14c-.6.35-1 .98-1 1.72 0 1.1.9 2 2 2s2-.9 2-2c0-.74-.4-1.37-1-1.72V2h-1C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10c0-2.76-1.12-5.26-2.93-7.07z"/></svg><h3>Canal de aquisição</h3><p>Exposição pra um público que já está pesquisando destino, não uma lista fria.</p></div>
+        <div class="card"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg><h3>Ponto de venda</h3><p>O cliente compra o seu pacote por dentro do app, na hora do interesse.</p></div>
+        <div class="card"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58s1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41s-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg><h3>Sua marca na frente</h3><p>É a sua loja. O cliente vê a Destinos no Mundo, não a OND.</p></div>
+        <div class="card"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg><h3>Sua assessoria fecha</h3><p>Visto, cidadania e suporte humano seguem sendo o seu diferencial.</p></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-label">O modelo</div>
+      <h2>Simples, e alinhado ao seu resultado.</h2>
+      <div class="flow">
+        <div class="flow-node"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg><b>Você cadastra</b><span>suas viagens pra distribuir no app</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg><b>Cliente compra no app</b><span>o valor entra na OND</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node"><svg class="ic-mono" viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg><b>Split de pagamento</b><span>o valor pré-acordado cai na sua conta</span></div>
+      </div>
+      <p style="margin-top:16px">A <strong>mensalidade</strong> mantém a sua loja ativa no app. A <strong>verba de mídia</strong> é sua e vai inteira pro Google Ads, numa campanha que leva o viajante direto pra sua loja.</p>
+      <p><strong>Quanto maior a verba, mais gente chega.</strong> Você decide o ritmo, a partir de um mínimo.</p>
+    </section>
+
+    <section class="sec">
+      <div class="sec-label">A proposta</div>
+      <div class="proposal">
+        <h2>OND × Destinos no Mundo</h2>
+        <p class="psub">O que a gente coloca de pé pra você.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><b>Sua loja no OND</b>, com o seu logo e a sua capa, exposta pros viajantes.</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><b>Campanha de tráfego pago</b> no Google, levando o viajante direto pra sua loja.</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><b>Os leads são seus.</b> A venda, a marca e o atendimento continuam com você.</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><b>Roda em paralelo</b> ao seu site e ao seu processo. Um canal a mais, sem trocar nada.</span></li>
+        </ul>
+        <div class="price">
+          <div class="price-head">
+            <div><div class="price-now">R$ 200<span> /mês</span></div><div class="price-spread">mensalidade · sua loja ativa no app</div></div>
+            <div class="price-badge">+ verba<br>de mídia</div>
+          </div>
+          <div class="price-inc"><span><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Loja dentro do app</span><span><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Campanha no Google Ads</span><span><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Leads direto pra você</span></div>
+        </div>
+        <div class="price" style="margin-top:12px">
+          <div class="price-head">
+            <div><div class="price-now">R$ 300<span> /mês</span></div><div class="price-spread">verba mínima de tráfego pago · vai inteira pro Google Ads</div></div>
+            <div class="price-badge">mínimo<br>por mês</div>
+          </div>
+          <p class="price-spread" style="margin-top:12px">A verba é sua e é ela que traz os viajantes. Dá pra investir mais a qualquer momento.</p>
+          <div style="overflow-x:auto;margin-top:12px">
+            <table style="width:100%;border-collapse:collapse;font-size:.9rem;min-width:280px">
+              <thead><tr style="text-align:left;color:var(--muted);font-size:.78rem"><th style="padding:8px 10px;border-bottom:1px solid var(--border)">Verba por mês</th><th style="padding:8px 10px;border-bottom:1px solid var(--border)">Cliques no anúncio</th><th style="padding:8px 10px;border-bottom:1px solid var(--border)">Leads estimados</th></tr></thead>
+              <tbody><tr style="background:rgba(17,245,88,.07)"><td style="padding:9px 10px;font-weight:800">R$ 300 <span style="font-size:.72rem;color:var(--muted);font-weight:600">mínimo</span></td><td style="padding:9px 10px;color:var(--muted)">~350</td><td style="padding:9px 10px;font-weight:800">~7</td></tr><tr><td style="padding:9px 10px;font-weight:800">R$ 500</td><td style="padding:9px 10px;color:var(--muted)">~580</td><td style="padding:9px 10px;font-weight:800">~12</td></tr><tr><td style="padding:9px 10px;font-weight:800">R$ 1.000</td><td style="padding:9px 10px;color:var(--muted)">~1.160</td><td style="padding:9px 10px;font-weight:800">~25</td></tr></tbody>
+            </table>
+          </div>
+          <p class="price-spread" style="margin-top:10px">Estimativa com base nos resultados das nossas campanhas. Varia com destino, época do ano e oferta. Os primeiros leads vêm de uma campanha mais ampla, com bastante gente ainda planejando; a campanha feita pra sua loja tende a qualificar melhor.</p>
+        </div>
+        <p class="price-spread" style="margin-top:14px"><b>Período de calibração:</b> enquanto a sua campanha não entra no ar, a gente roda uma campanha nossa, por nossa conta, e os leads vão pra você.</p>
+      </div>
+    </section>
+
+    <section class="cta">
+      <img class="cta-ill" src="/assets/ondino-espera.svg" alt="Ondino te esperando" loading="lazy">
+      <h2>Bora colocar a sua loja no ar?</h2>
+      <p>A loja da Destinos no Mundo já está sendo montada no app. Qualquer dúvida sobre a proposta, é só chamar.</p>
+      <div class="cta-btns">
+        <a class="btn btn-primary" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agendar 30 min →</a>
+        <a class="btn btn-wa" href="https://wa.me/5511943615412?text=Ol%C3%A1!%20Sou%20da%20Destinos%20no%20Mundo%20e%20quero%20falar%20sobre%20a%20proposta%20do%20OND" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+    </section>
+
+    <footer>OND · Agama Tec · Plataforma de vendas para agências de viagem</footer>
+  </div>
+</main>
+
+<script src="/assets/ond-logo.js"></script>
+<script>
+(function(){
+  var CLIENTS = { 'destinosnomundo': 'Destinos no Mundo' };
+  var gate=document.getElementById('gate'), content=document.getElementById('content'),
+      form=document.getElementById('gateForm'), pass=document.getElementById('gatePass'),
+      err=document.getElementById('gateErr'), tag=document.getElementById('clientTag');
+  function unlock(name){
+    gate.classList.add('hide'); content.hidden=false;
+    if(name) tag.textContent='Uma proposta para a ' + name;
+    try{ sessionStorage.setItem('ond_cli_destinosnomundo','1'); sessionStorage.setItem('ond_cli_destinosnomundo_n', name||''); }catch(e){}
+    window.scrollTo(0,0); go('destinos');
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var key=(pass.value||'').trim().toLowerCase();
+    if(CLIENTS[key]){ err.textContent=''; unlock(CLIENTS[key]); }
+    else{ err.textContent='Senha incorreta.'; pass.select(); }
+  });
+
+  /* ── App OND: fluxo de compra (destinos → roteiro → pacote → checkout → ok) ── */
+  var app=document.getElementById('app');
+  var WA='https://wa.me/5511943615412';
+  var STAR='<svg viewBox="0 0 497.26 497.26"><use href="#ond-star"/></svg>';
+  var COLORS=['#f59811','#11f558','#c9b6ff'];
+  var IMG={
+    japao:'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=70&auto=format',
+    maldivas:'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600&q=70&auto=format',
+    portugal:'https://images.unsplash.com/photo-1585208798174-6cedd86e019a?w=600&q=70&auto=format',
+    italia:'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&q=70&auto=format',
+    chile:'https://images.unsplash.com/photo-1478827387698-1527781a4887?w=600&q=70&auto=format',
+    espanha:'https://images.unsplash.com/photo-1509840841025-9088ba78a826?w=600&q=70&auto=format'
+  };
+  var DESTS={
+    japao:{nome:'Japão',pais:'Ásia',flag:'🇯🇵',img:IMG.japao,preco:'R$ 18.900',dias:12,
+      rot:[['Dia 1-3','Tóquio','Shibuya, Shinjuku e a cultura pop'],['Dia 4-6','Kyoto','Templos, gueixas e o bambuzal'],['Dia 7-8','Fuji','Hakone e o Monte Fuji']],
+      inc:['Voos de ida e volta','12 noites de hotel','Japan Rail Pass','Passeios guiados']},
+    maldivas:{nome:'Maldivas',pais:'Resort',flag:'🇲🇻',img:IMG.maldivas,preco:'R$ 24.500',dias:7,
+      rot:[['Dia 1','Chegada','Traslado de hidroavião ao resort'],['Dia 2-6','Resort','Bangalô sobre a água, mergulho e spa'],['Dia 7','Retorno','Traslado e voo de volta']],
+      inc:['Voos de ida e volta','7 noites all-inclusive','Traslado de hidroavião','Mergulho e spa']},
+    portugal:{nome:'Portugal',pais:'Europa',flag:'🇵🇹',img:IMG.portugal,preco:'R$ 9.800',dias:8,
+      rot:[['Dia 1-3','Lisboa','Alfama, Belém e Sintra'],['Dia 4-5','Porto','Ribeira e vale do Douro'],['Dia 6-7','Centro','Fátima e Coimbra']],
+      inc:['Voos de ida e volta','7 noites de hotel','Carro alugado','Assessoria de visto/cidadania']},
+    italia:{nome:'Itália',pais:'Europa',flag:'🇮🇹',img:IMG.italia,preco:'R$ 12.400',dias:9,
+      rot:[['Dia 1-3','Roma','Coliseu, Vaticano e Fontana di Trevi'],['Dia 4-5','Toscana','Florença e vinícolas'],['Dia 6-7','Veneza','Canais e Murano']],
+      inc:['Voos de ida e volta','8 noites de hotel','Trem entre cidades','Passeios guiados']},
+    chile:{nome:'Chile',pais:'Am. do Sul',flag:'🇨🇱',img:IMG.chile,preco:'R$ 8.200',dias:8,
+      rot:[['Dia 1-2','Santiago','Cidade e vinícolas'],['Dia 3-5','Atacama','Deserto e geysers'],['Dia 6-8','Patagônia','Torres del Paine']],
+      inc:['Voos de ida e volta','7 noites de hotel','Traslados internos','Excursões']},
+    espanha:{nome:'Espanha',pais:'Europa',flag:'🇪🇸',img:IMG.espanha,preco:'R$ 10.600',dias:8,
+      rot:[['Dia 1-3','Madri','Museu do Prado e Toledo'],['Dia 4-6','Barcelona','Sagrada Família e Gaudí'],['Dia 7-8','Andaluzia','Sevilha e Granada']],
+      inc:['Voos de ida e volta','7 noites de hotel','Trem AVE','Passeios']}
+  };
+  var ORDER=['japao','maldivas','portugal','italia','chile','espanha'];
+  var payMethod='pix', cur='japao';
+
+  function setLegend(s){ document.querySelectorAll('.demo-legend .dl-step').forEach(function(el){ var on=el.getAttribute('data-s')===s; el.querySelector('.dl-dot').classList.toggle('on', on); el.classList.toggle('cur', on); }); }
+  function barTitle(t){ return '<div class="ap-bar">'+STAR.replace('<svg','<svg class="ap-star"')+'<b>'+t+'</b></div>'; }
+  function backBar(fn,t){ setTimeout(function(){var b=document.getElementById('apBack'); if(b)b.onclick=fn;},0); return '<div class="ap-bar"><button class="ap-back" id="apBack" aria-label="Voltar"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></svg></button><b>'+t+'</b></div>'; }
+
+  function go(screen, id){
+    if(id) cur=id;
+    setLegend(screen==='ok'?'ok':screen);
+    if(screen==='destinos'){
+      var cards=ORDER.map(function(k,i){var d=DESTS[k];
+        return '<button class="dcard" data-k="'+k+'"><div class="ph" style="background-image:url('+d.img+')"></div><div class="in"><b>'+d.nome+'</b><span style="color:'+COLORS[i%3]+'">'+d.pais+'</span></div></button>';}).join('');
+      app.innerHTML=barTitle('OND vAI')+'<div class="ap-search">Vai pra ond? '+STAR.replace('<svg','<svg class="st"')+'</div><div class="ap-hint">👆 Toque num destino pra começar</div><div class="ap-h">Pra onde você quer ir?</div><div class="ap-grid">'+cards+'</div>';
+      app.querySelectorAll('.dcard').forEach(function(b){ b.onclick=function(){ go('roteiro', b.getAttribute('data-k')); }; });
+    }
+    else if(screen==='roteiro'){
+      var d=DESTS[id];
+      var days=d.rot.map(function(r){return '<div class="ap-day"><div class="dn">'+r[0]+'</div><b>'+r[1]+'</b><span>'+r[2]+'</span></div>';}).join('');
+      app.innerHTML=backBar(function(){go('destinos');},'Roteiro')+
+        '<div class="ap-hero" style="background-image:url('+d.img+')"><div><span class="tg">OND vAI · '+d.dias+' dias</span><h3>'+d.flag+' '+d.nome+'</h3></div></div>'+days+
+        '<div class="ag-banner guide" id="agB"><div class="agt">✦ Uma agência atende esse destino</div><div class="agn"><svg class="aglogo" viewBox="0 0 200 200"><use href="#ead-logo"/></svg><div><b>Destinos no Mundo</b><div class="agp">4.9 · pacote sob medida pra '+d.nome+'</div></div></div><div class="agcta">Ver pacote da Destinos no Mundo →</div></div>';
+      app.querySelector('#agB').onclick=function(){ go('pacote', id); };
+      app.scrollTop=0;
+    }
+    else if(screen==='pacote'){
+      var d=DESTS[id];
+      var inc=d.inc.map(function(x){return '<li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>'+x+'</li>';}).join('');
+      app.innerHTML=backBar(function(){go('roteiro',id);},'Pacote')+
+        '<div class="pk-head"><svg class="lg" viewBox="0 0 200 200"><use href="#ead-logo"/></svg><div><b>Destinos no Mundo</b><span>Loja oficial no OND · 4.9</span></div></div>'+
+        '<div class="pk-body"><div class="pk-title">'+d.flag+' '+d.nome+' · '+d.dias+' dias</div><div class="pk-sub">Pacote sob medida pela Destinos no Mundo</div><ul class="pk-inc">'+inc+'</ul>'+
+        '<div class="pk-price"><span>a partir de</span><b>'+d.preco+'</b></div></div>'+
+        '<button class="ap-cta guide" id="pkBuy">Comprar no app →</button>';
+      app.querySelector('#pkBuy').onclick=function(){ go('checkout', id); };
+      app.scrollTop=0;
+    }
+    else if(screen==='checkout'){
+      var d=DESTS[id];
+      function opt(m,ic,t){return '<div class="co-opt '+(payMethod===m?'sel':'')+'" data-m="'+m+'"><span class="rd"></span>'+ic+' '+t+'</div>';}
+      app.innerHTML=backBar(function(){go('pacote',id);},'Pagamento')+
+        '<div class="co-sum"><div class="r"><span>'+d.nome+' · '+d.dias+' dias</span><span>'+d.preco+'</span></div><div class="r"><span>Agência</span><span>Destinos no Mundo</span></div><div class="r tot"><span>Total</span><span>'+d.preco+'</span></div></div>'+
+        '<div class="co-pay"><div class="pl">Forma de pagamento</div>'+opt('pix','⚡','Pix (à vista)')+opt('cartao','💳','Cartão em até 12x')+'</div>'+
+        '<button class="ap-cta guide" id="coPay">Pagar '+d.preco+'</button>';
+      app.querySelectorAll('.co-opt').forEach(function(o){ o.onclick=function(){ payMethod=o.getAttribute('data-m'); go('checkout',id); }; });
+      app.querySelector('#coPay').onclick=function(){ go('ok', id); };
+      app.scrollTop=0;
+    }
+    else if(screen==='ok'){
+      var d=DESTS[id];
+      app.innerHTML='<div class="cf"><div class="cf-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>'+
+        '<h3>Compra confirmada!</h3><p>Sua viagem pra '+d.flag+' '+d.nome+' com a Destinos no Mundo está garantida. Ela já vai te chamar pra alinhar os detalhes.</p>'+
+        '<div class="cf-note">💰 <b>O repasse cai na conta da Destinos no Mundo.</b> A venda é dela; o OND fica com a mensalidade + o spread.</div>'+
+        '<button class="ap-cta" id="okHome" style="width:100%;margin:0">Voltar ao início</button></div>';
+      app.querySelector('#okHome').onclick=function(){ go('destinos'); };
+      app.scrollTop=0;
+    }
+  }
+
+  document.querySelectorAll('.demo-legend .dl-step').forEach(function(el){ el.addEventListener('click', function(){ go(el.getAttribute('data-s'), cur); }); });
+
+  // ── simulacao em tela cheia: move o mesmo .phone pro overlay e devolve ──
+  function fsSet(on){
+    var el=document.getElementById('fs'), inner=document.getElementById('fsInner'),
+        slot=document.getElementById('phoneSlot'), phone=document.querySelector('.phone');
+    if(!el||!inner||!slot||!phone) return;
+    (on?inner:slot).appendChild(phone);
+    el.classList.toggle('on', on);
+    document.body.style.overflow = on ? 'hidden' : '';
+  }
+  function fsAberto(){ var el=document.getElementById('fs'); return !!el && el.classList.contains('on'); }
+  var fsBtn=document.getElementById('fsOpen');
+  if(fsBtn) fsBtn.addEventListener('click', function(){ fsSet(true); });
+  document.addEventListener('click', function(e){
+    if(e.target.closest && e.target.closest('#fsClose')) { fsSet(false); return; }
+    if(e.target.id==='fs') fsSet(false);
+  });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && fsAberto()) fsSet(false); });
+
+  try{ if(sessionStorage.getItem('ond_cli_destinosnomundo')==='1'){ unlock(sessionStorage.getItem('ond_cli_destinosnomundo_n')); } }catch(e){}
+})();
+</script>
+<div class="fs" id="fs" role="dialog" aria-modal="true" aria-label="Simulação do app OND">
+  <button class="fs-close" id="fsClose" type="button" aria-label="Fechar"><span class="fs-x">×</span><span class="fs-lbl">Fechar</span></button>
+  <div id="fsInner"></div>
+  <p class="fs-hint">Toque nos botões que piscam pra avançar no fluxo. Esc ou × pra fechar.</p>
+</div>
+</body>
+</html>
