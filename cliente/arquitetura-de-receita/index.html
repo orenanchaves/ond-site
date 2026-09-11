@@ -21,27 +21,28 @@
   --blue-dim:color-mix(in srgb, var(--ond-color-primary) 12%, transparent);
   --border-hi:color-mix(in srgb, var(--ond-color-primary) 45%, transparent);
   --text:var(--ond-color-text);--muted:var(--ond-color-muted);--green:var(--ond-color-success);
-  --on-green:#04120a;
+  --grid:color-mix(in srgb, var(--ond-color-border) 100%, transparent);
+  --bar:#0066ff;--bar-other:#5b6b86;
 }
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-base),'Onest',system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
 .ond-letter{fill:var(--ond-color-text)}.ond-diamond{fill:#7f11f4}
 a{color:var(--blue-light)}
 .ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* menu superior (mesmo das propostas de cliente) */
+/* menu superior */
 .topnav{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 84%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
 .tn-in{max-width:1180px;margin:0 auto;padding:8px clamp(16px,4vw,40px);min-height:64px;display:flex;align-items:center;gap:18px}
 .tn-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);font-weight:800;font-size:.9rem;flex-shrink:0;white-space:nowrap}
 .tn-logo{height:40px;width:auto}
 .tn-x{color:var(--muted);font-weight:700;font-size:.95rem}
-.tn-links{display:flex;gap:4px;flex:1;justify-content:center;overflow-x:auto;scrollbar-width:none}
+.tn-links{display:flex;gap:4px;flex:1;justify-content:flex-end;overflow-x:auto;scrollbar-width:none}
 .tn-links::-webkit-scrollbar{display:none}
 .tn-links a{padding:7px 11px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:.86rem;font-weight:600;white-space:nowrap;transition:background .15s,color .15s}
 .tn-links a:hover{color:var(--text);background:var(--card)}
 .tn-links a.on{color:var(--text);background:color-mix(in srgb,var(--blue) 20%,transparent)}
-.tn-cta{display:inline-flex;align-items:center;gap:7px;flex-shrink:0;background:var(--green);color:var(--on-green);border-radius:10px;padding:10px 16px;font-weight:800;font-size:.86rem;line-height:1;text-decoration:none}
-@media(max-width:860px){.tn-in{flex-wrap:wrap;gap:8px 12px}.tn-brand{flex:1}.tn-links{order:3;flex-basis:100%;justify-content:flex-start}.tn-x{display:none}}
+@media(max-width:960px){.tn-in{flex-wrap:wrap;gap:8px 12px}.tn-brand{flex:1}.tn-links{order:3;flex-basis:100%;justify-content:flex-start}.tn-x{display:none}}
 
 /* layout */
 .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
@@ -50,35 +51,30 @@ a{color:var(--blue-light)}
 .sec h2{font-size:clamp(1.45rem,2.8vw,1.95rem);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:14px;text-wrap:balance;max-width:820px}
 .sec .lead{color:var(--muted);font-size:1.04rem;max-width:720px;margin-bottom:26px}
 .sec .lead strong{color:var(--text)}
-.src{font-size:.78rem;color:var(--muted);margin-top:18px;opacity:.85}
+.src{font-size:.78rem;color:var(--muted);margin-top:16px;opacity:.9}
+.note{display:inline-flex;align-items:center;gap:7px;font-size:.7rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);border:1px dashed color-mix(in srgb,var(--muted) 55%,transparent);border-radius:50px;padding:3px 10px}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);flex-shrink:0}
+.live-pill{display:inline-flex;align-items:center;gap:7px;font-size:.7rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--blue-light)}
 
 /* hero */
-.hero{padding:64px 0 56px;position:relative}
+.hero{padding:64px 0 60px;position:relative}
 .hero::before{content:'';position:absolute;top:-60px;left:-80px;width:680px;height:460px;max-width:100%;background:radial-gradient(circle,color-mix(in srgb,var(--blue) 15%,transparent),transparent 66%);pointer-events:none}
 .hero-inner{display:flex;gap:48px;align-items:center;position:relative}
 .hero-text{flex:1;min-width:0}
 .eyebrow{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);padding:6px 14px;border-radius:50px;margin-bottom:20px}
 .hero h1{font-size:clamp(2rem,4.6vw,2.9rem);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin-bottom:16px;text-wrap:balance}
 .hero h1 em{font-style:normal;color:var(--blue-light)}
-.hero .sub{font-size:1.12rem;color:var(--muted);max-width:600px;margin-bottom:26px}
+.hero .sub{font-size:1.12rem;color:var(--muted);max-width:600px}
 .hero-ill{width:34%;max-width:320px;flex-shrink:0;filter:drop-shadow(0 0 36px color-mix(in srgb,var(--blue) 26%,transparent))}
-.btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:50px;font-weight:800;text-decoration:none;font-size:.95rem;border:1px solid transparent;font-family:inherit;cursor:pointer;transition:transform .15s,filter .15s}
-.btn:hover{transform:translateY(-1px);filter:brightness(1.06)}
-.btn-green{background:var(--green);color:var(--on-green)}
-.btn-ghost{background:transparent;border-color:var(--border);color:var(--text)}
-.btn-ghost:hover{border-color:var(--blue)}
-.live{display:flex;flex-wrap:wrap;gap:18px 0;margin-top:34px;padding-top:22px;border-top:1px solid var(--border)}
-.live[hidden]{display:none}
-.live-stat{display:flex;flex-direction:column;padding:0 30px;border-left:1px solid var(--border)}
+.live{display:flex;flex-wrap:wrap;gap:16px 0;margin-top:32px;padding-top:22px;border-top:1px solid var(--border)}
+.live-stat{display:flex;flex-direction:column;padding:0 28px;border-left:1px solid var(--border)}
 .live-stat:first-of-type{padding-left:0;border-left:none}
-.live-stat b{font-size:1.9rem;font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.live-stat b{font-size:1.9rem;font-weight:800;line-height:1;letter-spacing:-.02em}
 .live-stat span{font-size:.76rem;color:var(--muted);margin-top:6px}
-.live-lbl{flex-basis:100%;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-light);display:flex;align-items:center;gap:7px}
-.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
-@media(max-width:760px){.hero-inner{flex-direction:column-reverse;gap:24px}.hero-ill{width:56%;max-width:220px;align-self:center}.live-stat{padding:0 18px}}
+.live .live-pill{flex-basis:100%}
+@media(max-width:760px){.hero-inner{flex-direction:column-reverse;gap:24px}.hero-ill{width:56%;max-width:220px;align-self:center}.live-stat{padding:0 16px}}
 
-/* cards e grids */
+/* cards */
 .grid{display:grid;gap:14px}
 .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -87,38 +83,110 @@ a{color:var(--blue-light)}
 .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column}
 .card h3{font-size:1.02rem;font-weight:800;margin-bottom:6px;line-height:1.3}
 .card p{color:var(--muted);font-size:.9rem;line-height:1.6}
-.card .ic-box{width:38px;height:38px;border-radius:11px;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 24%,transparent);color:var(--blue-light);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.ic-box{width:38px;height:38px;border-radius:11px;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 24%,transparent);color:var(--blue-light);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
 .step-n{font-size:.7rem;font-weight:800;letter-spacing:.08em;color:var(--blue-light);margin-bottom:6px}
 .tag{align-self:flex-start;font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:50px;margin-bottom:12px;white-space:nowrap}
 .tag-hoje{color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 34%,transparent)}
-.tag-parcial{color:var(--muted);background:transparent;border:1px dashed color-mix(in srgb,var(--muted) 60%,transparent)}
-.tag-piloto{color:var(--text);background:transparent;border:1px solid var(--border-hi)}
+.tag-parcial{color:var(--muted);border:1px dashed color-mix(in srgb,var(--muted) 60%,transparent)}
+.tag-piloto{color:var(--text);border:1px solid var(--border-hi)}
 .gain{margin-top:auto;padding-top:14px}
 .gain div{font-size:.8rem;color:var(--text);line-height:1.45;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 22%,transparent);border-radius:10px;padding:9px 11px}
 .gain b{display:block;font-size:.6rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--blue-light);margin-bottom:3px}
 .card.arc-here{border-color:var(--border-hi);box-shadow:0 0 0 1px color-mix(in srgb,var(--blue) 18%,transparent)}
-.arc-flag{margin-top:10px;font-size:.74rem;font-weight:800;color:var(--blue-light)}
+.arc-flag{margin-top:auto;padding-top:12px;font-size:.74rem;font-weight:800;color:var(--blue-light)}
 
-/* jornada */
-.journey{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
-@media(max-width:980px){.journey{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){.journey{grid-template-columns:1fr}}
+/* exemplo real: da frase ao lead */
+.flow{display:grid;grid-template-columns:minmax(0,1.15fr) 36px minmax(0,1fr) 36px minmax(0,1fr);align-items:stretch;gap:0}
+.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--blue-light)}
+.flow-arrow .ic{width:22px;height:22px}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;display:flex;flex-direction:column;min-height:260px;transition:opacity .35s}
+.panel.fade{opacity:.25}
+.panel-h{font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.bubble{font-size:.9rem;line-height:1.5;padding:10px 13px;border-radius:14px;max-width:92%}
+.bubble.me{align-self:flex-end;background:#7f11f4;color:#fff;border-bottom-right-radius:4px;font-weight:600}
+.bubble.ai{align-self:flex-start;background:var(--surface);border:1px solid var(--border);border-bottom-left-radius:4px;display:flex;gap:9px;align-items:flex-start;margin-top:10px}
+.bubble.ai img{width:26px;height:26px;border-radius:50%;flex-shrink:0}
+.rt{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:13px;flex:1;display:flex;flex-direction:column;gap:9px}
+.rt-dest{font-size:1.1rem;font-weight:800;letter-spacing:-.01em}
+.rt-meta{display:flex;flex-wrap:wrap;gap:6px}
+.chipx{font-size:.74rem;font-weight:700;color:var(--text);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 22%,transparent);padding:3px 9px;border-radius:50px}
+.rt-days{display:flex;flex-direction:column;gap:6px;margin-top:2px}
+.rt-day{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--muted)}
+.rt-day i{width:34px;height:6px;border-radius:3px;background:color-mix(in srgb,var(--blue) 45%,transparent);flex-shrink:0}
+.rt-day i.s{width:22px}.rt-day i.l{width:46px}
+.rt-est{margin-top:auto;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--border);padding-top:9px;font-size:.78rem;color:var(--muted)}
+.rt-est b{font-size:1rem;color:var(--text)}
+.ld{background:var(--bg);border:1px solid var(--border-hi);border-radius:12px;padding:13px;flex:1;display:flex;flex-direction:column;gap:6px;box-shadow:0 0 0 1px color-mix(in srgb,var(--blue) 18%,transparent),0 12px 30px color-mix(in srgb,var(--blue) 14%,transparent)}
+.ld-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.ld-top b{font-size:.94rem;line-height:1.3}
+.ld-new{flex-shrink:0;font-size:.58rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);padding:2px 8px;border-radius:50px}
+.ld-sub{font-size:.8rem;color:var(--muted)}
+.ld-val{font-size:1rem;font-weight:800}
+.ld-val span{font-size:.74rem;font-weight:700;color:var(--muted)}
+.ld-cta{margin-top:auto;text-align:center;background:var(--blue);color:#fff;font-weight:800;font-size:.8rem;padding:9px;border-radius:50px}
+.flow-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;flex-wrap:wrap}
+.flow-next{display:inline-flex;align-items:center;gap:7px;font-family:inherit;font-size:.84rem;font-weight:800;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:50px;padding:8px 16px;cursor:pointer}
+.flow-next:hover,.flow-next:focus-visible{border-color:var(--blue);outline:none}
+.flow-count{font-size:.78rem;color:var(--muted)}
+@media(max-width:900px){.flow{grid-template-columns:1fr}.flow-arrow{height:34px}.flow-arrow .ic{transform:rotate(90deg)}.panel{min-height:0}}
 
-/* sobre a ARC */
-.arc-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-@media(max-width:760px){.arc-sum{grid-template-columns:1fr}}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.chip{font-size:.8rem;font-weight:700;color:var(--text);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 22%,transparent);padding:6px 12px;border-radius:50px}
+/* numeros: graficos */
+.nums{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px}
+@media(max-width:860px){.nums{grid-template-columns:1fr}}
+.chart-card h3{font-size:.98rem;font-weight:800;margin-bottom:2px}
+.chart-card .csub{font-size:.8rem;color:var(--muted);margin-bottom:18px}
+.bars{display:flex;flex-direction:column;gap:12px}
+.brow{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;gap:12px}
+.bcat{font-size:.82rem;color:var(--text);line-height:1.3}
+.btrack{position:relative;height:24px;border-left:1px solid var(--grid)}
+.bar{position:absolute;left:0;top:2px;height:20px;background:var(--bar);border-radius:0 4px 4px 0;cursor:default;transition:filter .15s;outline:none}
+.bar.other{background:var(--bar-other)}
+.bar:hover,.bar:focus-visible{filter:brightness(1.25)}
+.bar::after{content:'';position:absolute;inset:-4px -8px;}
+.bval{position:absolute;top:50%;transform:translateY(-50%);font-size:.84rem;font-weight:800;color:var(--text);white-space:nowrap;pointer-events:none}
+.bval small{font-weight:700;color:var(--muted);font-size:.74rem;margin-left:5px}
+@media(max-width:600px){.brow{grid-template-columns:1fr;gap:4px}}
+.tip{position:fixed;z-index:80;pointer-events:none;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 11px;box-shadow:0 12px 30px rgba(0,0,0,.4);font-size:.78rem;color:var(--muted);opacity:0;transition:opacity .12s;max-width:240px}
+.tip.on{opacity:1}
+.tip b{display:block;font-size:1rem;color:var(--text)}
+.tip .k{display:inline-block;width:12px;height:2px;background:var(--bar);vertical-align:middle;margin-right:6px}
+.stat{justify-content:center}
+.stat .v{font-size:3rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+.stat .l{font-size:.86rem;color:var(--muted);margin-top:8px}
+.nums-side{display:flex;flex-direction:column;gap:14px}
+details.tbl{margin-top:14px}
+details.tbl summary{cursor:pointer;font-size:.8rem;font-weight:700;color:var(--blue-light)}
+details.tbl table{margin-top:10px;border-collapse:collapse;font-size:.82rem;width:100%;max-width:520px}
+details.tbl th,details.tbl td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--border)}
+details.tbl td.n{text-align:right;font-variant-numeric:tabular-nums}
+details.tbl th{color:var(--muted);font-weight:700}
+
+/* onde cada um atua */
+.lanes{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px 6px;margin-bottom:22px}
+.node{grid-row:1;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:11px 10px;font-size:.8rem;font-weight:700;line-height:1.3;position:relative;min-height:62px;display:flex;align-items:center}
+.node small{display:block;font-size:.62rem;font-weight:800;color:var(--blue-light);margin-bottom:3px;letter-spacing:.06em}
+.node.arc{border-color:var(--border-hi)}
+.band{grid-row:2;border-radius:10px;padding:8px 12px;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.band-ond{grid-column:1 / span 4;background:color-mix(in srgb,#7f11f4 16%,transparent);border:1px solid color-mix(in srgb,#7f11f4 45%,transparent);color:var(--text)}
+.band-arc{grid-column:5 / span 3;background:var(--blue-dim);border:1px solid var(--border-hi);color:var(--text)}
+.band svg{height:16px;width:auto}
+@media(max-width:860px){
+  .lanes{grid-template-columns:1fr 1fr}
+  .node{grid-row:auto}
+  .band{grid-row:auto;grid-column:1 / -1}
+  .band-ond{order:-1}
+  .node.arc:first-of-type{}
+}
 
 /* mapa de encaixe */
 .fit{display:flex;flex-direction:column;border:1px solid var(--border-hi);border-radius:16px;overflow:hidden;background:var(--card)}
-.fit-head,.fit-row{display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr);gap:0}
+.fit-head,.fit-row{display:grid;grid-template-columns:190px minmax(0,1fr) minmax(0,1fr)}
 .fit-head div{padding:12px 18px;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-light);background:var(--surface);border-bottom:1px solid var(--border)}
 .fit-row+.fit-row{border-top:1px solid var(--border)}
-.fit-row>div{padding:16px 18px;font-size:.9rem;color:var(--muted);line-height:1.55}
+.fit-row>div{padding:15px 18px;font-size:.9rem;color:var(--muted);line-height:1.55}
 .fit-row>div:first-child{color:var(--text);font-weight:800;font-size:.95rem}
-.fit-row>div:nth-child(2){border-left:1px solid var(--border)}
-.fit-row>div:nth-child(3){border-left:1px solid var(--border);color:var(--text)}
+.fit-row>div:nth-child(2),.fit-row>div:nth-child(3){border-left:1px solid var(--border)}
+.fit-row>div:nth-child(3){color:var(--text)}
 @media(max-width:760px){
   .fit-head{display:none}
   .fit-row{grid-template-columns:1fr}
@@ -126,33 +194,44 @@ a{color:var(--blue-light)}
   .fit-row>div:nth-child(2)::before{content:'OND hoje';display:block;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-light);margin-bottom:3px}
   .fit-row>div:nth-child(3)::before{content:'Método ARC';display:block;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-light);margin-bottom:3px}
 }
+.arc-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:16px}
+@media(max-width:760px){.arc-sum{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.8rem;font-weight:700;color:var(--text);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 22%,transparent);padding:6px 12px;border-radius:50px}
 
 /* formatos */
 .fmt{border-color:var(--border-hi)}
-.fmt .fmt-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
-.fmt .fmt-top .tag{margin-bottom:0}
-.fmt ul.dots{list-style:none;margin:12px 0 0;display:flex;flex-direction:column;gap:7px}
-.fmt ul.dots li{display:flex;gap:9px;font-size:.86rem;color:var(--muted);line-height:1.5}
-.fmt ul.dots .ic{width:16px;height:16px;color:var(--blue-light);margin-top:3px}
-.plans{list-style:none;margin:12px 0 0;display:flex;flex-direction:column;border-top:1px solid var(--border)}
-.plans li{display:flex;gap:10px;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--border);font-size:.84rem}
-.plans li b{color:var(--text);white-space:nowrap}
-.plans li span{color:var(--muted);text-align:right}
+.fmt-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+.fmt-top .tag{margin-bottom:0}
+.fmt ul{list-style:none;margin:12px 0 0;display:flex;flex-direction:column;gap:7px}
+.fmt li{display:flex;gap:9px;font-size:.86rem;color:var(--muted);line-height:1.5}
+.fmt li .ic{width:16px;height:16px;color:var(--blue-light);margin-top:3px}
+.ex{margin-top:auto;padding-top:16px}
+.ex div{background:var(--bg);border:1px dashed color-mix(in srgb,var(--muted) 45%,transparent);border-radius:12px;padding:11px 12px;font-size:.82rem;color:var(--muted);line-height:1.55}
+.ex b{display:block;font-size:.6rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--text);margin-bottom:4px}
 
-/* validacao e equipe */
+/* piloto: linha do tempo */
+.pilot{margin-top:14px}
+.pilot-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.tl{display:grid;grid-template-columns:1fr 4fr 1fr;gap:6px}
+.tl-seg{border-radius:10px;padding:12px 14px;background:var(--bg);border:1px solid var(--border)}
+.tl-seg.mid{background:var(--blue-dim);border-color:var(--border-hi)}
+.tl-seg b{display:block;font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-light);margin-bottom:4px}
+.tl-seg span{font-size:.84rem;color:var(--text);line-height:1.45}
+.tl-weeks{display:flex;gap:6px;margin-top:10px}
+.tl-weeks i{flex:1;height:6px;border-radius:3px;background:color-mix(in srgb,var(--blue) 50%,transparent)}
+.kpis{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+@media(max-width:700px){.tl{grid-template-columns:1fr}}
+
+/* validacao, equipe e resumo */
 .proof .who{font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-light);margin-bottom:6px}
 .proof small{display:block;margin-top:10px;font-size:.75rem;color:var(--muted)}
 .team{margin-top:14px}
 .person{flex-direction:row;gap:14px;align-items:flex-start}
 .av{width:46px;height:46px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0}
 .person .role{font-size:.78rem;font-weight:700;color:var(--blue-light);margin-bottom:6px}
-
-/* contato */
-.cta{text-align:center}
-.cta h2,.cta .lead{margin-left:auto;margin-right:auto}
-.cta .btns{justify-content:center}
-.cta .mail{margin-top:16px;font-size:.88rem;color:var(--muted)}
-footer{text-align:center;padding:36px 20px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--border)}
+.sum-n{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:12px}
+footer{text-align:center;padding:36px 20px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--border);line-height:1.8}
 footer a{color:var(--muted)}
 </style>
 </head>
@@ -163,13 +242,13 @@ footer a{color:var(--muted)}
     <a class="tn-brand" href="#topo" aria-label="Voltar ao início"><svg class="tn-logo" viewBox="0 0 951.32 497.26" aria-hidden="true"><use href="#ond-logo"/></svg><span class="tn-x">× Arquitetura de Receita</span></a>
     <div class="tn-links" id="tnLinks">
       <a href="#s-ond">O OND</a>
+      <a href="#s-exemplo">Exemplo real</a>
       <a href="#s-como">Como funciona</a>
-      <a href="#s-arc">Como entendemos vocês</a>
+      <a href="#s-numeros">Números</a>
       <a href="#s-encaixe">Onde encaixa</a>
       <a href="#s-formatos">Formatos</a>
       <a href="#s-quem">Quem somos</a>
     </div>
-    <a class="tn-cta" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agendar 30 min</a>
   </div>
 </nav>
 
@@ -181,15 +260,11 @@ footer a{color:var(--muted)}
           <span class="eyebrow">Possíveis parcerias · OND × Arquitetura de Receita</span>
           <h1>O OND gera o lead de viagem. <em>O Método ARC estrutura quem converte.</em></h1>
           <p class="sub">O OND conecta pessoas que já decidiram viajar a agências de viagem. A Arquitetura de Receita estrutura processos, tecnologia e times de vendas. Juntos, dá pra entregar pra agência o lead e a máquina que fecha a venda.</p>
-          <div class="btns">
-            <a class="btn btn-green" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agendar uma conversa de 30 min</a>
-            <a class="btn btn-ghost" href="https://wa.me/5511943615412?text=Ol%C3%A1!%20Vi%20a%20proposta%20de%20parceria%20OND%20%C3%97%20Arquitetura%20de%20Receita" target="_blank" rel="noopener">Falar no WhatsApp</a>
-          </div>
-          <div class="live" id="liveStats" hidden>
-            <span class="live-lbl"><span class="live-dot"></span>Números ao vivo do OND vAI</span>
-            <div class="live-stat"><b id="stConv">0</b><span>conversas no total</span></div>
-            <div class="live-stat"><b id="stRot">0</b><span>roteiros gerados</span></div>
-            <div class="live-stat"><b id="stLeads">0</b><span>leads liberados pra contato</span></div>
+          <div class="live" id="liveStats">
+            <span class="live-pill"><span class="live-dot"></span><span id="liveLbl">Números do OND vAI</span></span>
+            <div class="live-stat"><b id="stConv">372</b><span>conversas no total</span></div>
+            <div class="live-stat"><b id="stRot">120</b><span>roteiros gerados</span></div>
+            <div class="live-stat"><b id="stLeads">27</b><span>leads liberados pra agências</span></div>
           </div>
         </div>
         <img class="hero-ill" src="/assets/viajante-laptop.svg" alt="">
@@ -210,12 +285,56 @@ footer a{color:var(--muted)}
     </div>
   </section>
 
+  <section class="sec" id="s-exemplo">
+    <div class="wrap">
+      <div class="sec-label">Exemplo real</div>
+      <h2>Da frase do viajante ao lead na agência.</h2>
+      <p class="lead">Estes são pedidos reais feitos ao OND vAI, anonimizados: sem nome e sem contato. É assim que cada lead nasce e chega pronto pra agência atender.</p>
+      <div class="flow" id="flow" aria-live="polite">
+        <div class="panel" id="pA">
+          <div class="panel-h"><span>1 · O viajante pede</span><span class="live-pill" id="flowLive"><span class="live-dot"></span>real</span></div>
+          <div class="bubble me" id="fQuote">"Orlando em junho de 2027, quero passeios e pontos turísticos"</div>
+          <div class="bubble ai"><img src="/assets/ondino.png" alt=""><span id="fReply">Fechou! Montando seu roteiro de Orlando…</span></div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+        <div class="panel" id="pB">
+          <div class="panel-h"><span>2 · O OND vAI monta</span></div>
+          <div class="rt">
+            <div class="rt-dest" id="fDest">Orlando</div>
+            <div class="rt-meta" id="fMeta"></div>
+            <div class="rt-days" aria-hidden="true">
+              <div class="rt-day"><i></i>Dia 1 · chegada e primeiros passeios</div>
+              <div class="rt-day"><i class="l"></i>Dias seguintes · atrações e rotas</div>
+              <div class="rt-day"><i class="s"></i>Último dia · retorno</div>
+            </div>
+            <div class="rt-est"><span>Estimativa da viagem</span><b id="fBudget">~US$ 13.300</b></div>
+          </div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+        <div class="panel" id="pC">
+          <div class="panel-h"><span>3 · Chega na agência</span></div>
+          <div class="ld">
+            <div class="ld-top"><b id="fParty">Família de 4 buscando pontos turísticos</b><span class="ld-new">Novo lead</span></div>
+            <div class="ld-sub" id="fSub">Orlando · 10 dias · 4 pessoas · junho/2027</div>
+            <div class="ld-val"><span id="fVal">~US$ 13.300</span> <span>· roteiro pronto</span></div>
+            <div class="ld-cta">Assumir e enviar proposta</div>
+          </div>
+        </div>
+      </div>
+      <div class="flow-foot">
+        <span class="flow-count" id="flowCount">Pedido 1 de 20</span>
+        <button class="flow-next" id="flowNext" type="button">Ver outro pedido real <svg class="ic" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <p class="src" id="flowSrc">A frase, o destino, o período, o grupo e a estimativa vêm da conversa real. A resposta do OND vAI e o esboço do roteiro são ilustrativos.</p>
+    </div>
+  </section>
+
   <section class="sec" id="s-como">
     <div class="wrap">
       <div class="sec-label">Como funciona com agências</div>
       <h2>Do primeiro "quero viajar" ao fechamento pela agência.</h2>
       <p class="lead">Os selos mostram o que já funciona hoje. As etapas 4 e 5 dependem do time da agência, e é ali que a Arquitetura de Receita entra.</p>
-      <div class="journey">
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
         <div class="card"><div class="step-n">1</div><span class="tag tag-hoje">Hoje</span><h3>Lead entra</h3><p>Tráfego pago traz o viajante pro OND vAI, que capta destino, data e orçamento numa conversa.</p><div class="gain"><div><b>Ganho</b>Leads qualificados, sem custo de prospecção pra agência.</div></div></div>
         <div class="card"><div class="step-n">2</div><span class="tag tag-hoje">Hoje</span><h3>Roteiro pronto, automático</h3><p>O OND gera o roteiro dia a dia e a estimativa de custo sozinho, antes de qualquer agência entrar.</p><div class="gain"><div><b>Ganho</b>Zero esforço da agência até aqui.</div></div></div>
         <div class="card"><div class="step-n">3</div><span class="tag tag-hoje">Hoje</span><h3>Viajante conecta com uma agência</h3><p>De dentro do próprio app, o viajante escolhe se conectar com uma agência parceira pra fechar.</p><div class="gain"><div><b>Ganho</b>Chega já qualificado e quente, sem prospecção fria.</div></div></div>
@@ -225,15 +344,40 @@ footer a{color:var(--muted)}
     </div>
   </section>
 
+  <section class="sec" id="s-numeros">
+    <div class="wrap">
+      <div class="sec-label">Números reais</div>
+      <h2>O topo do funil que o OND já gera.</h2>
+      <p class="lead">Dados das conversas com o OND vAI desde o lançamento. É daqui que saem os leads que chegam às agências, e é a partir do último degrau que um processo de vendas faz diferença.</p>
+      <div class="nums">
+        <div class="card chart-card">
+          <h3>Do pedido ao lead</h3>
+          <div class="csub">Conversas, roteiros gerados e leads liberados pra contato de uma agência</div>
+          <div class="bars" id="chFunnel" role="img" aria-label="Funil do OND vAI"></div>
+        </div>
+        <div class="nums-side">
+          <div class="card stat"><div class="v" id="stMsgs">3.796</div><div class="l">mensagens trocadas com o OND vAI</div></div>
+          <div class="card chart-card">
+            <h3>Onde as conversas acontecem</h3>
+            <div class="csub">Conversas por plataforma</div>
+            <div class="bars" id="chPlat" role="img" aria-label="Conversas por plataforma"></div>
+          </div>
+        </div>
+      </div>
+      <details class="tbl"><summary>Ver os números em tabela</summary><table id="numsTable"><thead><tr><th>Indicador</th><th style="text-align:right">Valor</th></tr></thead><tbody></tbody></table></details>
+      <p class="src" id="numsSrc">Fonte: API ao vivo do OND vAI.</p>
+    </div>
+  </section>
+
   <section class="sec" id="s-arc">
     <div class="wrap">
       <div class="sec-label">Como entendemos a Arquitetura de Receita</div>
       <h2>Vendas estruturadas, com execução junto do cliente.</h2>
       <p class="lead">Pelo que vocês apresentam no site, a Arquitetura de Receita trabalha em três frentes, com foco em automação, CRM, cadências multicanal e IA pra acelerar o funil.</p>
       <div class="arc-sum">
-        <div class="card"><h3>Método ARC</h3><p>Uma jornada completa com processos, tecnologia, time de vendas e inteligência comercial.</p></div>
-        <div class="card"><h3>ARC Treinamento</h3><p>Capacitação pra times de vendas aprenderem comunicação estratégica.</p></div>
-        <div class="card"><h3>Mentoria</h3><p>Acompanhamento de lideranças comerciais.</p></div>
+        <div class="card"><div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div><h3>Método ARC</h3><p>Uma jornada completa com processos, tecnologia, time de vendas e inteligência comercial.</p></div>
+        <div class="card"><div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>ARC Treinamento</h3><p>Capacitação pra times de vendas aprenderem comunicação estratégica.</p></div>
+        <div class="card"><div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M3 21v-1a7 7 0 0 1 7-7h4a7 7 0 0 1 7 7v1"/></svg></div><h3>Mentoria</h3><p>Acompanhamento de lideranças comerciais.</p></div>
       </div>
       <div class="chips">
         <span class="chip">Co-responsabilidade pelo resultado</span>
@@ -248,11 +392,22 @@ footer a{color:var(--muted)}
   <section class="sec" id="s-encaixe">
     <div class="wrap">
       <div class="sec-label">Onde a gente se encaixa</div>
-      <h2>Os quatro pilares do Método ARC, com o que o OND já entrega pra agência.</h2>
-      <p class="lead">O OND resolve o topo do funil da agência de viagem: gera e qualifica o lead. O Método ARC resolve o que vem depois: o processo e o time que transformam esse lead em venda.</p>
+      <h2>O OND cuida até o lead chegar. O Método ARC cuida do que vem depois.</h2>
+      <p class="lead">Na agência de viagem, o OND resolve o topo do funil: gera e qualifica o lead. A venda em si depende do processo e do time da agência, que é o que vocês estruturam.</p>
+      <div class="lanes" aria-label="Etapas da venda e quem atua em cada uma">
+        <div class="node"><div><small>1</small>Captação na conversa</div></div>
+        <div class="node"><div><small>2</small>Qualificação</div></div>
+        <div class="node"><div><small>3</small>Roteiro e estimativa</div></div>
+        <div class="node"><div><small>4</small>Conexão com a agência</div></div>
+        <div class="node arc"><div><small>5</small>Primeiro contato</div></div>
+        <div class="node arc"><div><small>6</small>Proposta e follow-up</div></div>
+        <div class="node arc"><div><small>7</small>Fechamento</div></div>
+        <div class="band band-ond"><svg viewBox="0 0 951.32 497.26" aria-hidden="true"><use href="#ond-logo"/></svg>atua aqui</div>
+        <div class="band band-arc">Método ARC e time da agência</div>
+      </div>
       <div class="fit" role="table" aria-label="Encaixe entre o OND e o Método ARC">
         <div class="fit-head" role="row"><div role="columnheader">Pilar</div><div role="columnheader">OND hoje</div><div role="columnheader">Método ARC</div></div>
-        <div class="fit-row" role="row"><div role="cell">Processos</div><div role="cell">Jornada do lead em 5 etapas, da conversa com o OND vAI até a agência assumir.</div><div role="cell">Desenha o processo da agência a partir da etapa 4: primeiro contato, proposta e follow-up.</div></div>
+        <div class="fit-row" role="row"><div role="cell">Processos</div><div role="cell">Jornada do lead em 5 etapas, da conversa com o OND vAI até a agência assumir.</div><div role="cell">Desenha o processo da agência a partir daí: primeiro contato, proposta e follow-up.</div></div>
         <div class="fit-row" role="row"><div role="cell">Tecnologia</div><div role="cell">OND vAI, roteiro e estimativa automáticos e o painel da agência com os leads.</div><div role="cell">Automação, CRM e cadências multicanal pra o lead não esfriar.</div></div>
         <div class="fit-row" role="row"><div role="cell">Time de vendas</div><div role="cell">Entrega o viajante já qualificado, com destino, datas, número de pessoas e contato.</div><div role="cell">ARC Treinamento e Mentoria pra o time da agência converter mais esses leads.</div></div>
         <div class="fit-row" role="row"><div role="cell">Inteligência comercial</div><div role="cell">Cada lead chega com a conversa do viajante, o roteiro e a estimativa de custo.</div><div role="cell">Leitura dos dados em ritmo semanal pra ajustar o funil sem achismo.</div></div>
@@ -264,54 +419,62 @@ footer a{color:var(--muted)}
     <div class="wrap">
       <div class="sec-label">Possíveis parcerias</div>
       <h2>Três formatos pra começar.</h2>
-      <p class="lead">Dá pra começar por um e combinar os outros depois. Condições, divisão de receita e responsabilidades a gente desenha junto numa conversa.</p>
+      <p class="lead">Dá pra começar por um e combinar os outros depois. Condições, divisão de receita e responsabilidades a gente desenha junto.</p>
       <div class="grid g3">
         <div class="card fmt">
           <div class="fmt-top"><h3>Indicação cruzada</h3><span class="tag tag-hoje">Pronto pra começar</span></div>
           <p>Cada lado indica o outro pra quem precisa.</p>
-          <ul class="dots">
+          <ul>
             <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Vocês apresentam o OND pras agências de viagem que atendem ou conhecem</li>
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>A gente apresenta a Arquitetura de Receita pras agências parceiras que querem converter mais os leads</li>
+            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>A gente apresenta a Arquitetura de Receita pras agências parceiras que querem converter mais</li>
           </ul>
+          <div class="ex"><div><b>Exemplo</b>Uma agência cliente de vocês testa o OND Piloto no primeiro mês. Uma agência parceira do OND com muito lead parado contrata o ARC Treinamento.</div></div>
         </div>
         <div class="card fmt">
           <div class="fmt-top"><h3>Oferta conjunta pra agências</h3><span class="tag tag-piloto">A desenhar juntos</span></div>
           <p>Um pacote só pra agência: o lead e a estrutura pra fechar.</p>
-          <ul class="dots">
+          <ul>
             <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>OND: leads qualificados com roteiro e estimativa prontos</li>
             <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Método ARC: processo, CRM e cadência pra atender esses leads</li>
             <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>ARC Treinamento pro time da agência</li>
           </ul>
+          <div class="ex"><div><b>Exemplo</b>O lead de Orlando chega com roteiro e estimativa. Pela cadência desenhada com vocês, o time faz o primeiro contato, envia a proposta e acompanha até fechar.</div></div>
         </div>
         <div class="card fmt">
           <div class="fmt-top"><h3>Piloto medido com uma agência</h3><span class="tag tag-piloto">Proposta</span></div>
           <p>Provar o encaixe com números antes de escalar.</p>
-          <ul class="dots">
+          <ul>
             <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Uma agência parceira do OND recebendo leads</li>
             <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>O Método ARC aplicado no atendimento desses leads</li>
             <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Conversão acompanhada semana a semana, com os dois times</li>
           </ul>
+          <div class="ex"><div><b>Exemplo</b>A linha do tempo abaixo mostra como um piloto de 6 semanas poderia ficar.</div></div>
+        </div>
+      </div>
+
+      <div class="card pilot">
+        <div class="pilot-head"><h3>Como um piloto poderia ficar</h3><span class="note">Exemplo ilustrativo · a gente define junto</span></div>
+        <div class="tl">
+          <div class="tl-seg"><b>Semana 1</b><span>A agência entra no OND e o processo de atendimento é desenhado</span></div>
+          <div class="tl-seg mid"><b>Semanas 2 a 5</b><span>Leads chegando, cadência rodando e leitura dos números toda semana com os dois times</span><div class="tl-weeks" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+          <div class="tl-seg"><b>Semana 6</b><span>Resultado na mesa e decisão de escalar</span></div>
+        </div>
+        <div class="kpis">
+          <span class="chip">Leads recebidos</span>
+          <span class="chip">Tempo até o primeiro contato</span>
+          <span class="chip">Propostas enviadas</span>
+          <span class="chip">Vendas fechadas</span>
         </div>
       </div>
 
       <div class="grid g2" style="margin-top:14px">
         <div class="card">
           <div class="sec-label" style="margin-bottom:6px">O que a agência contrata do OND hoje</div>
-          <p>Planos de leads, com contratação direto pela página de agências. O contato do viajante chega com destino, datas e orçamento, e o OND vAI qualifica antes de conectar.</p>
-          <ul class="plans">
-            <li><b>OND Piloto</b><span>teste no primeiro mês, sem compromisso</span></li>
-            <li><b>OND Start</b><span>pra quem está começando a receber leads</span></li>
-            <li><b>OND Grow</b><span>fluxo constante, conexão direta no WhatsApp</span></li>
-            <li><b>OND Scale</b><span>mais volume, 12 meses com preço travado</span></li>
-            <li><b>OND Pro</b><span>prioridade de cota no destino da agência</span></li>
-          </ul>
+          <p>Planos de leads, com contratação direto pela página de agências. O contato do viajante chega com destino, datas e orçamento, e o OND vAI qualifica antes de conectar: OND Piloto, Start, Grow, Scale e Pro.</p>
         </div>
         <div class="card">
           <div class="sec-label" style="margin-bottom:6px">Também em andamento</div>
-          <ul class="dots" style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:6px">
-            <li style="display:flex;gap:10px;align-items:flex-start"><span class="tag tag-piloto" style="margin:2px 0 0">Em piloto</span><span style="color:var(--muted);font-size:.88rem;line-height:1.55"><b style="color:var(--text)">Loja da agência no app:</b> pacotes da agência expostos pra quem está decidindo o destino no OND.</span></li>
-            <li style="display:flex;gap:10px;align-items:flex-start"><span class="tag tag-parcial" style="margin:2px 0 0">Parcial</span><span style="color:var(--muted);font-size:.88rem;line-height:1.55"><b style="color:var(--text)">Proposta com a marca da agência:</b> o lead com roteiro pronto, ajustado com logo, cores e valores da agência.</span></li>
-          </ul>
+          <p><span class="tag tag-piloto" style="margin:0 6px 0 0;vertical-align:1px">Em piloto</span>Loja da agência dentro do app. <span class="tag tag-parcial" style="margin:0 6px 0 8px;vertical-align:1px">Parcial</span>Proposta com a marca da agência.</p>
         </div>
       </div>
     </div>
@@ -335,33 +498,140 @@ footer a{color:var(--muted)}
     </div>
   </section>
 
-  <section class="sec cta" id="s-contato">
+  <section class="sec" id="s-resumo">
     <div class="wrap">
-      <div class="sec-label">Próximo passo</div>
-      <h2>Vamos desenhar essa parceria juntos?</h2>
-      <p class="lead">Uma conversa de 30 minutos pra entender a carteira de vocês e ver qual formato faz mais sentido começar.</p>
-      <div class="btns">
-        <a class="btn btn-green" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agendar 30 min</a>
-        <a class="btn btn-ghost" href="https://wa.me/5511943615412?text=Ol%C3%A1!%20Vi%20a%20proposta%20de%20parceria%20OND%20%C3%97%20Arquitetura%20de%20Receita" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <div class="sec-label">Em resumo</div>
+      <h2>O que a gente propõe.</h2>
+      <div class="grid g3">
+        <div class="card"><div class="sum-n">1</div><h3>O OND gera e qualifica o lead</h3><p>Pedidos reais de viagem viram roteiro, estimativa e contato pronto pra agência.</p></div>
+        <div class="card"><div class="sum-n">2</div><h3>O Método ARC estrutura quem converte</h3><p>Processo, tecnologia e time da agência a partir do momento em que o lead chega.</p></div>
+        <div class="card"><div class="sum-n">3</div><h3>Três formatos pra começar</h3><p>Indicação cruzada, oferta conjunta pra agências ou um piloto medido com uma agência.</p></div>
       </div>
-      <p class="mail">Ou escreva pra <a href="mailto:renan@agamatec.com">renan@agamatec.com</a></p>
     </div>
   </section>
 </main>
 
-<footer>OND · Agama Tec · <a href="https://ondviajar.com.br/">ondviajar.com.br</a> · <a href="/agencias.html">OND para agências</a></footer>
+<footer>OND · Agama Tec · <a href="https://ondviajar.com.br/">ondviajar.com.br</a> · <a href="mailto:renan@agamatec.com">renan@agamatec.com</a></footer>
+
+<div class="tip" id="tip" role="status"></div>
 
 <script src="/assets/ond-logo.js"></script>
 <script>
 (function(){
-  // numeros ao vivo: mesma API da pagina de agencias; se falhar, a faixa fica escondida
-  function setStat(id,v){var el=document.getElementById(id);if(el&&typeof v==='number')el.textContent=v.toLocaleString('pt-BR');}
-  fetch('https://ond.agamatec.com/api/ond-vai/live/metrics').then(function(r){if(!r.ok)throw new Error('metrics');return r.json();}).then(function(d){
-    setStat('stConv',d.conversations);setStat('stRot',d.completed);setStat('stLeads',d.agencyConsentedLeads);
-    document.getElementById('liveStats').hidden=false;
-  }).catch(function(){});
+  var API='https://ond.agamatec.com/api/ond-vai/live/';
+  var fmt=function(n){return Number(n).toLocaleString('pt-BR');};
 
-  // menu superior: marca a secao visivel
+  // ── retrato de 11/09/2026, usado se a API nao responder ──
+  var SNAP={conversations:372,completed:120,agencyConsentedLeads:27,totalMessages:3796,
+    platforms:[{platform:'Web',conversations:217},{platform:'Android',conversations:68},{platform:'iOS',conversations:58},{platform:null,conversations:29}],
+    generatedAt:'2026-09-11T01:24:24Z'};
+  var SNAP_LEADS=[
+    {destinationLabel:'Orlando',periodLabel:'junho/2027',durationDays:10,partySize:4,partyLabel:'Família de 4 buscando pontos turísticos',intentQuote:'Orlando em junho de 2027, quero passeios e pontos turísticos',budgetEstimate:13300,budgetCurrency:'USD'},
+    {destinationLabel:'Gramado',periodLabel:'maio/2027',durationDays:4,partySize:3,partyLabel:'Grupo de 3 cultural e gastronômico',intentQuote:'Gramado em maio de 2027, quero museus e boa comida',budgetEstimate:6700,budgetCurrency:'BRL'},
+    {destinationLabel:'Rio de Janeiro',periodLabel:'setembro/2026',durationDays:6,partySize:2,partyLabel:'Casal cultura e gastronomia',intentQuote:'Rio de Janeiro setembro/2026, quero cultura, música e gastronomia',budgetEstimate:6800,budgetCurrency:'BRL'}
+  ];
+
+  // ── tooltip unico (valor em destaque, rotulo em seguida) ──
+  var tip=document.getElementById('tip'),tipArgs=null;
+  function showTip(el,valor,rotulo,extra){
+    tipArgs=[el,valor,rotulo,extra];
+    tip.textContent='';
+    var b=document.createElement('b');b.textContent=valor;tip.appendChild(b);
+    var k=document.createElement('span');k.className='k';tip.appendChild(k);
+    tip.appendChild(document.createTextNode(rotulo));
+    if(extra){tip.appendChild(document.createElement('br'));tip.appendChild(document.createTextNode(extra));}
+    var r=el.getBoundingClientRect();
+    tip.style.left=Math.min(window.innerWidth-250,Math.max(8,r.left+r.width-40))+'px';
+    tip.style.top=(r.top-tip.offsetHeight-10<8?r.bottom+10:r.top-tip.offsetHeight-10)+'px';
+    tip.classList.add('on');
+  }
+  function hideTip(){tip.classList.remove('on');}
+
+  // ── barras horizontais, uma serie, uma cor ──
+  function bars(el,rows){
+    el.textContent='';
+    var max=Math.max.apply(null,rows.map(function(r){return r.v;}));
+    rows.forEach(function(r){
+      var row=document.createElement('div');row.className='brow';
+      var cat=document.createElement('div');cat.className='bcat';cat.textContent=r.label;
+      var track=document.createElement('div');track.className='btrack';
+      var pct=Math.max(2,r.v/max*78);
+      var bar=document.createElement('div');bar.className='bar'+(r.other?' other':'');bar.style.width=pct+'%';
+      bar.tabIndex=0;bar.setAttribute('aria-label',r.label+': '+fmt(r.v)+(r.extra?', '+r.extra:''));
+      var val=document.createElement('div');val.className='bval';val.style.left='calc('+pct+'% + 8px)';
+      val.textContent=fmt(r.v);
+      if(r.note){var s=document.createElement('small');s.textContent=r.note;val.appendChild(s);}
+      ['pointerenter','focus'].forEach(function(ev){bar.addEventListener(ev,function(){showTip(bar,fmt(r.v),r.label,r.extra);});});
+      ['pointerleave','blur'].forEach(function(ev){bar.addEventListener(ev,hideTip);});
+      track.appendChild(bar);track.appendChild(val);row.appendChild(cat);row.appendChild(track);el.appendChild(row);
+    });
+  }
+
+  function paintNums(d,aoVivo){
+    var conv=d.conversations,rot=d.completed,leads=d.agencyConsentedLeads;
+    document.getElementById('stConv').textContent=fmt(conv);
+    document.getElementById('stRot').textContent=fmt(rot);
+    document.getElementById('stLeads').textContent=fmt(leads);
+    document.getElementById('stMsgs').textContent=fmt(d.totalMessages);
+    var pr=function(a,b){return Math.round(a/b*100)+'%';};
+    bars(document.getElementById('chFunnel'),[
+      {label:'Conversas com o OND vAI',v:conv},
+      {label:'Roteiros gerados',v:rot,note:'· '+pr(rot,conv),extra:pr(rot,conv)+' das conversas viram roteiro'},
+      {label:'Leads liberados pra agência',v:leads,note:'· '+pr(leads,rot),extra:pr(leads,rot)+' dos roteiros viram lead pra agência'}
+    ]);
+    var plats=(d.platforms||[]).slice().sort(function(a,b){return (a.platform===null)-(b.platform===null)||b.conversations-a.conversations;});
+    bars(document.getElementById('chPlat'),plats.map(function(p){return {label:p.platform||'Não registrada',v:p.conversations,other:!p.platform};}));
+    var tb=document.querySelector('#numsTable tbody');tb.textContent='';
+    [['Conversas com o OND vAI',conv],['Roteiros gerados',rot],['Leads liberados pra agência',leads],['Mensagens trocadas',d.totalMessages]]
+      .concat(plats.map(function(p){return ['Conversas no '+(p.platform||'canal não registrado'),p.conversations];}))
+      .forEach(function(r){var tr=document.createElement('tr');var a=document.createElement('td');a.textContent=r[0];var b=document.createElement('td');b.className='n';b.textContent=fmt(r[1]);tr.appendChild(a);tr.appendChild(b);tb.appendChild(tr);});
+    var quando=new Date(d.generatedAt);
+    var txt=isNaN(quando)?'':quando.toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    document.getElementById('numsSrc').textContent=aoVivo?('Fonte: API ao vivo do OND vAI, atualizada em '+txt+'.'):('Retrato de '+txt+'. Os números ao vivo não carregaram agora.');
+    document.getElementById('liveLbl').textContent=aoVivo?'Números ao vivo do OND vAI':'Números do OND vAI';
+  }
+  paintNums(SNAP,false);
+  fetch(API+'metrics').then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(d){if(d&&typeof d.conversations==='number')paintNums(d,true);}).catch(function(){});
+
+  // ── exemplo real: da frase ao lead ──
+  var MOEDA={BRL:'R$',USD:'US$',EUR:'€'};
+  function money(v,c){return '~'+(MOEDA[c]||c||'R$')+' '+fmt(Math.round(v));}
+  var leads=SNAP_LEADS,idx=0,aoVivoLeads=false;
+  var set=function(id,t){document.getElementById(id).textContent=t;};
+  function chip(t){var s=document.createElement('span');s.className='chipx';s.textContent=t;return s;}
+  function paintLead(){
+    var l=leads[idx%leads.length];
+    var quote=l.intentQuote||(l.destinationLabel+(l.periodLabel?' em '+l.periodLabel:''));
+    set('fQuote','"'+quote+'"');
+    set('fReply','Fechou! Montando seu roteiro de '+l.destinationLabel+'…');
+    set('fDest',l.destinationLabel);
+    var meta=document.getElementById('fMeta');meta.textContent='';
+    if(l.durationDays)meta.appendChild(chip(l.durationDays+' dias'));
+    if(l.partySize)meta.appendChild(chip(l.partySize+(l.partySize>1?' pessoas':' pessoa')));
+    if(l.periodLabel)meta.appendChild(chip(l.periodLabel));
+    var m=l.budgetEstimate?money(l.budgetEstimate,l.budgetCurrency):'a estimar';
+    set('fBudget',m);set('fVal',m);
+    set('fParty',l.partyLabel||('Viagem pra '+l.destinationLabel));
+    set('fSub',[l.destinationLabel,l.durationDays?l.durationDays+' dias':null,l.partySize?l.partySize+(l.partySize>1?' pessoas':' pessoa'):null,l.periodLabel].filter(Boolean).join(' · '));
+    set('flowCount','Pedido '+(idx%leads.length+1)+' de '+leads.length+(aoVivoLeads?'':' (retrato)'));
+  }
+  function next(){
+    var ps=[].slice.call(document.querySelectorAll('#flow .panel'));
+    ps.forEach(function(p){p.classList.add('fade');});
+    setTimeout(function(){idx++;paintLead();ps.forEach(function(p,i){setTimeout(function(){p.classList.remove('fade');},i*180);});},320);
+  }
+  paintLead();
+  fetch(API+'lead-showcase').then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(d){
+    if(Array.isArray(d)&&d.length){leads=d.filter(function(l){return l&&l.destinationLabel;});aoVivoLeads=true;idx=0;paintLead();}
+  }).catch(function(){document.getElementById('flowLive').lastChild.textContent='retrato';});
+  var timer=null,reduz=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function auto(){clearInterval(timer);if(!reduz)timer=setInterval(next,7000);}
+  document.getElementById('flowNext').addEventListener('click',function(){next();auto();});
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)auto();else clearInterval(timer);});},{threshold:.3}).observe(document.getElementById('flow'));
+  }
+
+  // ── menu superior: marca a secao visivel ──
   var links=[].slice.call(document.querySelectorAll('#tnLinks a'));
   var byId={};links.forEach(function(a){byId[a.getAttribute('href').slice(1)]=a;});
   function marca(a){links.forEach(function(x){x.classList.toggle('on',x===a);});}
@@ -369,6 +639,10 @@ footer a{color:var(--muted)}
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&byId[e.target.id])marca(byId[e.target.id]);});},{rootMargin:'-40% 0px -55% 0px'});
     Object.keys(byId).forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s);});
   }
+  // ao rolar: a dica acompanha a barra focada pelo teclado; nos outros casos some
+  window.addEventListener('scroll',function(){
+    if(tipArgs&&tipArgs[0]===document.activeElement)showTip.apply(null,tipArgs);else hideTip();
+  },{passive:true});
 })();
 </script>
 </body>
