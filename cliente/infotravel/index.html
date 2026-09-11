@@ -233,6 +233,34 @@ details.tbl th{color:var(--muted);font-weight:700}
 @media(max-width:860px){.lanes{grid-template-columns:1fr 1fr}.node{grid-row:auto}.band{grid-row:auto;grid-column:1 / -1}.band-ond{order:-1}}
 
 @media(min-width:861px){.lanes.l34 .band-ond{grid-column:1 / span 3}.lanes.l34 .band-arc{grid-column:4 / span 4}}
+/* ── como podemos ser parceiros ── */
+.pc-flow{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr);align-items:stretch;margin-bottom:14px}
+.pc-arrow{display:flex;align-items:center;justify-content:center;color:var(--blue-light)}
+.pc-arrow .ic{width:18px;height:18px}
+.pc-step{padding:16px}
+.pc-step h3{font-size:.95rem}
+.pc-step p{font-size:.84rem}
+.pc-n{width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.pc-who{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.pc-who-h{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-light)}
+.pc-who-h b{font-size:1.02rem;letter-spacing:0;text-transform:none;color:var(--text)}
+.pc-logo{height:24px;width:auto}
+.pc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.pc-list li{display:flex;gap:9px;font-size:.88rem;color:var(--muted);line-height:1.5}
+.pc-list li .ic{width:16px;height:16px;color:var(--blue-light);margin-top:3px}
+.pc-models{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}
+.pc-model{display:flex;gap:12px;align-items:flex-start;background:var(--bg);border:1px dashed color-mix(in srgb,var(--muted) 45%,transparent);border-radius:14px;padding:14px 16px;text-align:left}
+.pc-model .tag{margin:2px 0 0;flex-shrink:0}
+.pc-model b{display:block;font-size:.95rem;margin-bottom:3px}
+.pc-model span{font-size:.86rem;color:var(--muted);line-height:1.5}
+.pc-next{margin-top:14px}
+.pc-steps-n{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;counter-reset:ps;margin-top:12px}
+.pc-steps-n li{counter-increment:ps;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:3px}
+.pc-steps-n li::before{content:counter(ps);width:22px;height:22px;border-radius:50%;background:var(--blue-dim);border:1px solid var(--border-hi);color:var(--blue-light);font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.pc-steps-n b{font-size:.88rem}
+.pc-steps-n span{font-size:.8rem;color:var(--muted);line-height:1.45}
+@media(max-width:900px){.pc-flow{grid-template-columns:1fr}.pc-arrow{height:28px}.pc-arrow .ic{transform:rotate(90deg)}.pc-steps-n{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.pc-who,.pc-models{grid-template-columns:1fr}.pc-steps-n{grid-template-columns:1fr}}
 /* ── mapa de encaixe ── */
 .fit{display:flex;flex-direction:column;border:1px solid var(--border-hi);border-radius:16px;overflow:hidden;background:var(--card);text-align:left}
 .fit-head,.fit-row{display:grid;grid-template-columns:190px minmax(0,1fr) minmax(0,1fr)}
@@ -397,7 +425,7 @@ footer a{color:var(--muted)}
       <a href="#s-como">Como funciona</a>
       <a href="#s-numeros">Números</a>
       <a href="#s-encaixe">Onde encaixa</a>
-      <a href="#s-formatos">Formatos</a>
+      <a href="#s-parceria">Parceria</a>
       <a href="#s-quem">Quem somos</a>
     </div>
     <button class="tn-resumo" id="btnResumo" type="button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>Resumo</button>
@@ -412,13 +440,13 @@ footer a{color:var(--muted)}
           <svg class="hx-logo" viewBox="0 0 951.32 497.26" aria-label="OND"><use href="#ond-logo"/></svg>
           <span class="hx-pill"><i aria-hidden="true"></i>Uma proposta para a Infotravel</span>
           <h1>A conversa com o viajante na frente. <em>O motor da Infotravel por trás.</em></h1>
-          <div class="hx-box">A Infotravel resolve <strong>cotação, reserva e conectividade</strong> pra operadoras e agências. O OND é a camada que <strong>conversa com o viajante</strong>: entende o pedido e monta o roteiro. Juntos, o cliente de vocês ganha um atendimento com IA na frente, e o pedido chega pronto pro motor.</div>
+          <div class="hx-box">A Infotravel resolve <strong>cotação, reserva e conectividade</strong> pra operadoras e agências. O OND é a camada que <strong>conversa com o viajante</strong>: entende o pedido e monta o roteiro. A proposta: <strong>vocês oferecem o OND pros clientes</strong> como a camada de atendimento, e cada conversa vira um pedido pronto no motor que eles já usam.</div>
           <div class="hx-btns">
-            <a class="hx-b1" href="#s-formatos">Ver a proposta</a>
+            <a class="hx-b1" href="#s-parceria">Ver a proposta</a>
             <button class="hx-b2" id="hxResumo" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>Abrir o resumo</button>
             <a class="hx-b2" href="/agencias.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>Ver o OND para agências</a>
           </div>
-          <div class="hx-links"><a href="#s-exemplo">Exemplo real</a><span aria-hidden="true">·</span><a href="#s-numeros">Números</a><span aria-hidden="true">·</span><a href="#s-encaixe">Onde encaixa</a><span aria-hidden="true">·</span><a href="#s-piloto">Piloto</a></div>
+          <div class="hx-links"><a href="#s-parceria">Como seria a parceria</a><span aria-hidden="true">·</span><a href="#s-ganhos">O que cada um ganha</a><span aria-hidden="true">·</span><a href="#s-exemplo">Exemplo real</a><span aria-hidden="true">·</span><a href="#s-piloto">Piloto</a></div>
         </div>
         <img class="hx-ill" src="/assets/viajante-laptop.svg" alt="" loading="eager">
       </div>
@@ -593,43 +621,43 @@ footer a{color:var(--muted)}
     </div>
   </section>
 
-  <section class="sec" id="s-formatos">
+  <section class="sec" id="s-parceria">
     <div class="wrap">
-      <div class="sec-label">Possíveis parcerias</div>
-      <h2>Três jeitos de juntar as camadas.</h2>
-      <p class="lead">Dá pra começar por um e evoluir pros outros. Integração, condições e responsabilidades a gente desenha junto.</p>
-      <div class="grid g3">
-        <div class="card fmt">
-          <div class="fmt-top"><h3>OND na frente da Infotravel</h3><span class="tag tag-piloto">A desenhar juntos</span></div>
-          <p>Vocês oferecem aos clientes o OND como a camada de atendimento, em cima do motor que eles já usam.</p>
-          <ul>
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>O OND vAI atende o viajante e monta o roteiro</li>
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>O pedido chega no fluxo de orçamento da Infotravel</li>
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>A marca continua a do cliente de vocês</li>
-          </ul>
-          <div class="ex"><div><b>Exemplo</b>Uma operadora cliente de vocês coloca o OND no atendimento: o viajante conversa, o pedido vira multi-orçamento no motor e a equipe só revisa e confirma.</div></div>
-        </div>
-        <div class="card fmt">
-          <div class="fmt-top"><h3>Infotravel por trás do OND</h3><span class="tag tag-piloto">A desenhar juntos</span></div>
-          <p>Os pedidos que nascem no app do OND passam a ser cotados e reservados pelo motor de vocês.</p>
-          <ul>
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Mais demanda passando pela plataforma</li>
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Inventário e conectividade da Infotravel no fluxo</li>
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Operadoras e agências clientes de vocês atendendo esses pedidos</li>
-          </ul>
-          <div class="ex"><div><b>Exemplo</b>O pedido de Orlando chega pelo OND e é cotado com os fornecedores conectados na Infotravel, por uma operadora cliente de vocês.</div></div>
-        </div>
-        <div class="card fmt">
-          <div class="fmt-top"><h3>Piloto com uma conta</h3><span class="tag tag-piloto">Proposta</span></div>
-          <p>Provar o encaixe com números antes de levar pra base.</p>
-          <ul>
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Uma operadora ou agência cliente de vocês</li>
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>O OND na frente e o motor por trás</li>
-            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Resultado acompanhado semana a semana</li>
-          </ul>
-          <div class="ex"><div><b>Exemplo</b>A próxima tela mostra como um piloto de 6 semanas poderia ficar.</div></div>
-        </div>
+      <div class="sec-label">Como podemos ser parceiros</div>
+      <h2>A Infotravel oferece o OND pros clientes. O OND entrega o pedido pronto no motor.</h2>
+      <p class="lead">Em uma frase: vocês colocam o OND como a camada de atendimento dentro da Infotravel, e cada conversa do viajante vira um pedido pronto pra cotar no motor que o cliente já usa.</p>
+      <div class="pc-flow">
+        <div class="card pc-step"><div class="pc-n">1</div><h3>A Infotravel oferece</h3><p>O OND entra como um módulo de atendimento com IA pros clientes de vocês: operadoras e agências.</p></div>
+        <div class="pc-arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+        <div class="card pc-step"><div class="pc-n">2</div><h3>O OND atende</h3><p>O viajante conversa com o OND vAI nos canais do cliente, e o OND monta o roteiro e a estimativa.</p></div>
+        <div class="pc-arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+        <div class="card pc-step"><div class="pc-n">3</div><h3>O pedido chega no motor</h3><p>Destino, datas, grupo, orçamento e roteiro entram no fluxo de orçamento da Infotravel, sem digitar de novo.</p></div>
+        <div class="pc-arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+        <div class="card pc-step"><div class="pc-n">4</div><h3>O cliente fecha</h3><p>A operadora ou agência cota com os fornecedores conectados, reserva e fecha, como já faz hoje.</p></div>
       </div>
+      <div class="pc-who">
+        <div class="card"><div class="pc-who-h"><svg class="pc-logo" viewBox="0 0 951.32 497.26" aria-label="OND"><use href="#ond-logo"/></svg><span>faz a conversa</span></div><ul class="pc-list"><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>A conversa com o viajante e a IA do OND vAI</span></li><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Roteiro dia a dia e estimativa de custo</span></li><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Evolução e manutenção da camada de atendimento</span></li><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Suporte direto da equipe da Agama Tec</span></li></ul></div>
+        <div class="card"><div class="pc-who-h"><b>Infotravel</b><span>faz o motor</span></div><ul class="pc-list"><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Cotação, reserva e conectividade com fornecedor</span></li><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>O relacionamento com as operadoras e agências</span></li><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>A oferta do módulo pros clientes</span></li><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>A entrada do pedido no fluxo de orçamento, desenhada junto com a gente</span></li></ul></div>
+      </div>
+      <p class="src">A integração do pedido com o motor e o OND vAI nos canais do cliente são proposta: a gente desenha e constrói junto.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="s-ganhos">
+    <div class="wrap">
+      <div class="sec-label">O que cada um ganha</div>
+      <h2>Uma parceria em que os três lados saem ganhando.</h2>
+      <p class="lead">A Infotravel, as operadoras e agências que usam a plataforma, e o OND.</p>
+      <div class="grid g3">
+        <div class="card"><div class="pc-who-h"><b>Infotravel</b></div><ul class="pc-list"><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Um diferencial de IA conversacional pros clientes, sem ter que desenvolver</span></li><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Um produto novo pra oferecer à base</span></li><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Mais pedidos passando pelo motor</span></li></ul></div>
+        <div class="card"><div class="pc-who-h"><b>Clientes da Infotravel</b></div><ul class="pc-list"><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Atendimento com IA 24h, com a marca deles</span></li><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Pedido chegando qualificado, com roteiro pronto</span></li><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Menos tempo levantando informação antes de cotar</span></li></ul></div>
+        <div class="card"><div class="pc-who-h"><svg class="pc-logo" viewBox="0 0 951.32 497.26" aria-label="OND"><use href="#ond-logo"/></svg></div><ul class="pc-list"><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Presença na base de clientes da Infotravel</span></li><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Pedidos virando reserva de verdade, num motor que o mercado já usa</span></li><li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Foco no que é diferencial: a conversa com o viajante</span></li></ul></div>
+      </div>
+      <div class="pc-models">
+        <div class="pc-model"><span class="tag tag-piloto">A combinar</span><div><b>Módulo dentro da Infotravel</b><span>Vocês oferecem o OND como um adicional na assinatura dos clientes, com a receita dividida entre os dois.</span></div></div>
+        <div class="pc-model"><span class="tag tag-piloto">A combinar</span><div><b>Pedidos do app no motor</b><span>Os pedidos que nascem no app do OND vão pra operadoras e agências da Infotravel cotarem e reservarem.</span></div></div>
+      </div>
+      <p class="src">Os números e as regras de cada modelo a gente define junto, a partir do piloto.</p>
     </div>
   </section>
 
@@ -652,15 +680,14 @@ footer a{color:var(--muted)}
           <span class="chip">Reservas confirmadas</span>
         </div>
       </div>
-      <div class="grid g2" style="margin-top:14px">
-        <div class="card">
-          <div class="sec-label" style="margin-bottom:6px">O que já existe do lado do OND</div>
-          <p>O OND vAI no app (Android, iOS e web), leads com roteiro e estimativa, um painel com os leads e planos pra agências: OND Piloto, Start, Grow, Scale e Pro.</p>
-        </div>
-        <div class="card">
-          <div class="sec-label" style="margin-bottom:6px">Também em andamento</div>
-          <p><span class="tag tag-piloto" style="margin:0 6px 0 0;vertical-align:1px">Em piloto</span>Loja da agência dentro do app. <span class="tag tag-parcial" style="margin:0 6px 0 8px;vertical-align:1px">Parcial</span>Proposta com a marca da agência.</p>
-        </div>
+      <div class="card pc-next">
+        <h3>Primeiros passos</h3>
+        <ol class="pc-steps-n">
+          <li><b>Conversa técnica</b><span>Entender como o pedido do OND entra no fluxo de orçamento da Infotravel</span></li>
+          <li><b>Escolher uma conta</b><span>Uma operadora ou agência cliente de vocês pro piloto</span></li>
+          <li><b>Seis semanas medindo</b><span>OND na frente, motor por trás e números toda semana</span></li>
+          <li><b>Decidir juntos</b><span>Modelo comercial e se a parceria vai pra base</span></li>
+        </ol>
       </div>
     </div>
   </section>
@@ -710,20 +737,26 @@ footer a{color:var(--muted)}
       <div class="rs-card"><div class="rs-k" id="stLeads">27</div><div class="rs-l">leads liberados pra agências</div></div>
     </div>
     <p class="rs-note" id="liveLbl">Números do OND vAI</p>
-    <h3>Onde a gente se encaixa</h3>
+    <h3>Como a parceria funciona</h3>
     <ul class="rs-list">
-      <li><span><b>OND, na frente:</b> conversa com o viajante, roteiro e estimativa, e o pedido qualificado</span></li>
-      <li><span><b>Infotravel, por trás:</b> cotação e multi-orçamento, reserva, conectividade e back-office</span></li>
+      <li><span><b>1. A Infotravel oferece</b> o OND como módulo de atendimento pros clientes</span></li>
+      <li><span><b>2. O OND atende</b> o viajante e monta o roteiro e a estimativa</span></li>
+      <li><span><b>3. O pedido chega no motor,</b> pronto pra cotar, sem digitar de novo</span></li>
+      <li><span><b>4. O cliente fecha,</b> cotando e reservando como já faz hoje</span></li>
     </ul>
-    <h3>Três jeitos de juntar as camadas</h3>
+    <h3>O que cada um ganha</h3>
     <ul class="rs-list">
-      <li><span><b>OND na frente da Infotravel:</b> a camada de atendimento pros clientes de vocês</span></li>
-      <li><span><b>Infotravel por trás do OND:</b> os pedidos do app cotados e reservados no motor</span></li>
-      <li><span><b>Piloto com uma conta:</b> seis semanas, com os números acompanhados toda semana</span></li>
+      <li><span><b>Infotravel:</b> diferencial de IA sem desenvolver, produto novo pra base e mais pedidos no motor</span></li>
+      <li><span><b>Clientes da Infotravel:</b> atendimento 24h com IA e pedido chegando qualificado</span></li>
+      <li><span><b>OND:</b> presença na base e pedidos virando reserva de verdade</span></li>
     </ul>
-    <h3>O que já existe do lado do OND</h3>
-    <p class="resumo-lead">O OND vAI no Android, no iOS e na web, leads com roteiro e estimativa e um painel com os leads.</p>
-    <p class="rs-note">Integração, condições e responsabilidades a definir juntos.</p>
+    <h3>Primeiros passos</h3>
+    <ul class="rs-list">
+      <li><span>Conversa técnica sobre como o pedido entra no motor</span></li>
+      <li><span>Uma conta pro piloto de seis semanas</span></li>
+      <li><span>Modelo comercial decidido junto, a partir do piloto</span></li>
+    </ul>
+    <p class="rs-note">Integração, condições e divisão de receita a definir juntos.</p>
     <div class="rs-ctas">
       <button class="rs-print" id="resumoPrint" type="button">Salvar em PDF</button>
     </div>
