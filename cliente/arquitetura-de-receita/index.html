@@ -145,6 +145,9 @@ a{color:var(--blue-light)}
 .ld-val{font-size:1rem;font-weight:800}
 .ld-val span{font-size:.74rem;font-weight:700;color:var(--muted)}
 .ld-cta{margin-top:auto;text-align:center;background:var(--blue);color:#fff;font-weight:800;font-size:.8rem;padding:9px;border-radius:50px}
+.ld-contact{display:flex;flex-direction:column;gap:2px;padding:8px 10px;margin:2px 0 4px;border:1px dashed color-mix(in srgb,var(--muted) 45%,transparent);border-radius:10px}
+.ld-k{font-size:.66rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.ld-mask{font-size:.8rem;color:var(--text);letter-spacing:.04em;filter:blur(.4px);user-select:none}
 .flow-foot{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:16px;flex-wrap:wrap}
 .flow-next{display:inline-flex;align-items:center;gap:7px;font-family:inherit;font-size:.84rem;font-weight:800;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:50px;padding:8px 16px;cursor:pointer}
 .flow-next:hover,.flow-next:focus-visible{border-color:var(--blue);outline:none}
@@ -275,6 +278,57 @@ footer a{color:var(--muted)}
 .rs-print{background:transparent;border:1px solid var(--border);color:var(--text);border-radius:12px;padding:12px 16px;font-family:inherit;font-weight:700;font-size:.9rem;cursor:pointer}
 .rs-print:hover{border-color:var(--blue)}
 
+/* ── conversa animada com o OND vAI (mesma da proposta Destinos no Mundo) ── */
+.ond-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:26px;align-items:center}
+@media(max-width:860px){.ond-grid{grid-template-columns:1fr}}
+.ond-feats{display:flex;flex-direction:column;gap:12px}
+.ond-feats .card{display:grid;grid-template-columns:38px 1fr;column-gap:14px;padding:16px 18px}
+.ond-feats .ic-box{grid-row:span 2;margin:0}
+.rc{width:100%;max-width:500px;justify-self:center;background:var(--surface);border:1px solid color-mix(in srgb,var(--blue) 30%,var(--border));border-radius:22px;overflow:hidden;box-shadow:0 26px 60px rgba(0,0,0,.4);text-align:left}
+.rc-head{display:flex;align-items:center;gap:11px;padding:13px 16px;border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--card) 70%,transparent)}
+.rc-head .rc-av{width:38px;height:38px}
+.rc-head b{display:block;font-size:.95rem;line-height:1.2}
+.rc-head span{display:flex;align-items:center;gap:6px;font-size:.74rem;color:var(--muted)}
+.rc-head span i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green)}
+.rc-head em{margin-left:auto;font-style:normal;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:3px 9px;border-radius:50px}
+.rc-log{display:flex;flex-direction:column;gap:10px;padding:16px 14px;height:370px;overflow-y:auto;scroll-behavior:smooth}
+.rc-m{display:flex;gap:8px;align-items:flex-end;max-width:90%}
+.rc-m.me{align-self:flex-end}
+.rc-av{width:28px;height:28px;border-radius:50%;flex-shrink:0;background:var(--card)}
+.rc-m p{margin:0;padding:10px 14px;border-radius:16px;font-size:.93rem;line-height:1.5;color:var(--text)}
+.rc-m.ai p{background:var(--card);border:1px solid var(--border);border-bottom-left-radius:5px}
+.rc-m.me p{background:#7f11f4;color:#fff;border-bottom-right-radius:5px}
+.rc-m b{color:inherit}
+.rc-card{background:var(--card);border:1px solid color-mix(in srgb,#7f11f4 40%,var(--border));border-radius:16px;border-bottom-left-radius:5px;overflow:hidden;min-width:0;flex:1}
+.rc-card-h{padding:12px 14px;background:linear-gradient(135deg,color-mix(in srgb,#7f11f4 30%,transparent),transparent)}
+.rc-card-h b{display:block;font-size:.98rem}
+.rc-card-h span{font-size:.76rem;color:var(--muted)}
+.rc-card ol{list-style:none;margin:0;padding:4px 14px;counter-reset:d}
+.rc-card li{counter-increment:d;display:grid;grid-template-columns:22px 1fr;column-gap:8px;padding:8px 0;border-top:1px solid var(--border);font-size:.86rem;line-height:1.35}
+.rc-card li:first-child{border-top:0}
+.rc-card li::before{content:counter(d);grid-row:span 2;width:22px;height:22px;border-radius:50%;background:#7f11f4;color:#fff;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.rc-card li span{color:var(--muted);font-size:.78rem}
+.rc-card-f{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--border);font-size:.8rem;color:var(--muted)}
+.rc-card-f b{margin-left:auto;color:var(--green);font-size:.92rem}
+.rc-lead{align-self:center;display:flex;align-items:center;gap:8px;margin-top:4px;font-size:.78rem;font-weight:700;color:var(--green);background:color-mix(in srgb,var(--green) 10%,transparent);border:1px solid color-mix(in srgb,var(--green) 30%,transparent);padding:6px 13px;border-radius:50px;text-align:center}
+.rc-lead span{font-weight:800}
+.rc-typing{display:flex;gap:8px;align-items:flex-end}
+.rc-typing[hidden]{display:none}
+.rc-typing span{display:flex;gap:4px;padding:12px 14px;background:var(--card);border:1px solid var(--border);border-radius:16px;border-bottom-left-radius:5px}
+.rc-typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:rcdot 1.2s infinite}
+.rc-typing i:nth-child(2){animation-delay:.15s}
+.rc-typing i:nth-child(3){animation-delay:.3s}
+@keyframes rcdot{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.rc-hide{display:none!important}
+.rc-in{animation:rcin .35s ease}
+@keyframes rcin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.rc-input{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 12px 12px;padding:10px 10px 10px 16px;border:1px solid var(--border);border-radius:50px;background:var(--bg);font-size:.86rem;color:var(--muted)}
+.rc-input b{width:32px;height:32px;border-radius:50%;background:#7f11f4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem}
+.rc-replay{display:inline-flex;align-items:center;gap:6px;margin:12px auto 0;font-family:inherit;font-size:.8rem;font-weight:800;color:var(--blue-light);background:none;border:1px solid var(--border);border-radius:50px;padding:7px 14px;cursor:pointer}
+.rc-replay:hover,.rc-replay:focus-visible{border-color:var(--blue);outline:none}
+.rc-wrap{display:flex;flex-direction:column;align-items:center}
+@media(max-width:640px){.rc-m{max-width:96%}.rc-m p{font-size:.88rem}.rc-card li{font-size:.82rem}.rc-log{height:380px}}
+
 /* ── uma tela por secao no desktop, como na proposta Destinos no Mundo ── */
 @media(min-width:761px){
   html{scroll-snap-type:y proximity}
@@ -339,10 +393,32 @@ footer a{color:var(--muted)}
       <div class="sec-label">O que é o OND</div>
       <h2>Um app de viagem com IA que planeja a viagem inteira numa conversa.</h2>
       <p class="lead">O viajante conversa com o <strong>OND vAI</strong> e recebe o roteiro completo em cerca de 5 minutos, de graça. Mas <strong>não somos agência</strong>: não vendemos pacote nem emitimos passagem. Ficamos com gente pronta pra comprar e precisamos de quem venda pra ela. Por isso existe o OND para agências.</p>
-      <div class="grid g3">
+      <div class="ond-grid">
+        <div class="rc-wrap">
+          <div class="rc" id="rc" aria-label="Exemplo de conversa com o OND vAI">
+            <div class="rc-head"><img class="rc-av" src="/assets/ondino.png" alt=""><div><b>OND vAI</b><span><i></i>online agora</span></div><em>Exemplo</em></div>
+            <div class="rc-log" id="rcLog">
+              <div class="rc-m ai"><img class="rc-av" src="/assets/ondino.png" alt=""><p>Oi! Sou o OND vAI. Pra onde você quer viajar?</p></div>
+              <div class="rc-m me"><p>Quero conhecer o Japão em setembro</p></div>
+              <div class="rc-m ai"><img class="rc-av" src="/assets/ondino.png" alt=""><p>Que viagem! Quantos dias vocês têm e quem vai?</p></div>
+              <div class="rc-m me"><p>12 dias, eu e minha esposa</p></div>
+              <div class="rc-m ai"><img class="rc-av" src="/assets/ondino.png" alt=""><div class="rc-card"><div class="rc-card-h"><b>Japão · 12 dias</b><span>set/2026 · 2 pessoas</span></div>
+                <ol><li><b>Tóquio</b><span>5 dias · Shibuya, Asakusa e teamLab</span></li><li><b>Monte Fuji</b><span>2 dias · Kawaguchiko com vista pro Fuji</span></li><li><b>Kyoto</b><span>5 dias · templos, Arashiyama e Nara</span></li></ol>
+                <div class="rc-card-f">voo · hotel · JR Pass <b>~R$ 38 mil</b></div></div></div>
+              <div class="rc-m ai"><img class="rc-av" src="/assets/ondino.png" alt=""><p>Uma <b>agência parceira</b> pode cuidar de voo, hotel e passeios pra vocês. Quer que ela te chame?</p></div>
+              <div class="rc-m me"><p>Quero sim!</p></div>
+              <div class="rc-lead"><span>✓</span>Lead enviado pra agência, com o roteiro e o contato</div>
+            </div>
+            <div class="rc-typing" id="rcTyping" hidden><img class="rc-av" src="/assets/ondino.png" alt=""><span><i></i><i></i><i></i></span></div>
+            <div class="rc-input"><span>Escreva sua mensagem…</span><b aria-hidden="true">➤</b></div>
+          </div>
+          <button class="rc-replay" id="rcReplay" type="button" hidden><svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>Ver de novo</button>
+        </div>
+        <div class="ond-feats">
         <div class="card"><div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></div><h3>Captação por conversa</h3><p>O OND vAI entende destino, época, quem vai e orçamento, e pergunta o que falta pra acertar o roteiro.</p></div>
         <div class="card"><div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></div><h3>Roteiro e estimativa na hora</h3><p>Dia a dia com atrações, rotas, horários e custos, e indicação de voos, hospedagens e passeios.</p></div>
         <div class="card"><div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>Presença na viagem inteira</h3><p>Concierge 24h, áudio guia nos destinos e alertas de voo, clima e mudanças no roteiro. Disponível no Android, no iOS e na web.</p></div>
+        </div>
       </div>
     </div>
   </section>
@@ -351,7 +427,7 @@ footer a{color:var(--muted)}
     <div class="wrap">
       <div class="sec-label">Exemplo real</div>
       <h2>O que chega pelo canal OND.</h2>
-      <p class="lead">Pedidos reais feitos ao OND vAI, anonimizados: sem nome e sem contato. É assim que cada lead nasce e chega pronto pro time do cliente atender.</p>
+      <p class="lead">Pedidos reais feitos ao OND vAI. Aqui eles aparecem sem nome e sem contato, mas na conversa a pessoa preenche tudo naturalmente, e o lead chega completo pro time do cliente atender.</p>
       <div class="flow" id="flow" aria-live="polite">
         <div class="panel">
           <div class="panel-h"><span>1 · O viajante pede</span><span class="live-pill" id="flowLive"><span class="live-dot"></span><span>real</span></span></div>
@@ -379,6 +455,7 @@ footer a{color:var(--muted)}
             <div class="ld-top"><b id="fParty">Família de 4 buscando pontos turísticos</b><span class="ld-new">Novo lead</span></div>
             <div class="ld-sub" id="fSub">Orlando · 10 dias · 4 pessoas · junho/2027</div>
             <div class="ld-val"><span id="fVal">~US$ 13.300</span> <span>· roteiro pronto</span></div>
+            <div class="ld-contact"><span class="ld-k">Nome, WhatsApp e e-mail do viajante</span><span class="ld-mask" aria-label="oculto nesta página">•••••• · (••) •••••-•••• · ••••@••••</span></div>
             <div class="ld-cta">Assumir e enviar proposta</div>
           </div>
         </div>
@@ -387,7 +464,7 @@ footer a{color:var(--muted)}
         <span class="flow-count" id="flowCount">Pedido 1 de 20</span>
         <button class="flow-next" id="flowNext" type="button">Ver outro pedido real <svg class="ic" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
       </div>
-      <p class="src">A frase, o destino, o período, o grupo e a estimativa vêm da conversa real. A resposta do OND vAI e o esboço do roteiro são ilustrativos.</p>
+      <p class="src">A frase, o destino, o período, o grupo e a estimativa vêm da conversa real. Nome e contato ficam ocultos nesta página por privacidade. A resposta do OND vAI e o esboço do roteiro são ilustrativos.</p>
     </div>
   </section>
 
@@ -730,6 +807,25 @@ footer a{color:var(--muted)}
   if('IntersectionObserver' in window){
     new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)auto();else clearInterval(timer);});},{threshold:.3}).observe(document.getElementById('flow'));
   }
+
+  // conversa animada: roda quando a secao aparece; "Ver de novo" reinicia
+  (function(){
+    var box=document.getElementById('rc'),log=document.getElementById('rcLog'),typ=document.getElementById('rcTyping'),rep=document.getElementById('rcReplay');
+    if(!box)return;
+    var itens=[].slice.call(log.children),rodou=false,timers=[];
+    if(!('IntersectionObserver' in window)||(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+    function espera(fn,ms){timers.push(setTimeout(fn,ms));}
+    function esconde(){timers.forEach(clearTimeout);timers=[];typ.hidden=true;itens.forEach(function(el){el.classList.add('rc-hide');el.classList.remove('rc-in');});log.scrollTop=0;rep.hidden=true;}
+    function mostra(k){
+      if(k>=itens.length){typ.hidden=true;rep.hidden=false;return;}
+      var el=itens[k],ai=el.classList.contains('ai');
+      if(ai){typ.hidden=false;log.appendChild(typ);log.scrollTop=log.scrollHeight;}
+      espera(function(){typ.hidden=true;el.classList.remove('rc-hide');el.classList.add('rc-in');log.scrollTop=log.scrollHeight;espera(function(){mostra(k+1);},ai?500:700);},ai?900:350);
+    }
+    esconde();
+    new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting&&!rodou){rodou=true;o.disconnect();mostra(0);}});},{threshold:.35}).observe(box);
+    rep.addEventListener('click',function(){esconde();mostra(0);});
+  })();
 
   // resumo: painel sobreposto, fecha no X, no Esc e no fundo; imprime so o painel
   var ov=document.getElementById('resumoOv'),ultimoFoco=null;
