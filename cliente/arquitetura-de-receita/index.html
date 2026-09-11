@@ -137,6 +137,42 @@ a{color:var(--blue-light)}
 .rt-day i.s{width:22px}.rt-day i.l{width:46px}
 .rt-est{margin-top:auto;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--border);padding-top:9px;font-size:.78rem;color:var(--muted)}
 .rt-est b{font-size:1rem;color:var(--text)}
+/* painel 2: tela de roteiro no visual do app (mesma da demo da home) */
+.panel-sub{font-size:.58rem;letter-spacing:.06em;color:var(--muted);border:1px solid var(--border);border-radius:50px;padding:2px 8px;font-weight:800}
+.ap{flex:1;display:flex;flex-direction:column;background:#f4f1fb;border:1px solid #2a2440;border-radius:14px;overflow:hidden}
+.ap-banner{position:relative;height:66px;flex:none;background:linear-gradient(135deg,#7f11f4,#290756) center/cover}
+.ap-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,6,46,.45),rgba(20,6,46,.05) 70%)}
+.ap-city{position:absolute;left:12px;top:8px;z-index:1;color:#fff;font-weight:800;font-size:.82rem;text-shadow:0 1px 6px rgba(0,0,0,.45);display:none}
+.ap-banner.sem-foto .ap-city{display:block}
+.ap-ava{position:absolute;left:50%;bottom:-20px;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;background:#efe9fb;overflow:hidden;box-shadow:0 0 0 3px #f4f1fb,0 3px 10px rgba(46,10,94,.22);z-index:2}
+.ap-ava img{position:absolute;left:-109px;top:-11px;width:220px;height:auto;max-width:none}
+.ap-body{flex:1;padding:26px 9px 6px;overflow:hidden}
+.ap-tabs{display:flex;gap:5px;overflow:hidden;margin-bottom:8px}
+.ap .ttab{flex:none;display:inline-flex;align-items:center;gap:4px;padding:5px 9px;border-radius:10px;font-weight:600;font-size:10px;background:#ece8f5;color:#3a3550;white-space:nowrap}
+.ap .ttab.active{background:#f0a818;color:#3a1a00}
+.ap .ttab.loc{background:#ddd6ea;color:#2a2238;font-weight:700}
+.ap .ttab svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ap-meta{font-size:10px;color:#6b6680;font-weight:600;margin:0 2px 8px}
+.ap-meta b{color:#4e1a9e}
+.ap .gday{background:#fff;border:1px solid #ece6f7;border-radius:11px;margin-bottom:6px;box-shadow:0 4px 14px rgba(46,10,94,.07);overflow:hidden}
+.ap .gday[hidden]{display:none}
+.ap .gday-head{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:8px 10px;font-size:10.5px;color:#2a2438;line-height:1.3}
+.ap .gday-head b{color:#4e1a9e;margin-right:3px}
+.ap .gday-ar{color:#7f11f4;font-size:9px;flex:none}
+.ap .gday.open .gday-ar{transform:rotate(180deg)}
+.ap .ga-row{display:flex;align-items:stretch;gap:4px;padding:2px 10px 10px}
+.ap .ga-arrow{align-self:center;color:#7f11f4;font-weight:700;font-size:10px;flex:none}
+.ap .ga-card{position:relative;flex:1 1 0;min-width:0;display:flex;align-items:center;background:#faf8ff;border:1px solid #eee6fb;border-left:4px solid #00c853;border-radius:9px;padding:7px 7px 7px 9px;min-height:44px}
+.ap .ga-num{position:absolute;top:-6px;left:-4px;width:16px;height:16px;border-radius:50%;background:#00c853;color:#063a16;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.ap .ga-t{font-weight:700;font-size:9.5px;color:#2a2438;line-height:1.2}
+.ap .ga-time{font-size:8.5px;color:#7f11f4;font-weight:600;margin-top:2px}
+.ap-foot{flex:none;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;background:#fff;border-top:1px solid #ece6f7;font-size:9.5px;color:#8a86a0}
+.ap-by{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.ap-by svg{width:10px;height:10px;fill:#7f11f4;flex:none}
+.ap-by b{color:#7f11f4}
+.ap-foot .g{color:#085e20;font-weight:700}
+.ap-est{white-space:nowrap}
+.ap-est b{color:#2a2438;font-size:10.5px}
 .ld{background:var(--bg);border:1px solid var(--border-hi);border-radius:12px;padding:13px;flex:1;display:flex;flex-direction:column;gap:6px;box-shadow:0 0 0 1px color-mix(in srgb,var(--blue) 18%,transparent),0 12px 30px color-mix(in srgb,var(--blue) 14%,transparent)}
 .ld-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
 .ld-top b{font-size:.94rem;line-height:1.3}
@@ -436,16 +472,18 @@ footer a{color:var(--muted)}
         </div>
         <div class="flow-arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
         <div class="panel">
-          <div class="panel-h"><span>2 · O OND vAI monta</span></div>
-          <div class="rt">
-            <div class="rt-dest" id="fDest">Orlando</div>
-            <div class="rt-meta" id="fMeta"></div>
-            <div class="rt-days" aria-hidden="true">
-              <div class="rt-day"><i></i>Dia 1 · chegada e primeiros passeios</div>
-              <div class="rt-day"><i class="l"></i>Dias seguintes · atrações e rotas</div>
-              <div class="rt-day"><i class="s"></i>Último dia · retorno</div>
+          <div class="panel-h"><span>2 · O OND vAI monta</span><span class="panel-sub">tela do app</span></div>
+          <div class="ap">
+            <div class="ap-banner" id="fBanner"><span class="ap-city" id="fCity">Orlando</span><div class="ap-ava"><img src="/assets/ondino.png" alt=""></div></div>
+            <div class="ap-body">
+              <div class="ap-tabs" aria-hidden="true"><span class="ttab loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span id="fDest">Orlando</span></span><span class="ttab active">Visão geral</span><span class="ttab">Dia a dia</span><span class="ttab">Financeiro</span></div>
+              <div class="ap-meta" id="fMeta"></div>
+              <div class="gday open"><div class="gday-head"><span><b>Dia 1</b> · Chegada e primeiros passeios</span><span class="gday-ar">▾</span></div>
+                <div class="ga-row"><div class="ga-card"><div class="ga-num">1</div><div class="ga-info"><div class="ga-t">Transfer e check-in</div><div class="ga-time">10:00 - 12:00</div></div></div><span class="ga-arrow">→</span><div class="ga-card"><div class="ga-num">2</div><div class="ga-info"><div class="ga-t">Primeiro passeio</div><div class="ga-time">14:00 - 17:00</div></div></div></div></div>
+              <div class="gday" id="fMidDay"><div class="gday-head"><span><b>Dia 2</b> · Atrações e rotas</span><span class="gday-ar">▾</span></div></div>
+              <div class="gday" id="fLastRow"><div class="gday-head"><span id="fLastDay"><b>Dia 10</b> · Retorno</span><span class="gday-ar">▾</span></div></div>
             </div>
-            <div class="rt-est"><span>Estimativa da viagem</span><b id="fBudget">~US$ 13.300</b></div>
+            <div class="ap-foot"><span class="ap-by"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg>Montado pelo <b>OND vAI</b> · <span class="g">PDF ✓</span></span><span class="ap-est">Estimativa <b id="fBudget">~US$ 13.300</b></span></div>
           </div>
         </div>
         <div class="flow-arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
@@ -776,16 +814,24 @@ footer a{color:var(--muted)}
   var leads=SNAP_LEADS,idx=0,aoVivoLeads=false;
   var set=function(id,t){document.getElementById(id).textContent=t;};
   function chip(t){var s=document.createElement('span');s.className='chipx';s.textContent=t;return s;}
+  // fotos de destino ja usadas no site (Unsplash); sem foto, a faixa fica no degrade roxo do app
+  var FOTO={'orlando':'photo-1597466599360-3b9775841aec','rio de janeiro':'photo-1544989164-31dc3c645987','buenos aires':'photo-1589909202802-8f4aadce1849','paris':'photo-1502602898657-3e91760cbb34','lisboa':'photo-1585208798174-6cedd86e019a','roma':'photo-1552832230-c0197dd311b5','cancun':'photo-1552074284-5e88ef1aef18'};
+  function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
   function paintLead(){
     var l=leads[idx%leads.length];
     var quote=l.intentQuote||(l.destinationLabel+(l.periodLabel?' em '+l.periodLabel:''));
     set('fQuote','"'+quote+'"');
     set('fReply','Fechou! Montando seu roteiro de '+l.destinationLabel+'…');
-    set('fDest',l.destinationLabel);
+    set('fDest',l.destinationLabel);set('fCity',l.destinationLabel);
     var meta=document.getElementById('fMeta');meta.textContent='';
-    if(l.durationDays)meta.appendChild(chip(l.durationDays+' dias'));
-    if(l.partySize)meta.appendChild(chip(l.partySize+(l.partySize>1?' pessoas':' pessoa')));
-    if(l.periodLabel)meta.appendChild(chip(l.periodLabel));
+    var mb=document.createElement('b');mb.textContent=l.destinationLabel;meta.appendChild(mb);
+    meta.appendChild(document.createTextNode([l.periodLabel,l.durationDays?l.durationDays+' dias':null,l.partySize?l.partySize+(l.partySize>1?' pessoas':' pessoa'):null].filter(Boolean).map(function(x){return ' · '+x;}).join('')));
+    var foto=FOTO[norm(l.destinationLabel)],bn=document.getElementById('fBanner');
+    bn.style.backgroundImage=foto?"url('https://images.unsplash.com/"+foto+"?w=600&q=70&auto=format')":'';
+    bn.classList.toggle('sem-foto',!foto);
+    var dias=l.durationDays||3,ult=document.getElementById('fLastDay');ult.textContent='';
+    var ub=document.createElement('b');ub.textContent='Dia '+dias;ult.appendChild(ub);ult.appendChild(document.createTextNode(' · Retorno'));
+    document.getElementById('fMidDay').hidden=dias<3;document.getElementById('fLastRow').hidden=dias<2;
     var m=l.budgetEstimate?money(l.budgetEstimate,l.budgetCurrency):'a estimar';
     set('fBudget',m);set('fVal',m);
     set('fParty',l.partyLabel||('Viagem pra '+l.destinationLabel));
