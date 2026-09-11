@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#060a14">
+<meta name="robots" content="noindex, nofollow">
+<title>Possíveis parcerias · OND × Infotravel</title>
+<meta name="description" content="Possíveis parcerias entre o OND e a Infotravel: o OND como a camada que conversa com o viajante, com o motor de reservas da Infotravel por trás.">
+<link rel="icon" type="image/svg+xml" href="/assets/ond-symbol.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/tokens/ond-core.css">
+<link rel="stylesheet" href="/tokens/ond-b2b.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:var(--ond-color-bg);--surface:var(--ond-color-surface);--card:var(--ond-color-card);
+  --border:var(--ond-color-border);--blue:var(--ond-color-primary);--blue-light:var(--ond-color-primaryHover);
+  --blue-dim:color-mix(in srgb, var(--ond-color-primary) 12%, transparent);
+  --border-hi:color-mix(in srgb, var(--ond-color-primary) 45%, transparent);
+  --text:var(--ond-color-text);--muted:var(--ond-color-muted);--green:var(--ond-color-success);
+  --grid:var(--ond-color-border);
+  --bar:#0066ff;--bar-other:#5b6b86;
+}
+html{scroll-behavior:smooth;scroll-padding-top:77px}
+body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-base),'Onest',system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
+body.rs-open{overflow:hidden}
+.ond-letter{fill:var(--ond-color-text)}.ond-diamond{fill:#7f11f4}
+a{color:var(--blue-light)}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* ── menu superior (mesmo da proposta Destinos no Mundo) ── */
+.topnav{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 84%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.tn-in{max-width:1180px;margin:0 auto;padding:8px clamp(16px,4vw,40px);min-height:64px;display:flex;align-items:center;gap:18px}
+.tn-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);font-weight:800;font-size:.9rem;flex-shrink:0;white-space:nowrap}
+.tn-logo{height:40px;width:auto}
+.tn-x{color:var(--muted);font-weight:700;font-size:.95rem}
+.tn-links{display:flex;gap:4px;flex:1;justify-content:center;overflow-x:auto;scrollbar-width:none}
+.tn-links::-webkit-scrollbar{display:none}
+.tn-links a{padding:7px 11px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:.86rem;font-weight:600;white-space:nowrap;transition:background .15s,color .15s}
+.tn-links a:hover{color:var(--text);background:var(--card)}
+.tn-links a.on{color:var(--text);background:color-mix(in srgb,var(--blue) 20%,transparent)}
+.tn-resumo{display:inline-flex;align-items:center;gap:7px;flex-shrink:0;background:var(--blue);color:#fff;border:0;border-radius:10px;padding:9px 16px;font-family:inherit;font-weight:800;font-size:.86rem;line-height:1;cursor:pointer}
+.tn-resumo svg{width:16px;height:16px;fill:currentColor}
+@media(max-width:860px){.tn-in{flex-wrap:wrap;gap:8px 12px}.tn-brand{flex:1}.tn-links{order:3;flex-basis:100%;justify-content:flex-start}.tn-x{display:none}}
+
+/* ── layout ── */
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(24px,6vw,84px)}
+.sec{padding:40px 0;border-top:1px solid var(--border)}
+.sec-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);margin-bottom:10px}
+.sec h2{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;line-height:1.25;margin-bottom:12px;text-wrap:balance}
+.sec .lead{color:var(--muted);font-size:1.02rem;margin-bottom:26px}
+.sec .lead strong{color:var(--text)}
+/* cabecalho de cada tela centralizado, como na proposta Destinos no Mundo */
+.sec > .wrap > .sec-label,.sec > .wrap > h2,.sec > .wrap > .lead,.sec > .wrap > .src{text-align:center;margin-left:auto;margin-right:auto}
+.sec > .wrap > h2{max-width:780px}
+.sec > .wrap > .lead{max-width:700px}
+.src{font-size:.78rem;color:var(--muted);margin-top:16px;opacity:.9}
+.note{display:inline-flex;align-items:center;gap:7px;font-size:.7rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);border:1px dashed color-mix(in srgb,var(--muted) 55%,transparent);border-radius:50px;padding:3px 10px}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);flex-shrink:0}
+.live-pill{display:inline-flex;align-items:center;gap:7px;font-size:.7rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--blue-light)}
+
+/* ── topo no formato da home do app (mesmo .hx da proposta Destinos no Mundo) ── */
+.hx{min-height:calc(100vh - 65px);display:flex;align-items:center;padding:44px 0 34px;position:relative}
+.hx::before{content:'';position:absolute;top:-60px;left:-120px;width:620px;height:520px;max-width:100vw;background:radial-gradient(circle,color-mix(in srgb,var(--blue) 16%,transparent),transparent 66%);pointer-events:none}
+.hx-in{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:48px;align-items:center;width:100%;position:relative}
+.hx-logo{height:72px;width:auto;display:block;margin-bottom:26px}
+.hx-pill{display:inline-flex;align-items:center;gap:9px;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 24%,transparent);color:var(--blue-light);font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:8px 15px;border-radius:50px;margin-bottom:20px}
+.hx-pill i{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0}
+.hx h1{font-size:clamp(2rem,4.2vw,3.1rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:24px;text-wrap:balance}
+.hx h1 em{font-style:normal;color:var(--green)}
+.hx-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 20px;color:var(--muted);font-size:1rem;line-height:1.65;margin-bottom:28px;max-width:600px}
+.hx-box strong{color:var(--text)}
+.hx-btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+.hx-b1,.hx-b2{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;font-family:inherit;font-weight:800;text-decoration:none;cursor:pointer;line-height:1.2}
+.hx-b1{background:var(--blue);color:#fff;border:1px solid var(--blue);padding:13px 26px;font-size:1rem}
+.hx-b1:hover{background:var(--blue-light);border-color:var(--blue-light)}
+.hx-b2{background:transparent;color:var(--blue-light);border:1px solid color-mix(in srgb,var(--blue) 60%,transparent);padding:12px 20px;font-size:.94rem}
+.hx-b2:hover{background:var(--blue-dim)}
+.hx-b2 svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
+.hx-links{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding-left:12px;font-size:.9rem}
+.hx-links a{color:var(--blue-light);text-decoration:none}
+.hx-links a:hover{text-decoration:underline}
+.hx-links span{color:var(--muted)}
+.hx-ill{width:100%;max-width:380px;max-height:520px;justify-self:center;filter:drop-shadow(0 0 40px color-mix(in srgb,var(--blue) 24%,transparent))}
+@media(max-width:760px){
+  .hx{min-height:auto;padding:28px 0 32px}
+  .hx-in{grid-template-columns:1fr;gap:14px}
+  .hx-ill{order:-1;max-width:150px}
+  .hx-logo{display:none}
+  .hx-btns > *{flex:1 1 100%}
+  .hx-links{padding-left:0;justify-content:center}
+  .hx-pill{font-size:.64rem;letter-spacing:.04em;padding:7px 13px;gap:7px}
+}
+
+/* ── cards ── */
+.grid{display:grid;gap:14px}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:860px){.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.g3,.g2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;text-align:left}
+.card h3{font-size:1.02rem;font-weight:800;margin-bottom:6px;line-height:1.3}
+.card p{color:var(--muted);font-size:.9rem;line-height:1.6}
+.ic-box{width:38px;height:38px;border-radius:11px;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 24%,transparent);color:var(--blue-light);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.step-n{font-size:.7rem;font-weight:800;letter-spacing:.08em;color:var(--blue-light);margin-bottom:6px}
+.tag{align-self:flex-start;font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:50px;margin-bottom:12px;white-space:nowrap}
+.tag-hoje{color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 34%,transparent)}
+.tag-parcial{color:var(--muted);border:1px dashed color-mix(in srgb,var(--muted) 60%,transparent)}
+.tag-piloto{color:var(--text);border:1px solid var(--border-hi)}
+.gain{margin-top:auto;padding-top:14px}
+.gain div{font-size:.8rem;color:var(--text);line-height:1.45;background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 22%,transparent);border-radius:10px;padding:9px 11px}
+.gain b{display:block;font-size:.6rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--blue-light);margin-bottom:3px}
+.card.arc-here{border-color:var(--border-hi);box-shadow:0 0 0 1px color-mix(in srgb,var(--blue) 18%,transparent)}
+.arc-flag{margin-top:auto;padding-top:12px;font-size:.74rem;font-weight:800;color:var(--blue-light)}
+
+/* ── exemplo real: da frase ao lead ── */
+.flow{display:grid;grid-template-columns:minmax(0,1.15fr) 36px minmax(0,1fr) 36px minmax(0,1fr);align-items:stretch}
+.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--blue-light)}
+.flow-arrow .ic{width:22px;height:22px}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;display:flex;flex-direction:column;min-height:260px;transition:opacity .35s;text-align:left}
+.panel.fade{opacity:.25}
+.panel-h{font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.bubble{font-size:.9rem;line-height:1.5;padding:10px 13px;border-radius:14px;max-width:92%}
+.bubble.me{align-self:flex-end;background:#7f11f4;color:#fff;border-bottom-right-radius:4px;font-weight:600}
+.bubble.ai{align-self:flex-start;background:var(--surface);border:1px solid var(--border);border-bottom-left-radius:4px;display:flex;gap:9px;align-items:flex-start;margin-top:10px}
+.bubble.ai img{width:26px;height:26px;border-radius:50%;flex-shrink:0}
+.rt{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:13px;flex:1;display:flex;flex-direction:column;gap:9px}
+.rt-dest{font-size:1.1rem;font-weight:800;letter-spacing:-.01em}
+.rt-meta{display:flex;flex-wrap:wrap;gap:6px}
+.chipx{font-size:.74rem;font-weight:700;color:var(--text);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 22%,transparent);padding:3px 9px;border-radius:50px}
+.rt-days{display:flex;flex-direction:column;gap:6px;margin-top:2px}
+.rt-day{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--muted)}
+.rt-day i{width:34px;height:6px;border-radius:3px;background:color-mix(in srgb,var(--blue) 45%,transparent);flex-shrink:0}
+.rt-day i.s{width:22px}.rt-day i.l{width:46px}
+.rt-est{margin-top:auto;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--border);padding-top:9px;font-size:.78rem;color:var(--muted)}
+.rt-est b{font-size:1rem;color:var(--text)}
+/* painel 2: tela de roteiro no visual do app (mesma da demo da home) */
+.panel-sub{font-size:.58rem;letter-spacing:.06em;color:var(--muted);border:1px solid var(--border);border-radius:50px;padding:2px 8px;font-weight:800}
+.ap{flex:1;display:flex;flex-direction:column;background:#f4f1fb;border:1px solid #2a2440;border-radius:14px;overflow:hidden}
+.ap-banner{position:relative;height:66px;flex:none;background:linear-gradient(135deg,#7f11f4,#290756) center/cover}
+.ap-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,6,46,.45),rgba(20,6,46,.05) 70%)}
+.ap-city{position:absolute;left:12px;top:8px;z-index:1;color:#fff;font-weight:800;font-size:.82rem;text-shadow:0 1px 6px rgba(0,0,0,.45);display:none}
+.ap-banner.sem-foto .ap-city{display:block}
+.ap-ava{position:absolute;left:50%;bottom:-20px;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;background:#efe9fb;overflow:hidden;box-shadow:0 0 0 3px #f4f1fb,0 3px 10px rgba(46,10,94,.22);z-index:2}
+.ap-ava img{position:absolute;left:-109px;top:-11px;width:220px;height:auto;max-width:none}
+.ap-body{flex:1;padding:26px 9px 6px;overflow:hidden}
+.ap-tabs{display:flex;gap:5px;overflow:hidden;margin-bottom:8px}
+.ap .ttab{flex:none;display:inline-flex;align-items:center;gap:4px;padding:5px 9px;border-radius:10px;font-weight:600;font-size:10px;background:#ece8f5;color:#3a3550;white-space:nowrap}
+.ap .ttab.active{background:#f0a818;color:#3a1a00}
+.ap .ttab.loc{background:#ddd6ea;color:#2a2238;font-weight:700}
+.ap .ttab svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ap-meta{font-size:10px;color:#6b6680;font-weight:600;margin:0 2px 8px}
+.ap-meta b{color:#4e1a9e}
+.ap .gday{background:#fff;border:1px solid #ece6f7;border-radius:11px;margin-bottom:6px;box-shadow:0 4px 14px rgba(46,10,94,.07);overflow:hidden}
+.ap .gday[hidden]{display:none}
+.ap .gday-head{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:8px 10px;font-size:10.5px;color:#2a2438;line-height:1.3}
+.ap .gday-head b{color:#4e1a9e;margin-right:3px}
+.ap .gday-ar{color:#7f11f4;font-size:9px;flex:none}
+.ap .gday.open .gday-ar{transform:rotate(180deg)}
+.ap .ga-row{display:flex;align-items:stretch;gap:4px;padding:2px 10px 10px}
+.ap .ga-arrow{align-self:center;color:#7f11f4;font-weight:700;font-size:10px;flex:none}
+.ap .ga-card{position:relative;flex:1 1 0;min-width:0;display:flex;align-items:center;background:#faf8ff;border:1px solid #eee6fb;border-left:4px solid #00c853;border-radius:9px;padding:7px 7px 7px 9px;min-height:44px}
+.ap .ga-num{position:absolute;top:-6px;left:-4px;width:16px;height:16px;border-radius:50%;background:#00c853;color:#063a16;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.ap .ga-t{font-weight:700;font-size:9.5px;color:#2a2438;line-height:1.2}
+.ap .ga-time{font-size:8.5px;color:#7f11f4;font-weight:600;margin-top:2px}
+.ap-foot{flex:none;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;background:#fff;border-top:1px solid #ece6f7;font-size:9.5px;color:#8a86a0}
+.ap-by{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.ap-by svg{width:10px;height:10px;fill:#7f11f4;flex:none}
+.ap-by b{color:#7f11f4}
+.ap-foot .g{color:#085e20;font-weight:700}
+.ap-est{white-space:nowrap}
+.ap-est b{color:#2a2438;font-size:10.5px}
+.ld{background:var(--bg);border:1px solid var(--border-hi);border-radius:12px;padding:13px;flex:1;display:flex;flex-direction:column;gap:6px;box-shadow:0 0 0 1px color-mix(in srgb,var(--blue) 18%,transparent),0 12px 30px color-mix(in srgb,var(--blue) 14%,transparent)}
+.ld-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.ld-top b{font-size:.94rem;line-height:1.3}
+.ld-new{flex-shrink:0;font-size:.58rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-light);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 30%,transparent);padding:2px 8px;border-radius:50px}
+.ld-sub{font-size:.8rem;color:var(--muted)}
+.ld-val{font-size:1rem;font-weight:800}
+.ld-val span{font-size:.74rem;font-weight:700;color:var(--muted)}
+.ld-cta{margin-top:auto;text-align:center;background:var(--blue);color:#fff;font-weight:800;font-size:.8rem;padding:9px;border-radius:50px}
+.ld-contact{display:flex;flex-direction:column;gap:2px;padding:8px 10px;margin:2px 0 4px;border:1px dashed color-mix(in srgb,var(--muted) 45%,transparent);border-radius:10px}
+.ld-k{font-size:.66rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.ld-mask{font-size:.8rem;color:var(--text);letter-spacing:.04em;filter:blur(.4px);user-select:none}
+.flow-foot{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:16px;flex-wrap:wrap}
+.flow-next{display:inline-flex;align-items:center;gap:7px;font-family:inherit;font-size:.84rem;font-weight:800;color:var(--text);background:var(--card);border:1px solid var(--border);border-radius:50px;padding:8px 16px;cursor:pointer}
+.flow-next:hover,.flow-next:focus-visible{border-color:var(--blue);outline:none}
+.flow-count{font-size:.78rem;color:var(--muted)}
+@media(max-width:900px){.flow{grid-template-columns:1fr}.flow-arrow{height:34px}.flow-arrow .ic{transform:rotate(90deg)}.panel{min-height:0}}
+
+/* ── numeros: graficos ── */
+.nums{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px}
+@media(max-width:860px){.nums{grid-template-columns:1fr}}
+.chart-card h3{font-size:.98rem;font-weight:800;margin-bottom:2px}
+.chart-card .csub{font-size:.8rem;color:var(--muted);margin-bottom:18px}
+.bars{display:flex;flex-direction:column;gap:12px}
+.brow{display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;gap:12px}
+.bcat{font-size:.82rem;color:var(--text);line-height:1.3}
+.btrack{position:relative;height:24px;border-left:1px solid var(--grid)}
+.bar{position:absolute;left:0;top:2px;height:20px;background:var(--bar);border-radius:0 4px 4px 0;transition:filter .15s;outline:none}
+.bar.other{background:var(--bar-other)}
+.bar:hover,.bar:focus-visible{filter:brightness(1.25)}
+.bar::after{content:'';position:absolute;inset:-4px -8px}
+.bval{position:absolute;top:50%;transform:translateY(-50%);font-size:.84rem;font-weight:800;color:var(--text);white-space:nowrap;pointer-events:none}
+.bval small{font-weight:700;color:var(--muted);font-size:.74rem;margin-left:5px}
+@media(max-width:600px){.brow{grid-template-columns:1fr;gap:4px}}
+.tip{position:fixed;z-index:80;pointer-events:none;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 11px;box-shadow:0 12px 30px rgba(0,0,0,.4);font-size:.78rem;color:var(--muted);opacity:0;transition:opacity .12s;max-width:240px}
+.tip.on{opacity:1}
+.tip b{display:block;font-size:1rem;color:var(--text)}
+.tip .k{display:inline-block;width:12px;height:2px;background:var(--bar);vertical-align:middle;margin-right:6px}
+.stat{justify-content:center}
+.stat .v{font-size:3rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+.stat .l{font-size:.86rem;color:var(--muted);margin-top:8px}
+.nums-side{display:flex;flex-direction:column;gap:14px}
+details.tbl{margin-top:14px;text-align:center}
+details.tbl summary{cursor:pointer;font-size:.8rem;font-weight:700;color:var(--blue-light)}
+details.tbl table{margin:10px auto 0;border-collapse:collapse;font-size:.82rem;width:100%;max-width:520px;text-align:left}
+details.tbl th,details.tbl td{padding:6px 10px;border-bottom:1px solid var(--border)}
+details.tbl td.n{text-align:right;font-variant-numeric:tabular-nums}
+details.tbl th{color:var(--muted);font-weight:700}
+
+/* ── onde cada um atua ── */
+.lanes{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px 6px;margin-bottom:22px;text-align:left}
+.node{grid-row:1;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:11px 10px;font-size:.8rem;font-weight:700;line-height:1.3;min-height:62px;display:flex;align-items:center}
+.node small{display:block;font-size:.62rem;font-weight:800;color:var(--blue-light);margin-bottom:3px;letter-spacing:.06em}
+.node.arc{border-color:var(--border-hi)}
+.band{grid-row:2;border-radius:10px;padding:8px 12px;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.band-ond{grid-column:1 / span 4;background:color-mix(in srgb,#7f11f4 16%,transparent);border:1px solid color-mix(in srgb,#7f11f4 45%,transparent);color:var(--text)}
+.band-arc{grid-column:5 / span 3;background:var(--blue-dim);border:1px solid var(--border-hi);color:var(--text)}
+.band svg{height:16px;width:auto}
+@media(max-width:860px){.lanes{grid-template-columns:1fr 1fr}.node{grid-row:auto}.band{grid-row:auto;grid-column:1 / -1}.band-ond{order:-1}}
+
+@media(min-width:861px){.lanes.l34 .band-ond{grid-column:1 / span 3}.lanes.l34 .band-arc{grid-column:4 / span 4}}
+/* ── mapa de encaixe ── */
+.fit{display:flex;flex-direction:column;border:1px solid var(--border-hi);border-radius:16px;overflow:hidden;background:var(--card);text-align:left}
+.fit-head,.fit-row{display:grid;grid-template-columns:190px minmax(0,1fr) minmax(0,1fr)}
+.fit-head div{padding:12px 18px;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-light);background:var(--surface);border-bottom:1px solid var(--border)}
+.fit-row+.fit-row{border-top:1px solid var(--border)}
+.fit-row>div{padding:15px 18px;font-size:.9rem;color:var(--muted);line-height:1.55}
+.fit-row>div:first-child{color:var(--text);font-weight:800;font-size:.95rem}
+.fit-row>div:nth-child(2),.fit-row>div:nth-child(3){border-left:1px solid var(--border)}
+.fit-row>div:nth-child(3){color:var(--text)}
+@media(max-width:760px){
+  .fit-head{display:none}
+  .fit-row{grid-template-columns:1fr}
+  .fit-row>div:nth-child(2),.fit-row>div:nth-child(3){border-left:none;padding-top:0}
+  .fit-row>div:nth-child(2)::before{content:'OND';display:block;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-light);margin-bottom:3px}
+  .fit-row>div:nth-child(3)::before{content:'Infotravel';display:block;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-light);margin-bottom:3px}
+}
+.arc-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:16px}
+@media(max-width:760px){.arc-sum{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{font-size:.8rem;font-weight:700;color:var(--text);background:var(--blue-dim);border:1px solid color-mix(in srgb,var(--blue) 22%,transparent);padding:6px 12px;border-radius:50px}
+
+/* ── formatos e piloto ── */
+.fmt{border-color:var(--border-hi)}
+.fmt-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+.fmt-top .tag{margin-bottom:0}
+.fmt ul{list-style:none;margin:12px 0 0;display:flex;flex-direction:column;gap:7px}
+.fmt li{display:flex;gap:9px;font-size:.86rem;color:var(--muted);line-height:1.5}
+.fmt li .ic{width:16px;height:16px;color:var(--blue-light);margin-top:3px}
+.ex{margin-top:auto;padding-top:16px}
+.ex div{background:var(--bg);border:1px dashed color-mix(in srgb,var(--muted) 45%,transparent);border-radius:12px;padding:11px 12px;font-size:.82rem;color:var(--muted);line-height:1.55}
+.ex b{display:block;font-size:.6rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--text);margin-bottom:4px}
+.pilot-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.tl{display:grid;grid-template-columns:1fr 4fr 1fr;gap:6px}
+.tl-seg{border-radius:10px;padding:12px 14px;background:var(--bg);border:1px solid var(--border)}
+.tl-seg.mid{background:var(--blue-dim);border-color:var(--border-hi)}
+.tl-seg b{display:block;font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-light);margin-bottom:4px}
+.tl-seg span{font-size:.84rem;color:var(--text);line-height:1.45}
+.tl-weeks{display:flex;gap:6px;margin-top:10px}
+.tl-weeks i{flex:1;height:6px;border-radius:3px;background:color-mix(in srgb,var(--blue) 50%,transparent)}
+.kpis{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+@media(max-width:700px){.tl{grid-template-columns:1fr}}
+
+/* ── validacao e equipe ── */
+.proof .who{font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-light);margin-bottom:6px}
+.proof small{display:block;margin-top:auto;padding-top:10px;font-size:.75rem;color:var(--muted)}
+.team{margin-top:14px}
+.person{flex-direction:row;gap:14px;align-items:flex-start}
+.av{width:46px;height:46px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0}
+.person .role{font-size:.78rem;font-weight:700;color:var(--blue-light);margin-bottom:6px}
+
+/* ── fechamento (mesmo .cta da proposta Destinos no Mundo) ── */
+.cta{text-align:center;padding:48px 0 34px;border-top:1px solid var(--border)}
+.cta-ill{width:150px;max-width:46%;margin:0 auto 18px;display:block;filter:drop-shadow(0 0 30px color-mix(in srgb,var(--blue) 24%,transparent))}
+.cta h2{font-size:1.5rem;font-weight:800;margin-bottom:8px}
+.cta p{color:var(--muted);margin:0 auto 20px;max-width:560px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--border)}
+footer a{color:var(--muted)}
+
+/* ── resumo (painel sobreposto, mesmo da proposta Destinos no Mundo) ── */
+.resumo-ov{position:fixed;inset:0;z-index:100;background:rgba(3,6,14,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;padding:clamp(16px,6vh,64px) 16px;overflow-y:auto}
+.resumo-ov[hidden]{display:none}
+.resumo-box{position:relative;width:100%;max-width:640px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:clamp(22px,4vw,36px);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.resumo-x{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:1rem;cursor:pointer}
+.resumo-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);margin-bottom:8px}
+.resumo-box h2{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px;padding-right:40px}
+.resumo-box h3{font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px}
+.resumo-lead{color:var(--muted);font-size:1rem;line-height:1.6}
+.rs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+@media(max-width:560px){.rs-grid{grid-template-columns:1fr}}
+.rs-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
+.rs-k{font-size:1.7rem;font-weight:800;letter-spacing:-.02em}
+.rs-l{font-size:.84rem;color:var(--muted);margin-top:4px;line-height:1.45}
+.rs-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.rs-list li{display:flex;gap:9px;font-size:.95rem;line-height:1.5}
+.rs-list li::before{content:'\2713';color:var(--blue-light);font-weight:800}
+.rs-list b{color:var(--text)}
+.rs-note{font-size:.8rem;color:var(--muted);margin-top:8px;line-height:1.5}
+.rs-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.rs-print{background:transparent;border:1px solid var(--border);color:var(--text);border-radius:12px;padding:12px 16px;font-family:inherit;font-weight:700;font-size:.9rem;cursor:pointer}
+.rs-print:hover{border-color:var(--blue)}
+
+/* ── conversa animada com o OND vAI (mesma da proposta Destinos no Mundo) ── */
+.ond-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:26px;align-items:center}
+@media(max-width:860px){.ond-grid{grid-template-columns:1fr}}
+.ond-feats{display:flex;flex-direction:column;gap:12px}
+.ond-feats .card{display:grid;grid-template-columns:38px 1fr;column-gap:14px;padding:16px 18px}
+.ond-feats .ic-box{grid-row:span 2;margin:0}
+.rc{width:100%;max-width:500px;justify-self:center;background:var(--surface);border:1px solid color-mix(in srgb,var(--blue) 30%,var(--border));border-radius:22px;overflow:hidden;box-shadow:0 26px 60px rgba(0,0,0,.4);text-align:left}
+.rc-head{display:flex;align-items:center;gap:11px;padding:13px 16px;border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--card) 70%,transparent)}
+.rc-head .rc-av{width:38px;height:38px}
+.rc-head b{display:block;font-size:.95rem;line-height:1.2}
+.rc-head span{display:flex;align-items:center;gap:6px;font-size:.74rem;color:var(--muted)}
+.rc-head span i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green)}
+.rc-head em{margin-left:auto;font-style:normal;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:3px 9px;border-radius:50px}
+.rc-log{display:flex;flex-direction:column;gap:10px;padding:16px 14px;height:370px;overflow-y:auto;scroll-behavior:smooth}
+.rc-m{display:flex;gap:8px;align-items:flex-end;max-width:90%}
+.rc-m.me{align-self:flex-end}
+.rc-av{width:28px;height:28px;border-radius:50%;flex-shrink:0;background:var(--card)}
+.rc-m p{margin:0;padding:10px 14px;border-radius:16px;font-size:.93rem;line-height:1.5;color:var(--text)}
+.rc-m.ai p{background:var(--card);border:1px solid var(--border);border-bottom-left-radius:5px}
+.rc-m.me p{background:#7f11f4;color:#fff;border-bottom-right-radius:5px}
+.rc-m b{color:inherit}
+.rc-card{background:var(--card);border:1px solid color-mix(in srgb,#7f11f4 40%,var(--border));border-radius:16px;border-bottom-left-radius:5px;overflow:hidden;min-width:0;flex:1}
+.rc-card-h{padding:12px 14px;background:linear-gradient(135deg,color-mix(in srgb,#7f11f4 30%,transparent),transparent)}
+.rc-card-h b{display:block;font-size:.98rem}
+.rc-card-h span{font-size:.76rem;color:var(--muted)}
+.rc-card ol{list-style:none;margin:0;padding:4px 14px;counter-reset:d}
+.rc-card li{counter-increment:d;display:grid;grid-template-columns:22px 1fr;column-gap:8px;padding:8px 0;border-top:1px solid var(--border);font-size:.86rem;line-height:1.35}
+.rc-card li:first-child{border-top:0}
+.rc-card li::before{content:counter(d);grid-row:span 2;width:22px;height:22px;border-radius:50%;background:#7f11f4;color:#fff;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.rc-card li span{color:var(--muted);font-size:.78rem}
+.rc-card-f{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--border);font-size:.8rem;color:var(--muted)}
+.rc-card-f b{margin-left:auto;color:var(--green);font-size:.92rem}
+.rc-lead{align-self:center;display:flex;align-items:center;gap:8px;margin-top:4px;font-size:.78rem;font-weight:700;color:var(--green);background:color-mix(in srgb,var(--green) 10%,transparent);border:1px solid color-mix(in srgb,var(--green) 30%,transparent);padding:6px 13px;border-radius:50px;text-align:center}
+.rc-lead span{font-weight:800}
+.rc-typing{display:flex;gap:8px;align-items:flex-end}
+.rc-typing[hidden]{display:none}
+.rc-typing span{display:flex;gap:4px;padding:12px 14px;background:var(--card);border:1px solid var(--border);border-radius:16px;border-bottom-left-radius:5px}
+.rc-typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:rcdot 1.2s infinite}
+.rc-typing i:nth-child(2){animation-delay:.15s}
+.rc-typing i:nth-child(3){animation-delay:.3s}
+@keyframes rcdot{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.rc-hide{display:none!important}
+.rc-in{animation:rcin .35s ease}
+@keyframes rcin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.rc-input{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 12px 12px;padding:10px 10px 10px 16px;border:1px solid var(--border);border-radius:50px;background:var(--bg);font-size:.86rem;color:var(--muted)}
+.rc-input b{width:32px;height:32px;border-radius:50%;background:#7f11f4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem}
+.rc-replay{display:inline-flex;align-items:center;gap:6px;margin:12px auto 0;font-family:inherit;font-size:.8rem;font-weight:800;color:var(--blue-light);background:none;border:1px solid var(--border);border-radius:50px;padding:7px 14px;cursor:pointer}
+.rc-replay:hover,.rc-replay:focus-visible{border-color:var(--blue);outline:none}
+.rc-wrap{display:flex;flex-direction:column;align-items:center}
+@media(max-width:640px){.rc-m{max-width:96%}.rc-m p{font-size:.88rem}.rc-card li{font-size:.82rem}.rc-log{height:380px}}
+
+/* ── uma tela por secao no desktop, como na proposta Destinos no Mundo ── */
+@media(min-width:761px){
+  html{scroll-snap-type:y proximity}
+  .hx{scroll-snap-align:start}
+  .sec{min-height:calc(100vh - 65px);min-height:calc(100dvh - 65px);display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start}
+}
+@media(min-width:961px){.grid.proof{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+@media print{
+  body *{visibility:hidden!important}
+  .resumo-ov,.resumo-ov *{visibility:visible!important}
+  .resumo-ov{position:absolute;inset:0;background:#fff;padding:0;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .resumo-box{box-shadow:none;border:0;max-width:none;background:#fff;color:#111}
+  .resumo-x,.rs-ctas{display:none!important}
+  .rs-card{background:#f4f4fa;border-color:#ddd}
+  .resumo-lead,.rs-l,.rs-note,.resumo-box h3,.rs-list li{color:#444!important}
+  .rs-k,.resumo-box h2,.rs-list b{color:#111!important}
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav" id="topnav" aria-label="Seções da proposta">
+  <div class="tn-in">
+    <a class="tn-brand" href="#topo" aria-label="Voltar ao início"><svg class="tn-logo" viewBox="0 0 951.32 497.26" aria-hidden="true"><use href="#ond-logo"/></svg><span class="tn-x">× Infotravel</span></a>
+    <div class="tn-links" id="tnLinks">
+      <a href="#s-ond">O OND</a>
+      <a href="#s-exemplo">Exemplo real</a>
+      <a href="#s-como">Como funciona</a>
+      <a href="#s-numeros">Números</a>
+      <a href="#s-encaixe">Onde encaixa</a>
+      <a href="#s-formatos">Formatos</a>
+      <a href="#s-quem">Quem somos</a>
+    </div>
+    <button class="tn-resumo" id="btnResumo" type="button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>Resumo</button>
+  </div>
+</nav>
+
+<main>
+  <section class="hx" id="topo">
+    <div class="wrap">
+      <div class="hx-in">
+        <div class="hx-txt">
+          <svg class="hx-logo" viewBox="0 0 951.32 497.26" aria-label="OND"><use href="#ond-logo"/></svg>
+          <span class="hx-pill"><i aria-hidden="true"></i>Uma proposta para a Infotravel</span>
+          <h1>A conversa com o viajante na frente. <em>O motor da Infotravel por trás.</em></h1>
+          <div class="hx-box">A Infotravel resolve <strong>cotação, reserva e conectividade</strong> pra operadoras e agências. O OND é a camada que <strong>conversa com o viajante</strong>: entende o pedido e monta o roteiro. Juntos, o cliente de vocês ganha um atendimento com IA na frente, e o pedido chega pronto pro motor.</div>
+          <div class="hx-btns">
+            <a class="hx-b1" href="#s-formatos">Ver a proposta</a>
+            <button class="hx-b2" id="hxResumo" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>Abrir o resumo</button>
+            <a class="hx-b2" href="/agencias.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>Ver o OND para agências</a>
+          </div>
+          <div class="hx-links"><a href="#s-exemplo">Exemplo real</a><span aria-hidden="true">·</span><a href="#s-numeros">Números</a><span aria-hidden="true">·</span><a href="#s-encaixe">Onde encaixa</a><span aria-hidden="true">·</span><a href="#s-piloto">Piloto</a></div>
+        </div>
+        <img class="hx-ill" src="/assets/viajante-laptop.svg" alt="" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s-ond">
+    <div class="wrap">
+      <div class="sec-label">O que é o OND</div>
+      <h2>Um app de viagem com IA que planeja a viagem inteira numa conversa.</h2>
+      <p class="lead">O viajante conversa com o <strong>OND vAI</strong> e recebe o roteiro completo em cerca de 5 minutos, de graça. Mas <strong>não somos agência</strong>: não vendemos pacote nem emitimos passagem. Ficamos com gente pronta pra comprar e precisamos de quem venda pra ela. Por isso existe o OND para agências.</p>
+      <div class="ond-grid">
+        <div class="rc-wrap">
+          <div class="rc" id="rc" aria-label="Exemplo de conversa com o OND vAI">
+            <div class="rc-head"><img class="rc-av" src="/assets/ondino.png" alt=""><div><b>OND vAI</b><span><i></i>online agora</span></div><em>Exemplo</em></div>
+            <div class="rc-log" id="rcLog">
+              <div class="rc-m ai"><img class="rc-av" src="/assets/ondino.png" alt=""><p>Oi! Sou o OND vAI. Pra onde você quer viajar?</p></div>
+              <div class="rc-m me"><p>Quero conhecer o Japão em setembro</p></div>
+              <div class="rc-m ai"><img class="rc-av" src="/assets/ondino.png" alt=""><p>Que viagem! Quantos dias vocês têm e quem vai?</p></div>
+              <div class="rc-m me"><p>12 dias, eu e minha esposa</p></div>
+              <div class="rc-m ai"><img class="rc-av" src="/assets/ondino.png" alt=""><div class="rc-card"><div class="rc-card-h"><b>Japão · 12 dias</b><span>set/2026 · 2 pessoas</span></div>
+                <ol><li><b>Tóquio</b><span>5 dias · Shibuya, Asakusa e teamLab</span></li><li><b>Monte Fuji</b><span>2 dias · Kawaguchiko com vista pro Fuji</span></li><li><b>Kyoto</b><span>5 dias · templos, Arashiyama e Nara</span></li></ol>
+                <div class="rc-card-f">voo · hotel · JR Pass <b>~R$ 38 mil</b></div></div></div>
+              <div class="rc-m ai"><img class="rc-av" src="/assets/ondino.png" alt=""><p>Uma <b>agência parceira</b> pode cuidar de voo, hotel e passeios pra vocês. Quer que ela te chame?</p></div>
+              <div class="rc-m me"><p>Quero sim!</p></div>
+              <div class="rc-lead"><span>✓</span>Lead enviado pra agência, com o roteiro e o contato</div>
+            </div>
+            <div class="rc-typing" id="rcTyping" hidden><img class="rc-av" src="/assets/ondino.png" alt=""><span><i></i><i></i><i></i></span></div>
+            <div class="rc-input"><span>Escreva sua mensagem…</span><b aria-hidden="true">➤</b></div>
+          </div>
+          <button class="rc-replay" id="rcReplay" type="button" hidden><svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>Ver de novo</button>
+        </div>
+        <div class="ond-feats">
+        <div class="card"><div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></div><h3>Captação por conversa</h3><p>O OND vAI entende destino, época, quem vai e orçamento, e pergunta o que falta pra acertar o roteiro.</p></div>
+        <div class="card"><div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></div><h3>Roteiro e estimativa na hora</h3><p>Dia a dia com atrações, rotas, horários e custos, e indicação de voos, hospedagens e passeios.</p></div>
+        <div class="card"><div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>Presença na viagem inteira</h3><p>Concierge 24h, áudio guia nos destinos e alertas de voo, clima e mudanças no roteiro. Disponível no Android, no iOS e na web.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s-exemplo">
+    <div class="wrap">
+      <div class="sec-label">Exemplo real</div>
+      <h2>O que o OND entrega na frente.</h2>
+      <p class="lead">Pedidos reais feitos ao OND vAI. Aqui eles aparecem sem nome e sem contato, mas na conversa a pessoa preenche tudo naturalmente, e o pedido chega completo, pronto pra ser cotado e reservado.</p>
+      <div class="flow" id="flow" aria-live="polite">
+        <div class="panel">
+          <div class="panel-h"><span>1 · O viajante pede</span><span class="live-pill" id="flowLive"><span class="live-dot"></span><span>real</span></span></div>
+          <div class="bubble me" id="fQuote">"Orlando em junho de 2027, quero passeios e pontos turísticos"</div>
+          <div class="bubble ai"><img src="/assets/ondino.png" alt=""><span id="fReply">Fechou! Montando seu roteiro de Orlando…</span></div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+        <div class="panel">
+          <div class="panel-h"><span>2 · O OND vAI monta</span><span class="panel-sub">tela do app</span></div>
+          <div class="ap">
+            <div class="ap-banner" id="fBanner"><span class="ap-city" id="fCity">Orlando</span><div class="ap-ava"><img src="/assets/ondino.png" alt=""></div></div>
+            <div class="ap-body">
+              <div class="ap-tabs" aria-hidden="true"><span class="ttab loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span id="fDest">Orlando</span></span><span class="ttab active">Visão geral</span><span class="ttab">Dia a dia</span><span class="ttab">Financeiro</span></div>
+              <div class="ap-meta" id="fMeta"></div>
+              <div class="gday open"><div class="gday-head"><span><b>Dia 1</b> · Chegada e primeiros passeios</span><span class="gday-ar">▾</span></div>
+                <div class="ga-row"><div class="ga-card"><div class="ga-num">1</div><div class="ga-info"><div class="ga-t">Transfer e check-in</div><div class="ga-time">10:00 - 12:00</div></div></div><span class="ga-arrow">→</span><div class="ga-card"><div class="ga-num">2</div><div class="ga-info"><div class="ga-t">Primeiro passeio</div><div class="ga-time">14:00 - 17:00</div></div></div></div></div>
+              <div class="gday" id="fMidDay"><div class="gday-head"><span><b>Dia 2</b> · Atrações e rotas</span><span class="gday-ar">▾</span></div></div>
+              <div class="gday" id="fLastRow"><div class="gday-head"><span id="fLastDay"><b>Dia 10</b> · Retorno</span><span class="gday-ar">▾</span></div></div>
+            </div>
+            <div class="ap-foot"><span class="ap-by"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg>Montado pelo <b>OND vAI</b> · <span class="g">PDF ✓</span></span><span class="ap-est">Estimativa <b id="fBudget">~US$ 13.300</b></span></div>
+          </div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+        <div class="panel">
+          <div class="panel-h"><span>3 · Chega pronto pra cotar</span></div>
+          <div class="ld">
+            <div class="ld-top"><b id="fParty">Família de 4 buscando pontos turísticos</b><span class="ld-new">Novo lead</span></div>
+            <div class="ld-sub" id="fSub">Orlando · 10 dias · 4 pessoas · junho/2027</div>
+            <div class="ld-val"><span id="fVal">~US$ 13.300</span> <span>· roteiro pronto</span></div>
+            <div class="ld-contact"><span class="ld-k">Nome, WhatsApp e e-mail do viajante</span><span class="ld-mask" aria-label="oculto nesta página">•••••• · (••) •••••-•••• · ••••@••••</span></div>
+            <div class="ld-cta">Gerar orçamento</div>
+          </div>
+        </div>
+      </div>
+      <div class="flow-foot">
+        <span class="flow-count" id="flowCount">Pedido 1 de 20</span>
+        <button class="flow-next" id="flowNext" type="button">Ver outro pedido real <svg class="ic" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <p class="src">A frase, o destino, o período, o grupo e a estimativa vêm da conversa real. Nome e contato ficam ocultos nesta página por privacidade. A resposta do OND vAI, o esboço do roteiro e a passagem pro orçamento são ilustrativos.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="s-como">
+    <div class="wrap">
+      <div class="sec-label">Como o OND funciona hoje</div>
+      <h2>Do primeiro "quero viajar" ao fechamento pela agência.</h2>
+      <p class="lead">Os selos mostram o que já funciona hoje. Até a etapa 3 é o OND trabalhando na frente. As etapas 4 e 5, orçamento e reserva, são exatamente onde o motor da Infotravel já é forte.</p>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+        <div class="card"><div class="step-n">1</div><span class="tag tag-hoje">Hoje</span><h3>Lead entra</h3><p>Tráfego pago traz o viajante pro OND vAI, que capta destino, data e orçamento numa conversa.</p><div class="gain"><div><b>Ganho</b>Leads qualificados, sem custo de prospecção pra agência.</div></div></div>
+        <div class="card"><div class="step-n">2</div><span class="tag tag-hoje">Hoje</span><h3>Roteiro pronto, automático</h3><p>O OND gera o roteiro dia a dia e a estimativa de custo sozinho, antes de qualquer agência entrar.</p><div class="gain"><div><b>Ganho</b>Zero esforço da agência até aqui.</div></div></div>
+        <div class="card"><div class="step-n">3</div><span class="tag tag-hoje">Hoje</span><h3>Viajante conecta com uma agência</h3><p>De dentro do próprio app, o viajante escolhe se conectar com uma agência parceira pra fechar.</p><div class="gain"><div><b>Ganho</b>Chega já qualificado e quente, sem prospecção fria.</div></div></div>
+        <div class="card arc-here"><div class="step-n">4</div><span class="tag tag-parcial">Hoje · parcial</span><h3>Agência assume e refina</h3><p>Recebe o lead com o roteiro pronto, ajusta com a própria marca e valores e manda o link.</p><div class="arc-flag">Aqui entra a cotação no motor</div></div>
+        <div class="card arc-here"><div class="step-n">5</div><span class="tag tag-hoje">Hoje</span><h3>Fechamento</h3><p>A agência fecha pelos próprios fornecedores e fica com a comissão. O OND não é o merchant.</p><div class="arc-flag">Aqui entra a reserva no motor</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s-numeros">
+    <div class="wrap">
+      <div class="sec-label">Números reais</div>
+      <h2>O que o OND já gera na frente.</h2>
+      <p class="lead">Dados das conversas com o OND vAI desde o lançamento. Cada roteiro gerado é um pedido de viagem pronto pra ser cotado, e é esse volume que pode passar pelo motor de vocês.</p>
+      <div class="nums">
+        <div class="card chart-card">
+          <h3>Do pedido ao lead</h3>
+          <div class="csub">Conversas, roteiros gerados e leads liberados pra contato de uma agência</div>
+          <div class="bars" id="chFunnel" role="img" aria-label="Funil do OND vAI"></div>
+        </div>
+        <div class="nums-side">
+          <div class="card stat"><div class="v" id="stMsgs">3.796</div><div class="l">mensagens trocadas com o OND vAI</div></div>
+          <div class="card chart-card">
+            <h3>Onde as conversas acontecem</h3>
+            <div class="csub">Conversas por plataforma</div>
+            <div class="bars" id="chPlat" role="img" aria-label="Conversas por plataforma"></div>
+          </div>
+        </div>
+      </div>
+      <details class="tbl"><summary>Ver os números em tabela</summary><table id="numsTable"><thead><tr><th>Indicador</th><th style="text-align:right">Valor</th></tr></thead><tbody></tbody></table></details>
+      <p class="src" id="numsSrc">Fonte: API ao vivo do OND vAI.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="s-info">
+    <div class="wrap">
+      <div class="sec-label">Como entendemos a Infotravel</div>
+      <h2>O motor de reservas de operadoras e agências.</h2>
+      <p class="lead">Pelo que vocês apresentam no site, a Infotravel é a plataforma que resolve cotação, reserva e conectividade com fornecedor, de operadoras pequenas às grandes.</p>
+      <div class="arc-sum">
+        <div class="card"><div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><h3>Motor de reservas</h3><p>Pesquisa dinâmica com carrinho, multi-orçamentos e gestão de reservas online, offline e importadas.</p></div>
+        <div class="card"><div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><h3>Conectividade</h3><p>Consolidadoras de hotéis, aéreo, carros, transfers, ingressos, seguros e o LocalTrip, além dos contratos próprios do operador.</p></div>
+        <div class="card"><div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div><h3>Canais e gestão</h3><p>Venda em B2C, B2B, white label e B2B×B2B, com markups, descontos e comissões por canal.</p></div>
+      </div>
+      <div class="chips">
+        <span class="chip">Operadoras e agências</span>
+        <span class="chip">Monitoramento 24×7</span>
+        <span class="chip">Notificações automáticas de reserva</span>
+        <span class="chip">Desde 2008, pela Infotera</span>
+      </div>
+      <p class="src">Fonte: infotravel.com.br. Se algo estiver diferente do que vocês fazem, a gente ajusta.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="s-encaixe">
+    <div class="wrap">
+      <div class="sec-label">Onde a gente se encaixa</div>
+      <h2>Camadas diferentes, que se completam.</h2>
+      <p class="lead">A Infotravel é o motor: cota, reserva e conecta com o fornecedor. O OND é a camada que conversa com o viajante na frente: entende o pedido e monta o roteiro. Uma não substitui a outra.</p>
+      <div class="lanes l34" aria-label="Etapas da viagem e qual camada atua em cada uma">
+        <div class="node"><div><small>1</small>Conversa com o viajante</div></div>
+        <div class="node"><div><small>2</small>Roteiro e estimativa</div></div>
+        <div class="node"><div><small>3</small>Pedido qualificado</div></div>
+        <div class="node arc"><div><small>4</small>Cotação e multi-orçamento</div></div>
+        <div class="node arc"><div><small>5</small>Reserva</div></div>
+        <div class="node arc"><div><small>6</small>Conectividade com fornecedor</div></div>
+        <div class="node arc"><div><small>7</small>Back-office</div></div>
+        <div class="band band-ond"><svg viewBox="0 0 951.32 497.26" aria-hidden="true"><use href="#ond-logo"/></svg>a camada que conversa</div>
+        <div class="band band-arc">Infotravel · o motor por trás</div>
+      </div>
+      <div class="fit" role="table" aria-label="O que cada camada faz em cada etapa">
+        <div class="fit-head" role="row"><div role="columnheader">Etapa</div><div role="columnheader">OND</div><div role="columnheader">Infotravel</div></div>
+        <div class="fit-row" role="row"><div role="cell">Atendimento</div><div role="cell">O OND vAI conversa com o viajante 24h e entende destino, datas, grupo e orçamento.</div><div role="cell">Recebe o pedido já qualificado, sem a equipe ter que levantar tudo de novo.</div></div>
+        <div class="fit-row" role="row"><div role="cell">Orçamento</div><div role="cell">Roteiro dia a dia e estimativa de custo gerados na hora.</div><div role="cell">Cotação real com os fornecedores conectados e multi-orçamento.</div></div>
+        <div class="fit-row" role="row"><div role="cell">Reserva</div><div role="cell">O OND não é o merchant: não vende pacote nem emite passagem.</div><div role="cell">Reserva, emissão e gestão, com markups e comissões por canal.</div></div>
+        <div class="fit-row" role="row"><div role="cell">Canais</div><div role="cell">App do OND no Android, no iOS e na web, com viajantes já decidindo o destino.</div><div role="cell">Canais B2C, B2B, white label e B2B×B2B pra distribuir.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s-formatos">
+    <div class="wrap">
+      <div class="sec-label">Possíveis parcerias</div>
+      <h2>Três jeitos de juntar as camadas.</h2>
+      <p class="lead">Dá pra começar por um e evoluir pros outros. Integração, condições e responsabilidades a gente desenha junto.</p>
+      <div class="grid g3">
+        <div class="card fmt">
+          <div class="fmt-top"><h3>OND na frente da Infotravel</h3><span class="tag tag-piloto">A desenhar juntos</span></div>
+          <p>Vocês oferecem aos clientes o OND como a camada de atendimento, em cima do motor que eles já usam.</p>
+          <ul>
+            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>O OND vAI atende o viajante e monta o roteiro</li>
+            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>O pedido chega no fluxo de orçamento da Infotravel</li>
+            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>A marca continua a do cliente de vocês</li>
+          </ul>
+          <div class="ex"><div><b>Exemplo</b>Uma operadora cliente de vocês coloca o OND no atendimento: o viajante conversa, o pedido vira multi-orçamento no motor e a equipe só revisa e confirma.</div></div>
+        </div>
+        <div class="card fmt">
+          <div class="fmt-top"><h3>Infotravel por trás do OND</h3><span class="tag tag-piloto">A desenhar juntos</span></div>
+          <p>Os pedidos que nascem no app do OND passam a ser cotados e reservados pelo motor de vocês.</p>
+          <ul>
+            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Mais demanda passando pela plataforma</li>
+            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Inventário e conectividade da Infotravel no fluxo</li>
+            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Operadoras e agências clientes de vocês atendendo esses pedidos</li>
+          </ul>
+          <div class="ex"><div><b>Exemplo</b>O pedido de Orlando chega pelo OND e é cotado com os fornecedores conectados na Infotravel, por uma operadora cliente de vocês.</div></div>
+        </div>
+        <div class="card fmt">
+          <div class="fmt-top"><h3>Piloto com uma conta</h3><span class="tag tag-piloto">Proposta</span></div>
+          <p>Provar o encaixe com números antes de levar pra base.</p>
+          <ul>
+            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Uma operadora ou agência cliente de vocês</li>
+            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>O OND na frente e o motor por trás</li>
+            <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Resultado acompanhado semana a semana</li>
+          </ul>
+          <div class="ex"><div><b>Exemplo</b>A próxima tela mostra como um piloto de 6 semanas poderia ficar.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s-piloto">
+    <div class="wrap">
+      <div class="sec-label">Piloto</div>
+      <h2>Como um piloto poderia ficar.</h2>
+      <p class="lead">Seis semanas com uma conta da Infotravel, o OND atendendo na frente e os pedidos chegando no motor, com os números na mesa toda semana.</p>
+      <div class="card">
+        <div class="pilot-head"><h3>Linha do tempo</h3><span class="note">Exemplo ilustrativo · a gente define junto</span></div>
+        <div class="tl">
+          <div class="tl-seg"><b>Semana 1</b><span>O OND é configurado pra conta e o jeito de o pedido chegar no motor é definido junto</span></div>
+          <div class="tl-seg mid"><b>Semanas 2 a 5</b><span>Viajantes atendidos pelo OND, pedidos virando orçamentos e leitura semanal com os dois times</span><div class="tl-weeks" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+          <div class="tl-seg"><b>Semana 6</b><span>Resultado na mesa e decisão de levar pra outras contas</span></div>
+        </div>
+        <div class="kpis">
+          <span class="chip">Pedidos atendidos pelo OND</span>
+          <span class="chip">Orçamentos gerados</span>
+          <span class="chip">Tempo até o orçamento</span>
+          <span class="chip">Reservas confirmadas</span>
+        </div>
+      </div>
+      <div class="grid g2" style="margin-top:14px">
+        <div class="card">
+          <div class="sec-label" style="margin-bottom:6px">O que já existe do lado do OND</div>
+          <p>O OND vAI no app (Android, iOS e web), leads com roteiro e estimativa, um painel com os leads e planos pra agências: OND Piloto, Start, Grow, Scale e Pro.</p>
+        </div>
+        <div class="card">
+          <div class="sec-label" style="margin-bottom:6px">Também em andamento</div>
+          <p><span class="tag tag-piloto" style="margin:0 6px 0 0;vertical-align:1px">Em piloto</span>Loja da agência dentro do app. <span class="tag tag-parcial" style="margin:0 6px 0 8px;vertical-align:1px">Parcial</span>Proposta com a marca da agência.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s-quem">
+    <div class="wrap">
+      <div class="sec-label">Validação e quem somos</div>
+      <h2>Validado pelo mercado, feito de perto por quem fundou.</h2>
+      <p class="lead">O OND é da <strong>Agama Tec</strong>, uma empresa brasileira de tecnologia para viagem, que nasceu pra levar IA de verdade pro turismo, do viajante à agência.</p>
+      <div class="grid g2 proof">
+        <div class="card"><div class="who">Aprovado</div><h3>BeFly Leadership Network</h3><p>Apresentado ao conselho da BeFly, uma das maiores redes de agências do Brasil, com aprovação técnica e estratégica para integração com franquias e turismo corporativo.</p><small>Pitch Day · Desafio Turismo Inteligente · 2026</small></div>
+        <div class="card"><div class="who">Parceria ativa</div><h3>Booking.com</h3><p>Afiliado aprovado no Booking.com. Os roteiros gerados pelo OND incluem links diretos pra reserva de hotéis, com rastreamento de comissão.</p><small>Afiliado aprovado · jun 2026</small></div>
+        <div class="card"><div class="who">Integração ativa</div><h3>GetYourGuide</h3><p>Integração com o maior marketplace de passeios e experiências do mundo. Os roteiros do OND incluem indicações de atividades com reserva direta.</p><small>Marketplace global de experiências</small></div>
+        <div class="card"><div class="who">Selecionado</div><h3>Sebrae For Startups</h3><p>Selecionado pro programa de aceleração, com mentoria especializada, acesso a rede de parceiros e suporte pra escalar a operação no turismo.</p><small>Sebrae · Programa de Aceleração de Startups</small></div>
+      </div>
+      <div class="grid g2 team">
+        <div class="card person"><div class="av">RR</div><div><h3>Renan Rodrigues</h3><div class="role">Fundador · Tecnologia</div><p>Desenvolvedor Java e arquiteto de software desde 2018, com certificações em nuvem (AWS, Azure e GCP). Lidera a engenharia e a IA do OND.</p></div></div>
+        <div class="card person"><div class="av">RC</div><div><h3>Renan Chaves</h3><div class="role">Co-fundador · Design e Produto</div><p>Designer e diretor de criação com 7 anos em design e publicidade. Cuida da marca, do produto e da experiência.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <img class="cta-ill" src="/assets/ondino-espera.svg" alt="Ondino, o viajante do OND" loading="lazy">
+      <h2>O motor de vocês, a conversa do OND.</h2>
+      <p>O resumo reúne os pontos principais da proposta e dá pra salvar em PDF.</p>
+      <div class="cta-btns">
+        <button class="hx-b1" id="ctaResumo" type="button">Abrir o resumo</button>
+        <button class="hx-b2" id="ctaPrint" type="button">Salvar em PDF</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>OND · Agama Tec · <a href="https://ondviajar.com.br/">ondviajar.com.br</a> · <a href="mailto:renan@agamatec.com">renan@agamatec.com</a></footer>
+
+<div class="resumo-ov" id="resumoOv" hidden>
+  <div class="resumo-box" role="dialog" aria-modal="true" aria-labelledby="resumoTit">
+    <button class="resumo-x" id="resumoX" type="button" aria-label="Fechar resumo">✕</button>
+    <div class="resumo-eyebrow">Proposta resumida</div>
+    <h2 id="resumoTit">OND × Infotravel</h2>
+    <p class="resumo-lead">A Infotravel é o motor que cota, reserva e conecta com o fornecedor. O OND é a camada que conversa com o viajante na frente. Juntas, o cliente de vocês ganha atendimento com IA e o pedido chega pronto pro motor.</p>
+    <div class="rs-grid">
+      <div class="rs-card"><div class="rs-k" id="stConv">372</div><div class="rs-l">conversas com o OND vAI</div></div>
+      <div class="rs-card"><div class="rs-k" id="stRot">120</div><div class="rs-l">roteiros gerados</div></div>
+      <div class="rs-card"><div class="rs-k" id="stLeads">27</div><div class="rs-l">leads liberados pra agências</div></div>
+    </div>
+    <p class="rs-note" id="liveLbl">Números do OND vAI</p>
+    <h3>Onde a gente se encaixa</h3>
+    <ul class="rs-list">
+      <li><span><b>OND, na frente:</b> conversa com o viajante, roteiro e estimativa, e o pedido qualificado</span></li>
+      <li><span><b>Infotravel, por trás:</b> cotação e multi-orçamento, reserva, conectividade e back-office</span></li>
+    </ul>
+    <h3>Três jeitos de juntar as camadas</h3>
+    <ul class="rs-list">
+      <li><span><b>OND na frente da Infotravel:</b> a camada de atendimento pros clientes de vocês</span></li>
+      <li><span><b>Infotravel por trás do OND:</b> os pedidos do app cotados e reservados no motor</span></li>
+      <li><span><b>Piloto com uma conta:</b> seis semanas, com os números acompanhados toda semana</span></li>
+    </ul>
+    <h3>O que já existe do lado do OND</h3>
+    <p class="resumo-lead">O OND vAI no Android, no iOS e na web, leads com roteiro e estimativa e um painel com os leads.</p>
+    <p class="rs-note">Integração, condições e responsabilidades a definir juntos.</p>
+    <div class="rs-ctas">
+      <button class="rs-print" id="resumoPrint" type="button">Salvar em PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="tip" id="tip" role="status"></div>
+
+<script src="/assets/ond-logo.js"></script>
+<script>
+(function(){
+  var API='https://ond.agamatec.com/api/ond-vai/live/';
+  var fmt=function(n){return Number(n).toLocaleString('pt-BR');};
+
+  // retrato de 11/09/2026, usado se a API nao responder
+  var SNAP={conversations:372,completed:120,agencyConsentedLeads:27,totalMessages:3796,
+    platforms:[{platform:'Web',conversations:217},{platform:'Android',conversations:68},{platform:'iOS',conversations:58},{platform:null,conversations:29}],
+    generatedAt:'2026-09-11T01:24:24Z'};
+  var SNAP_LEADS=[
+    {destinationLabel:'Orlando',periodLabel:'junho/2027',durationDays:10,partySize:4,partyLabel:'Família de 4 buscando pontos turísticos',intentQuote:'Orlando em junho de 2027, quero passeios e pontos turísticos',budgetEstimate:13300,budgetCurrency:'USD'},
+    {destinationLabel:'Gramado',periodLabel:'maio/2027',durationDays:4,partySize:3,partyLabel:'Grupo de 3 cultural e gastronômico',intentQuote:'Gramado em maio de 2027, quero museus e boa comida',budgetEstimate:6700,budgetCurrency:'BRL'},
+    {destinationLabel:'Rio de Janeiro',periodLabel:'setembro/2026',durationDays:6,partySize:2,partyLabel:'Casal cultura e gastronomia',intentQuote:'Rio de Janeiro setembro/2026, quero cultura, música e gastronomia',budgetEstimate:6800,budgetCurrency:'BRL'}
+  ];
+
+  // tooltip unico (valor em destaque, rotulo em seguida)
+  var tip=document.getElementById('tip'),tipArgs=null;
+  function showTip(el,valor,rotulo,extra){
+    tipArgs=[el,valor,rotulo,extra];
+    tip.textContent='';
+    var b=document.createElement('b');b.textContent=valor;tip.appendChild(b);
+    var k=document.createElement('span');k.className='k';tip.appendChild(k);
+    tip.appendChild(document.createTextNode(rotulo));
+    if(extra){tip.appendChild(document.createElement('br'));tip.appendChild(document.createTextNode(extra));}
+    var r=el.getBoundingClientRect();
+    tip.style.left=Math.min(window.innerWidth-250,Math.max(8,r.left+r.width-40))+'px';
+    tip.style.top=(r.top-tip.offsetHeight-10<8?r.bottom+10:r.top-tip.offsetHeight-10)+'px';
+    tip.classList.add('on');
+  }
+  function hideTip(){tip.classList.remove('on');}
+
+  // barras horizontais, uma serie, uma cor
+  function bars(el,rows){
+    el.textContent='';
+    var max=Math.max.apply(null,rows.map(function(r){return r.v;}));
+    rows.forEach(function(r){
+      var row=document.createElement('div');row.className='brow';
+      var cat=document.createElement('div');cat.className='bcat';cat.textContent=r.label;
+      var track=document.createElement('div');track.className='btrack';
+      var pct=Math.max(2,r.v/max*78);
+      var bar=document.createElement('div');bar.className='bar'+(r.other?' other':'');bar.style.width=pct+'%';
+      bar.tabIndex=0;bar.setAttribute('aria-label',r.label+': '+fmt(r.v)+(r.extra?', '+r.extra:''));
+      var val=document.createElement('div');val.className='bval';val.style.left='calc('+pct+'% + 8px)';
+      val.textContent=fmt(r.v);
+      if(r.note){var s=document.createElement('small');s.textContent=r.note;val.appendChild(s);}
+      ['pointerenter','focus'].forEach(function(ev){bar.addEventListener(ev,function(){showTip(bar,fmt(r.v),r.label,r.extra);});});
+      ['pointerleave','blur'].forEach(function(ev){bar.addEventListener(ev,hideTip);});
+      track.appendChild(bar);track.appendChild(val);row.appendChild(cat);row.appendChild(track);el.appendChild(row);
+    });
+  }
+
+  function paintNums(d,aoVivo){
+    var conv=d.conversations,rot=d.completed,leads=d.agencyConsentedLeads;
+    document.getElementById('stConv').textContent=fmt(conv);
+    document.getElementById('stRot').textContent=fmt(rot);
+    document.getElementById('stLeads').textContent=fmt(leads);
+    document.getElementById('stMsgs').textContent=fmt(d.totalMessages);
+    var pr=function(a,b){return Math.round(a/b*100)+'%';};
+    bars(document.getElementById('chFunnel'),[
+      {label:'Conversas com o OND vAI',v:conv},
+      {label:'Roteiros gerados',v:rot,note:'· '+pr(rot,conv),extra:pr(rot,conv)+' das conversas viram roteiro'},
+      {label:'Leads liberados pra agência',v:leads,note:'· '+pr(leads,rot),extra:pr(leads,rot)+' dos roteiros viram lead pra agência'}
+    ]);
+    var plats=(d.platforms||[]).slice().sort(function(a,b){return (a.platform===null)-(b.platform===null)||b.conversations-a.conversations;});
+    bars(document.getElementById('chPlat'),plats.map(function(p){return {label:p.platform||'Não registrada',v:p.conversations,other:!p.platform};}));
+    var tb=document.querySelector('#numsTable tbody');tb.textContent='';
+    [['Conversas com o OND vAI',conv],['Roteiros gerados',rot],['Leads liberados pra agência',leads],['Mensagens trocadas',d.totalMessages]]
+      .concat(plats.map(function(p){return ['Conversas no '+(p.platform||'canal não registrado'),p.conversations];}))
+      .forEach(function(r){var tr=document.createElement('tr');var a=document.createElement('td');a.textContent=r[0];var b=document.createElement('td');b.className='n';b.textContent=fmt(r[1]);tr.appendChild(a);tr.appendChild(b);tb.appendChild(tr);});
+    var quando=new Date(d.generatedAt);
+    var txt=isNaN(quando)?'':quando.toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    document.getElementById('numsSrc').textContent=aoVivo?('Fonte: API ao vivo do OND vAI, atualizada em '+txt+'.'):('Retrato de '+txt+'. Os números ao vivo não carregaram agora.');
+    document.getElementById('liveLbl').textContent=aoVivo?('Números ao vivo do OND vAI, atualizados em '+txt+'.'):('Números do OND vAI, retrato de '+txt+'.');
+  }
+  paintNums(SNAP,false);
+  fetch(API+'metrics').then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(d){if(d&&typeof d.conversations==='number')paintNums(d,true);}).catch(function(){});
+
+  // exemplo real: da frase ao lead
+  var MOEDA={BRL:'R$',USD:'US$',EUR:'€'};
+  function money(v,c){return '~'+(MOEDA[c]||c||'R$')+' '+fmt(Math.round(v));}
+  var leads=SNAP_LEADS,idx=0,aoVivoLeads=false;
+  var set=function(id,t){document.getElementById(id).textContent=t;};
+  function chip(t){var s=document.createElement('span');s.className='chipx';s.textContent=t;return s;}
+  // fotos de destino ja usadas no site (Unsplash); sem foto, a faixa fica no degrade roxo do app
+  var FOTO={'orlando':'photo-1597466599360-3b9775841aec','rio de janeiro':'photo-1544989164-31dc3c645987','buenos aires':'photo-1589909202802-8f4aadce1849','paris':'photo-1502602898657-3e91760cbb34','lisboa':'photo-1585208798174-6cedd86e019a','roma':'photo-1552832230-c0197dd311b5','cancun':'photo-1552074284-5e88ef1aef18'};
+  function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
+  function paintLead(){
+    var l=leads[idx%leads.length];
+    var quote=l.intentQuote||(l.destinationLabel+(l.periodLabel?' em '+l.periodLabel:''));
+    set('fQuote','"'+quote+'"');
+    set('fReply','Fechou! Montando seu roteiro de '+l.destinationLabel+'…');
+    set('fDest',l.destinationLabel);set('fCity',l.destinationLabel);
+    var meta=document.getElementById('fMeta');meta.textContent='';
+    var mb=document.createElement('b');mb.textContent=l.destinationLabel;meta.appendChild(mb);
+    meta.appendChild(document.createTextNode([l.periodLabel,l.durationDays?l.durationDays+' dias':null,l.partySize?l.partySize+(l.partySize>1?' pessoas':' pessoa'):null].filter(Boolean).map(function(x){return ' · '+x;}).join('')));
+    var foto=FOTO[norm(l.destinationLabel)],bn=document.getElementById('fBanner');
+    bn.style.backgroundImage=foto?"url('https://images.unsplash.com/"+foto+"?w=600&q=70&auto=format')":'';
+    bn.classList.toggle('sem-foto',!foto);
+    var dias=l.durationDays||3,ult=document.getElementById('fLastDay');ult.textContent='';
+    var ub=document.createElement('b');ub.textContent='Dia '+dias;ult.appendChild(ub);ult.appendChild(document.createTextNode(' · Retorno'));
+    document.getElementById('fMidDay').hidden=dias<3;document.getElementById('fLastRow').hidden=dias<2;
+    var m=l.budgetEstimate?money(l.budgetEstimate,l.budgetCurrency):'a estimar';
+    set('fBudget',m);set('fVal',m);
+    set('fParty',l.partyLabel||('Viagem pra '+l.destinationLabel));
+    set('fSub',[l.destinationLabel,l.durationDays?l.durationDays+' dias':null,l.partySize?l.partySize+(l.partySize>1?' pessoas':' pessoa'):null,l.periodLabel].filter(Boolean).join(' · '));
+    set('flowCount','Pedido '+(idx%leads.length+1)+' de '+leads.length+(aoVivoLeads?'':' (retrato)'));
+  }
+  function next(){
+    var ps=[].slice.call(document.querySelectorAll('#flow .panel'));
+    ps.forEach(function(p){p.classList.add('fade');});
+    setTimeout(function(){idx++;paintLead();ps.forEach(function(p,i){setTimeout(function(){p.classList.remove('fade');},i*180);});},320);
+  }
+  paintLead();
+  fetch(API+'lead-showcase').then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(d){
+    if(Array.isArray(d)&&d.length){leads=d.filter(function(l){return l&&l.destinationLabel;});aoVivoLeads=true;idx=0;paintLead();}
+  }).catch(function(){document.querySelector('#flowLive span:last-child').textContent='retrato';});
+  var timer=null,reduz=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function auto(){clearInterval(timer);if(!reduz)timer=setInterval(next,7000);}
+  document.getElementById('flowNext').addEventListener('click',function(){next();auto();});
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)auto();else clearInterval(timer);});},{threshold:.3}).observe(document.getElementById('flow'));
+  }
+
+  // conversa animada: roda quando a secao aparece; "Ver de novo" reinicia
+  (function(){
+    var box=document.getElementById('rc'),log=document.getElementById('rcLog'),typ=document.getElementById('rcTyping'),rep=document.getElementById('rcReplay');
+    if(!box)return;
+    var itens=[].slice.call(log.children),rodou=false,timers=[];
+    if(!('IntersectionObserver' in window)||(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+    function espera(fn,ms){timers.push(setTimeout(fn,ms));}
+    function esconde(){timers.forEach(clearTimeout);timers=[];typ.hidden=true;itens.forEach(function(el){el.classList.add('rc-hide');el.classList.remove('rc-in');});log.scrollTop=0;rep.hidden=true;}
+    function mostra(k){
+      if(k>=itens.length){typ.hidden=true;rep.hidden=false;return;}
+      var el=itens[k],ai=el.classList.contains('ai');
+      if(ai){typ.hidden=false;log.appendChild(typ);log.scrollTop=log.scrollHeight;}
+      espera(function(){typ.hidden=true;el.classList.remove('rc-hide');el.classList.add('rc-in');log.scrollTop=log.scrollHeight;espera(function(){mostra(k+1);},ai?500:700);},ai?900:350);
+    }
+    esconde();
+    new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting&&!rodou){rodou=true;o.disconnect();mostra(0);}});},{threshold:.35}).observe(box);
+    rep.addEventListener('click',function(){esconde();mostra(0);});
+  })();
+
+  // resumo: painel sobreposto, fecha no X, no Esc e no fundo; imprime so o painel
+  var ov=document.getElementById('resumoOv'),ultimoFoco=null;
+  function abreResumo(){ultimoFoco=document.activeElement;ov.hidden=false;document.body.classList.add('rs-open');document.getElementById('resumoX').focus();}
+  function fechaResumo(){ov.hidden=true;document.body.classList.remove('rs-open');if(ultimoFoco&&ultimoFoco.focus)ultimoFoco.focus();}
+  ['btnResumo','hxResumo','ctaResumo'].forEach(function(id){var b=document.getElementById(id);if(b)b.addEventListener('click',abreResumo);});
+  document.getElementById('resumoX').addEventListener('click',fechaResumo);
+  ov.addEventListener('click',function(e){if(e.target===ov)fechaResumo();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!ov.hidden)fechaResumo();});
+  document.getElementById('resumoPrint').addEventListener('click',function(){window.print();});
+  document.getElementById('ctaPrint').addEventListener('click',function(){abreResumo();setTimeout(function(){window.print();},120);});
+
+  // menu superior: marca a secao visivel
+  var links=[].slice.call(document.querySelectorAll('#tnLinks a'));
+  var byId={};links.forEach(function(a){byId[a.getAttribute('href').slice(1)]=a;});
+  function marca(a){links.forEach(function(x){x.classList.toggle('on',x===a);});}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&byId[e.target.id])marca(byId[e.target.id]);});},{rootMargin:'-40% 0px -55% 0px'});
+    Object.keys(byId).forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s);});
+  }
+  // ao rolar: a dica acompanha a barra focada pelo teclado; nos outros casos some
+  window.addEventListener('scroll',function(){
+    if(tipArgs&&tipArgs[0]===document.activeElement)showTip.apply(null,tipArgs);else hideTip();
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
