@@ -1,0 +1,47 @@
+name: Blog programado
+
+# Todo dia de manhã (07:00 de Brasília) puxa o feed do OND Firma e publica no site
+# os artigos cuja data de publicação chegou (status "programado" no Maker).
+# Também dá pra rodar na mão pela aba Actions (Run workflow).
+on:
+  schedule:
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: blog-programado
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pillow (gera o .webp das capas novas)
+        run: python3 -m pip install --quiet pillow
+
+      - name: Gera o blog a partir do feed
+        run: python3 build-blog.py
+
+      - name: Publica se entrou artigo novo
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # O sitemap muda todo dia (lastmod). Só publica se mudou o blog de verdade.
+          if git diff --quiet -- blog blog.html && [ -z "$(git ls-files --others --exclude-standard -- blog assets/blog)" ]; then
+            echo "Nenhum artigo novo hoje."
+            exit 0
+          fi
+          git config user.name "OND Blog (programado)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A blog blog.html sitemap.xml assets/blog
+          novos=$(git diff --cached --name-only -- blog | grep -c '/index.html$' || true)
+          git commit -m "blog: publicação programada ($(date -u +%Y-%m-%d), $novos página(s))"
+          git push
+          # push feito pelo GITHUB_TOKEN nem sempre dispara o build do Pages: pede o build explicitamente
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || echo "aviso: não consegui pedir o build do Pages"

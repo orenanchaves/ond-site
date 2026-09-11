@@ -149,6 +149,19 @@ def download_cover(cs, url):
     dest_dir = os.path.join(ROOT,'assets','blog')
     os.makedirs(dest_dir, exist_ok=True)
     path = os.path.join(dest_dir, cs+'.jpg')
+    # capa em cache: se já existe, reaproveita (o build roda todo dia na Action e não pode
+    # regravar imagem igual). Pra trocar a capa de um post, apague o .jpg/.webp dele.
+    if os.path.exists(path) and os.path.getsize(path) > 3000:
+        webp = os.path.splitext(path)[0] + '.webp'
+        if os.path.exists(webp) and os.path.getsize(webp) > 0:
+            try:
+                from PIL import Image
+                _WEBP['/assets/blog/'+cs] = Image.open(webp).size
+            except Exception:
+                pass
+        else:
+            make_webp(path)
+        return '/assets/blog/'+cs+'.jpg'
     try:
         req = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0'})
         data = urllib.request.urlopen(req, timeout=25).read()
