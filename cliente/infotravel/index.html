@@ -248,7 +248,7 @@ details.tbl th{color:var(--muted);font-weight:700}
 .pc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
 .pc-list li{display:flex;gap:9px;font-size:.88rem;color:var(--muted);line-height:1.5}
 .pc-list li .ic{width:16px;height:16px;color:var(--blue-light);margin-top:3px}
-.pc-models{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}
+.pc-models{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
 .pc-model{display:flex;gap:12px;align-items:flex-start;background:var(--bg);border:1px dashed color-mix(in srgb,var(--muted) 45%,transparent);border-radius:14px;padding:14px 16px;text-align:left}
 .pc-model .tag{margin:2px 0 0;flex-shrink:0}
 .pc-model b{display:block;font-size:.95rem;margin-bottom:3px}
@@ -259,7 +259,7 @@ details.tbl th{color:var(--muted);font-weight:700}
 .pc-steps-n li::before{content:counter(ps);width:22px;height:22px;border-radius:50%;background:var(--blue-dim);border:1px solid var(--border-hi);color:var(--blue-light);font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:4px}
 .pc-steps-n b{font-size:.88rem}
 .pc-steps-n span{font-size:.8rem;color:var(--muted);line-height:1.45}
-@media(max-width:900px){.pc-flow{grid-template-columns:1fr}.pc-arrow{height:28px}.pc-arrow .ic{transform:rotate(90deg)}.pc-steps-n{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.pc-models{grid-template-columns:1fr}.pc-flow{grid-template-columns:1fr}.pc-arrow{height:28px}.pc-arrow .ic{transform:rotate(90deg)}.pc-steps-n{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.pc-who,.pc-models{grid-template-columns:1fr}.pc-steps-n{grid-template-columns:1fr}}
 /* ── mapa de encaixe ── */
 .fit{display:flex;flex-direction:column;border:1px solid var(--border-hi);border-radius:16px;overflow:hidden;background:var(--card);text-align:left}
@@ -627,7 +627,7 @@ footer a{color:var(--muted)}
       <h2>A Infotravel oferece o OND pros clientes. O OND entrega o pedido pronto no motor.</h2>
       <p class="lead">Em uma frase: vocês colocam o OND como a camada de atendimento dentro da Infotravel, e cada conversa do viajante vira um pedido pronto pra cotar no motor que o cliente já usa.</p>
       <div class="pc-flow">
-        <div class="card pc-step"><div class="pc-n">1</div><h3>A Infotravel oferece</h3><p>O OND entra como um módulo de atendimento com IA pros clientes de vocês: operadoras e agências.</p></div>
+        <div class="card pc-step"><div class="pc-n">1</div><h3>A Infotravel oferece</h3><p>O OND entra como um módulo de atendimento com IA pros clientes de vocês, podendo levar a marca de cada operadora ou agência.</p></div>
         <div class="pc-arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
         <div class="card pc-step"><div class="pc-n">2</div><h3>O OND atende</h3><p>O viajante conversa com o OND vAI nos canais do cliente, e o OND monta o roteiro e a estimativa.</p></div>
         <div class="pc-arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
@@ -656,6 +656,7 @@ footer a{color:var(--muted)}
       <div class="pc-models">
         <div class="pc-model"><span class="tag tag-piloto">A combinar</span><div><b>Módulo dentro da Infotravel</b><span>Vocês oferecem o OND como um adicional na assinatura dos clientes, com a receita dividida entre os dois.</span></div></div>
         <div class="pc-model"><span class="tag tag-piloto">A combinar</span><div><b>Pedidos do app no motor</b><span>Os pedidos que nascem no app do OND vão pra operadoras e agências da Infotravel cotarem e reservarem.</span></div></div>
+        <div class="pc-model"><span class="tag tag-piloto">A combinar</span><div><b>White label pro cliente</b><span>A operadora ou agência usa o OND com a marca dela: logo, cores e domínio. O viajante vê o cliente de vocês, não o OND.</span></div></div>
       </div>
       <p class="src">Os números e as regras de cada modelo a gente define junto, a partir do piloto.</p>
     </div>
@@ -749,6 +750,12 @@ footer a{color:var(--muted)}
       <li><span><b>Infotravel:</b> diferencial de IA sem desenvolver, produto novo pra base e mais pedidos no motor</span></li>
       <li><span><b>Clientes da Infotravel:</b> atendimento 24h com IA e pedido chegando qualificado</span></li>
       <li><span><b>OND:</b> presença na base e pedidos virando reserva de verdade</span></li>
+    </ul>
+    <h3>Modelos possíveis</h3>
+    <ul class="rs-list">
+      <li><span><b>Módulo dentro da Infotravel:</b> o OND como adicional na assinatura, com receita dividida</span></li>
+      <li><span><b>Pedidos do app no motor:</b> pedidos do OND cotados e reservados por clientes da Infotravel</span></li>
+      <li><span><b>White label pro cliente:</b> o OND com a marca da operadora ou agência</span></li>
     </ul>
     <h3>Primeiros passos</h3>
     <ul class="rs-list">
