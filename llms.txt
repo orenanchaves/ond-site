@@ -1,0 +1,17 @@
+# OND
+
+> OND é uma agência de turismo brasileira com IA, cadastrada no Cadastur (CNPJ 39.360.492/0001-61). Organize, planeje e compre sua viagem com o OND: passagens, hospedagem e passeios. O planejamento é grátis com o OND vAI, que monta roteiros dia a dia numa conversa.
+
+## Viajar com o OND
+- [Destinos nacionais e internacionais](https://ondviajar.com.br/viagens/): catálogo com os destinos mais procurados (Rio de Janeiro, Fernando de Noronha, Salvador, Porto de Galinhas, Maceió, Natal, Jericoacoara, Lençóis Maranhenses, Foz do Iguaçu, Bonito, Gramado, Florianópolis, Buenos Aires, Bariloche, Santiago, Patagônia, Machu Picchu, Cancún, Orlando, Nova York, Lisboa, Paris, Roma, Japão e Maldivas), com quantos dias ficar, melhor época, o que fazer e documentos.
+- [Planejar a viagem no OND vAI](https://web.ondviajar.com.br/): grátis, na web e nos apps Android e iOS.
+- [Página inicial](https://ondviajar.com.br/)
+- [Blog Vai para onde?](https://ondviajar.com.br/blog.html): roteiros e dicas de viagem.
+
+## Para empresas
+- [OND para agências](https://ondviajar.com.br/agencias.html): leads de viajantes prontos para comprar.
+- [OND para hotéis](https://ondviajar.com.br/hoteis.html)
+
+## Contato
+- WhatsApp: +55 11 91021-4133
+- E-mail: renan@agamatec.com

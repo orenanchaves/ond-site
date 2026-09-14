@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0d0d14">
+<title>Destinos de viagem nacionais e internacionais: passagens, hospedagem e passeios | OND</title>
+<meta name="description" content="Organize, planeje e compre sua viagem com o OND, agência de turismo cadastrada no Cadastur. Rio, Noronha, Nordeste, Foz, Gramado, Buenos Aires, Orlando, Europa e mais: quando ir, quantos dias e o que fazer.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" type="image/svg+xml" href="/assets/ond-symbol.svg">
+<link rel="canonical" href="https://ondviajar.com.br/viagens/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OND">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://ondviajar.com.br/viagens/">
+<meta property="og:title" content="Organize, planeje e compre sua viagem com o OND">
+<meta property="og:description" content="Organize, planeje e compre sua viagem com o OND, agência de turismo cadastrada no Cadastur. Rio, Noronha, Nordeste, Foz, Gramado, Buenos Aires, Orlando, Europa e mais: quando ir, quantos dias e o que fazer.">
+<meta property="og:image" content="https://ondviajar.com.br/assets/viagens/fernando-de-noronha.jpg">
+<meta property="og:image:alt" content="Morro Dois Irmãos em Fernando de Noronha">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Organize, planeje e compre sua viagem com o OND">
+<meta name="twitter:description" content="Organize, planeje e compre sua viagem com o OND, agência de turismo cadastrada no Cadastur. Rio, Noronha, Nordeste, Foz, Gramado, Buenos Aires, Orlando, Europa e mais: quando ir, quantos dias e o que fazer.">
+<meta name="twitter:image" content="https://ondviajar.com.br/assets/viagens/fernando-de-noronha.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/tokens/ond-core.css">
+<link rel="stylesheet" href="/tokens/ond-b2c.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+/* Cores remapeadas para os tokens do OND Design System (ond-b2c.css).
+   Tema (light/dark) é controlado pelos próprios tokens via [data-theme]. */
+:root{
+  --bg:var(--ond-color-bg);
+  --surface:var(--ond-color-surface);
+  --card:var(--ond-color-card);
+  --border:var(--ond-color-border);
+  --purple:var(--ond-color-primary);
+  --purple-light:var(--ond-color-primaryHover);
+  --purple-dim:color-mix(in srgb, var(--ond-color-primary) 15%, transparent);
+  --green:var(--ond-color-success);
+  --green-dim:color-mix(in srgb, var(--ond-color-success) 12%, transparent);
+  --text:var(--ond-color-text);
+  --muted:var(--ond-color-muted);
+  --muted2:color-mix(in srgb, var(--ond-color-muted), var(--ond-color-bg) 45%);
+  --radius:var(--ond-radius-lg);--radius-sm:var(--ond-radius-md);
+  --header-bg:color-mix(in srgb, var(--ond-color-bg) 92%, transparent);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-base);overflow-x:hidden;line-height:1.6;transition:background .25s,color .25s}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:200;background:var(--header-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .2s,background .2s;flex-shrink:0}
+.theme-btn:hover{border-color:var(--purple);background:var(--purple-dim)}
+.header-logo-svg{height:42px;width:auto}
+.header-logo{flex:1 1 0;min-width:0;display:flex;align-items:center}
+.header-actions{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:flex-end;gap:12px}
+/* Logo OND, regra de marca: bússola SEMPRE roxa #7f11f4; wordmark branco (fundo escuro) / ink (fundo claro). Nunca tingir. */
+.ond-letter{fill:var(--ond-color-text)}
+.ond-diamond{fill:#7f11f4}
+.footer-logo-svg{height:26px;width:auto;margin-bottom:14px;display:block}
+.header-nav{display:flex;gap:16px;list-style:none;align-items:center}
+.header-nav a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
+.header-nav a:hover{color:var(--text)}
+.header-nav .nav-active{color:var(--text);font-weight:700}
+.header-nav .nav-agencias{color:#0066ff;border:1px solid color-mix(in srgb, #0066ff 32%, transparent);padding:5px 13px;border-radius:20px;font-weight:600;font-size:.85rem}
+.header-nav .nav-agencias:hover{background:color-mix(in srgb, #0066ff 12%, transparent);color:#0066ff}
+.header-cta{background:var(--purple);color:var(--ond-color-onPrimary);padding:9px 22px;border-radius:50px;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap}
+.header-cta:hover{background:var(--purple-light);transform:translateY(-1px)}
+.header-menu-btn{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;padding:4px}
+.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);z-index:199;padding:20px 5%;flex-direction:column;gap:0}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:var(--text);text-decoration:none;font-size:1rem;padding:14px 0;border-bottom:1px solid var(--border)}
+
+
+/* CATALOGO */
+.cat{max-width:1180px;margin:0 auto;padding:48px 5% 0}
+.breadcrumb{font-size:.82rem;color:var(--muted2);margin-bottom:22px}
+.breadcrumb a{color:var(--muted);text-decoration:none}
+.cat-hero{text-align:center;max-width:820px;margin:0 auto}
+.cat-hero h1{font-size:clamp(2.1rem,5.4vw,3.5rem);font-weight:800;line-height:1.08;letter-spacing:-.03em}
+.cat-hero h1 span{color:var(--purple-light)}
+.cat-sub{margin-top:14px;font-size:clamp(1.05rem,2.2vw,1.3rem);font-weight:600;color:var(--muted)}
+.cat-pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:18px}
+.cat-pills span{font-size:.85rem;font-weight:700;padding:6px 14px;border-radius:50px;background:var(--green-dim);color:var(--green);border:1px solid color-mix(in srgb,var(--green) 30%,transparent)}
+.cat-acts{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:26px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:var(--ond-color-onPrimary);padding:14px 28px;border-radius:50px;font-size:.97rem;font-weight:700;text-decoration:none;transition:background .2s,transform .15s;box-shadow:0 4px 24px color-mix(in srgb,var(--purple) 40%,transparent)}
+.btn-primary:hover{background:var(--purple-light);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;padding:14px 24px;border-radius:50px;border:1px solid var(--border);color:var(--text);font-weight:600;text-decoration:none;font-size:.95rem}
+.btn-ghost:hover{border-color:var(--purple)}
+.tldr{max-width:820px;margin:34px auto 0;background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 14px 14px 0;padding:18px 22px;font-size:1.02rem;line-height:1.7}
+.tldr strong{color:var(--green)}
+.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:44px 0 0}
+.passo{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px}
+.passo b{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:var(--purple-dim);color:var(--purple-light);font-size:.9rem;margin-bottom:10px}
+.passo h2{font-size:1.05rem;font-weight:800;margin-bottom:4px}
+.passo p{font-size:.92rem;color:var(--muted);line-height:1.55}
+.grupo{margin-top:64px;scroll-margin-top:80px}
+.grupo-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+.grupo-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:800;letter-spacing:-.02em}
+.grupo-head p{color:var(--muted);font-size:.98rem;max-width:560px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 0 18px;scrollbar-width:thin}
+.chips a{flex:0 0 auto;font-size:.82rem;font-weight:600;color:var(--muted);text-decoration:none;padding:6px 13px;border-radius:50px;border:1px solid var(--border)}
+.chips a:hover{color:var(--text);border-color:var(--purple)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.dc{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:80px;transition:border-color .2s,transform .2s}
+.dc:hover{border-color:color-mix(in srgb,var(--purple) 45%,var(--border));transform:translateY(-2px)}
+.dc:target{border-color:var(--purple);box-shadow:0 0 0 2px color-mix(in srgb,var(--purple) 35%,transparent)}
+.dc img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:var(--surface)}
+.dc-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.dc-reg{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--purple-light)}
+.dc h3{font-size:1.4rem;font-weight:800;letter-spacing:-.015em;margin:2px 0 6px}
+.dc-desc{font-size:.95rem;color:var(--muted);line-height:1.6}
+.dc-meta{margin:14px 0 0;border-top:1px solid var(--border)}
+.dc-row{display:grid;grid-template-columns:104px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.88rem}
+.dc-row dt{color:var(--muted2);font-weight:600}
+.dc-row dd{color:var(--text);line-height:1.45}
+.dc-hl{list-style:none;margin:12px 0 0;display:grid;gap:6px}
+.dc-hl li{display:flex;gap:8px;align-items:flex-start;font-size:.9rem;line-height:1.4}
+.dc-hl svg{width:14px;height:14px;fill:var(--green);flex-shrink:0;margin-top:3px}
+.dc-nota{margin-top:12px;font-size:.82rem;color:var(--muted);background:var(--surface);border-radius:10px;padding:9px 12px;line-height:1.5}
+.dc-inc{margin-top:auto;padding-top:14px;font-size:.78rem;font-weight:700;color:var(--green);letter-spacing:.02em}
+.dc-acts{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:12px}
+.dc-cta{display:inline-flex;background:var(--purple);color:var(--ond-color-onPrimary);padding:10px 18px;border-radius:50px;font-size:.88rem;font-weight:700;text-decoration:none}
+.dc-cta:hover{background:var(--purple-light)}
+.dc-blog{font-size:.85rem;color:var(--purple-light);font-weight:600;text-decoration:none}
+.dc-blog:hover{text-decoration:underline}
+.faq{max-width:820px;margin:72px auto 0}
+.faq h2{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:800;letter-spacing:-.02em;margin-bottom:16px}
+.faq-item{border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin-bottom:12px;background:var(--card)}
+.faq-item h3{font-size:1.06rem;font-weight:700;margin-bottom:6px}
+.faq-item p{font-size:.97rem;color:var(--muted);line-height:1.7}
+.cta-fim{max-width:820px;margin:56px auto 0;background:linear-gradient(135deg,var(--purple-dim),transparent);border:1px solid var(--border);border-radius:20px;padding:38px 30px;text-align:center}
+.cta-fim h2{font-size:1.6rem;font-weight:800;letter-spacing:-.02em}
+.cta-fim p{color:var(--muted);margin:8px 0 22px}
+.creditos{max-width:820px;margin:40px auto 0;font-size:.74rem;color:var(--muted2)}
+.creditos summary{cursor:pointer}
+.creditos ul{margin:8px 0 0 18px;line-height:1.7}
+.creditos a{color:var(--muted)}
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 32px;margin-top:72px}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;max-width:1100px;margin-left:auto;margin-right:auto}
+.footer-brand p{font-size:.82rem;color:var(--muted);max-width:240px;line-height:1.65}
+.footer-col h4{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted2);margin-bottom:14px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col a{font-size:.85rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:22px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--muted2);flex-wrap:wrap;gap:8px;max-width:1100px;margin:0 auto}
+
+
+@media(max-width:960px){.header-nav{display:none}.header-menu-btn{display:block}.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.passos{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+@media(max-width:600px){.footer-inner{grid-template-columns:1fr}.cat{padding-top:32px}.dc-row{grid-template-columns:92px 1fr}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TravelAgency", "@id": "https://ondviajar.com.br/#agencia", "name": "OND", "url": "https://ondviajar.com.br/", "logo": "https://ondviajar.com.br/assets/ond-logo.png", "taxID": "39.360.492/0001-61", "telephone": "+55-11-91021-4133", "email": "renan@agamatec.com", "areaServed": "BR", "description": "Agência de turismo cadastrada no Cadastur. Organize, planeje e compre sua viagem com o OND: passagens, hospedagem e passeios.", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Viagens com o OND", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Passagens aéreas"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Hospedagem"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Passeios"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seguro viagem"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Translado"}}]}}, {"@type": "CollectionPage", "@id": "https://ondviajar.com.br/viagens/", "url": "https://ondviajar.com.br/viagens/", "name": "Destinos de viagem nacionais e internacionais: passagens, hospedagem e passeios | OND", "description": "Organize, planeje e compre sua viagem com o OND, agência de turismo cadastrada no Cadastur. Rio, Noronha, Nordeste, Foz, Gramado, Buenos Aires, Orlando, Europa e mais: quando ir, quantos dias e o que fazer.", "inLanguage": "pt-BR", "isPartOf": {"@type": "WebSite", "name": "OND", "url": "https://ondviajar.com.br/"}, "provider": {"@id": "https://ondviajar.com.br/#agencia"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://ondviajar.com.br/"}, {"@type": "ListItem", "position": 2, "name": "Viagens", "item": "https://ondviajar.com.br/viagens/"}]}, {"@type": "ItemList", "name": "Destinos nacionais", "itemListOrder": "https://schema.org/ItemListUnordered", "numberOfItems": 12, "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "TouristDestination", "name": "Rio de Janeiro", "url": "https://ondviajar.com.br/viagens/#rio-de-janeiro", "description": "A cidade maravilhosa junta praia, montanha e vida urbana: Cristo Redentor, Pão de Açúcar e as praias de Copacabana e Ipanema.", "image": "https://ondviajar.com.br/assets/viagens/rio-de-janeiro.jpg", "containedInPlace": {"@type": "Place", "name": "Rio de Janeiro"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Cristo Redentor e Pão de Açúcar"}, {"@type": "TouristAttraction", "name": "Copacabana, Ipanema e Arpoador"}, {"@type": "TouristAttraction", "name": "Santa Teresa e Lapa"}, {"@type": "TouristAttraction", "name": "Bate-volta a Arraial do Cabo ou Búzios"}]}}, {"@type": "ListItem", "position": 2, "item": {"@type": "TouristDestination", "name": "Fernando de Noronha", "url": "https://ondviajar.com.br/viagens/#fernando-de-noronha", "description": "Arquipélago protegido com algumas das praias mais bonitas do Brasil e mergulho em água cristalina.", "image": "https://ondviajar.com.br/assets/viagens/fernando-de-noronha.jpg", "containedInPlace": {"@type": "Place", "name": "Pernambuco"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Baía do Sancho e Baía dos Porcos"}, {"@type": "TouristAttraction", "name": "Passeio de barco e mergulho"}, {"@type": "TouristAttraction", "name": "Pôr do sol no Boldró"}, {"@type": "TouristAttraction", "name": "Trilhas do parque nacional"}]}}, {"@type": "ListItem", "position": 3, "item": {"@type": "TouristDestination", "name": "Salvador", "url": "https://ondviajar.com.br/viagens/#salvador", "description": "Primeira capital do Brasil, com o Pelourinho, cultura afro-brasileira, culinária baiana e praias dentro da cidade.", "image": "https://ondviajar.com.br/assets/viagens/salvador.jpg", "containedInPlace": {"@type": "Place", "name": "Bahia"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Pelourinho e Igreja de São Francisco"}, {"@type": "TouristAttraction", "name": "Elevador Lacerda e Mercado Modelo"}, {"@type": "TouristAttraction", "name": "Farol da Barra no fim de tarde"}, {"@type": "TouristAttraction", "name": "Praia do Forte ou Morro de São Paulo"}]}}, {"@type": "ListItem", "position": 4, "item": {"@type": "TouristDestination", "name": "Porto de Galinhas", "url": "https://ondviajar.com.br/viagens/#porto-de-galinhas", "description": "Praia a cerca de 60 km do Recife, famosa pelas piscinas naturais que aparecem na maré baixa.", "image": "https://ondviajar.com.br/assets/viagens/porto-de-galinhas.jpg", "containedInPlace": {"@type": "Place", "name": "Pernambuco"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Piscinas naturais de jangada"}, {"@type": "TouristAttraction", "name": "Muro Alto e Cupe"}, {"@type": "TouristAttraction", "name": "Praia dos Carneiros"}, {"@type": "TouristAttraction", "name": "Maracaípe e o Pontal"}]}}, {"@type": "ListItem", "position": 5, "item": {"@type": "TouristDestination", "name": "Maceió", "url": "https://ondviajar.com.br/viagens/#maceio", "description": "Capital de Alagoas com mar verde-azulado, orla estruturada e as piscinas naturais de Pajuçara.", "image": "https://ondviajar.com.br/assets/viagens/maceio.jpg", "containedInPlace": {"@type": "Place", "name": "Alagoas"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Piscinas naturais de Pajuçara"}, {"@type": "TouristAttraction", "name": "Praia do Gunga"}, {"@type": "TouristAttraction", "name": "Maragogi e São Miguel dos Milagres"}, {"@type": "TouristAttraction", "name": "Praia do Francês"}]}}, {"@type": "ListItem", "position": 6, "item": {"@type": "TouristDestination", "name": "Natal", "url": "https://ondviajar.com.br/viagens/#natal", "description": "A Cidade do Sol, com dunas, passeios de buggy e acesso fácil à Praia da Pipa.", "image": "https://ondviajar.com.br/assets/viagens/natal.jpg", "containedInPlace": {"@type": "Place", "name": "Rio Grande do Norte"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Ponta Negra e Morro do Careca"}, {"@type": "TouristAttraction", "name": "Dunas de Genipabu de buggy"}, {"@type": "TouristAttraction", "name": "Praia da Pipa"}, {"@type": "TouristAttraction", "name": "Maior Cajueiro do Mundo"}]}}, {"@type": "ListItem", "position": 7, "item": {"@type": "TouristDestination", "name": "Jericoacoara", "url": "https://ondviajar.com.br/viagens/#jericoacoara", "description": "Vila de dunas e lagoas no litoral oeste do Ceará, famosa pelo pôr do sol e pelo kitesurf.", "image": "https://ondviajar.com.br/assets/viagens/jericoacoara.jpg", "containedInPlace": {"@type": "Place", "name": "Ceará"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Pôr do sol na Duna do Pôr do Sol"}, {"@type": "TouristAttraction", "name": "Pedra Furada"}, {"@type": "TouristAttraction", "name": "Lagoa do Paraíso e Lagoa Azul"}, {"@type": "TouristAttraction", "name": "Árvore da Preguiça"}]}}, {"@type": "ListItem", "position": 8, "item": {"@type": "TouristDestination", "name": "Lençóis Maranhenses", "url": "https://ondviajar.com.br/viagens/#lencois-maranhenses", "description": "Parque nacional de dunas brancas com lagoas de água doce que se formam depois da temporada de chuva.", "image": "https://ondviajar.com.br/assets/viagens/lencois-maranhenses.jpg", "containedInPlace": {"@type": "Place", "name": "Maranhão"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Lagoa Azul e Lagoa Bonita"}, {"@type": "TouristAttraction", "name": "Barreirinhas"}, {"@type": "TouristAttraction", "name": "Passeio de barco pelo Rio Preguiças"}, {"@type": "TouristAttraction", "name": "Atins e Caburé"}]}}, {"@type": "ListItem", "position": 9, "item": {"@type": "TouristDestination", "name": "Foz do Iguaçu", "url": "https://ondviajar.com.br/viagens/#foz-do-iguacu", "description": "Na tríplice fronteira, as Cataratas do Iguaçu são uma das maravilhas naturais do mundo, vistas do lado brasileiro e do argentino.", "image": "https://ondviajar.com.br/assets/viagens/foz-do-iguacu.jpg", "containedInPlace": {"@type": "Place", "name": "Paraná"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Cataratas no lado brasileiro"}, {"@type": "TouristAttraction", "name": "Garganta do Diabo no lado argentino"}, {"@type": "TouristAttraction", "name": "Usina de Itaipu"}, {"@type": "TouristAttraction", "name": "Parque das Aves"}]}}, {"@type": "ListItem", "position": 10, "item": {"@type": "TouristDestination", "name": "Bonito", "url": "https://ondviajar.com.br/viagens/#bonito", "description": "Referência em ecoturismo no Brasil, com rios de água cristalina, flutuação, grutas e cachoeiras.", "image": "https://ondviajar.com.br/assets/viagens/bonito.jpg", "containedInPlace": {"@type": "Place", "name": "Mato Grosso do Sul"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Flutuação no Rio da Prata ou no Rio Sucuri"}, {"@type": "TouristAttraction", "name": "Gruta do Lago Azul"}, {"@type": "TouristAttraction", "name": "Abismo Anhumas"}, {"@type": "TouristAttraction", "name": "Buraco das Araras"}]}}, {"@type": "ListItem", "position": 11, "item": {"@type": "TouristDestination", "name": "Gramado", "url": "https://ondviajar.com.br/viagens/#gramado", "description": "Serra gaúcha com clima de montanha, arquitetura em estilo europeu, chocolate, fondue e o Natal Luz.", "image": "https://ondviajar.com.br/assets/viagens/gramado.jpg", "containedInPlace": {"@type": "Place", "name": "Rio Grande do Sul"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Rua Coberta e Lago Negro"}, {"@type": "TouristAttraction", "name": "Canela e Cascata do Caracol"}, {"@type": "TouristAttraction", "name": "Parques temáticos da serra"}, {"@type": "TouristAttraction", "name": "Vinícolas do Vale dos Vinhedos"}]}}, {"@type": "ListItem", "position": 12, "item": {"@type": "TouristDestination", "name": "Florianópolis", "url": "https://ondviajar.com.br/viagens/#florianopolis", "description": "Ilha com dezenas de praias, lagoas e trilhas, boa tanto para natureza quanto para vida noturna.", "image": "https://ondviajar.com.br/assets/viagens/florianopolis.jpg", "containedInPlace": {"@type": "Place", "name": "Santa Catarina"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Lagoa da Conceição"}, {"@type": "TouristAttraction", "name": "Jurerê Internacional"}, {"@type": "TouristAttraction", "name": "Campeche e Ilha do Campeche"}, {"@type": "TouristAttraction", "name": "Santo Antônio de Lisboa"}]}}]}, {"@type": "ItemList", "name": "Destinos internacionais", "itemListOrder": "https://schema.org/ItemListUnordered", "numberOfItems": 13, "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "TouristDestination", "name": "Buenos Aires", "url": "https://ondviajar.com.br/viagens/#buenos-aires", "description": "Capital argentina de tango, parrillas e bairros como La Boca, San Telmo e Palermo, a poucas horas de voo do Brasil.", "image": "https://ondviajar.com.br/assets/viagens/buenos-aires.jpg", "containedInPlace": {"@type": "Place", "name": "Argentina"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Caminito em La Boca"}, {"@type": "TouristAttraction", "name": "Feira de San Telmo aos domingos"}, {"@type": "TouristAttraction", "name": "Recoleta e Puerto Madero"}, {"@type": "TouristAttraction", "name": "Show de tango com jantar"}]}}, {"@type": "ListItem", "position": 2, "item": {"@type": "TouristDestination", "name": "Bariloche", "url": "https://ondviajar.com.br/viagens/#bariloche", "description": "Cidade da Patagônia argentina cercada de lagos e montanhas, com neve e esqui no inverno.", "image": "https://ondviajar.com.br/assets/viagens/bariloche.jpg", "containedInPlace": {"@type": "Place", "name": "Argentina"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Cerro Catedral"}, {"@type": "TouristAttraction", "name": "Cerro Campanario"}, {"@type": "TouristAttraction", "name": "Circuito Chico"}, {"@type": "TouristAttraction", "name": "Chocolaterias da Rua Mitre"}]}}, {"@type": "ListItem", "position": 3, "item": {"@type": "TouristDestination", "name": "Santiago", "url": "https://ondviajar.com.br/viagens/#santiago", "description": "Capital chilena aos pés da Cordilheira dos Andes, com vinícolas e estações de esqui a poucas horas.", "image": "https://ondviajar.com.br/assets/viagens/santiago.jpg", "containedInPlace": {"@type": "Place", "name": "Chile"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Cerro San Cristóbal"}, {"@type": "TouristAttraction", "name": "Vinícolas do Vale do Maipo"}, {"@type": "TouristAttraction", "name": "Valle Nevado e Farellones"}, {"@type": "TouristAttraction", "name": "Valparaíso e Viña del Mar"}]}}, {"@type": "ListItem", "position": 4, "item": {"@type": "TouristDestination", "name": "Patagônia", "url": "https://ondviajar.com.br/viagens/#patagonia", "description": "Região de glaciares, lagos e montanhas no extremo sul do continente, com Torres del Paine e o Glaciar Perito Moreno.", "image": "https://ondviajar.com.br/assets/viagens/patagonia.jpg", "containedInPlace": {"@type": "Place", "name": "Chile e Argentina"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Parque Nacional Torres del Paine"}, {"@type": "TouristAttraction", "name": "Glaciar Perito Moreno em El Calafate"}, {"@type": "TouristAttraction", "name": "Puerto Natales"}, {"@type": "TouristAttraction", "name": "Navegação entre glaciares"}]}}, {"@type": "ListItem", "position": 5, "item": {"@type": "TouristDestination", "name": "Machu Picchu e Cusco", "url": "https://ondviajar.com.br/viagens/#machu-picchu", "description": "A cidadela inca nos Andes peruanos, combinada com Cusco e o Vale Sagrado.", "image": "https://ondviajar.com.br/assets/viagens/machu-picchu.jpg", "containedInPlace": {"@type": "Place", "name": "Peru"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Machu Picchu"}, {"@type": "TouristAttraction", "name": "Cusco e Sacsayhuamán"}, {"@type": "TouristAttraction", "name": "Vale Sagrado"}, {"@type": "TouristAttraction", "name": "Montanha Colorida"}]}}, {"@type": "ListItem", "position": 6, "item": {"@type": "TouristDestination", "name": "Cancún", "url": "https://ondviajar.com.br/viagens/#cancun", "description": "Caribe mexicano com mar azul-turquesa, resorts all inclusive, cenotes e ruínas maias.", "image": "https://ondviajar.com.br/assets/viagens/cancun.jpg", "containedInPlace": {"@type": "Place", "name": "México"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Zona Hoteleira"}, {"@type": "TouristAttraction", "name": "Isla Mujeres"}, {"@type": "TouristAttraction", "name": "Tulum e cenotes"}, {"@type": "TouristAttraction", "name": "Chichén Itzá"}]}}, {"@type": "ListItem", "position": 7, "item": {"@type": "TouristDestination", "name": "Orlando", "url": "https://ondviajar.com.br/viagens/#orlando", "description": "A capital dos parques temáticos, com Disney, Universal e outlets para compras.", "image": "https://ondviajar.com.br/assets/viagens/orlando.jpg", "containedInPlace": {"@type": "Place", "name": "Estados Unidos"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Walt Disney World"}, {"@type": "TouristAttraction", "name": "Universal Orlando"}, {"@type": "TouristAttraction", "name": "Kennedy Space Center"}, {"@type": "TouristAttraction", "name": "Outlets e compras"}]}}, {"@type": "ListItem", "position": 8, "item": {"@type": "TouristDestination", "name": "Nova York", "url": "https://ondviajar.com.br/viagens/#nova-york", "description": "A cidade que nunca dorme: Times Square, Central Park, Broadway e museus de nível mundial.", "image": "https://ondviajar.com.br/assets/viagens/nova-york.jpg", "containedInPlace": {"@type": "Place", "name": "Estados Unidos"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Central Park"}, {"@type": "TouristAttraction", "name": "Times Square e Broadway"}, {"@type": "TouristAttraction", "name": "Estátua da Liberdade"}, {"@type": "TouristAttraction", "name": "MET e MoMA"}]}}, {"@type": "ListItem", "position": 9, "item": {"@type": "TouristDestination", "name": "Lisboa", "url": "https://ondviajar.com.br/viagens/#lisboa", "description": "Capital portuguesa de bairros históricos, miradouros e pastéis de Belém, sem barreira de idioma.", "image": "https://ondviajar.com.br/assets/viagens/lisboa.jpg", "containedInPlace": {"@type": "Place", "name": "Portugal"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Alfama e Castelo de São Jorge"}, {"@type": "TouristAttraction", "name": "Belém e Mosteiro dos Jerónimos"}, {"@type": "TouristAttraction", "name": "Bate-volta a Sintra"}, {"@type": "TouristAttraction", "name": "Chiado e LX Factory"}]}}, {"@type": "ListItem", "position": 10, "item": {"@type": "TouristDestination", "name": "Paris", "url": "https://ondviajar.com.br/viagens/#paris", "description": "A cidade da Torre Eiffel, do Louvre, dos cafés e da gastronomia francesa.", "image": "https://ondviajar.com.br/assets/viagens/paris.jpg", "containedInPlace": {"@type": "Place", "name": "França"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Torre Eiffel e Champ de Mars"}, {"@type": "TouristAttraction", "name": "Louvre e Museu d'Orsay"}, {"@type": "TouristAttraction", "name": "Montmartre"}, {"@type": "TouristAttraction", "name": "Palácio de Versalhes"}]}}, {"@type": "ListItem", "position": 11, "item": {"@type": "TouristDestination", "name": "Roma", "url": "https://ondviajar.com.br/viagens/#roma", "description": "Um museu a céu aberto com Coliseu, Vaticano, fontes barrocas e a melhor comida italiana.", "image": "https://ondviajar.com.br/assets/viagens/roma.jpg", "containedInPlace": {"@type": "Place", "name": "Itália"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Coliseu e Fórum Romano"}, {"@type": "TouristAttraction", "name": "Vaticano e Capela Sistina"}, {"@type": "TouristAttraction", "name": "Fontana di Trevi e Panteão"}, {"@type": "TouristAttraction", "name": "Trastevere"}]}}, {"@type": "ListItem", "position": 12, "item": {"@type": "TouristDestination", "name": "Japão", "url": "https://ondviajar.com.br/viagens/#japao", "description": "Tradição e tecnologia lado a lado: templos e ruas antigas em Kyoto e bairros futuristas em Tóquio.", "image": "https://ondviajar.com.br/assets/viagens/japao.jpg", "containedInPlace": {"@type": "Place", "name": "Tóquio e Kyoto"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Shibuya e Shinjuku em Tóquio"}, {"@type": "TouristAttraction", "name": "Templos de Kyoto"}, {"@type": "TouristAttraction", "name": "Monte Fuji"}, {"@type": "TouristAttraction", "name": "Nara e Osaka"}]}}, {"@type": "ListItem", "position": 13, "item": {"@type": "TouristDestination", "name": "Maldivas", "url": "https://ondviajar.com.br/viagens/#maldivas", "description": "Arquipélago de ilhas-resort com bangalôs sobre a água e mar cristalino, um clássico de lua de mel.", "image": "https://ondviajar.com.br/assets/viagens/maldivas.jpg", "containedInPlace": {"@type": "Place", "name": "Oceano Índico"}, "includesAttraction": [{"@type": "TouristAttraction", "name": "Bangalô sobre a água"}, {"@type": "TouristAttraction", "name": "Snorkel nos recifes"}, {"@type": "TouristAttraction", "name": "Traslado de hidroavião"}, {"@type": "TouristAttraction", "name": "Jantar na praia"}]}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "O OND é uma agência de viagens?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. O OND é uma agência de turismo cadastrada no Cadastur, o cadastro oficial do Ministério do Turismo, com CNPJ 39.360.492/0001-61. Você planeja com o OND vAI e compra a viagem com o OND ou com uma agência parceira."}}, {"@type": "Question", "name": "O que dá pra comprar com o OND?", "acceptedAnswer": {"@type": "Answer", "text": "Passagens aéreas, hospedagem e passeios. Também dá pra incluir seguro viagem e translado, tudo no mesmo planejamento."}}, {"@type": "Question", "name": "Quanto custa planejar a viagem?", "acceptedAnswer": {"@type": "Answer", "text": "Planejar é grátis. Você conta pro OND vAI pra onde quer ir, quando, com quem e quanto quer gastar, e recebe um roteiro dia a dia com sugestões de voos, hotéis e passeios."}}, {"@type": "Question", "name": "Posso viajar para um destino que não está nesta lista?", "acceptedAnswer": {"@type": "Answer", "text": "Pode. Estes são os destinos mais procurados, mas o OND vAI monta viagens para qualquer lugar do Brasil e do mundo."}}, {"@type": "Question", "name": "Qual destino nacional escolher para a primeira viagem?", "acceptedAnswer": {"@type": "Answer", "text": "Rio de Janeiro, Salvador, Porto de Galinhas, Maceió e Natal têm boa estrutura, voos diretos de várias capitais e opções para todos os orçamentos. Para natureza, Foz do Iguaçu e Bonito são ótimas escolhas."}}, {"@type": "Question", "name": "Qual destino internacional é mais fácil para brasileiros?", "acceptedAnswer": {"@type": "Answer", "text": "Buenos Aires, Santiago e Bariloche ficam a poucas horas de voo e aceitam RG em bom estado, sem passaporte. Lisboa é a porta de entrada mais fácil para a Europa, sem barreira de idioma."}}, {"@type": "Question", "name": "Como falar com uma pessoa do OND?", "acceptedAnswer": {"@type": "Answer", "text": "Pelo WhatsApp (11) 91021-4133 ou pelo e-mail renan@agamatec.com. A equipe acompanha a viagem do planejamento ao retorno."}}]}</script>
+</head>
+<body>
+
+<script src="/assets/ond-logo.js"></script>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="/index.html" class="header-logo">
+    <svg class="header-logo-svg" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+  </a>
+  <nav><ul class="header-nav">
+    <li><a href="/index.html#como-funciona">Como funciona</a></li>
+    <li><a href="/#reservar">Viajar</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="#" onclick="openContact(event)">Contato</a></li>
+    <li><a href="/agencias.html" class="nav-agencias">Para Agências →</a></li>
+  </ul></nav>
+  <div class="header-actions"><button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
+  <a href="/index.html#app" onclick="openApp(event)" class="header-cta">Teste o app →</a>
+  <button class="header-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button></div>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="/index.html#como-funciona" onclick="closeMenu()">Como funciona</a>
+  <a href="/#reservar" onclick="closeMenu()">Viajar</a>
+  <a href="/blog.html" onclick="closeMenu()">Blog</a>
+  <a href="#" onclick="openContact(event);closeMenu()">Contato</a>
+  <a href="/agencias.html" onclick="closeMenu()" style="color:#0066ff;font-weight:600">Para Agências →</a>
+  <a href="/index.html#app" onclick="openApp(event);closeMenu()" style="color:var(--purple);font-weight:700">Teste o app →</a>
+</nav>
+
+
+<main class="cat">
+  <nav class="breadcrumb" aria-label="Navegação"><a href="/">Início</a> · Viagens</nav>
+  <section class="cat-hero">
+    <h1>Organize, planeje e compre sua viagem com <span>o OND!</span></h1>
+    <p class="cat-sub">Passagens, hospedagem e passeios</p>
+    <div class="cat-pills"><span>Agência de turismo cadastrada no Cadastur</span></div>
+    <div class="cat-acts">
+      <a class="btn-primary" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}">Planejar minha viagem grátis →</a>
+      <a class="btn-ghost" href="https://wa.me/5511910214133" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </section>
+
+  <p class="tldr"><strong>Resposta rápida:</strong> o OND é uma agência de turismo com IA. Você conta pro OND vAI pra onde quer ir, recebe um roteiro dia a dia e compra passagens, hospedagem e passeios num lugar só. Abaixo estão os 12 destinos nacionais e 13 internacionais mais procurados, com quantos dias ficar, a melhor época e o que fazer em cada um.</p>
+
+  <section class="passos" aria-label="Como funciona">
+    <div class="passo"><b>1</b><h2>Organize</h2><p>Conte pro OND vAI o destino, as datas, quem vai e quanto quer gastar. É grátis.</p></div>
+    <div class="passo"><b>2</b><h2>Planeje</h2><p>Receba o roteiro dia a dia com voos, hotéis e passeios, e ajuste na conversa.</p></div>
+    <div class="passo"><b>3</b><h2>Compre</h2><p>Feche passagens, hospedagem e passeios com o OND ou com uma agência parceira.</p></div>
+  </section>
+
+  <section class="grupo" id="nacionais">
+    <div class="grupo-head"><h2>Destinos nacionais</h2><p>Praias do Nordeste, natureza, serra e cidades: os lugares do Brasil que mais aparecem nos pedidos ao OND vAI.</p></div>
+    <nav class="chips" aria-label="Destinos nacionais"><a href="#rio-de-janeiro">Rio de Janeiro</a><a href="#fernando-de-noronha">Fernando de Noronha</a><a href="#salvador">Salvador</a><a href="#porto-de-galinhas">Porto de Galinhas</a><a href="#maceio">Maceió</a><a href="#natal">Natal</a><a href="#jericoacoara">Jericoacoara</a><a href="#lencois-maranhenses">Lençóis Maranhenses</a><a href="#foz-do-iguacu">Foz do Iguaçu</a><a href="#bonito">Bonito</a><a href="#gramado">Gramado</a><a href="#florianopolis">Florianópolis</a></nav>
+    <div class="grid">
+<article class="dc" id="rio-de-janeiro">
+      <picture><source srcset="/assets/viagens/rio-de-janeiro.webp" type="image/webp"><img src="/assets/viagens/rio-de-janeiro.jpg" alt="Cristo Redentor com a baía de Guanabara e o Pão de Açúcar ao fundo" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Rio de Janeiro</div>
+        <h3>Rio de Janeiro</h3>
+        <p class="dc-desc">A cidade maravilhosa junta praia, montanha e vida urbana: Cristo Redentor, Pão de Açúcar e as praias de Copacabana e Ipanema.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>4 a 5 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Abril a junho e agosto a outubro, com menos chuva e calor mais ameno</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Casais, amigos e primeira viagem</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Cristo Redentor e Pão de Açúcar</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Copacabana, Ipanema e Arpoador</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Santa Teresa e Lapa</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Bate-volta a Arraial do Cabo ou Búzios</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Rio de Janeiro">Planejar Rio de Janeiro →</a></div>
+      </div>
+    </article>
+<article class="dc" id="fernando-de-noronha">
+      <picture><source srcset="/assets/viagens/fernando-de-noronha.webp" type="image/webp"><img src="/assets/viagens/fernando-de-noronha.jpg" alt="Morro Dois Irmãos e o mar azul da Baía dos Porcos em Fernando de Noronha" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Pernambuco</div>
+        <h3>Fernando de Noronha</h3>
+        <p class="dc-desc">Arquipélago protegido com algumas das praias mais bonitas do Brasil e mergulho em água cristalina.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>5 a 7 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Agosto a janeiro, com mar mais calmo e ótima visibilidade para mergulho</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Casais, lua de mel e amantes de natureza</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Baía do Sancho e Baía dos Porcos</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Passeio de barco e mergulho</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Pôr do sol no Boldró</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Trilhas do parque nacional</span></li></ul>
+        <p class="dc-nota">A ilha cobra taxa de preservação por dia e ingresso do parque nacional. O OND inclui isso no planejamento.</p>
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Fernando de Noronha">Planejar Fernando de Noronha →</a></div>
+      </div>
+    </article>
+<article class="dc" id="salvador">
+      <picture><source srcset="/assets/viagens/salvador.webp" type="image/webp"><img src="/assets/viagens/salvador.jpg" alt="Vista aérea do centro histórico de Salvador" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Bahia</div>
+        <h3>Salvador</h3>
+        <p class="dc-desc">Primeira capital do Brasil, com o Pelourinho, cultura afro-brasileira, culinária baiana e praias dentro da cidade.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>3 a 5 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Setembro a março, mais seco e ensolarado</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Quem gosta de cultura, famílias e casais</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Pelourinho e Igreja de São Francisco</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Elevador Lacerda e Mercado Modelo</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Farol da Barra no fim de tarde</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Praia do Forte ou Morro de São Paulo</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Salvador">Planejar Salvador →</a></div>
+      </div>
+    </article>
+<article class="dc" id="porto-de-galinhas">
+      <picture><source srcset="/assets/viagens/porto-de-galinhas.webp" type="image/webp"><img src="/assets/viagens/porto-de-galinhas.jpg" alt="Piscinas naturais e jangadas em Porto de Galinhas" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Pernambuco</div>
+        <h3>Porto de Galinhas</h3>
+        <p class="dc-desc">Praia a cerca de 60 km do Recife, famosa pelas piscinas naturais que aparecem na maré baixa.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>4 a 5 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Setembro a março, com menos chuva; os passeios seguem a tábua de marés</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Famílias e casais</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Piscinas naturais de jangada</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Muro Alto e Cupe</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Praia dos Carneiros</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Maracaípe e o Pontal</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Porto de Galinhas">Planejar Porto de Galinhas →</a></div>
+      </div>
+    </article>
+<article class="dc" id="maceio">
+      <picture><source srcset="/assets/viagens/maceio.webp" type="image/webp"><img src="/assets/viagens/maceio.jpg" alt="Coqueiros e mar verde na praia de Ipioca em Maceió" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Alagoas</div>
+        <h3>Maceió</h3>
+        <p class="dc-desc">Capital de Alagoas com mar verde-azulado, orla estruturada e as piscinas naturais de Pajuçara.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>4 a 6 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Setembro a março, com mais sol</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Famílias, casais e quem quer descansar</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Piscinas naturais de Pajuçara</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Praia do Gunga</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Maragogi e São Miguel dos Milagres</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Praia do Francês</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Maceió">Planejar Maceió →</a></div>
+      </div>
+    </article>
+<article class="dc" id="natal">
+      <picture><source srcset="/assets/viagens/natal.webp" type="image/webp"><img src="/assets/viagens/natal.jpg" alt="Ponte Newton Navarro e a orla de Natal" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Rio Grande do Norte</div>
+        <h3>Natal</h3>
+        <p class="dc-desc">A Cidade do Sol, com dunas, passeios de buggy e acesso fácil à Praia da Pipa.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>4 a 6 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Setembro a fevereiro; faz sol quase o ano todo</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Famílias e grupos de amigos</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Ponta Negra e Morro do Careca</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Dunas de Genipabu de buggy</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Praia da Pipa</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Maior Cajueiro do Mundo</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Natal">Planejar Natal →</a></div>
+      </div>
+    </article>
+<article class="dc" id="jericoacoara">
+      <picture><source srcset="/assets/viagens/jericoacoara.webp" type="image/webp"><img src="/assets/viagens/jericoacoara.jpg" alt="Lagoa e dunas em Jijoca de Jericoacoara" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Ceará</div>
+        <h3>Jericoacoara</h3>
+        <p class="dc-desc">Vila de dunas e lagoas no litoral oeste do Ceará, famosa pelo pôr do sol e pelo kitesurf.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>4 a 5 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Julho a janeiro para vento e kitesurf; lagoas mais cheias de junho a agosto</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Casais, amigos e esportes de vento</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Pôr do sol na Duna do Pôr do Sol</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Pedra Furada</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Lagoa do Paraíso e Lagoa Azul</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Árvore da Preguiça</span></li></ul>
+        <p class="dc-nota">O último trecho até a vila é feito em veículo 4x4 a partir de Jijoca. O OND organiza o translado.</p>
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Jericoacoara">Planejar Jericoacoara →</a></div>
+      </div>
+    </article>
+<article class="dc" id="lencois-maranhenses">
+      <picture><source srcset="/assets/viagens/lencois-maranhenses.webp" type="image/webp"><img src="/assets/viagens/lencois-maranhenses.jpg" alt="Dunas brancas e lagoas azuis nos Lençóis Maranhenses" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Maranhão</div>
+        <h3>Lençóis Maranhenses</h3>
+        <p class="dc-desc">Parque nacional de dunas brancas com lagoas de água doce que se formam depois da temporada de chuva.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>3 a 4 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Junho a setembro, quando as lagoas estão cheias</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Aventureiros e fotógrafos</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Lagoa Azul e Lagoa Bonita</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Barreirinhas</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Passeio de barco pelo Rio Preguiças</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Atins e Caburé</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Lençóis Maranhenses">Planejar Lençóis Maranhenses →</a></div>
+      </div>
+    </article>
+<article class="dc" id="foz-do-iguacu">
+      <picture><source srcset="/assets/viagens/foz-do-iguacu.webp" type="image/webp"><img src="/assets/viagens/foz-do-iguacu.jpg" alt="Vista aérea das Cataratas do Iguaçu" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Paraná</div>
+        <h3>Foz do Iguaçu</h3>
+        <p class="dc-desc">Na tríplice fronteira, as Cataratas do Iguaçu são uma das maravilhas naturais do mundo, vistas do lado brasileiro e do argentino.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>3 a 4 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>O ano todo; de dezembro a março as quedas ficam mais cheias</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Famílias e natureza</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Cataratas no lado brasileiro</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Garganta do Diabo no lado argentino</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Usina de Itaipu</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Parque das Aves</span></li></ul>
+        <p class="dc-nota">Para visitar o lado argentino, leve RG em bom estado ou passaporte.</p>
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Foz do Iguaçu">Planejar Foz do Iguaçu →</a></div>
+      </div>
+    </article>
+<article class="dc" id="bonito">
+      <picture><source srcset="/assets/viagens/bonito.webp" type="image/webp"><img src="/assets/viagens/bonito.jpg" alt="Abismo Anhumas, caverna com lago cristalino em Bonito" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Mato Grosso do Sul</div>
+        <h3>Bonito</h3>
+        <p class="dc-desc">Referência em ecoturismo no Brasil, com rios de água cristalina, flutuação, grutas e cachoeiras.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>4 a 5 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>O ano todo; os passeios têm vagas limitadas, então vale reservar com antecedência</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Famílias e ecoturismo</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Flutuação no Rio da Prata ou no Rio Sucuri</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Gruta do Lago Azul</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Abismo Anhumas</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Buraco das Araras</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Bonito">Planejar Bonito →</a></div>
+      </div>
+    </article>
+<article class="dc" id="gramado">
+      <picture><source srcset="/assets/viagens/gramado.webp" type="image/webp"><img src="/assets/viagens/gramado.jpg" alt="Rua de Gramado com árvores vermelhas e arquitetura em estilo alpino" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Rio Grande do Sul</div>
+        <h3>Gramado</h3>
+        <p class="dc-desc">Serra gaúcha com clima de montanha, arquitetura em estilo europeu, chocolate, fondue e o Natal Luz.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>3 a 4 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Junho a agosto para o frio; novembro a janeiro para o Natal Luz</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Casais e famílias</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Rua Coberta e Lago Negro</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Canela e Cascata do Caracol</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Parques temáticos da serra</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Vinícolas do Vale dos Vinhedos</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Gramado">Planejar Gramado →</a></div>
+      </div>
+    </article>
+<article class="dc" id="florianopolis">
+      <picture><source srcset="/assets/viagens/florianopolis.webp" type="image/webp"><img src="/assets/viagens/florianopolis.jpg" alt="Pôr do sol sobre Florianópolis visto do Morro da Cruz" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Santa Catarina</div>
+        <h3>Florianópolis</h3>
+        <p class="dc-desc">Ilha com dezenas de praias, lagoas e trilhas, boa tanto para natureza quanto para vida noturna.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>4 a 6 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Dezembro a março para praia; abril e maio com menos movimento</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Amigos, casais e famílias</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Lagoa da Conceição</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Jurerê Internacional</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Campeche e Ilha do Campeche</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Santo Antônio de Lisboa</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Florianópolis">Planejar Florianópolis →</a></div>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section class="grupo" id="internacionais">
+    <div class="grupo-head"><h2>Destinos internacionais</h2><p>América do Sul, Caribe, Estados Unidos, Europa e viagens dos sonhos, com o documento que cada destino pede.</p></div>
+    <nav class="chips" aria-label="Destinos internacionais"><a href="#buenos-aires">Buenos Aires</a><a href="#bariloche">Bariloche</a><a href="#santiago">Santiago</a><a href="#patagonia">Patagônia</a><a href="#machu-picchu">Machu Picchu e Cusco</a><a href="#cancun">Cancún</a><a href="#orlando">Orlando</a><a href="#nova-york">Nova York</a><a href="#lisboa">Lisboa</a><a href="#paris">Paris</a><a href="#roma">Roma</a><a href="#japao">Japão</a><a href="#maldivas">Maldivas</a></nav>
+    <div class="grid">
+<article class="dc" id="buenos-aires">
+      <picture><source srcset="/assets/viagens/buenos-aires.webp" type="image/webp"><img src="/assets/viagens/buenos-aires.jpg" alt="Casarões coloridos do Caminito em La Boca, Buenos Aires" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Argentina</div>
+        <h3>Buenos Aires</h3>
+        <p class="dc-desc">Capital argentina de tango, parrillas e bairros como La Boca, San Telmo e Palermo, a poucas horas de voo do Brasil.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>4 a 5 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Março a maio e setembro a novembro</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Casais, amigos e primeira viagem internacional</dd></div><div class="dc-row"><dt>Documento</dt><dd>RG em bom estado ou passaporte</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Caminito em La Boca</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Feira de San Telmo aos domingos</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Recoleta e Puerto Madero</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Show de tango com jantar</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Buenos Aires">Planejar Buenos Aires →</a><a class="dc-blog" href="/blog/roteiro-buenos-aires/">Roteiro de Buenos Aires →</a></div>
+      </div>
+    </article>
+<article class="dc" id="bariloche">
+      <picture><source srcset="/assets/viagens/bariloche.webp" type="image/webp"><img src="/assets/viagens/bariloche.jpg" alt="Catedral de Bariloche com o Lago Nahuel Huapi" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Argentina</div>
+        <h3>Bariloche</h3>
+        <p class="dc-desc">Cidade da Patagônia argentina cercada de lagos e montanhas, com neve e esqui no inverno.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>5 a 7 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Julho a setembro para neve; dezembro a março para lagos e trilhas</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Famílias, casais e quem quer ver neve</dd></div><div class="dc-row"><dt>Documento</dt><dd>RG em bom estado ou passaporte</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Cerro Catedral</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Cerro Campanario</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Circuito Chico</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Chocolaterias da Rua Mitre</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Bariloche">Planejar Bariloche →</a></div>
+      </div>
+    </article>
+<article class="dc" id="santiago">
+      <picture><source srcset="/assets/viagens/santiago.webp" type="image/webp"><img src="/assets/viagens/santiago.jpg" alt="Palácio de La Moneda em Santiago do Chile" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Chile</div>
+        <h3>Santiago</h3>
+        <p class="dc-desc">Capital chilena aos pés da Cordilheira dos Andes, com vinícolas e estações de esqui a poucas horas.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>4 a 5 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Junho a setembro para neve; março a maio e setembro a novembro para vinícolas</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Casais, amigos e amantes de vinho</dd></div><div class="dc-row"><dt>Documento</dt><dd>RG em bom estado ou passaporte</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Cerro San Cristóbal</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Vinícolas do Vale do Maipo</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Valle Nevado e Farellones</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Valparaíso e Viña del Mar</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Santiago">Planejar Santiago →</a></div>
+      </div>
+    </article>
+<article class="dc" id="patagonia">
+      <picture><source srcset="/assets/viagens/patagonia.webp" type="image/webp"><img src="/assets/viagens/patagonia.jpg" alt="Montanhas de Torres del Paine com neve na Patagônia chilena" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Chile e Argentina</div>
+        <h3>Patagônia</h3>
+        <p class="dc-desc">Região de glaciares, lagos e montanhas no extremo sul do continente, com Torres del Paine e o Glaciar Perito Moreno.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>6 a 9 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Outubro a abril, primavera e verão no hemisfério sul</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Aventureiros e natureza</dd></div><div class="dc-row"><dt>Documento</dt><dd>RG em bom estado ou passaporte</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Parque Nacional Torres del Paine</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Glaciar Perito Moreno em El Calafate</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Puerto Natales</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Navegação entre glaciares</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Patagônia">Planejar Patagônia →</a></div>
+      </div>
+    </article>
+<article class="dc" id="machu-picchu">
+      <picture><source srcset="/assets/viagens/machu-picchu.webp" type="image/webp"><img src="/assets/viagens/machu-picchu.jpg" alt="Cidadela inca de Machu Picchu com a montanha Huayna Picchu" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Peru</div>
+        <h3>Machu Picchu e Cusco</h3>
+        <p class="dc-desc">A cidadela inca nos Andes peruanos, combinada com Cusco e o Vale Sagrado.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>5 a 7 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Abril a outubro, estação seca</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Aventureiros e quem gosta de história</dd></div><div class="dc-row"><dt>Documento</dt><dd>RG em bom estado ou passaporte</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Machu Picchu</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Cusco e Sacsayhuamán</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Vale Sagrado</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Montanha Colorida</span></li></ul>
+        <p class="dc-nota">Os ingressos para Machu Picchu são limitados por dia e a altitude pede um dia de adaptação em Cusco.</p>
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Machu Picchu e Cusco">Planejar Machu Picchu e Cusco →</a></div>
+      </div>
+    </article>
+<article class="dc" id="cancun">
+      <picture><source srcset="/assets/viagens/cancun.webp" type="image/webp"><img src="/assets/viagens/cancun.jpg" alt="Orla de Cancún com mar azul e área verde" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">México</div>
+        <h3>Cancún</h3>
+        <p class="dc-desc">Caribe mexicano com mar azul-turquesa, resorts all inclusive, cenotes e ruínas maias.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>5 a 7 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Dezembro a abril, mais seco; de junho a novembro é temporada de furacões</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Casais, lua de mel e famílias</dd></div><div class="dc-row"><dt>Documento</dt><dd>Passaporte; confira a exigência de visto antes de comprar</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Zona Hoteleira</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Isla Mujeres</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Tulum e cenotes</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Chichén Itzá</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Cancún">Planejar Cancún →</a></div>
+      </div>
+    </article>
+<article class="dc" id="orlando">
+      <picture><source srcset="/assets/viagens/orlando.webp" type="image/webp"><img src="/assets/viagens/orlando.jpg" alt="Castelo da Cinderela no Magic Kingdom em Orlando" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Estados Unidos</div>
+        <h3>Orlando</h3>
+        <p class="dc-desc">A capital dos parques temáticos, com Disney, Universal e outlets para compras.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>7 a 10 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Fevereiro a maio e setembro a novembro, fora dos picos de férias</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Famílias com crianças e fãs de parques</dd></div><div class="dc-row"><dt>Documento</dt><dd>Passaporte e visto americano</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Walt Disney World</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Universal Orlando</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Kennedy Space Center</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Outlets e compras</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Orlando">Planejar Orlando →</a></div>
+      </div>
+    </article>
+<article class="dc" id="nova-york">
+      <picture><source srcset="/assets/viagens/nova-york.webp" type="image/webp"><img src="/assets/viagens/nova-york.jpg" alt="Times Square iluminada em Nova York" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Estados Unidos</div>
+        <h3>Nova York</h3>
+        <p class="dc-desc">A cidade que nunca dorme: Times Square, Central Park, Broadway e museus de nível mundial.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>5 a 7 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Abril a junho e setembro a novembro; dezembro para o clima de Natal</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Casais, amigos e compras</dd></div><div class="dc-row"><dt>Documento</dt><dd>Passaporte e visto americano</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Central Park</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Times Square e Broadway</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Estátua da Liberdade</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>MET e MoMA</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Nova York">Planejar Nova York →</a></div>
+      </div>
+    </article>
+<article class="dc" id="lisboa">
+      <picture><source srcset="/assets/viagens/lisboa.webp" type="image/webp"><img src="/assets/viagens/lisboa.jpg" alt="Elétrico amarelo em rua histórica de Lisboa" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Portugal</div>
+        <h3>Lisboa</h3>
+        <p class="dc-desc">Capital portuguesa de bairros históricos, miradouros e pastéis de Belém, sem barreira de idioma.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>4 a 5 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Abril a junho e setembro a outubro</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Casais e primeira viagem à Europa</dd></div><div class="dc-row"><dt>Documento</dt><dd>Passaporte; confira as regras de entrada no espaço Schengen</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Alfama e Castelo de São Jorge</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Belém e Mosteiro dos Jerónimos</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Bate-volta a Sintra</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Chiado e LX Factory</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Lisboa">Planejar Lisboa →</a><a class="dc-blog" href="/blog/roteiro-lisboa/">Roteiro de Lisboa em 4 dias →</a></div>
+      </div>
+    </article>
+<article class="dc" id="paris">
+      <picture><source srcset="/assets/viagens/paris.webp" type="image/webp"><img src="/assets/viagens/paris.jpg" alt="Torre Eiffel em Paris num dia de céu azul" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">França</div>
+        <h3>Paris</h3>
+        <p class="dc-desc">A cidade da Torre Eiffel, do Louvre, dos cafés e da gastronomia francesa.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>4 a 6 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Abril a junho e setembro a outubro</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Casais e lua de mel</dd></div><div class="dc-row"><dt>Documento</dt><dd>Passaporte; confira as regras de entrada no espaço Schengen</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Torre Eiffel e Champ de Mars</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Louvre e Museu d&#x27;Orsay</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Montmartre</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Palácio de Versalhes</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Paris">Planejar Paris →</a><a class="dc-blog" href="/blog/quanto-custa-europa/">Quanto custa viajar pra Europa →</a></div>
+      </div>
+    </article>
+<article class="dc" id="roma">
+      <picture><source srcset="/assets/viagens/roma.webp" type="image/webp"><img src="/assets/viagens/roma.jpg" alt="Coliseu de Roma" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Itália</div>
+        <h3>Roma</h3>
+        <p class="dc-desc">Um museu a céu aberto com Coliseu, Vaticano, fontes barrocas e a melhor comida italiana.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>4 a 5 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Abril a junho e setembro a outubro</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Casais, famílias e história</dd></div><div class="dc-row"><dt>Documento</dt><dd>Passaporte; confira as regras de entrada no espaço Schengen</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Coliseu e Fórum Romano</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Vaticano e Capela Sistina</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Fontana di Trevi e Panteão</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Trastevere</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Roma">Planejar Roma →</a></div>
+      </div>
+    </article>
+<article class="dc" id="japao">
+      <picture><source srcset="/assets/viagens/japao.webp" type="image/webp"><img src="/assets/viagens/japao.jpg" alt="Rua tradicional de Kyoto com pagode ao fundo" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Tóquio e Kyoto</div>
+        <h3>Japão</h3>
+        <p class="dc-desc">Tradição e tecnologia lado a lado: templos e ruas antigas em Kyoto e bairros futuristas em Tóquio.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>10 a 14 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Março e abril para as cerejeiras; outubro e novembro para as cores do outono</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Quem sonha com uma viagem diferente</dd></div><div class="dc-row"><dt>Documento</dt><dd>Passaporte; confira a regra de visto antes de comprar</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Shibuya e Shinjuku em Tóquio</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Templos de Kyoto</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Monte Fuji</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Nara e Osaka</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Japão">Planejar Japão →</a></div>
+      </div>
+    </article>
+<article class="dc" id="maldivas">
+      <picture><source srcset="/assets/viagens/maldivas.webp" type="image/webp"><img src="/assets/viagens/maldivas.jpg" alt="Bangalôs sobre a água em mar azul-turquesa nas Maldivas" width="800" height="500" loading="lazy"></picture>
+      <div class="dc-body">
+        <div class="dc-reg">Oceano Índico</div>
+        <h3>Maldivas</h3>
+        <p class="dc-desc">Arquipélago de ilhas-resort com bangalôs sobre a água e mar cristalino, um clássico de lua de mel.</p>
+        <dl class="dc-meta">
+          <div class="dc-row"><dt>Quantos dias</dt><dd>6 a 8 dias</dd></div>
+          <div class="dc-row"><dt>Melhor época</dt><dd>Novembro a abril, estação seca</dd></div>
+          <div class="dc-row"><dt>Ideal para</dt><dd>Lua de mel e casais</dd></div><div class="dc-row"><dt>Documento</dt><dd>Passaporte; o visto de turista é emitido na chegada</dd></div>
+        </dl>
+        <ul class="dc-hl"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Bangalô sobre a água</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Snorkel nos recifes</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Traslado de hidroavião</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span>Jantar na praia</span></li></ul>
+        
+        <div class="dc-inc">Passagens · Hospedagem · Passeios</div>
+        <div class="dc-acts"><a class="dc-cta" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}" data-dest="Maldivas">Planejar Maldivas →</a></div>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section class="faq" id="perguntas">
+    <h2>Perguntas frequentes</h2>
+    <div class="faq-item"><h3>O OND é uma agência de viagens?</h3><p>Sim. O OND é uma agência de turismo cadastrada no Cadastur, o cadastro oficial do Ministério do Turismo, com CNPJ 39.360.492/0001-61. Você planeja com o OND vAI e compra a viagem com o OND ou com uma agência parceira.</p></div>
+    <div class="faq-item"><h3>O que dá pra comprar com o OND?</h3><p>Passagens aéreas, hospedagem e passeios. Também dá pra incluir seguro viagem e translado, tudo no mesmo planejamento.</p></div>
+    <div class="faq-item"><h3>Quanto custa planejar a viagem?</h3><p>Planejar é grátis. Você conta pro OND vAI pra onde quer ir, quando, com quem e quanto quer gastar, e recebe um roteiro dia a dia com sugestões de voos, hotéis e passeios.</p></div>
+    <div class="faq-item"><h3>Posso viajar para um destino que não está nesta lista?</h3><p>Pode. Estes são os destinos mais procurados, mas o OND vAI monta viagens para qualquer lugar do Brasil e do mundo.</p></div>
+    <div class="faq-item"><h3>Qual destino nacional escolher para a primeira viagem?</h3><p>Rio de Janeiro, Salvador, Porto de Galinhas, Maceió e Natal têm boa estrutura, voos diretos de várias capitais e opções para todos os orçamentos. Para natureza, Foz do Iguaçu e Bonito são ótimas escolhas.</p></div>
+    <div class="faq-item"><h3>Qual destino internacional é mais fácil para brasileiros?</h3><p>Buenos Aires, Santiago e Bariloche ficam a poucas horas de voo e aceitam RG em bom estado, sem passaporte. Lisboa é a porta de entrada mais fácil para a Europa, sem barreira de idioma.</p></div>
+    <div class="faq-item"><h3>Como falar com uma pessoa do OND?</h3><p>Pelo WhatsApp (11) 91021-4133 ou pelo e-mail renan@agamatec.com. A equipe acompanha a viagem do planejamento ao retorno.</p></div>
+  </section>
+
+  <section class="cta-fim">
+    <h2>Pra onde você quer ir?</h2>
+    <p>Organize, planeje e compre sua viagem com o OND. Passagens, hospedagem e passeios num lugar só.</p>
+    <a class="btn-primary" href="https://web.ondviajar.com.br/" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event)}">Começar agora →</a>
+  </section>
+
+  <details class="creditos">
+    <summary>Créditos das fotos</summary>
+    <ul>
+      <li>Rio de Janeiro, Fernando de Noronha, Buenos Aires, Patagônia, Machu Picchu, Lisboa, Paris, Roma, Cancún, Orlando, Nova York, Japão e Maldivas: Unsplash</li>
+      <li>Salvador: <a href="https://commons.wikimedia.org/wiki/File:Centro_Hist%C3%B3rico_Salvador_Vista_A%C3%A9rea_2021-0933.jpg" target="_blank" rel="noopener">Paul R. Burley</a>, CC BY-SA 4.0, via Wikimedia Commons (recortada)</li><li>Porto de Galinhas: <a href="https://commons.wikimedia.org/wiki/File:Porto_de_Galinhas_piscinas_naturais.jpg" target="_blank" rel="noopener">Jobosco</a>, CC BY-SA 4.0, via Wikimedia Commons (recortada)</li><li>Maceió: <a href="https://commons.wikimedia.org/wiki/File:Praia_de_Ipioca_-_Macei%C3%B3_-_Alagoas_(11394603505).jpg" target="_blank" rel="noopener">Cícero R. C. Omena</a>, CC BY 2.0, via Wikimedia Commons (recortada)</li><li>Natal: <a href="https://commons.wikimedia.org/wiki/File:Natal,_capital_do_Rio_Grande_do_Norte,_Brasil.jpg" target="_blank" rel="noopener">Ney Douglas/MTur Destinos</a>, Attribution, via Wikimedia Commons (recortada)</li><li>Jericoacoara: <a href="https://commons.wikimedia.org/wiki/File:2010._Jijoca_de_Jericoacoara_(CE)_(3).JPG" target="_blank" rel="noopener">Allan Ferreira</a>, CC BY-SA 3.0, via Wikimedia Commons (recortada)</li><li>Lençóis Maranhenses: <a href="https://commons.wikimedia.org/wiki/File:Len%C3%A7%C3%B3is_Maranhenses_2018.jpg" target="_blank" rel="noopener">Julius Dadalti</a>, CC BY-SA 4.0, via Wikimedia Commons (recortada)</li><li>Foz do Iguaçu: <a href="https://commons.wikimedia.org/wiki/File:Aerial_Foz_de_Igua%C3%A7u_26_Nov_2005.jpg" target="_blank" rel="noopener">Mariordo (Mario Roberto Durán Ortiz)</a>, CC BY-SA 4.0, via Wikimedia Commons (recortada)</li><li>Bonito: <a href="https://commons.wikimedia.org/wiki/File:Abismo_Anhumas,_Bonito,_MS.JPG" target="_blank" rel="noopener">Caio Vilela</a>, CC BY-SA 3.0, via Wikimedia Commons (recortada)</li><li>Gramado: <a href="https://commons.wikimedia.org/wiki/File:GRAMADO_-_RIO_GRANDE_DO_SUL_-_BRASIL_BY_AUGUSTO_JANISCKI_JUNIOR_(14281900109).jpg" target="_blank" rel="noopener">AUGUSTO JANISKI JUNIOR</a>, CC BY 2.0, via Wikimedia Commons (recortada)</li><li>Florianópolis: <a href="https://commons.wikimedia.org/wiki/File:Morro_da_Cruz,_Florian%C3%B3polis_-_SC,_Brazil_-_panoramio_(cropped).jpg" target="_blank" rel="noopener">oscar fava</a>, CC BY 3.0, via Wikimedia Commons (recortada)</li><li>Bariloche: <a href="https://commons.wikimedia.org/wiki/File:Catedral_desde_el_Lago_Nahuel_Huapi_-_panoramio.jpg" target="_blank" rel="noopener">enzofloyd</a>, CC BY-SA 3.0, via Wikimedia Commons (recortada)</li><li>Santiago: <a href="https://commons.wikimedia.org/wiki/File:Palacio_de_La_Moneda_-_miguelreflex.jpg" target="_blank" rel="noopener">Miguel hernandez</a>, CC BY-SA 2.0, via Wikimedia Commons (recortada)</li>
+    </ul>
+  </details>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg class="footer-logo-svg" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
+      <p>Organize, planeje e compre sua viagem com o OND!<br>Passagens, hospedagem e passeios.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Viajantes</h4>
+      <ul>
+        <li><a href="https://web.ondviajar.com.br/" target="_blank" rel="noopener">Usar na Web</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.agamatec.ond" target="_blank" rel="noopener">App Android</a></li>
+        <li><a href="https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427" target="_blank" rel="noopener">App iOS</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Parceiros</h4>
+      <ul>
+        <li><a href="https://pci.jotform.com/form/252517268656062" target="_blank" rel="noopener">Para agências</a></li>
+        <li><a href="https://pci.jotform.com/form/252517268656062" target="_blank" rel="noopener">Para hotéis</a></li>
+        <li><a href="/#reservar">Viajar</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#" onclick="openContact(event)">Contato</a></li>
+        <li><a href="mailto:renan@agamatec.com">renan@agamatec.com</a></li>
+        <li><a href="https://wa.me/5511910214133" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 OND · CNPJ 39.360.492/0001-61 · Agência de turismo cadastrada no Cadastur</span>
+    <span>Quem viaja com o OND não volta igual ✨</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileNav').classList.remove('open')}
+var ICON_MOON='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>';
+var ICON_SUN='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+function toggleTheme(){
+  const isLight=document.documentElement.getAttribute('data-theme')==='light'
+  if(isLight){document.documentElement.setAttribute('data-theme','dark');document.getElementById('themeBtn').innerHTML=ICON_MOON;localStorage.setItem('ond_theme','dark')}
+  else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').innerHTML=ICON_SUN;localStorage.setItem('ond_theme','light')}
+}
+;(function(){if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.innerHTML=ICON_SUN}})()
+document.addEventListener('click',function(e){
+  const nav=document.getElementById('mobileNav'),btn=document.querySelector('.header-menu-btn')
+  if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target))closeMenu()
+})
+</script>
+<script src="/assets/contact.js" defer></script>
+<script src="/assets/app-modal.js" defer></script>
+<script src="/assets/vai-widget.js" defer></script>
+<script src="/assets/analytics.js" defer></script>
+</body>
+</html>
