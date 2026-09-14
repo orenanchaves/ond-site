@@ -129,7 +129,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 /* ── CONQUISTAS ── */
 .conquistas{background:var(--bg);padding:72px 5%;border-bottom:1px solid var(--border)}
 .conquistas-inner{max-width:1280px;margin:0 auto}
-.conquistas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.conquistas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-top:40px}
 .conquista-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 20px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
 .conquista-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0}
 .conquista-card.green::before{background:var(--green)}
@@ -472,7 +472,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       "@type": "Organization",
       "@id": "https://ondviajar.com.br/#organization",
       "name": "OND",
-      "legalName": "Agama Tec",
+      "legalName": "R. Fernandes Rodrigues Turismo",
+      "taxID": "39.360.492/0001-61",
       "url": "https://ondviajar.com.br/",
       "logo": {
         "@type": "ImageObject",
@@ -769,6 +770,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <div class="conquistas-grid">
 
       <div class="conquista-card green">
+        <div class="conquista-badge green"><span class="conquista-badge-dot"></span>Enregistré</div>
+        <div class="conquista-logo">🏛️</div>
+        <div class="conquista-title">Agence de voyages · Cadastur</div>
+        <p class="conquista-desc">OND est une agence de voyages enregistrée au Cadastur, le registre officiel du ministère du Tourisme du Brésil : vous pouvez réserver votre voyage avec nous, avec un CNPJ et un enregistrement vérifiables.</p>
+        <div class="conquista-meta">Ministère du Tourisme · valable jusqu'en sept. 2028</div>
+      </div>
+
+      <div class="conquista-card green">
         <div class="conquista-badge green"><span class="conquista-badge-dot"></span>Approuvé</div>
         <div class="conquista-logo">🏆</div>
         <div class="conquista-title">BeFly Leadership Network</div>
@@ -923,7 +932,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <div class="section-header centered">
     <span class="section-label">Marketplace de voyage</span>
     <h2 class="section-title">De l'itinéraire à la réservation, au même endroit</h2>
-    <p class="section-sub">Vous planifiez gratuitement dans la conversation, et OND vous met en relation avec des agences et partenaires qui gèrent vols, hébergement, assurance, transferts et visites.</p>
+    <p class="section-sub">Vous planifiez gratuitement dans la conversation et réservez avec OND, agence de voyages enregistrée au Cadastur, ou avec une agence partenaire : vols, hébergement, assurance, transferts et visites.</p>
   </div>
   <div class="features-grid">
     <div class="feature-card"><div class="feature-icon">✈️</div><h3 class="feature-title">Vols <span class="soon">bientôt</span></h3><p class="feature-desc">Comparez les tarifs et bloquez le meilleur prix, intégré à votre itinéraire.</p></div>
@@ -968,7 +977,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <div class="footer-inner">
     <div class="footer-brand">
       <svg class="footer-logo-svg" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
-      <p>Plateforme de voyage par IA d'Agama Tec. Organisez votre voyage en minutes, avec des itinéraires intelligents et OND vAI 24h/24.</p>
+      <p>Agence de voyages par IA. Organisez et réservez votre voyage en quelques minutes, avec des itinéraires intelligents et OND vAI 24h/24.</p>
     </div>
     <div class="footer-col">
       <h4>Voyageurs</h4>
@@ -995,7 +1004,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Agama Tec · OND</span>
+    <span>© 2026 OND · R. Fernandes Rodrigues Turismo · CNPJ 39.360.492/0001-61 · Agence de voyages enregistrée au Cadastur</span>
     <span>Qui voyage avec OND ne revient jamais pareil ✨</span>
   </div>
 </footer>
