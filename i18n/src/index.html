@@ -126,24 +126,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .hero-image::before{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:380px;height:380px;background:radial-gradient(circle,color-mix(in srgb, var(--purple) 20%, transparent) 0%,transparent 65%)}
 .hero-image img{max-height:520px;width:auto;position:relative;z-index:1;filter:drop-shadow(0 0 48px color-mix(in srgb, var(--purple) 28%, transparent))}
 
-/* ── CONQUISTAS ── */
-.conquistas{background:var(--bg);padding:72px 5%;border-bottom:1px solid var(--border)}
-.conquistas-inner{max-width:1280px;margin:0 auto}
-.conquistas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-top:40px}
-.conquista-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 20px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
-.conquista-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0}
-.conquista-card.green::before{background:var(--green)}
-.conquista-card.purple::before{background:var(--purple)}
-.conquista-card:hover{border-color:color-mix(in srgb, var(--purple) 30%, transparent);transform:translateY(-3px)}
-.conquista-badge{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:14px;letter-spacing:.04em;text-transform:uppercase}
-.conquista-badge.green{background:var(--green-dim);color:var(--green);border:1px solid color-mix(in srgb, var(--green) 25%, transparent)}
-.conquista-badge.purple{background:var(--purple-dim);color:var(--purple-light);border:1px solid color-mix(in srgb, var(--purple) 25%, transparent)}
-.conquista-badge-dot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:blink 2s infinite}
-.conquista-logo{font-size:1.6rem;margin-bottom:10px}
-.conquista-title{font-size:1rem;font-weight:800;margin-bottom:6px;line-height:1.2}
-.conquista-desc{font-size:.83rem;color:var(--muted);line-height:1.6}
-.conquista-meta{font-size:.72rem;color:var(--muted2);margin-top:12px;padding-top:10px;border-top:1px solid var(--border)}
-
 /* ── STATS BAR ── */
 .stats{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:24px 5%;display:flex;justify-content:center;gap:0;flex-wrap:wrap}
 .stat{text-align:center;padding:8px 36px;border-right:1px solid var(--border)}
@@ -282,7 +264,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
-  .conquistas-grid{grid-template-columns:1fr 1fr}
   .header-nav{display:none}.header-menu-btn{display:block}
   .hero{grid-template-columns:1fr;padding:48px 5% 40px;min-height:auto;gap:28px}
   .hero-image{order:-1}.hero-image img{max-height:300px}
@@ -297,7 +278,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   .stat{padding:8px 20px}
 }
 @media(max-width:600px){
-  .conquistas-grid{grid-template-columns:1fr}
   .features-grid{grid-template-columns:1fr}.b2b-cards{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr}.arco-steps{grid-template-columns:1fr}
   .hero-app-btns{flex-direction:column}.app-store-btn{width:100%;max-width:240px}
@@ -481,7 +461,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         "height": 268
       },
       "description": "Agência de viagens com IA: passagens, hospedagem e passeios com suporte humano, e o app OND vAI pra organizar a viagem.",
-      "email": "renan@agamatec.com",
+      "email": "renan@ondviajar.com.br",
       "sameAs": [
         "https://play.google.com/store/apps/details?id=com.agamatec.ond",
         "https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427"
@@ -826,60 +806,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
 </section>
 
-<!-- CONQUISTAS -->
-<section class="conquistas">
-  <div class="conquistas-inner">
-    <div class="section-header centered">
-      <span class="section-label">Validado pelo mercado</span>
-      <h2 class="section-title">Pitchs vencidos.<br>Parcerias fechadas.</h2>
-      <p class="section-sub">O OND não é só uma ideia, é uma plataforma aprovada pelas maiores redes de turismo e marketplaces do Brasil.</p>
-    </div>
-    <div class="conquistas-grid">
-
-      <div class="conquista-card green">
-        <div class="conquista-badge green"><span class="conquista-badge-dot"></span>Cadastrado</div>
-        <div class="conquista-logo">🏛️</div>
-        <div class="conquista-title">Agência de turismo · Cadastur</div>
-        <p class="conquista-desc">O OND é agência de turismo cadastrada no Cadastur, o cadastro oficial do Ministério do Turismo: dá pra reservar a viagem com a gente, com CNPJ e registro verificáveis.</p>
-        <div class="conquista-meta">Cadastur 39.360.492/0001-61 · válido até set/2028</div>
-      </div>
-
-      <div class="conquista-card green">
-        <div class="conquista-badge green"><span class="conquista-badge-dot"></span>Aprovado</div>
-        <div class="conquista-logo">🏆</div>
-        <div class="conquista-title">BeFly Leadership Network</div>
-        <p class="conquista-desc">Apresentado ao conselho da BeFly, uma das maiores redes de agências do Brasil. Aprovação técnica e estratégica para integração com franquias e turismo corporativo.</p>
-        <div class="conquista-meta">Pitch Day · Desafio Turismo Inteligente · 2026</div>
-      </div>
-
-      <div class="conquista-card green">
-        <div class="conquista-badge green"><span class="conquista-badge-dot"></span>Parceria ativa</div>
-        <div class="conquista-logo">🌐</div>
-        <div class="conquista-title">Booking.com</div>
-        <p class="conquista-desc">Afiliado aprovado no Booking.com. As viagens do OND incluem hotéis com reserva direta.</p>
-        <div class="conquista-meta">Afiliado aprovado · Jun 2026</div>
-      </div>
-
-      <div class="conquista-card purple">
-        <div class="conquista-badge purple"><span class="conquista-badge-dot"></span>Integração ativa</div>
-        <div class="conquista-logo">🎟️</div>
-        <div class="conquista-title">GetYourGuide</div>
-        <p class="conquista-desc">Integração com o maior marketplace de passeios e experiências do mundo. As viagens do OND incluem atividades com reserva direta.</p>
-        <div class="conquista-meta">Marketplace global de experiências</div>
-      </div>
-
-      <div class="conquista-card purple">
-        <div class="conquista-badge purple"><span class="conquista-badge-dot"></span>Selecionado</div>
-        <div class="conquista-logo">🚀</div>
-        <div class="conquista-title">Sebrae For Startups</div>
-        <p class="conquista-desc">OND selecionado para o programa Sebrae For Startups, aceleração com mentoria especializada, acesso a rede de parceiros e suporte para escalar a operação no mercado de turismo.</p>
-        <div class="conquista-meta">Sebrae · Programa de Aceleração de Startups</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- PROBLEMA -->
 <section class="problema">
   <div class="problema-inner">
@@ -1067,7 +993,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       <h4>Empresa</h4>
       <ul>
         <li><a href="#" onclick="openContact(event)">Contato</a></li>
-        <li><a href="mailto:renan@agamatec.com">renan@agamatec.com</a></li>
+        <li><a href="mailto:renan@ondviajar.com.br">renan@ondviajar.com.br</a></li>
         <li><a href="https://wa.me/5511910214133" target="_blank" rel="noopener">WhatsApp</a></li>
       </ul>
     </div>
@@ -1099,11 +1025,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       </div>
       <div class="contact-option-arrow">→</div>
     </a>
-    <a href="mailto:renan@agamatec.com" class="contact-option mail">
+    <a href="mailto:renan@ondviajar.com.br" class="contact-option mail">
       <div class="contact-option-icon">✉️</div>
       <div>
         <div class="contact-option-label">E-mail</div>
-        <div class="contact-option-desc">renan@agamatec.com</div>
+        <div class="contact-option-desc">renan@ondviajar.com.br</div>
       </div>
       <div class="contact-option-arrow">→</div>
     </a>
