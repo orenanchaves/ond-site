@@ -633,6 +633,49 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <div class="stat"><div class="stat-num"><em>iOS</em> · <em>Android</em> · Web</div><div class="stat-label">disponível em todas plataformas</div></div>
 </div>
 
+<!-- DESTINOS (vitrine do catalogo /viagens/) -->
+<section class="home-dest" id="destinos">
+  <style>
+  .home-dest{padding:56px 0 48px;border-bottom:1px solid var(--border)}
+  .hd-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:0 5%;max-width:1280px;margin:0 auto 20px}
+  .hd-head .section-title{margin-bottom:6px}
+  .hd-head p{color:var(--muted);font-size:1rem}
+  .hd-all{color:var(--purple-light);font-weight:700;text-decoration:none;white-space:nowrap}
+  .hd-all:hover{text-decoration:underline}
+  .hd-row{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 5% 14px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+  .hd-card{position:relative;flex:0 0 clamp(220px,62vw,280px);aspect-ratio:4/5;border-radius:18px;overflow:hidden;scroll-snap-align:start;text-decoration:none;color:#fff;background:var(--surface)}
+  .hd-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+  .hd-card:hover img{transform:scale(1.05)}
+  .hd-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,0) 55%)}
+  .hd-txt{position:absolute;left:16px;right:16px;bottom:14px;z-index:1;display:flex;flex-direction:column}
+  .hd-pais{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;opacity:.85}
+  .hd-nome{font-size:1.18rem;font-weight:800;line-height:1.2}
+  .hd-acts{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:10px 5% 0}
+  .hd-wa{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#062b14;padding:13px 24px;border-radius:50px;font-weight:800;text-decoration:none}
+  .hd-wa svg{width:19px;height:19px}
+  </style>
+  <div class="hd-head">
+    <div><span class="section-label">Destinos</span><h2 class="section-title">Pra onde você vai viajar?</h2><p>Passagens, hospedagem e passeios com o OND.</p></div>
+    <a class="hd-all" href="/viagens/">Ver todos os destinos →</a>
+  </div>
+  <div class="hd-row">
+    <a class="hd-card" href="/viagens/#rio-de-janeiro"><picture><source srcset="/assets/viagens/rio-de-janeiro.webp" type="image/webp"><img src="/assets/viagens/rio-de-janeiro.jpg" alt="Viaje para o Rio de Janeiro" width="800" height="500" loading="lazy"></picture><span class="hd-txt"><span class="hd-pais">Brasil</span><span class="hd-nome">Viaje para o Rio de Janeiro</span></span></a>
+    <a class="hd-card" href="/viagens/#fernando-de-noronha"><picture><source srcset="/assets/viagens/fernando-de-noronha.webp" type="image/webp"><img src="/assets/viagens/fernando-de-noronha.jpg" alt="Viaje para Fernando de Noronha" width="800" height="500" loading="lazy"></picture><span class="hd-txt"><span class="hd-pais">Brasil</span><span class="hd-nome">Viaje para Fernando de Noronha</span></span></a>
+    <a class="hd-card" href="/viagens/#porto-de-galinhas"><picture><source srcset="/assets/viagens/porto-de-galinhas.webp" type="image/webp"><img src="/assets/viagens/porto-de-galinhas.jpg" alt="Viaje para Porto de Galinhas" width="800" height="500" loading="lazy"></picture><span class="hd-txt"><span class="hd-pais">Brasil</span><span class="hd-nome">Viaje para Porto de Galinhas</span></span></a>
+    <a class="hd-card" href="/viagens/#gramado"><picture><source srcset="/assets/viagens/gramado.webp" type="image/webp"><img src="/assets/viagens/gramado.jpg" alt="Viaje para Gramado" width="800" height="500" loading="lazy"></picture><span class="hd-txt"><span class="hd-pais">Brasil</span><span class="hd-nome">Viaje para Gramado</span></span></a>
+    <a class="hd-card" href="/viagens/#foz-do-iguacu"><picture><source srcset="/assets/viagens/foz-do-iguacu.webp" type="image/webp"><img src="/assets/viagens/foz-do-iguacu.jpg" alt="Viaje para Foz do Iguaçu" width="800" height="500" loading="lazy"></picture><span class="hd-txt"><span class="hd-pais">Brasil</span><span class="hd-nome">Viaje para Foz do Iguaçu</span></span></a>
+    <a class="hd-card" href="/viagens/#buenos-aires"><picture><source srcset="/assets/viagens/buenos-aires.webp" type="image/webp"><img src="/assets/viagens/buenos-aires.jpg" alt="Viaje para Buenos Aires" width="800" height="500" loading="lazy"></picture><span class="hd-txt"><span class="hd-pais">Argentina</span><span class="hd-nome">Viaje para Buenos Aires</span></span></a>
+    <a class="hd-card" href="/viagens/#orlando"><picture><source srcset="/assets/viagens/orlando.webp" type="image/webp"><img src="/assets/viagens/orlando.jpg" alt="Viaje para Orlando" width="800" height="500" loading="lazy"></picture><span class="hd-txt"><span class="hd-pais">Estados Unidos</span><span class="hd-nome">Viaje para Orlando</span></span></a>
+    <a class="hd-card" href="/viagens/#cancun"><picture><source srcset="/assets/viagens/cancun.webp" type="image/webp"><img src="/assets/viagens/cancun.jpg" alt="Viaje para Cancún" width="800" height="500" loading="lazy"></picture><span class="hd-txt"><span class="hd-pais">México</span><span class="hd-nome">Viaje para Cancún</span></span></a>
+    <a class="hd-card" href="/viagens/#lisboa"><picture><source srcset="/assets/viagens/lisboa.webp" type="image/webp"><img src="/assets/viagens/lisboa.jpg" alt="Viaje para Lisboa" width="800" height="500" loading="lazy"></picture><span class="hd-txt"><span class="hd-pais">Portugal</span><span class="hd-nome">Viaje para Lisboa</span></span></a>
+    <a class="hd-card" href="/viagens/#paris"><picture><source srcset="/assets/viagens/paris.webp" type="image/webp"><img src="/assets/viagens/paris.jpg" alt="Viaje para Paris" width="800" height="500" loading="lazy"></picture><span class="hd-txt"><span class="hd-pais">França</span><span class="hd-nome">Viaje para Paris</span></span></a>
+  </div>
+  <div class="hd-acts">
+    <a class="btn-primary" href="/viagens/">Ver destinos →</a>
+    <a class="hd-wa" href="https://wa.me/5511910214133?text=Ol%C3%A1%2C%20OND!%20Quero%20comprar%20uma%20viagem.%20Vim%20pelo%20site." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Comprar pelo WhatsApp</a>
+  </div>
+</section>
+
 <!-- COMO FUNCIONA + EXEMPLO INTERATIVO (mesclados) -->
 <section class="roteiro" id="como-funciona">
   <div class="roteiro-inner">
