@@ -707,7 +707,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <ul>
         <li><a href="agencias.html" class="footer-home">← Para agências</a></li>
         <li><a href="index.html">Home OND</a></li>
-        <li><a href="/viagens/">Destinos</a></li>
+        <li><a href="/viagens/" onclick="if(window.openGlobe){openGlobe(event)}">Destinos</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -747,6 +747,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 })
 </script>
 <script src="/assets/vai-widget.js" defer></script>
+<script src="/assets/globe.js" defer></script>
 <script src="/assets/analytics.js" defer></script>
 </body>
 </html>

@@ -19,6 +19,13 @@
 
   var MASK='///n//z///w/L//4f4f//8D/gf///AA/A////wAAMA//f/8AAAwAE/f/8AAACAAAfP/4AAAAAAAAIAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAQAAAAAAOAAAAAAAAAAAAADAAAAAAA4AAAAAAAAAAAACAQAAAAAAHwAAAAAAAAAAAAAAAAAAAAAD+AAAAAAAAAAAABQAwAAAAAAD8AAAAAAAAAAAAA8AAAAAAAAAf4AAAAEAAAAAAYD8AAAAAAAAAP8AAAADwAAAAAHz/gAAAAAAAAA/4AAAAPwAAAAAP//gAAAAAAAAAf+AAAAH8AAAAAD//8AAAAAAAAAB/4AAAAf4AAAAAH//4AAAAAAAAAB/8AAAAP/GAAAAB//+AAAAAAAAAAP/8AAAA/8YAAAAD//wCAAAAAAAAAP/8AAAB/4MAAAAAf/4AAAAAAAAAAH//AAAAf/DgAAAAB/8AAYAAAAAAAB//8AAAB//GAAAAAD+YAAAAAAAAAAD//8AAAB//iAAAAAAuIAAAAAAAAAAB///AAAAf/wAAAAAABAAAAAAAAAAAA///4AAAH/+AAAAAAAACAAAAAAAAAAH///gAAAf/wAAAAAYAHQAAAAAAAAAAf///AAAB//AAAAACAAPQAAAAAAAAAA///4AAAD//AAAAAILA+IAAAAAAAAAA///AAAAH//gAAAAZ6BQAAAAAAAAAAA//4AAAAH//wAAAAx6AAAAAAAAAAAAAf/4AAAAH//4AAAAo4AAAAAAAAAAAAAP/4AAAAH//8AAABQYAAAAAAAAAAAAAP/gAAB+///8AAAAgIAAAAAAAAAAAAC/4AAAP////4AAgEAGAAAAAAAAAAAAh/AAAB/////gAYAiCgAAAAAAAAAAAMEAAAAf////EAHABwEAAAAAAAAAAAOAAAAAP////YADgD4EAAAAAAAAAABYAAAAAP///+eAHgXwAAAAAAAAAAAfwQgAAA////z+AfB+BAAAAAAAAAAPmGgAAAP///5/gPw/QAAAAAAAAAAHgEAAAAP///7/w/9/wAAAAAAAAAAeAAAAAA////f8P///oAAAAAAAAAfgAAAAAP///fz////wAAAAAAAAC/AgAAAAf//9+/////AAAAAAAAAv/YAAAAD/////////gAAAAAAAB//4AAAAH/3D/////+IAAAAAAAf//AAAAB/AB/////8MAAAAAAD//+AAAAB8AP/////EYAAAAAB//+AAAAODL/n///8QgAAAAAP//4AAADwe/z///+4QAAAAAf//8AAAPicmP////AAAAAAH//9AAAD14d/////IAAAAB///wAAA/+ef////AAAAAD//+YAAf///////gAAAAf//4gAAf//////+AAAAH/+/gAHf//////wgAAH//fwACH//////jABAf/z4AAjP////8CACB/8PAAAT////+CAc//hgAAOP////5Af//CDAB3/////YH//TGEDf////////keYHv////n/rs8Af////jy65+AwP//AA5x8AE/5gARB8AIcAAHj4ARiACXxgAAAfECAA8AAAAAAAAA';
   var STEP=2, LAT_MAX=88, RAD=Math.PI/180, TAU=Math.PI*2;
+  /* cidades que tem ficha no catalogo /viagens/ */
+  var CAT={'Rio de Janeiro':'rio-de-janeiro','Natal':'natal','Maceió':'maceio','Foz do Iguaçu':'foz-do-iguacu','Salvador':'salvador',
+    'Florianópolis':'florianopolis','Gramado':'gramado','Barreirinhas':'lencois-maranhenses','Santo Amaro do Maranhão':'lencois-maranhenses',
+    'Buenos Aires':'buenos-aires','Bariloche':'bariloche','Santiago':'santiago','Puerto Natales':'patagonia','El Calafate':'patagonia',
+    'El Chaltén':'patagonia','Cusco':'machu-picchu','Cancún':'cancun','Orlando':'orlando','Nova Iorque':'nova-york','Lisboa':'lisboa',
+    'Paris':'paris','Roma':'roma','Tóquio':'japao','Quioto':'japao','Osaka':'japao'};
+  var WA_NUM='5511910214133';
   var UNS='https://images.unsplash.com/', Q='?w=600&q=70&auto=format';
 
   /* fotos conferidas uma a uma (as do app clone vinham 4 quebradas) */
@@ -247,6 +254,7 @@
     +'font-size:.88rem;font-weight:700;text-decoration:none;border:none;cursor:pointer;width:100%;font-family:inherit;'
     +'transition:background .2s,transform .15s}'
   +'.gl-btn:hover{background:var(--purple-light,#9d6fff);transform:translateY(-1px)}'
+  +'.gl-btn.wa{background:#25D366;color:#062b14;font-weight:800}.gl-btn.wa:hover{background:#2ee070}'
   /* link secundário (roteiro do blog, quando existe) */
   +'.gl-btn2{display:block;text-align:center;margin-top:10px;color:var(--purple-light,#9d6fff);'
     +'font-size:.82rem;font-weight:600;text-decoration:none}'
@@ -298,7 +306,7 @@
     p.i=pi;
     p.cities.forEach(function(c,ci){
       c.p=p; c.pi=pi; c.ci=ci;
-      c.img=IMG[c.n]||null; c.href=POST[c.n]||null;
+      c.cat=CAT[c.n]||null; c.img=IMG[c.n]||(c.cat?'/assets/viagens/'+c.cat+'.jpg':null); c.href=POST[c.n]||null;
       CITIES.push(c);
     });
   });
@@ -696,12 +704,18 @@
     elD.textContent=c.d||('Monte seu roteiro em '+c.n+' com o OND vAI: o que fazer, em que ordem e quanto custa.');
     elKm.textContent=ME?('A '+fmtKm(haversine(ME.lat,ME.lon,c.lat,c.lon))+' de você'):'';
     setBubble(c.n, p.n, p.cc);
-    /* CTA principal: montar a viagem no OND vAI -> seletor iOS/Android/Web */
-    elCta.textContent='Montar viagem com OND vAI'; elCta.href='#';
-    elCta.onclick=function(ev){ ev.preventDefault(); openTrip(c.n, p.cc) };
-    /* link secundário só quando há roteiro publicado no blog */
-    if(c.href){ elRot.textContent='Ver roteiro de '+c.n+' →'; elRot.href=c.href; elRot.style.display='' }
-    else elRot.style.display='none';
+    /* CTA principal: comprar a viagem com o OND pelo WhatsApp */
+    elCta.className='gl-btn wa'; elCta.textContent='Quero comprar essa viagem';
+    elCta.href='https://wa.me/'+WA_NUM+'?text='+encodeURIComponent('Olá, OND! Quero comprar uma viagem para '+c.n+' ('+p.n+'). Vi no globo de destinos do site.');
+    elCta.target='_blank'; elCta.rel='noopener';
+    elCta.onclick=function(){ if(window.gtag) gtag('event','whatsapp_click',{destino:c.n,pagina:'globo'}) };
+    /* secundário: ficha do catálogo > roteiro do blog > montar no OND vAI */
+    elRot.style.display=''; elRot.removeAttribute('target'); elRot.onclick=null;
+    if(c.cat){ elRot.textContent='Ver detalhes da viagem →'; elRot.href='/viagens/#'+c.cat;
+      elRot.onclick=function(){ closeGlobe() } }
+    else if(c.href){ elRot.textContent='Ver roteiro de '+c.n+' →'; elRot.href=c.href }
+    else { elRot.textContent='Planejar grátis no OND vAI'; elRot.href='#';
+      elRot.onclick=function(ev){ ev.preventDefault(); openTrip(c.n, p.cc) } }
     hideSugs(); elInput.value='';
     flyTo(c.lat,c.lon,3.2);
   }

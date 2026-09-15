@@ -189,7 +189,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </a>
   <nav><ul class="header-nav">
     <li><a href="/index.html#como-funciona">Como funciona</a></li>
-    <li><a href="/viagens/">Destinos</a></li>
+    <li><a href="/viagens/" onclick="if(window.openGlobe){openGlobe(event)}">Destinos</a></li>
     <li><a href="/blog.html" class="nav-active">Blog</a></li>
     <li><a href="#" onclick="openContact(event)">Contato</a></li>
     <li><a href="/agencias.html" class="nav-agencias">Para Agências →</a></li>
@@ -201,7 +201,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
 <nav class="mobile-nav" id="mobileNav">
   <a href="/index.html#como-funciona" onclick="closeMenu()">Como funciona</a>
-  <a href="/viagens/" onclick="closeMenu()">Destinos</a>
+  <a href="/viagens/" onclick="closeMenu();if(window.openGlobe){openGlobe(event)}">Destinos</a>
   <a href="/blog.html" onclick="closeMenu()">Blog</a>
   <a href="#" onclick="openContact(event);closeMenu()">Contato</a>
   <a href="/agencias.html" onclick="closeMenu()" style="color:#0066ff;font-weight:600">Para Agências →</a>
@@ -287,7 +287,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       <ul>
         <li><a href="https://pci.jotform.com/form/252517268656062" target="_blank" rel="noopener">Para agências</a></li>
         <li><a href="https://pci.jotform.com/form/252517268656062" target="_blank" rel="noopener">Para hotéis</a></li>
-        <li><a href="/viagens/">Destinos</a></li>
+        <li><a href="/viagens/" onclick="if(window.openGlobe){openGlobe(event)}">Destinos</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -324,6 +324,7 @@ document.addEventListener('click',function(e){
 <script src="/assets/contact.js" defer></script>
 <script src="/assets/app-modal.js" defer></script>
 <script src="/assets/vai-widget.js" defer></script>
+<script src="/assets/globe.js" defer></script>
 <script src="/assets/analytics.js" defer></script>
 </body>
 </html>
