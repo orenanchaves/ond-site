@@ -316,7 +316,7 @@ def build_article(p, cs, cover, cat):
       f'  <div class="art-cover">{img_tag(cover, p.get("coverAlt",""), "eager")}</div>{credit_html}\n'
       f'  <div class="prose">\n{prose}\n  </div>\n{sim_html}{faq_html}'
       f'  <div class="art-cta">\n'
-      f'    <h3>Do sonho à viagem comprada</h3>\n'
+      f'    <h3>Converse, planeje e viaje para onde quiser</h3>\n'
       f'    <p>Pesquise preços e planeje o roteiro de graça no OND vAI. Na hora de comprar, passagens, hospedagem e passeios estão num lugar só, com o OND, agência cadastrada no Cadastur.</p>\n'
       f'    <div class="art-cta-btns">\n'
       f'      <a href="/viagens/" class="btn-primary">Comprar minha viagem →</a>\n'
