@@ -126,24 +126,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .hero-image::before{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:380px;height:380px;background:radial-gradient(circle,color-mix(in srgb, var(--purple) 20%, transparent) 0%,transparent 65%)}
 .hero-image img{max-height:520px;width:auto;position:relative;z-index:1;filter:drop-shadow(0 0 48px color-mix(in srgb, var(--purple) 28%, transparent))}
 
-/* ── CONQUISTAS ── */
-.conquistas{background:var(--bg);padding:72px 5%;border-bottom:1px solid var(--border)}
-.conquistas-inner{max-width:1280px;margin:0 auto}
-.conquistas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-top:40px}
-.conquista-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 20px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
-.conquista-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0}
-.conquista-card.green::before{background:var(--green)}
-.conquista-card.purple::before{background:var(--purple)}
-.conquista-card:hover{border-color:color-mix(in srgb, var(--purple) 30%, transparent);transform:translateY(-3px)}
-.conquista-badge{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:14px;letter-spacing:.04em;text-transform:uppercase}
-.conquista-badge.green{background:var(--green-dim);color:var(--green);border:1px solid color-mix(in srgb, var(--green) 25%, transparent)}
-.conquista-badge.purple{background:var(--purple-dim);color:var(--purple-light);border:1px solid color-mix(in srgb, var(--purple) 25%, transparent)}
-.conquista-badge-dot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:blink 2s infinite}
-.conquista-logo{font-size:1.6rem;margin-bottom:10px}
-.conquista-title{font-size:1rem;font-weight:800;margin-bottom:6px;line-height:1.2}
-.conquista-desc{font-size:.83rem;color:var(--muted);line-height:1.6}
-.conquista-meta{font-size:.72rem;color:var(--muted2);margin-top:12px;padding-top:10px;border-top:1px solid var(--border)}
-
 /* ── STATS BAR ── */
 .stats{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:24px 5%;display:flex;justify-content:center;gap:0;flex-wrap:wrap}
 .stat{text-align:center;padding:8px 36px;border-right:1px solid var(--border)}
@@ -282,7 +264,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
-  .conquistas-grid{grid-template-columns:1fr 1fr}
   .header-nav{display:none}.header-menu-btn{display:block}
   .hero{grid-template-columns:1fr;padding:48px 5% 40px;min-height:auto;gap:28px}
   .hero-image{order:-1}.hero-image img{max-height:300px}
@@ -297,7 +278,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   .stat{padding:8px 20px}
 }
 @media(max-width:600px){
-  .conquistas-grid{grid-template-columns:1fr}
   .features-grid{grid-template-columns:1fr}.b2b-cards{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr}.arco-steps{grid-template-columns:1fr}
   .hero-app-btns{flex-direction:column}.app-store-btn{width:100%;max-width:240px}
@@ -755,60 +735,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <div class="feature-card"><div class="feature-icon">💰</div><h3 class="feature-title">Expense tracking</h3><p class="feature-desc">Track expenses in real time during the trip. Estimated vs actual, by activity and category.</p></div>
     <div class="feature-card"><div class="feature-icon">🌍</div><h3 class="feature-title">Destination info</h3><p class="feature-desc">Visa, language, currency, weather and local customs, everything you need to know before you board.</p></div>
     <div class="feature-card"><div class="feature-icon">📁</div><h3 class="feature-title">Organized documents</h3><p class="feature-desc">Tickets, vouchers and passes attached to the itinerary. No digging through e-mail at the wrong moment.</p></div>
-  </div>
-</section>
-
-<!-- CONQUISTAS -->
-<section class="conquistas">
-  <div class="conquistas-inner">
-    <div class="section-header centered">
-      <span class="section-label">Market-validated</span>
-      <h2 class="section-title">Pitches won.<br>Partnerships closed.</h2>
-      <p class="section-sub">OND isn't just an idea, it's a platform approved by Brazil's largest tourism networks and marketplaces.</p>
-    </div>
-    <div class="conquistas-grid">
-
-      <div class="conquista-card green">
-        <div class="conquista-badge green"><span class="conquista-badge-dot"></span>Registered</div>
-        <div class="conquista-logo">🏛️</div>
-        <div class="conquista-title">Travel agency · Cadastur</div>
-        <p class="conquista-desc">OND is a travel agency registered with Cadastur, the official registry of Brazil's Ministry of Tourism: you can book your trip with us, with a verifiable CNPJ and registration.</p>
-        <div class="conquista-meta">Cadastur 39.360.492/0001-61 · valid until Sep 2028</div>
-      </div>
-
-      <div class="conquista-card green">
-        <div class="conquista-badge green"><span class="conquista-badge-dot"></span>Approved</div>
-        <div class="conquista-logo">🏆</div>
-        <div class="conquista-title">BeFly Leadership Network</div>
-        <p class="conquista-desc">Presented to the board of BeFly, one of Brazil's largest agency networks. Technical and strategic approval for integration with franchises and corporate travel.</p>
-        <div class="conquista-meta">Pitch Day · Smart Tourism Challenge · 2026</div>
-      </div>
-
-      <div class="conquista-card green">
-        <div class="conquista-badge green"><span class="conquista-badge-dot"></span>Active partnership</div>
-        <div class="conquista-logo">🌐</div>
-        <div class="conquista-title">Booking.com</div>
-        <p class="conquista-desc">Approved affiliate on Booking.com. Itineraries generated by OND now include direct hotel booking links with commission tracking.</p>
-        <div class="conquista-meta">Approved affiliate · Jun 2026</div>
-      </div>
-
-      <div class="conquista-card purple">
-        <div class="conquista-badge purple"><span class="conquista-badge-dot"></span>Active integration</div>
-        <div class="conquista-logo">🎟️</div>
-        <div class="conquista-title">GetYourGuide</div>
-        <p class="conquista-desc">Integration with the world's largest marketplace of tours and experiences. OND itineraries include activity suggestions with direct booking.</p>
-        <div class="conquista-meta">Global marketplace of experiences</div>
-      </div>
-
-      <div class="conquista-card purple">
-        <div class="conquista-badge purple"><span class="conquista-badge-dot"></span>Selected</div>
-        <div class="conquista-logo">🚀</div>
-        <div class="conquista-title">Sebrae For Startups</div>
-        <p class="conquista-desc">OND selected for the Sebrae For Startups program, acceleration with expert mentoring, access to a partner network and support to scale operations in the travel market.</p>
-        <div class="conquista-meta">Sebrae · Startup Acceleration Program</div>
-      </div>
-
-    </div>
   </div>
 </section>
 

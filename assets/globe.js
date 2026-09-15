@@ -44,13 +44,6 @@
   var PLAY='https://play.google.com/store/apps/details?id=com.agamatec.ond';
   var APPSTORE='https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427';
   var WEB='https://web.ondviajar.com.br/';
-  var BRANCH_KEY='key_live_ozugiBzv6sFYSdQEuUSBdimbyqduX09m', PARTNER_KEY='ond_parceiro';
-  var pageParams=new URLSearchParams(location.search);
-  var partner=pageParams.get('partner');
-  try{
-    if(partner) sessionStorage.setItem(PARTNER_KEY, partner); else partner=sessionStorage.getItem(PARTNER_KEY);
-  }catch(storageError){}
-  var branchLinks={};
   var IC_ANDROID='<svg viewBox="0 0 24 24" width="24" height="24" style="fill:#3DDC84"><path d="M17.523 15.34c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m-11.046 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1m11.405-6.02l1.997-3.46a.42.42 0 00-.72-.42l-2.02 3.5A12.3 12.3 0 0012 7.85c-1.85 0-3.59.39-5.14 1.1L4.84 5.45a.42.42 0 00-.72.42l2 3.46C2.69 11.19.34 14.66 0 18.76h24c-.34-4.1-2.69-7.57-6.12-9.44"/></svg>';
   var IC_APPLE='<svg viewBox="0 0 24 24" width="23" height="23" style="fill:currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>';
   var IC_WEB='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 4 9 15 15 0 0 1-4 9 15 15 0 0 1-4-9 15 15 0 0 1 4-9z"/></svg>';
@@ -687,38 +680,15 @@
   function openTrip(city,country){
     elTripTitle.innerHTML=flag(country.cc)+'<span>Montar viagem para '+city.n+'</span>';
     elTripSub.textContent='Abra o OND vAI e monte seu roteiro em '+city.n+', escolha por onde começar.';
-    var deepLinkParams=new URLSearchParams();
-    if(city.u) deepLinkParams.set('city',city.u);
-    if(partner) deepLinkParams.set('partner',partner);
-    var deepLinkPath=deepLinkParams.toString()?'/ond-vai?'+deepLinkParams.toString():'';
+    var appLinks=window.ondAppLinks, deepLinkPath=appLinks.deepLinkPathFor(city.u);
     elTripModal.dataset.path=deepLinkPath;
-    elTripWeb.href=deepLinkPath?'https://web.ondviajar.com.br'+deepLinkPath:WEB;
+    elTripWeb.href=appLinks.webLinkFor(deepLinkPath);
     elTripIos.href=APPSTORE; elTripAndroid.href=PLAY;
-    if(deepLinkPath) resolveBranchLink(deepLinkPath);
-    elTripOv.classList.add('on'); elTripModal.classList.add('on');
-  }
-  function resolveBranchLink(deepLinkPath){
-    function applyLink(branchUrl){
+    if(deepLinkPath) appLinks.resolveStoreLink(deepLinkPath,function(branchUrl){
       if(elTripModal.dataset.path!==deepLinkPath) return;
       elTripIos.href=branchUrl; elTripAndroid.href=branchUrl;
-    }
-    if(branchLinks[deepLinkPath]){ applyLink(branchLinks[deepLinkPath]); return }
-    fetch('https://api2.branch.io/v1/url',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        branch_key:BRANCH_KEY, channel:'site', feature:'globo_destinos', campaign:partner||'',
-        data:{
-          '$deeplink_path':deepLinkPath,
-          gclid:pageParams.get('gclid')||'', gad_campaignid:pageParams.get('gad_campaignid')||'',
-          '$android_url':PLAY, '$ios_url':APPSTORE, '$fallback_url':'https://ondviajar.com.br/'
-        }
-      })
-    }).then(function(response){ return response.json() }).then(function(result){
-      if(!result||!result.url) return;
-      branchLinks[deepLinkPath]=result.url;
-      applyLink(result.url);
-    }).catch(function(){});
+    });
+    elTripOv.classList.add('on'); elTripModal.classList.add('on');
   }
   function closeTrip(){ elTripOv.classList.remove('on'); elTripModal.classList.remove('on') }
   elTripOv.addEventListener('click',closeTrip);
