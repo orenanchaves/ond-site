@@ -8,7 +8,7 @@
   var APPSTORE = 'https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427';
   var WEB = 'https://web.ondviajar.com.br/';
   var WA = 'https://wa.me/5511910214133';
-  var MAIL = 'renan@agamatec.com';
+  var MAIL = 'renan@ondviajar.com.br';
   var CAL = 'https://calendly.com/renanfr1047/30min';
   // contexto: na LP de agencias/hoteis o vAI responde como B2B (propostas, reunião)
   var B2B = /\/(agencias|hoteis)/.test(location.pathname) || !!document.querySelector('link[href*="ond-b2b"]');
