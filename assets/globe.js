@@ -209,7 +209,7 @@
   /* mobile: globo em cima, painel embaixo */
   +'@media(max-width:820px){'
     +'.gl-modal{flex-direction:column;height:min(680px, calc(100vh - 40px))}'
-    +'.gl-stage{flex:0 0 44%}'
+    +'.gl-stage{flex:0 0 50%}'
     +'.gl-panel{width:auto;border-left:none;border-top:1px solid var(--border,#2a2a3a);flex:1;padding:18px 16px}'
     +'.gl-card-img{height:108px}'
     +'.gl-searchwrap{left:12px;right:12px;bottom:10px}'
@@ -421,7 +421,7 @@
      zoomTo anima; ao abrir um país aproxima, ao voltar pro mundo afasta. */
   var zoom=1, zoomTo=1, ZMIN=1, ZMAX=5;
   var mode='world', selP=-1, selC=-1, hover=-1;
-  var drag=false, lastX=0, lastY=0, moved=0, fly=null, t0=0, ME=null;
+  var drag=false, lastX=0, lastY=0, moved=0, fly=null, t0=0, ME=null, LR=0, LCX=0, LCY=0;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var SPIN=reduce?0:0.0022;
   var hit=[];
@@ -458,7 +458,11 @@
 
     zoom+=(zoomTo-zoom)*0.12;                    // aproxima suave
     if(Math.abs(zoomTo-zoom)<0.002) zoom=zoomTo;
-    var R=Math.min(w,h)*0.40*zoom, cx=w/2, cy=h/2;
+    /* a barra de busca fica por cima do palco: o mundo inteiro cabe no espaço acima dela */
+    var sw=cv.parentNode.querySelector('.gl-searchwrap'), livre=h;
+    if(sw && sw.offsetTop>0) livre=Math.max(140, sw.offsetTop-6);
+    var R=Math.min(w, livre-24)*0.44*zoom, cx=w/2, cy=livre/2+6;
+    LR=R; LCX=cx; LCY=cy;
     ctx.clearRect(0,0,w,h);
 
     var g=ctx.createRadialGradient(cx-R*0.3,cy-R*0.35,R*0.05,cx,cy,R);
@@ -565,8 +569,13 @@
   }
 
   /* ── interação ── */
-  function pick(ev){
-    var r=cv.getBoundingClientRect(), mx=ev.clientX-r.left, my=ev.clientY-r.top, best=-1, bd=18*18;
+  function pick(ev, solto){
+    var r=cv.getBoundingClientRect(), mx=ev.clientX-r.left, my=ev.clientY-r.top, best=-1;
+    var toque=ev.pointerType==='touch', raio=toque?30:18, bd=raio*raio;
+    if(solto){                                   /* tocou dentro do globo: vale o pin visível mais perto */
+      var dc=(mx-LCX)*(mx-LCX)+(my-LCY)*(my-LCY);
+      if(dc<=LR*LR){ var lim=Math.max(70, LR*0.5); bd=lim*lim }
+    }
     for(var i=0;i<hit.length;i+=3){
       var dx=hit[i]-mx, dy=hit[i+1]-my, d2=dx*dx+dy*dy;
       if(d2<bd){ bd=d2; best=hit[i+2] }
@@ -588,8 +597,8 @@
   });
   cv.addEventListener('pointerup',function(e){
     drag=false; cv.classList.remove('grabbing');
-    if(moved>=5) return;                       // arrastou, não clicou
-    var i=pick(e);
+    if(moved>=(e.pointerType==='touch'?14:5)) return;   // arrastou, não clicou
+    var i=pick(e, true);
     if(i<0) return;
     if(mode==='world') openCountry(i); else openCity(selP, i);
   });
