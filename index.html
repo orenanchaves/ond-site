@@ -644,6 +644,56 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
 </section>
 
+<!-- COTACAO PELO WHATSAPP + CONFIANCA -->
+<section class="cot" id="cotar" style="margin-top:-30px;margin-bottom:56px">
+  <style>
+  .cot{padding:0 5%;margin:0 auto;max-width:1180px}
+  .cot-box{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:28px;box-shadow:0 18px 60px rgba(0,0,0,.25)}
+  .cot-head{display:flex;align-items:flex-end;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;margin-bottom:18px}
+  .cot-head h2{font-size:clamp(1.35rem,2.6vw,1.8rem);font-weight:800;letter-spacing:-.02em;line-height:1.2}
+  .cot-head p{color:var(--muted);font-size:.95rem;max-width:520px}
+  .cot-form{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr auto;gap:10px;align-items:end}
+  .cot-f{display:flex;flex-direction:column;gap:6px;min-width:0}
+  .cot-f span{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .cot-f input,.cot-f select{width:100%;font:inherit;font-size:.97rem;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:13px 14px;outline:none}
+  .cot-f input:focus,.cot-f select:focus{border-color:var(--purple)}
+  .cot-go{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#062b14;border:none;border-radius:14px;padding:14px 20px;font:inherit;font-weight:800;font-size:.97rem;cursor:pointer;white-space:nowrap}
+  .cot-go:hover{filter:brightness(1.06)}
+  .cot-go svg{width:19px;height:19px}
+  .cot-atalhos{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;align-items:center}
+  .cot-atalhos>span{font-size:.85rem;color:var(--muted);margin-right:2px}
+  .cot-atalhos button{font:inherit;font-size:.86rem;font-weight:600;color:var(--text);background:transparent;border:1px solid var(--border);border-radius:50px;padding:8px 14px;cursor:pointer}
+  .cot-atalhos button:hover{border-color:#25D366}
+  .conf{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 0}
+  .conf li{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:12px 14px;font-size:.86rem;line-height:1.4;color:var(--muted)}
+  .conf li b{display:block;color:var(--text);font-size:.9rem}
+  .conf li i{font-style:normal;font-size:1.2rem;line-height:1}
+  .conf a{color:var(--purple-light);font-weight:600}
+  @media(max-width:980px){.cot-form{grid-template-columns:1fr 1fr}.cot-go{grid-column:1/-1}.conf{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.cot-box{padding:20px 16px}.cot-form{grid-template-columns:1fr}.conf{grid-template-columns:1fr}}
+  </style>
+  <div class="cot-box">
+    <div class="cot-head">
+      <h2>Cote sua viagem com uma pessoa do OND</h2>
+      <p>Sem cadastro. O preço é sob consulta: a gente cota com as suas datas e te responde no WhatsApp.</p>
+    </div>
+    <form class="cot-form" action="https://wa.me/5511910214133" target="_blank">
+      <label class="cot-f"><span>Pra onde?</span><input name="destino" placeholder="Ex.: Maceió, Europa, ainda não sei" autocomplete="off"></label>
+      <label class="cot-f"><span>Quando?</span><input name="quando" placeholder="Ex.: julho, Réveillon" autocomplete="off"></label>
+      <label class="cot-f"><span>Quem vai?</span><select name="pessoas"><option value="">Escolha</option><option>1 pessoa</option><option selected>2 pessoas</option><option>3 pessoas</option><option>4 pessoas</option><option>5 ou mais pessoas</option><option>Família com crianças</option></select></label>
+      <label class="cot-f"><span>Saindo de</span><input name="saida" placeholder="Ex.: São Paulo" autocomplete="address-level2"></label>
+      <button class="cot-go" type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Cotar no WhatsApp</button>
+    </form>
+    <div class="cot-atalhos"><span>Ou comece por aqui:</span><button type="button" data-cot-msg="Olá, OND! Tenho um orçamento de R$ ____ e quero ideias de viagem. Me ajudam?" data-cot-origem="Tenho um orçamento">💰 Tenho um orçamento</button><button type="button" data-cot-msg="Olá, OND! Quero viajar e ainda não sei pra onde. Me ajudam a escolher?" data-cot-origem="Ainda não sei pra onde">🌎 Ainda não sei pra onde</button><button type="button" data-cot-msg="Olá, OND! Vi um post de um lugar e quero ir. Vou mandar aqui pra vocês cotarem." data-cot-origem="Vi um post e quero ir">📱 Vi um post e quero ir</button><button type="button" data-cot-msg="Olá, OND! Já tenho as datas da viagem e falta escolher o destino. Me ajudam?" data-cot-origem="Tenho as datas, falta o destino">📅 Tenho as datas, falta o destino</button></div>
+  </div>
+  <ul class="conf">
+    <li><i>🏛️</i><div><b>Agência no Cadastur</b>Cadastro oficial do Ministério do Turismo. <a href="https://firebasestorage.googleapis.com/v0/b/agama-tec.appspot.com/o/documents%2Fcertificado-cadastur.pdf?alt=media&amp;token=6208b999-b326-4a7f-b89d-0f682cf3a2e3" target="_blank" rel="noopener">Ver certificado</a></div></li>
+    <li><i>🧾</i><div><b>CNPJ 39.360.492/0001-61</b>Empresa brasileira, com dados públicos pra consulta.</div></li>
+    <li><i>✈️</i><div><b>Emissão na companhia e no hotel</b>Você recebe o localizador do voo e a confirmação da hospedagem.</div></li>
+    <li><i>🔒</i><div><b>WhatsApp oficial</b>(11) 91021-4133. Desconfie de outros números usando o nome OND.</div></li>
+  </ul>
+</section>
+
 <!-- STATS -->
 <div class="stats">
   <div class="stat"><div class="stat-num"><em>6h</em> → <span style="color:var(--green)">5min</span></div><div class="stat-label">tempo de planejamento</div></div>
@@ -689,6 +739,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <a class="hd-card" href="/viagens/#lisboa"><picture><source srcset="/assets/viagens/lisboa.webp" type="image/webp"><img src="/assets/viagens/lisboa.jpg" alt="Viaje para Lisboa" width="800" height="500" loading="lazy"></picture><span class="hd-txt"><span class="hd-pais">Portugal</span><span class="hd-nome">Viaje para Lisboa</span></span></a>
     <a class="hd-card" href="/viagens/#paris"><picture><source srcset="/assets/viagens/paris.webp" type="image/webp"><img src="/assets/viagens/paris.jpg" alt="Viaje para Paris" width="800" height="500" loading="lazy"></picture><span class="hd-txt"><span class="hd-pais">França</span><span class="hd-nome">Viaje para Paris</span></span></a>
   </div>
+  <nav class="hd-oc" aria-label="Viagens por ocasião"><span>Por ocasião:</span><a href="/viagens/#ocasiao-lua-de-mel">💍 Lua de mel</a><a href="/viagens/#ocasiao-familia">👨‍👩‍👧 Família com crianças</a><a href="/viagens/#ocasiao-primeira-internacional">🛂 Primeira viagem internacional</a><a href="/viagens/#ocasiao-neve">❄️ Neve e frio</a><a href="/viagens/#ocasiao-natureza">🏞️ Natureza e aventura</a><a href="/viagens/#ocasiao-amigos">🎉 Viagem com amigos</a></nav>
+  <style>.hd-oc{display:flex;gap:8px;overflow-x:auto;padding:4px 5% 10px;align-items:center;scrollbar-width:none}.hd-oc span{font-size:.85rem;color:var(--muted);white-space:nowrap}.hd-oc a{flex:0 0 auto;font-size:.85rem;font-weight:600;color:var(--text);text-decoration:none;border:1px solid var(--border);border-radius:50px;padding:7px 13px}.hd-oc a:hover{border-color:var(--purple)}@media(min-width:900px){.hd-oc{justify-content:center;flex-wrap:wrap}}</style>
   <div class="hd-acts">
     <a class="btn-primary" href="/viagens/" onclick="if(window.openGlobe){openGlobe(event)}">Explorar destinos no globo →</a>
     <a class="hd-wa" href="https://wa.me/5511910214133?text=Ol%C3%A1%2C%20OND!%20Quero%20comprar%20uma%20viagem.%20Vim%20pelo%20site." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Comprar pelo WhatsApp</a>
@@ -756,6 +808,64 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       </div>
     </div>
     <div class="duo-juntos"><span>🤝</span><span><strong>Melhor juntos:</strong> planeje de graça no app e chame a agência quando quiser comprar ou precisar de uma pessoa do outro lado.</span></div>
+  </div>
+</section>
+
+<!-- SUPORTE HUMANO: o que a agencia resolve e quem cuida -->
+<section class="sup" id="suporte">
+  <style>
+  .sup{padding:80px 5%;border-bottom:1px solid var(--border)}
+  .sup-inner{max-width:1180px;margin:0 auto}
+  .sup .section-header{margin-bottom:34px}
+  .sup-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .sup-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px}
+  .sup-card i{font-style:normal;font-size:1.6rem;display:block;margin-bottom:10px}
+  .sup-card h3{font-size:1.05rem;font-weight:800;margin-bottom:6px}
+  .sup-card p{font-size:.92rem;color:var(--muted);line-height:1.55}
+  .sup-baixo{display:grid;grid-template-columns:1.1fr 1fr;gap:14px;margin-top:14px}
+  .sup-quem,.sup-oficial{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px}
+  .sup-quem h3,.sup-oficial h3{font-size:1.05rem;font-weight:800;margin-bottom:12px}
+  .sup-pessoas{display:flex;gap:18px;flex-wrap:wrap}
+  .sup-p{display:flex;align-items:center;gap:12px}
+  .sup-p img{width:56px;height:56px;border-radius:50%;object-fit:cover;background:var(--surface);border:2px solid #25D366}
+  .sup-p b{display:block;font-size:.95rem}
+  .sup-p span{font-size:.82rem;color:var(--muted)}
+  .sup-quem p,.sup-oficial p{font-size:.9rem;color:var(--muted);line-height:1.55;margin-top:12px}
+  .sup-oficial{border-color:color-mix(in srgb,#25D366 35%,var(--border))}
+  .sup-num{font-size:1.4rem;font-weight:800;color:var(--text);letter-spacing:-.01em}
+  .sup-wa{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#062b14;padding:12px 22px;border-radius:50px;font-weight:800;text-decoration:none;margin-top:14px}
+  .sup-wa svg{width:18px;height:18px}
+  @media(max-width:980px){.sup-grid{grid-template-columns:1fr 1fr}.sup-baixo{grid-template-columns:1fr}}
+  @media(max-width:560px){.sup-grid{grid-template-columns:1fr}.sup{padding:60px 5%}}
+  </style>
+  <div class="sup-inner">
+    <div class="section-header centered">
+      <span class="section-label">Suporte humano</span>
+      <h2 class="section-title">Deu imprevisto? Você fala com uma pessoa.</h2>
+      <p class="section-sub">Antes, durante e depois da viagem, pelo WhatsApp. É pra isso que existe uma agência.</p>
+    </div>
+    <div class="sup-grid">
+      <div class="sup-card"><i>✈️</i><h3>Voo cancelado ou atrasado</h3><p>A gente busca a alternativa com a companhia e reorganiza hotel e transfer.</p></div>
+      <div class="sup-card"><i>📅</i><h3>Mudança de datas</h3><p>Cuidamos da remarcação com a companhia e o hotel, dentro das regras de cada tarifa.</p></div>
+      <div class="sup-card"><i>🧳</i><h3>Bagagem extraviada</h3><p>Orientamos o registro no aeroporto e acompanhamos o caso com a companhia.</p></div>
+      <div class="sup-card"><i>🏨</i><h3>Problema no destino</h3><p>Hospedagem diferente do combinado ou passeio cancelado? Resolvemos com o fornecedor.</p></div>
+    </div>
+    <div class="sup-baixo">
+      <div class="sup-quem">
+        <h3>Quem está por trás do OND</h3>
+        <div class="sup-pessoas">
+          <div class="sup-p"><img src="https://static.wixstatic.com/media/689a94_70a214f635264fefa54218716b4d01af~mv2.png" alt="Renan Rodrigues, fundador do OND" loading="lazy"><div><b>Renan Rodrigues</b><span>Fundador</span></div></div>
+          <div class="sup-p"><img src="https://static.wixstatic.com/media/689a94_22dd2a8ea994432799caafb76ae9ff3e~mv2.png" alt="Renan Chaves, co-fundador do OND" loading="lazy"><div><b>Renan Chaves</b><span>Co-fundador</span></div></div>
+        </div>
+        <p>O OND é uma empresa brasileira, e os fundadores acompanham de perto a operação e o atendimento de cada viagem.</p>
+      </div>
+      <div class="sup-oficial">
+        <h3>🔒 Nosso canal oficial</h3>
+        <div class="sup-num">(11) 91021-4133</div>
+        <p>É o único WhatsApp de vendas e suporte do OND. Desconfie de outros números ou perfis usando o nosso nome.</p>
+        <a class="sup-wa" href="https://wa.me/5511910214133?text=Ol%C3%A1%2C%20OND!%20Quero%20falar%20com%20o%20atendimento.%20Vim%20pelo%20site." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Falar com o OND</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1303,6 +1413,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <script src="/assets/app-modal.js" defer></script>
 <script src="/assets/globe.js" defer></script>
 <script src="/assets/vai-widget.js" defer></script>
+<script src="/assets/cotar.js" defer></script>
 <script src="/assets/analytics.js" defer></script>
 <script>
 (function(){

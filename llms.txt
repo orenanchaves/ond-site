@@ -4,6 +4,7 @@
 
 ## Viajar com o OND
 - [Destinos nacionais e internacionais](https://ondviajar.com.br/viagens/): catálogo com os destinos mais procurados (Rio de Janeiro, Fernando de Noronha, Salvador, Porto de Galinhas, Maceió, Natal, Jericoacoara, Lençóis Maranhenses, Foz do Iguaçu, Bonito, Gramado, Florianópolis, Buenos Aires, Bariloche, Santiago, Patagônia, Machu Picchu, Cancún, Orlando, Nova York, Lisboa, Paris, Roma, Japão e Maldivas), com quantos dias ficar, melhor época, o que fazer e documentos.
+- [Quando viajar](https://ondviajar.com.br/viagens/quando-viajar/): melhor mês para cada destino do catálogo, de janeiro a dezembro.
 - [Planejar a viagem no OND vAI](https://web.ondviajar.com.br/): grátis, na web e nos apps Android e iOS.
 - [Página inicial](https://ondviajar.com.br/)
 - [Blog Vai para onde?](https://ondviajar.com.br/blog.html): roteiros e dicas de viagem.
