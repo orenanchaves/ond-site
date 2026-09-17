@@ -546,22 +546,22 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
     espanha:'https://images.unsplash.com/photo-1509840841025-9088ba78a826?w=600&q=70&auto=format'
   };
   var DESTS={
-    japao:{nome:'Japão',pais:'Ásia',flag:'🇯🇵',img:IMG.japao,preco:'R$ 18.900',dias:12,
+    japao:{nome:'Japão',pais:'Ásia',flag:'',img:IMG.japao,preco:'R$ 18.900',dias:12,
       rot:[['Dia 1-3','Tóquio','Shibuya, Shinjuku e a cultura pop'],['Dia 4-6','Kyoto','Templos, gueixas e o bambuzal'],['Dia 7-8','Fuji','Hakone e o Monte Fuji']],
       inc:['Voos de ida e volta','12 noites de hotel','Japan Rail Pass','Passeios guiados']},
-    maldivas:{nome:'Maldivas',pais:'Resort',flag:'🇲🇻',img:IMG.maldivas,preco:'R$ 24.500',dias:7,
+    maldivas:{nome:'Maldivas',pais:'Resort',flag:'',img:IMG.maldivas,preco:'R$ 24.500',dias:7,
       rot:[['Dia 1','Chegada','Traslado de hidroavião ao resort'],['Dia 2-6','Resort','Bangalô sobre a água, mergulho e spa'],['Dia 7','Retorno','Traslado e voo de volta']],
       inc:['Voos de ida e volta','7 noites all-inclusive','Traslado de hidroavião','Mergulho e spa']},
-    portugal:{nome:'Portugal',pais:'Europa',flag:'🇵🇹',img:IMG.portugal,preco:'R$ 9.800',dias:8,
+    portugal:{nome:'Portugal',pais:'Europa',flag:'',img:IMG.portugal,preco:'R$ 9.800',dias:8,
       rot:[['Dia 1-3','Lisboa','Alfama, Belém e Sintra'],['Dia 4-5','Porto','Ribeira e vale do Douro'],['Dia 6-7','Centro','Fátima e Coimbra']],
       inc:['Voos de ida e volta','7 noites de hotel','Carro alugado','Assessoria de visto/cidadania']},
-    italia:{nome:'Itália',pais:'Europa',flag:'🇮🇹',img:IMG.italia,preco:'R$ 12.400',dias:9,
+    italia:{nome:'Itália',pais:'Europa',flag:'',img:IMG.italia,preco:'R$ 12.400',dias:9,
       rot:[['Dia 1-3','Roma','Coliseu, Vaticano e Fontana di Trevi'],['Dia 4-5','Toscana','Florença e vinícolas'],['Dia 6-7','Veneza','Canais e Murano']],
       inc:['Voos de ida e volta','8 noites de hotel','Trem entre cidades','Passeios guiados']},
-    chile:{nome:'Chile',pais:'Am. do Sul',flag:'🇨🇱',img:IMG.chile,preco:'R$ 8.200',dias:8,
+    chile:{nome:'Chile',pais:'Am. do Sul',flag:'',img:IMG.chile,preco:'R$ 8.200',dias:8,
       rot:[['Dia 1-2','Santiago','Cidade e vinícolas'],['Dia 3-5','Atacama','Deserto e geysers'],['Dia 6-8','Patagônia','Torres del Paine']],
       inc:['Voos de ida e volta','7 noites de hotel','Traslados internos','Excursões']},
-    espanha:{nome:'Espanha',pais:'Europa',flag:'🇪🇸',img:IMG.espanha,preco:'R$ 10.600',dias:8,
+    espanha:{nome:'Espanha',pais:'Europa',flag:'',img:IMG.espanha,preco:'R$ 10.600',dias:8,
       rot:[['Dia 1-3','Madri','Museu do Prado e Toledo'],['Dia 4-6','Barcelona','Sagrada Família e Gaudí'],['Dia 7-8','Andaluzia','Sevilha e Granada']],
       inc:['Voos de ida e volta','7 noites de hotel','Trem AVE','Passeios']}
   };
@@ -578,7 +578,7 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
     if(screen==='destinos'){
       var cards=ORDER.map(function(k,i){var d=DESTS[k];
         return '<button class="dcard" data-k="'+k+'"><div class="ph" style="background-image:url('+d.img+')"></div><div class="in"><b>'+d.nome+'</b><span style="color:'+COLORS[i%3]+'">'+d.pais+'</span></div></button>';}).join('');
-      app.innerHTML=barTitle('OND vAI')+'<div class="ap-search">Vai pra ond? '+STAR.replace('<svg','<svg class="st"')+'</div><div class="ap-hint">👆 Toque num destino pra começar</div><div class="ap-h">Pra onde você quer ir?</div><div class="ap-grid">'+cards+'</div>';
+      app.innerHTML=barTitle('OND vAI')+'<div class="ap-search">Vai pra ond? '+STAR.replace('<svg','<svg class="st"')+'</div><div class="ap-hint">Toque num destino pra começar</div><div class="ap-h">Pra onde você quer ir?</div><div class="ap-grid">'+cards+'</div>';
       app.querySelectorAll('.dcard').forEach(function(b){ b.onclick=function(){ go('roteiro', b.getAttribute('data-k')); }; });
     }
     else if(screen==='roteiro'){
@@ -606,7 +606,7 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
       function opt(m,ic,t){return '<div class="co-opt '+(payMethod===m?'sel':'')+'" data-m="'+m+'"><span class="rd"></span>'+ic+' '+t+'</div>';}
       app.innerHTML=backBar(function(){go('pacote',id);},'Pagamento')+
         '<div class="co-sum"><div class="r"><span>'+d.nome+' · '+d.dias+' dias</span><span>'+d.preco+'</span></div><div class="r"><span>Agência</span><span>E ai Destino</span></div><div class="r tot"><span>Total</span><span>'+d.preco+'</span></div></div>'+
-        '<div class="co-pay"><div class="pl">Forma de pagamento</div>'+opt('pix','⚡','Pix (à vista)')+opt('cartao','💳','Cartão em até 12x')+'</div>'+
+        '<div class="co-pay"><div class="pl">Forma de pagamento</div>'+opt('pix','','Pix (à vista)')+opt('cartao','','Cartão em até 12x')+'</div>'+
         '<button class="ap-cta guide" id="coPay">Pagar '+d.preco+'</button>';
       app.querySelectorAll('.co-opt').forEach(function(o){ o.onclick=function(){ payMethod=o.getAttribute('data-m'); go('checkout',id); }; });
       app.querySelector('#coPay').onclick=function(){ go('ok', id); };
@@ -616,7 +616,7 @@ footer{text-align:center;padding:40px 22px;color:var(--muted);font-size:.82rem;b
       var d=DESTS[id];
       app.innerHTML='<div class="cf"><div class="cf-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>'+
         '<h3>Compra confirmada!</h3><p>Sua viagem pra '+d.flag+' '+d.nome+' com a E ai Destino está garantida. Ela já vai te chamar pra alinhar os detalhes.</p>'+
-        '<div class="cf-note">💰 <b>O repasse cai na conta da E ai Destino.</b> A venda é dela; o OND fica com a mensalidade + o spread.</div>'+
+        '<div class="cf-note"><svg class="ico" width="1em" height="1em" style="vertical-align:-.15em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg><b>O repasse cai na conta da E ai Destino.</b> A venda é dela; o OND fica com a mensalidade + o spread.</div>'+
         '<button class="ap-cta" id="okHome" style="width:100%;margin:0">Voltar ao início</button></div>';
       app.querySelector('#okHome').onclick=function(){ go('destinos'); };
       app.scrollTop=0;

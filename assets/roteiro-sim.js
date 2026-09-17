@@ -90,7 +90,7 @@
     +     '<span class="ttab loc">'+esc(cfg.flag)+' '+esc(cfg.dest)+'</span>'
     +     '<button class="ttab active" type="button" data-tab="geral">Visão geral</button>'
     +     '<button class="ttab" type="button" data-tab="det">Dia a dia</button>'
-    +     '<button class="ttab" type="button" data-tab="viagem">✈️ Viagem</button>'
+    +     '<button class="ttab" type="button" data-tab="viagem">Viagem</button>'
     +     '<button class="ttab" type="button" data-tab="fin">＄ Financeiro</button>'
     +   '</div>'
     +   '<div class="rmeta" id="rs-meta"></div>'
@@ -99,11 +99,11 @@
     +   '<div class="rpane" id="rs-viagem"></div>'
     +   '<div class="rpane" id="rs-fin"></div>'
     + '</div>'
-    + '<div class="rfoot">✨ Montado pelo <b style="color:#7f11f4">OND vAI</b> · <span class="g">PDF ✓</span> · '+cfg.days.length+' dias</div>'
+    + '<div class="rfoot">Montado pelo <b style="color:#7f11f4">OND vAI</b> · <span class="g">PDF ✓</span> · '+cfg.days.length+' dias</div>'
     + '<div class="rgen" id="rs-gen"><div class="rgen-star">'+SYM+'</div><div class="rgen-t">Montar meu roteiro</div><button class="rgen-play" id="rs-play" type="button">▶ Gerar com o OND vAI</button></div>'
     + '</div></div>'
     + '<div class="rcta"><p>Esse roteiro foi montado em segundos. No app você ajusta, salva em PDF e leva tudo na mão.</p>'
-    + '<button class="rcta-btn" type="button" onclick="if(window.openApp){openApp(event)}">📲 Baixar o app grátis</button></div>';
+    + '<button class="rcta-btn" type="button" onclick="if(window.openApp){openApp(event)}">Baixar o app grátis</button></div>';
 
   /* ---- render ---- */
   var el=function(i){return document.getElementById(i);};
@@ -114,7 +114,7 @@
   function actCard(a,n){
     var thumb=a.img?'<div class="ga-thumb" style="background-image:url(\''+IMG+a.img+'?w=120&q=60&auto=format\')"></div>':'';
     var star=a.rate?' <span class="ga-star">★ '+a.rate+'</span>':'';
-    var audio=a.img?'<span class="ga-audio">🎧</span>':'';
+    var audio=a.img?'<span class="ga-audio"><svg class="ico" width="1em" height="1em" style="vertical-align:-.15em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg></span>':'';
     return '<div class="ga-card">'+thumb+'<div class="ga-num">'+n+'</div><div><div class="ga-t">'+esc(a.t)+'</div><div class="ga-time">'+esc(a.time)+star+'</div></div>'+audio+'</div>';
   }
   geralEl.innerHTML=cfg.days.map(function(day,i){
@@ -126,8 +126,8 @@
   function detCard(a,n){
     var img=a.img?'<div class="dt-img" style="background-image:url(\''+IMG+a.img+'?w=280&q=60&auto=format\')"></div>':'';
     var star=a.rate?' <span class="ga-star">★ '+a.rate+'</span>':'';
-    var chegar=a.img?'<div class="comochegar"><span>Como chegar</span><div class="modes"><span>🚌</span><span>🚗</span><span>🚶</span></div></div>':'';
-    var audio=a.img?'<span class="dt-audio">🎧</span>':'';
+    var chegar=a.img?'<div class="comochegar"><span>Como chegar</span><div class="modes"><span><svg class="ico" width="1em" height="1em" style="vertical-align:-.15em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6v6M16 6v6M2 12h19.6M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></svg></span><span><svg class="ico" width="1em" height="1em" style="vertical-align:-.15em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg></span><span><svg class="ico" width="1em" height="1em" style="vertical-align:-.15em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="4" r="2"/><path d="m9 20 3-6 3 3v4M6 12l3-4 4 1 3 4M9 8l-1 5"/></svg></span></div></div>':'';
+    var audio=a.img?'<span class="dt-audio"><svg class="ico" width="1em" height="1em" style="vertical-align:-.15em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg></span>':'';
     return '<div class="dt-card"><div class="dt-num">'+n+'</div><div class="dt-title">'+esc(a.t)+'</div><div class="dt-meta">'+esc(a.time)+star+'</div>'+img+chegar+audio+'</div>';
   }
   function selDay(i){
@@ -142,10 +142,10 @@
   viagemEl.innerHTML=
     '<div class="date-banner">'+esc(cfg.meta)+'</div>'+
     '<div class="vg-block"><h4>Voos</h4><div class="vg-two">'+
-      '<div class="vg-card"><span class="vg-k">Ida</span><b>✈️ '+esc(cfg.air[0])+'</b><span>sugerido</span></div>'+
-      '<div class="vg-card"><span class="vg-k">Volta</span><b>✈️ '+esc(cfg.air[1])+'</b><span>+ '+cfg.days.length+' dias</span></div>'+
+      '<div class="vg-card"><span class="vg-k">Ida</span><b>'+esc(cfg.air[0])+'</b><span>sugerido</span></div>'+
+      '<div class="vg-card"><span class="vg-k">Volta</span><b>'+esc(cfg.air[1])+'</b><span>+ '+cfg.days.length+' dias</span></div>'+
     '</div></div>'+
-    '<div class="vg-block"><h4>Hospedagem</h4><div class="vg-card" style="background:#faf8ff"><span class="vg-k">Sugestão do OND vAI</span><b>🏨 '+esc(cfg.hotel)+'</b><span>'+(cfg.days.length-1)+' noites</span></div></div>'+
+    '<div class="vg-block"><h4>Hospedagem</h4><div class="vg-card" style="background:#faf8ff"><span class="vg-k">Sugestão do OND vAI</span><b>'+esc(cfg.hotel)+'</b><span>'+(cfg.days.length-1)+' noites</span></div></div>'+
     '<div class="vg-block"><div class="vg-head"><h4>Checklist</h4><span class="vg-count">0/'+chk.length+'</span></div>'+
       chk.map(function(c){return '<label class="chk"><input type="checkbox">'+c+'</label>';}).join('')+'</div>';
 
@@ -155,7 +155,7 @@
     '<div class="fin-toggle"><button class="fin-t active" type="button">Estimado</button><button class="fin-t" type="button">Real</button></div>'+
     '<div class="fin-total"><span>Total estimado</span><b>'+esc(f.total)+'</b></div>'+
     '<div class="fin-card"><div class="fin-row"><span>Gasto até agora</span><span>R$ 0 de '+esc(f.total)+'</span></div><div class="fin-bar"><i style="width:2%"></i></div></div>'+
-    '<div class="fin-day"><span>📅 Gasto diário sugerido</span><b>'+esc(f.dia)+'</b></div>'+
+    '<div class="fin-day"><span>Gasto diário sugerido</span><b>'+esc(f.dia)+'</b></div>'+
     '<div class="fin-list">'+f.itens.map(function(it){return '<div class="fin-li"><span>'+esc(it[0])+'</span><b>'+esc(it[1])+'</b></div>';}).join('')+'</div>';
   finEl.addEventListener('click',function(e){var b=e.target.closest('.fin-t');if(!b)return;[].forEach.call(finEl.querySelectorAll('.fin-t'),function(x){x.classList.remove('active');});b.classList.add('active');});
 

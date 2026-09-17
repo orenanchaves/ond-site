@@ -775,7 +775,7 @@
         if(!best||k<best.k) best={k:k,c:c};
       });
       elGeo.style.display='none';
-      elGeoMsg.innerHTML='📍 Você está aqui.<br>Destino OND mais perto: <b>'+best.c.n+'</b> ('+fmtKm(best.k)+').';
+      elGeoMsg.innerHTML='Você está aqui.<br>Destino OND mais perto: <b>'+best.c.n+'</b> ('+fmtKm(best.k)+').';
       paintKm();
       if(selIdx()<0) flyTo(ME.lat,ME.lon);
     },function(err){

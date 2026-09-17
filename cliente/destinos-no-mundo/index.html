@@ -893,7 +893,7 @@ body.rs-open{overflow:hidden}
     if(screen==='destinos'){
       var cards=ORDER.map(function(k,i){var d=DESTS[k];
         return '<button class="dcard" data-k="'+k+'"><div class="ph" style="background-image:url('+d.img+')"></div><div class="in"><b>'+d.nome+'</b><span style="color:'+COLORS[i%3]+'">'+d.pais+'</span></div></button>';}).join('');
-      app.innerHTML=barTitle('OND vAI')+'<div class="ap-search">Vai pra ond? '+STAR.replace('<svg','<svg class="st"')+'</div><div class="ap-hint">👆 Toque num destino pra começar</div><div class="ap-h">Pra onde você quer ir?</div><div class="ap-grid">'+cards+'</div>';
+      app.innerHTML=barTitle('OND vAI')+'<div class="ap-search">Vai pra ond? '+STAR.replace('<svg','<svg class="st"')+'</div><div class="ap-hint">Toque num destino pra começar</div><div class="ap-h">Pra onde você quer ir?</div><div class="ap-grid">'+cards+'</div>';
       app.querySelectorAll('.dcard').forEach(function(b){ b.onclick=function(){ go('roteiro', b.getAttribute('data-k')); }; });
     }
     else if(screen==='roteiro'){
@@ -921,7 +921,7 @@ body.rs-open{overflow:hidden}
       function opt(m,ic,t){return '<div class="co-opt '+(payMethod===m?'sel':'')+'" data-m="'+m+'"><span class="rd"></span>'+ic+' '+t+'</div>';}
       app.innerHTML=backBar(function(){go('pacote',id);},'Pagamento')+
         '<div class="co-sum"><div class="r"><span>'+d.nome+' · '+d.dias+' dias</span><span>'+d.preco+'</span></div><div class="r"><span>Agência</span><span>Destinos no Mundo</span></div><div class="r tot"><span>Total</span><span>'+d.preco+'</span></div></div>'+
-        '<div class="co-pay"><div class="pl">Forma de pagamento</div>'+opt('pix','⚡','Pix (à vista)')+opt('cartao','💳','Cartão em até 12x')+'</div>'+
+        '<div class="co-pay"><div class="pl">Forma de pagamento</div>'+opt('pix','','Pix (à vista)')+opt('cartao','','Cartão em até 12x')+'</div>'+
         '<button class="ap-cta guide" id="coPay">Pagar '+d.preco+'</button>';
       app.querySelectorAll('.co-opt').forEach(function(o){ o.onclick=function(){ payMethod=o.getAttribute('data-m'); go('checkout',id); }; });
       app.querySelector('#coPay').onclick=function(){ go('ok', id); };
@@ -931,7 +931,7 @@ body.rs-open{overflow:hidden}
       var d=DESTS[id];
       app.innerHTML='<div class="cf"><div class="cf-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>'+
         '<h3>Compra confirmada!</h3><p>Sua viagem pra '+d.flag+' '+d.nome+' com a Destinos no Mundo está garantida. Ela já vai te chamar pra alinhar os detalhes.</p>'+
-        '<div class="cf-note">💰 <b>O repasse cai na conta da Destinos no Mundo.</b> A venda é dela; o OND fica com a mensalidade + o spread.</div>'+
+        '<div class="cf-note"><svg class="ico" width="1em" height="1em" style="vertical-align:-.15em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg><b>O repasse cai na conta da Destinos no Mundo.</b> A venda é dela; o OND fica com a mensalidade + o spread.</div>'+
         '<button class="ap-cta" id="okHome" style="width:100%;margin:0">Voltar ao início</button></div>';
       app.querySelector('#okHome').onclick=function(){ go('destinos'); };
       app.scrollTop=0;

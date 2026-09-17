@@ -57,9 +57,9 @@ ALT_OVERRIDE = {
 # Simulação do roteiro (widget "Monte a sua X com o OND vAI") nos posts de roteiro.
 ROTEIRO_SIM = {
   'roteiro-buenos-aires': {
-    'dest':'Buenos Aires','flag':'🇦🇷','banner':'/assets/blog/roteiro-buenos-aires.jpg',
+    'dest':'Buenos Aires','flag':'','banner':'/assets/blog/roteiro-buenos-aires.jpg',
     'meta':'Setembro · 4 dias · Casal','air':['GRU → EZE','EZE → GRU'],'hotel':'Hotel em Palermo',
-    'fin':{'total':'R$ 4.700','dia':'R$ 800','itens':[['✈️ Voos','R$ 1.900'],['🏨 Hospedagem · 3 noites','R$ 1.400'],['🍽️ Gastronomia','R$ 900'],['🎭 Passeios & tango','R$ 500']]},
+    'fin':{'total':'R$ 4.700','dia':'R$ 800','itens':[['Voos','R$ 1.900'],['Hospedagem · 3 noites','R$ 1.400'],['Gastronomia','R$ 900'],['Passeios & tango','R$ 500']]},
     'days':[
       {'title':'Recoleta e Centro','acts':[{'t':'Cemitério da Recoleta','time':'09:30 - 11:30','rate':'4.8'},{'t':'Obelisco & Av. 9 de Julio','time':'12:00 - 13:00','rate':'4.6'},{'t':'Teatro Colón','time':'15:00 - 16:30','rate':'4.9'},{'t':'Café Tortoni','time':'17:30 - 18:30','rate':'4.5'}]},
       {'title':'Palermo','acts':[{'t':'Bosques de Palermo','time':'09:30 - 11:00','rate':'4.7'},{'t':'Jardín Japonés','time':'11:30 - 13:00','rate':'4.6'},{'t':'MALBA','time':'14:30 - 16:30','rate':'4.7'},{'t':'Noite em Palermo Soho','time':'20:00','rate':'4.8'}]},
@@ -67,9 +67,9 @@ ROTEIRO_SIM = {
       {'title':'Compras e gastronomia','acts':[{'t':'Calle Florida','time':'10:00 - 12:00','rate':'4.4'},{'t':'Almoço · parrilla','time':'13:00 - 14:30','rate':'4.8'},{'t':'Puerto Madero','time':'15:00 - 17:00','rate':'4.6'},{'t':'Voo de volta · EZE','time':'20:30'}]},
     ]},
   'roteiro-lisboa': {
-    'dest':'Lisboa','flag':'🇵🇹','banner':'/assets/blog/roteiro-lisboa.jpg',
+    'dest':'Lisboa','flag':'','banner':'/assets/blog/roteiro-lisboa.jpg',
     'meta':'Setembro · 4 dias · Casal','air':['GRU → LIS','LIS → GRU'],'hotel':'Hotel no Chiado',
-    'fin':{'total':'R$ 10.200','dia':'R$ 2.550','itens':[['✈️ Voos','R$ 4.200'],['🏨 Hospedagem · 3 noites','R$ 3.000'],['🎟️ Passeios & museus','R$ 1.600'],['🍷 Gastronomia','R$ 1.400']]},
+    'fin':{'total':'R$ 10.200','dia':'R$ 2.550','itens':[['Voos','R$ 4.200'],['Hospedagem · 3 noites','R$ 3.000'],['Passeios & museus','R$ 1.600'],['Gastronomia','R$ 1.400']]},
     'days':[
       {'title':'Alfama e centro','acts':[{'t':'Sé de Lisboa & Alfama','time':'09:30 - 12:00','rate':'4.8'},{'t':'Almoço no Time Out Market','time':'13:00 - 14:30','rate':'4.6'},{'t':'Chiado & Elevador de Santa Justa','time':'15:30 - 18:00','rate':'4.5'},{'t':'Fado no Bairro Alto','time':'21:00','rate':'4.8'}]},
       {'title':'Belém','acts':[{'t':'Torre de Belém','time':'09:00 - 11:00','rate':'4.7'},{'t':'Mosteiro dos Jerónimos','time':'11:30 - 13:00','rate':'4.8'},{'t':'Pastéis de Belém','time':'13:30 - 14:00','rate':'4.9'},{'t':'MAAT','time':'15:30 - 17:00','rate':'4.5'}]},
@@ -327,7 +327,7 @@ def build_article(p, cs, cover, cat):
       f'  </div>\n'
       f'  <div class="author-card">\n'
       f'    <img src="/assets/ondino.png" alt="Ondino, o personagem viajante do OND">\n'
-      f'    <div><div class="au-name">Ondino 🤠</div>\n'
+      f'    <div><div class="au-name">Ondino</div>\n'
       f'    <div class="au-bio">O viajante de chapéu do OND. Já perdeu voo, dormiu em aeroporto e aprendeu na marra, hoje usa o OND vAI pra planejar tudo em minutos e divide aqui os melhores destinos e dicas.</div></div>\n'
       f'  </div>\n'
       f'{POST_NL}'

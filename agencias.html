@@ -1827,7 +1827,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
         if(timer)clearTimeout(timer);
         timer=setTimeout(function(){
           paint();
-          if(typing)typing.querySelector('.pp-bubble').innerHTML='Pronto! Proposta de <b>'+esc(shortName())+'</b> 👉 ajuste no roteiro (dropdowns) ou me diga o que mudar.';
+          if(typing)typing.querySelector('.pp-bubble').innerHTML='Pronto! Proposta de <b>'+esc(shortName())+'</b> ajuste no roteiro (dropdowns) ou me diga o que mudar.';
           chipsRow(DAYS_OPTIONS,function(v){pickDays(v);});
         },700);
       }

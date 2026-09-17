@@ -202,7 +202,7 @@
     function showBubble() {
       if (document.getElementById('ondvaiBubble') || panel.classList.contains('open')) return;
       var b = document.createElement('div'); b.className = 'ondvai-bubble'; b.id = 'ondvaiBubble';
-      b.innerHTML = '<span>' + (B2B ? '👋 Dúvidas do OND pra agências?' : '👋 Pergunte qualquer coisa pro OND vAI') + '</span><button class="bx" aria-label="Fechar">✕</button>';
+      b.innerHTML = '<span>' + (B2B ? 'Dúvidas do OND pra agências?' : 'Pergunte qualquer coisa pro OND vAI') + '</span><button class="bx" aria-label="Fechar">✕</button>';
       document.body.appendChild(b);
       var r = orb.getBoundingClientRect(), bw = b.offsetWidth, bh = b.offsetHeight;
       var left = r.left - bw - 12; if (left < 8) left = Math.min(r.right + 12, window.innerWidth - bw - 8);
@@ -228,7 +228,7 @@
     }
     function appCta(dest) {
       var el = document.createElement('div'); el.className = 'ondvai-cta';
-      var t = dest ? 'Quer o roteiro completo de ' + esc(dest) + '? Continue no OND 👇' : 'Baixe o OND e comece agora 👇';
+      var t = dest ? 'Quer o roteiro completo de ' + esc(dest) + '? Continue no OND:' : 'Baixe o OND e comece agora:';
       el.innerHTML = '<b>' + t + '</b><div class="ondvai-btns">' + ctaButtons() + '</div>';
       body.appendChild(el); scroll();
     }
@@ -236,8 +236,8 @@
 
     function meetingCta() {
       var el = document.createElement('div'); el.className = 'ondvai-cta';
-      el.innerHTML = '<b>Vamos falar? Agende 30 min 👇</b><div class="ondvai-btns">' +
-        '<a class="ondvai-ab pri" href="' + CAL + '" target="_blank" rel="noopener">📅 Agendar reunião</a>' +
+      el.innerHTML = '<b>Vamos falar? Agende 30 min</b><div class="ondvai-btns">' +
+        '<a class="ondvai-ab pri" href="' + CAL + '" target="_blank" rel="noopener">Agendar reunião</a>' +
         '<a class="ondvai-ab" href="' + WA + '?text=' + encodeURIComponent('Olá! Tenho uma agência e quero saber mais sobre o OND') + '" target="_blank" rel="noopener">WhatsApp</a>' +
         '</div>';
       body.appendChild(el); scroll();
