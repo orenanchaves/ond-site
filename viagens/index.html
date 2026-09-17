@@ -308,9 +308,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .vw-acts{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:30px}
 .vw-l{color:#fff;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
 .vw-l:hover{text-decoration:underline}
-.vw-art{background:none;border:none;padding:0;color:#fff;cursor:pointer}
-.vw-art svg{width:100%;height:auto;display:block;transition:transform .6s ease}
-.vw-art:hover svg{transform:rotate(-4deg) scale(1.02)}
+.vw-art{position:relative;width:100%;max-width:620px;margin-left:auto;aspect-ratio:1/1}.vw-art canvas{width:100%;height:100%;display:block}.vw-dica{position:absolute;left:0;right:0;bottom:4px;text-align:center;font-size:.8rem;color:rgba(255,255,255,.55);pointer-events:none}
 .vm-dot{filter:drop-shadow(0 0 6px #25D366);animation:vmPulse 2.6s ease-in-out infinite}
 @keyframes vmPulse{0%,100%{opacity:.45}50%{opacity:1}}
 
@@ -382,7 +380,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </a>
   <nav><ul class="header-nav">
     <li><a href="/index.html#como-funciona">Como funciona</a></li>
-    <li><a href="/viagens/" class="nav-active">Destinos</a></li>
+    <li><a href="/viagens/" class="nav-active">Viagens</a></li>
     <li><a href="/blog.html">Blog</a></li>
     <li><a href="#" onclick="openContact(event)">Contato</a></li>
     <li><a href="/agencias.html" class="nav-agencias">Para Agências →</a></li>
@@ -394,7 +392,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
 <nav class="mobile-nav" id="mobileNav">
   <a href="/index.html#como-funciona" onclick="closeMenu()">Como funciona</a>
-  <a href="/viagens/" onclick="closeMenu()">Destinos</a>
+  <a href="/viagens/" onclick="closeMenu()">Viagens</a>
   <a href="/blog.html" onclick="closeMenu()">Blog</a>
   <a href="#" onclick="openContact(event);closeMenu()">Contato</a>
   <a href="/agencias.html" onclick="closeMenu()" style="color:#0066ff;font-weight:600">Para Agências →</a>
@@ -999,11 +997,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
           <a class="vw-l" href="/viagens/quando-viajar/">Quando viajar pra cada destino <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
-      <button type="button" class="vw-art" onclick="if(window.openGlobe){openGlobe(event)}" aria-label="Abrir o Mundo do OND">
-        <svg viewBox="0 0 600 460" aria-hidden="true"><defs><radialGradient id="vwg" cx="40%" cy="35%"><stop offset="0" stop-color="#7f11f4" stop-opacity=".35"/><stop offset="1" stop-color="#7f11f4" stop-opacity="0"/></radialGradient></defs>
-          <circle cx="300" cy="230" r="210" fill="url(#vwg)"/><g fill="none" stroke="currentColor" stroke-opacity=".22"><circle cx="300" cy="230" r="210"/><ellipse cx="300" cy="230" rx="210" ry="70"/><ellipse cx="300" cy="230" rx="210" ry="140"/><ellipse cx="300" cy="230" rx="70" ry="210"/><ellipse cx="300" cy="230" rx="140" ry="210"/><path d="M90 230h420M300 20v420"/></g>
-          <g fill="#25D366"><circle cx="212" cy="318" r="5" class="vm-dot" style="animation-delay:0s"/><circle cx="236" cy="286" r="4" class="vm-dot" style="animation-delay:0.6s"/><circle cx="250" cy="344" r="4" class="vm-dot" style="animation-delay:1.2s"/><circle cx="206" cy="240" r="4" class="vm-dot" style="animation-delay:1.8s"/><circle cx="300" cy="170" r="5" class="vm-dot" style="animation-delay:0.3s"/><circle cx="338" cy="150" r="4" class="vm-dot" style="animation-delay:0.9s"/><circle cx="356" cy="176" r="4" class="vm-dot" style="animation-delay:1.5s"/><circle cx="318" cy="196" r="4" class="vm-dot" style="animation-delay:2.1s"/><circle cx="430" cy="212" r="5" class="vm-dot" style="animation-delay:0.4s"/><circle cx="462" cy="196" r="4" class="vm-dot" style="animation-delay:1s"/><circle cx="150" cy="176" r="5" class="vm-dot" style="animation-delay:1.6s"/><circle cx="120" cy="206" r="4" class="vm-dot" style="animation-delay:2.2s"/><circle cx="470" cy="250" r="4" class="vm-dot" style="animation-delay:0.7s"/><circle cx="282" cy="230" r="4" class="vm-dot" style="animation-delay:1.3s"/></g></svg>
-      </button>
+      <div class="vw-art"><canvas data-ond-globo aria-label="Globo do Mundo do OND: arraste para girar e clique num país"></canvas><span class="vw-dica">Arraste pra girar · clique num país</span></div>
     </div>
   </section>
 
@@ -1095,7 +1089,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       <ul>
         <li><a href="https://pci.jotform.com/form/252517268656062" target="_blank" rel="noopener">Para agências</a></li>
         <li><a href="https://pci.jotform.com/form/252517268656062" target="_blank" rel="noopener">Para hotéis</a></li>
-        <li><a href="/viagens/">Destinos</a></li>
+        <li><a href="/viagens/">Viagens</a></li>
       </ul>
     </div>
     <div class="footer-col">
