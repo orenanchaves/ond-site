@@ -6,7 +6,7 @@
 
   var PLAY = 'https://play.google.com/store/apps/details?id=com.agamatec.ond';
   var APPSTORE = 'https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427';
-  var WEB = 'https://web.ondviajar.com.br/';
+  var WEB = 'https://web.ondviajar.com.br/ond-vai'; // conversa direto, sem onboarding
   var WA = 'https://wa.me/5511910214133';
   var MAIL = 'renan@ondviajar.com.br';
   var CAL = 'https://calendly.com/renanfr1047/30min';
@@ -175,9 +175,7 @@
     function activate() {
       if (B2B) { open(); return; }
       hideBubble();
-      /* B2C: o orb leva pra conversa do OND vAI no topo da home */
-      if (window.ondVaiFocus) { window.ondVaiFocus(); return; }
-      if (!/^\/(index\.html)?$/.test(location.pathname) || !document.getElementById('vaiHero')) { location.href = '/#vai'; return; }
+      /* B2C: o orb abre a conversa do OND vAI no app web oficial */
       var a = document.createElement('a');
       a.href = WEB; a.target = '_blank'; a.rel = 'noopener';
       document.body.appendChild(a);

@@ -322,7 +322,7 @@ def build_article(p, cs, cover, cat):
       f'    <p>Pesquise preços e planeje o roteiro de graça no OND vAI. Na hora de comprar, passagens, hospedagem e passeios estão num lugar só, com o OND, agência cadastrada no Cadastur.</p>\n'
       f'    <div class="art-cta-btns">\n'
       f'      <a href="/viagens/" class="btn-primary">Comprar minha viagem →</a>\n'
-      f'      <a href="https://web.ondviajar.com.br/" onclick="if(window.openApp){{openApp(event)}}" class="btn-ghost" target="_blank" rel="noopener">Planejar grátis no OND vAI</a>\n'
+      f'      <a href="https://web.ondviajar.com.br/ond-vai" onclick="if(window.openApp){{openApp(event)}}" class="btn-ghost" target="_blank" rel="noopener">Planejar grátis no OND vAI</a>\n'
       f'    </div>\n'
       f'  </div>\n'
       f'  <div class="author-card">\n'
