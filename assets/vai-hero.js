@@ -266,6 +266,18 @@
     if(q){ var v=q.getAttribute('data-q'); if(v==='Recomeçar'||v==='Tentar outro destino'){ reset(); if(v==='Tentar outro destino'){ show(); ai('Pra onde mais você quer ir?') } return } responde(v); return }
     if(e.target.closest('[data-act="reset"]')) reset();
   });
-  window.ondVaiFocus=function(){ var sec=document.getElementById('vai')||root; window.scrollTo({top:Math.max(0,sec.getBoundingClientRect().top+window.pageYOffset-72),behavior:'smooth'}); setTimeout(function(){ try{ input.focus({preventScroll:true}) }catch(e){} },600) };
-  if(location.hash==='#vai') setTimeout(window.ondVaiFocus,300);
+  var modal=document.getElementById('vai'), ehModal=modal&&modal.classList.contains('vai-modal');
+  function abre(sug){
+    if(ehModal){ modal.hidden=false; document.body.style.overflow='hidden' }
+    else { window.scrollTo({top:Math.max(0,root.getBoundingClientRect().top+window.pageYOffset-72),behavior:'smooth'}) }
+    setTimeout(function(){ try{ input.focus({preventScroll:true}) }catch(e){} if(sug && st2.step==='dest' && body.hidden) responde(sug) },ehModal?250:600);
+  }
+  function fecha(){ if(!ehModal) return; modal.hidden=true; document.body.style.overflow=''; if(location.hash==='#vai') history.replaceState(null,'',location.pathname+location.search) }
+  window.ondVaiOpen=abre; window.ondVaiFocus=function(){ abre('') };
+  document.addEventListener('click',function(e){
+    var o=e.target.closest&&e.target.closest('[data-vai-open]'); if(o){ e.preventDefault(); abre(o.getAttribute('data-vai-open')); return }
+    if(e.target.closest&&e.target.closest('[data-vai-close]')) fecha();
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ehModal&&!modal.hidden) fecha() });
+  if(location.hash==='#vai') setTimeout(function(){ abre('') },300);
 })();

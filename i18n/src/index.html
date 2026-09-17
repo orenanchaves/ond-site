@@ -693,6 +693,45 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 @media(max-width:860px){.happ{padding:64px 0}.happ-g{grid-template-columns:1fr;gap:40px}}
 .cat-pills{display:flex;gap:8px;flex-wrap:wrap}.cat-pills a{text-decoration:none}.cat-pills span{font-size:.85rem;font-weight:700;padding:6px 14px;border-radius:50px;background:var(--green-dim);color:var(--green);border:1px solid color-mix(in srgb,var(--green) 30%,transparent)}.dc-nota{font-size:.82rem;color:var(--muted);background:var(--surface);border-radius:10px;padding:9px 12px;line-height:1.5}.dc-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:.85rem}.dc-links a{color:var(--muted);font-weight:600;text-decoration:none}.dc-links a:hover{color:var(--purple-light);text-decoration:underline}.dc-extra{display:flex;flex-direction:column;justify-content:center;padding:40px;border-bottom:1px solid var(--vt-line)}.dc-extra h3{font-size:clamp(1.6rem,2.6vw,2.4rem);line-height:1.05;letter-spacing:-.03em;font-weight:800}.dc-extra p{color:var(--muted);margin:12px 0 22px;max-width:380px;line-height:1.55}.dc-extra div{display:flex;gap:10px;flex-wrap:wrap}@media(max-width:860px){.dc-extra{padding:32px 20px}}
 </style>
+<style id="hero-branding">
+.hb-lead{font-size:1.08rem;line-height:1.65;color:var(--muted);max-width:560px;margin-bottom:26px}
+.hb-lead strong{color:var(--text)}
+.hb-acts{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hb-main{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#7f11f4,#9d4dff);color:#fff;border:none;border-radius:50px;padding:10px 26px 10px 10px;font:inherit;font-weight:800;font-size:1.02rem;cursor:pointer;box-shadow:0 10px 34px rgba(127,17,244,.45);transition:transform .15s,box-shadow .2s}
+.hb-main:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(127,17,244,.55)}
+.hb-orb{width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;background:radial-gradient(circle at 30% 24%,#fff 0,#f0e3ff 6%,#c197ff 20%,#8b2cf5 52%,#3b0a78 100%);box-shadow:inset -5px -6px 10px rgba(18,0,52,.5),0 0 0 3px rgba(255,255,255,.18)}
+.hb-orb svg{width:19px;height:19px;fill:#fff}
+.hb-orb.sm{width:28px;height:28px}.hb-orb.sm svg{width:13px;height:13px}
+.hb-wa{color:var(--text);font-weight:700;text-decoration:none;border-bottom:1.5px solid color-mix(in srgb,var(--text) 35%,transparent);padding-bottom:2px}
+.hb-wa:hover{border-color:#25D366;color:#25D366}
+.hb-cad{display:inline-block;margin-top:18px;font-size:.8rem;font-weight:700;color:var(--green);text-decoration:none}
+.hb-cad:hover{text-decoration:underline}
+.hb-app{margin-top:30px;padding-top:22px;border-top:1px solid var(--border);max-width:560px}
+.hb-app-l{display:block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted2);margin-bottom:12px}
+.hb-app .hero-app-btns{margin-bottom:12px}
+.hb-img{position:relative}
+.hb-bubble{position:absolute;z-index:2;right:2%;top:14%;width:280px;background:#fff;color:#2a2438;border-radius:20px 20px 20px 6px;padding:14px;box-shadow:0 20px 60px rgba(20,4,50,.35);text-align:left;animation:hbIn .6s .4s ease both}
+.hb-bh{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.hb-bh b{font-size:.9rem}.hb-bh i{font-style:normal;font-size:.72rem;color:#1faa53;margin-left:auto}
+.hb-bubble p{font-size:.98rem;font-weight:700;margin-bottom:10px}
+.hb-chips{display:flex;flex-wrap:wrap;gap:6px}
+.hb-chip{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:.8rem;font-weight:700;color:#5b1fb0;background:#ece2fb;border:none;border-radius:50px;padding:6px 10px;cursor:pointer}
+.hb-chip:hover{background:#e0cffa}
+.hb-chip img{width:18px;height:12px;border-radius:2px;object-fit:cover}
+.hb-typing{display:flex;justify-content:space-between;width:100%;margin-top:10px;font:inherit;font-size:.84rem;color:#8d86a0;background:#f6f2fd;border:1px solid #e1d8f4;border-radius:50px;padding:9px 12px;cursor:text}
+.hb-typing span{color:#7f11f4;font-weight:800}
+@keyframes hbIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+/* modal do OND vAI */
+.vai-modal{position:fixed;inset:0;z-index:100100;display:flex;align-items:center;justify-content:center;padding:24px}
+.vai-modal[hidden]{display:none}
+.vai-modal-bg{position:absolute;inset:0;background:rgba(10,6,24,.72);backdrop-filter:blur(6px);animation:vmFade .25s ease}
+.vai-modal-box{position:relative;width:min(1320px,100%);animation:vmUp .35s ease}
+.vai-modal-x{position:absolute;z-index:3;top:-14px;right:-14px;width:40px;height:40px;border-radius:50%;border:none;background:#fff;color:#3b0a78;font-size:1.6rem;line-height:1;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.vai-modal .vh2{height:min(820px,calc(100vh - 48px))}
+@keyframes vmFade{from{opacity:0}}@keyframes vmUp{from{opacity:0;transform:translateY(18px) scale(.98)}}
+@media(max-width:960px){.hb-bubble{position:relative;right:auto;top:auto;margin:-40px auto 0;width:min(320px,92%)}.hb-img{flex-direction:column;align-items:center}.hb-acts{justify-content:center}.hb-lead,.hb-app{margin-left:auto;margin-right:auto}.hb-app{text-align:center}.hb-app .hero-app-btns{justify-content:center}}
+@media(max-width:900px){.vai-modal{padding:0}.vai-modal-box{height:100%}.vai-modal .vh2{height:100%;border-radius:0;display:flex;flex-direction:column;overflow-y:auto}.vai-modal .vh2-main{height:100%;flex:0 0 100%}.vai-modal-x{top:10px;right:10px;width:36px;height:36px}}
+</style>
 </head>
 <body>
 
@@ -772,27 +811,59 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <!--@@MOBILE_LANG@@-->
 </nav>
 
-<!-- HERO: OND vAI (conversa que simula a viagem e fecha no WhatsApp) -->
-<section class="vai-top" id="vai">
-  <style>.vai-top{padding:22px 0 10px}.vai-top .vt-in{max-width:1320px}</style>
-  <div class="vt-in"><div id="vaiHero"><noscript><a href="https://wa.me/5511910214133">Fale com a agência OND no WhatsApp</a></noscript></div></div>
-</section>
-
-<!-- INTRO -->
-<section class="vt-in vi">
-  <div class="vt-lab"><img class="vt-mark" src="/assets/ond-symbol.svg" alt="" width="14" height="14">Agência de viagens + app</div>
-  <div>
-    <h1>Escolha o destino. A gente faz a viagem acontecer.</h1>
-    <div class="vi-row">
-      <p>O OND é uma agência de viagens: cota, compra e acompanha passagens, hospedagem e passeios, com suporte humano do embarque à volta. E ainda organiza tudo no app.</p>
-      <div class="vi-acts">
-        <a class="vt-btn vt-btn-wa" href="https://wa.me/5511910214133?text=Ol%C3%A1%2C%20OND%21%20Quero%20comprar%20uma%20viagem.%20Vim%20pelo%20site." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Comprar pelo WhatsApp</a>
-        <a class="vt-btn vt-btn-ghost" href="/viagens/">Ver viagens <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<!-- HERO: o que e o OND + porta de entrada pro OND vAI -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge"><span class="hero-badge-dot"></span>Agência de viagens + app</div>
+    <h1 class="hero-title">Escolha o destino.<br>A gente faz a <em>viagem</em> acontecer.</h1>
+    <p class="hb-lead">O OND é uma agência de viagens com inteligência artificial. Você conta pra onde quer ir, o <strong>OND vAI</strong> monta a viagem em minutos e a nossa equipe <strong>cota, compra e acompanha tudo</strong>: passagens, hospedagem e passeios, com suporte humano do embarque à volta.</p>
+    <div class="hb-acts">
+      <button type="button" class="hb-main" data-vai-open=""><span class="hb-orb"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span>Montar minha viagem com o OND vAI</button>
+      <a class="hb-wa" href="https://wa.me/5511910214133?text=Ol%C3%A1%2C%20OND%21%20Quero%20comprar%20uma%20viagem%20com%20a%20ag%C3%AAncia.%20Vim%20pelo%20site." target="_blank" rel="noopener">Falar com a agência</a>
+    </div>
+    <a class="hb-cad" href="https://firebasestorage.googleapis.com/v0/b/agama-tec.appspot.com/o/documents%2Fcertificado-cadastur.pdf?alt=media&amp;token=6208b999-b326-4a7f-b89d-0f682cf3a2e3" target="_blank" rel="noopener">Agência de turismo cadastrada no Cadastur · CNPJ 39.360.492/0001-61</a>
+    <div class="hb-app">
+      <span class="hb-app-l">Ou baixe o app grátis</span>
+    <div class="hero-app-btns">
+      <a href="https://play.google.com/store/apps/details?id=com.agamatec.ond&pcampaignid=web_share" class="app-store-btn gplay" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="26" height="26" style="fill:#3DDC84"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0989L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg>
+        <div class="app-btn-text"><span class="app-btn-sub">Baixar no</span><span class="app-btn-name">Google Play</span></div>
+      </a>
+      <a href="https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427" class="app-store-btn appstore" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="26" height="26" style="fill:var(--ond-color-onPrimary)"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <div class="app-btn-text"><span class="app-btn-sub">Baixar na</span><span class="app-btn-name">App Store</span></div>
+      </a>
+    </div>
+      <div class="hero-secondary-btns">
+      <a href="https://web.ondviajar.com.br/" class="hero-sec-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Usar na Web
+      </a>
       </div>
     </div>
-    <div class="cat-pills"><a href="https://firebasestorage.googleapis.com/v0/b/agama-tec.appspot.com/o/documents%2Fcertificado-cadastur.pdf?alt=media&amp;token=6208b999-b326-4a7f-b89d-0f682cf3a2e3" target="_blank" rel="noopener"><span>Agência de turismo cadastrada no Cadastur</span></a></div>
+  </div>
+  <div class="hero-image hb-img">
+    <img src="/assets/ondino-caminhando.svg" alt="Ondino, o personagem do OND, caminhando com o celular na mão e a mala" loading="eager">
+    <div class="hb-bubble" role="group" aria-label="Comece uma conversa com o OND vAI">
+      <div class="hb-bh"><span class="hb-orb sm"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span><b>OND vAI</b><i>online</i></div>
+      <p>Oi! Pra onde vamos viajar?</p>
+      <div class="hb-chips"><button type="button" class="hb-chip" data-vai-open="Réveillon no Rio de Janeiro"><img src="/assets/flags/BRA.svg" alt="" width="18" height="12">Rio de Janeiro</button><button type="button" class="hb-chip" data-vai-open="Família pra Orlando em julho"><img src="/assets/flags/USA.svg" alt="" width="18" height="12">Orlando</button><button type="button" class="hb-chip" data-vai-open="Viagem pra Lisboa"><img src="/assets/flags/PRT.svg" alt="" width="18" height="12">Lisboa</button></div>
+      <button type="button" class="hb-typing" data-vai-open="">Escreva pra onde você quer ir <span>→</span></button>
+    </div>
   </div>
 </section>
+
+<!-- OND vAI em tela cheia (abre pelo botao, pelas sugestoes e pelo orb) -->
+<div class="vai-modal" id="vai" hidden role="dialog" aria-modal="true" aria-label="Conversa com o OND vAI">
+  <div class="vai-modal-bg" data-vai-close></div>
+  <div class="vai-modal-box">
+    <button type="button" class="vai-modal-x" data-vai-close aria-label="Fechar conversa">×</button>
+    <div id="vaiHero"><noscript><a href="https://wa.me/5511910214133">Fale com a agência OND no WhatsApp</a></noscript></div>
+  </div>
+</div>
+
+
+
 
 <!-- VIAGENS -->
 <section class="vg" id="viagens">
