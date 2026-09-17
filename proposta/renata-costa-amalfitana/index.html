@@ -2,9 +2,9 @@
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive">
-<title>Sua viagem para a Costa Amalfitana · OND</title>
+<title>Sua viagem para a Itália · OND</title>
 <meta name="description" content="Proposta de viagem exclusiva do OND.">
-<meta property="og:title" content="Sua proposta de viagem para a Costa Amalfitana">
+<meta property="og:title" content="Sua proposta de viagem: Costa Amalfitana e Europa">
 <meta property="og:description" content="Três opções prontas para vocês dois. Escolha a sua.">
 <meta property="og:image" content="capa.jpg">
 <meta name="theme-color" content="#0d0d14">
@@ -126,7 +126,7 @@ h2 em{font-style:normal;color:var(--neon)}
 .cta{flex:0 0 auto;font-weight:800;font-size:16px;color:#0d0d14;background:var(--neon);border-radius:999px;padding:14px 22px;text-decoration:none;white-space:nowrap}
 @media (max-width:420px){.op .linha{flex-direction:column}.op .p{text-align:left}.op .radio{display:none}.ideias{grid-template-columns:1fr}}
 
-.abas.grupos{margin-top:16px}.abas.grupos button{font-size:14px;line-height:1.2}
+.abas.grupos{margin-top:16px;display:flex;overflow-x:auto;gap:6px;scrollbar-width:none}.abas.grupos::-webkit-scrollbar{display:none}.abas.grupos button{flex:0 0 auto;white-space:nowrap;font-size:14px;line-height:1.2;padding:10px 14px}
 .grupo-desc{margin-top:10px;font-size:13.5px;color:var(--muted);line-height:1.45}
 </style></head><body>
 
@@ -142,8 +142,8 @@ h2 em{font-style:normal;color:var(--neon)}
 <span class="tag">Proposta de viagem</span></div></div>
   <div class="wrap">
     <div class="para">Para a Renata</div>
-    <h1>Costa Amalfitana, Itália</h1>
-    <div class="chips"><span>9 a 21 de outubro de 2027</span><span>12 dias na costa</span><span>2 adultos</span></div>
+    <h1>Costa Amalfitana e Europa</h1>
+    <div class="chips"><span>9 a 21 de outubro de 2027</span><span>12 dias</span><span>2 adultos</span></div>
     <div class="validade">Proposta válida por <b id="contagem">até 19/09</b></div>
   </div>
 </header>
@@ -152,9 +152,9 @@ h2 em{font-style:normal;color:var(--neon)}
   <section class="wrap">
     <div class="rot">Todas as opções incluem</div>
     <div class="inclui">
-      <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15.5l-8-4.5V5a1.5 1.5 0 0 0-3 0v6l-8 4.5V17l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-4.5l8 2.5z"/></svg></span>Aéreo ida e volta de São Paulo a Nápoles*</div>
+      <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15.5l-8-4.5V5a1.5 1.5 0 0 0-3 0v6l-8 4.5V17l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-4.5l8 2.5z"/></svg></span>Aéreo saindo de São Paulo*</div>
       <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7M3 13h18v5M21 18v-3.5A2.5 2.5 0 0 0 18.5 12H11v1"/><circle cx="7" cy="10.5" r="1.8"/></svg></span>11 noites de hotel com café da manhã</div>
-      <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.4"/></svg></span>Roteiro pela costa no app OND</div>
+      <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.4"/></svg></span>Roteiro de cada cidade no app OND</div>
       <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13.5" width="4" height="6" rx="1.5"/><rect x="17" y="13.5" width="4" height="6" rx="1.5"/><path d="M19 19.5c0 1.4-1.8 2-4 2h-2"/></svg></span>Suporte da equipe OND antes e durante a viagem</div>
     </div>
   </section>
@@ -162,7 +162,8 @@ h2 em{font-style:normal;color:var(--neon)}
   <section class="wrap" id="opcoes">
     <div class="rot">Passo 1</div>
     <h2>Escolha <em>a hospedagem</em></h2>
-
+    <div class="abas grupos" id="grupos"><button type="button" data-grupo="base" class="on">Uma base só</button><button type="button" data-grupo="costa" class="">Pela costa</button><button type="button" data-grupo="franca" class="">Costa + Paris</button><button type="button" data-grupo="barcelona" class="">Costa + Barcelona</button><button type="button" data-grupo="grecia" class="">Costa + Grécia</button></div>
+    <p class="grupo-desc" id="grupoDesc"></p>
     <div class="opcoes" id="listaOpcoes"></div>
   </section>
 
@@ -193,9 +194,9 @@ h2 em{font-style:normal;color:var(--neon)}
 
   <section class="wrap">
     <div class="notas">
-      <p>* As companhias aéreas abrem as tarifas de outubro de 2027 cerca de 11 meses antes. O aéreo está calculado com a tarifa de maio de 2027, de meia estação, e é confirmado quando outubro abrir.</p>
+      <p>* As companhias aéreas abrem as tarifas de outubro de 2027 cerca de 11 meses antes. Os voos estão calculados com as tarifas de maio de 2027, de meia estação, e são confirmados quando outubro abrir.</p>
       <p>Valores para vocês dois, cotados em 17/09/2026. Hospedagem válida até 19/09/2026, sujeita a disponibilidade no momento da reserva.</p>
-      <p>Traslado de Nápoles até a costa e passeios a combinar com a nossa equipe.</p>
+      <p>Traslados, barcos entre as cidades da costa e passeios a combinar com a nossa equipe.</p>
     </div>
   </section>
 </main>
@@ -225,10 +226,10 @@ h2 em{font-style:normal;color:var(--neon)}
 
 <script>
 (function(){
-  var OPCOES = [{"id":"amalfi","grupo":"","tag":"Base em Amalfi","hotel":"L’Antico Borgo dei Limoni","onde":"Amalfi","itens":["Café da manhã","No centro da costa","Perto dos barcos e de Ravello"],"imgs":[],"fotos":"Antico Borgo dei Limoni Amalfi","destaque":"","pix":23900,"cartao":25160},{"id":"positano","grupo":"","tag":"Base em Positano","hotel":"Villa Celentano","onde":"Positano","itens":["Café da manhã","Na vila mais famosa da costa","Barcos para Amalfi e Capri"],"imgs":["https://www.hotelresb2b.com/images/hoteles/136857_foto_1.JPG"],"fotos":"Villa Celentano Positano","destaque":"Mais indicada","pix":24780,"cartao":26090},{"id":"sorrento","grupo":"","tag":"Base em Sorrento","hotel":"Hotel Prestige Sorrento","onde":"Sorrento","itens":["Café da manhã","Trem para Pompeia e Nápoles","Barcos para Capri e para a costa"],"imgs":["https://media.dev.paximum.com/hotelimages/363164/2.jpg","https://static-images.webbeds.com/0/image/dc43bd94-f672-41e4-a110-e472aa694ce4.jpg"],"fotos":"Hotel Prestige Sorrento","destaque":"","pix":26120,"cartao":27500}];
+  var OPCOES = [{"id":"amalfi","grupo":"base","tag":"Base em Amalfi","hotel":"L’Antico Borgo dei Limoni","onde":"Amalfi","itens":["Café da manhã","No centro da costa","Perto dos barcos e de Ravello"],"imgs":[],"fotos":"Antico Borgo dei Limoni Amalfi","destaque":"","pix":23900,"cartao":25160},{"id":"positano","grupo":"base","tag":"Base em Positano","hotel":"Villa Celentano","onde":"Positano","itens":["Café da manhã","Na vila mais famosa da costa","Barcos para Amalfi e Capri"],"imgs":["https://www.hotelresb2b.com/images/hoteles/136857_foto_1.JPG"],"fotos":"Villa Celentano Positano","destaque":"Mais indicada","pix":24780,"cartao":26090},{"id":"sorrento","grupo":"base","tag":"Base em Sorrento","hotel":"Hotel Prestige Sorrento","onde":"Sorrento","itens":["Café da manhã","Trem para Pompeia e Nápoles","Barcos para Capri e para a costa"],"imgs":["https://media.dev.paximum.com/hotelimages/363164/2.jpg","https://static-images.webbeds.com/0/image/dc43bd94-f672-41e4-a110-e472aa694ce4.jpg"],"fotos":"Hotel Prestige Sorrento","destaque":"","pix":26120,"cartao":27500},{"id":"costa-eco","grupo":"costa","tag":"Pela costa · econômica","hotel":"Sorrento, Positano, Amalfi","onde":"3 + 4 + 4 noites","itens":["Sorrento: Relais Casale Antonietta","Positano: Villa Celentano","Amalfi: Bellevue Suite"],"imgs":["https://www.hotelresb2b.com/images/hoteles/136857_foto_1.JPG"],"fotos":"Relais Casale Antonietta Villa Celentano Bellevue Suite","destaque":"Mais indicada","pix":23730,"cartao":24980},{"id":"costa-conf","grupo":"costa","tag":"Pela costa · conforto","hotel":"Sorrento, Positano, Amalfi","onde":"3 + 4 + 4 noites","itens":["Sorrento: Hotel Prestige","Positano: Hotel Royal Positano","Amalfi: L’Antico Borgo dei Limoni"],"imgs":["https://media.dev.paximum.com/hotelimages/363164/2.jpg","https://static-images.webbeds.com/0/image/dc43bd94-f672-41e4-a110-e472aa694ce4.jpg"],"fotos":"Hotel Prestige Hotel Royal Positano L’Antico Borgo dei Limoni","destaque":"","pix":29410,"cartao":30960},{"id":"par-eco","grupo":"franca","tag":"Costa e Paris · econômica","hotel":"Sorrento, Positano, Paris","onde":"3 + 4 + 4 noites","itens":["Sorrento: Relais Casale Antonietta","Positano: Villa Celentano","Paris: Campanile Paris 14 Montparnasse","Voo de Nápoles a Paris incluído"],"imgs":["https://www.hotelresb2b.com/images/hoteles/136857_foto_1.JPG"],"fotos":"Relais Casale Antonietta Villa Celentano Campanile Paris 14 Montparnasse","destaque":"Mais indicada","pix":26950,"cartao":28370},{"id":"par-conf","grupo":"franca","tag":"Costa e Paris · conforto","hotel":"Sorrento, Positano, Paris","onde":"3 + 4 + 4 noites","itens":["Sorrento: Hotel Prestige","Positano: Hotel Royal Positano","Paris: Campanile Paris 14 Montparnasse","Voo de Nápoles a Paris incluído"],"imgs":["https://media.dev.paximum.com/hotelimages/363164/2.jpg","https://static-images.webbeds.com/0/image/dc43bd94-f672-41e4-a110-e472aa694ce4.jpg"],"fotos":"Hotel Prestige Hotel Royal Positano Campanile Paris 14 Montparnasse","destaque":"","pix":32160,"cartao":33860},{"id":"bcn-eco","grupo":"barcelona","tag":"Costa e Barcelona · econômica","hotel":"Sorrento, Positano, Barcelona","onde":"3 + 4 + 4 noites","itens":["Sorrento: Relais Casale Antonietta","Positano: Villa Celentano","Barcelona: Ramblas Barcelona","Voo de Nápoles a Barcelona incluído"],"imgs":["https://www.hotelresb2b.com/images/hoteles/136857_foto_1.JPG"],"fotos":"Relais Casale Antonietta Villa Celentano Ramblas Barcelona","destaque":"Mais indicada","pix":28090,"cartao":29570},{"id":"bcn-conf","grupo":"barcelona","tag":"Costa e Barcelona · conforto","hotel":"Sorrento, Positano, Barcelona","onde":"3 + 4 + 4 noites","itens":["Sorrento: Hotel Prestige","Positano: Hotel Royal Positano","Barcelona: Ramblas Barcelona","Voo de Nápoles a Barcelona incluído"],"imgs":["https://media.dev.paximum.com/hotelimages/363164/2.jpg","https://static-images.webbeds.com/0/image/dc43bd94-f672-41e4-a110-e472aa694ce4.jpg"],"fotos":"Hotel Prestige Hotel Royal Positano Ramblas Barcelona","destaque":"","pix":33300,"cartao":35060},{"id":"jtr-eco","grupo":"grecia","tag":"Costa e Santorini · econômica","hotel":"Sorrento, Positano, Santorini","onde":"3 + 4 + 4 noites","itens":["Sorrento: Relais Casale Antonietta","Positano: Villa Celentano","Santorini: Alitana Boutique Hotel","Voo de Nápoles a Santorini incluído"],"imgs":["https://www.hotelresb2b.com/images/hoteles/136857_foto_1.JPG"],"fotos":"Relais Casale Antonietta Villa Celentano Alitana Boutique Hotel","destaque":"Mais indicada","pix":32900,"cartao":34640},{"id":"jtr-conf","grupo":"grecia","tag":"Costa e Santorini · conforto","hotel":"Sorrento, Positano, Santorini","onde":"3 + 4 + 4 noites","itens":["Sorrento: Hotel Prestige","Positano: Hotel Royal Positano","Santorini: Alitana Boutique Hotel","Voo de Nápoles a Santorini incluído"],"imgs":["https://media.dev.paximum.com/hotelimages/363164/2.jpg","https://static-images.webbeds.com/0/image/dc43bd94-f672-41e4-a110-e472aa694ce4.jpg"],"fotos":"Hotel Prestige Hotel Royal Positano Alitana Boutique Hotel","destaque":"","pix":38110,"cartao":40120}];
   var JUROS = 0.0199, WHATS = '5511953353347', VALIDADE = new Date('2026-09-19T23:59:59-03:00');
-  var MSG = "Olá! Sou a Renata e quero reservar a viagem para a Costa Amalfitana de 9 a 21/10/2027.", ROT_PIX = "à vista no Pix, para os dois";
-  var GRUPOS = [];
+  var MSG = "Olá! Sou a Renata e quero reservar a viagem para a Itália de 9 a 21/10/2027.", ROT_PIX = "à vista no Pix, para os dois";
+  var GRUPOS = [{"id":"base","nome":"Uma base só","recomendada":"positano","desc":"Os 12 dias num hotel só, passeando pela costa a partir dele."},{"id":"costa","nome":"Pela costa","recomendada":"costa-eco","desc":"Sorrento, Positano e Amalfi: 3, 4 e 4 noites, conhecendo a costa inteira."},{"id":"franca","nome":"Costa + Paris","recomendada":"par-eco","desc":"7 noites entre Sorrento e Positano, depois 4 noites em Paris e volta de lá."},{"id":"barcelona","nome":"Costa + Barcelona","recomendada":"bcn-eco","desc":"7 noites entre Sorrento e Positano, depois 4 noites em Barcelona e volta de lá."},{"id":"grecia","nome":"Costa + Grécia","recomendada":"jtr-eco","desc":"7 noites entre Sorrento e Positano, depois 4 noites em Santorini e volta de lá."}];
   var estado = { op: "positano", forma: 'cartao', n: 10, grupo: GRUPOS.length ? GRUPOS[0].id : '' };
   function brl(v, c){ return v.toLocaleString('pt-BR', { minimumFractionDigits: c ? 2 : 0, maximumFractionDigits: c ? 2 : 0 }); }
   function calc(o){
