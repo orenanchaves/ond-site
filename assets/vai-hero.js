@@ -52,7 +52,7 @@
   +'.vt2-inc span{font-size:.76rem;font-weight:700;background:#fff;border:1px solid var(--v-line);border-radius:50px;padding:4px 10px}'
   +'.vt2-preco{margin-top:14px;font-size:.84rem;color:var(--v-mut)}'
   +'.vt2-wa{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;background:#25D366;color:#062b14;border-radius:50px;padding:12px 14px;font-weight:800;text-decoration:none;font-size:.92rem}'
-  +'.vt2-wa svg{width:18px;height:18px}'
+  +'.vt2-wa svg{width:18px;height:18px}.vt2-was{display:flex;flex-direction:column;gap:8px;margin-top:12px}.vt2-was .vt2-wa{margin-top:0}.vt2-wa2{background:#fff;color:#1a7f45;border:1.5px solid #25D366}.vh2-msg .vt2-was{flex-direction:row;flex-wrap:wrap}'
   +'.vh2-main{display:flex;flex-direction:column;min-width:0;min-height:0;position:relative}'
   +'.vh2-welcome{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}'
   +'.vh2-lab{font-size:.78rem;font-weight:800;letter-spacing:.14em;color:var(--v-p);margin-top:26px}'
@@ -85,7 +85,7 @@
   +'.vh2-msg.typing i{width:7px;height:7px;border-radius:50%;background:#b9a7e8;animation:vh2blink 1s infinite}'
   +'.vh2-msg.typing i:nth-child(2){animation-delay:.2s}.vh2-msg.typing i:nth-child(3){animation-delay:.4s}'
   +'@keyframes vh2blink{0%,100%{opacity:.35}50%{opacity:1}}'
-  +'.vh2-msg .vt2-wa{display:inline-flex;margin-top:10px;padding:10px 16px}'
+  +'.vh2-msg .vt2-wa{display:inline-flex;padding:10px 16px}'
   +'.vh2-quick{display:flex;flex-wrap:wrap;gap:8px;padding:6px 26px 8px}'
   +'.vh2-q{font:inherit;font-size:.85rem;font-weight:600;color:var(--v-p);background:#fff;border:1.5px solid var(--v-p);border-radius:50px;padding:7px 14px;cursor:pointer}'
   +'.vh2-q:hover{background:#f1e8fd}'
@@ -150,7 +150,11 @@
     if(/sozinh|so eu|solo/.test(t)) return 'Só eu';
     return '';
   }
-  function wa(msg,origem){ return '<a class="vt2-wa" href="https://wa.me/'+NUM+'?text='+encodeURIComponent(msg)+'" target="_blank" rel="noopener" data-vai-wa="'+esc(origem)+'">'+I.wa+'Continuar no WhatsApp da agência</a>' }
+  var PESSOAL='5511953353347';
+  function wa(msg,origem){
+    return '<div class="vt2-was"><a class="vt2-wa" href="https://wa.me/'+NUM+'?text='+encodeURIComponent(msg)+'" target="_blank" rel="noopener" data-vai-wa="'+esc(origem)+'">'+I.wa+'Enviar pro WhatsApp do OND</a>'
+      +'<a class="vt2-wa vt2-wa2" href="https://wa.me/'+PESSOAL+'?text='+encodeURIComponent(msg)+'" target="_blank" rel="noopener" data-vai-wa="'+esc(origem)+' (Renan Chaves)">'+I.wa+'Falar com o Renan Chaves</a></div>';
+  }
   document.addEventListener('click',function(e){ var a=e.target.closest&&e.target.closest('[data-vai-wa]'); if(a&&window.gtag) gtag('event','whatsapp_click',{destino:a.getAttribute('data-vai-wa'),pagina:'vai-home'}) });
 
   function show(){ if(!body.hidden) return; welcome.style.display='none'; body.hidden=false }
@@ -165,7 +169,7 @@
   function plano(d){
     var n=dias(d), h=d.destaques, out=[];
     for(var i=0;i<n;i++){
-      var t = i===0 ? 'Chegada e '+(h[0]||'primeiro passeio')
+      var t = i===0 ? 'Chegada: '+(h[0]||'primeiro passeio')
             : (h[i] || (i===n-1 ? 'Último passeio e volta pra casa' : 'Dia livre pra aproveitar'));
       out.push(t);
     }
@@ -268,15 +272,18 @@
   });
   var modal=document.getElementById('vai'), ehModal=modal&&modal.classList.contains('vai-modal');
   function abre(sug){
-    if(ehModal){ modal.hidden=false; document.body.style.overflow='hidden' }
+    if(ehModal){ var jaAberto=!modal.hidden; modal.hidden=false; document.body.style.overflow='hidden'; if(!jaAberto && location.hash!=='#vai'){ try{ history.pushState({vai:1},'','#vai') }catch(e){} } }
     else { window.scrollTo({top:Math.max(0,root.getBoundingClientRect().top+window.pageYOffset-72),behavior:'smooth'}) }
     setTimeout(function(){ try{ input.focus({preventScroll:true}) }catch(e){} if(sug && st2.step==='dest' && body.hidden) responde(sug) },ehModal?250:600);
   }
-  function fecha(){ if(!ehModal) return; modal.hidden=true; document.body.style.overflow=''; if(location.hash==='#vai') history.replaceState(null,'',location.pathname+location.search) }
+  function esconde(){ modal.hidden=true; document.body.style.overflow='' }
+  function fecha(){ if(!ehModal) return; if(history.state&&history.state.vai){ history.back(); return } esconde(); if(location.hash==='#vai') history.replaceState(null,'',location.pathname+location.search) }
+  window.addEventListener('popstate',function(){ if(ehModal && location.hash!=='#vai' && !modal.hidden) esconde() });
   window.ondVaiOpen=abre; window.ondVaiFocus=function(){ abre('') };
   document.addEventListener('click',function(e){
     var o=e.target.closest&&e.target.closest('[data-vai-open]'); if(o){ e.preventDefault(); abre(o.getAttribute('data-vai-open')); return }
     if(e.target.closest&&e.target.closest('[data-vai-close]')) fecha();
+    if(e.target.closest&&e.target.closest('[data-vai-new]')){ reset(); }
   });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ehModal&&!modal.hidden) fecha() });
   if(location.hash==='#vai') setTimeout(function(){ abre('') },300);

@@ -751,16 +751,25 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .hb-typing{display:flex;justify-content:space-between;width:100%;margin-top:10px;font:inherit;font-size:.84rem;color:#8d86a0;background:#f6f2fd;border:1px solid #e1d8f4;border-radius:50px;padding:9px 12px;cursor:text}
 .hb-typing span{color:#7f11f4;font-weight:800}
 @keyframes hbIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
-/* modal do OND vAI */
-.vai-modal{position:fixed;inset:0;z-index:100100;display:flex;align-items:center;justify-content:center;padding:24px}
-.vai-modal[hidden]{display:none}
-.vai-modal-bg{position:absolute;inset:0;background:rgba(10,6,24,.72);backdrop-filter:blur(6px);animation:vmFade .25s ease}
-.vai-modal-box{position:relative;width:min(1320px,100%);animation:vmUp .35s ease}
-.vai-modal-x{position:absolute;z-index:3;top:-14px;right:-14px;width:40px;height:40px;border-radius:50%;border:none;background:#fff;color:#3b0a78;font-size:1.6rem;line-height:1;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.3)}
-.vai-modal .vh2{height:min(820px,calc(100vh - 48px))}
-@keyframes vmFade{from{opacity:0}}@keyframes vmUp{from{opacity:0;transform:translateY(18px) scale(.98)}}
 @media(max-width:960px){.hb-bubble{position:relative;right:auto;top:auto;margin:-40px auto 0;width:min(320px,92%)}.hb-img{flex-direction:column;align-items:center}.hb-acts{justify-content:center}.hb-lead,.hb-app{margin-left:auto;margin-right:auto}.hb-app{text-align:center}.hb-app .hero-app-btns{justify-content:center}}
-@media(max-width:900px){.vai-modal{padding:0}.vai-modal-box{height:100%}.vai-modal .vh2{height:100%;border-radius:0;display:flex;flex-direction:column;overflow-y:auto}.vai-modal .vh2-main{height:100%;flex:0 0 100%}.vai-modal-x{top:10px;right:10px;width:36px;height:36px}.vai-modal .vh2-body{padding-top:58px}.vai-modal .vh2-welcome{padding-top:40px}}
+</style>
+<style id="vai-pagina">
+.vai-modal{position:fixed;inset:0;z-index:100100;display:flex;flex-direction:column;background:#f6f2fd;animation:vpIn .28s ease}
+.vai-modal[hidden]{display:none}
+@keyframes vpIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.vai-top{flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;height:62px;padding:0 18px;background:#fff;border-bottom:1px solid #e1d8f4;color:#3b0a78}
+.vai-back{display:inline-flex;align-items:center;gap:8px;background:#efe9fa;color:#3b0a78;border:none;border-radius:12px;padding:9px 14px;font:inherit;font-weight:700;font-size:.92rem;cursor:pointer}
+.vai-back svg{width:18px;height:18px}
+.vai-back:hover{background:#e4d8f8}
+.vai-brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1rem}
+.vai-brand-orb{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 24%,#fff 0,#f0e3ff 6%,#c197ff 20%,#8b2cf5 52%,#3b0a78 100%)}
+.vai-brand-orb svg{width:13px;height:13px;fill:#fff}
+.vai-new{background:#efe9fa;color:#7f11f4;border:none;border-radius:50px;padding:9px 14px;font:inherit;font-weight:700;font-size:.86rem;cursor:pointer}
+.vai-new:hover{background:#e4d8f8}
+.vai-modal #vaiHero{flex:1;min-height:0}
+.vai-modal .vh2{height:100%;border:none;border-radius:0;box-shadow:none}
+@media(max-width:900px){.vai-top{height:56px;padding:0 10px}.vai-back span{display:none}.vai-back{padding:9px 10px}
+  .vai-modal .vh2{display:flex;flex-direction:column;overflow-y:auto}.vai-modal .vh2-main{flex:0 0 100%;height:100%}}
 </style>
 </head>
 <body>
@@ -858,7 +867,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <h1 class="hero-title">Escolha o destino.<br>A gente faz a <em>viagem</em> acontecer.</h1>
     <p class="hb-lead">O OND é uma agência de viagens com inteligência artificial. Você conta pra onde quer ir, o <strong>OND vAI</strong> monta a viagem em minutos e a nossa equipe <strong>cota, compra e acompanha tudo</strong>: passagens, hospedagem e passeios, com suporte humano do embarque à volta.</p>
     <div class="hb-acts">
-      <button type="button" class="hb-main" data-vai-open=""><span class="hb-orb"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span>Montar minha viagem com o OND vAI</button>
+      <button type="button" class="hb-main" data-vai-open=""><span class="hb-orb"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span>Monte sua viagem</button>
       <a class="hb-wa" href="https://wa.me/5511910214133?text=Ol%C3%A1%2C%20OND%21%20Quero%20comprar%20uma%20viagem%20com%20a%20ag%C3%AAncia.%20Vim%20pelo%20site." target="_blank" rel="noopener">Falar com a agência</a>
     </div>
     <a class="hb-cad" href="https://firebasestorage.googleapis.com/v0/b/agama-tec.appspot.com/o/documents%2Fcertificado-cadastur.pdf?alt=media&amp;token=6208b999-b326-4a7f-b89d-0f682cf3a2e3" target="_blank" rel="noopener">Agência de turismo cadastrada no Cadastur · CNPJ 39.360.492/0001-61</a>
@@ -884,22 +893,17 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
   <div class="hero-image hb-img">
     <img src="/assets/ondino-caminhando.svg" alt="Ondino, o personagem do OND, caminhando com o celular na mão e a mala" loading="eager">
-    <div class="hb-bubble" role="group" aria-label="Comece uma conversa com o OND vAI">
-      <div class="hb-bh"><span class="hb-orb sm"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span><b>OND vAI</b><i>online</i></div>
-      <p>Oi! Pra onde vamos viajar?</p>
-      <div class="hb-chips"><button type="button" class="hb-chip" data-vai-open="Réveillon no Rio de Janeiro"><img src="/assets/flags/BRA.svg" alt="" width="18" height="12">Rio de Janeiro</button><button type="button" class="hb-chip" data-vai-open="Família pra Orlando em julho"><img src="/assets/flags/USA.svg" alt="" width="18" height="12">Orlando</button><button type="button" class="hb-chip" data-vai-open="Viagem pra Lisboa"><img src="/assets/flags/PRT.svg" alt="" width="18" height="12">Lisboa</button></div>
-      <button type="button" class="hb-typing" data-vai-open="">Escreva pra onde você quer ir <span>→</span></button>
-    </div>
   </div>
 </section>
 
-<!-- OND vAI em tela cheia (abre pelo botao, pelas sugestoes e pelo orb) -->
-<div class="vai-modal" id="vai" hidden role="dialog" aria-modal="true" aria-label="Conversa com o OND vAI">
-  <div class="vai-modal-bg" data-vai-close></div>
-  <div class="vai-modal-box">
-    <button type="button" class="vai-modal-x" data-vai-close aria-label="Fechar conversa">×</button>
-    <div id="vaiHero"><noscript><a href="https://wa.me/5511910214133">Fale com a agência OND no WhatsApp</a></noscript></div>
+<!-- OND vAI em tela cheia: parece outra pagina (mesma dinamica do app), volta pro site pelo topo -->
+<div class="vai-modal" id="vai" hidden role="dialog" aria-modal="true" aria-label="OND vAI: monte sua viagem">
+  <div class="vai-top">
+    <button type="button" class="vai-back" data-vai-close aria-label="Voltar ao site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>Voltar ao site</span></button>
+    <div class="vai-brand"><span class="vai-brand-orb"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span>OND vAI</div>
+    <button type="button" class="vai-new" data-vai-new>+ Nova conversa</button>
   </div>
+  <div id="vaiHero"><noscript><a href="https://wa.me/5511910214133">Fale com a agência OND no WhatsApp</a></noscript></div>
 </div>
 
 
