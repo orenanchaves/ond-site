@@ -165,7 +165,7 @@
   function plano(d){
     var n=dias(d), h=d.destaques, out=[];
     for(var i=0;i<n;i++){
-      var t = i===0 ? 'Chegada e '+(h[0]||'primeiro passeio').charAt(0).toLowerCase()+(h[0]||'primeiro passeio').slice(1)
+      var t = i===0 ? 'Chegada e '+(h[0]||'primeiro passeio')
             : (h[i] || (i===n-1 ? 'Último passeio e volta pra casa' : 'Dia livre pra aproveitar'));
       out.push(t);
     }
@@ -222,7 +222,7 @@
       painel(false);
       var intro='Boa escolha! '+esc(d.desc)+' A melhor época é '+esc(d.epoca.charAt(0).toLowerCase()+d.epoca.slice(1))+'.';
       if(!st2.quando){ st2.step='quando'; return ai(intro+'<br><br>Quando você quer ir?',['Neste feriado','Réveillon','Janeiro','Julho','Ainda não sei']) }
-      if(!st2.quem){ st2.step='quem'; return ai(intro+'<br><br>Anotei '+esc(st2.quando.toLowerCase())+'. Quem vai nessa viagem?',['Só eu','Casal','Família com crianças','Amigos']) }
+      if(!st2.quem){ st2.step='quem'; return ai(intro+'<br><br>Anotei: '+esc(st2.quando)+'. Quem vai nessa viagem?',['Só eu','Casal','Família com crianças','Amigos']) }
       st2.step='saida'; return ai(intro+'<br><br>E você sai de qual cidade?',['São Paulo','Rio de Janeiro','Belo Horizonte','Brasília']);
     }
     if(st2.step==='quando'){
