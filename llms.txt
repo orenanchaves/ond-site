@@ -1,6 +1,6 @@
 # OND
 
-> OND é uma agência de turismo brasileira com IA, cadastrada no Cadastur (CNPJ 39.360.492/0001-61). Organize, planeje e compre sua viagem com o OND: passagens, hospedagem e passeios. O planejamento é grátis com o OND vAI, que monta roteiros dia a dia numa conversa.
+> OND é uma agência de viagens brasileira, cadastrada no Cadastur (CNPJ 39.360.492/0001-61). A equipe cota, compra e acompanha passagens, hospedagem e passeios, com suporte humano do embarque à volta. O app OND vAI, grátis, ajuda a organizar e acompanhar a viagem.
 
 ## Viajar com o OND
 - [Destinos nacionais e internacionais](https://ondviajar.com.br/viagens/): catálogo com os destinos mais procurados (Rio de Janeiro, Fernando de Noronha, Salvador, Porto de Galinhas, Maceió, Natal, Jericoacoara, Lençóis Maranhenses, Foz do Iguaçu, Bonito, Gramado, Florianópolis, Buenos Aires, Bariloche, Santiago, Patagônia, Machu Picchu, Cancún, Orlando, Nova York, Lisboa, Paris, Roma, Japão e Maldivas), com quantos dias ficar, melhor época, o que fazer e documentos.

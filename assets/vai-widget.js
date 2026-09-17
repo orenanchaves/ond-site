@@ -27,7 +27,7 @@
   // respostas fixas (aceitam HTML), B2C (viajante)
   var ANSWERS_B2C = {
     ola: 'Oi! 👋 Eu sou o <b>OND vAI</b>, seu planejador de viagem. Me pergunta o que quiser, <i>o que é o OND</i>, <i>como funciona</i>, <i>contato</i>, ou já me diz um destino que eu te dou um gostinho do roteiro. ✈️',
-    oque: 'O <b>OND</b> é a sua <b>agência de viagem conversacional com IA</b>. 🧭 Numa conversa eu monto o <b>roteiro completo</b> e você ainda <b>reserva voos, hospedagem e passeios</b> comigo, sem pesquisar em dezenas de sites. E planejar é <b>de graça</b>.',
+    oque: 'O <b>OND</b> é uma <b>agência de viagens</b>. A nossa equipe cota, compra e acompanha <b>voos, hospedagem e passeios</b>, com suporte humano do embarque à volta. E o app OND vAI ajuda a organizar e acompanhar a viagem, de graça.',
     faz: 'Eu <b>planejo sua viagem numa conversa</b>, de graça: monto o roteiro dia a dia, <b>comparo e reservo voos, hotéis e passeios</b>, cuido dos custos e te acompanho durante a viagem. Tudo no app, iOS, Android e Web. 📲',
     preco: 'Planejar com o OND é <b>de graça</b>! 🎉 Você monta o roteiro completo sem pagar nada, organizar não custa. A gente ganha quando você <b>fecha a viagem com a gente</b>: voos, hotéis e passeios você compra aqui. ✈️',
     contato: 'Bora falar! 💬<br>📱 WhatsApp: <a href="' + WA + '" target="_blank" rel="noopener">(11) 91021-4133</a><br>✉️ E-mail: <a href="mailto:' + MAIL + '">' + MAIL + '</a><br><span style="opacity:.85">O OND é da <b>Agama Tec</b>, dos fundadores <b>Renan Rodrigues</b> e <b>Renan Chaves</b>.</span>'
