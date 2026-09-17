@@ -673,7 +673,7 @@
     elCta.className='gl-btn wa'; elCta.textContent='Quero comprar essa viagem';
     elCta.href='https://wa.me/'+WA_NUM+'?text='+encodeURIComponent('Olá, OND! Quero comprar uma viagem para '+c.n+' ('+p.n+'). Vi no globo de destinos do site.');
     elCta.target='_blank'; elCta.rel='noopener';
-    elCta.onclick=function(){ if(window.gtag) gtag('event','whatsapp_click',{destino:c.n,pagina:'globo'}) };
+    elCta.setAttribute('data-wa-destino',c.n); elCta.setAttribute('data-wa-pagina','globo');
     /* secundário: ficha do catálogo > roteiro do blog > montar no OND vAI */
     elRot.style.display=''; elRot.removeAttribute('target'); elRot.onclick=null;
     if(c.cat){ elRot.textContent='Ver detalhes da viagem →'; elRot.href='/viagens/#'+c.cat;
