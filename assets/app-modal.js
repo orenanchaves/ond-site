@@ -17,6 +17,37 @@
   }catch(storageError){}
   var branchLinks = {};
 
+  /* Anúncio: guarda os identificadores do clique (gclid/gbraid/wbraid, gad_*, utm_*) e a cidade
+     da URL de chegada na sessão, pra seguirem pro web app e pra loja em qualquer página visitada. */
+  var AD_KEYS = ['gclid','gbraid','wbraid','gad_campaignid','gad_source','utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+  var AD_STORAGE_KEY = 'ond_anuncio';
+  var adParams = new URLSearchParams();
+  AD_KEYS.forEach(function(key){ var value = pageParams.get(key); if(value) adParams.set(key, value); });
+  var landingCity = pageParams.get('city') || '';
+  try{
+    if(adParams.toString()){
+      if(landingCity) adParams.set('city', landingCity);
+      sessionStorage.setItem(AD_STORAGE_KEY, adParams.toString());
+    } else {
+      adParams = new URLSearchParams(sessionStorage.getItem(AD_STORAGE_KEY) || '');
+    }
+  }catch(storageError){}
+  if(!landingCity) landingCity = adParams.get('city') || '';
+  adParams.delete('city');
+  var fromAd = !!(adParams.get('gclid') || adParams.get('gbraid') || adParams.get('wbraid'));
+
+  function withLandingContext(url){
+    if(url.pathname.indexOf('/ond-vai') !== 0) return url;
+    if(landingCity && !url.searchParams.has('city')) url.searchParams.set('city', landingCity);
+    if(partner && !url.searchParams.has('partner')) url.searchParams.set('partner', partner);
+    return url;
+  }
+  function withAdParams(href){
+    var url = withLandingContext(new URL(href));
+    adParams.forEach(function(value, key){ if(!url.searchParams.has(key)) url.searchParams.set(key, value); });
+    return url.toString();
+  }
+
   function deepLinkPathFor(unlocode){
     var deepLinkParams = new URLSearchParams();
     var city = (unlocode || '').replace(/\s+/g, '');
@@ -31,10 +62,14 @@
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        branch_key: BRANCH_KEY, channel: 'site', feature: 'popup_app', campaign: partner || '',
+        branch_key: BRANCH_KEY,
+        channel: fromAd ? 'google_ads' : 'site',
+        feature: fromAd ? 'search_ads_lp' : 'popup_app',
+        campaign: fromAd ? (adParams.get('gad_campaignid') || '') : (partner || ''),
         data: {
           '$deeplink_path': deepLinkPath,
-          gclid: pageParams.get('gclid') || '', gad_campaignid: pageParams.get('gad_campaignid') || '',
+          gclid: adParams.get('gclid') || '', gbraid: adParams.get('gbraid') || '', wbraid: adParams.get('wbraid') || '',
+          gad_campaignid: adParams.get('gad_campaignid') || '',
           '$android_url': PLAY, '$ios_url': APPSTORE, '$fallback_url': 'https://ondviajar.com.br/'
         }
       })
@@ -56,11 +91,29 @@
       var link = e.target.closest && e.target.closest('a[href^="https://web.ondviajar.com.br"]');
       if(!link) return;
       e.preventDefault(); e.stopPropagation();
-      var url = new URL(link.href), store = isIOS ? APPSTORE : PLAY, done = false;
+      var url = withLandingContext(new URL(link.href)), store = isIOS ? APPSTORE : PLAY, done = false;
       function go(href){ if(done) return; done = true; location.href = href; }
       if(window.gtag) gtag('event', 'mobile_web_to_store', { path: url.pathname + url.search });
       setTimeout(function(){ go(store); }, 1500);
       resolveStoreLink(url.pathname + url.search, go);
+    }, true);
+  } else {
+    document.addEventListener('click', function(e){
+      var link = e.target.closest && e.target.closest('a[href^="https://web.ondviajar.com.br"]');
+      if(link) link.href = withAdParams(link.href);
+    }, true);
+  }
+
+  /* Botões de loja da página, pra quem chegou por anúncio: link Branch com o clique do anúncio. */
+  if(fromAd){
+    var adStoreLink = null;
+    resolveStoreLink(deepLinkPathFor(landingCity), function(branchUrl){ adStoreLink = branchUrl; });
+    document.addEventListener('click', function(e){
+      var storeLink = e.target.closest && e.target.closest('a[href*="play.google.com"], a[href*="apps.apple.com"]');
+      if(!storeLink) return;
+      var store = storeLink.href.indexOf('play.google.com') !== -1 ? 'google_play' : 'app_store';
+      if(window.gtag) gtag('event', 'ad_store_redirect', { store: store, gad_campaignid: adParams.get('gad_campaignid') || '' });
+      if(adStoreLink) storeLink.href = adStoreLink;
     }, true);
   }
 
