@@ -126,6 +126,8 @@ h2 em{font-style:normal;color:var(--neon)}
 .cta{flex:0 0 auto;font-weight:800;font-size:16px;color:#0d0d14;background:var(--neon);border-radius:999px;padding:14px 22px;text-decoration:none;white-space:nowrap}
 @media (max-width:420px){.op .linha{flex-direction:column}.op .p{text-align:left}.op .radio{display:none}.ideias{grid-template-columns:1fr}}
 
+.abas.grupos{margin-top:16px}.abas.grupos button{font-size:14px;line-height:1.2}
+.grupo-desc{margin-top:10px;font-size:13.5px;color:var(--muted);line-height:1.45}
 </style></head><body>
 
 <header class="hero">
@@ -160,6 +162,7 @@ h2 em{font-style:normal;color:var(--neon)}
   <section class="wrap" id="opcoes">
     <div class="rot">Passo 1</div>
     <h2>Escolha <em>a hospedagem</em></h2>
+
     <div class="opcoes" id="listaOpcoes"></div>
   </section>
 
@@ -222,10 +225,11 @@ h2 em{font-style:normal;color:var(--neon)}
 
 <script>
 (function(){
-  var OPCOES = [{"id":"amalfi","tag":"Base em Amalfi","hotel":"L’Antico Borgo dei Limoni","onde":"Amalfi","itens":["Café da manhã","No centro da costa","Perto dos barcos e de Ravello"],"imgs":[],"fotos":"Antico Borgo dei Limoni Amalfi","destaque":"","pix":23900,"cartao":25160},{"id":"positano","tag":"Base em Positano","hotel":"Villa Celentano","onde":"Positano","itens":["Café da manhã","Na vila mais famosa da costa","Barcos para Amalfi e Capri"],"imgs":["https://www.hotelresb2b.com/images/hoteles/136857_foto_1.JPG"],"fotos":"Villa Celentano Positano","destaque":"Mais indicada","pix":24780,"cartao":26090},{"id":"sorrento","tag":"Base em Sorrento","hotel":"Hotel Prestige Sorrento","onde":"Sorrento","itens":["Café da manhã","Trem para Pompeia e Nápoles","Barcos para Capri e para a costa"],"imgs":["https://media.dev.paximum.com/hotelimages/363164/2.jpg","https://static-images.webbeds.com/0/image/dc43bd94-f672-41e4-a110-e472aa694ce4.jpg"],"fotos":"Hotel Prestige Sorrento","destaque":"","pix":26120,"cartao":27500}];
+  var OPCOES = [{"id":"amalfi","grupo":"","tag":"Base em Amalfi","hotel":"L’Antico Borgo dei Limoni","onde":"Amalfi","itens":["Café da manhã","No centro da costa","Perto dos barcos e de Ravello"],"imgs":[],"fotos":"Antico Borgo dei Limoni Amalfi","destaque":"","pix":23900,"cartao":25160},{"id":"positano","grupo":"","tag":"Base em Positano","hotel":"Villa Celentano","onde":"Positano","itens":["Café da manhã","Na vila mais famosa da costa","Barcos para Amalfi e Capri"],"imgs":["https://www.hotelresb2b.com/images/hoteles/136857_foto_1.JPG"],"fotos":"Villa Celentano Positano","destaque":"Mais indicada","pix":24780,"cartao":26090},{"id":"sorrento","grupo":"","tag":"Base em Sorrento","hotel":"Hotel Prestige Sorrento","onde":"Sorrento","itens":["Café da manhã","Trem para Pompeia e Nápoles","Barcos para Capri e para a costa"],"imgs":["https://media.dev.paximum.com/hotelimages/363164/2.jpg","https://static-images.webbeds.com/0/image/dc43bd94-f672-41e4-a110-e472aa694ce4.jpg"],"fotos":"Hotel Prestige Sorrento","destaque":"","pix":26120,"cartao":27500}];
   var JUROS = 0.0199, WHATS = '5511953353347', VALIDADE = new Date('2026-09-19T23:59:59-03:00');
   var MSG = "Olá! Sou a Renata e quero reservar a viagem para a Costa Amalfitana de 9 a 21/10/2027.", ROT_PIX = "à vista no Pix, para os dois";
-  var estado = { op: "positano", forma: 'cartao', n: 10 };
+  var GRUPOS = [];
+  var estado = { op: "positano", forma: 'cartao', n: 10, grupo: GRUPOS.length ? GRUPOS[0].id : '' };
   function brl(v, c){ return v.toLocaleString('pt-BR', { minimumFractionDigits: c ? 2 : 0, maximumFractionDigits: c ? 2 : 0 }); }
   function calc(o){
     if (estado.forma === 'pix') return { total: o.pix, parcela: o.pix, n: 0 };
@@ -234,7 +238,8 @@ h2 em{font-style:normal;color:var(--neon)}
     return { total: Math.round(t * 100) / 100, parcela: Math.round(p * 100) / 100, n: n };
   }
   var lista = document.getElementById('listaOpcoes');
-  lista.innerHTML = OPCOES.map(function(o){
+  function renderLista(){
+  lista.innerHTML = OPCOES.filter(function(o){ return !estado.grupo || o.grupo === estado.grupo; }).map(function(o){
     return '<label class="op" data-op="' + o.id + '"><input type="radio" name="op" value="' + o.id + '">' +
       (o.imgs.length ? '<button type="button" class="btn-fotos" data-fotos="' + o.id + '" aria-label="Ver fotos do hotel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg>Fotos</button>' : '') +
       (o.destaque ? '<span class="selo">' + o.destaque + '</span>' : '') +
@@ -242,12 +247,24 @@ h2 em{font-style:normal;color:var(--neon)}
       '<ul>' + o.itens.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul></div>' +
       '<div class="p"><div class="radio"></div><small>10x no cartão de</small><b>R$ ' + brl(o.cartao * JUROS / (1 - Math.pow(1 + JUROS, -10)), true) + '</b><span>ou R$ ' + brl(o.pix) + ' no Pix</span></div></div></label>';
   }).join('');
+    var g = GRUPOS.filter(function(x){ return x.id === estado.grupo; })[0];
+    if (g && document.getElementById('grupoDesc')) document.getElementById('grupoDesc').textContent = g.desc || '';
+    [].forEach.call(document.querySelectorAll('#grupos button'), function(b){ b.classList.toggle('on', b.getAttribute('data-grupo') === estado.grupo); });
+  }
+  renderLista();
+  if (document.getElementById('grupos')) document.getElementById('grupos').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    estado.grupo = b.getAttribute('data-grupo');
+    var g = GRUPOS.filter(function(x){ return x.id === estado.grupo; })[0];
+    estado.op = (g && g.recomendada) || OPCOES.filter(function(o){ return o.grupo === estado.grupo; })[0].id;
+    renderLista(); render();
+  });
   var par = document.getElementById('parcelas');
   par.innerHTML = [1,2,3,4,5,6,7,8,9,10].map(function(n){ return '<button type="button" data-n="' + n + '">' + n + 'x</button>'; }).join('');
   function render(){
     var o = OPCOES.filter(function(x){ return x.id === estado.op; })[0], r = calc(o);
     [].forEach.call(document.querySelectorAll('.op'), function(el){ el.classList.toggle('on', el.dataset.op === estado.op); el.querySelector('input').checked = el.dataset.op === estado.op; });
-    [].forEach.call(document.querySelectorAll('.abas button'), function(b){ b.classList.toggle('on', b.dataset.forma === estado.forma); });
+    [].forEach.call(document.querySelectorAll('.pag .abas button'), function(b){ b.classList.toggle('on', b.dataset.forma === estado.forma); });
     [].forEach.call(par.querySelectorAll('button'), function(b){ b.classList.toggle('on', +b.dataset.n === estado.n); });
     par.hidden = estado.forma !== 'cartao';
     var valor = document.getElementById('valor'), sub = document.getElementById('sub'), eco = document.getElementById('eco'), txtPag;
@@ -282,7 +299,7 @@ h2 em{font-style:normal;color:var(--neon)}
   var tx0 = null; document.getElementById('gImg').addEventListener('touchstart', function(e){ tx0 = e.touches[0].clientX; }, { passive: true });
   document.getElementById('gImg').addEventListener('touchend', function(e){ if (tx0 === null) return; var dx = e.changedTouches[0].clientX - tx0; if (Math.abs(dx) > 40) galPasso(dx < 0 ? 1 : -1); tx0 = null; });
   lista.addEventListener('click', function(e){ var el = e.target.closest('.op'); if (!el) return; estado.op = el.dataset.op; render(); });
-  document.querySelector('.abas').addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; estado.forma = b.dataset.forma; render(); });
+  document.querySelector('.pag .abas').addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; estado.forma = b.dataset.forma; render(); });
   par.addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; estado.n = +b.dataset.n; render(); });
   function contagem(){
     var el = document.getElementById('contagem'), ms = VALIDADE - new Date();
