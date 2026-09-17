@@ -104,8 +104,8 @@
     }, true);
   }
 
-  /* Botões de loja da página, pra quem chegou por anúncio: link Branch com o clique do anúncio. */
-  if(fromAd){
+  /* Botões de loja da página, pra quem chegou por anúncio ou parceiro: link Branch com o clique do anúncio e o parceiro. */
+  if(fromAd || partner){
     var adStoreLink = null;
     resolveStoreLink(deepLinkPathFor(landingCity), function(branchUrl){ adStoreLink = branchUrl; });
     document.addEventListener('click', function(e){
