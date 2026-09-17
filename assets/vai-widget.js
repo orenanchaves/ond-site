@@ -175,6 +175,9 @@
     function activate() {
       if (B2B) { open(); return; }
       hideBubble();
+      /* B2C: o orb leva pra conversa do OND vAI no topo da home */
+      if (window.ondVaiFocus) { window.ondVaiFocus(); return; }
+      if (!/^\/(index\.html)?$/.test(location.pathname) || !document.getElementById('vaiHero')) { location.href = '/#vai'; return; }
       var a = document.createElement('a');
       a.href = WEB; a.target = '_blank'; a.rel = 'noopener';
       document.body.appendChild(a);
