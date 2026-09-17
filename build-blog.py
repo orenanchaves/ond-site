@@ -78,6 +78,7 @@ ROTEIRO_SIM = {
     ]},
 }
 
+FAQ_CHEV = '<svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>'
 EXTRA_CSS = ('\n.prose ol{margin:0 0 22px 0;padding-left:22px;color:#cfcce8}'
  '\n[data-theme="light"] .prose ol{color:#2a2540}'
  '\n.prose .tldr{font-style:normal;border-left-color:var(--green);background:var(--green-dim)}'
@@ -88,6 +89,7 @@ EXTRA_CSS = ('\n.prose ol{margin:0 0 22px 0;padding-left:22px;color:#cfcce8}'
  '\n.faq-item{border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin-bottom:12px;background:var(--card)}'
  '\n.faq-item h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--text)}'
  '\n.faq-item p{font-size:1rem;color:var(--muted);line-height:1.75;margin:0}'
+ '\n.faq{interpolate-size:allow-keywords}.faq-item{padding:0!important;overflow:hidden;transition:border-color .2s}.faq-item:hover,.faq-item[open]{border-color:color-mix(in srgb,var(--purple) 40%,var(--border))}.faq-item>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 20px;cursor:pointer}.faq-item>summary::-webkit-details-marker{display:none}.faq-item>summary h3{margin:0!important}.faq-item>summary:focus-visible{outline:2px solid var(--purple);outline-offset:-2px;border-radius:14px}.faq-chev{flex-shrink:0;width:22px;height:22px;color:var(--muted);transition:transform .3s ease}.faq-item[open] .faq-chev{transform:rotate(180deg);color:var(--purple-light)}.faq-item>p{padding:0 20px 18px!important;margin:0!important}.faq-item::details-content{block-size:0;overflow:hidden;transition:block-size .35s ease,content-visibility .35s allow-discrete}.faq-item[open]::details-content{block-size:auto}@media(prefers-reduced-motion:reduce){.faq-item::details-content,.faq-chev{transition:none}}'
  '\n.roteiro-sim-wrap{margin:40px auto 26px;text-align:center}'
  '\n.roteiro-sim-wrap>h2{font-size:1.72rem;font-weight:800;letter-spacing:-.02em;margin:0 0 10px}'
  '\n.rsim-sub{font-size:1rem;color:var(--muted);max-width:560px;margin:0 auto 22px;line-height:1.6}\n')
@@ -291,7 +293,7 @@ def build_article(p, cs, cover, cat):
     faqs = p.get('faq') or []
     faq_html = ''
     if faqs:
-        items = '\n  '.join(f'<div class="faq-item"><h3>{esc(f["q"])}</h3><p>{esc(f["a"])}</p></div>' for f in faqs)
+        items = '\n  '.join(f'<details class="faq-item"><summary><h3>{esc(f["q"])}</h3>{FAQ_CHEV}</summary><p>{esc(f["a"])}</p></details>' for f in faqs)
         faq_html = f'\n  <section class="faq">\n  <h2>Perguntas frequentes</h2>\n  {items}\n  </section>\n'
     prose = absolutize(p['html'])
     prose = re.sub(r' [—–] ', ', ', prose)  # sem travessão (preferência do OND)
