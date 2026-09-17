@@ -16,6 +16,7 @@
 
 :root{--neon:#11f558;--roxo:#7f11f4;--txt:#f0eeff;--bg:#0d0d14;--card:#16161f;--card2:#1c1c28;--borda:#2a2a3a;--muted:#a9a7c2}
 *{margin:0;padding:0;box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--txt);font-family:"Bio Sans","Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:110px}
 a{color:inherit}
@@ -81,7 +82,21 @@ h2 em{font-style:normal;color:var(--neon)}
 .seg button.on{background:var(--roxo);color:#fff}
 .fixo{font-size:14px;font-weight:800;color:var(--muted)}
 .aviso-idade{margin-top:12px;font-size:13px;line-height:1.5;color:#c9c7dd;background:rgba(127,17,244,.14);border:1px solid rgba(127,17,244,.45);border-radius:14px;padding:12px 14px}
-.op .fotos{display:inline-block;margin-top:10px;font-size:13px;font-weight:800;color:var(--neon);text-decoration:none}
+.op .btn-fotos{position:absolute;top:14px;right:14px;z-index:2;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:12.5px;font-weight:800;color:#0d0d14;background:var(--neon);border:0;border-radius:999px;padding:7px 12px;cursor:pointer}
+.op .btn-fotos svg{width:15px;height:15px}
+.op .linha{padding-top:34px}
+.galeria{position:fixed;inset:0;z-index:50;background:rgba(5,5,10,.94);display:flex;flex-direction:column}
+.galeria .gtopo{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:calc(18px + env(safe-area-inset-top, 0px)) 20px 12px}
+.galeria .gtopo b{display:block;font-size:17px;font-weight:800;color:#fff}
+.galeria .gtopo small{display:block;font-size:12.5px;font-weight:700;color:var(--muted);margin-top:2px}
+.galeria .fechar{flex:0 0 auto;width:44px;height:44px;border-radius:50%;border:1px solid var(--borda);background:var(--card);color:#fff;font-size:22px;line-height:1;cursor:pointer}
+.galeria .palco{position:relative;flex:1;display:flex;align-items:center;justify-content:center;padding:0 12px;min-height:0}
+.galeria .palco img{max-width:100%;max-height:100%;border-radius:14px;object-fit:contain}
+.galeria .nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(13,13,20,.7);color:#fff;font-size:24px;cursor:pointer}
+.galeria .nav.ant{left:16px}.galeria .nav.prox{right:16px}
+.galeria .grod{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px calc(18px + env(safe-area-inset-bottom, 0px))}
+.galeria .grod span{font-size:13px;font-weight:800;color:var(--muted)}
+.galeria .grod a{font-size:13.5px;font-weight:800;color:var(--neon);text-decoration:none}
 .op .conf{margin-top:8px;font-size:12.5px;font-weight:700;color:#ffc95c}
 .ideias{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .ideia{background:var(--card);border:1px solid var(--borda);border-radius:18px;overflow:hidden}
@@ -100,6 +115,9 @@ h2 em{font-style:normal;color:var(--neon)}
 .consultor b{display:block;margin-top:2px;font-size:19px;font-weight:800;color:#fff}
 .consultor a{display:inline-block;margin-top:8px;font-size:14px;font-weight:800;color:#0d0d14;background:var(--neon);border-radius:999px;padding:8px 14px;text-decoration:none}
 .rodape .marca{margin-top:22px}
+.consultor .contatos{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.consultor .contatos a{margin-top:0}
+.consultor .contatos a.pessoal{color:#fff;background:transparent;border:1px solid var(--borda)}
 .barra{position:fixed;left:0;right:0;bottom:0;z-index:10;background:rgba(13,13,20,.94);backdrop-filter:blur(10px);border-top:1px solid var(--borda)}
 .barra .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px calc(12px + env(safe-area-inset-bottom))}
 .barra .i{min-width:0}
@@ -138,21 +156,14 @@ h2 em{font-style:normal;color:var(--neon)}
     </div>
   </section>
 
-  <section class="wrap" id="quem">
-    <div class="rot">Passo 1</div>
-    <h2>Quem <em>vai viajar</em></h2>
-    <div class="quem" id="listaQuem"></div>
-    <div class="aviso-idade" id="avisoIdade"></div>
-  </section>
-
   <section class="wrap" id="opcoes">
-    <div class="rot">Passo 2</div>
+    <div class="rot">Passo 1</div>
     <h2>Escolha <em>a hospedagem</em></h2>
     <div class="opcoes" id="listaOpcoes"></div>
   </section>
 
   <section class="wrap">
-    <div class="rot">Passo 3</div>
+    <div class="rot">Passo 2</div>
     <h2>Escolha <em>como pagar</em></h2>
     <div class="pag">
       <div class="abas"><button type="button" data-forma="pix" class="on">Pix à vista · 5% off</button><button type="button" data-forma="cartao">Cartão</button></div>
@@ -186,7 +197,7 @@ h2 em{font-style:normal;color:var(--neon)}
 </main>
 
 <footer class="rodape"><div class="wrap">
-  <div class="consultor"><div class="av">RC</div><div><small>Proposta feita por</small><b>Renan Chaves</b><a href="https://wa.me/5511953353347" target="_blank" rel="noopener">WhatsApp (11) 95335-3347</a></div></div>
+  <div class="consultor"><div class="av">RC</div><div><small>Proposta feita por</small><b>Renan Chaves</b><div class="contatos"><a href="https://wa.me/5511910214133" target="_blank" rel="noopener">OND · (11) 91021-4133</a><a class="pessoal" href="https://wa.me/5511953353347" target="_blank" rel="noopener">Renan · (11) 95335-3347</a></div></div></div>
   <div class="marca">
 <svg class="logo" aria-label="OND" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 951.32 497.26" role="img" aria-label="OND">
   <path fill="#7F11F4" d="M327.85,243.05l-69.42-45.05-57.11-117.28c-.76-1.55-2.13-2.44-3.59-2.67-1.46.24-2.83,1.12-3.59,2.67l-57.11,117.28-69.42,45.05c-1.53.99-2.26,2.62-2.21,4.23-.04,1.61.69,3.24,2.21,4.23l69.42,45.05,57.11,117.28c.76,1.55,2.13,2.44,3.59,2.67,1.46-.24,2.83-1.12,3.59-2.67l57.11-117.28,69.42-45.05c1.53-.99,2.26-2.62,2.21-4.23.04-1.61-.69-3.24-2.21-4.23Z"/>
@@ -197,6 +208,12 @@ h2 em{font-style:normal;color:var(--neon)}
 <div>Converse, planeje e viaje para onde quiser.</div></div>
 </div></footer>
 
+<div class="galeria" id="galeria" hidden role="dialog" aria-modal="true" aria-label="Fotos do hotel">
+  <div class="gtopo"><div><b id="gNome"></b><small id="gOnde"></small></div><button type="button" class="fechar" id="gFechar" aria-label="Fechar">&times;</button></div>
+  <div class="palco"><button type="button" class="nav ant" id="gAnt" aria-label="Foto anterior">&#8249;</button><img id="gImg" alt=""><button type="button" class="nav prox" id="gProx" aria-label="Próxima foto">&#8250;</button></div>
+  <div class="grod"><span id="gCont"></span><a id="gMais" href="#" target="_blank" rel="noopener">Mais fotos no Google ↗</a></div>
+</div>
+
 <div class="barra"><div class="wrap">
   <div class="i"><small id="bOpcao"></small><b id="bValor"></b></div>
   <a class="cta" id="cta" href="#" target="_blank" rel="noopener">Quero reservar</a>
@@ -204,7 +221,7 @@ h2 em{font-style:normal;color:var(--neon)}
 
 <script>
 (function(){
-  var OPCOES = [{"id":"economica","tag":"Econômica","fotos":"Hotel Encantos de Itaperapuã Porto Seguro","hotel":"Hotel Encantos de Itaperapuã","onde":"Praia de Taperapuã, Porto Seguro","itens":["Café da manhã","Perto da orla norte","Tarifa sem reembolso"],"pix":11430,"cartao":12040},{"id":"conforto","tag":"Conforto","fotos":"Aquaville Apart Hotel Porto Seguro","hotel":"Aquaville Apart Hotel","onde":"Praia de Taperapuã, Porto Seguro","itens":["Flat com 2 quartos","Café da manhã","Espaço para a família toda"],"pix":13060,"cartao":13750,"destaque":"Mais indicada para a família"},{"id":"trancoso","tag":"Perto de Trancoso","fotos":"Bella Vista Village Arraial d Ajuda","hotel":"Bella Vista Village","onde":"Arraial d’Ajuda","itens":["2 suítes e bicama na sala","Mais perto de Trancoso","Sem café da manhã"],"pix":13100,"cartao":13790}];
+  var OPCOES = [{"id":"economica","tag":"Econômica","fotos":"Hotel Encantos de Itaperapuã Porto Seguro","hotel":"Hotel Encantos de Itaperapuã","onde":"Praia de Taperapuã, Porto Seguro","itens":["Café da manhã","Perto da orla norte","Tarifa sem reembolso"],"imgs":["https://media.staticontent.com/media/pictures/c8cfc971-ba09-4462-b45a-5a727c638e75","https://media.omnibees.com/Images/19808/Property/1328792.jpg","https://i.travelapi.com/lodging/94000000/93560000/93551800/93551767/469f0083_z.jpg"],"pix":11430,"cartao":12040},{"id":"conforto","tag":"Conforto","fotos":"Aquaville Apart Hotel Porto Seguro","hotel":"Aquaville Apart Hotel","onde":"Praia de Taperapuã, Porto Seguro","itens":["Flat com 2 quartos","Café da manhã","Espaço para a família toda"],"imgs":["https://media.staticontent.com/media/pictures/3a5a2282-5a51-4aff-a44e-fd5d25cba545","https://media.omnibees.com/Images/9790/Property/464400.jpg","https://media.omnibees.com/Images/9790/Property/464408.jpg","https://media.omnibees.com/Images/9790/RoomTypes/464434.jpg","https://i.travelapi.com/lodging/36000000/35520000/35517800/35517703/b73dde0d_z.jpg"],"pix":13060,"cartao":13750,"destaque":"Mais indicada para a família"},{"id":"trancoso","tag":"Perto de Trancoso","fotos":"Bella Vista Village Arraial d Ajuda","hotel":"Bella Vista Village","onde":"Arraial d’Ajuda","itens":["2 suítes e bicama na sala","Mais perto de Trancoso","Sem café da manhã"],"imgs":["https://media.omnibees.com/Images/12507/Property/631853.jpg"],"pix":13100,"cartao":13790}];
   var JUROS = 0.0199, WHATS = '5511953353347', VALIDADE = new Date('2026-09-18T23:59:59-03:00');
   var estado = { op: 'conforto', forma: 'pix', n: 10, idades: ['menor', 'menor', 'menor'] };
   function pax(){ var mais = estado.idades.filter(function(i){ return i === 'maior'; }).length, menos = 3 - mais, ad = 2 + mais; return { adultos: ad, criancas: menos, texto: ad + ' adultos' + (menos ? ', ' + menos + (menos === 1 ? ' criança' : ' crianças') : '') + ' e 1 bebê' }; }
@@ -227,19 +244,17 @@ h2 em{font-style:normal;color:var(--neon)}
   var lista = document.getElementById('listaOpcoes');
   lista.innerHTML = OPCOES.map(function(o){
     return '<label class="op" data-op="' + o.id + '"><input type="radio" name="op" value="' + o.id + '">' +
+      '<button type="button" class="btn-fotos" data-fotos="' + o.id + '" aria-label="Ver fotos do hotel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg>Fotos</button>' +
       (o.destaque ? '<span class="selo">' + o.destaque + '</span>' : '') +
       '<div class="linha"><div><div class="t">' + o.tag + '</div><div class="h">' + o.hotel + '</div><div class="o">' + o.onde + '</div>' +
       '<ul>' + o.itens.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul>' +
-      '<a class="fotos" href="https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(o.fotos) + '" target="_blank" rel="noopener">Ver fotos do hotel ↗</a>' +
-      (o.id === 'economica' ? '<div class="conf" data-conf hidden>Com adolescentes, confirmamos as camas na reserva.</div>' : '') + '</div>' +
+      '</div>' +
       '<div class="p"><div class="radio"></div><small>No Pix</small><b>R$ ' + brl(o.pix) + '</b><span>ou 10x de R$ ' + brl(o.cartao * JUROS / (1 - Math.pow(1 + JUROS, -10)), true) + ' no cartão</span></div></div></label>';
   }).join('');
   var par = document.getElementById('parcelas');
   par.innerHTML = [1,2,3,4,5,6,7,8,9,10].map(function(n){ return '<button type="button" data-n="' + n + '">' + n + 'x</button>'; }).join('');
 
   function render(){
-    renderQuem();
-    var cf = document.querySelector('[data-conf]'); if (cf) cf.hidden = pax().adultos <= 2;
     var o = OPCOES.filter(function(x){ return x.id === estado.op; })[0], r = calc(o);
     [].forEach.call(document.querySelectorAll('.op'), function(el){ el.classList.toggle('on', el.dataset.op === estado.op); el.querySelector('input').checked = el.dataset.op === estado.op; });
     [].forEach.call(document.querySelectorAll('.abas button'), function(b){ b.classList.toggle('on', b.dataset.forma === estado.forma); });
@@ -261,9 +276,26 @@ h2 em{font-style:normal;color:var(--neon)}
     var msg = 'Olá! Sou a Mariana e quero reservar a viagem para Porto Seguro de 5 a 11/12. Viajantes: ' + pax().texto + '. Opção: ' + o.tag + ' (' + o.hotel + '). Pagamento: ' + txtPag + '.';
     document.getElementById('cta').href = 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(msg);
   }
+  var gal = { op: null, i: 0 };
+  function galRender(){ var o = OPCOES.filter(function(x){ return x.id === gal.op; })[0]; if (!o) return;
+    document.getElementById('gImg').src = o.imgs[gal.i]; document.getElementById('gImg').alt = o.hotel;
+    document.getElementById('gNome').textContent = o.hotel; document.getElementById('gOnde').textContent = o.onde;
+    document.getElementById('gCont').textContent = (gal.i + 1) + ' de ' + o.imgs.length;
+    document.getElementById('gAnt').hidden = document.getElementById('gProx').hidden = o.imgs.length < 2;
+    document.getElementById('gMais').href = 'https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(o.fotos); }
+  function galAbrir(id){ gal.op = id; gal.i = 0; galRender(); document.getElementById('galeria').hidden = false; document.body.style.overflow = 'hidden'; }
+  function galFechar(){ document.getElementById('galeria').hidden = true; document.body.style.overflow = ''; }
+  function galPasso(d){ var o = OPCOES.filter(function(x){ return x.id === gal.op; })[0]; gal.i = (gal.i + d + o.imgs.length) % o.imgs.length; galRender(); }
+  lista.addEventListener('click', function(e){ var b = e.target.closest('.btn-fotos'); if (!b) return; e.preventDefault(); e.stopPropagation(); galAbrir(b.getAttribute('data-fotos')); }, true);
+  document.getElementById('gFechar').addEventListener('click', galFechar);
+  document.getElementById('gAnt').addEventListener('click', function(){ galPasso(-1); });
+  document.getElementById('gProx').addEventListener('click', function(){ galPasso(1); });
+  document.getElementById('galeria').addEventListener('click', function(e){ if (e.target.id === 'galeria' || e.target.classList.contains('palco')) galFechar(); });
+  document.addEventListener('keydown', function(e){ if (document.getElementById('galeria').hidden) return; if (e.key === 'Escape') galFechar(); if (e.key === 'ArrowLeft') galPasso(-1); if (e.key === 'ArrowRight') galPasso(1); });
+  var tx0 = null; document.getElementById('gImg').addEventListener('touchstart', function(e){ tx0 = e.touches[0].clientX; }, { passive: true });
+  document.getElementById('gImg').addEventListener('touchend', function(e){ if (tx0 === null) return; var dx = e.changedTouches[0].clientX - tx0; if (Math.abs(dx) > 40) galPasso(dx < 0 ? 1 : -1); tx0 = null; });
   lista.addEventListener('click', function(e){ var el = e.target.closest('.op'); if (!el) return; estado.op = el.dataset.op; render(); });
   document.querySelector('.abas').addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; estado.forma = b.dataset.forma; render(); });
-  document.getElementById('listaQuem').addEventListener('click', function(e){ var b = e.target.closest('.seg button'); if (!b) return; estado.idades[+b.parentNode.getAttribute('data-k')] = b.getAttribute('data-v'); render(); });
   par.addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; estado.n = +b.dataset.n; render(); });
 
   function contagem(){
