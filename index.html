@@ -521,6 +521,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/">
 <link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/">
 <link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/">
+<style>@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.45s}</style>
+<style>.ico{width:1.15em;height:1.15em;display:inline-block;vertical-align:-.2em;flex-shrink:0}.sup-card i,.oc-card i,.conf li i,.feature-icon,.arco-num,.contact-option-icon,.duo-juntos>span:first-child{color:var(--purple-light)}.sup-card i .ico,.oc-card i .ico{width:28px;height:28px}.feature-icon .ico{width:30px;height:30px}.arco-num .ico{width:24px;height:24px}.conf li i .ico{width:22px;height:22px}</style>
 </head>
 <body>
 
@@ -581,7 +583,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </a>
   <nav><ul class="header-nav">
     <li><a href="#como-funciona">Como funciona</a></li>
-    <li><a href="/viagens/" onclick="if(window.openGlobe){openGlobe(event)}">Destinos</a></li>
+    <li><a href="/viagens/">Destinos</a></li>
     <li><a href="/blog.html">Blog</a></li>
     <li><a href="#" onclick="openContact(event)">Contato</a></li>
     <li><a href="agencias.html" class="nav-agencias">Para Agências →</a></li>
@@ -602,7 +604,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 </header>
 <nav class="mobile-nav" id="mobileNav">
   <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
-  <a href="/viagens/" onclick="closeMenu();if(window.openGlobe){openGlobe(event)}">Destinos</a>
+  <a href="/viagens/" onclick="closeMenu()">Destinos</a>
   <a href="/blog.html" onclick="closeMenu()">Blog</a>
   <a href="#" onclick="openContact(event);closeMenu()">Contato</a>
   <a href="agencias.html" onclick="closeMenu()" style="color:#0066ff;font-weight:600">Para Agências →</a>
@@ -684,13 +686,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       <label class="cot-f"><span>Saindo de</span><input name="saida" placeholder="Ex.: São Paulo" autocomplete="address-level2"></label>
       <button class="cot-go" type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Cotar no WhatsApp</button>
     </form>
-    <div class="cot-atalhos"><span>Ou comece por aqui:</span><button type="button" data-cot-msg="Olá, OND! Tenho um orçamento de R$ ____ e quero ideias de viagem. Me ajudam?" data-cot-origem="Tenho um orçamento">💰 Tenho um orçamento</button><button type="button" data-cot-msg="Olá, OND! Quero viajar e ainda não sei pra onde. Me ajudam a escolher?" data-cot-origem="Ainda não sei pra onde">🌎 Ainda não sei pra onde</button><button type="button" data-cot-msg="Olá, OND! Vi um post de um lugar e quero ir. Vou mandar aqui pra vocês cotarem." data-cot-origem="Vi um post e quero ir">📱 Vi um post e quero ir</button><button type="button" data-cot-msg="Olá, OND! Já tenho as datas da viagem e falta escolher o destino. Me ajudam?" data-cot-origem="Tenho as datas, falta o destino">📅 Tenho as datas, falta o destino</button></div>
+    <div class="cot-atalhos"><span>Ou comece por aqui:</span><button type="button" data-cot-msg="Olá, OND! Tenho um orçamento de R$ ____ e quero ideias de viagem. Me ajudam?" data-cot-origem="Tenho um orçamento"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg> Tenho um orçamento</button><button type="button" data-cot-msg="Olá, OND! Quero viajar e ainda não sei pra onde. Me ajudam a escolher?" data-cot-origem="Ainda não sei pra onde"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg> Ainda não sei pra onde</button><button type="button" data-cot-msg="Olá, OND! Vi um post de um lugar e quero ir. Vou mandar aqui pra vocês cotarem." data-cot-origem="Vi um post e quero ir"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg> Vi um post e quero ir</button><button type="button" data-cot-msg="Olá, OND! Já tenho as datas da viagem e falta escolher o destino. Me ajudam?" data-cot-origem="Tenho as datas, falta o destino"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Tenho as datas, falta o destino</button></div>
   </div>
   <ul class="conf">
-    <li><i>🏛️</i><div><b>Agência no Cadastur</b>Cadastro oficial do Ministério do Turismo. <a href="https://firebasestorage.googleapis.com/v0/b/agama-tec.appspot.com/o/documents%2Fcertificado-cadastur.pdf?alt=media&amp;token=6208b999-b326-4a7f-b89d-0f682cf3a2e3" target="_blank" rel="noopener">Ver certificado</a></div></li>
-    <li><i>🧾</i><div><b>CNPJ 39.360.492/0001-61</b>Empresa brasileira, com dados públicos pra consulta.</div></li>
-    <li><i>✈️</i><div><b>Emissão na companhia e no hotel</b>Você recebe o localizador do voo e a confirmação da hospedagem.</div></li>
-    <li><i>🔒</i><div><b>WhatsApp oficial</b>(11) 91021-4133. Desconfie de outros números usando o nome OND.</div></li>
+    <li><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l8 5H4z"/></svg></i><div><b>Agência no Cadastur</b>Cadastro oficial do Ministério do Turismo. <a href="https://firebasestorage.googleapis.com/v0/b/agama-tec.appspot.com/o/documents%2Fcertificado-cadastur.pdf?alt=media&amp;token=6208b999-b326-4a7f-b89d-0f682cf3a2e3" target="_blank" rel="noopener">Ver certificado</a></div></li>
+    <li><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></i><div><b>CNPJ 39.360.492/0001-61</b>Empresa brasileira, com dados públicos pra consulta.</div></li>
+    <li><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></i><div><b>Emissão na companhia e no hotel</b>Você recebe o localizador do voo e a confirmação da hospedagem.</div></li>
+    <li><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></i><div><b>WhatsApp oficial</b>(11) 91021-4133. Desconfie de outros números usando o nome OND.</div></li>
   </ul>
 </section>
 
@@ -739,10 +741,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <a class="hd-card" href="/viagens/#lisboa"><picture><source srcset="/assets/viagens/lisboa.webp" type="image/webp"><img src="/assets/viagens/lisboa.jpg" alt="Viaje para Lisboa" width="800" height="500" loading="lazy"></picture><span class="hd-txt"><span class="hd-pais">Portugal</span><span class="hd-nome">Viaje para Lisboa</span></span></a>
     <a class="hd-card" href="/viagens/#paris"><picture><source srcset="/assets/viagens/paris.webp" type="image/webp"><img src="/assets/viagens/paris.jpg" alt="Viaje para Paris" width="800" height="500" loading="lazy"></picture><span class="hd-txt"><span class="hd-pais">França</span><span class="hd-nome">Viaje para Paris</span></span></a>
   </div>
-  <nav class="hd-oc" aria-label="Viagens por ocasião"><span>Por ocasião:</span><a href="/viagens/#ocasiao-lua-de-mel">💍 Lua de mel</a><a href="/viagens/#ocasiao-familia">👨‍👩‍👧 Família com crianças</a><a href="/viagens/#ocasiao-primeira-internacional">🛂 Primeira viagem internacional</a><a href="/viagens/#ocasiao-neve">❄️ Neve e frio</a><a href="/viagens/#ocasiao-natureza">🏞️ Natureza e aventura</a><a href="/viagens/#ocasiao-amigos">🎉 Viagem com amigos</a></nav>
+  <nav class="hd-oc" aria-label="Viagens por ocasião"><span>Por ocasião:</span><a href="/viagens/#ocasiao-lua-de-mel"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z"/></svg> Lua de mel</a><a href="/viagens/#ocasiao-familia"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> Família com crianças</a><a href="/viagens/#ocasiao-primeira-internacional"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Primeira viagem internacional</a><a href="/viagens/#ocasiao-neve"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1"/><path d="m9 4 3 2 3-2M9 20l3-2 3 2M4 9l2 3-2 3M20 9l-2 3 2 3"/></svg> Neve e frio</a><a href="/viagens/#ocasiao-natureza"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg> Natureza e aventura</a><a href="/viagens/#ocasiao-amigos"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg> Viagem com amigos</a></nav>
   <style>.hd-oc{display:flex;gap:8px;overflow-x:auto;padding:4px 5% 10px;align-items:center;scrollbar-width:none}.hd-oc span{font-size:.85rem;color:var(--muted);white-space:nowrap}.hd-oc a{flex:0 0 auto;font-size:.85rem;font-weight:600;color:var(--text);text-decoration:none;border:1px solid var(--border);border-radius:50px;padding:7px 13px}.hd-oc a:hover{border-color:var(--purple)}@media(min-width:900px){.hd-oc{justify-content:center;flex-wrap:wrap}}</style>
   <div class="hd-acts">
-    <a class="btn-primary" href="/viagens/" onclick="if(window.openGlobe){openGlobe(event)}">Explorar destinos no globo →</a>
+    <a class="btn-primary" href="/viagens/">Ver todos os destinos →</a>
     <a class="hd-wa" href="https://wa.me/5511910214133?text=Ol%C3%A1%2C%20OND!%20Quero%20comprar%20uma%20viagem.%20Vim%20pelo%20site." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Comprar pelo WhatsApp</a>
   </div>
 </section>
@@ -803,11 +805,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         <ul class="duo-list"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>Passagens, hospedagem e passeios comprados com o OND</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>Atendimento humano pelo WhatsApp</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>Remarcação e mudança de datas com o nosso suporte</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>Ajuda nos imprevistos: atraso, cancelamento e troca de planos</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>Acompanhamento antes, durante e depois da viagem</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>Agência de turismo cadastrada no Cadastur, com CNPJ</span></li></ul>
         <div class="duo-acts">
           <a href="https://wa.me/5511910214133?text=Ol%C3%A1%2C%20OND!%20Quero%20comprar%20uma%20viagem%20com%20a%20ag%C3%AAncia.%20Vim%20pelo%20site." target="_blank" rel="noopener" class="duo-wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Comprar com a agência</a>
-          <a href="/viagens/" onclick="if(window.openGlobe){openGlobe(event)}" class="duo-link">Ver destinos</a>
+          <a href="/viagens/" class="duo-link">Ver destinos</a>
         </div>
       </div>
     </div>
-    <div class="duo-juntos"><span>🤝</span><span><strong>Melhor juntos:</strong> planeje de graça no app e chame a agência quando quiser comprar ou precisar de uma pessoa do outro lado.</span></div>
+    <div class="duo-juntos"><span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span><strong>Melhor juntos:</strong> planeje de graça no app e chame a agência quando quiser comprar ou precisar de uma pessoa do outro lado.</span></div>
   </div>
 </section>
 
@@ -845,10 +847,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       <p class="section-sub">Antes, durante e depois da viagem, pelo WhatsApp. É pra isso que existe uma agência.</p>
     </div>
     <div class="sup-grid">
-      <div class="sup-card"><i>✈️</i><h3>Voo cancelado ou atrasado</h3><p>A gente busca a alternativa com a companhia e reorganiza hotel e transfer.</p></div>
-      <div class="sup-card"><i>📅</i><h3>Mudança de datas</h3><p>Cuidamos da remarcação com a companhia e o hotel, dentro das regras de cada tarifa.</p></div>
-      <div class="sup-card"><i>🧳</i><h3>Bagagem extraviada</h3><p>Orientamos o registro no aeroporto e acompanhamos o caso com a companhia.</p></div>
-      <div class="sup-card"><i>🏨</i><h3>Problema no destino</h3><p>Hospedagem diferente do combinado ou passeio cancelado? Resolvemos com o fornecedor.</p></div>
+      <div class="sup-card"><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></i><h3>Voo cancelado ou atrasado</h3><p>A gente busca a alternativa com a companhia e reorganiza hotel e transfer.</p></div>
+      <div class="sup-card"><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></i><h3>Mudança de datas</h3><p>Cuidamos da remarcação com a companhia e o hotel, dentro das regras de cada tarifa.</p></div>
+      <div class="sup-card"><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2"/><path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14M10 20h4"/><circle cx="16" cy="20" r="2"/><circle cx="8" cy="20" r="2"/></svg></i><h3>Bagagem extraviada</h3><p>Orientamos o registro no aeroporto e acompanhamos o caso com a companhia.</p></div>
+      <div class="sup-card"><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg></i><h3>Problema no destino</h3><p>Hospedagem diferente do combinado ou passeio cancelado? Resolvemos com o fornecedor.</p></div>
     </div>
     <div class="sup-baixo">
       <div class="sup-quem">
@@ -860,7 +862,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         <p>O OND é uma empresa brasileira, e os fundadores acompanham de perto a operação e o atendimento de cada viagem.</p>
       </div>
       <div class="sup-oficial">
-        <h3>🔒 Nosso canal oficial</h3>
+        <h3><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Nosso canal oficial</h3>
         <div class="sup-num">(11) 91021-4133</div>
         <p>É o único WhatsApp de vendas e suporte do OND. Desconfie de outros números ou perfis usando o nosso nome.</p>
         <a class="sup-wa" href="https://wa.me/5511910214133?text=Ol%C3%A1%2C%20OND!%20Quero%20falar%20com%20o%20atendimento.%20Vim%20pelo%20site." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Falar com o OND</a>
@@ -881,7 +883,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         <li><span class="how-n">2</span><div><strong>Compre a viagem</strong><span>Passagens, hospedagem e passeios fechados com a agência OND, com uma pessoa cuidando de tudo.</span></div></li>
         <li><span class="how-n">3</span><div><strong>Viaje com suporte</strong><span>Tudo na mão no app e suporte humano pra remarcação e imprevistos.</span></div></li>
       </ol>
-      <div class="roteiro-indica"><span>Compre com o OND:</span><b>✈️ Voos</b><b>🏨 Hospedagens</b><b>🎟️ Passeios</b></div>
+      <div class="roteiro-indica"><span>Compre com o OND:</span><b><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg> Voos</b><b><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg> Hospedagens</b><b><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg> Passeios</b></div>
       <a href="#app" onclick="openApp(event)" class="btn-primary">Teste o app grátis →</a>
     </div>
     <div class="roteiro-stage">
@@ -913,7 +915,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
                 <span class="ttab loc" id="rotLoc">🇺🇸 Orlando</span>
                 <button class="ttab active" type="button" data-tab="geral">Visão geral</button>
                 <button class="ttab" type="button" data-tab="det">Dia a dia</button>
-                <button class="ttab" type="button" data-tab="viagem">✈️ Viagem</button>
+                <button class="ttab" type="button" data-tab="viagem"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg> Viagem</button>
                 <button class="ttab" type="button" data-tab="fin">＄ Financeiro</button>
               </div>
               <div class="rot-metaline" id="rotMeta"></div>
@@ -923,9 +925,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
               <div class="rt-pane" id="rt-fin"></div>
             </div>
             <div class="rot-foot">
-              <div class="rot-foot-info">✨ Montado pelo <b style="color:#7f11f4">OND vAI</b> · <span class="g">PDF ✓</span></div>
+              <div class="rot-foot-info"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg> Montado pelo <b style="color:#7f11f4">OND vAI</b> · <span class="g">PDF ✓</span></div>
               <div class="rot-foot-cta">
-                <button class="mk-getapp" onclick="openApp(event)">📲 Baixar o app grátis</button>
+                <button class="mk-getapp" onclick="openApp(event)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg> Baixar o app grátis</button>
                 <button class="mk-replay" id="mkReplay" title="Recomeçar" aria-label="Recomeçar">↻</button>
               </div>
             </div>
@@ -944,15 +946,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <p class="section-sub">Antes, durante e depois da viagem, e grátis pra começar.</p>
   </div>
   <div class="features-grid">
-    <div class="feature-card"><div class="feature-icon">🗓️</div><h3 class="feature-title">Itinerário hora a hora</h3><p class="feature-desc">Visualize a viagem em lista ou calendário, com duração e sequência otimizadas para não desperdiçar tempo.</p></div>
-    <div class="feature-card"><div class="feature-icon">📄</div><h3 class="feature-title">PDF offline + e-mail</h3><p class="feature-desc">Exporte o roteiro completo e leve sem internet. Também enviado direto para o seu e-mail e WhatsApp.</p></div>
-    <div class="feature-card"><div class="feature-icon">🗺️</div><h3 class="feature-title">Rotas prontas</h3><p class="feature-desc">Trajetos calculados entre atrações, a pé, carro ou transporte público. Abre direto no Google Maps.</p></div>
-    <div class="feature-card"><div class="feature-icon">🏛️</div><h3 class="feature-title">Detalhes confiáveis</h3><p class="feature-desc">Horários, preços, avaliações e endereço de cada atração. Tudo atualizado, sem busca manual.</p></div>
-    <div class="feature-card"><div class="feature-icon">🤖</div><h3 class="feature-title">OND vAI 24h</h3><p class="feature-desc">Tire dúvidas na hora, em qualquer destino. "Qual restaurante perto do hotel?" Resposta instantânea e contextualizada.</p></div>
-    <div class="feature-card"><div class="feature-icon">📅</div><h3 class="feature-title">Google Calendar</h3><p class="feature-desc">Sincronize o roteiro com seu calendário e compartilhe com todos os acompanhantes em um toque.</p></div>
-    <div class="feature-card"><div class="feature-icon">💰</div><h3 class="feature-title">Controle de gastos</h3><p class="feature-desc">Acompanhe despesas em tempo real durante a viagem. Estimativa vs real, por atividade e categoria.</p></div>
-    <div class="feature-card"><div class="feature-icon">🌍</div><h3 class="feature-title">Info do destino</h3><p class="feature-desc">Visto, idioma, câmbio, clima e costumes locais, tudo que você precisa saber antes de embarcar.</p></div>
-    <div class="feature-card"><div class="feature-icon">📁</div><h3 class="feature-title">Documentos organizados</h3><p class="feature-desc">Passagens, vouchers e ingressos anexados ao roteiro. Sem procurar no e-mail na hora errada.</p></div>
+    <div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><h3 class="feature-title">Itinerário hora a hora</h3><p class="feature-desc">Visualize a viagem em lista ou calendário, com duração e sequência otimizadas para não desperdiçar tempo.</p></div>
+    <div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div><h3 class="feature-title">PDF offline + e-mail</h3><p class="feature-desc">Exporte o roteiro completo e leve sem internet. Também enviado direto para o seu e-mail e WhatsApp.</p></div>
+    <div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6v15l6-3 6 3 6-3V3l-6 3-6-3z"/><path d="M9 3v15M15 6v15"/></svg></div><h3 class="feature-title">Rotas prontas</h3><p class="feature-desc">Trajetos calculados entre atrações, a pé, carro ou transporte público. Abre direto no Google Maps.</p></div>
+    <div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l8 5H4z"/></svg></div><h3 class="feature-title">Detalhes confiáveis</h3><p class="feature-desc">Horários, preços, avaliações e endereço de cada atração. Tudo atualizado, sem busca manual.</p></div>
+    <div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3 class="feature-title">OND vAI 24h</h3><p class="feature-desc">Tire dúvidas na hora, em qualquer destino. "Qual restaurante perto do hotel?" Resposta instantânea e contextualizada.</p></div>
+    <div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><h3 class="feature-title">Google Calendar</h3><p class="feature-desc">Sincronize o roteiro com seu calendário e compartilhe com todos os acompanhantes em um toque.</p></div>
+    <div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg></div><h3 class="feature-title">Controle de gastos</h3><p class="feature-desc">Acompanhe despesas em tempo real durante a viagem. Estimativa vs real, por atividade e categoria.</p></div>
+    <div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3 class="feature-title">Info do destino</h3><p class="feature-desc">Visto, idioma, câmbio, clima e costumes locais, tudo que você precisa saber antes de embarcar.</p></div>
+    <div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div><h3 class="feature-title">Documentos organizados</h3><p class="feature-desc">Passagens, vouchers e ingressos anexados ao roteiro. Sem procurar no e-mail na hora errada.</p></div>
   </div>
 </section>
 
@@ -1002,9 +1004,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <span class="arco-book-tag">Tudo num lugar só</span>
     <strong>Contrate a viagem inteira sem sair do OND</strong>
     <div class="arco-book-items">
-      <span class="arco-book-chip">✈️ Voos</span>
-      <span class="arco-book-chip">🏨 Hospedagem</span>
-      <span class="arco-book-chip">🎫 Passeios &amp; ingressos</span>
+      <span class="arco-book-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg> Voos</span>
+      <span class="arco-book-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg> Hospedagem</span>
+      <span class="arco-book-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg> Passeios &amp; ingressos</span>
     </div>
   </div>
   <div class="arco-steps">
@@ -1020,7 +1022,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       </div>
     </div>
     <div class="arco-step">
-      <div class="arco-num">📋</div>
+      <div class="arco-num"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 12h6M9 16h6"/></svg></div>
       <h3 class="arco-step-title">2. Comprar</h3>
       <p class="arco-step-desc">Passagens, hospedagem e passeios fechados com a agência OND.</p>
       <div class="arco-features">
@@ -1031,7 +1033,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       </div>
     </div>
     <div class="arco-step">
-      <div class="arco-num">✈️</div>
+      <div class="arco-num"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
       <h3 class="arco-step-title">3. Viajar</h3>
       <p class="arco-step-desc">Suporte humano e OND vAI 24h durante a viagem.</p>
       <div class="arco-features">
@@ -1042,7 +1044,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       </div>
     </div>
     <div class="arco-step">
-      <div class="arco-num">🔁</div>
+      <div class="arco-num"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></div>
       <h3 class="arco-step-title">4. Pós-viagem</h3>
       <p class="arco-step-desc">Histórico de preferências que retroalimenta a próxima viagem.</p>
       <div class="arco-features">
@@ -1078,12 +1080,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <p class="section-sub">Você fecha com o OND, agência de turismo cadastrada no Cadastur, ou com uma agência parceira, e conta com suporte humano do começo ao fim.</p>
   </div>
   <div class="features-grid">
-    <div class="feature-card"><div class="feature-icon">✈️</div><h3 class="feature-title">Passagens aéreas</h3><p class="feature-desc">Voos nacionais e internacionais cotados e comprados com a agência OND, com suporte do embarque à volta.</p></div>
-<div class="feature-card"><div class="feature-icon">🏨</div><h3 class="feature-title">Hospedagem</h3><p class="feature-desc">Hotéis, pousadas e resorts comprados com a agência OND, do econômico ao boutique.</p></div>
-    <div class="feature-card"><div class="feature-icon">🎫</div><h3 class="feature-title">Passeios &amp; ingressos</h3><p class="feature-desc">Tours, atrações e experiências comprados com a gente, sem fila e já no plano da viagem.</p></div>
-    <div class="feature-card"><div class="feature-icon">🛡️</div><h3 class="feature-title">Seguro viagem</h3><p class="feature-desc">Proteção para a viagem inteira, cotada e contratada junto com o resto da compra.</p></div>
-    <div class="feature-card"><div class="feature-icon">🚗</div><h3 class="feature-title">Transfer &amp; carro</h3><p class="feature-desc">Transfer do aeroporto e aluguel de carro, organizados pela agência pra você rodar sem stress.</p></div>
-    <div class="feature-card"><div class="feature-icon">🧑‍💼</div><h3 class="feature-title">Suporte humano</h3><p class="feature-desc">Remarcação, cancelamento e imprevistos resolvidos com uma pessoa do OND, direto no WhatsApp.</p></div>
+    <div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div><h3 class="feature-title">Passagens aéreas</h3><p class="feature-desc">Voos nacionais e internacionais cotados e comprados com a agência OND, com suporte do embarque à volta.</p></div>
+<div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg></div><h3 class="feature-title">Hospedagem</h3><p class="feature-desc">Hotéis, pousadas e resorts comprados com a agência OND, do econômico ao boutique.</p></div>
+    <div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg></div><h3 class="feature-title">Passeios &amp; ingressos</h3><p class="feature-desc">Tours, atrações e experiências comprados com a gente, sem fila e já no plano da viagem.</p></div>
+    <div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 class="feature-title">Seguro viagem</h3><p class="feature-desc">Proteção para a viagem inteira, cotada e contratada junto com o resto da compra.</p></div>
+    <div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg></div><h3 class="feature-title">Transfer &amp; carro</h3><p class="feature-desc">Transfer do aeroporto e aluguel de carro, organizados pela agência pra você rodar sem stress.</p></div>
+    <div class="feature-card"><div class="feature-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg></div><h3 class="feature-title">Suporte humano</h3><p class="feature-desc">Remarcação, cancelamento e imprevistos resolvidos com uma pessoa do OND, direto no WhatsApp.</p></div>
   </div>
   <div style="display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;margin-top:36px"><a href="https://wa.me/5511910214133?text=Ol%C3%A1%2C%20OND!%20Quero%20comprar%20uma%20viagem%20com%20a%20ag%C3%AAncia.%20Vim%20pelo%20site." target="_blank" rel="noopener" class="duo-wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Comprar com a agência</a><a href="/viagens/" class="btn-secondary">Ver destinos →</a></div>
 </section>
@@ -1130,7 +1132,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         <li><a href="https://play.google.com/store/apps/details?id=com.agamatec.ond" target="_blank" rel="noopener">App Android</a></li>
         <li><a href="https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427" target="_blank" rel="noopener">App iOS</a></li>
         <li><a href="#como-funciona">Como funciona</a></li>
-        <li><a href="/viagens/" onclick="if(window.openGlobe){openGlobe(event)}">Destinos</a></li>
+        <li><a href="/viagens/">Destinos</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1150,7 +1152,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
   <div class="footer-bottom">
     <span>© 2026 OND · CNPJ 39.360.492/0001-61 · Agência de turismo cadastrada no Cadastur</span>
-    <span>Quem viaja com o OND não volta igual ✨</span>
+    <span>Quem viaja com o OND não volta igual</span>
   </div>
 </footer>
 
@@ -1176,7 +1178,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       <div class="contact-option-arrow">→</div>
     </a>
     <a href="mailto:renan@ondviajar.com.br" class="contact-option mail">
-      <div class="contact-option-icon">✉️</div>
+      <div class="contact-option-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
       <div>
         <div class="contact-option-label">E-mail</div>
         <div class="contact-option-desc">renan@ondviajar.com.br</div>
@@ -1184,7 +1186,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       <div class="contact-option-arrow">→</div>
     </a>
     <a href="https://pci.jotform.com/form/252517268656062" class="contact-option form" target="_blank" rel="noopener">
-      <div class="contact-option-icon">📋</div>
+      <div class="contact-option-icon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 12h6M9 16h6"/></svg></div>
       <div>
         <div class="contact-option-label">Formulário de parceria</div>
         <div class="contact-option-desc">Para agências e hotéis</div>
