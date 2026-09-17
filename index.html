@@ -754,22 +754,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 @media(max-width:960px){.hb-bubble{position:relative;right:auto;top:auto;margin:-40px auto 0;width:min(320px,92%)}.hb-img{flex-direction:column;align-items:center}.hb-acts{justify-content:center}.hb-lead,.hb-app{margin-left:auto;margin-right:auto}.hb-app{text-align:center}.hb-app .hero-app-btns{justify-content:center}}
 </style>
 <style id="vai-pagina">
-.vai-modal{position:fixed;inset:0;z-index:100100;display:flex;flex-direction:column;background:#f6f2fd;animation:vpIn .28s ease}
+.vai-modal{position:fixed;inset:0;z-index:100100;background:#f4effc;animation:vpIn .25s ease}
 .vai-modal[hidden]{display:none}
-@keyframes vpIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.vai-top{flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;height:62px;padding:0 18px;background:#fff;border-bottom:1px solid #e1d8f4;color:#3b0a78}
-.vai-back{display:inline-flex;align-items:center;gap:8px;background:#efe9fa;color:#3b0a78;border:none;border-radius:12px;padding:9px 14px;font:inherit;font-weight:700;font-size:.92rem;cursor:pointer}
-.vai-back svg{width:18px;height:18px}
-.vai-back:hover{background:#e4d8f8}
-.vai-brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1rem}
-.vai-brand-orb{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 24%,#fff 0,#f0e3ff 6%,#c197ff 20%,#8b2cf5 52%,#3b0a78 100%)}
-.vai-brand-orb svg{width:13px;height:13px;fill:#fff}
-.vai-new{background:#efe9fa;color:#7f11f4;border:none;border-radius:50px;padding:9px 14px;font:inherit;font-weight:700;font-size:.86rem;cursor:pointer}
-.vai-new:hover{background:#e4d8f8}
-.vai-modal #vaiHero{flex:1;min-height:0}
-.vai-modal .vh2{height:100%;border:none;border-radius:0;box-shadow:none}
-@media(max-width:900px){.vai-top{height:56px;padding:0 10px}.vai-back span{display:none}.vai-back{padding:9px 10px}
-  .vai-modal .vh2{display:flex;flex-direction:column;overflow-y:auto}.vai-modal .vh2-main{flex:0 0 100%;height:100%}}
+@keyframes vpIn{from{opacity:0}to{opacity:1}}
+.vai-modal iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#f4effc}
+.vai-load{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:#f4effc;color:#3b0a78;font-weight:700;transition:opacity .4s ease}
+.vai-load.off{opacity:0;pointer-events:none}
+.vai-load-orb{width:96px;height:96px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 24%,#fff 0,#f0e3ff 6%,#c197ff 20%,#8b2cf5 52%,#3b0a78 100%);box-shadow:0 0 0 14px rgba(127,17,244,.08),0 18px 50px rgba(127,17,244,.45);animation:vlPulse 1.6s ease-in-out infinite}
+.vai-load-orb svg{width:42px;height:42px;fill:#fff}
+@keyframes vlPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 </style>
 </head>
 <body>
@@ -896,14 +889,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
 </section>
 
-<!-- OND vAI em tela cheia: parece outra pagina (mesma dinamica do app), volta pro site pelo topo -->
+<!-- OND vAI: o app de verdade (Flutter em modo site) em tela cheia. A seta do app volta pro site -->
 <div class="vai-modal" id="vai" hidden role="dialog" aria-modal="true" aria-label="OND vAI: monte sua viagem">
-  <div class="vai-top">
-    <button type="button" class="vai-back" data-vai-close aria-label="Voltar ao site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>Voltar ao site</span></button>
-    <div class="vai-brand"><span class="vai-brand-orb"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span>OND vAI</div>
-    <button type="button" class="vai-new" data-vai-new>+ Nova conversa</button>
-  </div>
-  <div id="vaiHero"><noscript><a href="https://wa.me/5511910214133">Fale com a agência OND no WhatsApp</a></noscript></div>
+  <div class="vai-load" id="vaiLoad"><div class="vai-load-orb"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></div><p>Abrindo o OND vAI…</p></div>
+  <iframe id="vaiFrame" title="OND vAI" allow="microphone; clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 </div>
 
 
@@ -1545,8 +1534,33 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   play();
 })();
 </script>
-<script src="/assets/vai-destinos.js" defer></script>
-<script src="/assets/vai-hero.js" defer></script>
+<script>
+/* OND vAI embutido: abre o app (modo site) por cima do site e volta quando o app pede */
+(function(){
+  var modal=document.getElementById('vai'), frame=document.getElementById('vaiFrame'), load=document.getElementById('vaiLoad');
+  if(!modal||!frame) return;
+  var APP='https://ond-vai-site.pages.dev/', carregou=false;
+  function abre(){
+    if(!frame.getAttribute('src')){
+      frame.addEventListener('load',function(){ setTimeout(function(){ load.classList.add('off'); carregou=true },1500) },{once:true});
+      frame.setAttribute('src',APP);
+    }
+    var jaAberto=!modal.hidden;
+    modal.hidden=false; document.body.style.overflow='hidden';
+    if(!jaAberto && location.hash!=='#vai'){ try{ history.pushState({vai:1},'','#vai') }catch(e){} }
+    if(window.gtag) gtag('event','ond_vai_site_aberto');
+    setTimeout(function(){ try{ frame.focus() }catch(e){} },300);
+  }
+  function esconde(){ modal.hidden=true; document.body.style.overflow='' }
+  function fecha(){ if(modal.hidden) return; if(history.state&&history.state.vai){ history.back(); return } esconde(); if(location.hash==='#vai') history.replaceState(null,'',location.pathname+location.search) }
+  window.ondVaiOpen=abre; window.ondVaiFocus=abre;
+  window.addEventListener('message',function(e){ if(e.data==='ond-vai:fechar') fecha() });
+  window.addEventListener('popstate',function(){ if(location.hash!=='#vai' && !modal.hidden) esconde() });
+  document.addEventListener('click',function(e){ var o=e.target.closest&&e.target.closest('[data-vai-open]'); if(o){ e.preventDefault(); abre() } });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !modal.hidden) fecha() });
+  if(location.hash==='#vai') setTimeout(abre,200);
+})();
+</script>
 <script src="/assets/app-modal.js" defer></script>
 <script src="/assets/globe.js" defer></script>
 <script src="/assets/vai-widget.js" defer></script>
