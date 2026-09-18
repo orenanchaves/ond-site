@@ -5,7 +5,7 @@
 <title>Sua viagem para Gramado · OND</title>
 <meta name="description" content="Proposta de viagem exclusiva do OND.">
 <meta property="og:title" content="Sua proposta de passagens para Gramado">
-<meta property="og:description" content="Voos diretos do Rio para Porto Alegre, ida e volta. Escolha o seu.">
+<meta property="og:description" content="Voo direto do Rio para Porto Alegre, ida e volta.">
 <meta property="og:image" content="capa.jpg">
 <meta name="theme-color" content="#0d0d14">
 <style>
@@ -162,7 +162,7 @@ h2 em{font-style:normal;color:var(--neon)}
 
   <section class="wrap" id="opcoes">
     <div class="rot">Passo 1</div>
-    <h2>Escolha <em>o voo</em></h2>
+    <h2>Confira <em>o voo</em></h2>
     <div class="abas grupos" id="grupos" hidden><button type="button" data-grupo="voos" class="on">Voos diretos</button></div>
     <p class="grupo-desc" id="grupoDesc"></p>
     <div class="opcoes" id="listaOpcoes"></div>
@@ -186,7 +186,7 @@ h2 em{font-style:normal;color:var(--neon)}
     <div class="rot">Para a sua viagem</div>
     <h2>O que <em>já está pensado</em></h2>
     <div class="ideias">
-      <div class="ideia txt"><div><b>Chegada no sábado</b><span>Os dois voos de ida pousam em Porto Alegre no começo da tarde de 31/10.</span></div></div>
+      <div class="ideia txt"><div><b>Chegada no sábado</b><span>O voo de ida pousa em Porto Alegre às 12h40 de sábado, 31/10.</span></div></div>
       <div class="ideia txt"><div><b>Até Gramado</b><span>São cerca de 2 horas de estrada. A gente ajuda a combinar ônibus ou traslado.</span></div></div>
       <div class="ideia txt"><div><b>Só com mochila</b><span>A tarifa inclui mochila ou bolsa e bagagem de mão, sem mala despachada.</span></div></div>
       <div class="ideia txt"><div><b>Prefere ir no domingo?</b><span>A GOL tem voo direto em 01/11 às 15h30, pelo mesmo preço.</span></div></div>
@@ -196,7 +196,7 @@ h2 em{font-style:normal;color:var(--neon)}
   <section class="wrap">
     <div class="notas">
       <p>Valores para 1 adulta, cotados em 18/09/2026 e válidos até 20/09/2026, sujeitos a disponibilidade no momento da reserva.</p>
-      <p>Voos diretos entre o Galeão (GIG) e o Salgado Filho (POA). GOL: ida 1864 em 31/10, das 10h30 às 12h40, e volta 1825 em 03/11, das 12h30 às 14h25; a volta pode ser às 05h05, 07h40, 11h30 ou 17h25 pelo mesmo preço. LATAM: ida 3602 em 31/10, das 12h10 às 14h15, e volta 3727 em 03/11, das 12h25 às 14h20.</p>
+      <p>Voos diretos da GOL entre o Galeão (GIG) e o Salgado Filho (POA): ida 1864 em 31/10, das 10h30 às 12h40, e volta 1825 em 03/11, das 12h30 às 14h25; a volta pode ser às 05h05, 07h40, 11h30 ou 17h25 pelo mesmo preço.</p>
       <p>Tarifas sem mala despachada. Se quiser despachar uma mala, a gente recota. Transporte entre Porto Alegre e Gramado a combinar com a nossa equipe.</p>
     </div>
   </section>
@@ -227,12 +227,12 @@ h2 em{font-style:normal;color:var(--neon)}
 
 <script>
 (function(){
-  var OPCOES = [{"id": "gol", "grupo": "voos", "tag": "Mais em conta", "hotel": "GOL, voos diretos", "onde": "Galeão (GIG) e Porto Alegre (POA)", "itens": ["Ida sábado 31/10, das 10h30 às 12h40", "Volta terça 03/11, das 12h30 às 14h25", "Outros horários de volta pelo mesmo preço", "Mochila e bagagem de mão"], "imgs": [], "fotos": "GOL Linhas Aéreas", "destaque": "", "pix": 1510, "cartao": 1590}, {"id": "latam", "grupo": "voos", "tag": "Companhia preferida", "hotel": "LATAM, voos diretos", "onde": "Galeão (GIG) e Porto Alegre (POA)", "itens": ["Ida sábado 31/10, das 12h10 às 14h15", "Volta terça 03/11, das 12h25 às 14h20", "Mochila e bagagem de mão"], "imgs": [], "fotos": "LATAM Airlines", "destaque": "Mais indicada", "pix": 1730, "cartao": 1820}];
+  var OPCOES = [{"id": "gol", "grupo": "voos", "tag": "Voo direto", "hotel": "GOL, ida e volta", "onde": "Galeão (GIG) e Porto Alegre (POA)", "itens": ["Ida sábado 31/10, das 10h30 às 12h40", "Volta terça 03/11, das 12h30 às 14h25", "Outros horários de volta pelo mesmo preço", "Mochila e bagagem de mão"], "imgs": [], "fotos": "GOL Linhas Aéreas", "destaque": "Mais indicada", "pix": 1510, "cartao": 1590}];
   var TAXA_CARTAO = 0.0279, TAXA_PARCELA = 0.0129, WHATS = '5511943615412', VALIDADE = new Date('2026-09-20T23:59:59-03:00'), QUOTED_ON = '18/09/2026', TOKEN = 'lilia-gramado', API = 'https://ond.agamatec.com';
   var MSG = "Olá! Sou a Lília e quero reservar as passagens do Rio para Porto Alegre, de 31/10 a 03/11/2026.", ROT_PIX = "à vista no Pix";
   var MSG_NEW_QUOTE = "Olá! Sou a Lília. A proposta das passagens para Gramado venceu, pode me mandar uma nova cotação?";
-  var GRUPOS = [{"id":"voos","nome":"Voos diretos","recomendada":"latam","desc":"Ida e volta sem conexão, só com mochila e bagagem de mão."}];
-  var estado = { op: "latam", forma: 'cartao', n: 10, grupo: GRUPOS.length ? GRUPOS[0].id : '' };
+  var GRUPOS = [{"id":"voos","nome":"Voos diretos","recomendada":"gol","desc":"Ida e volta sem conexão, só com mochila e bagagem de mão."}];
+  var estado = { op: "gol", forma: 'cartao', n: 10, grupo: GRUPOS.length ? GRUPOS[0].id : '' };
   function brl(v, c){ return v.toLocaleString('pt-BR', { minimumFractionDigits: c ? 2 : 0, maximumFractionDigits: c ? 2 : 0 }); }
   function totalCartao(o, n){ return o.cartao * (1 - TAXA_CARTAO) / (1 - TAXA_CARTAO - TAXA_PARCELA * (n - 1)); }
   function calc(o){
