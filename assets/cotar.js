@@ -1,9 +1,9 @@
 /* Cotação pelo WhatsApp do OND: formulário "pra onde / quando / quantas pessoas"
    e botões de pedido rápido. Nada é enviado pelo site: monta a mensagem e abre o
-   WhatsApp oficial (11) 91021-4133. Incluir com <script src="/assets/cotar.js" defer></script>. */
+   WhatsApp oficial (11) 94361-5412. Incluir com <script src="/assets/cotar.js" defer></script>. */
 (function(){
   if(window.__ondCotar) return; window.__ondCotar = true;
-  var NUM = '5511910214133';
+  var NUM = '5511943615412';
   function abrir(msg, origem){
     if(window.gtag) gtag('event','whatsapp_click',{destino:origem||'cotacao',pagina:location.pathname});
     window.open('https://wa.me/'+NUM+'?text='+encodeURIComponent(msg),'_blank','noopener');
