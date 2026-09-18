@@ -7,7 +7,7 @@
   var PLAY = 'https://play.google.com/store/apps/details?id=com.agamatec.ond';
   var APPSTORE = 'https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427';
   var WEB = 'https://web.ondviajar.com.br/ond-vai'; // conversa direto, sem onboarding
-  var WA = 'https://wa.me/5511910214133';
+  var WA = 'https://wa.me/5511943615412';
   var MAIL = 'renan@ondviajar.com.br';
   var CAL = 'https://calendly.com/renanfr1047/30min';
   // contexto: na LP de agencias/hoteis o vAI responde como B2B (propostas, reunião)
@@ -30,7 +30,7 @@
     oque: 'O <b>OND</b> é uma <b>agência de viagens</b>. A nossa equipe cota, compra e acompanha <b>voos, hospedagem e passeios</b>, com suporte humano do embarque à volta. E o app OND vAI ajuda a organizar e acompanhar a viagem, de graça.',
     faz: 'Eu <b>planejo sua viagem numa conversa</b>, de graça: monto o roteiro dia a dia, <b>comparo e reservo voos, hotéis e passeios</b>, cuido dos custos e te acompanho durante a viagem. Tudo no app, iOS, Android e Web. 📲',
     preco: 'Planejar com o OND é <b>de graça</b>! 🎉 Você monta o roteiro completo sem pagar nada, organizar não custa. A gente ganha quando você <b>fecha a viagem com a gente</b>: voos, hotéis e passeios você compra aqui. ✈️',
-    contato: 'Bora falar! 💬<br>📱 WhatsApp: <a href="' + WA + '" target="_blank" rel="noopener">(11) 91021-4133</a><br>✉️ E-mail: <a href="mailto:' + MAIL + '">' + MAIL + '</a><br><span style="opacity:.85">O OND é da <b>Agama Tec</b>, dos fundadores <b>Renan Rodrigues</b> e <b>Renan Chaves</b>.</span>'
+    contato: 'Bora falar! 💬<br>📱 WhatsApp: <a href="' + WA + '" target="_blank" rel="noopener">(11) 94361-5412</a><br>✉️ E-mail: <a href="mailto:' + MAIL + '">' + MAIL + '</a><br><span style="opacity:.85">O OND é da <b>Agama Tec</b>, dos fundadores <b>Renan Rodrigues</b> e <b>Renan Chaves</b>.</span>'
   };
   // respostas B2B (agência)
   var ANSWERS_B2B = {
@@ -39,7 +39,7 @@
     faz: 'Você monta a proposta (roteiro, voos, hotéis e preços) em minutos com a IA; o cliente abre o link com a <b>sua marca</b> e <b>personaliza sozinho</b>, adicionando seguro e add-ons; o preço recalcula na hora e a venda fecha. Você acompanha tudo no painel de propostas. 📊',
     preco: 'O modelo é <b>fee fixo mensal + rev-share por venda</b>, e <b>você define o preço</b> que cobra do seu cliente. As condições a gente alinha numa <b>reunião de 30 min</b>, do tamanho da sua operação. 👇',
     marca: 'Sim, é <b>white-label</b>! 🏷️ O portal e a proposta saem com o <b>seu logo, suas cores e seu domínio</b>. O cliente vê a sua agência, não a OND, a tecnologia trabalha nos bastidores.',
-    contato: 'Bora conversar! 💬 O melhor caminho é uma <b>reunião de 30 min</b> 👇<br>📱 WhatsApp: <a href="' + WA + '" target="_blank" rel="noopener">(11) 91021-4133</a><br>✉️ E-mail: <a href="mailto:' + MAIL + '">' + MAIL + '</a><br><span style="opacity:.85">O OND é da <b>Agama Tec</b>, dos fundadores <b>Renan Rodrigues</b> e <b>Renan Chaves</b>.</span>'
+    contato: 'Bora conversar! 💬 O melhor caminho é uma <b>reunião de 30 min</b> 👇<br>📱 WhatsApp: <a href="' + WA + '" target="_blank" rel="noopener">(11) 94361-5412</a><br>✉️ E-mail: <a href="mailto:' + MAIL + '">' + MAIL + '</a><br><span style="opacity:.85">O OND é da <b>Agama Tec</b>, dos fundadores <b>Renan Rodrigues</b> e <b>Renan Chaves</b>.</span>'
   };
   var ANSWERS = B2B ? ANSWERS_B2B : ANSWERS_B2C;
 

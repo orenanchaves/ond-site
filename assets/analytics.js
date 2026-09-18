@@ -40,13 +40,13 @@
   }
   function save(v){ try{ localStorage.setItem(KEY, v); }catch(_){} }
 
-  /* whatsapp_click em todo link pro WhatsApp de venda (OND e Renan Chaves).
+  /* whatsapp_click em todo link pro WhatsApp de venda (Renan Rodrigues e Renan Chaves).
      Fica de fora a LP B2B (agencias/hoteis) e os links do OND vAI, que já têm evento próprio.
      Destino vem de data-wa-destino ou data-wa (botões .wa-btn das vitrines); página, de data-wa-pagina. */
   var B2B = /\/(agencias|hoteis)/.test(location.pathname);
   document.addEventListener('click', function(e){
     if(B2B) return;
-    var a = e.target.closest && e.target.closest('a[href*="wa.me/5511910214133"], a[href*="wa.me/5511953353347"]');
+    var a = e.target.closest && e.target.closest('a[href*="wa.me/5511943615412"], a[href*="wa.me/5511953353347"]');
     if(!a || a.hasAttribute('data-vai-wa')) return;
     gtag('event', 'whatsapp_click', {
       destino: a.getAttribute('data-wa-destino') || a.getAttribute('data-wa') || 'contato',

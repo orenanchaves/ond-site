@@ -20,7 +20,7 @@
     'Buenos Aires':'buenos-aires','Bariloche':'bariloche','Santiago':'santiago','Puerto Natales':'patagonia','El Calafate':'patagonia',
     'El Chaltén':'patagonia','Cusco':'machu-picchu','Cancún':'cancun','Orlando':'orlando','Nova Iorque':'nova-york','Lisboa':'lisboa',
     'Paris':'paris','Roma':'roma','Tóquio':'japao','Quioto':'japao','Osaka':'japao'};
-  var WA_NUM='5511910214133';
+  var WA_NUM='5511943615412';
   var UNS='https://images.unsplash.com/', Q='?w=600&q=70&auto=format';
 
   /* fotos conferidas uma a uma (as do app clone vinham 4 quebradas) */
