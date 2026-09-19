@@ -404,6 +404,19 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 @media(prefers-reduced-motion:reduce){.dc-mais summary .ico{transition:none}}
 .va{padding-top:80px}.va>div{display:grid;grid-template-columns:1.25fr 1fr;gap:24px 60px;align-items:end}.va-g{display:block;margin-top:0}.va-txt p{font-size:1.08rem;color:var(--muted)}@media(max-width:900px){.va{padding-top:56px}.va>div{grid-template-columns:1fr}}@media(max-width:700px){.dc-foto{aspect-ratio:16/9!important}.vt-grid2 .dc{gap:18px;padding:22px 20px}}
 </style>
+<style id="viagens-chave">
+.vg-cat{position:relative}
+.vg-bar{position:sticky;top:72px;z-index:30;display:flex;justify-content:center;align-items:flex-start;height:0;overflow:visible;pointer-events:none}
+.vg-sw{pointer-events:auto;display:inline-flex;padding:4px;border-radius:50px;background:color-mix(in srgb,var(--bg) 82%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,.18);margin-top:14px}
+.vg-sw button{font:inherit;font-weight:700;font-size:.95rem;color:var(--muted);background:transparent;border:0;border-radius:50px;padding:10px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .25s,color .25s}
+.vg-sw button span{font-size:.8rem;font-weight:700;opacity:.7}
+.vg-sw button[aria-selected="true"]{background:var(--purple);color:#fff}
+.vg-sw button:focus-visible{outline:3px solid var(--purple-light);outline-offset:2px}
+.vg-cat .vg[hidden]{display:none}
+.vg-cat .vg{border-top:1px solid var(--vt-line)}
+@media(max-width:700px){.vg-bar{top:62px}.vg-sw button{padding:9px 18px}}
+@media(prefers-reduced-motion:reduce){.vg-sw button{transition:none}}
+</style>
 </head>
 <body>
 
@@ -612,7 +625,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </ul>
 </section></div>
 
-  <section class="vg" id="nacionais">
+<div class="vg-cat">
+  <div class="vg-bar"><div class="vg-sw" role="tablist" aria-label="Viagens no Brasil ou no mundo"><button type="button" role="tab" id="vg-t-br" aria-controls="nacionais" aria-selected="true">Brasil <span>12</span></button><button type="button" role="tab" id="vg-t-mu" aria-controls="internacionais" aria-selected="false" tabindex="-1">Mundo <span>13</span></button></div></div>
+  <section class="vg" id="nacionais" role="tabpanel" aria-labelledby="vg-t-br">
     <div class="vt-in vt-head"><h2>Viaje pelo Brasil</h2><p>Praia, natureza, serra e cidade. Escolha o destino e o OND cuida das passagens, da hospedagem e dos passeios.</p></div>
     <div class="vt-grid2">
       <article class="dc" id="rio-de-janeiro">
@@ -773,8 +788,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       </article>
     </div>
   </section>
-
-  <section class="vg" id="internacionais">
+  <section class="vg" id="internacionais" role="tabpanel" aria-labelledby="vg-t-mu" hidden>
     <div class="vt-in vt-head"><h2>Viaje pelo mundo</h2><p>Da América do Sul ao Japão, com o documento que cada destino pede. Escolha e deixe o resto com o OND.</p></div>
     <div class="vt-grid2">
       <article class="dc" id="buenos-aires">
@@ -949,6 +963,30 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <div class="dc-extra"><h3>Não achou o seu destino?</h3><p>O OND vende viagens pra qualquer lugar do Brasil e do mundo. Conta pra gente pra onde você quer ir.</p><div><a class="vt-btn vt-btn-wa wa-btn" href="https://wa.me/5511943615412?text=Ol%C3%A1%2C%20OND%21%20Quero%20viajar%20para%20um%20destino%20que%20n%C3%A3o%20est%C3%A1%20no%20cat%C3%A1logo.%20Vim%20pelo%20site." target="_blank" rel="noopener" data-wa="outro destino">Cotar outro destino</a><button type="button" class="vt-btn vt-btn-ghost" onclick="if(window.openGlobe){openGlobe(event)}"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Mundo do OND</button></div></div>
     </div>
   </section>
+</div>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.vg-sw [role="tab"]')); if(!tabs.length) return;
+  var cat=document.querySelector('.vg-cat');
+  function painel(b){ return document.getElementById(b.getAttribute('aria-controls')) }
+  function vai(t,rola){
+    tabs.forEach(function(b){ var on=b===t; b.setAttribute('aria-selected',on); b.tabIndex=on?0:-1; painel(b).hidden=!on });
+    if(rola){ var top=cat.getBoundingClientRect().top+scrollY-70; if(scrollY>top) scrollTo({top:top,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}) }
+  }
+  function doHash(rola){
+    var id=decodeURIComponent(location.hash.slice(1)); if(!id) return;
+    var el=document.getElementById(id); if(!el) return;
+    for(var i=0;i<tabs.length;i++){ var p=painel(tabs[i]); if(p===el||p.contains(el)){ if(p.hidden){ vai(tabs[i]); if(rola) el.scrollIntoView() } return } }
+  }
+  tabs.forEach(function(b,i){
+    b.addEventListener('click',function(){ vai(b,true) });
+    b.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ var n=tabs[(i+1)%tabs.length]; n.focus(); vai(n) } });
+  });
+  doHash(false);
+  addEventListener('hashchange',function(){ doHash(true) });
+})();
+</script>
+
 
   <section class="vm2">
     <div class="vt-in tr-top">
