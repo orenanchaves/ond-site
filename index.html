@@ -753,6 +753,60 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 @media(max-width:960px){.hb-bubble{position:relative;right:auto;top:auto;margin:-40px auto 0;width:min(320px,92%)}.hb-img{flex-direction:column;align-items:center}.hb-acts{justify-content:center}.hb-lead,.hb-app{margin-left:auto;margin-right:auto}.hb-app{text-align:center}.hb-app .hero-app-btns{justify-content:center}}
 </style>
 <style id="transicao-suave">@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.45s;animation-timing-function:ease}body{animation:pgIn .45s ease backwards}@keyframes pgIn{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){body{animation:none}::view-transition-old(root),::view-transition-new(root){animation:none}}</style>
+<style id="home-limpa">
+.hero-title{letter-spacing:-.035em}
+.hb-cad{color:var(--muted);font-weight:600}
+.hb-cad:hover{color:var(--green)}
+/* viagens: mosaico */
+.hv{max-width:1280px;margin:0 auto;padding:40px 32px 110px}
+.hv-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.hv-head h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-.035em;line-height:1}
+.hv-all{color:var(--text);font-weight:700;text-decoration:none;border-bottom:1.5px solid color-mix(in srgb,var(--text) 30%,transparent);padding-bottom:2px}
+.hv-all:hover{border-color:var(--purple-light)}
+.hv-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;grid-template-rows:repeat(2,minmax(230px,1fr));gap:12px}
+.ht{position:relative;display:block;overflow:hidden;border-radius:14px;background:var(--surface);color:#fff;text-decoration:none;min-height:220px}
+.ht-big{grid-row:span 2}
+.ht img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ht::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,8,30,.82),rgba(13,8,30,0) 55%)}
+.ht-t{position:absolute;z-index:1;left:18px;right:18px;bottom:16px;display:flex;flex-direction:column}
+.ht-t b{font-size:1.3rem;font-weight:800;letter-spacing:-.02em}
+.ht-big .ht-t b{font-size:2rem}
+.ht-t span{font-size:.88rem;opacity:.82}
+.ht-mais{display:flex;flex-direction:column;justify-content:flex-end;padding:20px;background:var(--purple);}
+.ht-mais::after{display:none}
+.ht-mais b{font-size:1.3rem;line-height:1.15;letter-spacing:-.02em}
+.ht-mais span{font-size:.9rem;opacity:.85;margin-top:6px}
+.ht:focus-visible,.hv-all:focus-visible{outline:3px solid var(--purple-light);outline-offset:3px}
+/* confianca na faixa roxa */
+.vm2-conf{position:relative;z-index:1;list-style:none;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.22);margin:0}
+.vm2-conf li{display:flex;gap:12px;align-items:flex-start;padding:22px 32px;border-right:1px solid rgba(255,255,255,.22);font-size:.86rem;line-height:1.4;color:rgba(255,255,255,.78)}
+.vm2-conf li:last-child{border-right:none}
+.vm2-conf b{display:block;color:#fff;font-size:.92rem}
+.vm2-conf .ico{width:20px;height:20px;flex-shrink:0;color:#c9a6ff;margin-top:1px}
+/* app como a mais */
+.hap{max-width:1280px;margin:0 auto;padding:44px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px 48px;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.hap-t h3{font-size:1.35rem;font-weight:800;letter-spacing:-.02em}
+.hap-t p{color:var(--muted);margin-top:6px;max-width:520px;line-height:1.55}
+.hap-b{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hap-b .hero-app-btns{margin:0}
+/* fecho */
+.hf{max-width:1280px;margin:0 auto;padding:110px 32px 90px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hf-t h2{font-size:clamp(2.4rem,5vw,4.2rem);font-weight:800;letter-spacing:-.04em;line-height:1}
+.hf-t p{color:var(--muted);font-size:1.08rem;line-height:1.6;margin:18px 0 28px;max-width:480px}
+.hf-q{display:inline-block;margin-top:22px;color:var(--muted);font-weight:600;text-decoration:none;border-bottom:1px solid var(--border)}
+.hf-q:hover{color:var(--text)}
+.hf-g{position:relative;aspect-ratio:1/1;max-width:560px;width:100%;margin-left:auto}
+.hf-g canvas{width:100%;height:100%;display:block}
+.hf-open{position:absolute;left:50%;bottom:0;transform:translateX(-50%);display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:700;font-size:.9rem;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:50px;padding:10px 18px;cursor:pointer}
+.hf-open:hover{border-color:var(--purple)}
+.hf-open .ico{width:18px;height:18px}
+@media(max-width:960px){
+  .hv{padding:24px 20px 80px}.hv-grid{grid-template-columns:1fr 1fr;grid-template-rows:none}.ht-big{grid-column:span 2;grid-row:auto;min-height:320px}
+  .vm2-conf{grid-template-columns:1fr 1fr}.vm2-conf li:nth-child(2){border-right:none}.vm2-conf li:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.22)}.vm2-conf li{padding:18px 20px}
+  .hap{padding:36px 20px}.hf{grid-template-columns:1fr;padding:80px 20px 70px}.hf-g{margin:0 auto;max-width:420px}
+}
+@media(max-width:560px){.hv-grid{grid-template-columns:1fr}.ht-big{grid-column:auto}.vm2-conf{grid-template-columns:1fr}.vm2-conf li{border-right:none;border-bottom:1px solid rgba(255,255,255,.22)}}
+</style>
 </head>
 <body>
 
@@ -829,7 +883,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </ul>
 </details>
   <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
-  <a href="#app" onclick="openApp(event)" class="header-cta">Teste o app →</a>
+  <a href="https://web.ondviajar.com.br/ond-vai" target="_blank" rel="noopener" class="header-cta">Monte sua viagem</a>
   <button class="header-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button></div>
 </header>
 <nav class="mobile-nav" id="mobileNav">
@@ -838,41 +892,22 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <a href="/blog.html" onclick="closeMenu()">Blog</a>
   <a href="#" onclick="openContact(event);closeMenu()">Contato</a>
   <a href="agencias.html" onclick="closeMenu()" style="color:#0066ff;font-weight:600">Para Agências →</a>
-  <a href="#app" onclick="openApp(event);closeMenu()" style="color:var(--purple);font-weight:700">Teste o app →</a>
+  <a href="https://web.ondviajar.com.br/ond-vai" target="_blank" rel="noopener" onclick="closeMenu()" style="color:var(--purple);font-weight:700">Monte sua viagem</a>
   <div class="mobile-lang"><span>Idioma</span><a href="/" aria-current="true">PT</a><a href="/en/">EN</a><a href="/es/">ES</a><a href="/fr/">FR</a><a href="/it/">IT</a></div>
 </nav>
 
 <!-- HERO: o que e o OND + porta de entrada pro OND vAI -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-badge"><span class="hero-badge-dot"></span>Agência de viagens + app</div>
-    <h1 class="hero-title">Escolha o destino.<br>A gente faz a <em>viagem</em> acontecer.</h1>
+    <h1 class="hero-title">Escolha o destino.<br>A gente faz a viagem acontecer.</h1>
     <p class="hb-lead">O OND é uma agência de viagens. A nossa equipe <strong>cota, compra e acompanha a sua viagem</strong>: passagens, hospedagem e passeios, com <strong>suporte humano</strong> do embarque à volta. E você ainda conta com a <strong>tecnologia do OND</strong> pra organizar tudo e acompanhar a viagem na palma da mão.</p>
     <div class="hb-acts">
       <a class="hb-main" href="https://web.ondviajar.com.br/ond-vai" target="_blank" rel="noopener"><span class="hb-orb"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span>Monte sua viagem</a>
       <a class="hb-wa" href="https://wa.me/5511943615412?text=Ol%C3%A1%2C%20OND%21%20Quero%20comprar%20uma%20viagem%20com%20a%20ag%C3%AAncia.%20Vim%20pelo%20site." target="_blank" rel="noopener">Falar com a agência</a>
     </div>
-    <a class="hb-cad" href="https://firebasestorage.googleapis.com/v0/b/agama-tec.appspot.com/o/documents%2Fcertificado-cadastur.pdf?alt=media&amp;token=6208b999-b326-4a7f-b89d-0f682cf3a2e3" target="_blank" rel="noopener">Agência de turismo cadastrada no Cadastur · CNPJ 39.360.492/0001-61</a>
-    <div class="hb-app">
-      <span class="hb-app-l">Ou baixe o app grátis</span>
-    <div class="hero-app-btns">
-      <a href="https://play.google.com/store/apps/details?id=com.agamatec.ond&pcampaignid=web_share" class="app-store-btn gplay" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="26" height="26" style="fill:#3DDC84"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0989L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg>
-        <div class="app-btn-text"><span class="app-btn-sub">Baixar no</span><span class="app-btn-name">Google Play</span></div>
-      </a>
-      <a href="https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427" class="app-store-btn appstore" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="26" height="26" style="fill:var(--ond-color-onPrimary)"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        <div class="app-btn-text"><span class="app-btn-sub">Baixar na</span><span class="app-btn-name">App Store</span></div>
-      </a>
-    </div>
-      <div class="hero-secondary-btns">
-      <a href="https://web.ondviajar.com.br/ond-vai" class="hero-sec-btn" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        Usar na Web
-      </a>
-      </div>
-    </div>
+    <a class="hb-cad" href="https://firebasestorage.googleapis.com/v0/b/agama-tec.appspot.com/o/documents%2Fcertificado-cadastur.pdf?alt=media&amp;token=6208b999-b326-4a7f-b89d-0f682cf3a2e3" target="_blank" rel="noopener">Agência de turismo cadastrada no Cadastur, CNPJ 39.360.492/0001-61</a>
   </div>
+
   <div class="hero-image hb-img">
     <img src="/assets/ondino-caminhando.svg" alt="Ondino, o personagem do OND, caminhando com o celular na mão e a mala" loading="eager">
   </div>
@@ -882,147 +917,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
 
 
-<!-- VIAGENS -->
-<section class="vg" id="viagens">
+<!-- VIAGENS: mosaico de fotos -->
+<section class="hv" id="viagens">
   <span id="destinos"></span><span id="reservar"></span>
-  <div class="vt-in vt-head"><h2>Viagens em destaque</h2><p>Os destinos mais pedidos ao OND, com a melhor época, quantos dias ficar e o que fazer. Preço sob consulta, com as suas datas.</p></div>
-  <div class="vt-grid2">
-      <article class="dc" id="home-rio-de-janeiro">
-        <div class="dc-txt">
-          <h3>Viaje para o Rio de Janeiro</h3>
-          <div class="dc-sob">Preço sob consulta</div>
-          <p class="dc-desc">Suba no Cristo Redentor, pegue o bondinho do Pão de Açúcar e feche o dia com o pôr do sol no Arpoador. Praia, montanha e samba na mesma viagem.</p>
-          <ul class="dc-info"><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Rio de Janeiro</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>4 a 5 dias</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Abril a junho e agosto a outubro, com menos chuva e calor mais ameno</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Casais, amigos e primeira viagem</span></li></ul>
-          <p class="dc-hl2"><b>Destaques:</b> Cristo Redentor e Pão de Açúcar · Copacabana, Ipanema e Arpoador · Santa Teresa e Lapa · Bate-volta a Arraial do Cabo ou Búzios</p>
-          
-          <div class="dc-bot">
-            <a class="dc-cta wa-btn" href="https://wa.me/5511943615412?text=Ol%C3%A1%2C%20OND%21%20Quero%20comprar%20uma%20viagem%20para%20o%20Rio%20de%20Janeiro.%20Vi%20no%20cat%C3%A1logo%3A%20https%3A//ondviajar.com.br/viagens/%23rio-de-janeiro" target="_blank" rel="noopener" data-wa="Rio de Janeiro"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Quero comprar essa viagem</a>
-            <div class="dc-links"><a href="https://web.ondviajar.com.br/ond-vai?city=BRRIO" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event,'BR RIO','Rio de Janeiro')}">Planejar grátis no app</a></div>
-          </div>
-        </div>
-        <div class="dc-foto"><picture><source srcset="/assets/viagens/rio-de-janeiro.webp" type="image/webp"><img src="/assets/viagens/rio-de-janeiro.jpg" alt="Cristo Redentor com a baía de Guanabara e o Pão de Açúcar ao fundo" width="800" height="500" loading="lazy"></picture></div>
-      </article>
-      <article class="dc" id="home-maceio">
-        <div class="dc-txt">
-          <h3>Viaje para Maceió</h3>
-          <div class="dc-sob">Preço sob consulta</div>
-          <p class="dc-desc">Entre no mar verde-azulado de Alagoas, visite as piscinas naturais de Pajuçara e se apaixone por Maragogi e São Miguel dos Milagres.</p>
-          <ul class="dc-info"><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Alagoas</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>4 a 6 dias</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Setembro a março, com mais sol</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Famílias, casais e quem quer descansar</span></li></ul>
-          <p class="dc-hl2"><b>Destaques:</b> Piscinas naturais de Pajuçara · Praia do Gunga · Maragogi e São Miguel dos Milagres · Praia do Francês</p>
-          
-          <div class="dc-bot">
-            <a class="dc-cta wa-btn" href="https://wa.me/5511943615412?text=Ol%C3%A1%2C%20OND%21%20Quero%20comprar%20uma%20viagem%20para%20Macei%C3%B3.%20Vi%20no%20cat%C3%A1logo%3A%20https%3A//ondviajar.com.br/viagens/%23maceio" target="_blank" rel="noopener" data-wa="Maceió"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Quero comprar essa viagem</a>
-            <div class="dc-links"><a href="https://web.ondviajar.com.br/ond-vai?city=BRMCZ" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event,'BR MCZ','Maceió')}">Planejar grátis no app</a></div>
-          </div>
-        </div>
-        <div class="dc-foto"><picture><source srcset="/assets/viagens/maceio.webp" type="image/webp"><img src="/assets/viagens/maceio.jpg" alt="Coqueiros e mar verde na praia de Ipioca em Maceió" width="800" height="500" loading="lazy"></picture></div>
-      </article>
-      <article class="dc" id="home-gramado">
-        <div class="dc-txt">
-          <h3>Viaje para Gramado</h3>
-          <div class="dc-sob">Preço sob consulta</div>
-          <p class="dc-desc">Viva o clima de montanha da Serra Gaúcha com fondue, chocolate quente e cenário europeu. No fim do ano, o Natal Luz transforma a cidade.</p>
-          <ul class="dc-info"><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Rio Grande do Sul</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>3 a 4 dias</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Junho a agosto para o frio; novembro a janeiro para o Natal Luz</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Casais e famílias</span></li></ul>
-          <p class="dc-hl2"><b>Destaques:</b> Rua Coberta e Lago Negro · Canela e Cascata do Caracol · Parques temáticos da serra · Vinícolas do Vale dos Vinhedos</p>
-          
-          <div class="dc-bot">
-            <a class="dc-cta wa-btn" href="https://wa.me/5511943615412?text=Ol%C3%A1%2C%20OND%21%20Quero%20comprar%20uma%20viagem%20para%20Gramado.%20Vi%20no%20cat%C3%A1logo%3A%20https%3A//ondviajar.com.br/viagens/%23gramado" target="_blank" rel="noopener" data-wa="Gramado"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Quero comprar essa viagem</a>
-            <div class="dc-links"><a href="https://web.ondviajar.com.br/ond-vai?city=BRGRO" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event,'BR GRO','Gramado')}">Planejar grátis no app</a></div>
-          </div>
-        </div>
-        <div class="dc-foto"><picture><source srcset="/assets/viagens/gramado.webp" type="image/webp"><img src="/assets/viagens/gramado.jpg" alt="Rua de Gramado com árvores vermelhas e arquitetura em estilo alpino" width="800" height="500" loading="lazy"></picture></div>
-      </article>
-      <article class="dc" id="home-buenos-aires">
-        <div class="dc-txt">
-          <h3>Viaje para Buenos Aires</h3>
-          <div class="dc-sob">Preço sob consulta</div>
-          <p class="dc-desc">Dance tango em San Telmo, coma a melhor parrilla da sua vida e passeie pelas cores do Caminito. Clima europeu a poucas horas de voo.</p>
-          <ul class="dc-info"><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Argentina</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>4 a 5 dias</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Março a maio e setembro a novembro</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Casais, amigos e primeira viagem internacional</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg><span>RG em bom estado ou passaporte</span></li></ul>
-          <p class="dc-hl2"><b>Destaques:</b> Caminito em La Boca · Feira de San Telmo aos domingos · Recoleta e Puerto Madero · Show de tango com jantar</p>
-          
-          <div class="dc-bot">
-            <a class="dc-cta wa-btn" href="https://wa.me/5511943615412?text=Ol%C3%A1%2C%20OND%21%20Quero%20comprar%20uma%20viagem%20para%20Buenos%20Aires.%20Vi%20no%20cat%C3%A1logo%3A%20https%3A//ondviajar.com.br/viagens/%23buenos-aires" target="_blank" rel="noopener" data-wa="Buenos Aires"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Quero comprar essa viagem</a>
-            <div class="dc-links"><a href="https://web.ondviajar.com.br/ond-vai?city=ARBUE" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event,'AR BUE','Buenos Aires')}">Planejar grátis no app</a><a class="dc-blog" href="/blog/roteiro-buenos-aires/">Roteiro de Buenos Aires →</a></div>
-          </div>
-        </div>
-        <div class="dc-foto"><picture><source srcset="/assets/viagens/buenos-aires.webp" type="image/webp"><img src="/assets/viagens/buenos-aires.jpg" alt="Casarões coloridos do Caminito em La Boca, Buenos Aires" width="800" height="500" loading="lazy"></picture></div>
-      </article>
-      <article class="dc" id="home-orlando">
-        <div class="dc-txt">
-          <h3>Viaje para Orlando</h3>
-          <div class="dc-sob">Preço sob consulta</div>
-          <p class="dc-desc">Realize o sonho da Disney, sinta a adrenalina da Universal e volte com a mala cheia dos outlets. A viagem que a família nunca esquece.</p>
-          <ul class="dc-info"><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Estados Unidos</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>7 a 10 dias</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Fevereiro a maio e setembro a novembro, fora dos picos de férias</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Famílias com crianças e fãs de parques</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg><span>Passaporte e visto americano</span></li></ul>
-          <p class="dc-hl2"><b>Destaques:</b> Walt Disney World · Universal Orlando · Kennedy Space Center · Outlets e compras</p>
-          
-          <div class="dc-bot">
-            <a class="dc-cta wa-btn" href="https://wa.me/5511943615412?text=Ol%C3%A1%2C%20OND%21%20Quero%20comprar%20uma%20viagem%20para%20Orlando.%20Vi%20no%20cat%C3%A1logo%3A%20https%3A//ondviajar.com.br/viagens/%23orlando" target="_blank" rel="noopener" data-wa="Orlando"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Quero comprar essa viagem</a>
-            <div class="dc-links"><a href="https://web.ondviajar.com.br/ond-vai?city=USORL" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event,'US ORL','Orlando')}">Planejar grátis no app</a></div>
-          </div>
-        </div>
-        <div class="dc-foto"><picture><source srcset="/assets/viagens/orlando.webp" type="image/webp"><img src="/assets/viagens/orlando.jpg" alt="Castelo da Cinderela no Magic Kingdom em Orlando" width="800" height="500" loading="lazy"></picture></div>
-      </article>
-      <article class="dc" id="home-lisboa">
-        <div class="dc-txt">
-          <h3>Viaje para Lisboa</h3>
-          <div class="dc-sob">Preço sob consulta</div>
-          <p class="dc-desc">Ande de elétrico por Alfama, prove o pastel de Belém original e suba até Sintra. A porta de entrada perfeita para a Europa, falando português.</p>
-          <ul class="dc-info"><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Portugal</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>4 a 5 dias</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Abril a junho e setembro a outubro</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Casais e primeira viagem à Europa</span></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg><span>Passaporte; confira as regras de entrada no espaço Schengen</span></li></ul>
-          <p class="dc-hl2"><b>Destaques:</b> Alfama e Castelo de São Jorge · Belém e Mosteiro dos Jerónimos · Bate-volta a Sintra · Chiado e LX Factory</p>
-          
-          <div class="dc-bot">
-            <a class="dc-cta wa-btn" href="https://wa.me/5511943615412?text=Ol%C3%A1%2C%20OND%21%20Quero%20comprar%20uma%20viagem%20para%20Lisboa.%20Vi%20no%20cat%C3%A1logo%3A%20https%3A//ondviajar.com.br/viagens/%23lisboa" target="_blank" rel="noopener" data-wa="Lisboa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Quero comprar essa viagem</a>
-            <div class="dc-links"><a href="https://web.ondviajar.com.br/ond-vai?city=PTLIS" target="_blank" rel="noopener" onclick="if(window.openApp){openApp(event,'PT LIS','Lisboa')}">Planejar grátis no app</a><a class="dc-blog" href="/blog/roteiro-lisboa/">Roteiro de Lisboa em 4 dias →</a></div>
-          </div>
-        </div>
-        <div class="dc-foto"><picture><source srcset="/assets/viagens/lisboa.webp" type="image/webp"><img src="/assets/viagens/lisboa.jpg" alt="Elétrico amarelo em rua histórica de Lisboa" width="800" height="500" loading="lazy"></picture></div>
-      </article>
-  </div>
-  <div class="vt-in hv-mais"><a class="vt-btn vt-btn-ghost" href="/viagens/">Ver todas as 25 viagens <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><button type="button" class="vt-btn vt-btn-ghost" onclick="if(window.openGlobe){openGlobe(event)}"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Mundo do OND</button></div>
+  <div class="hv-head"><h2>Viagens em destaque</h2><a class="hv-all" href="/viagens/">Ver todas as viagens</a></div>
+  <div class="hv-grid"><a class="ht ht-big" href="/viagens/#rio-de-janeiro"><img src="/assets/viagens/rio-de-janeiro.jpg" alt="Cristo Redentor com a baía de Guanabara" width="800" height="500" loading="lazy"><span class="ht-t"><b>Rio de Janeiro</b><span>Rio de Janeiro</span></span></a><a class="ht" href="/viagens/#maceio"><img src="/assets/viagens/maceio.jpg" alt="Coqueiros e mar verde em Maceió" width="800" height="500" loading="lazy"><span class="ht-t"><b>Maceió</b><span>Alagoas</span></span></a><a class="ht" href="/viagens/#gramado"><img src="/assets/viagens/gramado.jpg" alt="Rua de Gramado com árvores vermelhas" width="800" height="500" loading="lazy"><span class="ht-t"><b>Gramado</b><span>Rio Grande do Sul</span></span></a><a class="ht" href="/viagens/#buenos-aires"><img src="/assets/viagens/buenos-aires.jpg" alt="Casarões coloridos do Caminito" width="800" height="500" loading="lazy"><span class="ht-t"><b>Buenos Aires</b><span>Argentina</span></span></a><a class="ht" href="/viagens/#lisboa"><img src="/assets/viagens/lisboa.jpg" alt="Elétrico amarelo em Lisboa" width="800" height="500" loading="lazy"><span class="ht-t"><b>Lisboa</b><span>Portugal</span></span></a><a class="ht" href="/viagens/#orlando"><img src="/assets/viagens/orlando.jpg" alt="Castelo da Cinderela em Orlando" width="800" height="500" loading="lazy"><span class="ht-t"><b>Orlando</b><span>Estados Unidos</span></span></a><a class="ht ht-mais" href="/viagens/"><b>Mais 19 viagens no Brasil e no mundo</b><span>Nordeste, serra, Patagônia, Paris, Roma, Japão e mais</span></a></div>
 </section>
-
-<!-- OCASIOES -->
-  <section class="vo" id="ocasioes">
-    <div class="vt-in vt-head"><h2>Viaje por ocasião</h2><p>Não sabe o destino ainda? Comece pelo motivo da viagem e a gente sugere o resto.</p></div>
-    <div class="vt-grid3">
-      <div class="vo-c" id="ocasiao-lua-de-mel">
-        <div class="vo-h"><b>Lua de mel</b><span>/ 4 destinos</span></div>
-        <div class="vo-img"><img src="/assets/viagens/maldivas.jpg" alt="Lua de mel: Maldivas" width="800" height="500" loading="lazy"></div>
-        <div class="vo-d"><a href="/viagens/#maldivas">Maldivas</a><a href="/viagens/#fernando-de-noronha">Fernando de Noronha</a><a href="/viagens/#paris">Paris</a><a href="/viagens/#cancun">Cancún</a></div>
-        <button type="button" class="vo-go" data-cot-msg="Olá, OND! Quero cotar uma viagem de lua de mel. Vim pelo site." data-cot-origem="ocasiao: Lua de mel">Cotar essa viagem <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-      </div>
-      <div class="vo-c" id="ocasiao-familia">
-        <div class="vo-h"><b>Família com crianças</b><span>/ 5 destinos</span></div>
-        <div class="vo-img"><img src="/assets/viagens/orlando.jpg" alt="Família com crianças: Orlando" width="800" height="500" loading="lazy"></div>
-        <div class="vo-d"><a href="/viagens/#orlando">Orlando</a><a href="/viagens/#porto-de-galinhas">Porto de Galinhas</a><a href="/viagens/#maceio">Maceió</a><a href="/viagens/#foz-do-iguacu">Foz do Iguaçu</a><a href="/viagens/#gramado">Gramado</a></div>
-        <button type="button" class="vo-go" data-cot-msg="Olá, OND! Quero cotar uma viagem em família com crianças. Vim pelo site." data-cot-origem="ocasiao: Família com crianças">Cotar essa viagem <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-      </div>
-      <div class="vo-c" id="ocasiao-primeira-internacional">
-        <div class="vo-h"><b>Primeira viagem internacional</b><span>/ 4 destinos</span></div>
-        <div class="vo-img"><img src="/assets/viagens/lisboa.jpg" alt="Primeira viagem internacional: Lisboa" width="800" height="500" loading="lazy"></div>
-        <div class="vo-d"><a href="/viagens/#buenos-aires">Buenos Aires</a><a href="/viagens/#santiago">Santiago</a><a href="/viagens/#lisboa">Lisboa</a><a href="/viagens/#cancun">Cancún</a></div>
-        <button type="button" class="vo-go" data-cot-msg="Olá, OND! Quero cotar minha primeira viagem internacional. Vim pelo site." data-cot-origem="ocasiao: Primeira viagem internacional">Cotar essa viagem <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-      </div>
-      <div class="vo-c" id="ocasiao-neve">
-        <div class="vo-h"><b>Neve e frio</b><span>/ 3 destinos</span></div>
-        <div class="vo-img"><img src="/assets/viagens/bariloche.jpg" alt="Neve e frio: Bariloche" width="800" height="500" loading="lazy"></div>
-        <div class="vo-d"><a href="/viagens/#bariloche">Bariloche</a><a href="/viagens/#santiago">Santiago</a><a href="/viagens/#gramado">Gramado</a></div>
-        <button type="button" class="vo-go" data-cot-msg="Olá, OND! Quero cotar uma viagem pra ver neve. Vim pelo site." data-cot-origem="ocasiao: Neve e frio">Cotar essa viagem <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-      </div>
-      <div class="vo-c" id="ocasiao-natureza">
-        <div class="vo-h"><b>Natureza e aventura</b><span>/ 4 destinos</span></div>
-        <div class="vo-img"><img src="/assets/viagens/lencois-maranhenses.jpg" alt="Natureza e aventura: Lençóis Maranhenses" width="800" height="500" loading="lazy"></div>
-        <div class="vo-d"><a href="/viagens/#bonito">Bonito</a><a href="/viagens/#lencois-maranhenses">Lençóis Maranhenses</a><a href="/viagens/#patagonia">Patagônia</a><a href="/viagens/#machu-picchu">Machu Picchu</a></div>
-        <button type="button" class="vo-go" data-cot-msg="Olá, OND! Quero cotar uma viagem de natureza e aventura. Vim pelo site." data-cot-origem="ocasiao: Natureza e aventura">Cotar essa viagem <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-      </div>
-      <div class="vo-c" id="ocasiao-amigos">
-        <div class="vo-h"><b>Viagem com amigos</b><span>/ 4 destinos</span></div>
-        <div class="vo-img"><img src="/assets/viagens/jericoacoara.jpg" alt="Viagem com amigos: Jericoacoara" width="800" height="500" loading="lazy"></div>
-        <div class="vo-d"><a href="/viagens/#rio-de-janeiro">Rio de Janeiro</a><a href="/viagens/#jericoacoara">Jericoacoara</a><a href="/viagens/#florianopolis">Florianópolis</a><a href="/viagens/#buenos-aires">Buenos Aires</a></div>
-        <button type="button" class="vo-go" data-cot-msg="Olá, OND! Quero cotar uma viagem com amigos. Vim pelo site." data-cot-origem="ocasiao: Viagem com amigos">Cotar essa viagem <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-      </div>
-    </div>
-  </section>
 
 <!-- COMO FUNCIONA: a agencia -->
 <span id="como-funciona" class="ancora"></span>
@@ -1039,17 +939,36 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       <div><b>03</b><span>Passo</span><strong>Feche com o OND</strong></div>
       <div><b>04</b><span>Passo</span><strong>Viaje com suporte</strong></div>
     </div>
+    <ul class="vm2-conf">
+      <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l8 5H4z"/></svg><span><b>Agência no Cadastur</b>Cadastro oficial do Ministério do Turismo</span></li>
+      <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg><span><b>CNPJ 39.360.492/0001-61</b>Empresa brasileira com dados públicos</span></li>
+      <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><span><b>Emissão na companhia e no hotel</b>Você recebe o localizador e a confirmação</span></li>
+      <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span><b>Um WhatsApp oficial</b>(11) 94361-5412, desconfie de outros números</span></li>
+    </ul>
   </section>
 
-<!-- APP RODANDO -->
-<section class="happ" id="app">
-  <div class="vt-in happ-g">
-    <div class="happ-txt">
-      <div class="vt-lab"><img class="vt-mark" src="/assets/ond-symbol.svg" alt="" width="14" height="14">O app OND vAI · o a mais da agência</div>
-      <h2>Veja o OND funcionando</h2>
-      <p class="happ-sub">Toda viagem com o OND vem organizada no app. Toque no exemplo ao lado: escolha o destino na conversa e veja a simulação montar a viagem na hora.</p>
-      <ol class="happ-steps"><li><span class="happ-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><div><b>Conversa</b><p>Você conta o destino, a época e quem vai, do jeito que falaria com um amigo.</p></div></li><li><span class="happ-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span><div><b>Simulação</b><p>O OND calcula voos, hospedagem e custos e mostra o orçamento da viagem.</p></div></li><li><span class="happ-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg></span><div><b>Viagem organizada</b><p>Dia a dia, rotas no Google Maps, documentos e gastos na palma da mão.</p></div></li></ol>
-      <div class="happ-chips"><span>Rotas no Google Maps</span><span>PDF offline</span><span>Controle de gastos</span><span>Documentos da viagem</span><span>OND vAI 24h</span></div>
+<!-- QUEM CUIDA -->
+  <section class="vp">
+    <div class="vt-in vp-g">
+      <div class="vp-fotos">
+        <figure><img src="https://static.wixstatic.com/media/689a94_70a214f635264fefa54218716b4d01af~mv2.png" alt="Renan Rodrigues, fundador do OND" loading="lazy"><figcaption><b>Renan Rodrigues</b><span>Fundador</span></figcaption></figure>
+        <figure><img src="https://static.wixstatic.com/media/689a94_22dd2a8ea994432799caafb76ae9ff3e~mv2.png" alt="Renan Chaves, co-fundador do OND" loading="lazy"><figcaption><b>Renan Chaves</b><span>Co-fundador</span></figcaption></figure>
+      </div>
+      <div class="vp-txt">
+        <h2>Gente de verdade do outro lado</h2>
+        <div class="vp-cols">
+          <div><b>Deu imprevisto? Você fala com uma pessoa.</b><p>Voo cancelado ou atrasado, mudança de datas, bagagem extraviada ou problema no destino: a gente resolve com a companhia e o fornecedor.</p></div>
+          <div><b>Canal oficial</b><p class="vp-num">(11) 94361-5412</p><p>É o único WhatsApp de vendas e suporte do OND. Desconfie de outros números usando o nosso nome.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- APP: o a mais -->
+<section class="hap">
+  <div class="hap-t"><h3>Leve a viagem no app OND vAI</h3><p>Programação do dia a dia, documentos e gastos na palma da mão. Grátis pra quem viaja com a gente.</p></div>
+  <div class="hap-b">
     <div class="hero-app-btns">
       <a href="https://play.google.com/store/apps/details?id=com.agamatec.ond&pcampaignid=web_share" class="app-store-btn gplay" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="26" height="26" style="fill:#3DDC84"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.8508 12 7.8508s-3.5902.3931-5.1367 1.0989L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3435-4.1021-2.6892-7.5743-6.1185-9.4396"/></svg>
@@ -1060,148 +979,25 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         <div class="app-btn-text"><span class="app-btn-sub">Baixar na</span><span class="app-btn-name">App Store</span></div>
       </a>
     </div>
-      <a class="happ-web" href="https://web.ondviajar.com.br/ond-vai" target="_blank" rel="noopener">Ou use na web <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <div class="roteiro-stage">
-      <div class="phone">
-        <div class="rot-screen" id="mkScreen" data-state="chat">
-          <!-- 1) CHAT: escolhe destino, quando e quem -->
-          <div class="mk-chat">
-            <div class="mk-top">
-              <div class="mk-ava"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></div>
-              <div>
-                <div class="mk-name">OND vAI <span class="mk-tag">prévia</span></div>
-                <div class="mk-status">online agora</div>
-              </div>
-            </div>
-            <div class="mk-body" id="mkBody"></div>
-            <div class="mk-chips" id="mkChips"></div>
-          </div>
-          <!-- 2) GERANDO -->
-          <div class="mk-gen">
-            <div class="mk-gen-star"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path fill="#7f11f4" d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></div>
-            <div class="mk-gen-t">Montando seu roteiro…</div>
-            <div class="mk-gen-steps" id="mkSteps"></div>
-          </div>
-          <!-- 3) ROTEIRO gerado (fiel ao app) -->
-          <div class="mk-rot">
-            <div class="rot-banner" id="rotBanner"><div class="rot-ava"><img src="/assets/ondino.png" alt="Ondino, o planejador do OND"></div></div>
-            <div class="rot-scroll">
-              <div class="rot-tabs" id="rotTabs">
-                <span class="ttab loc" id="rotLoc">Orlando</span>
-                <button class="ttab active" type="button" data-tab="geral">Visão geral</button>
-                <button class="ttab" type="button" data-tab="det">Dia a dia</button>
-                <button class="ttab" type="button" data-tab="viagem"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg> Viagem</button>
-                <button class="ttab" type="button" data-tab="fin">＄ Financeiro</button>
-              </div>
-              <div class="rot-metaline" id="rotMeta"></div>
-              <div class="rt-pane on" id="rt-geral"><div id="rotDays"></div></div>
-              <div class="rt-pane" id="rt-det"><div class="day-chips" id="dayChips"></div><div id="detCards"></div></div>
-              <div class="rt-pane" id="rt-viagem"></div>
-              <div class="rt-pane" id="rt-fin"></div>
-            </div>
-            <div class="rot-foot">
-              <div class="rot-foot-info"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg> Montado pelo <b style="color:#7f11f4">OND vAI</b> · <span class="g">PDF ✓</span></div>
-              <div class="rot-foot-cta">
-                <button class="mk-getapp" onclick="openApp(event)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg> Baixar o app grátis</button>
-                <button class="mk-replay" id="mkReplay" title="Recomeçar" aria-label="Recomeçar">↻</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <a href="https://web.ondviajar.com.br/ond-vai" class="hero-sec-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Usar na Web
+      </a>
   </div>
 </section>
 
-<!-- COTACAO -->
-<div class="vt-in vc" id="cotar-wrap"><section class="cot" id="cotar">
-  <style>
-  .cot{padding:0 5%;margin:0 auto;max-width:1180px}
-  .cot-box{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:28px;box-shadow:0 18px 60px rgba(0,0,0,.25)}
-  .cot-head{display:flex;align-items:flex-end;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;margin-bottom:18px}
-  .cot-head h2{font-size:clamp(1.35rem,2.6vw,1.8rem);font-weight:800;letter-spacing:-.02em;line-height:1.2}
-  .cot-head p{color:var(--muted);font-size:.95rem;max-width:520px}
-  .cot-form{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr auto;gap:10px;align-items:end}
-  .cot-f{display:flex;flex-direction:column;gap:6px;min-width:0}
-  .cot-f span{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
-  .cot-f input,.cot-f select{width:100%;font:inherit;font-size:.97rem;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:13px 14px;outline:none}
-  .cot-f input:focus,.cot-f select:focus{border-color:var(--purple)}
-  .cot-go{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#062b14;border:none;border-radius:14px;padding:14px 20px;font:inherit;font-weight:800;font-size:.97rem;cursor:pointer;white-space:nowrap}
-  .cot-go:hover{filter:brightness(1.06)}
-  .cot-go svg{width:19px;height:19px}
-  .cot-atalhos{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;align-items:center}
-  .cot-atalhos>span{font-size:.85rem;color:var(--muted);margin-right:2px}
-  .cot-atalhos button{font:inherit;font-size:.86rem;font-weight:600;color:var(--text);background:transparent;border:1px solid var(--border);border-radius:50px;padding:8px 14px;cursor:pointer}
-  .cot-atalhos button:hover{border-color:#25D366}
-  .conf{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 0}
-  .conf li{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:12px 14px;font-size:.86rem;line-height:1.4;color:var(--muted)}
-  .conf li b{display:block;color:var(--text);font-size:.9rem}
-  .conf li i{font-style:normal;font-size:1.2rem;line-height:1}
-  .conf a{color:var(--purple-light);font-weight:600}
-  @media(max-width:980px){.cot-form{grid-template-columns:1fr 1fr}.cot-go{grid-column:1/-1}.conf{grid-template-columns:1fr 1fr}}
-  @media(max-width:560px){.cot-box{padding:20px 16px}.cot-form{grid-template-columns:1fr}.conf{grid-template-columns:1fr}}
-  </style>
-  <div class="cot-box">
-    <div class="cot-head">
-      <h2>Cote sua viagem com uma pessoa do OND</h2>
-      <p>Sem cadastro. O preço é sob consulta: a gente cota com as suas datas e te responde no WhatsApp.</p>
-    </div>
-    <form class="cot-form" action="https://wa.me/5511943615412" target="_blank">
-      <label class="cot-f"><span>Pra onde?</span><input name="destino" placeholder="Ex.: Maceió, Europa, ainda não sei" autocomplete="off"></label>
-      <label class="cot-f"><span>Quando?</span><input name="quando" placeholder="Ex.: julho, Réveillon" autocomplete="off"></label>
-      <label class="cot-f"><span>Quem vai?</span><select name="pessoas"><option value="">Escolha</option><option>1 pessoa</option><option selected>2 pessoas</option><option>3 pessoas</option><option>4 pessoas</option><option>5 ou mais pessoas</option><option>Família com crianças</option></select></label>
-      <label class="cot-f"><span>Saindo de</span><input name="saida" placeholder="Ex.: São Paulo" autocomplete="address-level2"></label>
-      <button class="cot-go" type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Cotar no WhatsApp</button>
-    </form>
-    <div class="cot-atalhos"><span>Ou comece por aqui:</span><button type="button" data-cot-msg="Olá, OND! Tenho um orçamento de R$ ____ e quero ideias de viagem. Me ajudam?" data-cot-origem="Tenho um orçamento"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg> Tenho um orçamento</button><button type="button" data-cot-msg="Olá, OND! Quero viajar e ainda não sei pra onde. Me ajudam a escolher?" data-cot-origem="Ainda não sei pra onde"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg> Ainda não sei pra onde</button><button type="button" data-cot-msg="Olá, OND! Vi um post de um lugar e quero ir. Vou mandar aqui pra vocês cotarem." data-cot-origem="Vi um post e quero ir"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg> Vi um post e quero ir</button><button type="button" data-cot-msg="Olá, OND! Já tenho as datas da viagem e falta escolher o destino. Me ajudam?" data-cot-origem="Tenho as datas, falta o destino"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Tenho as datas, falta o destino</button></div>
+<!-- FECHO: chamada final + Mundo do OND -->
+<section class="hf">
+  <div class="hf-t">
+    <h2>Pra onde você vai viajar?</h2>
+    <p>Conte o destino pro OND vAI ou fale direto com a agência. A gente cota com as suas datas e cuida do resto.</p>
+    <div class="hb-acts"><a class="hb-main" href="https://web.ondviajar.com.br/ond-vai" target="_blank" rel="noopener"><span class="hb-orb"><svg viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span>Monte sua viagem</a><a class="hb-wa" href="https://wa.me/5511943615412?text=Ol%C3%A1%2C%20OND%21%20Quero%20comprar%20uma%20viagem%20com%20a%20ag%C3%AAncia.%20Vim%20pelo%20site." target="_blank" rel="noopener">Falar com a agência</a></div>
+    <a class="hf-q" href="/viagens/quando-viajar/">Quando viajar pra cada destino</a>
   </div>
-  <ul class="conf">
-    <li><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l8 5H4z"/></svg></i><div><b>Agência no Cadastur</b>Cadastro oficial do Ministério do Turismo. <a href="https://firebasestorage.googleapis.com/v0/b/agama-tec.appspot.com/o/documents%2Fcertificado-cadastur.pdf?alt=media&amp;token=6208b999-b326-4a7f-b89d-0f682cf3a2e3" target="_blank" rel="noopener">Ver certificado</a></div></li>
-    <li><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></i><div><b>CNPJ 39.360.492/0001-61</b>Empresa brasileira, com dados públicos pra consulta.</div></li>
-    <li><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></i><div><b>Emissão na companhia e no hotel</b>Você recebe o localizador do voo e a confirmação da hospedagem.</div></li>
-    <li><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></i><div><b>WhatsApp oficial</b>(11) 94361-5412. Desconfie de outros números usando o nome OND.</div></li>
-  </ul>
-</section></div>
-
-<!-- QUEM CUIDA -->
-  <section class="vp">
-    <div class="vt-in vp-g">
-      <div class="vp-fotos">
-        <figure><img src="https://static.wixstatic.com/media/689a94_70a214f635264fefa54218716b4d01af~mv2.png" alt="Renan Rodrigues, fundador do OND" loading="lazy"><figcaption><b>Renan Rodrigues</b><span>Fundador</span></figcaption></figure>
-        <figure><img src="https://static.wixstatic.com/media/689a94_22dd2a8ea994432799caafb76ae9ff3e~mv2.png" alt="Renan Chaves, co-fundador do OND" loading="lazy"><figcaption><b>Renan Chaves</b><span>Co-fundador</span></figcaption></figure>
-      </div>
-      <div class="vp-txt">
-        <div class="vt-lab"><img class="vt-mark" src="/assets/ond-symbol.svg" alt="" width="14" height="14">Quem cuida da sua viagem</div>
-        <h2>Gente de verdade do outro lado</h2>
-        <div class="vp-cols">
-          <div><b>Deu imprevisto? Você fala com uma pessoa.</b><p>Voo cancelado ou atrasado, mudança de datas, bagagem extraviada ou problema no destino: a gente resolve com a companhia e o fornecedor.</p></div>
-          <div><b>Canal oficial</b><p class="vp-num">(11) 94361-5412</p><p>É o único WhatsApp de vendas e suporte do OND. Desconfie de outros números usando o nosso nome.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!-- MUNDO DO OND -->
-  <section class="vw">
-    <div class="vt-in vw-g">
-      <div>
-        <div class="vt-lab"><img class="vt-mark" src="/assets/ond-symbol.svg" alt="" width="14" height="14">Mundo do OND</div>
-        <h2>Explore por país</h2>
-        <p>Gire o globo, escolha um país e veja todos os destinos que o OND vende, muito além das viagens em destaque.</p>
-        <div class="vw-acts">
-          <button type="button" class="vt-btn vt-btn-light" onclick="if(window.openGlobe){openGlobe(event)}"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Abrir o Mundo do OND</button>
-          <a class="vw-l" href="/viagens/quando-viajar/">Quando viajar pra cada destino <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </div>
-      <div class="vw-art"><canvas data-ond-globo aria-label="Globo do Mundo do OND: arraste para girar e clique num país"></canvas><span class="vw-dica">Arraste pra girar · clique num país</span></div>
-    </div>
-  </section>
-
-<!-- CTA FINAL -->
-<section class="vt-in vfim">
-  <h2>Pra onde você vai viajar?</h2>
-  <a class="vt-btn vt-btn-wa" href="https://wa.me/5511943615412?text=Ol%C3%A1%2C%20OND%21%20Quero%20comprar%20uma%20viagem.%20Vim%20pelo%20site." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.03c-.25.7-1.44 1.33-2.01 1.41-.51.08-1.16.11-1.87-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.14-.2-1.21-1.61-1.21-3.08s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.3.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.47.13.64-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.71-.17 1.41z"/></svg>Quero viajar agora</a>
+  <div class="hf-g">
+    <canvas data-ond-globo aria-label="Globo do Mundo do OND: arraste para girar e clique num país"></canvas>
+    <button type="button" class="hf-open" onclick="if(window.openGlobe){openGlobe(event)}"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Abrir o Mundo do OND</button>
+  </div>
 </section>
 
 <!-- FOOTER -->
