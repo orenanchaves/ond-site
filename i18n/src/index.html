@@ -776,7 +776,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   .hap{padding:36px 20px}.hf{grid-template-columns:1fr;padding:80px 20px 70px}.hf-g{margin:0 auto;max-width:420px}
 }
 @media(max-width:560px){.hv-grid{grid-template-columns:1fr}.ht-big{grid-column:auto}.vm2-conf{grid-template-columns:1fr}.vm2-conf li{border-right:none;border-bottom:1px solid rgba(255,255,255,.22)}}
-</style>
+.hv-head{justify-content:flex-start}.hv-head h2{margin-right:auto}.hv-sw{display:inline-flex;padding:4px;border-radius:50px;background:var(--surface);border:1px solid var(--border);order:3}.hv-sw button{font:inherit;font-weight:700;font-size:.95rem;color:var(--muted);background:transparent;border:none;border-radius:50px;padding:9px 20px;cursor:pointer;transition:background .25s,color .25s}.hv-sw button[aria-selected="true"]{background:var(--purple);color:#fff}.hv-sw button:focus-visible{outline:3px solid var(--purple-light);outline-offset:2px}.hv-head .hv-all{order:4}.hv-grid[hidden]{display:none}.hv-grid.entra{animation:hvIn .35s ease}@keyframes hvIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){.hv-grid.entra{animation:none}}@media(max-width:560px){.hv-head{gap:14px}.hv-sw{order:2}.hv-head .hv-all{order:3;width:100%}}</style>
 </head>
 <body>
 
@@ -880,8 +880,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <!-- VIAGENS: mosaico de fotos -->
 <section class="hv" id="viagens">
   <span id="destinos"></span><span id="reservar"></span>
-  <div class="hv-head"><h2>Viagens em destaque</h2><a class="hv-all" href="/viagens/">Ver todas as viagens</a></div>
-  <div class="hv-grid"><a class="ht ht-big" href="/viagens/#rio-de-janeiro"><img src="/assets/viagens/rio-de-janeiro.jpg" alt="Cristo Redentor com a baía de Guanabara" width="800" height="500" loading="lazy"><span class="ht-t"><b>Rio de Janeiro</b><span>Rio de Janeiro</span></span></a><a class="ht" href="/viagens/#maceio"><img src="/assets/viagens/maceio.jpg" alt="Coqueiros e mar verde em Maceió" width="800" height="500" loading="lazy"><span class="ht-t"><b>Maceió</b><span>Alagoas</span></span></a><a class="ht" href="/viagens/#gramado"><img src="/assets/viagens/gramado.jpg" alt="Rua de Gramado com árvores vermelhas" width="800" height="500" loading="lazy"><span class="ht-t"><b>Gramado</b><span>Rio Grande do Sul</span></span></a><a class="ht" href="/viagens/#buenos-aires"><img src="/assets/viagens/buenos-aires.jpg" alt="Casarões coloridos do Caminito" width="800" height="500" loading="lazy"><span class="ht-t"><b>Buenos Aires</b><span>Argentina</span></span></a><a class="ht" href="/viagens/#lisboa"><img src="/assets/viagens/lisboa.jpg" alt="Elétrico amarelo em Lisboa" width="800" height="500" loading="lazy"><span class="ht-t"><b>Lisboa</b><span>Portugal</span></span></a><a class="ht" href="/viagens/#orlando"><img src="/assets/viagens/orlando.jpg" alt="Castelo da Cinderela em Orlando" width="800" height="500" loading="lazy"><span class="ht-t"><b>Orlando</b><span>Estados Unidos</span></span></a><a class="ht ht-mais" href="/viagens/"><b>Mais 19 viagens no Brasil e no mundo</b><span>Nordeste, serra, Patagônia, Paris, Roma, Japão e mais</span></a></div>
+  <div class="hv-head"><h2>Viagens em destaque</h2><div class="hv-sw" role="tablist" aria-label="Viagens no Brasil ou no mundo"><button type="button" role="tab" id="hv-br-tab" aria-controls="hv-br" aria-selected="true">Brasil</button><button type="button" role="tab" id="hv-mu-tab" aria-controls="hv-mu" aria-selected="false" tabindex="-1">Mundo</button></div><a class="hv-all" href="/viagens/">Ver todas as viagens</a></div>
+  <div class="hv-grid" id="hv-br" role="tabpanel" aria-labelledby="hv-br-tab"><a class="ht ht-big" href="/viagens/#rio-de-janeiro"><img src="/assets/viagens/rio-de-janeiro.jpg" alt="Cristo Redentor com a baía de Guanabara" width="800" height="500" loading="lazy"><span class="ht-t"><b>Rio de Janeiro</b><span>Rio de Janeiro</span></span></a><a class="ht" href="/viagens/#maceio"><img src="/assets/viagens/maceio.jpg" alt="Coqueiros e mar verde em Maceió" width="800" height="500" loading="lazy"><span class="ht-t"><b>Maceió</b><span>Alagoas</span></span></a><a class="ht" href="/viagens/#gramado"><img src="/assets/viagens/gramado.jpg" alt="Rua de Gramado com árvores vermelhas" width="800" height="500" loading="lazy"><span class="ht-t"><b>Gramado</b><span>Rio Grande do Sul</span></span></a><a class="ht" href="/viagens/#porto-de-galinhas"><img src="/assets/viagens/porto-de-galinhas.jpg" alt="Piscinas naturais em Porto de Galinhas" width="800" height="500" loading="lazy"><span class="ht-t"><b>Porto de Galinhas</b><span>Pernambuco</span></span></a><a class="ht" href="/viagens/#foz-do-iguacu"><img src="/assets/viagens/foz-do-iguacu.jpg" alt="Vista aérea das Cataratas do Iguaçu" width="800" height="500" loading="lazy"><span class="ht-t"><b>Foz do Iguaçu</b><span>Paraná</span></span></a><a class="ht" href="/viagens/#fernando-de-noronha"><img src="/assets/viagens/fernando-de-noronha.jpg" alt="Morro Dois Irmãos em Fernando de Noronha" width="800" height="500" loading="lazy"><span class="ht-t"><b>Fernando de Noronha</b><span>Pernambuco</span></span></a><a class="ht ht-mais" href="/viagens/#nacionais"><b>Mais 6 viagens pelo Brasil</b><span>Salvador, Natal, Jericoacoara, Lençóis, Bonito e Florianópolis</span></a></div><div class="hv-grid" id="hv-mu" role="tabpanel" aria-labelledby="hv-mu-tab" hidden><a class="ht ht-big" href="/viagens/#paris"><img src="/assets/viagens/paris.jpg" alt="Torre Eiffel em Paris" width="800" height="500" loading="lazy"><span class="ht-t"><b>Paris</b><span>França</span></span></a><a class="ht" href="/viagens/#buenos-aires"><img src="/assets/viagens/buenos-aires.jpg" alt="Casarões coloridos do Caminito" width="800" height="500" loading="lazy"><span class="ht-t"><b>Buenos Aires</b><span>Argentina</span></span></a><a class="ht" href="/viagens/#lisboa"><img src="/assets/viagens/lisboa.jpg" alt="Elétrico amarelo em Lisboa" width="800" height="500" loading="lazy"><span class="ht-t"><b>Lisboa</b><span>Portugal</span></span></a><a class="ht" href="/viagens/#orlando"><img src="/assets/viagens/orlando.jpg" alt="Castelo da Cinderela em Orlando" width="800" height="500" loading="lazy"><span class="ht-t"><b>Orlando</b><span>Estados Unidos</span></span></a><a class="ht" href="/viagens/#cancun"><img src="/assets/viagens/cancun.jpg" alt="Orla de Cancún com mar azul" width="800" height="500" loading="lazy"><span class="ht-t"><b>Cancún</b><span>México</span></span></a><a class="ht" href="/viagens/#roma"><img src="/assets/viagens/roma.jpg" alt="Coliseu de Roma" width="800" height="500" loading="lazy"><span class="ht-t"><b>Roma</b><span>Itália</span></span></a><a class="ht ht-mais" href="/viagens/#internacionais"><b>Mais 7 viagens pelo mundo</b><span>Bariloche, Santiago, Patagônia, Machu Picchu, Nova York, Japão e Maldivas</span></a></div>
 </section>
 
 <!-- COMO FUNCIONA: a agencia -->
@@ -960,6 +960,19 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
 </section>
 
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.hv-sw [role="tab"]'); if(!tabs.length) return;
+  function vai(t){
+    tabs.forEach(function(b){ var on=b===t; b.setAttribute('aria-selected',on); b.tabIndex=on?0:-1;
+      var p=document.getElementById(b.getAttribute('aria-controls')); p.hidden=!on; if(on){ p.classList.remove('entra'); void p.offsetWidth; p.classList.add('entra') } });
+  }
+  tabs.forEach(function(b,i){
+    b.addEventListener('click',function(){ vai(b) });
+    b.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ var n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length]; n.focus(); vai(n) } });
+  });
+})();
+</script>
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
