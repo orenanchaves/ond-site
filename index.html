@@ -808,6 +808,29 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 @media(max-width:560px){.hv-grid{grid-template-columns:1fr}.ht-big{grid-column:auto}.vm2-conf{grid-template-columns:1fr}.vm2-conf li{border-right:none;border-bottom:1px solid rgba(255,255,255,.22)}}
 .hv-head{justify-content:flex-start}.hv-head h2{margin-right:auto}.hv-sw{display:inline-flex;padding:4px;border-radius:50px;background:var(--surface);border:1px solid var(--border);order:3}.hv-sw button{font:inherit;font-weight:700;font-size:.95rem;color:var(--muted);background:transparent;border:none;border-radius:50px;padding:9px 20px;cursor:pointer;transition:background .25s,color .25s}.hv-sw button[aria-selected="true"]{background:var(--purple);color:#fff}.hv-sw button:focus-visible{outline:3px solid var(--purple-light);outline-offset:2px}.hv-head .hv-all{order:4}.hv-grid[hidden]{display:none}.hv-grid.entra{animation:hvIn .35s ease}@keyframes hvIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){.hv-grid.entra{animation:none}}@media(max-width:560px){.hv-head{gap:14px}.hv-sw{order:2}.hv-head .hv-all{order:3;width:100%}}</style>
 <style id="vm2-roxo">.vm2{background:radial-gradient(ellipse at 85% 0%,rgba(157,111,255,.45),transparent 55%),linear-gradient(135deg,#290756 0%,#4a0fa8 55%,#7f11f4 100%);min-height:0!important}.vm2::after{display:none!important}.vm2-top{padding-top:90px!important}.vm2-steps{margin-top:70px!important}</style>
+<style id="trilho">
+.vm2 .tr-top{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-end;gap:28px 48px;flex-wrap:wrap;padding-top:90px;width:100%}
+.vm2 .tr-top h2{font-size:clamp(2.2rem,4.6vw,3.8rem);line-height:1;letter-spacing:-.035em;font-weight:800;color:#fff}
+.tr-sub{color:#d9ccf5;font-size:1.08rem;line-height:1.6;max-width:480px;margin-top:16px}
+.tr-chips{list-style:none;display:flex;gap:8px;flex-wrap:wrap;margin:0}
+.tr-chips li{font-size:.92rem;font-weight:700;padding:8px 15px;border-radius:50px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff}
+.tr-rail{position:relative;z-index:1;list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin:64px auto 0;padding-bottom:72px;width:100%}
+.tr-rail::before{content:"";position:absolute;left:60px;right:60px;top:28px;height:2px;background:linear-gradient(90deg,rgba(255,255,255,.65),rgba(255,255,255,.15))}
+.tr-step{position:relative;color:#fff}
+.tr-dot{width:56px;height:56px;border-radius:50%;background:#fff;color:#4a0fa8;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px rgba(255,255,255,.12)}
+.tr-dot .ico{width:24px;height:24px}
+.tr-step small{display:block;color:#c9a6ff;font-weight:700;font-size:.82rem;margin-top:22px}
+.tr-step h3{font-size:1.25rem;font-weight:800;letter-spacing:-.01em;margin-top:4px;color:#fff}
+.tr-step p{color:#d9ccf5;font-size:.96rem;line-height:1.5;margin-top:6px;max-width:260px}
+@media(max-width:900px){
+  .vm2 .tr-top{padding-top:60px}
+  .tr-rail{grid-template-columns:1fr;gap:0;margin-top:40px;padding-bottom:40px}
+  .tr-rail::before{left:47px;right:auto;top:28px;bottom:80px;width:2px;height:auto;background:linear-gradient(180deg,rgba(255,255,255,.6),rgba(255,255,255,.15))}
+  .tr-step{display:grid;grid-template-columns:56px 1fr;column-gap:18px;padding-bottom:28px}
+  .tr-dot{grid-row:span 3}
+  .tr-step small{margin-top:4px}
+}
+</style>
 </head>
 <body>
 
@@ -928,17 +951,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <!-- COMO FUNCIONA: a agencia -->
 <span id="como-funciona" class="ancora"></span>
   <section class="vm2">
-    <div class="vt-in vm2-top">
-      <h2>Como funciona a agência OND</h2>
-      <ul><li>+Passagens</li><li>+Hospedagem</li><li>+Passeios</li><li>+Seguro e transfer</li></ul>
+    <div class="vt-in tr-top">
+      <div><h2>Como funciona a agência OND</h2><p class="tr-sub">Tudo numa conversa só, com uma pessoa do OND. Preço sob consulta, com as suas datas e a cidade de saída.</p></div>
+      <ul class="tr-chips"><li>Passagens</li><li>Hospedagem</li><li>Passeios</li><li>Seguro e transfer</li></ul>
     </div>
-    <div class="vm2-steps">
-      <p>Tudo numa conversa só, com uma pessoa do OND. Preço sob consulta, com as suas datas e a cidade de saída.</p>
-      <div><b>01</b><span>Passo</span><strong>Escolha o destino</strong></div>
-      <div><b>02</b><span>Passo</span><strong>Cote com uma pessoa</strong></div>
-      <div><b>03</b><span>Passo</span><strong>Feche com o OND</strong></div>
-      <div><b>04</b><span>Passo</span><strong>Viaje com suporte</strong></div>
-    </div>
+    <ol class="vt-in tr-rail"><li class="tr-step"><span class="tr-dot"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><small>Passo 1</small><h3>Escolha o destino</h3><p>No site, no app ou direto no WhatsApp.</p></li><li class="tr-step"><span class="tr-dot"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><small>Passo 2</small><h3>Cote com uma pessoa</h3><p>A gente monta a proposta com as suas datas e a cidade de saída.</p></li><li class="tr-step"><span class="tr-dot"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span><small>Passo 3</small><h3>Feche com o OND</h3><p>Você recebe o localizador do voo e a confirmação da hospedagem.</p></li><li class="tr-step"><span class="tr-dot"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg></span><small>Passo 4</small><h3>Viaje com suporte</h3><p>Deu imprevisto, você fala com uma pessoa do OND.</p></li></ol>
     <ul class="vm2-conf">
       <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l8 5H4z"/></svg><span><b>Agência no Cadastur</b>Cadastro oficial do Ministério do Turismo</span></li>
       <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg><span><b>CNPJ 39.360.492/0001-61</b>Empresa brasileira com dados públicos</span></li>
