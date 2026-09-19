@@ -1032,6 +1032,76 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .a-add b{font-size:12.5px;font-weight:700}
 @media(max-width:420px){.ph{font-size:12.5px}.a-dias em{font-size:9px}}
 </style>
+<style id="vai-demo">
+.vz{height:100%;display:flex;flex-direction:column;background:#F4F1FB;position:relative}
+.vz button{font:inherit;cursor:pointer}
+.vz-top{flex:none}
+.vz[data-estado="boas-vindas"] .vz-top .a-sb{color:#1E1E1E}
+.vz:not([data-estado="boas-vindas"]) .vz-top{background:linear-gradient(135deg,#2B0A5E,#3A1078);color:#fff}
+.vz-wtop{display:flex;justify-content:space-between;align-items:center;padding:2px 14px 0}
+.vz-bt8{width:30px;height:30px;border-radius:8px;border:0;background:#D2D2D2;color:#323232;display:flex;align-items:center;justify-content:center;padding:0}
+.vz .a-vb{border:0;color:#fff;padding:0}
+.vz[data-estado="boas-vindas"] .vz-hdr,.vz:not([data-estado="boas-vindas"]) .vz-wtop,.vz:not([data-estado="boas-vindas"]) .vz-wel{display:none}
+.vz[data-estado="boas-vindas"] .vz-log{display:none}
+/* orb fiel ao OndVaiOrb do app */
+.vz-orb{--s:40px;width:var(--s);height:var(--s);flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 27.5%,#A87BFF 0%,#6A1FD0 95%);animation:vzGlow 3.2s ease-in-out infinite alternate}
+.vz-star{width:46%;height:46%}
+.vz-orb-g{--s:74px;animation:vzGlow 3.2s ease-in-out infinite alternate,vzFloat 4.5s ease-in-out infinite alternate}
+@keyframes vzGlow{from{box-shadow:0 0 calc(var(--s)*.35) calc(var(--s)*.04) rgba(124,63,255,.45)}to{box-shadow:0 0 calc(var(--s)*.65) calc(var(--s)*.09) rgba(124,63,255,.85)}}
+@keyframes vzFloat{to{transform:translateY(calc(var(--s)*-.075))}}
+.vz-rings{position:relative;width:122px;height:122px;display:flex;align-items:center;justify-content:center;margin:6px auto 4px}
+.vz-rings::before,.vz-rings::after{content:"";position:absolute;border-radius:50%;border:1.5px solid rgba(124,63,255,.16);animation:vzRing 3.2s ease-in-out infinite alternate}
+.vz-rings::before{width:122px;height:122px;animation-delay:-1.6s}
+.vz-rings::after{width:92px;height:92px}
+@keyframes vzRing{from{transform:scale(1);opacity:.8}to{transform:scale(1.06);opacity:.35}}
+.vz-wel{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 16px;overflow:hidden}
+.vz small{display:block}
+.vz .vz-lab{color:#7F11F4;font-size:10.5px;font-weight:700;letter-spacing:2px;margin-top:6px}
+.vz-tit{color:#4E1A9E;font-size:20px;font-weight:800;line-height:1.15;margin-top:6px}
+.vz .vz-disc{color:#6B6680;font-size:10.5px;line-height:1.4;margin-top:8px}
+.vz .vz-lab2{color:#6B6680;font-size:9.5px;font-weight:700;margin-top:12px}
+.vz-sug{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:8px}
+.vz-sug button,.vz-ops button{border:0;background:rgba(127,17,244,.08);color:#560FB2;font-weight:600;font-size:11.5px;padding:7px 12px;border-radius:20px;transition:background .2s}
+.vz-sug button:hover{background:rgba(127,17,244,.16)}
+.vz-log{flex:1;overflow-y:auto;padding:12px 12px 4px;scrollbar-width:none}
+.vz-log::-webkit-scrollbar{display:none}
+.vz-w{display:flex;align-items:flex-end;gap:7px;flex-wrap:wrap}
+.vz-w p{margin:0;background:#fff;border:1px solid #ECE6F7;border-radius:16px 16px 16px 5px;box-shadow:0 4px 12px rgba(41,7,86,.08);padding:9px 12px;color:#2A2438;line-height:1.45;max-width:78%;animation:vzIn .25s ease}
+.vz-w img{width:26px;height:26px;border-radius:50%;flex:none}
+.vz-w.eu{justify-content:flex-end}
+.vz-w.eu p{background:#7F11F4;border:0;box-shadow:none;color:#fff;border-radius:16px 16px 5px 16px}
+.vz-w small{flex-basis:100%;font-size:9.5px;color:#6B6680;margin:3px 34px 8px}
+.vz-w.eu small{text-align:right}
+.vz .a-u{width:26px;height:26px}
+.vz-dig p{display:flex;gap:4px;padding:12px 14px}
+.vz-dig i{width:6px;height:6px;border-radius:50%;background:#B7A8D6;animation:vzDot 1s infinite}
+.vz-dig i:nth-child(2){animation-delay:.15s}.vz-dig i:nth-child(3){animation-delay:.3s}
+@keyframes vzDot{50%{transform:translateY(-3px);background:#7F11F4}}
+@keyframes vzIn{from{opacity:0;transform:translateY(6px)}}
+.vz-ops{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;padding:0 12px}
+.vz-ops:not(:empty){padding-bottom:8px}
+.vz-ops button{background:#fff;border:1.5px solid #7F11F4;color:#7F11F4;padding:6px 11px}
+.vz-ops button:hover{background:#F4EAFF}
+.vz-comp{flex:none;display:flex;align-items:center;gap:6px;margin:4px 10px 12px;background:#fff;border:1px solid #ECE6F7;border-radius:24px;padding:4px 4px 4px 14px}
+.vz-comp input{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:12.5px;color:#2A2438;outline:none;padding:6px 0}
+.vz-comp input::placeholder{color:#6B6680}
+.vz-comp button{width:36px;height:36px;border-radius:13px;border:0;background:#7F11F4;color:#fff;display:flex;align-items:center;justify-content:center;flex:none;padding:0}
+.vz-comp .vz-env,.vz-comp.tem .vz-mic{display:none}
+.vz-comp.tem .vz-env{display:flex}
+.vz-comp:focus-within{border-color:#B794FF}
+.vz[data-estado="roteiro"] .vz-comp,.vz[data-estado="roteiro"] .vz-ops{display:none}
+.vz-sheet{flex:none;animation:vzUp .35s ease}
+@keyframes vzUp{from{transform:translateY(100%)}}
+.vz-sht{display:flex;align-items:center;justify-content:space-between}
+.vz .vz-sht b{color:#4E1A9E;font-size:15px;font-weight:800}
+.vz-sht button{border:0;background:transparent;color:#4E1A9E;padding:4px;display:flex}
+.vz .a-b{text-decoration:none}
+.vz .a-b:hover{filter:brightness(1.1)}
+.vz-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.vz button:focus-visible,.vz a:focus-visible{outline:2px solid #7F11F4;outline-offset:2px}
+@media(pointer:coarse){.vz-comp input{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.vz-orb,.vz-orb-g,.vz-rings::before,.vz-rings::after,.vz-dig i,.vz-w p,.vz-sheet{animation:none}}
+</style>
 </head>
 <body>
 
@@ -1154,19 +1224,30 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         <a class="ap-web" href="https://web.ondviajar.com.br/ond-vai" target="_blank" rel="noopener">Usar na web</a>
     </div>
       <figure class="ap-cel">
-      <div class="ph"><i class="ph-notch"></i><div class="ph-tela on" id="ap-s0" role="tabpanel" aria-labelledby="ap-t0"><div class="a-hd"><div class="a-sb">9:41</div><div class="a-hd-r"><span class="a-vb"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></span><span class="a-orb"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1c.6 5.6 4.4 9.4 11 11-6.6 1.6-10.4 5.4-11 11-.6-5.6-4.4-9.4-11-11 6.6-1.6 10.4-5.4 11-11z"/></svg></span><b>OND vAI</b><span class="a-mb"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span></div></div>
-<div class="a-chat">
-  <div class="a-m eu"><p>Quero ir pra Maceió em julho, somos 2, saindo de São Paulo</p><span class="a-u"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span></div>
-  <small class="a-h eu">10:02</small>
-  <div class="a-m"><img src="/assets/app/chapeu.jpg" alt="" width="32" height="32"><p>Perfeito! Anotei de 12 a 18 de julho. Montei a sua viagem, confere no seu roteiro.</p></div>
-  <small class="a-h">10:02</small>
+      <div class="ph"><i class="ph-notch"></i><div class="ph-tela on" id="ap-s0" role="tabpanel" aria-labelledby="ap-t0"><div class="vz" data-estado="boas-vindas">
+<div class="vz-top"><div class="a-sb">9:41</div>
+  <div class="vz-wtop"><button type="button" class="vz-bt8 vz-volta" aria-label="Voltar ao início da conversa"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></button><span class="a-mb"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span></div>
+  <div class="a-hd-r vz-hdr"><button type="button" class="a-vb vz-volta" aria-label="Recomeçar a conversa"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></button><span class="vz-orb vz-orb-s"><svg class="vz-star" viewBox="0 0 497.26 497.26" aria-hidden="true"><path fill="#fff" d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span><b>OND vAI</b><span class="a-mb"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span></div>
 </div>
-<div class="a-sheet"><div class="a-sh-t"><b>Seu roteiro</b></div>
-  <div class="a-rw"><span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><div><small>DESTINO</small><b>Maceió, Brasil</b></div></div>
-  <div class="a-rw"><span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><div><small>DATAS</small><b>12/07 a 18/07</b></div></div>
-  <div class="a-rw"><span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><small>VIAJANTES</small><b>2 adultos</b></div></div>
-  <div class="a-rw"><span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22h20"/><path d="M6.36 17.4 4 17l-2-4 1.1-.55a2 2 0 0 1 1.8 0l.17.1a2 2 0 0 0 1.8 0L8 12 5 6l.9-.45a2 2 0 0 1 2.09.2l4.02 3a2 2 0 0 0 2.1.2l4.19-2.06a2.41 2.41 0 0 1 1.73-.17L21 7a1.4 1.4 0 0 1 .87 1.99l-.38.76c-.23.46-.6.84-1.07 1.08L7.58 17.2a2 2 0 0 1-1.22.18Z"/></svg></span><div><small>SAINDO DE</small><b>São Paulo</b></div></div>
-  <div class="a-bts"><span class="a-b">Montar roteiro</span><span class="a-b a-b-v">Comprar viagem</span></div>
+<div class="vz-wel">
+  <div class="vz-rings"><span class="vz-orb vz-orb-g"><svg class="vz-star" viewBox="0 0 497.26 497.26" aria-hidden="true"><path fill="#fff" d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span></div>
+  <small class="vz-lab">OND VAI</small>
+  <b class="vz-tit">Oi, como posso te ajudar hoje?</b>
+  <small class="vz-disc">O OND vAI é uma inteligência artificial e pode cometer erros.</small>
+  <small class="vz-lab2">SUGESTÕES PRA COMEÇAR</small>
+  <div class="vz-sug"><button type="button">Maceió em julho</button><button type="button">Fim de semana em Gramado</button><button type="button">Buenos Aires com amigos</button><button type="button">Lua de mel em Paris</button><button type="button">Orlando com as crianças</button></div>
+</div>
+<div class="vz-log" aria-live="polite"></div>
+<div class="vz-ops"></div>
+<form class="vz-comp" autocomplete="off"><label class="vz-sr" for="vz-in">Mensagem pro OND vAI</label><input id="vz-in" type="text" maxlength="120" placeholder="Escreva ou toque no microfone" enterkeyhint="send"><button type="button" class="vz-mic" aria-label="Escrever mensagem"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg></button><button type="submit" class="vz-env" aria-label="Enviar"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button></form>
+<div class="a-sheet vz-sheet" hidden>
+  <div class="vz-sht"><b>Seu roteiro</b><button type="button" class="vz-reset" aria-label="Recomeçar"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></button></div>
+  <div class="a-rw"><span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><div><small>DESTINO</small><b data-k="dest"></b></div></div>
+  <div class="a-rw"><span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><div><small>QUANDO</small><b data-k="quando"></b></div></div>
+  <div class="a-rw"><span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><small>VIAJANTES</small><b data-k="quem"></b></div></div>
+  <div class="a-rw"><span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22h20"/><path d="M6.36 17.4 4 17l-2-4 1.1-.55a2 2 0 0 1 1.8 0l.17.1a2 2 0 0 0 1.8 0L8 12 5 6l.9-.45a2 2 0 0 1 2.09.2l4.02 3a2 2 0 0 0 2.1.2l4.19-2.06a2.41 2.41 0 0 1 1.73-.17L21 7a1.4 1.4 0 0 1 .87 1.99l-.38.76c-.23.46-.6.84-1.07 1.08L7.58 17.2a2 2 0 0 1-1.22.18Z"/></svg></span><div><small>SAINDO DE</small><b data-k="origem"></b></div></div>
+  <div class="a-bts"><a class="a-b" href="https://web.ondviajar.com.br/ond-vai" target="_blank" rel="noopener">Montar roteiro</a><a class="a-b a-b-v vz-comprar" href="https://wa.me/5511943615412" target="_blank" rel="noopener">Comprar viagem</a></div>
+</div>
 </div></div><div class="ph-tela" id="ap-s1" role="tabpanel" aria-labelledby="ap-t1" aria-hidden="true"><div class="a-tv"><div class="a-sb">9:41</div><div class="a-tv-r"><span class="a-av"></span><span class="a-nome">Marina<br>Costa</span><img class="a-lock" src="/assets/app/ond-branco.png" alt="" width="54" height="28"><span class="a-menu"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span></div></div>
 <div class="a-cont">
   <div class="a-card a-done">
@@ -1269,6 +1350,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   });
 })();
 </script>
+<script src="/assets/vai-demo.js" defer></script>
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
