@@ -1118,7 +1118,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .vz-comp button{width:36px;height:36px;border-radius:13px;border:0;background:#7F11F4;color:#fff;display:flex;align-items:center;justify-content:center;flex:none;padding:0}
 .vz-comp .vz-env,.vz-comp.tem .vz-mic{display:none}
 .vz-comp.tem .vz-env{display:flex}
-.vz-comp:focus-within{border-color:#B794FF}
+.vz-comp:focus-within{border-color:#7F11F4;box-shadow:0 0 0 2px rgba(127,17,244,.35)}
 .vz[data-estado="roteiro"] .vz-comp,.vz[data-estado="roteiro"] .vz-ops{display:none}
 .vz-sheet{flex:none;animation:vzUp .35s ease}
 @keyframes vzUp{from{transform:translateY(100%)}}
@@ -1132,8 +1132,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 @media(pointer:coarse){.vz-comp input{font-size:16px}}
 @media(prefers-reduced-motion:reduce){.vz-orb,.vz-orb-g,.vz-rings::before,.vz-rings::after,.vz-dig i,.vz-w p,.vz-sheet{animation:none}}
 </style>
+<script>try{if(localStorage.getItem('ond_theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
+<style id="a11y-base">:root{color-scheme:dark}[data-theme="light"]{color-scheme:light}html{scroll-padding-top:80px}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}.skip{position:absolute;left:12px;top:-60px;z-index:100000;background:var(--purple,#7f11f4);color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;transition:top .2s}.skip:focus{top:12px}</style>
 </head>
 <body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
 <!-- Transição de página bidirecional: home→agências (roxo→azul), agências→home (azul→roxo), com orb do OND -->
 <div id="pgt" class="pgt" aria-hidden="true"><span class="pgt-orb"><svg class="pgt-star" viewBox="0 0 497.26 497.26" aria-hidden="true"><path d="M390.63,243.95l-76.8-49.85-63.18-129.75c-.84-1.72-2.35-2.7-3.97-2.96-1.62.26-3.14,1.24-3.97,2.96l-63.18,129.75-76.8,49.85c-1.69,1.1-2.5,2.9-2.45,4.68-.05,1.78.76,3.59,2.45,4.68l76.8,49.85,63.18,129.75c.84,1.72,2.35,2.7,3.97,2.96,1.62-.26,3.14-1.24,3.97-2.96l63.18-129.75,76.8-49.85c1.69-1.1,2.5-2.9,2.45-4.68.05-1.78-.76-3.59-2.45-4.68Z"/></svg></span></div>
@@ -1222,7 +1225,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 </nav>
 
 <!-- HERO: o que e o OND + porta de entrada pro OND vAI -->
-<section class="hero">
+<section class="hero" id="conteudo">
   <div class="hero-content">
     <h1 class="hero-title">Escolha o destino.<br>A gente faz a viagem acontecer.</h1>
     <p class="hb-lead">O OND é uma agência de viagens. A nossa equipe <strong>cota, compra e acompanha a sua viagem</strong>: passagens, hospedagem e passeios, com <strong>suporte humano</strong> do embarque à volta. E você ainda conta com a <strong>tecnologia do OND</strong> pra organizar tudo e acompanhar a viagem na palma da mão.</p>
@@ -1234,7 +1237,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
 
   <div class="hero-image hb-img">
-    <img src="/assets/ondino-caminhando.svg" alt="Ondino, o personagem do OND, caminhando com o celular na mão e a mala" loading="eager">
+    <img src="/assets/ondino-caminhando.svg" alt="Ondino, o personagem do OND, caminhando com o celular na mão e a mala" width="1080" height="1510" fetchpriority="high">
   </div>
 </section>
 
@@ -1279,7 +1282,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 </div>
 <div class="vz-log" aria-live="polite"></div>
 <div class="vz-ops"></div>
-<form class="vz-comp" autocomplete="off"><label class="vz-sr" for="vz-in">Mensagem pro OND vAI</label><input id="vz-in" type="text" maxlength="120" placeholder="Escreva ou toque no microfone" enterkeyhint="send"><button type="button" class="vz-mic" aria-label="Escrever mensagem"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg></button><button type="submit" class="vz-env" aria-label="Enviar"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button></form>
+<form class="vz-comp" autocomplete="off"><label class="vz-sr" for="vz-in">Mensagem pro OND vAI</label><input id="vz-in" name="mensagem" type="text" maxlength="120" placeholder="Escreva ou toque no microfone…" enterkeyhint="send"><button type="button" class="vz-mic" aria-label="Escrever mensagem"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg></button><button type="submit" class="vz-env" aria-label="Enviar"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button></form>
 <div class="a-sheet vz-sheet" hidden>
   <div class="vz-sht"><b>Seu roteiro</b><button type="button" class="vz-reset" aria-label="Recomeçar"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></button></div>
   <div class="a-rw"><span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><div><small>DESTINO</small><b data-k="dest"></b></div></div>
@@ -1288,7 +1291,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <div class="a-rw"><span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22h20"/><path d="M6.36 17.4 4 17l-2-4 1.1-.55a2 2 0 0 1 1.8 0l.17.1a2 2 0 0 0 1.8 0L8 12 5 6l.9-.45a2 2 0 0 1 2.09.2l4.02 3a2 2 0 0 0 2.1.2l4.19-2.06a2.41 2.41 0 0 1 1.73-.17L21 7a1.4 1.4 0 0 1 .87 1.99l-.38.76c-.23.46-.6.84-1.07 1.08L7.58 17.2a2 2 0 0 1-1.22.18Z"/></svg></span><div><small>SAINDO DE</small><b data-k="origem"></b></div></div>
   <div class="a-bts"><a class="a-b" href="https://web.ondviajar.com.br/ond-vai" target="_blank" rel="noopener">Montar roteiro</a><a class="a-b a-b-v vz-comprar" href="https://wa.me/5511943615412" target="_blank" rel="noopener">Comprar viagem</a></div>
 </div>
-</div></div><div class="ph-tela" id="ap-s1" role="tabpanel" aria-labelledby="ap-t1" aria-hidden="true"><div class="a-tv"><div class="a-sb">9:41</div><div class="a-tv-r"><span class="a-av"></span><span class="a-nome">Marina<br>Costa</span><img class="a-lock" src="/assets/app/ond-branco.png" alt="" width="54" height="28"><span class="a-menu"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span></div></div>
+</div></div><div class="ph-tela" id="ap-s1" role="tabpanel" aria-labelledby="ap-t1" inert><div class="a-tv"><div class="a-sb">9:41</div><div class="a-tv-r"><span class="a-av"></span><span class="a-nome">Marina<br>Costa</span><img class="a-lock" src="/assets/app/ond-branco.png" alt="" width="54" height="28"><span class="a-menu"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span></div></div>
 <div class="a-cont">
   <div class="a-card a-done">
     <span class="a-okc"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><b class="a-okt">Viagem confirmada!</b><small class="a-oks">Maceió, 12/07 a 18/07</small>
@@ -1302,7 +1305,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <span class="a-b a-b-w"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Acompanhar pedido</span>
   </div>
 </div>
-<div class="a-nav"><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></i>Lista</span><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></i>Calendario</span><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22h20"/><path d="M6.36 17.4 4 17l-2-4 1.1-.55a2 2 0 0 1 1.8 0l.17.1a2 2 0 0 0 1.8 0L8 12 5 6l.9-.45a2 2 0 0 1 2.09.2l4.02 3a2 2 0 0 0 2.1.2l4.19-2.06a2.41 2.41 0 0 1 1.73-.17L21 7a1.4 1.4 0 0 1 .87 1.99l-.38.76c-.23.46-.6.84-1.07 1.08L7.58 17.2a2 2 0 0 1-1.22.18Z"/></svg></i>Viagem</span><span class="on"><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg></i>Orçamento</span><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></i>Mais</span></div></div><div class="ph-tela" id="ap-s2" role="tabpanel" aria-labelledby="ap-t2" aria-hidden="true"><div class="a-tv"><div class="a-sb">9:41</div><div class="a-tv-r"><span class="a-av"></span><span class="a-nome">Marina<br>Costa</span><img class="a-lock" src="/assets/app/ond-branco.png" alt="" width="54" height="28"><span class="a-menu"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span></div></div>
+<div class="a-nav"><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></i>Lista</span><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></i>Calendario</span><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22h20"/><path d="M6.36 17.4 4 17l-2-4 1.1-.55a2 2 0 0 1 1.8 0l.17.1a2 2 0 0 0 1.8 0L8 12 5 6l.9-.45a2 2 0 0 1 2.09.2l4.02 3a2 2 0 0 0 2.1.2l4.19-2.06a2.41 2.41 0 0 1 1.73-.17L21 7a1.4 1.4 0 0 1 .87 1.99l-.38.76c-.23.46-.6.84-1.07 1.08L7.58 17.2a2 2 0 0 1-1.22.18Z"/></svg></i>Viagem</span><span class="on"><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg></i>Orçamento</span><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></i>Mais</span></div></div><div class="ph-tela" id="ap-s2" role="tabpanel" aria-labelledby="ap-t2" inert><div class="a-tv"><div class="a-sb">9:41</div><div class="a-tv-r"><span class="a-av"></span><span class="a-nome">Marina<br>Costa</span><img class="a-lock" src="/assets/app/ond-branco.png" alt="" width="54" height="28"><span class="a-menu"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span></div></div>
 <div class="a-cont">
   <div class="a-ctx"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><b>Maceió (12/07 - 18/07)</b><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div>
   <div class="a-sum"><b>12 jul | 08h40 - 18 jul | 19h10</b><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></div>
@@ -1311,7 +1314,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   </div>
   <div class="a-cz"><div class="a-czh"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg><b>Onde você fica</b><em>Editar</em></div><b class="a-hot">Hotel na Pajuçara</b><small class="a-czs">Check-in 12/07, a partir das 14h</small><span class="a-mapa">Abrir no mapa</span></div>
 </div>
-<div class="a-nav"><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></i>Lista</span><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></i>Calendario</span><span class="on"><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22h20"/><path d="M6.36 17.4 4 17l-2-4 1.1-.55a2 2 0 0 1 1.8 0l.17.1a2 2 0 0 0 1.8 0L8 12 5 6l.9-.45a2 2 0 0 1 2.09.2l4.02 3a2 2 0 0 0 2.1.2l4.19-2.06a2.41 2.41 0 0 1 1.73-.17L21 7a1.4 1.4 0 0 1 .87 1.99l-.38.76c-.23.46-.6.84-1.07 1.08L7.58 17.2a2 2 0 0 1-1.22.18Z"/></svg></i>Viagem</span><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg></i>Orçamento</span><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></i>Mais</span></div></div><div class="ph-tela" id="ap-s3" role="tabpanel" aria-labelledby="ap-t3" aria-hidden="true"><div class="a-ot"><div class="a-sb a-sb-d">9:41</div><div class="a-ot-r"><span class="a-vb2"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></span><b>Acompanhar pedido</b></div></div>
+<div class="a-nav"><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></i>Lista</span><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></i>Calendario</span><span class="on"><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22h20"/><path d="M6.36 17.4 4 17l-2-4 1.1-.55a2 2 0 0 1 1.8 0l.17.1a2 2 0 0 0 1.8 0L8 12 5 6l.9-.45a2 2 0 0 1 2.09.2l4.02 3a2 2 0 0 0 2.1.2l4.19-2.06a2.41 2.41 0 0 1 1.73-.17L21 7a1.4 1.4 0 0 1 .87 1.99l-.38.76c-.23.46-.6.84-1.07 1.08L7.58 17.2a2 2 0 0 1-1.22.18Z"/></svg></i>Viagem</span><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg></i>Orçamento</span><span><i><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></i>Mais</span></div></div><div class="ph-tela" id="ap-s3" role="tabpanel" aria-labelledby="ap-t3" inert><div class="a-ot"><div class="a-sb a-sb-d">9:41</div><div class="a-ot-r"><span class="a-vb2"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></span><b>Acompanhar pedido</b></div></div>
 <div class="a-cont a-cont-o">
   <div class="a-card"><small class="a-ped">Pedido 1042</small><div class="a-pdr"><b class="a-dest">Maceió</b><span class="a-chip v">Emitindo</span></div><small class="a-per">12/07 a 18/07, 2 viajantes</small>
     <div class="a-prog"><i style="width:50%"></i></div><small class="a-per">1 de 2 itens emitidos</small>
@@ -1335,8 +1338,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <section class="vp">
     <div class="vt-in vp-g">
       <div class="vp-fotos">
-        <figure><img src="https://static.wixstatic.com/media/689a94_70a214f635264fefa54218716b4d01af~mv2.png" alt="Renan Rodrigues, fundador do OND" loading="lazy"><figcaption><b>Renan Rodrigues</b><span>Fundador</span></figcaption></figure>
-        <figure><img src="https://static.wixstatic.com/media/689a94_22dd2a8ea994432799caafb76ae9ff3e~mv2.png" alt="Renan Chaves, co-fundador do OND" loading="lazy"><figcaption><b>Renan Chaves</b><span>Co-fundador</span></figcaption></figure>
+        <figure><img src="https://static.wixstatic.com/media/689a94_70a214f635264fefa54218716b4d01af~mv2.png" alt="Renan Rodrigues, fundador do OND" width="600" height="630" loading="lazy"><figcaption><b>Renan Rodrigues</b><span>Fundador</span></figcaption></figure>
+        <figure><img src="https://static.wixstatic.com/media/689a94_22dd2a8ea994432799caafb76ae9ff3e~mv2.png" alt="Renan Chaves, co-fundador do OND" width="600" height="630" loading="lazy"><figcaption><b>Renan Chaves</b><span>Co-fundador</span></figcaption></figure>
       </div>
       <div class="vp-txt">
         <h2>Gente de verdade do outro lado</h2>
@@ -1383,7 +1386,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 (function(){
   var tabs=[].slice.call(document.querySelectorAll('.ap-passos [role="tab"]')); if(!tabs.length) return;
   function vai(t){ tabs.forEach(function(b){ var on=b===t, p=document.getElementById(b.getAttribute('aria-controls'));
-    b.setAttribute('aria-selected',on); b.tabIndex=on?0:-1; p.classList.toggle('on',on); if(on) p.removeAttribute('aria-hidden'); else p.setAttribute('aria-hidden','true') }) }
+    b.setAttribute('aria-selected',on); b.tabIndex=on?0:-1; p.classList.toggle('on',on); p.inert=!on }) }
   tabs.forEach(function(b,i){
     b.addEventListener('click',function(){ vai(b) });
     b.addEventListener('keydown',function(e){ var k=e.key==='ArrowDown'||e.key==='ArrowRight'?1:e.key==='ArrowUp'||e.key==='ArrowLeft'?-1:0; if(!k) return; e.preventDefault(); var n=tabs[(i+k+tabs.length)%tabs.length]; n.focus(); vai(n) });
@@ -1391,6 +1394,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 })();
 </script>
 <script src="/assets/vai-demo.js" defer></script>
+<script src="/assets/a11y.js" defer></script>
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -1483,10 +1487,10 @@ var ICON_MOON='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" strok
 var ICON_SUN='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
 function toggleTheme(){
   const isLight=document.documentElement.getAttribute('data-theme')==='light'
-  if(isLight){document.documentElement.setAttribute('data-theme','dark');document.getElementById('themeBtn').innerHTML=ICON_MOON;localStorage.setItem('ond_theme','dark')}
-  else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').innerHTML=ICON_SUN;localStorage.setItem('ond_theme','light')}
+  if(isLight){document.documentElement.setAttribute('data-theme','dark');document.getElementById('themeBtn').innerHTML=ICON_MOON;try{localStorage.setItem('ond_theme','dark')}catch(e){}}
+  else{document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').innerHTML=ICON_SUN;try{localStorage.setItem('ond_theme','light')}catch(e){}}
 }
-;(function(){if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.innerHTML=ICON_SUN}})()
+;(function(){try{if(localStorage.getItem('ond_theme')==='light'){document.documentElement.setAttribute('data-theme','light');const b=document.getElementById('themeBtn');if(b)b.innerHTML=ICON_SUN}}catch(e){}})()
 
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',function(e){
@@ -1708,7 +1712,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <script src="/assets/app-modal.js" defer></script>
 <script src="/assets/globe.js" defer></script>
 <script src="/assets/vai-widget.js" defer></script>
-<script src="/assets/cotar.js" defer></script>
 <script src="/assets/analytics.js" defer></script>
 </body>
 </html>

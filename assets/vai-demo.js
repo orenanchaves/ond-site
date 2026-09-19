@@ -84,7 +84,7 @@
       var p = PERG[esperando];
       bolha((intro ? intro + ' ' : '') + p[0], false);
       opcoes(p[1]);
-      input.placeholder = 'Escreva ou toque numa opção';
+      input.placeholder = 'Escreva ou toque numa opção…';
       return;
     }
     esperando = null; ops.innerHTML = '';
@@ -111,13 +111,13 @@
     digitando(function () { proxima(!tinha && d.dest ? 'Perfeito, ' + d.dest + '.' : ''); });
   }
 
-  form.addEventListener('submit', function (e) { e.preventDefault(); var t = input.value; input.value = ''; form.classList.remove('tem'); responde(t); });
+  form.addEventListener('submit', function (e) { e.preventDefault(); if (ocupado) return; var t = input.value; input.value = ''; form.classList.remove('tem'); responde(t); });
   input.addEventListener('input', function () { form.classList.toggle('tem', !!input.value.trim()); });
   box.querySelectorAll('.vz-sug button').forEach(function (b) { b.addEventListener('click', function () { responde(b.textContent); }); });
   box.querySelector('.vz-mic').addEventListener('click', function () { input.focus(); });
   box.querySelector('.vz-reset').addEventListener('click', function () {
     d = {}; esperando = null; log.innerHTML = ''; ops.innerHTML = ''; sheet.hidden = true;
-    input.placeholder = 'Escreva ou toque no microfone';
+    input.placeholder = 'Escreva ou toque no microfone…';
     box.dataset.estado = 'boas-vindas';
   });
   box.querySelectorAll('.vz-volta').forEach(function (b) { b.addEventListener('click', function () { box.querySelector('.vz-reset').click(); }); });

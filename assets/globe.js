@@ -100,6 +100,7 @@
     +'font-family:inherit;font-size:.88rem}'
   +'.gl-input::placeholder{color:var(--muted2,#5a5a72)}'
   /* sugestões como balõezinhos de conversa, subindo da barra */
+  +'.gl-sugs,.gl-panel{overscroll-behavior:contain}'
   +'.gl-sugs{position:absolute;left:0;right:0;bottom:calc(100% + 9px);display:none;flex-direction:column;gap:6px;'
     +'max-height:min(300px,42vh);overflow-y:auto;padding:2px}'
   +'.gl-sugs.on{display:flex}'
@@ -262,7 +263,7 @@
   }
 
   function flagSrc(cc){ return '/assets/flags/'+cc+'.svg' }
-  function flag(cc,cls){ return '<img class="gl-flag'+(cls?' '+cls:'')+'" src="'+flagSrc(cc)+'" alt="Bandeira" loading="lazy">' }
+  function flag(cc,cls){ return '<img class="gl-flag'+(cls?' '+cls:'')+'" src="'+flagSrc(cc)+'" alt="" loading="lazy">' }
 
   /* ── HTML ── */
   var host=document.createElement('div');
@@ -278,7 +279,7 @@
         +'<div class="gl-sugs" id="glSugs"></div>'
         +'<div class="gl-bar">'
           +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'
-          +'<input class="gl-input" id="glInput" type="text" disabled autocomplete="off" placeholder="Pra onde você quer ir?" aria-label="Buscar destino">'
+          +'<input class="gl-input" id="glInput" type="text" disabled autocomplete="off" placeholder="Pra onde você quer ir…" aria-label="Buscar destino">'
         +'</div>'
       +'</div>'
     +'</div>'
@@ -332,7 +333,7 @@
   +'</div>';
   document.body.appendChild(host);
 
-  var ov=document.getElementById('globeOverlay'), md=document.getElementById('globeModal');
+  var ov=document.getElementById('globeOverlay'), md=document.getElementById('globeModal'), glAntes=null; md.inert=true;
   var cv=document.getElementById('globeCanvas'), ctx=cv.getContext('2d');
   var elWorld=document.getElementById('glWorld'), elCountry=document.getElementById('glCountry');
   var elCard=document.getElementById('glCard'), elCountries=document.getElementById('glCountries');
@@ -883,7 +884,9 @@
     if(!PTS) PTS=buildPts();
     loadCatalog();
     isOpen=true;
+    glAntes=document.activeElement; md.inert=false;
     ov.classList.add('open'); md.classList.add('open');
+    setTimeout(function(){ var x=md.querySelector('.gl-close'); if(x) x.focus() },60);
     document.body.style.overflow='hidden';
     resize();
     /* pinta o primeiro frame na hora: não espera o rAF (que pode demorar se a aba
@@ -892,8 +895,9 @@
   };
   window.closeGlobe=function(){
     isOpen=false;
-    ov.classList.remove('open'); md.classList.remove('open');
+    ov.classList.remove('open'); md.classList.remove('open'); md.inert=true;
     document.body.style.overflow='';
+    if(glAntes&&glAntes.focus){ try{ glAntes.focus() }catch(e){} } glAntes=null;
     hideSugs(); closeTrip();
     if(raf){ cancelAnimationFrame(raf); raf=0 }   // não queima CPU fechado
   };

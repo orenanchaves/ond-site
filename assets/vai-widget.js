@@ -104,6 +104,11 @@
 .ondvai-snd{background:#7f11f4;border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;color:#fff;flex-shrink:0;font-size:1.15rem;line-height:1}\
 .ondvai-snd:hover{background:#9d6fff}\
 .ondvai-note{font-size:.66rem;color:var(--ond-color-muted,#8888b0);text-align:center;margin-top:8px}\
+.ondvai-body{overscroll-behavior:contain}\
+.ondvai-orb:focus-visible,.ondvai-chip:focus-visible,.ondvai-x:focus-visible,.ondvai-snd:focus-visible,.ondvai-bubble:focus-visible{outline:3px solid #b79bff;outline-offset:3px}\
+.ondvai-in:focus-visible{box-shadow:0 0 0 3px rgba(127,17,244,.45)}\
+.ondvai-orb{bottom:calc(22px + env(safe-area-inset-bottom))}\
+@media(prefers-reduced-motion:reduce){.ondvai-orb,.ondvai-typing span,.ondvai-bubble{animation:none!important}.ondvai-panel,.ondvai-orb,.ondvai-ab{transition:none!important}}\
 @media(max-width:480px){.ondvai-panel{right:10px;left:10px;width:auto;bottom:86px;height:72vh}.ondvai-orb{right:16px;bottom:16px}}';
 
   function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
@@ -118,18 +123,18 @@
       ? '<button class="ondvai-chip" data-q="O que é o OND?">O que é o OND?</button><button class="ondvai-chip" data-q="Como funciona pra agências?">Como funciona pra agências?</button><button class="ondvai-chip" data-q="Qual o modelo?">Qual o modelo?</button><button class="ondvai-chip" data-q="Agendar reunião">Agendar reunião</button>'
       : '<button class="ondvai-chip" data-q="O que é o OND?">O que é o OND?</button><button class="ondvai-chip" data-q="O que você faz?">O que você faz?</button><button class="ondvai-chip" data-q="Quanto custa?">Quanto custa?</button><button class="ondvai-chip" data-q="Contato">Contato</button>';
     var NOTE = B2B ? 'Prévia do OND vAI, fale com a gente pra ver tudo.' : 'Prévia do OND vAI, o roteiro completo é no app.';
-    var PH = B2B ? 'Pergunte sobre o OND pra agências...' : 'Pergunte qualquer coisa pro OND vAI...';
+    var PH = B2B ? 'Pergunte sobre o OND pra agências…' : 'Pergunte qualquer coisa pro OND vAI…';
 
     var root = document.createElement('div');
     root.innerHTML =
       '<button class="ondvai-orb' + (B2B ? ' ondvai-b2b' : '') + '" id="ondvaiOrb" aria-label="Abrir OND vAI">' + SYMBOL + '</button>' +
-      '<div class="ondvai-panel" id="ondvaiPanel" role="dialog" aria-label="OND vAI">' +
+      '<div class="ondvai-panel" id="ondvaiPanel" role="dialog" aria-label="OND vAI" inert>' +
         '<div class="ondvai-head"><div class="ondvai-hh">' + SYMBOL + '</div><div><div class="ondvai-ht">OND vAI <span class="ondvai-tag">prévia</span></div><div class="ondvai-on">online agora</div></div><button class="ondvai-x" id="ondvaiClose" aria-label="Fechar">✕</button></div>' +
-        '<div class="ondvai-body" id="ondvaiBody">' +
+        '<div class="ondvai-body" id="ondvaiBody" aria-live="polite">' +
           '<div class="ondvai-msg ondvai-bot">' + GREET + '</div>' +
           '<div class="ondvai-chips" id="ondvaiChips">' + CHIPS + '</div>' +
         '</div>' +
-        '<div class="ondvai-foot"><form class="ondvai-form" id="ondvaiForm"><input class="ondvai-in" id="ondvaiInput" type="text" placeholder="' + PH + '" autocomplete="off"><button class="ondvai-snd" type="submit" aria-label="Enviar">→</button></form><div class="ondvai-note">' + NOTE + '</div></div>' +
+        '<div class="ondvai-foot"><form class="ondvai-form" id="ondvaiForm"><input class="ondvai-in" id="ondvaiInput" name="mensagem" aria-label="Mensagem pro OND vAI" type="text" placeholder="' + PH + '" autocomplete="off"><button class="ondvai-snd" type="submit" aria-label="Enviar">→</button></form><div class="ondvai-note">' + NOTE + '</div></div>' +
       '</div>';
     document.body.appendChild(root);
 
@@ -170,8 +175,8 @@
     window.addEventListener('resize', function () { var r = orb.getBoundingClientRect(); if (orb.style.left) applyPos(r.left, r.top); });
 
     /* ---------- abrir / fechar ---------- */
-    function open() { hideBubble(); positionPanel(); panel.classList.add('open'); orb.classList.add('hide'); setTimeout(function () { try { input.focus(); } catch (e) {} }, 250); }
-    function close() { panel.classList.remove('open'); orb.classList.remove('hide'); }
+    function open() { hideBubble(); positionPanel(); panel.inert = false; panel.classList.add('open'); orb.classList.add('hide'); setTimeout(function () { try { input.focus(); } catch (e) {} }, 250); }
+    function close() { var ab = panel.classList.contains('open'); panel.classList.remove('open'); panel.inert = true; orb.classList.remove('hide'); if (ab) try { orb.focus(); } catch (e) {} }
     function activate() {
       if (B2B) { open(); return; }
       hideBubble();
@@ -199,7 +204,7 @@
     function hideBubble() { var b = document.getElementById('ondvaiBubble'); if (b) b.remove(); if (bubbleTimer) { clearTimeout(bubbleTimer); bubbleTimer = null; } }
     function showBubble() {
       if (document.getElementById('ondvaiBubble') || panel.classList.contains('open')) return;
-      var b = document.createElement('div'); b.className = 'ondvai-bubble'; b.id = 'ondvaiBubble';
+      var b = document.createElement('div'); b.className = 'ondvai-bubble'; b.id = 'ondvaiBubble'; b.setAttribute('role', 'button'); b.tabIndex = 0;
       b.innerHTML = '<span>' + (B2B ? 'Dúvidas do OND pra agências?' : 'Pergunte qualquer coisa pro OND vAI') + '</span><button class="bx" aria-label="Fechar">✕</button>';
       document.body.appendChild(b);
       var r = orb.getBoundingClientRect(), bw = b.offsetWidth, bh = b.offsetHeight;
@@ -207,7 +212,7 @@
       var top = Math.max(8, Math.min(r.top + r.height / 2 - bh / 2, window.innerHeight - bh - 8));
       b.style.left = left + 'px'; b.style.top = top + 'px';
       b.querySelector('.bx').addEventListener('click', function (e) { e.stopPropagation(); hideBubble(); });
-      b.addEventListener('click', activate);
+      b.addEventListener('click', activate); b.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
       bubbleTimer = setTimeout(hideBubble, 9000);
     }
     try { if (!sessionStorage.getItem('ondvai_greeted')) { sessionStorage.setItem('ondvai_greeted', '1'); setTimeout(showBubble, 2600); } } catch (e) { setTimeout(showBubble, 2600); }
