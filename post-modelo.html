@@ -193,6 +193,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   ]
 }
 </script>
+<style id="transicao-suave">@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.45s;animation-timing-function:ease}body{animation:pgIn .45s ease backwards}@keyframes pgIn{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){body{animation:none}::view-transition-old(root),::view-transition-new(root){animation:none}}</style>
 </head>
 <body>
 

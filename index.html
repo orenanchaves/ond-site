@@ -521,7 +521,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/">
 <link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/">
 <link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/">
-<style>@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.45s}</style>
 <style>.ico{width:1.15em;height:1.15em;display:inline-block;vertical-align:-.2em;flex-shrink:0}.sup-card i,.oc-card i,.conf li i,.feature-icon,.arco-num,.contact-option-icon,.duo-juntos>span:first-child{color:var(--purple-light)}.sup-card i .ico,.oc-card i .ico{width:28px;height:28px}.feature-icon .ico{width:30px;height:30px}.arco-num .ico{width:24px;height:24px}.conf li i .ico{width:22px;height:22px}</style>
 <style id="vt-css">
 .vt{--vt-line:var(--border);padding-bottom:40px}
@@ -637,7 +636,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 /* monte a viagem */
 .vm2{position:relative;color:#fff;margin-top:90px;min-height:640px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
 .vm2>picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.vm2::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,6,20,.55),rgba(8,6,20,.2) 40%,rgba(8,6,20,.75))}
+.vm2::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(41,7,86,.78),rgba(127,17,244,.42) 45%,rgba(24,4,54,.9))}.vm2>picture img{filter:saturate(.8)}
 .vm2-top{position:relative;z-index:1;padding-top:70px;width:100%}
 .vm2-top h2{font-size:clamp(2.4rem,5vw,4.2rem);line-height:1;color:#fff}
 .vm2-top ul{list-style:none;margin-top:26px}
@@ -753,6 +752,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 @keyframes hbIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
 @media(max-width:960px){.hb-bubble{position:relative;right:auto;top:auto;margin:-40px auto 0;width:min(320px,92%)}.hb-img{flex-direction:column;align-items:center}.hb-acts{justify-content:center}.hb-lead,.hb-app{margin-left:auto;margin-right:auto}.hb-app{text-align:center}.hb-app .hero-app-btns{justify-content:center}}
 </style>
+<style id="transicao-suave">@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.45s;animation-timing-function:ease}body{animation:pgIn .45s ease backwards}@keyframes pgIn{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){body{animation:none}::view-transition-old(root),::view-transition-new(root){animation:none}}</style>
 </head>
 <body>
 
