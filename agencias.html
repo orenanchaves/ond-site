@@ -1047,6 +1047,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/agencias.html">
 <link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/agencias.html">
 <link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/agencias.html">
+<style id="agencias-limpa">.lg-real-label{text-transform:none!important;letter-spacing:0!important;font-size:.82rem!important}</style>
 </head>
 <body>
 
@@ -1123,7 +1124,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   </ul>
 </details>
   <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
-  <a href="https://calendly.com/renanfr1047/30min" class="header-cta" target="_blank" rel="noopener">Agendar reunião →</a>
+  <a href="#planos" class="header-cta">Ver planos</a>
   <button class="header-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button></div>
 </header>
 <nav class="mobile-nav" id="mobileNav">
@@ -1140,20 +1141,19 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <!-- HERO -->
 <section class="hero">
   <div>
-    <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Plataforma de vendas para agências</div>
-    <h1 class="hero-title">Chega de esperar o <br class="br-d">cliente entrar pela porta.<br>Ele <em>já decidiu viajar</em>, só não <br class="br-d">sabe que você existe.</h1>
+    <h1 class="hero-title">Chega de esperar o <br class="br-d">cliente entrar pela porta.<br>Ele já decidiu viajar, só não <br class="br-d">sabe que você existe.</h1>
     <p class="hero-sub">Todo dia, centenas de pessoas fecham destino, data e orçamento conversando com o OND vAI. Zero agências aparecem pra elas hoje. Isso muda agora.</p>
     <div class="hero-ctas">
-      <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Quero o OND na minha&nbsp;agência&nbsp;→</a>
+      <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Quero o OND na minha&nbsp;agência</a>
       <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         Falar no WhatsApp
       </a>
     </div>
     <div class="hero-trust">
-      <span class="trust-chip">Venda pra quem já quer comprar <span class="trust-chip-metric">(-CAC)</span></span>
-      <span class="trust-chip">Leads chegam prontos pra fechar <span class="trust-chip-metric">(+LTV, cross/upsell)</span></span>
-      <span class="trust-chip">Sua marca continua na viagem <span class="trust-chip-metric">(+NPS)</span></span>
+      <span class="trust-chip">Venda pra quem já quer comprar</span>
+      <span class="trust-chip">Leads chegam prontos pra fechar</span>
+      <span class="trust-chip">Sua marca continua na viagem</span>
     </div>
   </div>
   <div class="hero-visual" id="heroVisual">
@@ -1163,7 +1163,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <div class="lg-stat"><b id="lgS3">–</b><span>roteiros gerados</span></div>
       <div class="lg-stat"><b id="lgS4">–</b><span>leads liberados pra contato</span></div>
     </div>
-    <div class="lg-real-label">Isso não é exemplo. É gente real, agora</div>
+    <div class="lg-real-label">Pedidos reais feitos ao OND vAI agora</div>
     <div class="leadgen-flow">
       <div class="lg-quote">
         <svg class="lg-quote-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -1268,25 +1268,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 
 <section class="origin">
   <div class="origin-inner">
-    <span class="section-label">Por que existimos</span>
     <h2 class="section-title">Construímos um app que virou hábito de viajante.<br>E tem mais viajante do que dá pra atender sozinho.</h2>
     <p class="section-sub">Milhares de pessoas sonham o destino, montam o roteiro e viajam com o OND do lado. O OND também é agência de turismo, cadastrada no Cadastur, e vende viagens direto e junto com agências parceiras: uma coisa não exclui a outra. Tem mais gente pronta pra comprar do que dá pra atender sozinho, e por isso existe o OND para agências. Quer faturar com esse tanto de gente pronta pra fechar?</p>
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat"><div class="stat-num green">5min</div><div class="stat-label">para montar a proposta</div></div>
-  <div class="stat"><div class="stat-num blue">24h</div><div class="stat-label">o cliente personaliza sozinho</div></div>
-  <div class="stat"><div class="stat-num gold">+ ticket</div><div class="stat-label">com seguro e add-ons</div></div>
-  <div class="stat"><div class="stat-num green">100%</div><div class="stat-label">com a sua marca</div></div>
-</div>
-
 <!-- JORNADA: mockup ponta a ponta (perto da dobra) -->
 <section class="journey-strip" id="plataforma">
   <div class="journey">
     <div class="journey-head">
-      <span class="section-label">A jornada da venda</span>
       <h3>Do primeiro "quero viajar" ao fechamento</h3>
       <p>O que acontece em cada etapa até a agência fechar a venda. Depois dela, o OND continua na viagem (logo abaixo).</p>
     </div>
@@ -1345,7 +1335,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <div class="platform-preview">
       <div class="pp-cols">
         <div class="pp-copy">
-          <span class="section-label">Exemplo da plataforma</span>
           <h3>Monte uma proposta <br class="mbr">agora, do seu jeito.</h3>
           <p>Escolha um destino e a duração. Em segundos o OND monta o roteiro dia a dia com a sua marca, os valores e um link pronto pra enviar. É o que a sua agência faz na plataforma, todo dia.</p>
           <ul class="pp-copy-list">
@@ -1957,7 +1946,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 
     <div class="journey-foot">
       <div class="journey-foot-ctas">
-        <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Ver funcionando com a gente →</a>
         <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
           Falar no WhatsApp
@@ -1970,7 +1958,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <!-- PROBLEMA -->
 <section class="problema" style="display:none">
   <div class="problema-inner">
-    <span class="section-label">O problema</span>
     <h2 class="section-title">Orçamento estático<br>não fecha venda</h2>
     <p class="section-sub">O cliente de hoje quer mexer: trocar um passeio, mudar a data, ver o preço já com seguro. Se a proposta é um PDF que ele não pode tocar, cada ajuste vira <span style="white-space:nowrap">e-mail</span> e a venda esfria.</p>
     <div class="problema-cards">
@@ -1997,7 +1984,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <section class="features" id="modelo" style="display:none">
   <div class="features-inner">
     <div class="features-head">
-      <span class="section-label">Funcionalidades</span>
       <h2 class="section-title">Tudo pra vender mais</h2>
     </div>
     <div class="features-grid">
@@ -2051,7 +2037,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <section class="retention" id="retencao">
   <div class="retention-inner">
     <div class="retention-head">
-      <span class="section-label">Depois da venda</span>
       <h2 class="section-title">Booking e CVC somem depois da reserva.<br>O OND fica na viagem inteira.</h2>
       <p class="section-sub" style="margin:0 auto">A venda não termina no fechamento. O OND mantém a sua agência presente durante a viagem, e transforma o cliente de hoje na próxima venda.</p>
     </div>
@@ -2073,7 +2058,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <!-- DIFERENCIAIS -->
 <section class="diff" style="display:none">
   <div style="text-align:center;max-width:720px;margin:0 auto">
-    <span class="section-label">Por que o OND</span>
     <h2 class="section-title" style="margin-bottom:12px">Não é só um ChatGPT<br>com wrapper de viagem</h2>
     <p class="section-sub" style="margin:0 auto">O OND combina IA com regras do turismo, dados de destinos e um motor de propostas: orçamentos interativos que fecham mais rápido.</p>
   </div>
@@ -2110,7 +2094,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <section class="pricing" id="planos">
   <div class="pricing-inner">
     <div class="pricing-head">
-      <span class="section-label">Planos</span>
       <h2 class="section-title">Escolha o plano e comece agora</h2>
       <p class="section-sub" style="margin:0 auto">Contrate direto pela página. Sem reunião, sem espera: seu acesso chega por e-mail assim que o pagamento é confirmado.</p>
     </div>
@@ -2244,7 +2227,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <!-- PROVA SOCIAL -->
 <section class="proof" style="display:none">
   <div class="proof-inner">
-    <span class="section-label">Validação</span>
     <h2 class="section-title" style="margin-bottom:32px">Apresentado para as maiores<br>redes de viagem do Brasil</h2>
     <p class="proof-quote">
       O OND foi apresentado para o conselho da BeFly Leadership (uma das maiores redes de agências de viagem do Brasil) e recebeu aprovação técnica e estratégica para integração com a rede de franquias e turismo&nbsp;corporativo.
@@ -2272,11 +2254,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 <!-- CTA FINAL -->
 <section class="cta-final">
   <div class="cta-final-inner">
-    <span class="section-label">Comece agora</span>
-    <h2 class="cta-final-title">Sua agência vendendo&nbsp;mais.<br><em>Propostas que o cliente&nbsp;fecha.</em></h2>
+    <h2 class="cta-final-title">Sua agência vendendo&nbsp;mais.<br>Propostas que o cliente&nbsp;fecha.</h2>
     <p class="cta-final-sub">Contrate direto pela página. Sem reunião, sem espera: <br class="br-d">seu acesso chega por e-mail assim que o pagamento é confirmado.</p>
     <div class="cta-final-btns">
-      <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Quero o OND na minha&nbsp;agência&nbsp;→</a>
+      <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Quero o OND na minha&nbsp;agência</a>
       <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         Falar no WhatsApp
@@ -2325,7 +2306,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   <div class="footer-inner">
     <div class="footer-brand">
       <svg class="footer-logo-svg" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
-      <p>Agência de viagens com IA. Roteiros inteligentes para viajantes e tecnologia para agências.</p>
+      <p>Agência de viagens com suporte humano e tecnologia para agências venderem mais.</p>
     </div>
     <div class="footer-col">
       <h4>Agências</h4>
