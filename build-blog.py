@@ -361,7 +361,8 @@ def write_sitemap(meta):
     """Reescreve o sitemap.xml: paginas fixas + os posts reais. Sem post-modelo.html."""
     today = datetime.date.today().isoformat()
     fixed = [('', '1.0', 'weekly'), ('agencias.html', '0.9', 'monthly'),
-             ('assessoria.html', '0.8', 'monthly'), ('blog.html', '0.7', 'weekly')]
+             ('assessoria.html', '0.8', 'monthly'), ('blog.html', '0.7', 'weekly'),
+             ('viagens/', '0.9', 'weekly'), ('viagens/quando-viajar/', '0.8', 'monthly')]
     urls = []
     for path, prio, freq in fixed:
         urls.append(f'  <url>\n    <loc>{SITE}/{path}</loc>\n    <lastmod>{today}</lastmod>\n'

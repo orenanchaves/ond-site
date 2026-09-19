@@ -219,7 +219,7 @@ def write_sitemap():
         with open(sp, encoding='utf-8') as fh:
             cur = fh.read()
         for block in re.findall(r'<url>.*?</url>', cur, re.S):
-            if '/blog' in block:
+            if '/blog' in block or '/viagens/' in block:
                 blog_blocks.append('  ' + block.strip())
 
     urls = []
