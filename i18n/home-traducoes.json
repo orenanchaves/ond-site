@@ -1,0 +1,1012 @@
+{
+ "OND: compre sua viagem e viaje com suporte humano | passagens, hospedagem e passeios": {
+  "en": "OND: book your trip and travel with human support | flights, stays and tours",
+  "es": "OND: compra tu viaje y viaja con soporte humano | vuelos, alojamiento y paseos",
+  "fr": "OND : réservez votre voyage et voyagez avec un vrai accompagnement | vols, hébergement et excursions",
+  "it": "OND: compra il tuo viaggio e viaggia con assistenza umana | voli, alloggi e escursioni"
+ },
+ "Pular para o conteúdo": {
+  "en": "Skip to content",
+  "es": "Saltar al contenido",
+  "fr": "Aller au contenu",
+  "it": "Vai al contenuto"
+ },
+ "Viagens": {
+  "en": "Trips",
+  "es": "Viajes",
+  "fr": "Voyages",
+  "it": "Viaggi"
+ },
+ "Como funciona": {
+  "en": "How it works",
+  "es": "Cómo funciona",
+  "fr": "Comment ça marche",
+  "it": "Come funziona"
+ },
+ "Contato": {
+  "en": "Contact",
+  "es": "Contacto",
+  "fr": "Contact",
+  "it": "Contatti"
+ },
+ "Para Agências": {
+  "en": "For agencies",
+  "es": "Para agencias",
+  "fr": "Pour les agences",
+  "it": "Per le agenzie"
+ },
+ "Monte sua viagem": {
+  "en": "Plan your trip",
+  "es": "Arma tu viaje",
+  "fr": "Créez votre voyage",
+  "it": "Crea il tuo viaggio"
+ },
+ "Escolha o destino.": {
+  "en": "Pick the destination.",
+  "es": "Elige el destino.",
+  "fr": "Choisissez la destination.",
+  "it": "Scegli la destinazione."
+ },
+ "A gente faz a viagem acontecer.": {
+  "en": "We make the trip happen.",
+  "es": "Nosotros hacemos realidad tu viaje.",
+  "fr": "On s'occupe du reste.",
+  "it": "Al viaggio pensiamo noi."
+ },
+ "O OND é uma agência de viagens: a gente": {
+  "en": "OND is a travel agency: we",
+  "es": "OND es una agencia de viajes: nosotros",
+  "fr": "OND est une agence de voyages : nous",
+  "it": "OND è un'agenzia di viaggi: noi"
+ },
+ "cota, compra e acompanha": {
+  "en": "quote, book and follow up",
+  "es": "cotizamos, compramos y acompañamos",
+  "fr": "chiffrons, réservons et suivons",
+  "it": "prepariamo il preventivo, prenotiamo e seguiamo"
+ },
+ "passagens, hospedagem e passeios, com": {
+  "en": "your flights, stays and tours, with",
+  "es": "vuelos, alojamiento y paseos, con",
+  "fr": "vos vols, hébergements et excursions, avec",
+  "it": "voli, alloggi ed escursioni, con"
+ },
+ "suporte humano": {
+  "en": "human support",
+  "es": "soporte humano",
+  "fr": "un vrai accompagnement",
+  "it": "assistenza umana"
+ },
+ "do embarque à volta.": {
+  "en": "from departure to return.",
+  "es": "desde la salida hasta la vuelta.",
+  "fr": "du départ au retour.",
+  "it": "dalla partenza al ritorno."
+ },
+ "Falar com o OND": {
+  "en": "Talk to OND",
+  "es": "Hablar con OND",
+  "fr": "Parler à OND",
+  "it": "Parla con OND"
+ },
+ "Viagens em destaque": {
+  "en": "Featured trips",
+  "es": "Viajes destacados",
+  "fr": "Voyages à la une",
+  "it": "Viaggi in evidenza"
+ },
+ "Brasil": {
+  "en": "Brazil",
+  "es": "Brasil",
+  "fr": "Brésil",
+  "it": "Brasile"
+ },
+ "Mundo": {
+  "en": "World",
+  "es": "Mundo",
+  "fr": "Monde",
+  "it": "Mondo"
+ },
+ "Ver todas as viagens": {
+  "en": "See all trips",
+  "es": "Ver todos los viajes",
+  "fr": "Voir tous les voyages",
+  "it": "Vedi tutti i viaggi"
+ },
+ "Rio Grande do Sul": {
+  "en": "Rio Grande do Sul",
+  "es": "Rio Grande do Sul",
+  "fr": "Rio Grande do Sul",
+  "it": "Rio Grande do Sul"
+ },
+ "Paraná": {
+  "en": "Paraná",
+  "es": "Paraná",
+  "fr": "Paraná",
+  "it": "Paraná"
+ },
+ "Mais 6 viagens pelo Brasil": {
+  "en": "6 more trips in Brazil",
+  "es": "6 viajes más por Brasil",
+  "fr": "6 autres voyages au Brésil",
+  "it": "Altri 6 viaggi in Brasile"
+ },
+ "Salvador, Natal, Jericoacoara, Lençóis, Bonito e Florianópolis": {
+  "en": "Salvador, Natal, Jericoacoara, Lençóis, Bonito and Florianópolis",
+  "es": "Salvador, Natal, Jericoacoara, Lençóis, Bonito y Florianópolis",
+  "fr": "Salvador, Natal, Jericoacoara, Lençóis, Bonito et Florianópolis",
+  "it": "Salvador, Natal, Jericoacoara, Lençóis, Bonito e Florianópolis"
+ },
+ "França": {
+  "en": "France",
+  "es": "Francia",
+  "fr": "France",
+  "it": "Francia"
+ },
+ "Lisboa": {
+  "en": "Lisbon",
+  "es": "Lisboa",
+  "fr": "Lisbonne",
+  "it": "Lisbona"
+ },
+ "Estados Unidos": {
+  "en": "United States",
+  "es": "Estados Unidos",
+  "fr": "États-Unis",
+  "it": "Stati Uniti"
+ },
+ "México": {
+  "en": "Mexico",
+  "es": "México",
+  "fr": "Mexique",
+  "it": "Messico"
+ },
+ "Roma": {
+  "en": "Rome",
+  "es": "Roma",
+  "fr": "Rome",
+  "it": "Roma"
+ },
+ "Itália": {
+  "en": "Italy",
+  "es": "Italia",
+  "fr": "Italie",
+  "it": "Italia"
+ },
+ "Mais 7 viagens pelo mundo": {
+  "en": "7 more trips around the world",
+  "es": "7 viajes más por el mundo",
+  "fr": "7 autres voyages dans le monde",
+  "it": "Altri 7 viaggi nel mondo"
+ },
+ "Bariloche, Santiago, Patagônia, Machu Picchu, Nova York, Japão e Maldivas": {
+  "en": "Bariloche, Santiago, Patagonia, Machu Picchu, New York, Japan and the Maldives",
+  "es": "Bariloche, Santiago, Patagonia, Machu Picchu, Nueva York, Japón y Maldivas",
+  "fr": "Bariloche, Santiago, Patagonie, Machu Picchu, New York, Japon et Maldives",
+  "it": "Bariloche, Santiago, Patagonia, Machu Picchu, New York, Giappone e Maldive"
+ },
+ "Como funciona a agência OND": {
+  "en": "How the OND agency works",
+  "es": "Cómo funciona la agencia OND",
+  "fr": "Comment fonctionne l'agence OND",
+  "it": "Come funziona l'agenzia OND"
+ },
+ "Tudo numa conversa só, com uma pessoa do OND. Preço sob consulta, com as suas datas e a cidade de saída.": {
+  "en": "All in one conversation, with a real person from OND. Prices on request, based on your dates and departure city.",
+  "es": "Todo en una sola conversación, con una persona de OND. Precio a consultar, con tus fechas y tu ciudad de salida.",
+  "fr": "Tout dans une seule conversation, avec une vraie personne d'OND. Prix sur demande, selon vos dates et votre ville de départ.",
+  "it": "Tutto in un'unica conversazione, con una persona di OND. Prezzo su richiesta, con le tue date e la città di partenza."
+ },
+ "Passagens": {
+  "en": "Flights",
+  "es": "Vuelos",
+  "fr": "Vols",
+  "it": "Voli"
+ },
+ "Hospedagem": {
+  "en": "Stays",
+  "es": "Alojamiento",
+  "fr": "Hébergement",
+  "it": "Alloggio"
+ },
+ "Passeios": {
+  "en": "Tours",
+  "es": "Paseos",
+  "fr": "Excursions",
+  "it": "Escursioni"
+ },
+ "Seguro e transfer": {
+  "en": "Insurance and transfers",
+  "es": "Seguro y traslados",
+  "fr": "Assurance et transferts",
+  "it": "Assicurazione e transfer"
+ },
+ "Escolha o destino": {
+  "en": "Pick the destination",
+  "es": "Elige el destino",
+  "fr": "Choisissez la destination",
+  "it": "Scegli la destinazione"
+ },
+ "Conte pra onde quer ir, no site, no WhatsApp ou no app. Voo, hotel e passeios juntos.": {
+  "en": "Tell us where you want to go, on the site, on WhatsApp or in the app. Flights, hotel and tours together.",
+  "es": "Cuéntanos a dónde quieres ir, en el sitio, por WhatsApp o en la app. Vuelo, hotel y paseos juntos.",
+  "fr": "Dites-nous où vous voulez aller, sur le site, sur WhatsApp ou dans l'app. Vol, hôtel et excursions ensemble.",
+  "it": "Dicci dove vuoi andare, sul sito, su WhatsApp o nell'app. Volo, hotel ed escursioni insieme."
+ },
+ "Feche com uma pessoa do OND": {
+  "en": "Book with a person from OND",
+  "es": "Cierra con una persona de OND",
+  "fr": "Réservez avec une personne d'OND",
+  "it": "Prenota con una persona di OND"
+ },
+ "Proposta com as suas datas e a cidade de saída. Você compra e acompanha cada etapa até a confirmação.": {
+  "en": "A proposal with your dates and departure city. You book and follow every step until it's confirmed.",
+  "es": "Propuesta con tus fechas y tu ciudad de salida. Compras y sigues cada etapa hasta la confirmación.",
+  "fr": "Une proposition avec vos dates et votre ville de départ. Vous réservez et suivez chaque étape jusqu'à la confirmation.",
+  "it": "Una proposta con le tue date e la città di partenza. Acquisti e segui ogni fase fino alla conferma."
+ },
+ "Tenha tudo na mão": {
+  "en": "Keep everything at hand",
+  "es": "Ten todo a mano",
+  "fr": "Tout sous la main",
+  "it": "Tutto a portata di mano"
+ },
+ "Voo, hotel, programação do dia, documentos e previsão do tempo no app.": {
+  "en": "Flights, hotel, daily plan, documents and weather forecast in the app.",
+  "es": "Vuelo, hotel, plan del día, documentos y pronóstico del tiempo en la app.",
+  "fr": "Vol, hôtel, programme du jour, documents et météo dans l'app.",
+  "it": "Volo, hotel, programma del giorno, documenti e meteo nell'app."
+ },
+ "Viaje com suporte": {
+  "en": "Travel with support",
+  "es": "Viaja con soporte",
+  "fr": "Voyagez accompagné",
+  "it": "Viaggia con assistenza"
+ },
+ "Deu imprevisto, você fala com uma pessoa. Faltou um passeio ou transfer, compra direto do destino.": {
+  "en": "If something goes wrong, you talk to a real person. Missing a tour or transfer? Book it right from your destination.",
+  "es": "Si surge un imprevisto, hablas con una persona. ¿Te faltó un paseo o traslado? Lo compras desde el destino.",
+  "fr": "En cas d'imprévu, vous parlez à une vraie personne. Il manque une excursion ou un transfert ? Réservez-le depuis la destination.",
+  "it": "Se c'è un imprevisto, parli con una persona. Manca un'escursione o un transfer? Lo prenoti direttamente dalla destinazione."
+ },
+ "O app é grátis pra quem viaja com o OND.": {
+  "en": "The app is free for everyone who travels with OND.",
+  "es": "La app es gratis para quien viaja con OND.",
+  "fr": "L'app est gratuite pour ceux qui voyagent avec OND.",
+  "it": "L'app è gratuita per chi viaggia con OND."
+ },
+ "Baixar na": {
+  "en": "Download on the",
+  "es": "Descargar en",
+  "fr": "Télécharger dans",
+  "it": "Scarica su"
+ },
+ "Baixar no": {
+  "en": "Get it on",
+  "es": "Disponible en",
+  "fr": "Disponible sur",
+  "it": "Disponibile su"
+ },
+ "Usar na web": {
+  "en": "Use on the web",
+  "es": "Usar en la web",
+  "fr": "Utiliser sur le web",
+  "it": "Usa sul web"
+ },
+ "Oi, como posso te ajudar hoje?": {
+  "en": "Hi, how can I help you today?",
+  "es": "Hola, ¿cómo te puedo ayudar hoy?",
+  "fr": "Bonjour, comment puis-je vous aider ?",
+  "it": "Ciao, come posso aiutarti oggi?"
+ },
+ "O OND vAI é uma inteligência artificial e pode cometer erros.": {
+  "en": "OND vAI is an artificial intelligence and can make mistakes.",
+  "es": "OND vAI es una inteligencia artificial y puede cometer errores.",
+  "fr": "OND vAI est une intelligence artificielle et peut se tromper.",
+  "it": "OND vAI è un'intelligenza artificiale e può commettere errori."
+ },
+ "SUGESTÕES PRA COMEÇAR": {
+  "en": "SUGGESTIONS TO START",
+  "es": "SUGERENCIAS PARA EMPEZAR",
+  "fr": "SUGGESTIONS POUR COMMENCER",
+  "it": "SUGGERIMENTI PER INIZIARE"
+ },
+ "Maceió em julho": {
+  "en": "Maceió in July",
+  "es": "Maceió en julio",
+  "fr": "Maceió en juillet",
+  "it": "Maceió a luglio"
+ },
+ "Fim de semana em Gramado": {
+  "en": "A weekend in Gramado",
+  "es": "Fin de semana en Gramado",
+  "fr": "Week-end à Gramado",
+  "it": "Weekend a Gramado"
+ },
+ "Buenos Aires com amigos": {
+  "en": "Buenos Aires with friends",
+  "es": "Buenos Aires con amigos",
+  "fr": "Buenos Aires entre amis",
+  "it": "Buenos Aires con gli amici"
+ },
+ "Lua de mel em Paris": {
+  "en": "Honeymoon in Paris",
+  "es": "Luna de miel en París",
+  "fr": "Lune de miel à Paris",
+  "it": "Luna di miele a Parigi"
+ },
+ "Orlando com as crianças": {
+  "en": "Orlando with the kids",
+  "es": "Orlando con los niños",
+  "fr": "Orlando avec les enfants",
+  "it": "Orlando con i bambini"
+ },
+ "Mensagem pro OND vAI": {
+  "en": "Message to OND vAI",
+  "es": "Mensaje para OND vAI",
+  "fr": "Message pour OND vAI",
+  "it": "Messaggio per OND vAI"
+ },
+ "Seu roteiro": {
+  "en": "Your trip",
+  "es": "Tu viaje",
+  "fr": "Votre voyage",
+  "it": "Il tuo viaggio"
+ },
+ "DESTINO": {
+  "en": "DESTINATION",
+  "es": "DESTINO",
+  "fr": "DESTINATION",
+  "it": "DESTINAZIONE"
+ },
+ "QUANDO": {
+  "en": "WHEN",
+  "es": "CUÁNDO",
+  "fr": "QUAND",
+  "it": "QUANDO"
+ },
+ "VIAJANTES": {
+  "en": "TRAVELERS",
+  "es": "VIAJEROS",
+  "fr": "VOYAGEURS",
+  "it": "VIAGGIATORI"
+ },
+ "SAINDO DE": {
+  "en": "LEAVING FROM",
+  "es": "SALIENDO DE",
+  "fr": "DÉPART DE",
+  "it": "PARTENZA DA"
+ },
+ "Montar roteiro": {
+  "en": "Build itinerary",
+  "es": "Armar itinerario",
+  "fr": "Créer l'itinéraire",
+  "it": "Crea itinerario"
+ },
+ "Comprar viagem": {
+  "en": "Book trip",
+  "es": "Comprar viaje",
+  "fr": "Réserver",
+  "it": "Compra viaggio"
+ },
+ "Viagem confirmada!": {
+  "en": "Trip confirmed!",
+  "es": "¡Viaje confirmado!",
+  "fr": "Voyage confirmé !",
+  "it": "Viaggio confermato!"
+ },
+ "Status da compra": {
+  "en": "Booking status",
+  "es": "Estado de la compra",
+  "fr": "Statut de la réservation",
+  "it": "Stato dell'acquisto"
+ },
+ "Pedido recebido": {
+  "en": "Order received",
+  "es": "Pedido recibido",
+  "fr": "Commande reçue",
+  "it": "Ordine ricevuto"
+ },
+ "Recebemos sua compra.": {
+  "en": "We got your order.",
+  "es": "Recibimos tu compra.",
+  "fr": "Nous avons reçu votre commande.",
+  "it": "Abbiamo ricevuto il tuo acquisto."
+ },
+ "Validando preços e disponibilidade": {
+  "en": "Checking prices and availability",
+  "es": "Validando precios y disponibilidad",
+  "fr": "Vérification des prix et disponibilités",
+  "it": "Verifica di prezzi e disponibilità"
+ },
+ "Conferindo com as operadoras.": {
+  "en": "Confirming with the suppliers.",
+  "es": "Confirmando con los operadores.",
+  "fr": "Vérification auprès des prestataires.",
+  "it": "Verifica con gli operatori."
+ },
+ "Compra confirmada": {
+  "en": "Booking confirmed",
+  "es": "Compra confirmada",
+  "fr": "Réservation confirmée",
+  "it": "Acquisto confermato"
+ },
+ "Tudo certo, viagem garantida.": {
+  "en": "All set, your trip is secured.",
+  "es": "Todo listo, viaje asegurado.",
+  "fr": "Tout est prêt, voyage garanti.",
+  "it": "Tutto a posto, viaggio garantito."
+ },
+ "Vouchers liberados": {
+  "en": "Vouchers issued",
+  "es": "Vouchers emitidos",
+  "fr": "Bons émis",
+  "it": "Voucher emessi"
+ },
+ "Voos, hotel e ingressos no seu e-mail.": {
+  "en": "Flights, hotel and tickets in your inbox.",
+  "es": "Vuelos, hotel y entradas en tu e-mail.",
+  "fr": "Vols, hôtel et billets dans votre boîte mail.",
+  "it": "Voli, hotel e biglietti nella tua e-mail."
+ },
+ "Acompanhar pedido": {
+  "en": "Track order",
+  "es": "Seguir pedido",
+  "fr": "Suivre la commande",
+  "it": "Segui l'ordine"
+ },
+ "Lista": {
+  "en": "List",
+  "es": "Lista",
+  "fr": "Liste",
+  "it": "Lista"
+ },
+ "Calendario": {
+  "en": "Calendar",
+  "es": "Calendario",
+  "fr": "Calendrier",
+  "it": "Calendario"
+ },
+ "Viagem": {
+  "en": "Trip",
+  "es": "Viaje",
+  "fr": "Voyage",
+  "it": "Viaggio"
+ },
+ "Orçamento": {
+  "en": "Budget",
+  "es": "Presupuesto",
+  "fr": "Budget",
+  "it": "Preventivo"
+ },
+ "Mais": {
+  "en": "More",
+  "es": "Más",
+  "fr": "Plus",
+  "it": "Altro"
+ },
+ "Previsão do Tempo": {
+  "en": "Weather forecast",
+  "es": "Pronóstico del tiempo",
+  "fr": "Météo",
+  "it": "Meteo"
+ },
+ "SEX": {
+  "en": "FRI",
+  "es": "VIE",
+  "fr": "VEN",
+  "it": "VEN"
+ },
+ "SÁB": {
+  "en": "SAT",
+  "es": "SÁB",
+  "fr": "SAM",
+  "it": "SAB"
+ },
+ "DOM": {
+  "en": "SUN",
+  "es": "DOM",
+  "fr": "DIM",
+  "it": "DOM"
+ },
+ "SEG": {
+  "en": "MON",
+  "es": "LUN",
+  "fr": "LUN",
+  "it": "LUN"
+ },
+ "Onde você fica": {
+  "en": "Where you're staying",
+  "es": "Dónde te alojas",
+  "fr": "Où vous logez",
+  "it": "Dove alloggi"
+ },
+ "Editar": {
+  "en": "Edit",
+  "es": "Editar",
+  "fr": "Modifier",
+  "it": "Modifica"
+ },
+ "Hotel na Pajuçara": {
+  "en": "Hotel in Pajuçara",
+  "es": "Hotel en Pajuçara",
+  "fr": "Hôtel à Pajuçara",
+  "it": "Hotel a Pajuçara"
+ },
+ "Check-in 12/07, a partir das 14h": {
+  "en": "Check-in Jul 12, from 2 pm",
+  "es": "Check-in 12/07, desde las 14 h",
+  "fr": "Check-in le 12/07, à partir de 14 h",
+  "it": "Check-in 12/07, dalle 14"
+ },
+ "Pedido 1042": {
+  "en": "Order 1042",
+  "es": "Pedido 1042",
+  "fr": "Commande 1042",
+  "it": "Ordine 1042"
+ },
+ "Emitindo": {
+  "en": "Issuing",
+  "es": "Emitiendo",
+  "fr": "En cours",
+  "it": "In emissione"
+ },
+ "12/07 a 18/07, 2 viajantes": {
+  "en": "Jul 12 to 18, 2 travelers",
+  "es": "12/07 al 18/07, 2 viajeros",
+  "fr": "Du 12/07 au 18/07, 2 voyageurs",
+  "it": "Dal 12/07 al 18/07, 2 viaggiatori"
+ },
+ "Maceió, 12/07 a 18/07": {
+  "en": "Maceió, Jul 12 to 18",
+  "es": "Maceió, 12/07 al 18/07",
+  "fr": "Maceió, du 12/07 au 18/07",
+  "it": "Maceió, dal 12/07 al 18/07"
+ },
+ "1 de 2 itens emitidos": {
+  "en": "1 of 2 items issued",
+  "es": "1 de 2 ítems emitidos",
+  "fr": "1 élément sur 2 émis",
+  "it": "1 di 2 elementi emessi"
+ },
+ "Itens do pedido": {
+  "en": "Order items",
+  "es": "Ítems del pedido",
+  "fr": "Éléments de la commande",
+  "it": "Elementi dell'ordine"
+ },
+ "Voo": {
+  "en": "Flight",
+  "es": "Vuelo",
+  "fr": "Vol",
+  "it": "Volo"
+ },
+ "Voo ida e volta": {
+  "en": "Round-trip flight",
+  "es": "Vuelo ida y vuelta",
+  "fr": "Vol aller-retour",
+  "it": "Volo andata e ritorno"
+ },
+ "Localizador XK7P2Q": {
+  "en": "Booking code XK7P2Q",
+  "es": "Localizador XK7P2Q",
+  "fr": "Référence XK7P2Q",
+  "it": "Codice XK7P2Q"
+ },
+ "Emitido": {
+  "en": "Issued",
+  "es": "Emitido",
+  "fr": "Émis",
+  "it": "Emesso"
+ },
+ "6 noites": {
+  "en": "6 nights",
+  "es": "6 noches",
+  "fr": "6 nuits",
+  "it": "6 notti"
+ },
+ "Reservado": {
+  "en": "Booked",
+  "es": "Reservado",
+  "fr": "Réservé",
+  "it": "Prenotato"
+ },
+ "Adicionar item a este pedido": {
+  "en": "Add an item to this order",
+  "es": "Agregar un ítem a este pedido",
+  "fr": "Ajouter un élément à la commande",
+  "it": "Aggiungi un elemento all'ordine"
+ },
+ "Exemplo de viagem no app": {
+  "en": "Sample trip in the app",
+  "es": "Ejemplo de viaje en la app",
+  "fr": "Exemple de voyage dans l'app",
+  "it": "Esempio di viaggio nell'app"
+ },
+ "Agência no Cadastur": {
+  "en": "Registered with Cadastur",
+  "es": "Agencia en Cadastur",
+  "fr": "Agence inscrite au Cadastur",
+  "it": "Agenzia registrata al Cadastur"
+ },
+ "Cadastro oficial do Ministério do Turismo.": {
+  "en": "Brazil's official Ministry of Tourism registry.",
+  "es": "Registro oficial del Ministerio de Turismo de Brasil.",
+  "fr": "Registre officiel du ministère brésilien du Tourisme.",
+  "it": "Registro ufficiale del Ministero del Turismo brasiliano."
+ },
+ "Ver certificado": {
+  "en": "View certificate",
+  "es": "Ver certificado",
+  "fr": "Voir le certificat",
+  "it": "Vedi il certificato"
+ },
+ "Empresa brasileira com dados públicos": {
+  "en": "Brazilian company with public records",
+  "es": "Empresa brasileña con datos públicos",
+  "fr": "Entreprise brésilienne aux données publiques",
+  "it": "Azienda brasiliana con dati pubblici"
+ },
+ "Emissão na companhia e no hotel": {
+  "en": "Issued with the airline and hotel",
+  "es": "Emisión con la aerolínea y el hotel",
+  "fr": "Émission auprès de la compagnie et de l'hôtel",
+  "it": "Emissione con la compagnia e l'hotel"
+ },
+ "Você recebe o localizador e a confirmação": {
+  "en": "You get the booking code and the confirmation",
+  "es": "Recibes el localizador y la confirmación",
+  "fr": "Vous recevez la référence et la confirmation",
+  "it": "Ricevi il codice di prenotazione e la conferma"
+ },
+ "Um WhatsApp oficial": {
+  "en": "One official WhatsApp",
+  "es": "Un WhatsApp oficial",
+  "fr": "Un seul WhatsApp officiel",
+  "it": "Un solo WhatsApp ufficiale"
+ },
+ "(11) 94361-5412, desconfie de outros números": {
+  "en": "+55 11 94361-5412, beware of other numbers",
+  "es": "+55 11 94361-5412, desconfía de otros números",
+  "fr": "+55 11 94361-5412, méfiez-vous des autres numéros",
+  "it": "+55 11 94361-5412, diffida di altri numeri"
+ },
+ "Fundador": {
+  "en": "Founder",
+  "es": "Fundador",
+  "fr": "Fondateur",
+  "it": "Fondatore"
+ },
+ "Co-fundador": {
+  "en": "Co-founder",
+  "es": "Cofundador",
+  "fr": "Cofondateur",
+  "it": "Cofondatore"
+ },
+ "Gente de verdade do outro lado": {
+  "en": "Real people on the other side",
+  "es": "Personas reales del otro lado",
+  "fr": "De vraies personnes de l'autre côté",
+  "it": "Persone vere dall'altra parte"
+ },
+ "Voo cancelado ou atrasado, mudança de datas, bagagem extraviada, problema no destino: você fala com uma pessoa do OND, e a gente resolve com a companhia e o fornecedor.": {
+  "en": "Cancelled or delayed flight, date changes, lost luggage, trouble at your destination: you talk to a person from OND, and we sort it out with the airline and the supplier.",
+  "es": "Vuelo cancelado o retrasado, cambio de fechas, equipaje perdido, problema en el destino: hablas con una persona de OND y lo resolvemos con la aerolínea y el proveedor.",
+  "fr": "Vol annulé ou retardé, changement de dates, bagage perdu, problème sur place : vous parlez à une personne d'OND, et nous réglons tout avec la compagnie et le prestataire.",
+  "it": "Volo cancellato o in ritardo, cambio di date, bagaglio smarrito, problema a destinazione: parli con una persona di OND e risolviamo noi con la compagnia e il fornitore."
+ },
+ "WhatsApp oficial do OND": {
+  "en": "OND's official WhatsApp",
+  "es": "WhatsApp oficial de OND",
+  "fr": "WhatsApp officiel d'OND",
+  "it": "WhatsApp ufficiale di OND"
+ },
+ "É o único número de vendas e suporte. Desconfie de outros usando o nosso nome.": {
+  "en": "It's our only sales and support number. Beware of other numbers using our name.",
+  "es": "Es el único número de ventas y soporte. Desconfía de otros que usen nuestro nombre.",
+  "fr": "C'est notre seul numéro de vente et d'assistance. Méfiez-vous des autres qui utilisent notre nom.",
+  "it": "È l'unico numero di vendita e assistenza. Diffida di altri che usano il nostro nome."
+ },
+ "Pra onde você vai viajar?": {
+  "en": "Where are you going next?",
+  "es": "¿A dónde vas a viajar?",
+  "fr": "Où partez-vous ?",
+  "it": "Dove vuoi andare?"
+ },
+ "Conte o destino pro OND vAI ou fale direto com a agência. A gente cota com as suas datas e cuida do resto.": {
+  "en": "Tell OND vAI your destination or talk to the agency directly. We quote with your dates and handle the rest.",
+  "es": "Cuéntale el destino a OND vAI o habla directo con la agencia. Cotizamos con tus fechas y nos ocupamos del resto.",
+  "fr": "Indiquez votre destination à OND vAI ou parlez directement à l'agence. Nous faisons le devis selon vos dates et nous occupons du reste.",
+  "it": "Racconta la destinazione a OND vAI o parla direttamente con l'agenzia. Prepariamo il preventivo con le tue date e pensiamo al resto."
+ },
+ "Quando viajar pra cada destino": {
+  "en": "When to visit each destination",
+  "es": "Cuándo viajar a cada destino",
+  "fr": "Quand partir pour chaque destination",
+  "it": "Quando andare in ogni destinazione"
+ },
+ "Abrir o Mundo do OND": {
+  "en": "Open the OND World",
+  "es": "Abrir el Mundo de OND",
+  "fr": "Ouvrir le Monde d'OND",
+  "it": "Apri il Mondo di OND"
+ },
+ "Organize, planeje e compre sua viagem com o OND!": {
+  "en": "Organize, plan and book your trip with OND!",
+  "es": "¡Organiza, planifica y compra tu viaje con OND!",
+  "fr": "Organisez, planifiez et réservez votre voyage avec OND !",
+  "it": "Organizza, pianifica e compra il tuo viaggio con OND!"
+ },
+ "Passagens, hospedagem e passeios.": {
+  "en": "Flights, stays and tours.",
+  "es": "Vuelos, alojamiento y paseos.",
+  "fr": "Vols, hébergement et excursions.",
+  "it": "Voli, alloggi ed escursioni."
+ },
+ "Viajantes": {
+  "en": "Travelers",
+  "es": "Viajeros",
+  "fr": "Voyageurs",
+  "it": "Viaggiatori"
+ },
+ "Usar na Web": {
+  "en": "Use on the web",
+  "es": "Usar en la web",
+  "fr": "Utiliser sur le web",
+  "it": "Usa sul web"
+ },
+ "Parceiros": {
+  "en": "Partners",
+  "es": "Socios",
+  "fr": "Partenaires",
+  "it": "Partner"
+ },
+ "Para agências": {
+  "en": "For agencies",
+  "es": "Para agencias",
+  "fr": "Pour les agences",
+  "it": "Per le agenzie"
+ },
+ "Empresa": {
+  "en": "Company",
+  "es": "Empresa",
+  "fr": "Entreprise",
+  "it": "Azienda"
+ },
+ "© 2026 OND · CNPJ 39.360.492/0001-61 · Agência de turismo cadastrada no Cadastur": {
+  "en": "© 2026 OND · CNPJ 39.360.492/0001-61 · Travel agency registered with Cadastur",
+  "es": "© 2026 OND · CNPJ 39.360.492/0001-61 · Agencia de turismo registrada en Cadastur",
+  "fr": "© 2026 OND · CNPJ 39.360.492/0001-61 · Agence de voyages inscrite au Cadastur",
+  "it": "© 2026 OND · CNPJ 39.360.492/0001-61 · Agenzia di viaggi registrata al Cadastur"
+ },
+ "Quem viaja com o OND não volta igual": {
+  "en": "Nobody comes back the same after traveling with OND",
+  "es": "Quien viaja con OND no vuelve igual",
+  "fr": "On ne revient pas pareil d'un voyage avec OND",
+  "it": "Chi viaggia con OND non torna uguale"
+ },
+ "Fale com a gente": {
+  "en": "Talk to us",
+  "es": "Habla con nosotros",
+  "fr": "Parlez-nous",
+  "it": "Parla con noi"
+ },
+ "Escolha como prefere entrar em contato": {
+  "en": "Choose how you'd like to reach us",
+  "es": "Elige cómo prefieres contactarnos",
+  "fr": "Choisissez comment nous contacter",
+  "it": "Scegli come preferisci contattarci"
+ },
+ "Resposta rápida · (11) 94361-5412": {
+  "en": "Quick reply · +55 11 94361-5412",
+  "es": "Respuesta rápida · +55 11 94361-5412",
+  "fr": "Réponse rapide · +55 11 94361-5412",
+  "it": "Risposta rapida · +55 11 94361-5412"
+ },
+ "Formulário de parceria": {
+  "en": "Partnership form",
+  "es": "Formulario de alianza",
+  "fr": "Formulaire de partenariat",
+  "it": "Modulo di partnership"
+ },
+ "Para agências e hotéis": {
+  "en": "For agencies and hotels",
+  "es": "Para agencias y hoteles",
+  "fr": "Pour les agences et hôtels",
+  "it": "Per agenzie e hotel"
+ },
+ "Viaje com o OND, agência de turismo cadastrada no Cadastur: passagens, hospedagem e passeios com suporte humano no WhatsApp, e o app OND vAI grátis pra organizar tudo.": {
+  "en": "Travel with OND, a Cadastur-registered travel agency in Brazil: flights, stays and tours with human support on WhatsApp, plus the free OND vAI app to keep everything organized.",
+  "es": "Viaja con OND, agencia de turismo registrada en Cadastur: vuelos, alojamiento y paseos con soporte humano por WhatsApp, y la app OND vAI gratis para organizarlo todo.",
+  "fr": "Voyagez avec OND, agence de voyages brésilienne inscrite au Cadastur : vols, hébergement et excursions avec un vrai accompagnement sur WhatsApp, et l'app OND vAI gratuite pour tout organiser.",
+  "it": "Viaggia con OND, agenzia di viaggi registrata al Cadastur: voli, alloggi ed escursioni con assistenza umana su WhatsApp e l'app OND vAI gratuita per organizzare tutto."
+ },
+ "OND, agência de viagens com suporte humano": {
+  "en": "OND, a travel agency with human support",
+  "es": "OND, agencia de viajes con soporte humano",
+  "fr": "OND, agence de voyages avec un vrai accompagnement",
+  "it": "OND, agenzia di viaggi con assistenza umana"
+ },
+ "Alternar tema": {
+  "en": "Toggle theme",
+  "es": "Cambiar tema",
+  "fr": "Changer de thème",
+  "it": "Cambia tema"
+ },
+ "Ondino, o personagem do OND, caminhando com o celular na mão e a mala": {
+  "en": "Ondino, OND's character, walking with a phone and a suitcase",
+  "es": "Ondino, el personaje de OND, caminando con el celular y la maleta",
+  "fr": "Ondino, le personnage d'OND, marchant avec son téléphone et sa valise",
+  "it": "Ondino, il personaggio di OND, che cammina con il telefono e la valigia"
+ },
+ "Viagens no Brasil ou no mundo": {
+  "en": "Trips in Brazil or around the world",
+  "es": "Viajes por Brasil o por el mundo",
+  "fr": "Voyages au Brésil ou dans le monde",
+  "it": "Viaggi in Brasile o nel mondo"
+ },
+ "Cristo Redentor com a baía de Guanabara": {
+  "en": "Christ the Redeemer over Guanabara Bay",
+  "es": "Cristo Redentor sobre la bahía de Guanabara",
+  "fr": "Le Christ Rédempteur et la baie de Guanabara",
+  "it": "Il Cristo Redentore sulla baia di Guanabara"
+ },
+ "Coqueiros e mar verde em Maceió": {
+  "en": "Palm trees and green sea in Maceió",
+  "es": "Cocoteros y mar verde en Maceió",
+  "fr": "Cocotiers et mer verte à Maceió",
+  "it": "Palme e mare verde a Maceió"
+ },
+ "Rua de Gramado com árvores vermelhas": {
+  "en": "A Gramado street with red trees",
+  "es": "Calle de Gramado con árboles rojos",
+  "fr": "Rue de Gramado aux arbres rouges",
+  "it": "Una via di Gramado con alberi rossi"
+ },
+ "Piscinas naturais em Porto de Galinhas": {
+  "en": "Natural pools in Porto de Galinhas",
+  "es": "Piscinas naturales en Porto de Galinhas",
+  "fr": "Piscines naturelles à Porto de Galinhas",
+  "it": "Piscine naturali a Porto de Galinhas"
+ },
+ "Vista aérea das Cataratas do Iguaçu": {
+  "en": "Aerial view of Iguaçu Falls",
+  "es": "Vista aérea de las Cataratas del Iguazú",
+  "fr": "Vue aérienne des chutes d'Iguaçu",
+  "it": "Vista aerea delle cascate dell'Iguaçu"
+ },
+ "Morro Dois Irmãos em Fernando de Noronha": {
+  "en": "Morro Dois Irmãos in Fernando de Noronha",
+  "es": "Morro Dois Irmãos en Fernando de Noronha",
+  "fr": "Le Morro Dois Irmãos à Fernando de Noronha",
+  "it": "Morro Dois Irmãos a Fernando de Noronha"
+ },
+ "Torre Eiffel em Paris": {
+  "en": "The Eiffel Tower in Paris",
+  "es": "Torre Eiffel en París",
+  "fr": "La tour Eiffel à Paris",
+  "it": "La Torre Eiffel a Parigi"
+ },
+ "Casarões coloridos do Caminito": {
+  "en": "Colorful houses in Caminito",
+  "es": "Casas coloridas de Caminito",
+  "fr": "Maisons colorées du Caminito",
+  "it": "Case colorate del Caminito"
+ },
+ "Elétrico amarelo em Lisboa": {
+  "en": "Yellow tram in Lisbon",
+  "es": "Tranvía amarillo en Lisboa",
+  "fr": "Tramway jaune à Lisbonne",
+  "it": "Tram giallo a Lisbona"
+ },
+ "Castelo da Cinderela em Orlando": {
+  "en": "Cinderella Castle in Orlando",
+  "es": "Castillo de Cenicienta en Orlando",
+  "fr": "Le château de Cendrillon à Orlando",
+  "it": "Il castello di Cenerentola a Orlando"
+ },
+ "Orla de Cancún com mar azul": {
+  "en": "Cancún shoreline with blue sea",
+  "es": "Costa de Cancún con mar azul",
+  "fr": "Le littoral de Cancún et sa mer bleue",
+  "it": "La costa di Cancún con il mare blu"
+ },
+ "Coliseu de Roma": {
+  "en": "The Colosseum in Rome",
+  "es": "El Coliseo de Roma",
+  "fr": "Le Colisée de Rome",
+  "it": "Il Colosseo di Roma"
+ },
+ "Como funciona, passo a passo": {
+  "en": "How it works, step by step",
+  "es": "Cómo funciona, paso a paso",
+  "fr": "Comment ça marche, étape par étape",
+  "it": "Come funziona, passo dopo passo"
+ },
+ "Voltar ao início da conversa": {
+  "en": "Back to the start of the chat",
+  "es": "Volver al inicio de la conversación",
+  "fr": "Revenir au début de la conversation",
+  "it": "Torna all'inizio della conversazione"
+ },
+ "Recomeçar a conversa": {
+  "en": "Restart the chat",
+  "es": "Reiniciar la conversación",
+  "fr": "Recommencer la conversation",
+  "it": "Ricomincia la conversazione"
+ },
+ "Escreva ou toque no microfone…": {
+  "en": "Type or tap the microphone…",
+  "es": "Escribe o toca el micrófono…",
+  "fr": "Écrivez ou touchez le micro…",
+  "it": "Scrivi o tocca il microfono…"
+ },
+ "Escrever mensagem": {
+  "en": "Write a message",
+  "es": "Escribir mensaje",
+  "fr": "Écrire un message",
+  "it": "Scrivi un messaggio"
+ },
+ "Enviar": {
+  "en": "Send",
+  "es": "Enviar",
+  "fr": "Envoyer",
+  "it": "Invia"
+ },
+ "Recomeçar": {
+  "en": "Start over",
+  "es": "Empezar de nuevo",
+  "fr": "Recommencer",
+  "it": "Ricomincia"
+ },
+ "Renan Rodrigues, fundador do OND": {
+  "en": "Renan Rodrigues, founder of OND",
+  "es": "Renan Rodrigues, fundador de OND",
+  "fr": "Renan Rodrigues, fondateur d'OND",
+  "it": "Renan Rodrigues, fondatore di OND"
+ },
+ "Renan Chaves, co-fundador do OND": {
+  "en": "Renan Chaves, co-founder of OND",
+  "es": "Renan Chaves, cofundador de OND",
+  "fr": "Renan Chaves, cofondateur d'OND",
+  "it": "Renan Chaves, cofondatore di OND"
+ },
+ "Globo do Mundo do OND: arraste para girar e clique num país": {
+  "en": "OND World globe: drag to spin and click a country",
+  "es": "Globo del Mundo de OND: arrastra para girar y haz clic en un país",
+  "fr": "Globe du Monde d'OND : faites-le tourner et cliquez sur un pays",
+  "it": "Globo del Mondo di OND: trascina per girare e clicca su un paese"
+ },
+ "__whatsapp__": {
+  "Ol%C3%A1%2C%20OND%21%20Quero%20comprar%20uma%20viagem%20com%20a%20ag%C3%AAncia.%20Vim%20pelo%20site.": {
+   "en": "Hi%20OND!%20I%27d%20like%20to%20book%20a%20trip%20with%20the%20agency.%20I%20came%20from%20the%20website.",
+   "es": "%C2%A1Hola%2C%20OND!%20Quiero%20comprar%20un%20viaje%20con%20la%20agencia.%20Vengo%20del%20sitio.",
+   "fr": "Bonjour%20OND%20!%20Je%20voudrais%20r%C3%A9server%20un%20voyage%20avec%20l%27agence.%20Je%20viens%20du%20site.",
+   "it": "Ciao%20OND!%20Vorrei%20comprare%20un%20viaggio%20con%20l%27agenzia.%20Vengo%20dal%20sito."
+  },
+  "Ol%C3%A1%2C%20OND%21%20Vim%20pelo%20site.": {
+   "en": "Hi%20OND!%20I%20came%20from%20the%20website.",
+   "es": "%C2%A1Hola%2C%20OND!%20Vengo%20del%20sitio.",
+   "fr": "Bonjour%20OND%20!%20Je%20viens%20du%20site.",
+   "it": "Ciao%20OND!%20Vengo%20dal%20sito."
+  },
+  "Olá! vim do site OND": {
+   "en": "Hi! I came from the OND website",
+   "es": "¡Hola! Vengo del sitio de OND",
+   "fr": "Bonjour ! Je viens du site d'OND",
+   "it": "Ciao! Vengo dal sito di OND"
+  }
+ },
+ "Abrir no mapa": {
+  "en": "Open in maps",
+  "es": "Abrir en el mapa",
+  "fr": "Ouvrir dans le plan",
+  "it": "Apri nella mappa"
+ },
+ "12 jul | 08h40 - 18 jul | 19h10": {
+  "en": "Jul 12 | 8:40 - Jul 18 | 19:10",
+  "es": "12 jul | 08:40 - 18 jul | 19:10",
+  "fr": "12 juil. | 8 h 40 - 18 juil. | 19 h 10",
+  "it": "12 lug | 08:40 - 18 lug | 19:10"
+ }
+}
