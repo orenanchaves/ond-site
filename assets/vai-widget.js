@@ -203,7 +203,7 @@
     var bubbleTimer = null;
     function hideBubble() { var b = document.getElementById('ondvaiBubble'); if (b) b.remove(); if (bubbleTimer) { clearTimeout(bubbleTimer); bubbleTimer = null; } }
     function showBubble() {
-      if (document.getElementById('ondvaiBubble') || panel.classList.contains('open')) return;
+      if (document.getElementById('ondvaiBubble') || panel.classList.contains('open') || window.innerWidth < 700) return;
       var b = document.createElement('div'); b.className = 'ondvai-bubble'; b.id = 'ondvaiBubble'; b.setAttribute('role', 'button'); b.tabIndex = 0;
       b.innerHTML = '<span>' + (B2B ? 'Dúvidas do OND pra agências?' : 'Pergunte qualquer coisa pro OND vAI') + '</span><button class="bx" aria-label="Fechar">✕</button>';
       document.body.appendChild(b);
