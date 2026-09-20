@@ -76,6 +76,9 @@ def main():
         doc = doc.replace('<div class="mobile-lang"><span>Idioma</span><a href="/" aria-current="true">PT</a>',
                           '<div class="mobile-lang"><span>%s</span><a href="/">PT</a>' % rotulo, 1)
         doc = doc.replace('<a href="/%s/">%s</a>' % (code, short), '<a href="/%s/" aria-current="true">%s</a>' % (code, short), 1)
+        # o blog e o catálogo só existem em português: tira o Blog do menu
+        doc = re.sub(r'\s*<li><a href="/blog\.html">[^<]*</a></li>', '', doc, count=1)
+        doc = re.sub(r'\s*<a href="/blog\.html" onclick="closeMenu\(\)">[^<]*</a>', '', doc, count=1)
         doc = absolutiza(doc)
         os.makedirs(os.path.join(ROOT, code), exist_ok=True)
         with open(os.path.join(ROOT, code, 'index.html'), 'w', encoding='utf-8', newline='\n') as fh:
