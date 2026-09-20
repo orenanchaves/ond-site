@@ -37,7 +37,6 @@ LOCALES = [
 PAGES = {
     'index.html':      ['strings.common', 'strings.index', 'strings.index2'],
     'agencias.html':   ['strings.common', 'strings.agencias', 'strings.agencias2'],
-    'assessoria.html': ['strings.common', 'strings.assessoria'],
 }
 
 PRIORITY = {'index.html': '1.0', 'agencias.html': '0.9', 'assessoria.html': '0.8'}
@@ -223,7 +222,7 @@ def write_sitemap():
                 blog_blocks.append('  ' + block.strip())
 
     urls = []
-    for base in ['index.html', 'agencias.html', 'assessoria.html']:
+    for base in ['index.html', 'agencias.html']:
         alts = ''.join(
             '\n    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>' % (l[5], page_url(l[0], base))
             for l in LOCALES)

@@ -141,7 +141,7 @@ def excerpt(h, n=155):
     return (t[:n].rsplit(' ',1)[0]+'…') if len(t) > n else t
 
 def absolutize(s):
-    for rel in ['index.html','blog.html','assessoria.html','agencias.html','post-modelo.html']:
+    for rel in ['index.html','blog.html','agencias.html','post-modelo.html']:
         s = s.replace('href="'+rel, 'href="/'+rel)
     s = s.replace('src="assets/','src="/assets/').replace('href="assets/','href="/assets/')
     s = s.replace('src="tokens/','src="/tokens/').replace('href="tokens/','href="/tokens/')
@@ -361,7 +361,7 @@ def write_sitemap(meta):
     """Reescreve o sitemap.xml: paginas fixas + os posts reais. Sem post-modelo.html."""
     today = datetime.date.today().isoformat()
     fixed = [('', '1.0', 'weekly'), ('agencias.html', '0.9', 'monthly'),
-             ('assessoria.html', '0.8', 'monthly'), ('blog.html', '0.7', 'weekly'),
+             ('blog.html', '0.7', 'weekly'),
              ('viagens/', '0.9', 'weekly'), ('viagens/quando-viajar/', '0.8', 'monthly')]
     urls = []
     for path, prio, freq in fixed:
