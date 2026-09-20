@@ -403,6 +403,11 @@ def write_sitemap(meta):
     fixed = [('', '1.0', 'weekly'), ('agencias.html', '0.9', 'monthly'),
              ('blog.html', '0.7', 'weekly'),
              ('viagens/', '0.9', 'weekly'), ('viagens/quando-viajar/', '0.8', 'monthly')]
+    import glob as _g
+    for d in sorted(_g.glob(os.path.join(ROOT, 'viagens', '*', 'index.html'))):
+        slug = os.path.basename(os.path.dirname(d))
+        if slug != 'quando-viajar':
+            fixed.append(('viagens/%s/' % slug, '0.8', 'monthly'))
     urls = []
     for path, prio, freq in fixed:
         urls.append(f'  <url>\n    <loc>{SITE}/{path}</loc>\n    <lastmod>{today}</lastmod>\n'
