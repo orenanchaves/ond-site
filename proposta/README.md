@@ -12,6 +12,7 @@ Preço de custo, lucro, telefone do cliente e histórico de negociação não en
 | Breno | Gramado no fim do ano | 23 a 27 de dezembro de 2026 | 5 dias e 4 noites · 2 adultos | [abrir](https://ondviajar.com.br/proposta/breno-gramado/) | 23 de setembro de 2026 | sim |
 | Isabelle | Gramado, no Natal Luz | 11 a 14 de dezembro de 2026 | 4 dias e 3 noites · 2 adultos | [abrir](https://ondviajar.com.br/proposta/isabelle-gramado/) | 23 de setembro de 2026 | sim |
 | João | Gramado, na primavera | 20 a 25 de setembro de 2027 | 6 dias e 5 noites · 2 adultos e 1 criança | [abrir](https://ondviajar.com.br/proposta/joao-gramado/) | 23 de setembro de 2026 | sim |
+| Josiclei | Réveillon em Gramado | 30 de dezembro a 5 de janeiro | 7 dias e 6 noites · 2 adultos e 1 criança | [abrir](https://ondviajar.com.br/proposta/josiclei-gramado/) | 23 de setembro de 2026 | sim |
 | Juliana | Bonito, águas cristalinas | 4 a 8 de novembro de 2026, como referência | 5 dias e 4 noites · 4 adultos · Saindo de Ilhéus | [abrir](https://ondviajar.com.br/proposta/juliana-bonito/) | 20 de setembro de 2026 | sim |
 | Karla | Recife, em julho de 2027 | 14 a 21 de julho de 2027 | 8 dias e 7 noites · 2 pessoas | [abrir](https://ondviajar.com.br/proposta/karla-recife/) | 21 de setembro de 2026 | sim |
 | Lília | Do Rio para Gramado | 31 de outubro a 3 de novembro de 2026 | Voos diretos, ida e volta · 1 adulta, só com mochila · Saindo do Galeão | [abrir](https://ondviajar.com.br/proposta/lilia-gramado/) | 20 de setembro de 2026 | sim |
