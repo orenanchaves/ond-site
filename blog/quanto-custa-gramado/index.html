@@ -184,8 +184,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .prose .dcard-air{margin:0 0 4px;font-size:.95rem;color:var(--text)}
 .prose .dcard-air b{color:var(--purple-light)}
 .prose .dcard-meta{margin:0;font-size:.85rem;color:var(--muted)}
-.prose .dcard-cta{display:inline-block;margin-top:14px;background:var(--green);color:#0d0d14;font-weight:800;font-size:.9rem;padding:9px 18px;border-radius:999px;text-decoration:none}
-.prose .dcard-cta:hover{filter:brightness(1.08)}
+.prose .dcard-cta{display:inline-block;margin-top:14px;background:#fff;color:#0d0d14;border:1px solid rgba(13,13,20,.12);font-weight:800;font-size:.9rem;padding:9px 18px;border-radius:999px;text-decoration:none}
+.prose .dcard-cta:hover{background:#f2f0fa}
 .prose .dlist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:22px 0}
 .prose .dmini{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 14px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:13px 15px}
 .prose .dmini b{grid-column:1;font-size:1rem}
@@ -196,7 +196,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .prose .dcta-box{background:var(--purple-dim);border:1px solid var(--purple);border-radius:16px;padding:22px 24px;margin:30px 0}
 .prose .dcta-box b{display:block;font-size:1.15rem;margin-bottom:6px}
 .prose .dcta-box p{margin:0 0 14px;color:var(--muted)}
-.prose .dcta-box a{display:inline-block;background:var(--green);color:#0d0d14;font-weight:800;padding:11px 22px;border-radius:999px;text-decoration:none}
+.prose .dcta-box a{display:inline-block;background:#fff;color:#0d0d14;border:1px solid rgba(13,13,20,.12);font-weight:800;padding:11px 22px;border-radius:999px;text-decoration:none}.prose .dcta-box a:hover{background:#f2f0fa}
 @media(max-width:700px){.prose .dgrid,.prose .dlist{grid-template-columns:1fr}.prose .dcard img{height:150px}}
 </style>
 <style id="transicao-suave">@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.45s;animation-timing-function:ease}body{animation:pgIn .45s ease backwards}@keyframes pgIn{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){body{animation:none}::view-transition-old(root),::view-transition-new(root){animation:none}}</style>
