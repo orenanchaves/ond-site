@@ -215,7 +215,7 @@ def build_head(head_open, p, cs, cover, cat):
     title, desc, kw = p['title'], p['metaDescription'], p.get('keywords','')
     canon = f'{SITE}/blog/{cs}/'
     ogimg = cover if cover.startswith('http') else SITE+cover
-    s = re.sub(r'<title>.*?</title>', lambda m: f'<title>{esc(title)}, Vai para onde?</title>', s, count=1, flags=re.S)
+    s = re.sub(r'<title>.*?</title>', lambda m: f'<title>{esc(title)} | OND</title>', s, count=1, flags=re.S)
     s = rep(r'(<meta name="description" content=")[^"]*(">)', esc(desc), s)
     if 'name="keywords"' in s:
         s = rep(r'(<meta name="keywords" content=")[^"]*(">)', esc(kw), s)
