@@ -307,7 +307,7 @@
       +'<div class="gl-card" id="glCard">'
         +'<button class="gl-back" id="glBackCity"></button>'
         +'<div class="gl-card-img" id="glImg"></div>'
-        +'<h3 class="gl-card-name" id="glName"></h3>'
+        +'<h3 class="gl-card-name" id="glName" hidden></h3>'
         +'<p class="gl-card-c" id="glC"></p>'
         +'<p class="gl-card-d" id="glD"></p>'
         +'<p class="gl-card-km" id="glKm"></p>'
@@ -665,7 +665,7 @@
     elBackCity.dataset.p=pi;
     if(c.img){ elImg.className='gl-card-img'; elImg.style.backgroundImage="url('"+c.img+"')"; elImg.innerHTML='' }
     else{ elImg.className='gl-card-img noimg'; elImg.style.backgroundImage=''; elImg.innerHTML=flag(p.cc,'big') }
-    elName.innerHTML=flag(p.cc)+'<span>'+c.n+'</span>';
+    elName.innerHTML=flag(p.cc)+'<span>'+c.n+'</span>'; elName.hidden=false;
     elC.textContent=p.n;
     elD.textContent=c.d||('Monte seu roteiro em '+c.n+' com o OND vAI: o que fazer, em que ordem e quanto custa.');
     elKm.textContent=ME?('A '+fmtKm(haversine(ME.lat,ME.lon,c.lat,c.lon))+' de você'):'';

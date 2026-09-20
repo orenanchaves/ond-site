@@ -46,3 +46,9 @@
   .vh-nav .vh-dot.on{width:34px;background:none}
   .vh-nav .vh-dot.on::before{width:22px;background:#fff}
 }
+
+/* Tema claro: selos e rótulos do painel B2B que ficavam abaixo de 4,5:1 */
+[data-theme="light"] .lg-real-label,[data-theme="light"] .pp-brand-txt{color:var(--muted)}
+[data-theme="light"] .langsel-menu a{color:var(--text)}
+[data-theme="light"] .lg-live,[data-theme="light"] .ret-badge.now{color:#00662b}
+[data-theme="light"] .lg-lead-hot{color:#a3170f}
