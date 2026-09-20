@@ -223,6 +223,7 @@ def pagina(d, cab, rod, meses_d, rel, outros):
   </div>
 </main>
 <script src="/assets/a11y.js" defer></script>
+<script src="/assets/busca.js" defer></script>
 {rod}
 </body>
 </html>

@@ -437,7 +437,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <style id="a11y-base">:root{color-scheme:dark}[data-theme="light"]{color-scheme:light}html{scroll-padding-top:140px}@media(max-width:700px){html{scroll-padding-top:124px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.dc.chegou{animation:none!important}.vt-grid2 .dc:hover .dc-foto img,.vo-c:hover .vo-img img{transform:none!important}}a,button,summary{touch-action:manipulation}.skip{position:absolute;left:12px;top:-60px;z-index:100000;background:var(--purple,#7f11f4);color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;transition:top .2s}.skip:focus{top:12px}.vh-dot{position:relative}.vh-dot::before{content:"";position:absolute;inset:-9px -4px}.vh-pp{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.25);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;margin-left:6px;padding:0}.vh-pp .ico{width:14px;height:14px}.vh-pp:focus-visible,.vh-dot:focus-visible{outline:2px solid #fff;outline-offset:3px}.cot-f input:focus-visible,.cot-f select:focus-visible{box-shadow:0 0 0 3px color-mix(in srgb,var(--purple) 45%,transparent)}</style>
 <style id="aprimora-viagens">#ocasioes .vt-head{grid-template-columns:1fr;gap:14px}#ocasioes .vt-head p{max-width:560px}</style>
 <style id="vg-filtros">
-.vg-filtros{display:flex;flex-direction:column;gap:12px;padding-top:26px;padding-bottom:6px}
+.vg-filtros{display:flex;flex-direction:column;gap:10px;padding-top:0;padding-bottom:22px}.vgf-titulo{font-size:.95rem;font-weight:700;color:var(--text);margin:0 0 2px}
 .vgf-grupo{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .vgf-rot{font-size:.8rem;font-weight:700;color:var(--muted);min-width:74px}
 .vg-filtros button{font:inherit;font-size:.88rem;font-weight:600;color:var(--text);background:transparent;border:1px solid var(--border);border-radius:50px;padding:7px 14px;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
@@ -651,6 +651,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
 <div class="vg-cat">
   <div class="vt-in vg-filtros">
+    <p class="vgf-titulo">Filtre a lista</p>
     <div class="vgf-grupo" role="group" aria-label="Filtrar por ocasião">
       <span class="vgf-rot">Ocasião</span>
       <button type="button" data-f="ocas" data-v="lua-de-mel">Lua de mel</button>
@@ -1034,7 +1035,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     confere();
   }
   function confere(){
-    var hd=document.getElementById(atual).querySelector('.vg-hd-r .vg-sw').getBoundingClientRect();
+    var p=document.getElementById(atual);
+    var ref=p.querySelector('.vg-filtros') || p.querySelector('.vg-hd-r .vg-sw');
+    var hd=ref.getBoundingClientRect();
     var fim=cat.getBoundingClientRect().bottom;
     var on=hd.bottom<72 && fim>220; cat.classList.toggle('fixo', on);
     if(fixo){ if(on) fixo.removeAttribute('aria-hidden'); else fixo.setAttribute('aria-hidden','true'); fixo.querySelectorAll('button').forEach(function(b){ b.tabIndex=on?0:-1 }) }
@@ -1196,7 +1199,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     cx.querySelectorAll('button[data-f]').forEach(function(b){ b.setAttribute('aria-pressed','false') });
     aplica();
   });
-  document.querySelectorAll('.vg-sw button').forEach(function(b){ b.addEventListener('click',function(){ setTimeout(aplica,50) }) });
+  function posiciona(){
+    var p=document.getElementById(document.getElementById('nacionais').hidden?'internacionais':'nacionais');
+    var grade=p.querySelector('.vt-grid2');
+    if(grade && cx.nextElementSibling!==grade) p.insertBefore(cx,grade);
+  }
+  document.querySelectorAll('.vg-sw button').forEach(function(b){ b.addEventListener('click',function(){ setTimeout(function(){ posiciona(); aplica() },50) }) });
+  posiciona();
 })();
 </script>
 <!-- FOOTER -->
@@ -1218,10 +1227,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <div class="footer-col">
       <h4>Parceiros</h4>
       <ul>
-        <li><a href="https://pci.jotform.com/form/252517268656062" target="_blank" rel="noopener">Para agências</a></li>
-        <li><a href="/hoteis.html">Para hotéis</a></li>
-        <li><a href="/viagens/">Viagens</a>
-        <a href="/busca/">Buscar</a></li>
+        <li></li>
+        <li></li>
+        <li><a href="/viagens/">Viagens</a></li>
+        <li><a href="/busca/">Buscar</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1261,5 +1270,6 @@ document.addEventListener('click',function(e){
 <script src="/assets/globe.js" defer></script>
 <script src="/assets/cotar.js" defer></script>
 <script src="/assets/analytics.js" defer></script>
+<script src="/assets/busca.js" defer></script>
 </body>
 </html>
