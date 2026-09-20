@@ -126,8 +126,21 @@ h2 em{font-style:normal;color:var(--neon)}
 .cta{flex:0 0 auto;font-weight:800;font-size:16px;color:#0d0d14;background:var(--neon);border-radius:999px;padding:14px 22px;text-decoration:none;white-space:nowrap}
 @media (max-width:420px){.op .linha{flex-direction:column}.op .p{text-align:left}.op .radio{display:none}.ideias{grid-template-columns:1fr}}
 
-.abas.grupos{margin-top:16px}.abas.grupos button{font-size:14px;line-height:1.2}
+.abas.grupos{margin-top:16px;display:flex;overflow-x:auto;gap:6px;scrollbar-width:none}.abas.grupos::-webkit-scrollbar{display:none}.abas.grupos button{flex:0 0 auto;white-space:nowrap;font-size:14px;line-height:1.2;padding:10px 14px}
 .grupo-desc{margin-top:10px;font-size:13.5px;color:var(--muted);line-height:1.45}
+.extras{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.extra{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:4px 14px;background:var(--card);border:1.5px solid var(--borda);border-radius:16px;padding:14px 18px;cursor:pointer}
+.extra input{position:absolute;opacity:0;pointer-events:none}
+.extra .cx{grid-row:1/3;width:24px;height:24px;border-radius:8px;border:2px solid var(--borda);display:block}
+.extra b{font-size:15.5px;color:#fff}
+.extra small{grid-column:2;font-size:13px;color:var(--muted);line-height:1.4}
+.extra i{grid-row:1/3;grid-column:3;font-style:normal;font-weight:800;font-size:14px;color:var(--neon);white-space:nowrap}
+.extra.on{border-color:var(--neon)}
+.extra.on .cx{background:var(--neon);border-color:var(--neon);box-shadow:inset 0 0 0 4px var(--card)}
+.inclui.aparte .bol{background:#2a2a3a;color:var(--muted)}.inclui.aparte .inc{color:var(--muted)}
+.abas.modos{margin-top:16px}.abas.modos button{font-size:14px;line-height:1.2}
+.op .p em{display:block;margin-top:6px;font-style:normal;font-size:12.5px;color:var(--muted)}
+.op ul a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 </style></head><body>
 
 <header class="hero">
@@ -159,12 +172,15 @@ h2 em{font-style:normal;color:var(--neon)}
     </div>
   </section>
 
+
   <section class="wrap" id="opcoes">
     <div class="rot">Passo 1</div>
     <h2>Escolha <em>a hospedagem</em></h2>
+
     <div class="abas grupos" id="grupos"><button type="button" data-grupo="resorts" class="on">Resorts</button><button type="button" data-grupo="cafe" class="">Hotéis com café da manhã</button></div>
     <p class="grupo-desc" id="grupoDesc"></p>
     <div class="opcoes" id="listaOpcoes"></div>
+
   </section>
 
   <section class="wrap">
@@ -201,7 +217,7 @@ h2 em{font-style:normal;color:var(--neon)}
 </main>
 
 <footer class="rodape"><div class="wrap">
-  <div class="consultor"><div class="av">RC</div><div><small>Proposta feita por</small><b>Renan Chaves</b><div class="contatos"><a href="https://wa.me/5511943615412" target="_blank" rel="noopener">OND · (11) 94361-5412</a><a class="pessoal" href="https://wa.me/5511953353347" target="_blank" rel="noopener">Renan · (11) 95335-3347</a></div></div></div>
+  <div class="consultor"><div class="av">RC</div><div><small>Proposta feita por</small><b>Renan Chaves</b><div class="contatos"><a href="https://wa.me/5511910214133" target="_blank" rel="noopener">OND · (11) 91021-4133</a><a class="pessoal" href="https://wa.me/5511953353347" target="_blank" rel="noopener">Renan · (11) 95335-3347</a></div></div></div>
   <div class="marca">
 <svg class="logo" aria-label="OND" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 951.32 497.26" role="img" aria-label="OND">
   <path fill="#7F11F4" d="M327.85,243.05l-69.42-45.05-57.11-117.28c-.76-1.55-2.13-2.44-3.59-2.67-1.46.24-2.83,1.12-3.59,2.67l-57.11,117.28-69.42,45.05c-1.53.99-2.26,2.62-2.21,4.23-.04,1.61.69,3.24,2.21,4.23l69.42,45.05,57.11,117.28c.76,1.55,2.13,2.44,3.59,2.67,1.46-.24,2.83-1.12,3.59-2.67l57.11-117.28,69.42-45.05c1.53-.99,2.26-2.62,2.21-4.23.04-1.61-.69-3.24-2.21-4.23Z"/>
@@ -225,39 +241,52 @@ h2 em{font-style:normal;color:var(--neon)}
 
 <script>
 (function(){
-  var OPCOES = [{"id":"vilamar","grupo":"resorts","tag":"Econômica","hotel":"Vila do Mar Natal","onde":"Via Costeira, Natal","itens":["Café da manhã","Resort na Via Costeira","Tarifa sem reembolso"],"imgs":["https://i.travelapi.com/lodging/1000000/50000/48100/48022/0e6cb57d_z.jpg","https://media.omnibees.com/Images/1031/Property/2225753.jpg","https://i.travelapi.com/lodging/1000000/50000/48100/48022/2c528a38_z.jpg","https://www.hotelresb2b.com/images/hoteles/6692_image51015797_0.jpg"],"fotos":"Vila do Mar Natal hotel","destaque":"","pix":9480,"cartao":9980},{"id":"serhs","grupo":"resorts","tag":"Serhs Natal","hotel":"Serhs Natal Grand Hotel & Resort","onde":"Via Costeira, Natal","itens":["Meia pensão: café e jantar","Apartamento com vista lateral para o mar","Resort na Via Costeira"],"imgs":["https://media.omnibees.com/Images/2774/Property/1606721.jpg","https://i.travelapi.com/lodging/2000000/1500000/1490100/1490044/eebb206f_z.jpg","https://i.travelapi.com/lodging/2000000/1500000/1490100/1490044/7ea8b466_z.jpg","https://media.omnibees.com/Images/2774/RoomTypes/1596539.jpg","https://www.hotelresb2b.com/images/hoteles/15411_image64101717_0.jpg"],"fotos":"Serhs Natal Grand Hotel Resort","destaque":"Mais indicada","pix":12370,"cartao":13030},{"id":"ocean","grupo":"resorts","tag":"Tudo incluído","hotel":"Ocean Palace All Inclusive","onde":"Via Costeira, Natal","itens":["Tudo incluído: refeições e bebidas","Resort pé na areia","Quarto superior"],"imgs":["https://media.omnibees.com/Images/2776/Property/604019.jpg","https://i.travelapi.com/lodging/4000000/3200000/3196300/3196290/76339b82_z.jpg","https://www.hotelresb2b.com/images/hoteles/9617_image50748823_0.jpg"],"fotos":"Ocean Palace Beach Resort Natal","destaque":"","pix":16660,"cartao":17540},{"id":"transamerica","grupo":"cafe","tag":"Em Ponta Negra","hotel":"Transamerica Executive Natal","onde":"Ponta Negra, Natal","itens":["Café da manhã","Perto da praia de Ponta Negra","Quarto com duas camas","Tarifa sem reembolso"],"imgs":[],"fotos":"Transamerica Executive Natal Ponta Negra","destaque":"","pix":7250,"cartao":7640},{"id":"infinity","grupo":"cafe","tag":"Na Praia do Meio","hotel":"Infinity Natal Praia","onde":"Praia do Meio, Natal","itens":["Café da manhã","Quarto de casal","Na orla urbana de Natal"],"imgs":[],"fotos":"Infinity Natal Praia hotel","destaque":"Mais indicada","pix":7320,"cartao":7710},{"id":"praiamar","grupo":"cafe","tag":"Mais conforto","hotel":"Praiamar Natal Hotel","onde":"Ponta Negra, Natal","itens":["Café da manhã","A poucos passos de Ponta Negra","Quarto standard"],"imgs":["https://i.travelapi.com/lodging/3000000/2610000/2601600/2601562/1dffa182_z.jpg","https://www.hotelresb2b.com/images/hoteles/9461_image50299462_0.jpg"],"fotos":"Praiamar Natal Hotel Ponta Negra","destaque":"","pix":11570,"cartao":12180}];
+  var OPCOES = [{"id":"vilamar","modo":"pacote","booking":0,"grupo":"resorts","tab":{"0":{"pix":9480,"cartao":9980}},"tag":"Econômica","hotel":"Vila do Mar Natal","onde":"Via Costeira, Natal","itens":["Café da manhã","Resort na Via Costeira","Tarifa sem reembolso"],"imgs":["https://i.travelapi.com/lodging/1000000/50000/48100/48022/0e6cb57d_z.jpg","https://media.omnibees.com/Images/1031/Property/2225753.jpg","https://i.travelapi.com/lodging/1000000/50000/48100/48022/2c528a38_z.jpg","https://www.hotelresb2b.com/images/hoteles/6692_image51015797_0.jpg"],"fotos":"Vila do Mar Natal hotel","destaque":"","pix":9480,"cartao":9980},{"id":"serhs","modo":"pacote","booking":0,"grupo":"resorts","tab":{"0":{"pix":12370,"cartao":13030}},"tag":"Serhs Natal","hotel":"Serhs Natal Grand Hotel & Resort","onde":"Via Costeira, Natal","itens":["Meia pensão: café e jantar","Apartamento com vista lateral para o mar","Resort na Via Costeira"],"imgs":["https://media.omnibees.com/Images/2774/Property/1606721.jpg","https://i.travelapi.com/lodging/2000000/1500000/1490100/1490044/eebb206f_z.jpg","https://i.travelapi.com/lodging/2000000/1500000/1490100/1490044/7ea8b466_z.jpg","https://media.omnibees.com/Images/2774/RoomTypes/1596539.jpg","https://www.hotelresb2b.com/images/hoteles/15411_image64101717_0.jpg"],"fotos":"Serhs Natal Grand Hotel Resort","destaque":"Mais indicada","pix":12370,"cartao":13030},{"id":"ocean","modo":"pacote","booking":0,"grupo":"resorts","tab":{"0":{"pix":16660,"cartao":17540}},"tag":"Tudo incluído","hotel":"Ocean Palace All Inclusive","onde":"Via Costeira, Natal","itens":["Tudo incluído: refeições e bebidas","Resort pé na areia","Quarto superior"],"imgs":["https://media.omnibees.com/Images/2776/Property/604019.jpg","https://i.travelapi.com/lodging/4000000/3200000/3196300/3196290/76339b82_z.jpg","https://www.hotelresb2b.com/images/hoteles/9617_image50748823_0.jpg"],"fotos":"Ocean Palace Beach Resort Natal","destaque":"","pix":16660,"cartao":17540},{"id":"transamerica","modo":"pacote","booking":0,"grupo":"cafe","tab":{"0":{"pix":7250,"cartao":7640}},"tag":"Em Ponta Negra","hotel":"Transamerica Executive Natal","onde":"Ponta Negra, Natal","itens":["Café da manhã","Perto da praia de Ponta Negra","Quarto com duas camas","Tarifa sem reembolso"],"imgs":[],"fotos":"Transamerica Executive Natal Ponta Negra","destaque":"","pix":7250,"cartao":7640},{"id":"infinity","modo":"pacote","booking":0,"grupo":"cafe","tab":{"0":{"pix":7320,"cartao":7710}},"tag":"Na Praia do Meio","hotel":"Infinity Natal Praia","onde":"Praia do Meio, Natal","itens":["Café da manhã","Quarto de casal","Na orla urbana de Natal"],"imgs":[],"fotos":"Infinity Natal Praia hotel","destaque":"Mais indicada","pix":7320,"cartao":7710},{"id":"praiamar","modo":"pacote","booking":0,"grupo":"cafe","tab":{"0":{"pix":11570,"cartao":12180}},"tag":"Mais conforto","hotel":"Praiamar Natal Hotel","onde":"Ponta Negra, Natal","itens":["Café da manhã","A poucos passos de Ponta Negra","Quarto standard"],"imgs":["https://i.travelapi.com/lodging/3000000/2610000/2601600/2601562/1dffa182_z.jpg","https://www.hotelresb2b.com/images/hoteles/9461_image50299462_0.jpg"],"fotos":"Praiamar Natal Hotel Ponta Negra","destaque":"","pix":11570,"cartao":12180}];
   var JUROS = 0.0199, WHATS = '5511953353347', VALIDADE = new Date('2026-09-19T23:59:59-03:00');
   var MSG = "Olá! Sou a Renata e quero reservar a viagem para Natal de 9 a 13/01/2027.", ROT_PIX = "à vista no Pix, para os dois";
-  var GRUPOS = [{"id":"resorts","nome":"Resorts","recomendada":"serhs","desc":"Resorts na Via Costeira, com estrutura de lazer e refeições no hotel."},{"id":"cafe","nome":"Hotéis com café da manhã","recomendada":"infinity","desc":"Hotéis na orla, só com café da manhã, para quem vai passear o dia todo."}];
-  var estado = { op: "serhs", forma: 'cartao', n: 10, grupo: GRUPOS.length ? GRUPOS[0].id : '' };
+  var GRUPOS = [{"id":"resorts","nome":"Resorts","recomendada":"serhs","desc":"Resorts na Via Costeira, com estrutura de lazer e refeições no hotel."},{"id":"cafe","nome":"Hotéis com café da manhã","recomendada":"infinity","desc":"Hotéis na orla, só com café da manhã, para quem vai passear o dia todo."}], MODOS = [];
+  var estado = { op: "serhs", forma: 'cartao', n: 10, grupo: GRUPOS.length ? GRUPOS[0].id : '', modo: MODOS.length ? MODOS[0].id : 'pacote' };
+  var EXTRAS = [];
+  estado.ex = 0;
+  function preco(o){ return (o.tab && o.tab[estado.ex]) || { pix: o.pix, cartao: o.cartao }; }
+  function visiveis(){ return OPCOES.filter(function(o){ return (!estado.grupo || o.grupo === estado.grupo) && o.modo === estado.modo; }); }
+  function escolherPadrao(){ var v = visiveis(), g = GRUPOS.filter(function(x){ return x.id === estado.grupo; })[0];
+    var r = v.filter(function(o){ return g && o.id === g.recomendada; })[0] || v.filter(function(o){ return o.destaque; })[0] || v[0]; if (r) estado.op = r.id; }
   function brl(v, c){ return v.toLocaleString('pt-BR', { minimumFractionDigits: c ? 2 : 0, maximumFractionDigits: c ? 2 : 0 }); }
   function calc(o){
-    if (estado.forma === 'pix') return { total: o.pix, parcela: o.pix, n: 0 };
+    var q = preco(o);
+    if (estado.forma === 'pix') return { total: q.pix, parcela: q.pix, n: 0 };
     var n = estado.n, p, t;
-    if (n === 1) { t = o.cartao; p = t; } else { p = o.cartao * JUROS / (1 - Math.pow(1 + JUROS, -n)); t = p * n; }
+    if (n === 1) { t = q.cartao; p = t; } else { p = q.cartao * JUROS / (1 - Math.pow(1 + JUROS, -n)); t = p * n; }
     return { total: Math.round(t * 100) / 100, parcela: Math.round(p * 100) / 100, n: n };
   }
   var lista = document.getElementById('listaOpcoes');
   function renderLista(){
-  lista.innerHTML = OPCOES.filter(function(o){ return !estado.grupo || o.grupo === estado.grupo; }).map(function(o){
+  lista.innerHTML = visiveis().map(function(o){
     return '<label class="op" data-op="' + o.id + '"><input type="radio" name="op" value="' + o.id + '">' +
       (o.imgs.length ? '<button type="button" class="btn-fotos" data-fotos="' + o.id + '" aria-label="Ver fotos do hotel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg>Fotos</button>' : '') +
       (o.destaque ? '<span class="selo">' + o.destaque + '</span>' : '') +
       '<div class="linha"><div><div class="t">' + o.tag + '</div><div class="h">' + o.hotel + '</div><div class="o">' + o.onde + '</div>' +
       '<ul>' + o.itens.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul></div>' +
-      '<div class="p"><div class="radio"></div><small>10x no cartão de</small><b>R$ ' + brl(o.cartao * JUROS / (1 - Math.pow(1 + JUROS, -10)), true) + '</b><span>ou R$ ' + brl(o.pix) + ' no Pix</span></div></div></label>';
+      '<div class="p"><div class="radio"></div><small>' + (o.booking ? 'Aéreo em 10x de' : '10x no cartão de') + '</small><b>R$ ' + brl(preco(o).cartao * JUROS / (1 - Math.pow(1 + JUROS, -10)), true) + '</b><span>ou R$ ' + brl(preco(o).pix) + ' no Pix</span>' + (o.booking ? '<em>+ R$ ' + brl(o.booking) + ' de hotéis, pagos no Booking</em>' : '') + '</div></div></label>';
   }).join('');
     var g = GRUPOS.filter(function(x){ return x.id === estado.grupo; })[0];
     if (g && document.getElementById('grupoDesc')) document.getElementById('grupoDesc').textContent = g.desc || '';
+    var m = MODOS.filter(function(x){ return x.id === estado.modo; })[0];
+    if (m && document.getElementById('modoDesc')) document.getElementById('modoDesc').textContent = m.desc || '';
+    [].forEach.call(document.querySelectorAll('#modos button'), function(b){ b.classList.toggle('on', b.getAttribute('data-modo') === estado.modo); });
     [].forEach.call(document.querySelectorAll('#grupos button'), function(b){ b.classList.toggle('on', b.getAttribute('data-grupo') === estado.grupo); });
   }
   renderLista();
   if (document.getElementById('grupos')) document.getElementById('grupos').addEventListener('click', function(e){
     var b = e.target.closest('button'); if (!b) return;
     estado.grupo = b.getAttribute('data-grupo');
-    var g = GRUPOS.filter(function(x){ return x.id === estado.grupo; })[0];
-    estado.op = (g && g.recomendada) || OPCOES.filter(function(o){ return o.grupo === estado.grupo; })[0].id;
+    escolherPadrao();
     renderLista(); render();
+  });
+  if (document.getElementById('modos')) document.getElementById('modos').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    estado.modo = b.getAttribute('data-modo'); escolherPadrao(); renderLista(); render();
   });
   var par = document.getElementById('parcelas');
   par.innerHTML = [1,2,3,4,5,6,7,8,9,10].map(function(n){ return '<button type="button" data-n="' + n + '">' + n + 'x</button>'; }).join('');
@@ -270,14 +299,18 @@ h2 em{font-style:normal;color:var(--neon)}
     var valor = document.getElementById('valor'), sub = document.getElementById('sub'), eco = document.getElementById('eco'), txtPag;
     if (estado.forma === 'pix') {
       valor.innerHTML = '<i>R$</i>' + brl(r.total); sub.textContent = ROT_PIX;
-      eco.hidden = false; eco.textContent = 'Economia de R$ ' + brl(o.cartao - o.pix); txtPag = 'Pix, R$ ' + brl(r.total);
+      eco.hidden = false; eco.textContent = 'Economia de R$ ' + brl(preco(o).cartao - preco(o).pix); txtPag = 'Pix, R$ ' + brl(r.total);
     } else {
       valor.innerHTML = '<i>' + r.n + 'x R$</i>' + brl(r.parcela, true);
       sub.textContent = (r.n === 1 ? 'à vista no cartão' : 'com juros de 1,99% ao mês') + ' · total R$ ' + brl(r.total, r.n > 1);
       eco.hidden = true; txtPag = 'cartão em ' + r.n + 'x de R$ ' + brl(r.parcela, true);
     }
-    document.getElementById('bOpcao').textContent = o.tag + ' · ' + o.hotel;
+    if (o.booking) { sub.textContent += ' · aéreo OND, mais R$ ' + brl(o.booking) + ' de hotéis no Booking'; txtPag += ' (aéreo), hotéis no Booking'; }
+    document.getElementById('bOpcao').textContent = (o.booking ? 'Aéreo OND · ' : '') + o.tag + ' · ' + o.hotel;
     document.getElementById('bValor').textContent = estado.forma === 'pix' ? 'R$ ' + brl(r.total) + ' no Pix' : r.n + 'x R$ ' + brl(r.parcela, true);
+    precoExtras();
+    var extrasTxt = EXTRAS.filter(function(e, k){ return (estado.ex >> k) & 1; }).map(function(e){ return e.nome; }).join(', ');
+    if (extrasTxt) txtPag += '. Com ' + extrasTxt;
     document.getElementById('cta').href = 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(MSG + ' Opção: ' + o.tag + ' (' + o.hotel + '). Pagamento: ' + txtPag + '.');
   }
   var gal = { op: null, i: 0 };
@@ -298,9 +331,26 @@ h2 em{font-style:normal;color:var(--neon)}
   document.addEventListener('keydown', function(e){ if (document.getElementById('galeria').hidden) return; if (e.key === 'Escape') galFechar(); if (e.key === 'ArrowLeft') galPasso(-1); if (e.key === 'ArrowRight') galPasso(1); });
   var tx0 = null; document.getElementById('gImg').addEventListener('touchstart', function(e){ tx0 = e.touches[0].clientX; }, { passive: true });
   document.getElementById('gImg').addEventListener('touchend', function(e){ if (tx0 === null) return; var dx = e.changedTouches[0].clientX - tx0; if (Math.abs(dx) > 40) galPasso(dx < 0 ? 1 : -1); tx0 = null; });
-  lista.addEventListener('click', function(e){ var el = e.target.closest('.op'); if (!el) return; estado.op = el.dataset.op; render(); });
+  lista.addEventListener('click', function(e){ if (e.target.closest('a')) return; var el = e.target.closest('.op'); if (!el) return; estado.op = el.dataset.op; render(); });
   document.querySelector('.pag .abas').addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; estado.forma = b.dataset.forma; render(); });
   par.addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; estado.n = +b.dataset.n; render(); });
+  var exBox = document.getElementById('extras');
+  if (exBox) exBox.addEventListener('change', function(e){
+    var l = e.target.closest('.extra'); if (!l) return;
+    var cb = e.target.closest('input[data-ex]'); if (!cb) return;
+    var k = +cb.getAttribute('data-ex');
+    estado.ex = cb.checked ? (estado.ex | (1 << k)) : (estado.ex & ~(1 << k));
+    l.classList.toggle('on', cb.checked);
+    renderLista(); render();
+  });
+  function precoExtras(){
+    var o = OPCOES.filter(function(x){ return x.id === estado.op; })[0]; if (!o || !o.tab) return;
+    EXTRAS.forEach(function(e, k){
+      var el = document.getElementById('exv' + k); if (!el) return;
+      var d = o.tab[estado.ex | (1 << k)].pix - o.tab[estado.ex & ~(1 << k)].pix;
+      el.textContent = '+ R$ ' + brl(d);
+    });
+  }
   function contagem(){
     var el = document.getElementById('contagem'), ms = VALIDADE - new Date();
     if (ms <= 0) { el.textContent = 'encerrada, peça uma nova cotação'; return; }
@@ -308,6 +358,17 @@ h2 em{font-style:normal;color:var(--neon)}
     el.textContent = (h >= 24 ? Math.floor(h / 24) + 'd ' + (h % 24) + 'h ' : h + 'h ') + m + 'min';
   }
   contagem(); setInterval(contagem, 30000);
+  var TOKEN = "renata-natal", API = 'https://ond.agamatec.com';
+  function trackView(){
+    var url = new URL(location.href), team = false;
+    try {
+      if (url.searchParams.has('team')) { localStorage.setItem('ond_team', '1'); url.searchParams.delete('team'); history.replaceState(null, '', url.pathname + url.search + url.hash); }
+      team = localStorage.getItem('ond_team') === '1';
+    } catch (storageError) { team = new URL(location.href).searchParams.has('team'); }
+    if (team) return;
+    try { fetch(API + '/api/proposals/' + TOKEN + '/view', { method: 'POST', keepalive: true }).catch(function(){}); } catch (networkError) {}
+  }
+  trackView();
   render();
 })();
 </script>

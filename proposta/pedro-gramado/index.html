@@ -366,6 +366,17 @@ h2 em{font-style:normal;color:var(--neon)}
     el.textContent = (h >= 24 ? Math.floor(h / 24) + 'd ' + (h % 24) + 'h ' : h + 'h ') + m + 'min';
   }
   contagem(); setInterval(contagem, 30000);
+  var TOKEN = "pedro-gramado", API = 'https://ond.agamatec.com';
+  function trackView(){
+    var url = new URL(location.href), team = false;
+    try {
+      if (url.searchParams.has('team')) { localStorage.setItem('ond_team', '1'); url.searchParams.delete('team'); history.replaceState(null, '', url.pathname + url.search + url.hash); }
+      team = localStorage.getItem('ond_team') === '1';
+    } catch (storageError) { team = new URL(location.href).searchParams.has('team'); }
+    if (team) return;
+    try { fetch(API + '/api/proposals/' + TOKEN + '/view', { method: 'POST', keepalive: true }).catch(function(){}); } catch (networkError) {}
+  }
+  trackView();
   render();
 })();
 </script>
