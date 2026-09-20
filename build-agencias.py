@@ -146,6 +146,7 @@ def pagina(ps, cab, rod):
 <link rel="stylesheet" href="/tokens/ond-core.css">
 <link rel="stylesheet" href="/tokens/ond-b2b.css">
 <link rel="stylesheet" href="/assets/agencias-base.css">
+<link rel="stylesheet" href="/assets/acessibilidade.css">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <style id="a11y-base">html{{scroll-padding-top:100px}}a,button,summary{{touch-action:manipulation}}.skip{{position:absolute;left:12px;top:-60px;z-index:100000;background:var(--blue);color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;transition:top .2s}}.skip:focus{{top:12px}}</style>
 {CSS}

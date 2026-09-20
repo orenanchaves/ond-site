@@ -79,6 +79,7 @@ PAG = """<!DOCTYPE html>
 <link rel="stylesheet" href="/tokens/ond-core.css">
 <link rel="stylesheet" href="/tokens/ond-b2c.css">
 <link rel="stylesheet" href="/assets/site-base.css">
+<link rel="stylesheet" href="/assets/acessibilidade.css">
 <script>try{if(localStorage.getItem('ond_theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
 <style id="a11y-base">:root{color-scheme:dark}[data-theme="light"]{color-scheme:light}a,button,summary{touch-action:manipulation}.skip{position:absolute;left:12px;top:-60px;z-index:100000;background:var(--purple,#7f11f4);color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;transition:top .2s}.skip:focus{top:12px}</style>
 <style id="busca-css">

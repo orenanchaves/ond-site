@@ -189,6 +189,7 @@ def pagina(d, cab, rod, meses_d, rel, outros):
 <link rel="stylesheet" href="/tokens/ond-core.css">
 <link rel="stylesheet" href="/tokens/ond-b2c.css">
 <link rel="stylesheet" href="/assets/site-base.css">
+<link rel="stylesheet" href="/assets/acessibilidade.css">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <script type="application/ld+json">{json.dumps(trilha, ensure_ascii=False)}</script>
 <script>try{{if(localStorage.getItem('ond_theme')==='light')document.documentElement.setAttribute('data-theme','light')}}catch(e){{}}</script>

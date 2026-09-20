@@ -1,0 +1,48 @@
+/* Contraste: correções para ficar dentro do mínimo da WCAG 2.2 AA (4.5:1 em texto normal).
+   Medido com o motor do AccessLint em 20/09/2026, nos dois temas.
+   Entra depois do CSS da página, por isso vence os valores antigos. */
+
+/* o "▾" do seletor de idioma e o link da área do cliente perdiam contraste por opacity */
+.langsel-caret{opacity:1}
+.footer-bottom a[href="/cliente/"]{opacity:1}
+
+/* roxo e azul dos links do topo: claro no tema escuro, escuro no tema claro */
+[data-theme="dark"] .header-nav .nav-agencias{color:#4d9fff;border-color:color-mix(in srgb,#4d9fff 32%,transparent)}
+[data-theme="light"] .header-nav .nav-agencias{color:#0052cc;border-color:color-mix(in srgb,#0052cc 32%,transparent)}
+[data-theme="dark"] .header-nav .nav-home,[data-theme="dark"] .mobile-nav a.nav-home{color:#b270f8}
+[data-theme="light"] .header-nav .nav-home,[data-theme="light"] .mobile-nav a.nav-home{color:#5f0db7}
+[data-theme="dark"] .header-nav .nav-home{border-color:color-mix(in srgb,#b270f8 32%,transparent)}
+[data-theme="light"] .header-nav .nav-home{border-color:color-mix(in srgb,#5f0db7 32%,transparent)}
+
+/* selo e preço do plano personalizado */
+[data-theme="dark"] .pc-badge,[data-theme="dark"] .pc-price{color:#b270f8}
+[data-theme="light"] .pc-badge,[data-theme="light"] .pc-price{color:#5f0db7}
+
+/* etiquetas de categoria do blog: as cores eram pensadas só para o tema escuro */
+[data-theme="light"] .post-tag.tag-orange{color:#a83f00}
+[data-theme="light"] .post-tag.tag-blue{color:#0b5bd3}
+[data-theme="light"] .post-tag.tag-pink{color:#9c0bb5}
+[data-theme="light"] .post-tag.tag-purple{color:#5f0db7}
+[data-theme="light"] .post-tag.tag-green{color:#00662b}
+
+/* "Pular para o conteúdo": fica fora da tela até receber o foco do teclado */
+.skip{position:absolute;left:12px;top:-60px;z-index:100000;background:var(--purple,#7f11f4);color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;transition:top .2s}
+.skip:focus{top:12px}
+@media(prefers-reduced-motion:reduce){.skip{transition:none}}
+
+/* Alvo de toque de 24px no celular (WCAG 2.2, 2.5.8).
+   Vale para o que fica em lista ou em barra; link no meio de frase tem dispensa na norma. */
+@media(max-width:820px){
+  .footer-col a{display:inline-block;padding:4px 0}
+  .vt-bc a{display:inline-block;padding:4px 2px}
+  .dc-mais summary,summary.dc-mais{padding:3px 0}
+  .creditos>summary{padding:3px 0}
+  .ondvai-x{min-width:32px;min-height:32px}
+  .gl-input{padding:4px 0;min-height:24px}
+  /* pontos do carrossel: a bolinha continua pequena, a área de toque vira 24px */
+  .vh-nav{gap:0}
+  .vh-nav .vh-dot{width:24px;height:24px;padding:0;background:none;display:grid;place-items:center}
+  .vh-nav .vh-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50px;background:rgba(255,255,255,.45);transition:width .35s,background .35s}
+  .vh-nav .vh-dot.on{width:34px;background:none}
+  .vh-nav .vh-dot.on::before{width:22px;background:#fff}
+}
