@@ -6,3 +6,4 @@ node_modules/
 .claude/
 __pycache__/
 graphify-out/
+.idea/
