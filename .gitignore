@@ -5,6 +5,8 @@ Thumbs.db
 node_modules/
 .claude/*
 !.claude/skills/
+!.claude/settings.json
+!.claude/hooks/
 __pycache__/
 graphify-out/
 .idea/
