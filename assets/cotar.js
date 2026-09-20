@@ -38,7 +38,13 @@
     { id: 'criancas', rotulo: 'Crianças', sub: '2 a 11 anos', min: 0, inicial: 0, um: 'criança', varios: 'crianças' },
     { id: 'bebes', rotulo: 'Bebês', sub: 'até 1 ano', min: 0, inicial: 0, um: 'bebê', varios: 'bebês' }
   ];
-  var briefing = null, atual = null, contagem = {};
+  var briefing = null, atual = null, contagem = {}, gruposDestino = null;
+
+  function carregarGruposDestino(){
+    if(!gruposDestino) gruposDestino = fetch('/assets/grupos-destinos.json')
+      .then(function(r){ return r.json(); }).catch(function(){ return {}; });
+    return gruposDestino;
+  }
 
   function montarBriefing(){
     var css = ''
@@ -49,6 +55,7 @@
       + '.brf-x{position:absolute;top:12px;right:12px;width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:var(--muted,#9a97b5);font-size:24px;line-height:1;cursor:pointer}'
       + '.brf h2{font-size:1.3rem;font-weight:800;letter-spacing:-.01em;line-height:1.25;padding-right:30px}'
       + '.brf>p{margin-top:8px;color:var(--muted,#9a97b5);font-size:.9rem;line-height:1.5}'
+      + '.brf [hidden]{display:none!important}'
       + '.brf form{display:grid;gap:12px;margin-top:18px}'
       + '.brf-datas{display:grid;grid-template-columns:1fr 1fr;gap:10px}'
       + '.brf-pessoas{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}'
@@ -63,7 +70,9 @@
       + '.brf-cont span{min-width:16px;font-weight:800;color:var(--text,#f0eeff)}'
       + '.brf .cot-go{width:100%;margin-top:4px}'
       + '.brf-direto{display:block;margin-top:12px;text-align:center;font-size:.85rem;color:var(--muted,#9a97b5);text-decoration:underline}'
-      + '.brf-erro{color:#ff8a80;font-size:.82rem}';
+      + '.brf-erro{color:#ff8a80;font-size:.82rem}'
+      + '.brf-convite .cot-go{display:flex;align-items:center;justify-content:center;text-decoration:none;margin-top:18px}'
+      + '.brf-convite small{display:block;margin-top:14px;font-size:.76rem;line-height:1.45;color:var(--muted,#9a97b5)}';
     var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
     var tiles = GRUPOS.map(function(g){
       return '<div class="brf-tile" data-grupo="' + g.id + '"><svg viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="' + ICONES[g.id] + '"/></svg>'
@@ -83,7 +92,12 @@
       + '<div class="brf-erro" role="alert" hidden></div>'
       + '<button class="cot-go" type="submit">Pedir cotação no WhatsApp</button>'
       + '</form>'
-      + '<a class="brf-direto" href="#">Prefiro falar direto no WhatsApp</a>';
+      + '<a class="brf-direto" href="#">Prefiro falar direto no WhatsApp</a>'
+      + '<div class="brf-convite" hidden><h2>Seja o primeiro a saber</h2>'
+      + '<p class="brf-convite-txt"></p>'
+      + '<a class="cot-go" target="_blank" rel="noopener">Quero receber as ofertas</a>'
+      + '<a class="brf-direto brf-agora-nao" href="#">Agora não</a>'
+      + '<small>Só ofertas do destino, sem spam. Você sai quando quiser.</small></div>';
     document.body.appendChild(fundo); document.body.appendChild(caixa);
     var form = caixa.querySelector('form'), erro = caixa.querySelector('.brf-erro');
     var ida = form.elements.ida, volta = form.elements.volta;
@@ -122,10 +136,15 @@
         'Datas: ' + dataBr(ida.value) + ' a ' + dataBr(volta.value),
         'Quem vai: ' + quemTexto
       ];
-      fecharBriefing();
       abrir(linhas.join('\n'), atual.destino);
+      mostrarConvite();
     });
-    briefing = { fundo: fundo, caixa: caixa, form: form, erro: erro };
+    caixa.querySelector('.brf-agora-nao').addEventListener('click', function(e){ e.preventDefault(); fecharBriefing(); });
+    caixa.querySelector('.brf-convite .cot-go').addEventListener('click', function(){
+      if(window.gtag) gtag('event', 'grupo_entrar', { destino: atual.destino, pagina: location.pathname });
+      fecharBriefing();
+    });
+    briefing = { fundo: fundo, caixa: caixa, form: form, erro: erro, convite: caixa.querySelector('.brf-convite') };
   }
 
   function hojeIso(){
@@ -141,8 +160,26 @@
       tile.classList.toggle('on', contagem[g.id] > 0);
     });
   }
+  function mostrarConvite(){
+    var destinoDoConvite = atual;
+    carregarGruposDestino().then(function(mapa){
+      if(atual !== destinoDoConvite) return;
+      pintarConvite(mapa[atual.slug]);
+    });
+  }
+  function pintarConvite(link){
+    if(!link || !briefing.caixa.classList.contains('open')){ fecharBriefing(); return; }
+    briefing.convite.querySelector('.brf-convite-txt').textContent = 'Quando cai uma tarifa boa para ' + atual.destinoFrase
+      + ', a gente avisa no grupo antes de qualquer lugar. São poucas vagas por viagem e costumam sumir no mesmo dia.';
+    briefing.convite.querySelector('.cot-go').href = link;
+    [].forEach.call(briefing.caixa.children, function(bloco){
+      if(!bloco.classList.contains('brf-x')) bloco.hidden = !bloco.classList.contains('brf-convite');
+    });
+    if(window.gtag) gtag('event', 'grupo_convite', { destino: atual.destino, pagina: location.pathname });
+  }
   function abrirBriefing(cta){
     if(!briefing) montarBriefing();
+    carregarGruposDestino();
     var card = cta.closest('article.dc');
     var msgOriginal = decodeURIComponent((cta.href.split('?text=')[1] || '').replace(/\+/g, ' '));
     var frase = (msgOriginal.match(/viagem para (.+?)\. Vi no cat/) || [])[1] || cta.getAttribute('data-wa');
@@ -150,8 +187,12 @@
       href: cta.href,
       destino: cta.getAttribute('data-wa') || 'catalogo',
       destinoFrase: frase,
+      slug: card && card.id ? card.id : '',
       link: 'https://ondviajar.com.br/viagens/' + (card && card.id ? '#' + card.id : '')
     };
+    [].forEach.call(briefing.caixa.children, function(bloco){
+      bloco.hidden = bloco.classList.contains('brf-convite');
+    });
     briefing.caixa.querySelector('#brfTitulo').textContent = 'Sua viagem para ' + frase;
     briefing.form.reset();
     briefing.erro.hidden = true;
