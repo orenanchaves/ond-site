@@ -3,10 +3,10 @@
    WhatsApp oficial (11) 94361-5412. Incluir com <script src="/assets/cotar.js" defer></script>. */
 (function(){
   if(window.__ondCotar) return; window.__ondCotar = true;
-  var NUM = '5511943615412';
-  function abrir(msg, origem){
+  var NUM = '5511943615412', NUM_CATALOGO = '5511910214133';
+  function abrir(msg, origem, numero){
     if(window.gtag) gtag('event','whatsapp_click',{destino:origem||'cotacao',pagina:location.pathname});
-    window.open('https://wa.me/'+NUM+'?text='+encodeURIComponent(msg),'_blank','noopener');
+    window.open('https://wa.me/'+(numero||NUM)+'?text='+encodeURIComponent(msg),'_blank','noopener');
   }
   document.addEventListener('submit', function(e){
     var f = e.target.closest && e.target.closest('form.cot-form');
@@ -119,7 +119,7 @@
       e.preventDefault();
       var msg = decodeURIComponent((atual.href.split('?text=')[1] || '').replace(/\+/g, ' '));
       fecharBriefing();
-      abrir(msg, atual.destino);
+      abrir(msg, atual.destino, NUM_CATALOGO);
     });
     form.addEventListener('submit', function(e){
       e.preventDefault();
@@ -136,7 +136,7 @@
         'Datas: ' + dataBr(ida.value) + ' a ' + dataBr(volta.value),
         'Quem vai: ' + quemTexto
       ];
-      abrir(linhas.join('\n'), atual.destino);
+      abrir(linhas.join('\n'), atual.destino, NUM_CATALOGO);
       mostrarConvite();
     });
     caixa.querySelector('.brf-agora-nao').addEventListener('click', function(e){ e.preventDefault(); fecharBriefing(); });
