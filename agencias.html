@@ -1042,12 +1042,23 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
 .langsel-menu a[aria-current="true"]{color:var(--purple-light);font-weight:700}
 </style>
 <link rel="alternate" hreflang="pt-BR" href="https://ondviajar.com.br/agencias.html">
-<link rel="alternate" hreflang="en" href="https://ondviajar.com.br/en/agencias.html">
-<link rel="alternate" hreflang="es" href="https://ondviajar.com.br/es/agencias.html">
-<link rel="alternate" hreflang="fr" href="https://ondviajar.com.br/fr/agencias.html">
-<link rel="alternate" hreflang="it" href="https://ondviajar.com.br/it/agencias.html">
 <link rel="alternate" hreflang="x-default" href="https://ondviajar.com.br/agencias.html">
 <style id="agencias-limpa">.lg-real-label{text-transform:none!important;letter-spacing:0!important;font-size:.82rem!important}</style>
+<style id="ag-ia">
+.hero-cal{margin:14px 0 0;font-size:.92rem}
+.hero-cal a{color:inherit;opacity:.8;text-decoration:underline;text-underline-offset:3px}
+.hero-cal a:hover{opacity:1}
+.pricing-nota{margin:14px auto 0;max-width:640px;font-size:.92rem;line-height:1.6;opacity:.75}
+.pricing-nota a{color:inherit;text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.prova-b2b{padding:70px 0}
+.prova-in{max-width:1120px;margin:0 auto;padding:0 24px;text-align:center}
+.prova-lista{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:32px 0 0;padding:0;text-align:left}
+.prova-lista a{display:block;height:100%;padding:20px;border:1px solid rgba(255,255,255,.12);border-radius:16px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
+.prova-lista a:hover{border-color:#0066ff;transform:translateY(-2px)}
+.prova-lista b{display:block;font-size:1.05rem;margin-bottom:6px}
+.prova-lista span{display:block;font-size:.93rem;line-height:1.5;opacity:.72}
+@media(max-width:700px){.prova-b2b{padding:50px 0}.prova-in{padding:0 18px}}
+</style>
 </head>
 <body>
 
@@ -1111,16 +1122,16 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <li><a href="#plataforma">Como funciona</a></li>
     <li><a href="#planos">Planos</a></li>
     <li><a href="#quem-somos">Quem somos</a></li>
-    <li><a href="agencias-app.html">Área das agências</a></li>
+    <li><a href="agencias-app.html">Ver demonstração</a></li>
   </ul></nav>
   <div class="header-actions"><details class="langsel">
   <summary class="langsel-btn" aria-label="Idioma / Language"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 4 9 14 14 0 0 1-4 9 14 14 0 0 1-4-9 14 14 0 0 1 4-9z"/></svg><span class="langsel-cur">PT</span><span class="langsel-caret">▾</span></summary>
   <ul class="langsel-menu">
     <li><a href="/agencias.html" hreflang="pt-BR" lang="pt-BR" aria-current="true">Português</a></li>
-    <li><a href="/en/agencias.html" hreflang="en" lang="en">English</a></li>
-    <li><a href="/es/agencias.html" hreflang="es" lang="es">Español</a></li>
-    <li><a href="/fr/agencias.html" hreflang="fr" lang="fr">Français</a></li>
-    <li><a href="/it/agencias.html" hreflang="it" lang="it">Italiano</a></li>
+    <li><a href="/en/" hreflang="en" lang="en">English</a></li>
+    <li><a href="/es/" hreflang="es" lang="es">Español</a></li>
+    <li><a href="/fr/" hreflang="fr" lang="fr">Français</a></li>
+    <li><a href="/it/" hreflang="it" lang="it">Italiano</a></li>
   </ul>
 </details>
   <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
@@ -1132,10 +1143,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   <a href="#plataforma" onclick="closeMenu()">Como funciona</a>
   <a href="#planos" onclick="closeMenu()">Planos</a>
   <a href="#quem-somos" onclick="closeMenu()">Quem somos</a>
-  <a href="agencias-app.html">Área das agências</a>
+  <a href="agencias-app.html">Ver demonstração</a>
   <a href="https://calendly.com/renanfr1047/30min" style="color:var(--green);font-weight:700" target="_blank" rel="noopener">Agendar reunião →</a>
   <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" target="_blank" rel="noopener">Falar no WhatsApp</a>
-  <div class="mobile-lang"><span>Idioma</span><a href="/agencias.html" aria-current="true">PT</a><a href="/en/agencias.html">EN</a><a href="/es/agencias.html">ES</a><a href="/fr/agencias.html">FR</a><a href="/it/agencias.html">IT</a></div>
+  <div class="mobile-lang"><span>Idioma</span><a href="/agencias.html" aria-current="true">PT</a><a href="/en/">EN</a><a href="/es/">ES</a><a href="/fr/">FR</a><a href="/it/">IT</a></div>
 </nav>
 
 <!-- HERO -->
@@ -1144,12 +1155,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <h1 class="hero-title">Chega de esperar o <br class="br-d">cliente entrar pela porta.<br>Ele já decidiu viajar, só não <br class="br-d">sabe que você existe.</h1>
     <p class="hero-sub">Todo dia, centenas de pessoas fecham destino, data e orçamento conversando com o OND vAI. Zero agências aparecem pra elas hoje. Isso muda agora.</p>
     <div class="hero-ctas">
-      <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Quero o OND na minha&nbsp;agência</a>
+      <a href="#planos" class="btn-green">Contratar o OND</a>
       <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         Falar no WhatsApp
       </a>
     </div>
+    <p class="hero-cal"><a href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Prefere conversar antes? Agende 30 minutos</a></p>
     <div class="hero-trust">
       <span class="trust-chip">Venda pra quem já quer comprar</span>
       <span class="trust-chip">Leads chegam prontos pra fechar</span>
@@ -2096,6 +2108,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <div class="pricing-head">
       <h2 class="section-title">Escolha o plano e comece agora</h2>
       <p class="section-sub" style="margin:0 auto">Contrate direto pela página. Sem reunião, sem espera: seu acesso chega por e-mail assim que o pagamento é confirmado.</p>
+      <p class="pricing-nota">O valor de cada plano aparece na contratação, antes de qualquer pagamento. <a href="/agencias/planos/">Ver o que cada plano inclui</a></p>
     </div>
     <div class="plans-grid plans-grid-5">
       <div class="plan">
@@ -2106,7 +2119,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Sem compromisso de continuidade</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Sinta o ganho de leads reais antes de assinar</li>
         </ul>
-        <button type="button" class="plan-cta plan-cta-btn" data-plan="PILOTO" data-plan-name="OND Piloto">Contratar</button>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="PILOTO" data-plan-name="OND Piloto">Contratar o OND</button>
       </div>
       <div class="plan">
         <img class="plan-img" src="/assets/plans/plan-launch.png" alt="" loading="lazy">
@@ -2116,7 +2129,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Contato do viajante com destino, datas e orçamento</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>OND vAI qualifica o viajante antes de te conectar</li>
         </ul>
-        <button type="button" class="plan-cta plan-cta-btn" data-plan="START" data-plan-name="OND Start">Contratar</button>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="START" data-plan-name="OND Start">Contratar o OND</button>
       </div>
       <div class="plan featured">
         <span class="plan-tag rec">Mais popular</span>
@@ -2127,7 +2140,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Conexão direta pelo WhatsApp</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Reajuste de preço só mediante renegociação</li>
         </ul>
-        <button type="button" class="plan-cta plan-cta-btn" data-plan="GROW" data-plan-name="OND Grow">Contratar</button>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="GROW" data-plan-name="OND Grow">Contratar o OND</button>
       </div>
       <div class="plan">
         <img class="plan-img" src="/assets/plans/plan-pro.png" alt="" loading="lazy">
@@ -2137,7 +2150,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Mesmo modelo de conexão direta</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Fidelidade de 12 meses com preço travado</li>
         </ul>
-        <button type="button" class="plan-cta plan-cta-btn" data-plan="SCALE" data-plan-name="OND Scale">Contratar</button>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="SCALE" data-plan-name="OND Scale">Contratar o OND</button>
       </div>
       <div class="plan">
         <img class="plan-img" src="/assets/plans/plan-infinity.png" alt="" loading="lazy">
@@ -2147,7 +2160,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Prioridade de cota no seu destino</li>
           <li><svg class="ic" width="15" height="15" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Fidelidade de 12 meses com preço travado</li>
         </ul>
-        <button type="button" class="plan-cta plan-cta-btn" data-plan="PRO" data-plan-name="OND Pro">Contratar</button>
+        <button type="button" class="plan-cta plan-cta-btn" data-plan="PRO" data-plan-name="OND Pro">Contratar o OND</button>
       </div>
     </div>
     <div class="plan-custom">
@@ -2251,18 +2264,32 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   </div>
 </section>
 
+<!-- PROVA DO PRODUTO -->
+<section class="prova-b2b" id="produto-funcionando">
+  <div class="prova-in">
+    <h2 class="section-title">Veja o produto funcionando</h2>
+    <p class="section-sub">O mesmo catálogo e o mesmo conteúdo que atraem o viajante são o que a sua agência passa a vender.</p>
+    <ul class="prova-lista">
+      <li><a href="/viagens/"><b>Catálogo de viagens</b><span>25 destinos com época, duração e perfil de viagem.</span></a></li>
+      <li><a href="/viagens/quando-viajar/"><b>Quando viajar</b><span>Calendário mês a mês, destino por destino.</span></a></li>
+      <li><a href="/blog.html"><b>Blog</b><span>Quanto custa, quando ir e o que levar em cada destino.</span></a></li>
+    </ul>
+  </div>
+</section>
+
 <!-- CTA FINAL -->
 <section class="cta-final">
   <div class="cta-final-inner">
     <h2 class="cta-final-title">Sua agência vendendo&nbsp;mais.<br>Propostas que o cliente&nbsp;fecha.</h2>
     <p class="cta-final-sub">Contrate direto pela página. Sem reunião, sem espera: <br class="br-d">seu acesso chega por e-mail assim que o pagamento é confirmado.</p>
     <div class="cta-final-btns">
-      <a href="https://calendly.com/renanfr1047/30min" class="btn-green" target="_blank" rel="noopener">Quero o OND na minha&nbsp;agência</a>
+      <a href="#planos" class="btn-green">Contratar o OND</a>
       <a href="https://wa.me/5511943615412?text=Olá! Tenho uma agência e quero saber mais sobre o OND" class="btn-whatsapp" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.072 1.505 5.788L0 24l6.335-1.663A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.58-.5-5.07-1.37l-.36-.22-3.76.99 1-3.66-.24-.38A9.94 9.94 0 0 1 2 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg>
         Falar no WhatsApp
       </a>
     </div>
+    <p class="hero-cal"><a href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Prefere conversar antes? Agende 30 minutos</a></p>
     <div class="cta-final-note">Já escolheu um plano? <a href="#planos" class="onboarding-link">Contrate direto na página</a> · Dúvidas? Escreva para <a href="mailto:renan@ondviajar.com.br">renan@ondviajar.com.br</a></div>
     <details class="wwa" id="quem-somos">
       <summary class="wwa-sum"><svg class="ic" width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Quem está por trás do OND<span class="wwa-caret">▾</span></summary>
@@ -2312,7 +2339,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <h4>Agências</h4>
       <ul>
         <li><a href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agendar reunião</a></li>
-        <li style="display:none"></li>
+        <li><a href="/agencias/planos/">Planos</a></li>
+        <li><a href="/agencias-app.html">Ver demonstração</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -2329,7 +2357,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <ul>
         <li><a href="mailto:renan@ondviajar.com.br">renan@ondviajar.com.br</a></li>
         <li><a href="https://wa.me/5511943615412" target="_blank" rel="noopener">WhatsApp</a></li>
-        <li><a href="#planos">Contratar um plano</a></li>
+        <li><a href="#planos">Contratar o OND</a></li>
       </ul>
     </div>
   </div>
@@ -2490,6 +2518,18 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
       openOnboarding(btn.getAttribute('data-plan'), btn.getAttribute('data-plan-name'));
     });
   });
+
+  // chegou por /agencias/planos/ com o plano escolhido: abre a contratacao ja nele
+  (function(){
+    var cod = (new URLSearchParams(location.search)).get('plano');
+    if (!cod) return;
+    var alvo = document.querySelector('.plan-cta-btn[data-plan="' + cod.toUpperCase().replace(/[^A-Z]/g, '') + '"]');
+    if (!alvo) return;
+    setTimeout(function(){
+      alvo.scrollIntoView({block: 'center'});
+      openOnboarding(alvo.getAttribute('data-plan'), alvo.getAttribute('data-plan-name'));
+    }, 300);
+  })();
 
   document.getElementById('obAddAgent').addEventListener('click', addAgentRow);
   document.getElementById('onboardClose').addEventListener('click', closeOnboarding);

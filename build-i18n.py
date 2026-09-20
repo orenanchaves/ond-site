@@ -222,17 +222,24 @@ def write_sitemap():
                 blog_blocks.append('  ' + block.strip())
 
     urls = []
-    for base in ['index.html', 'agencias.html']:
-        alts = ''.join(
-            '\n    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>' % (l[5], page_url(l[0], base))
-            for l in LOCALES)
-        alts += '\n    <xhtml:link rel="alternate" hreflang="x-default" href="%s"/>' % page_url('pt', base)
-        for code, htmllang, ogloc, name, short, hreflang in LOCALES:
-            pr = PRIORITY[base] if code == 'pt' else '0.7'
-            urls.append(
-                '  <url>\n    <loc>%s</loc>%s\n    <lastmod>%s</lastmod>\n'
-                '    <changefreq>%s</changefreq>\n    <priority>%s</priority>\n  </url>'
-                % (page_url(code, base), alts, today, CHANGEFREQ[base], pr))
+    # a home existe nos cinco idiomas; a pagina de agencias so em portugues
+    alts = ''.join(
+        '\n    <xhtml:link rel="alternate" hreflang="%s" href="%s"/>' % (l[5], page_url(l[0], 'index.html'))
+        for l in LOCALES)
+    alts += '\n    <xhtml:link rel="alternate" hreflang="x-default" href="%s"/>' % page_url('pt', 'index.html')
+    for code, htmllang, ogloc, name, short, hreflang in LOCALES:
+        pr = PRIORITY['index.html'] if code == 'pt' else '0.7'
+        urls.append(
+            '  <url>\n    <loc>%s</loc>%s\n    <lastmod>%s</lastmod>\n'
+            '    <changefreq>%s</changefreq>\n    <priority>%s</priority>\n  </url>'
+            % (page_url(code, 'index.html'), alts, today, CHANGEFREQ['index.html'], pr))
+
+    for loc, pr in ((page_url('pt', 'agencias.html'), PRIORITY['agencias.html']),
+                    (SITE + 'agencias/planos/', '0.8')):
+        urls.append(
+            '  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n'
+            '    <changefreq>monthly</changefreq>\n    <priority>%s</priority>\n  </url>'
+            % (loc, today, pr))
 
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
