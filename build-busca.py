@@ -92,8 +92,8 @@ PAG = """<!DOCTYPE html>
 .bs-l a{display:block;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px 18px;text-decoration:none;color:var(--text);transition:border-color .2s}
 .bs-l a:hover{border-color:var(--purple)}
 .bs-k{font-size:.72rem;font-weight:700;color:var(--purple-light);display:block;margin-bottom:4px}
-.bs-t{font-weight:700;line-height:1.3}
-.bs-d{color:var(--muted);font-size:.9rem;line-height:1.5;margin-top:4px}
+.bs-t{display:block;font-weight:700;line-height:1.3}
+.bs-d{display:block;color:var(--muted);font-size:.9rem;line-height:1.5;margin-top:4px}
 .bs-vazio{color:var(--muted);line-height:1.6}
 .bs-vazio a{color:var(--purple-light)}
 </style>
