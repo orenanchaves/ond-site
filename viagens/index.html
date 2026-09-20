@@ -437,18 +437,32 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <style id="a11y-base">:root{color-scheme:dark}[data-theme="light"]{color-scheme:light}html{scroll-padding-top:140px}@media(max-width:700px){html{scroll-padding-top:124px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.dc.chegou{animation:none!important}.vt-grid2 .dc:hover .dc-foto img,.vo-c:hover .vo-img img{transform:none!important}}a,button,summary{touch-action:manipulation}.skip{position:absolute;left:12px;top:-60px;z-index:100000;background:var(--purple,#7f11f4);color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;transition:top .2s}.skip:focus{top:12px}.vh-dot{position:relative}.vh-dot::before{content:"";position:absolute;inset:-9px -4px}.vh-pp{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.25);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;margin-left:6px;padding:0}.vh-pp .ico{width:14px;height:14px}.vh-pp:focus-visible,.vh-dot:focus-visible{outline:2px solid #fff;outline-offset:3px}.cot-f input:focus-visible,.cot-f select:focus-visible{box-shadow:0 0 0 3px color-mix(in srgb,var(--purple) 45%,transparent)}</style>
 <style id="aprimora-viagens">#ocasioes .vt-head{grid-template-columns:1fr;gap:14px}#ocasioes .vt-head p{max-width:560px}</style>
 <style id="vg-filtros">
-.vg-filtros{display:flex;flex-direction:column;gap:10px;padding-top:0;padding-bottom:22px}.vgf-titulo{font-size:.95rem;font-weight:700;color:var(--text);margin:0 0 2px}
-.vgf-grupo{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.vgf-rot{font-size:.8rem;font-weight:700;color:var(--muted);min-width:74px}
-.vg-filtros button{font:inherit;font-size:.88rem;font-weight:600;color:var(--text);background:transparent;border:1px solid var(--border);border-radius:50px;padding:7px 14px;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
-.vg-filtros button:hover{border-color:var(--purple)}
+.vg-filtros{display:block;padding-top:0;padding-bottom:26px}
+.vgf-caixa{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px 20px}
+.vgf-topo{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin-bottom:14px}
+.vgf-titulo{font-size:.95rem;font-weight:700;color:var(--text);margin:0}
+.vgf-conta{font-size:.88rem;color:var(--muted);margin:0;flex:1 1 auto}
+.vgf-conta a{color:var(--purple-light)}
+.vgf-limpar{flex:none}
+.vgf-corpo{display:flex;flex-direction:column;gap:12px}
+.vgf-grupo{display:grid;grid-template-columns:84px minmax(0,1fr);align-items:start;gap:10px}
+.vgf-rot{font-size:.82rem;font-weight:700;color:var(--muted);padding-top:8px}
+.vgf-chips{display:flex;flex-wrap:wrap;gap:8px;min-width:0}
+.vg-filtros button[data-f],.vgf-limpar{font:inherit;font-size:.88rem;font-weight:600;color:var(--text);background:transparent;border:1px solid var(--border);border-radius:50px;padding:7px 14px;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.vg-filtros button[data-f]:hover,.vgf-limpar:hover{border-color:var(--purple)}
 .vg-filtros button[aria-pressed="true"]{background:var(--purple);border-color:var(--purple);color:#fff}
-.vg-filtros select{font:inherit;font-size:.88rem;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:50px;padding:7px 14px}
-.vgf-limpar{margin-left:auto}
-.vgf-conta{font-size:.88rem;color:var(--muted);margin:0}.vgf-conta a{color:var(--purple-light)}
+.vgf-sel{position:relative;display:inline-flex}
+.vgf-sel::after{content:"";position:absolute;right:15px;top:50%;width:7px;height:7px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.vg-filtros select{font:inherit;font-size:.88rem;font-weight:600;color:var(--text);background:transparent;border:1px solid var(--border);border-radius:50px;padding:7px 34px 7px 14px;-webkit-appearance:none;appearance:none;cursor:pointer}
+.vg-filtros select:hover{border-color:var(--purple)}
 .vg-filtros button:focus-visible,.vg-filtros select:focus-visible{outline:3px solid var(--purple-light);outline-offset:2px}
 .dc[hidden]{display:none!important}
-@media(max-width:700px){.vgf-rot{min-width:100%}.vgf-limpar{margin-left:0}}
+@media(max-width:700px){
+  .vgf-caixa{padding:16px 15px;border-radius:16px}
+  .vgf-grupo{grid-template-columns:1fr;gap:6px}
+  .vgf-rot{padding-top:0}
+  .vgf-topo{margin-bottom:12px}
+}
 </style>
 <style id="vg-blog">.vg-blog{padding-top:44px;padding-bottom:10px}.vg-blog-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}.vg-blog h2{font-size:clamp(1.4rem,2.6vw,2rem);letter-spacing:-.02em}.vg-blog-todos{color:var(--text);font-weight:700;font-size:.9rem;text-decoration:none;border-bottom:1px solid var(--border)}.vg-blog-l{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:18px 0 0;padding:0}.vg-blog-l a{display:block;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px 18px;color:var(--text);text-decoration:none;font-weight:700;line-height:1.35;transition:border-color .2s}.vg-blog-l a:hover{border-color:var(--purple)}</style>
 </head>
@@ -651,36 +665,48 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
 <div class="vg-cat">
   <div class="vt-in vg-filtros">
-    <p class="vgf-titulo">Filtre a lista</p>
-    <div class="vgf-grupo" role="group" aria-label="Filtrar por ocasião">
-      <span class="vgf-rot">Ocasião</span>
-      <button type="button" data-f="ocas" data-v="lua-de-mel">Lua de mel</button>
+  <div class="vgf-caixa">
+    <div class="vgf-topo">
+      <p class="vgf-titulo">Filtre a lista</p>
+      <p class="vgf-conta" aria-live="polite"></p>
+      <button type="button" class="vgf-limpar" hidden>Limpar filtros</button>
+    </div>
+    <div class="vgf-corpo">
+      <div class="vgf-grupo" role="group" aria-label="Filtrar por ocasião">
+        <span class="vgf-rot">Ocasião</span>
+        <div class="vgf-chips">
+          <button type="button" data-f="ocas" data-v="lua-de-mel">Lua de mel</button>
       <button type="button" data-f="ocas" data-v="familia">Família</button>
       <button type="button" data-f="ocas" data-v="amigos">Amigos</button>
       <button type="button" data-f="ocas" data-v="natureza">Natureza</button>
       <button type="button" data-f="ocas" data-v="neve">Neve e frio</button>
       <button type="button" data-f="ocas" data-v="primeira">Primeira internacional</button>
       <button type="button" data-f="ocas" data-v="cidade">Cidade e cultura</button>
-    </div>
-    <div class="vgf-grupo" role="group" aria-label="Filtrar por duração">
-      <span class="vgf-rot">Duração</span>
-      <button type="button" data-f="dur" data-v="curta">Até 4 dias</button>
+        </div>
+      </div>
+      <div class="vgf-grupo" role="group" aria-label="Filtrar por duração">
+        <span class="vgf-rot">Duração</span>
+        <div class="vgf-chips">
+          <button type="button" data-f="dur" data-v="curta">Até 4 dias</button>
       <button type="button" data-f="dur" data-v="media">5 a 6 dias</button>
       <button type="button" data-f="dur" data-v="longa">7 dias ou mais</button>
-    </div>
-    <div class="vgf-grupo">
-      <label class="vgf-rot" for="vgf-mes">Quando</label>
-      <select id="vgf-mes" data-f="mes">
+        </div>
+      </div>
+      <div class="vgf-grupo">
+        <label class="vgf-rot" for="vgf-mes">Quando</label>
+        <div class="vgf-chips">
+          <span class="vgf-sel"><select id="vgf-mes" data-f="mes">
         <option value="">Qualquer mês</option>
         <option value="jan">Janeiro</option><option value="fev">Fevereiro</option><option value="mar">Março</option>
         <option value="abr">Abril</option><option value="mai">Maio</option><option value="jun">Junho</option>
         <option value="jul">Julho</option><option value="ago">Agosto</option><option value="set">Setembro</option>
         <option value="out">Outubro</option><option value="nov">Novembro</option><option value="dez">Dezembro</option>
-      </select>
-      <button type="button" class="vgf-limpar" hidden>Limpar filtros</button>
+      </select></span>
+        </div>
+      </div>
     </div>
-    <p class="vgf-conta" aria-live="polite"></p>
   </div>
+</div>
   <div class="vg-bar"><div class="vg-sw vg-sw-fixo" aria-hidden="true"><button type="button" data-alvo="nacionais" tabindex="-1" class="on">Brasil <span>12</span></button><button type="button" data-alvo="internacionais" tabindex="-1" class="">Mundo <span>13</span></button></div></div>
   <section class="vg" id="nacionais" role="tabpanel" aria-label="Viagens pelo Brasil">
     <div class="vt-in vt-head"><h2>Viaje pelo Brasil</h2><div class="vg-hd-r"><p>Praia, natureza, serra e cidade. Escolha o destino e o OND cuida das passagens, da hospedagem e dos passeios.</p><div class="vg-sw" role="tablist" aria-label="Viagens no Brasil ou no mundo"><button type="button" role="tab" data-alvo="nacionais" aria-controls="nacionais" aria-selected="true" class="on">Brasil <span>12</span></button><button type="button" role="tab" data-alvo="internacionais" aria-controls="internacionais" aria-selected="false" tabindex="-1" class="">Mundo <span>13</span></button></div></div></div>
