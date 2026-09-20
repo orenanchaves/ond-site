@@ -128,13 +128,23 @@ h2 em{font-style:normal;color:var(--neon)}
 
 .abas.grupos{margin-top:16px;display:flex;overflow-x:auto;gap:6px;scrollbar-width:none}.abas.grupos::-webkit-scrollbar{display:none}.abas.grupos button{flex:0 0 auto;white-space:nowrap;font-size:14px;line-height:1.2;padding:10px 14px}
 .grupo-desc{margin-top:10px;font-size:13.5px;color:var(--muted);line-height:1.45}
+.extras{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.extra{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:4px 14px;background:var(--card);border:1.5px solid var(--borda);border-radius:16px;padding:14px 18px;cursor:pointer}
+.extra input{position:absolute;opacity:0;pointer-events:none}
+.extra .cx{grid-row:1/3;width:24px;height:24px;border-radius:8px;border:2px solid var(--borda);display:block}
+.extra b{font-size:15.5px;color:#fff}
+.extra small{grid-column:2;font-size:13px;color:var(--muted);line-height:1.4}
+.extra i{grid-row:1/3;grid-column:3;font-style:normal;font-weight:800;font-size:14px;color:var(--neon);white-space:nowrap}
+.extra.on{border-color:var(--neon)}
+.extra.on .cx{background:var(--neon);border-color:var(--neon);box-shadow:inset 0 0 0 4px var(--card)}
+.inclui.aparte .bol{background:#2a2a3a;color:var(--muted)}.inclui.aparte .inc{color:var(--muted)}
 .abas.modos{margin-top:16px}.abas.modos button{font-size:14px;line-height:1.2}
 .op .p em{display:block;margin-top:6px;font-style:normal;font-size:12.5px;color:var(--muted)}
 .op ul a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 </style></head><body>
 
 <header class="hero">
-  <img class="bg" src="capa.jpg" alt="show de acendimento do Natal Luz, em Gramado" style="object-position:center 55%">
+  <img class="bg" src="capa.jpg" alt="centro de Gramado iluminado à noite, com as casas de estilo europeu" style="object-position:center 50%">
   <div class="topo"><div class="wrap">
 <svg class="logo" aria-label="OND" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 951.32 497.26" role="img" aria-label="OND">
   <path fill="#7F11F4" d="M327.85,243.05l-69.42-45.05-57.11-117.28c-.76-1.55-2.13-2.44-3.59-2.67-1.46.24-2.83,1.12-3.59,2.67l-57.11,117.28-69.42,45.05c-1.53.99-2.26,2.62-2.21,4.23-.04,1.61.69,3.24,2.21,4.23l69.42,45.05,57.11,117.28c.76,1.55,2.13,2.44,3.59,2.67,1.46-.24,2.83-1.12,3.59-2.67l57.11-117.28,69.42-45.05c1.53-.99,2.26-2.62,2.21-4.23.04-1.61-.69-3.24-2.21-4.23Z"/>
@@ -162,12 +172,22 @@ h2 em{font-style:normal;color:var(--neon)}
     </div>
   </section>
 
+  <section class="wrap">
+    <div class="rot">Fica à parte</div>
+    <div class="inclui aparte">
+      <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.4"/></svg></span>Traslado do aeroporto até o hotel. Gramado não tem aeroporto: o voo pousa em Porto Alegre e ainda são 115 km, cerca de 1h40 de carro. A gente contrata o carro para vocês, ida e volta, e você não precisa dirigir nem pegar ônibus</div>
+      <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-1 6a3 3 0 0 1-6 0z"/><path d="M12 12v8M8 21h8"/></svg></span>Ingressos dos espetáculos do Natal Luz, que esgotam cedo. Se quiser, reservamos junto</div>
+      <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M9 11v5M15 11v5"/></svg></span>Passeios, alimentação e seguro viagem</div>
+    </div>
+  </section>
+
   <section class="wrap" id="opcoes">
     <div class="rot">Passo 1</div>
     <h2>Escolha <em>a hospedagem</em></h2>
 
 
     <div class="opcoes" id="listaOpcoes"></div>
+
   </section>
 
   <section class="wrap">
@@ -188,10 +208,10 @@ h2 em{font-style:normal;color:var(--neon)}
     <div class="rot">Ideias para o roteiro</div>
     <h2>O que você <em>vai viver</em></h2>
     <div class="ideias">
-      <div class="ideia"><img src="ideia-1.jpg" alt="Natal Luz" loading="lazy"><div><b>Natal Luz</b><span>Acendimento, corais nas ruas e os espetáculos da temporada.</span></div></div>
-      <div class="ideia"><img src="ideia-2.jpg" alt="Lago Negro" loading="lazy"><div><b>Lago Negro</b><span>Pedalinho em forma de cisne e a alameda de árvores em volta.</span></div></div>
-      <div class="ideia"><img src="ideia-3.jpg" alt="Canela" loading="lazy"><div><b>Canela</b><span>Cascata do Caracol e o bondinho com vista do vale.</span></div></div>
-      <div class="ideia txt"><div><b>Rua Coberta e chocolate</b><span>Fondue, vinho e as fábricas de chocolate da cidade.</span></div></div>
+      <div class="ideia"><img src="ideia-1.jpg" alt="Rua Coberta" loading="lazy"><div><b>Rua Coberta</b><span>O coração de Gramado: cafés, fondue e as casinhas de estilo europeu.</span></div></div>
+      <div class="ideia"><img src="ideia-2.jpg" alt="Natal Luz" loading="lazy"><div><b>Natal Luz</b><span>Acendimento, corais nas ruas e os espetáculos da temporada.</span></div></div>
+      <div class="ideia"><img src="ideia-3.jpg" alt="Lago Negro" loading="lazy"><div><b>Lago Negro</b><span>Pedalinho em forma de cisne e a alameda de árvores em volta.</span></div></div>
+      <div class="ideia"><img src="ideia-4.jpg" alt="Canela" loading="lazy"><div><b>Canela</b><span>Cascata do Caracol e o bondinho com vista do vale.</span></div></div>
     </div>
   </section>
 
@@ -199,7 +219,6 @@ h2 em{font-style:normal;color:var(--neon)}
     <div class="notas">
       <p>Valores para duas pessoas no mesmo quarto, cotados em 20/09/2026 e válidos até 23/09/2026, sujeitos a disponibilidade no momento da reserva.</p>
       <p>Voo direto da Gol: ida dia 11/12 às 12h10, chegando 14h15, e volta dia 14/12 às 21h05. Dá para aproveitar o domingo inteiro.</p>
-      <p>Os espetáculos do Natal Luz têm ingresso à parte e costumam esgotar: a gente reserva junto se você quiser.</p>
       <p>Gramado e Canela não tem aeroporto: o voo chega em Porto Alegre (POA), a 115 km, cerca de 1h40 de carro. O traslado fica a combinar com a nossa equipe. Caxias do Sul (CXJ) fica a 45 km, mas tem poucos voos. No Natal Luz a estrada e os traslados lotam.</p>
     </div>
   </section>
@@ -230,19 +249,23 @@ h2 em{font-style:normal;color:var(--neon)}
 
 <script>
 (function(){
-  var OPCOES = [{"id":"lanai","modo":"pacote","booking":0,"grupo":"","tag":"Econômica","hotel":"Pousada Lanai","onde":"Gramado","itens":["Café da manhã","Pousada tranquila, perto do centro","Estacionamento"],"imgs":[],"fotos":"Pousada Lanai Gramado","destaque":"","pix":5000,"cartao":5270},{"id":"triveneto","modo":"pacote","booking":0,"grupo":"","tag":"No centro","hotel":"Hotel Triveneto","onde":"Centro de Gramado","itens":["Café da manhã","No centro, a pé da Rua Coberta","Hotel com estrutura completa"],"imgs":[],"fotos":"Hotel Triveneto Gramado","destaque":"Mais indicada","pix":5290,"cartao":5570},{"id":"bavaria","modo":"pacote","booking":0,"grupo":"","tag":"Mais conforto","hotel":"Bavária Sport Hotel by Intercity","onde":"Gramado","itens":["Café da manhã","Piscina, quadras e área verde","Bandeira Intercity"],"imgs":[],"fotos":"Bavaria Sport Hotel Intercity Gramado","destaque":"","pix":6830,"cartao":7190}];
+  var OPCOES = [{"id":"lanai","modo":"pacote","booking":0,"grupo":"","tab":{"0":{"pix":5000,"cartao":5270}},"tag":"Econômica","hotel":"Pousada Lanai","onde":"Gramado","itens":["Café da manhã","Pousada tranquila, perto do centro","Estacionamento"],"imgs":[],"fotos":"Pousada Lanai Gramado","destaque":"","pix":5000,"cartao":5270},{"id":"triveneto","modo":"pacote","booking":0,"grupo":"","tab":{"0":{"pix":5290,"cartao":5570}},"tag":"No centro","hotel":"Hotel Triveneto","onde":"Centro de Gramado","itens":["Café da manhã","No centro, a pé da Rua Coberta","Hotel com estrutura completa"],"imgs":[],"fotos":"Hotel Triveneto Gramado","destaque":"Mais indicada","pix":5290,"cartao":5570},{"id":"bavaria","modo":"pacote","booking":0,"grupo":"","tab":{"0":{"pix":6830,"cartao":7190}},"tag":"Mais conforto","hotel":"Bavária Sport Hotel by Intercity","onde":"Gramado","itens":["Café da manhã","Piscina, quadras e área verde","Bandeira Intercity"],"imgs":[],"fotos":"Bavaria Sport Hotel Intercity Gramado","destaque":"","pix":6830,"cartao":7190}];
   var JUROS = 0.0199, WHATS = '5511953353347', VALIDADE = new Date('2026-09-23T23:59:59-03:00');
   var MSG = "Olá! Sou a Isabelle e quero reservar a viagem para Gramado de 11 a 14/12/2026.", ROT_PIX = "à vista no Pix, para as duas";
   var GRUPOS = [], MODOS = [];
   var estado = { op: "triveneto", forma: 'cartao', n: 10, grupo: GRUPOS.length ? GRUPOS[0].id : '', modo: MODOS.length ? MODOS[0].id : 'pacote' };
+  var EXTRAS = [];
+  estado.ex = 0;
+  function preco(o){ return (o.tab && o.tab[estado.ex]) || { pix: o.pix, cartao: o.cartao }; }
   function visiveis(){ return OPCOES.filter(function(o){ return (!estado.grupo || o.grupo === estado.grupo) && o.modo === estado.modo; }); }
   function escolherPadrao(){ var v = visiveis(), g = GRUPOS.filter(function(x){ return x.id === estado.grupo; })[0];
     var r = v.filter(function(o){ return g && o.id === g.recomendada; })[0] || v.filter(function(o){ return o.destaque; })[0] || v[0]; if (r) estado.op = r.id; }
   function brl(v, c){ return v.toLocaleString('pt-BR', { minimumFractionDigits: c ? 2 : 0, maximumFractionDigits: c ? 2 : 0 }); }
   function calc(o){
-    if (estado.forma === 'pix') return { total: o.pix, parcela: o.pix, n: 0 };
+    var q = preco(o);
+    if (estado.forma === 'pix') return { total: q.pix, parcela: q.pix, n: 0 };
     var n = estado.n, p, t;
-    if (n === 1) { t = o.cartao; p = t; } else { p = o.cartao * JUROS / (1 - Math.pow(1 + JUROS, -n)); t = p * n; }
+    if (n === 1) { t = q.cartao; p = t; } else { p = q.cartao * JUROS / (1 - Math.pow(1 + JUROS, -n)); t = p * n; }
     return { total: Math.round(t * 100) / 100, parcela: Math.round(p * 100) / 100, n: n };
   }
   var lista = document.getElementById('listaOpcoes');
@@ -253,7 +276,7 @@ h2 em{font-style:normal;color:var(--neon)}
       (o.destaque ? '<span class="selo">' + o.destaque + '</span>' : '') +
       '<div class="linha"><div><div class="t">' + o.tag + '</div><div class="h">' + o.hotel + '</div><div class="o">' + o.onde + '</div>' +
       '<ul>' + o.itens.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul></div>' +
-      '<div class="p"><div class="radio"></div><small>' + (o.booking ? 'Aéreo em 10x de' : '10x no cartão de') + '</small><b>R$ ' + brl(o.cartao * JUROS / (1 - Math.pow(1 + JUROS, -10)), true) + '</b><span>ou R$ ' + brl(o.pix) + ' no Pix</span>' + (o.booking ? '<em>+ R$ ' + brl(o.booking) + ' de hotéis, pagos no Booking</em>' : '') + '</div></div></label>';
+      '<div class="p"><div class="radio"></div><small>' + (o.booking ? 'Aéreo em 10x de' : '10x no cartão de') + '</small><b>R$ ' + brl(preco(o).cartao * JUROS / (1 - Math.pow(1 + JUROS, -10)), true) + '</b><span>ou R$ ' + brl(preco(o).pix) + ' no Pix</span>' + (o.booking ? '<em>+ R$ ' + brl(o.booking) + ' de hotéis, pagos no Booking</em>' : '') + '</div></div></label>';
   }).join('');
     var g = GRUPOS.filter(function(x){ return x.id === estado.grupo; })[0];
     if (g && document.getElementById('grupoDesc')) document.getElementById('grupoDesc').textContent = g.desc || '';
@@ -284,7 +307,7 @@ h2 em{font-style:normal;color:var(--neon)}
     var valor = document.getElementById('valor'), sub = document.getElementById('sub'), eco = document.getElementById('eco'), txtPag;
     if (estado.forma === 'pix') {
       valor.innerHTML = '<i>R$</i>' + brl(r.total); sub.textContent = ROT_PIX;
-      eco.hidden = false; eco.textContent = 'Economia de R$ ' + brl(o.cartao - o.pix); txtPag = 'Pix, R$ ' + brl(r.total);
+      eco.hidden = false; eco.textContent = 'Economia de R$ ' + brl(preco(o).cartao - preco(o).pix); txtPag = 'Pix, R$ ' + brl(r.total);
     } else {
       valor.innerHTML = '<i>' + r.n + 'x R$</i>' + brl(r.parcela, true);
       sub.textContent = (r.n === 1 ? 'à vista no cartão' : 'com juros de 1,99% ao mês') + ' · total R$ ' + brl(r.total, r.n > 1);
@@ -293,6 +316,9 @@ h2 em{font-style:normal;color:var(--neon)}
     if (o.booking) { sub.textContent += ' · aéreo OND, mais R$ ' + brl(o.booking) + ' de hotéis no Booking'; txtPag += ' (aéreo), hotéis no Booking'; }
     document.getElementById('bOpcao').textContent = (o.booking ? 'Aéreo OND · ' : '') + o.tag + ' · ' + o.hotel;
     document.getElementById('bValor').textContent = estado.forma === 'pix' ? 'R$ ' + brl(r.total) + ' no Pix' : r.n + 'x R$ ' + brl(r.parcela, true);
+    precoExtras();
+    var extrasTxt = EXTRAS.filter(function(e, k){ return (estado.ex >> k) & 1; }).map(function(e){ return e.nome; }).join(', ');
+    if (extrasTxt) txtPag += '. Com ' + extrasTxt;
     document.getElementById('cta').href = 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(MSG + ' Opção: ' + o.tag + ' (' + o.hotel + '). Pagamento: ' + txtPag + '.');
   }
   var gal = { op: null, i: 0 };
@@ -316,6 +342,23 @@ h2 em{font-style:normal;color:var(--neon)}
   lista.addEventListener('click', function(e){ if (e.target.closest('a')) return; var el = e.target.closest('.op'); if (!el) return; estado.op = el.dataset.op; render(); });
   document.querySelector('.pag .abas').addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; estado.forma = b.dataset.forma; render(); });
   par.addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; estado.n = +b.dataset.n; render(); });
+  var exBox = document.getElementById('extras');
+  if (exBox) exBox.addEventListener('click', function(e){
+    var l = e.target.closest('.extra'); if (!l) return;
+    var cb = l.querySelector('input'), k = +cb.getAttribute('data-ex');
+    if (e.target !== cb) cb.checked = !cb.checked;
+    estado.ex = cb.checked ? (estado.ex | (1 << k)) : (estado.ex & ~(1 << k));
+    l.classList.toggle('on', cb.checked);
+    renderLista(); render();
+  });
+  function precoExtras(){
+    var o = OPCOES.filter(function(x){ return x.id === estado.op; })[0]; if (!o || !o.tab) return;
+    EXTRAS.forEach(function(e, k){
+      var el = document.getElementById('exv' + k); if (!el) return;
+      var d = o.tab[estado.ex | (1 << k)].pix - o.tab[estado.ex & ~(1 << k)].pix;
+      el.textContent = '+ R$ ' + brl(d);
+    });
+  }
   function contagem(){
     var el = document.getElementById('contagem'), ms = VALIDADE - new Date();
     if (ms <= 0) { el.textContent = 'encerrada, peça uma nova cotação'; return; }
