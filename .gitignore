@@ -3,7 +3,8 @@ Thumbs.db
 *.log
 .wrangler/
 node_modules/
-.claude/
+.claude/*
+!.claude/skills/
 __pycache__/
 graphify-out/
 .idea/
