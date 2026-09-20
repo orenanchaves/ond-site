@@ -46,7 +46,7 @@ Os dados estruturados para o Google já descreviam cada destino como TouristDest
 ## 3. O que foi feito
 
 1. **Cada destino ganhou página própria** em `/viagens/<destino>/`, 25 no total, com migalha, foto, metadados, "o que entra na viagem", quando ir, posts relacionados, outros destinos e dados estruturados. Gerador: `build-destinos.py`. O catálogo passou a linkar para elas.
-2. **Filtros combináveis no catálogo:** ocasião (7 opções), duração (3 faixas) e mês (12), somados à chave Brasil e Mundo. Os dados vieram das próprias fichas, das ocasiões e da página "Quando viajar". Quando nada combina, a página oferece cotação em vez de deixar a lista vazia.
+2. **Filtros combináveis no catálogo:** ocasião (7 opções), duração (3 faixas) e mês (12), somados à chave Brasil e Mundo. Os dados vieram das próprias fichas, das ocasiões e da página "Quando viajar". Quando nada combina, a página oferece cotação em vez de deixar a lista vazia. A barra virou um card só, com rótulo de cada grupo alinhado em coluna, a contagem de resultados junto do título e "Limpar filtros" ao lado dela, em vez de solto na direita.
 3. **Ponte de volta para o blog:** bloco "Leia antes de decidir" no catálogo e na página "Quando viajar", e posts relacionados em cada página de destino.
 4. **Um vocabulário só de categorias:** Destinos, Roteiros, Orçamento e Dicas, no site e no mapeamento vindo do Firma. Saiu "IA & Viagem".
 5. **Topo do blog igual ao do site:** "Monte sua viagem" no lugar de "Teste o app".
