@@ -379,6 +379,24 @@ def card(p, cs, cover, cat, featured=False):
       f'        <div class="post-meta"><span>{date}</span><span class="dot"></span><span>{rmin} min</span></div>\n'
       f'      </div>\n    </a>')
 
+def escolhe_destaque(meta):
+    """Em destaque: o post mais novo enquanto for da semana; depois gira a cada semana entre os perenes."""
+    import datetime
+    def quando(p):
+        v = (p.get('publishDate') or p.get('updatedAt') or '')[:10]
+        try:
+            return datetime.date.fromisoformat(v)
+        except ValueError:
+            return datetime.date(2000, 1, 1)
+    hoje = datetime.date.today()
+    novo = max(meta, key=lambda m: quando(m[0]))
+    if (hoje - quando(novo[0])).days <= 7:
+        return novo
+    pool = [m for m in meta if (m[0].get('tipo') or '') != 'sazonal'] or meta
+    pool = sorted(pool, key=lambda m: m[1])
+    return pool[hoje.isocalendar()[1] % len(pool)]
+
+
 def write_sitemap(meta):
     """Reescreve o sitemap.xml: paginas fixas + os posts reais. Sem post-modelo.html."""
     today = datetime.date.today().isoformat()
@@ -434,8 +452,9 @@ def main():
     i = blog.index('<div class="blog-cats">'); j = blog.index('</div>', i)+len('</div>')
     blog = blog[:i] + NEW_CHIPS + blog[j:]
 
-    feat = card(*meta[0], featured=True)
-    grid = '\n\n    '.join(card(*m) for m in meta[1:])
+    dest = escolhe_destaque(meta)
+    feat = card(*dest, featured=True)
+    grid = '\n\n    '.join(card(*m) for m in meta if m is not dest)
     NEW_CARDS = ('<!-- FEATURED -->\n  <p class="section-label">Em destaque</p>\n  ' + feat +
       '\n\n  <!-- GRID -->\n  <p class="section-label">Últimas histórias</p>\n  <div class="blog-grid" id="grid">\n\n    '
       + grid + '\n\n  </div>\n\n  ')
