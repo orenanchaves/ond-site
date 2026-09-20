@@ -16,10 +16,12 @@ API  = 'https://ond-firma.ond-jarvis.workers.dev/api/blog/posts'
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://ondviajar.com.br'
 
-ANCORA_CAT   = {'Produto':'ia','Economia':'orcamento','Verão Europa':'orcamento','Guia':'dicas','Destino':'roteiros'}
-CAT_LABEL    = {'roteiros':'Roteiros','dicas':'Dicas','orcamento':'Orçamento','ia':'IA & Viagem','destinos':'Destinos'}
-CAT_TAGCLASS = {'roteiros':'tag-pink','dicas':'tag-blue','orcamento':'tag-orange','ia':'tag-green','destinos':'tag-purple'}
-CAT_ORDER    = ['roteiros','dicas','orcamento','ia','destinos']
+ANCORA_CAT   = {'Destino':'destinos','Economia':'orcamento','Verão Europa':'orcamento',
+                'Baixa temporada':'orcamento','Guia':'dicas','Planejamento':'roteiros',
+                'Produto':'roteiros','Dia dos Pais':'destinos','Oktoberfest':'destinos'}
+CAT_LABEL    = {'destinos':'Destinos','roteiros':'Roteiros','orcamento':'Orçamento','dicas':'Dicas'}
+CAT_TAGCLASS = {'destinos':'tag-purple','roteiros':'tag-pink','orcamento':'tag-orange','dicas':'tag-blue'}
+CAT_ORDER    = ['destinos','roteiros','orcamento','dicas']
 MESES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
 
 # Capas trocadas manualmente por imagens mais emblemáticas do destino (a da API não era).

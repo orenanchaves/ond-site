@@ -27,7 +27,7 @@ def limpa(t):
 
 def fichas(cat):
     fora = []
-    for m in re.finditer(r'<article class="dc" id="([^"]+)">(.*?)</article>', cat, re.S):
+    for m in re.finditer(r'<article class="dc" id="([^"]+)"[^>]*>(.*?)</article>', cat, re.S):
         slug, corpo = m.group(1), m.group(2)
         lis = [limpa(x) for x in re.findall(r'<li>.*?<span>(.*?)</span></li>', corpo, re.S)]
         hl = re.search(r'<p class="dc-hl2"><b>Destaques:</b>(.*?)</p>', corpo, re.S)

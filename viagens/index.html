@@ -436,6 +436,21 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <script>try{if(localStorage.getItem('ond_theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
 <style id="a11y-base">:root{color-scheme:dark}[data-theme="light"]{color-scheme:light}html{scroll-padding-top:140px}@media(max-width:700px){html{scroll-padding-top:124px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.dc.chegou{animation:none!important}.vt-grid2 .dc:hover .dc-foto img,.vo-c:hover .vo-img img{transform:none!important}}a,button,summary{touch-action:manipulation}.skip{position:absolute;left:12px;top:-60px;z-index:100000;background:var(--purple,#7f11f4);color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;transition:top .2s}.skip:focus{top:12px}.vh-dot{position:relative}.vh-dot::before{content:"";position:absolute;inset:-9px -4px}.vh-pp{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.25);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;margin-left:6px;padding:0}.vh-pp .ico{width:14px;height:14px}.vh-pp:focus-visible,.vh-dot:focus-visible{outline:2px solid #fff;outline-offset:3px}.cot-f input:focus-visible,.cot-f select:focus-visible{box-shadow:0 0 0 3px color-mix(in srgb,var(--purple) 45%,transparent)}</style>
 <style id="aprimora-viagens">#ocasioes .vt-head{grid-template-columns:1fr;gap:14px}#ocasioes .vt-head p{max-width:560px}</style>
+<style id="vg-filtros">
+.vg-filtros{display:flex;flex-direction:column;gap:12px;padding-top:26px;padding-bottom:6px}
+.vgf-grupo{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.vgf-rot{font-size:.8rem;font-weight:700;color:var(--muted);min-width:74px}
+.vg-filtros button{font:inherit;font-size:.88rem;font-weight:600;color:var(--text);background:transparent;border:1px solid var(--border);border-radius:50px;padding:7px 14px;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.vg-filtros button:hover{border-color:var(--purple)}
+.vg-filtros button[aria-pressed="true"]{background:var(--purple);border-color:var(--purple);color:#fff}
+.vg-filtros select{font:inherit;font-size:.88rem;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:50px;padding:7px 14px}
+.vgf-limpar{margin-left:auto}
+.vgf-conta{font-size:.88rem;color:var(--muted);margin:0}.vgf-conta a{color:var(--purple-light)}
+.vg-filtros button:focus-visible,.vg-filtros select:focus-visible{outline:3px solid var(--purple-light);outline-offset:2px}
+.dc[hidden]{display:none!important}
+@media(max-width:700px){.vgf-rot{min-width:100%}.vgf-limpar{margin-left:0}}
+</style>
+<style id="vg-blog">.vg-blog{padding-top:44px;padding-bottom:10px}.vg-blog-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}.vg-blog h2{font-size:clamp(1.4rem,2.6vw,2rem);letter-spacing:-.02em}.vg-blog-todos{color:var(--text);font-weight:700;font-size:.9rem;text-decoration:none;border-bottom:1px solid var(--border)}.vg-blog-l{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:18px 0 0;padding:0}.vg-blog-l a{display:block;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px 18px;color:var(--text);text-decoration:none;font-weight:700;line-height:1.35;transition:border-color .2s}.vg-blog-l a:hover{border-color:var(--purple)}</style>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -635,11 +650,41 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 </section></div>
 
 <div class="vg-cat">
+  <div class="vt-in vg-filtros">
+    <div class="vgf-grupo" role="group" aria-label="Filtrar por ocasião">
+      <span class="vgf-rot">Ocasião</span>
+      <button type="button" data-f="ocas" data-v="lua-de-mel">Lua de mel</button>
+      <button type="button" data-f="ocas" data-v="familia">Família</button>
+      <button type="button" data-f="ocas" data-v="amigos">Amigos</button>
+      <button type="button" data-f="ocas" data-v="natureza">Natureza</button>
+      <button type="button" data-f="ocas" data-v="neve">Neve e frio</button>
+      <button type="button" data-f="ocas" data-v="primeira">Primeira internacional</button>
+      <button type="button" data-f="ocas" data-v="cidade">Cidade e cultura</button>
+    </div>
+    <div class="vgf-grupo" role="group" aria-label="Filtrar por duração">
+      <span class="vgf-rot">Duração</span>
+      <button type="button" data-f="dur" data-v="curta">Até 4 dias</button>
+      <button type="button" data-f="dur" data-v="media">5 a 6 dias</button>
+      <button type="button" data-f="dur" data-v="longa">7 dias ou mais</button>
+    </div>
+    <div class="vgf-grupo">
+      <label class="vgf-rot" for="vgf-mes">Quando</label>
+      <select id="vgf-mes" data-f="mes">
+        <option value="">Qualquer mês</option>
+        <option value="jan">Janeiro</option><option value="fev">Fevereiro</option><option value="mar">Março</option>
+        <option value="abr">Abril</option><option value="mai">Maio</option><option value="jun">Junho</option>
+        <option value="jul">Julho</option><option value="ago">Agosto</option><option value="set">Setembro</option>
+        <option value="out">Outubro</option><option value="nov">Novembro</option><option value="dez">Dezembro</option>
+      </select>
+      <button type="button" class="vgf-limpar" hidden>Limpar filtros</button>
+    </div>
+    <p class="vgf-conta" aria-live="polite"></p>
+  </div>
   <div class="vg-bar"><div class="vg-sw vg-sw-fixo" aria-hidden="true"><button type="button" data-alvo="nacionais" tabindex="-1" class="on">Brasil <span>12</span></button><button type="button" data-alvo="internacionais" tabindex="-1" class="">Mundo <span>13</span></button></div></div>
   <section class="vg" id="nacionais" role="tabpanel" aria-label="Viagens pelo Brasil">
     <div class="vt-in vt-head"><h2>Viaje pelo Brasil</h2><div class="vg-hd-r"><p>Praia, natureza, serra e cidade. Escolha o destino e o OND cuida das passagens, da hospedagem e dos passeios.</p><div class="vg-sw" role="tablist" aria-label="Viagens no Brasil ou no mundo"><button type="button" role="tab" data-alvo="nacionais" aria-controls="nacionais" aria-selected="true" class="on">Brasil <span>12</span></button><button type="button" role="tab" data-alvo="internacionais" aria-controls="internacionais" aria-selected="false" tabindex="-1" class="">Mundo <span>13</span></button></div></div></div>
     <div class="vt-grid2">
-      <article class="dc" id="rio-de-janeiro">
+      <article class="dc" id="rio-de-janeiro" data-ocas="amigos" data-meses="abr ago jun mai out set" data-dur="media">
         <div class="dc-txt">
           <h3><a href="/viagens/rio-de-janeiro/">Viaje para o Rio de Janeiro</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -652,7 +697,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/rio-de-janeiro.webp" type="image/webp"><img src="/assets/viagens/rio-de-janeiro.jpg" alt="Cristo Redentor com a baía de Guanabara e o Pão de Açúcar ao fundo" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="fernando-de-noronha">
+<article class="dc" id="fernando-de-noronha" data-ocas="lua-de-mel" data-meses="ago dez jan nov out set" data-dur="longa">
         <div class="dc-txt">
           <h3><a href="/viagens/fernando-de-noronha/">Viaje para Fernando de Noronha</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -665,7 +710,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/fernando-de-noronha.webp" type="image/webp"><img src="/assets/viagens/fernando-de-noronha.jpg" alt="Morro Dois Irmãos e o mar azul da Baía dos Porcos em Fernando de Noronha" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="salvador">
+<article class="dc" id="salvador" data-ocas="cidade familia" data-meses="dez fev jan mar nov out set" data-dur="media">
         <div class="dc-txt">
           <h3><a href="/viagens/salvador/">Viaje para Salvador</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -678,7 +723,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/salvador.webp" type="image/webp"><img src="/assets/viagens/salvador.jpg" alt="Vista aérea do centro histórico de Salvador" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="porto-de-galinhas">
+<article class="dc" id="porto-de-galinhas" data-ocas="familia" data-meses="dez fev jan mar nov out set" data-dur="media">
         <div class="dc-txt">
           <h3><a href="/viagens/porto-de-galinhas/">Viaje para Porto de Galinhas</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -691,7 +736,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/porto-de-galinhas.webp" type="image/webp"><img src="/assets/viagens/porto-de-galinhas.jpg" alt="Piscinas naturais e jangadas em Porto de Galinhas" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="maceio">
+<article class="dc" id="maceio" data-ocas="familia" data-meses="dez fev jan mar nov out set" data-dur="media">
         <div class="dc-txt">
           <h3><a href="/viagens/maceio/">Viaje para Maceió</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -704,7 +749,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/maceio.webp" type="image/webp"><img src="/assets/viagens/maceio.jpg" alt="Coqueiros e mar verde na praia de Ipioca em Maceió" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="natal">
+<article class="dc" id="natal" data-ocas="amigos familia" data-meses="dez fev jan nov out set" data-dur="media">
         <div class="dc-txt">
           <h3><a href="/viagens/natal/">Viaje para Natal</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -717,7 +762,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/natal.webp" type="image/webp"><img src="/assets/viagens/natal.jpg" alt="Ponte Newton Navarro e a orla de Natal" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="jericoacoara">
+<article class="dc" id="jericoacoara" data-ocas="amigos" data-meses="ago dez jan jul jun nov out set" data-dur="media">
         <div class="dc-txt">
           <h3><a href="/viagens/jericoacoara/">Viaje para Jericoacoara</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -730,7 +775,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/jericoacoara.webp" type="image/webp"><img src="/assets/viagens/jericoacoara.jpg" alt="Lagoa e dunas em Jijoca de Jericoacoara" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="lencois-maranhenses">
+<article class="dc" id="lencois-maranhenses" data-ocas="natureza" data-meses="ago jul jun set" data-dur="curta">
         <div class="dc-txt">
           <h3><a href="/viagens/lencois-maranhenses/">Viaje para os Lençóis Maranhenses</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -743,7 +788,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/lencois-maranhenses.webp" type="image/webp"><img src="/assets/viagens/lencois-maranhenses.jpg" alt="Dunas brancas e lagoas azuis nos Lençóis Maranhenses" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="foz-do-iguacu">
+<article class="dc" id="foz-do-iguacu" data-ocas="familia" data-meses="dez fev jan mar" data-dur="curta">
         <div class="dc-txt">
           <h3><a href="/viagens/foz-do-iguacu/">Viaje para Foz do Iguaçu</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -756,7 +801,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/foz-do-iguacu.webp" type="image/webp"><img src="/assets/viagens/foz-do-iguacu.jpg" alt="Vista aérea das Cataratas do Iguaçu" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="bonito">
+<article class="dc" id="bonito" data-ocas="natureza" data-meses="" data-dur="media">
         <div class="dc-txt">
           <h3><a href="/viagens/bonito/">Viaje para Bonito</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -769,7 +814,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/bonito.webp" type="image/webp"><img src="/assets/viagens/bonito.jpg" alt="Abismo Anhumas, caverna com lago cristalino em Bonito" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="gramado">
+<article class="dc" id="gramado" data-ocas="familia neve" data-meses="ago dez jan jul jun nov" data-dur="curta">
         <div class="dc-txt">
           <h3><a href="/viagens/gramado/">Viaje para Gramado</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -782,7 +827,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/gramado.webp" type="image/webp"><img src="/assets/viagens/gramado.jpg" alt="Rua de Gramado com árvores vermelhas e arquitetura em estilo alpino" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="florianopolis">
+<article class="dc" id="florianopolis" data-ocas="amigos" data-meses="abr dez fev jan mai mar" data-dur="media">
         <div class="dc-txt">
           <h3><a href="/viagens/florianopolis/">Viaje para Florianópolis</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -800,7 +845,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <section class="vg" id="internacionais" role="tabpanel" aria-label="Viagens pelo mundo" hidden>
     <div class="vt-in vt-head"><h2>Viaje pelo mundo</h2><div class="vg-hd-r"><p>Da América do Sul ao Japão, com o documento que cada destino pede. Escolha e deixe o resto com o OND.</p><div class="vg-sw" role="tablist" aria-label="Viagens no Brasil ou no mundo"><button type="button" role="tab" data-alvo="nacionais" aria-controls="nacionais" aria-selected="false" tabindex="-1" class="">Brasil <span>12</span></button><button type="button" role="tab" data-alvo="internacionais" aria-controls="internacionais" aria-selected="true" class="on">Mundo <span>13</span></button></div></div></div>
     <div class="vt-grid2">
-      <article class="dc" id="buenos-aires">
+      <article class="dc" id="buenos-aires" data-ocas="amigos cidade primeira" data-meses="abr mai mar nov out set" data-dur="media">
         <div class="dc-txt">
           <h3><a href="/viagens/buenos-aires/">Viaje para Buenos Aires</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -813,7 +858,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/buenos-aires.webp" type="image/webp"><img src="/assets/viagens/buenos-aires.jpg" alt="Casarões coloridos do Caminito em La Boca, Buenos Aires" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="bariloche">
+<article class="dc" id="bariloche" data-ocas="neve" data-meses="ago dez fev jan jul mar set" data-dur="longa">
         <div class="dc-txt">
           <h3><a href="/viagens/bariloche/">Viaje para Bariloche</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -826,7 +871,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/bariloche.webp" type="image/webp"><img src="/assets/viagens/bariloche.jpg" alt="Catedral de Bariloche com o Lago Nahuel Huapi" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="santiago">
+<article class="dc" id="santiago" data-ocas="cidade neve primeira" data-meses="abr ago jul jun mai mar nov out set" data-dur="media">
         <div class="dc-txt">
           <h3><a href="/viagens/santiago/">Viaje para Santiago</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -839,7 +884,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/santiago.webp" type="image/webp"><img src="/assets/viagens/santiago.jpg" alt="Palácio de La Moneda em Santiago do Chile" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="patagonia">
+<article class="dc" id="patagonia" data-ocas="natureza" data-meses="abr dez fev jan mar nov out" data-dur="longa">
         <div class="dc-txt">
           <h3><a href="/viagens/patagonia/">Viaje para a Patagônia</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -852,7 +897,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/patagonia.webp" type="image/webp"><img src="/assets/viagens/patagonia.jpg" alt="Montanhas de Torres del Paine com neve na Patagônia chilena" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="machu-picchu">
+<article class="dc" id="machu-picchu" data-ocas="natureza" data-meses="abr ago jul jun mai out set" data-dur="longa">
         <div class="dc-txt">
           <h3><a href="/viagens/machu-picchu/">Viaje para Machu Picchu</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -865,7 +910,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/machu-picchu.webp" type="image/webp"><img src="/assets/viagens/machu-picchu.jpg" alt="Cidadela inca de Machu Picchu com a montanha Huayna Picchu" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="cancun">
+<article class="dc" id="cancun" data-ocas="lua-de-mel primeira" data-meses="abr dez fev jan mar" data-dur="longa">
         <div class="dc-txt">
           <h3><a href="/viagens/cancun/">Viaje para Cancún</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -878,7 +923,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/cancun.webp" type="image/webp"><img src="/assets/viagens/cancun.jpg" alt="Orla de Cancún com mar azul e área verde" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="orlando">
+<article class="dc" id="orlando" data-ocas="familia" data-meses="abr fev mai mar nov out set" data-dur="longa">
         <div class="dc-txt">
           <h3><a href="/viagens/orlando/">Viaje para Orlando</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -891,7 +936,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/orlando.webp" type="image/webp"><img src="/assets/viagens/orlando.jpg" alt="Castelo da Cinderela no Magic Kingdom em Orlando" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="nova-york">
+<article class="dc" id="nova-york" data-ocas="cidade" data-meses="abr dez jun mai nov out set" data-dur="longa">
         <div class="dc-txt">
           <h3><a href="/viagens/nova-york/">Viaje para Nova York</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -904,7 +949,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/nova-york.webp" type="image/webp"><img src="/assets/viagens/nova-york.jpg" alt="Times Square iluminada em Nova York" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="lisboa">
+<article class="dc" id="lisboa" data-ocas="cidade primeira" data-meses="abr jun mai out set" data-dur="media">
         <div class="dc-txt">
           <h3><a href="/viagens/lisboa/">Viaje para Lisboa</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -917,7 +962,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/lisboa.webp" type="image/webp"><img src="/assets/viagens/lisboa.jpg" alt="Elétrico amarelo em rua histórica de Lisboa" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="paris">
+<article class="dc" id="paris" data-ocas="cidade lua-de-mel" data-meses="abr jun mai out set" data-dur="media">
         <div class="dc-txt">
           <h3><a href="/viagens/paris/">Viaje para Paris</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -930,7 +975,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/paris.webp" type="image/webp"><img src="/assets/viagens/paris.jpg" alt="Torre Eiffel em Paris num dia de céu azul" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="roma">
+<article class="dc" id="roma" data-ocas="cidade" data-meses="abr jun mai out set" data-dur="media">
         <div class="dc-txt">
           <h3><a href="/viagens/roma/">Viaje para Roma</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -943,7 +988,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/roma.webp" type="image/webp"><img src="/assets/viagens/roma.jpg" alt="Coliseu de Roma" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="japao">
+<article class="dc" id="japao" data-ocas="cidade" data-meses="abr mar nov out" data-dur="longa">
         <div class="dc-txt">
           <h3><a href="/viagens/japao/">Viaje para o Japão</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -956,7 +1001,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
         </div>
         <div class="dc-foto"><picture><source srcset="/assets/viagens/japao.webp" type="image/webp"><img src="/assets/viagens/japao.jpg" alt="Rua tradicional de Kyoto com pagode ao fundo" width="800" height="500" loading="lazy"></picture></div>
       </article>
-<article class="dc" id="maldivas">
+<article class="dc" id="maldivas" data-ocas="lua-de-mel" data-meses="abr dez fev jan mar nov" data-dur="longa">
         <div class="dc-txt">
           <h3><a href="/viagens/maldivas/">Viaje para as Maldivas</a></h3>
           <div class="dc-sob">Preço sob consulta</div>
@@ -1018,6 +1063,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       <ul class="tr-chips"><li>Passagens</li><li>Hospedagem</li><li>Passeios</li><li>Seguro e transfer</li></ul>
     </div>
     <ol class="vt-in tr-rail"><li class="tr-step"><span class="tr-dot"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><small>Passo 1</small><h3>Escolha o destino</h3><p>No site, no app ou direto no WhatsApp.</p></li><li class="tr-step"><span class="tr-dot"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><small>Passo 2</small><h3>Cote com uma pessoa</h3><p>A gente monta a proposta com as suas datas e a cidade de saída.</p></li><li class="tr-step"><span class="tr-dot"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span><small>Passo 3</small><h3>Feche com o OND</h3><p>Você recebe o localizador do voo e a confirmação da hospedagem.</p></li><li class="tr-step"><span class="tr-dot"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg></span><small>Passo 4</small><h3>Viaje com suporte</h3><p>Deu imprevisto, você fala com uma pessoa do OND.</p></li></ol>
+  </section>
+
+  <section class="vt-in vg-blog">
+    <div class="vg-blog-h"><h2>Leia antes de decidir</h2><a class="vg-blog-todos" href="/blog.html">Ver o blog</a></div>
+    <ul class="vg-blog-l"><li><a href="/blog/quanto-custa-europa/">Quanto custa viajar para a Europa</a></li><li><a href="/blog/quanto-custa-maceio/">Quanto custa viajar para Maceió</a></li><li><a href="/blog/quanto-custa-orlando/">Quanto custa viajar para Orlando</a></li><li><a href="/blog/primeira-viagem-internacional/">Primeira viagem internacional: por onde começar</a></li></ul>
   </section>
 
   <section class="vw">
@@ -1106,6 +1156,49 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <a class="wa-float wa-btn" href="https://wa.me/5511943615412?text=Ol%C3%A1%2C%20OND%21%20Quero%20comprar%20uma%20viagem.%20Vi%20o%20cat%C3%A1logo%20no%20site%3A%20https%3A//ondviajar.com.br/viagens/" target="_blank" rel="noopener" data-wa="flutuante" aria-label="Falar com o OND pelo WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.47A11.3 11.3 0 0 0 12.04.7C5.78.7.69 5.8.69 12.05c0 2 .52 3.95 1.52 5.67L.6 23.3l5.72-1.5a11.33 11.33 0 0 0 5.72 1.46h.01c6.25 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.02z"/></svg><span>Falar com o OND</span></a>
 
 <script src="/assets/a11y.js" defer></script>
+<script>
+(function(){
+  var cx=document.querySelector('.vg-filtros'); if(!cx) return;
+  var conta=cx.querySelector('.vgf-conta'), limpar=cx.querySelector('.vgf-limpar'), sel=cx.querySelector('#vgf-mes');
+  var estado={ocas:new Set(),dur:new Set(),mes:''};
+  function cabe(el){
+    if(estado.mes && (el.dataset.meses||'').split(' ').indexOf(estado.mes)<0) return false;
+    for(var v of estado.ocas) if((el.dataset.ocas||'').split(' ').indexOf(v)<0) return false;
+    if(estado.dur.size && !estado.dur.has(el.dataset.dur)) return false;
+    return true;
+  }
+  function aplica(){
+    var visivel=0, ocultoOutra=0, aba=document.getElementById('nacionais').hidden?'internacionais':'nacionais';
+    [].forEach.call(document.querySelectorAll('.vg-cat article.dc'),function(el){
+      var ok=cabe(el); el.hidden=!ok;
+      if(ok){ el.closest('section').id===aba ? visivel++ : ocultoOutra++ }
+    });
+    var filtrando=estado.ocas.size||estado.dur.size||estado.mes;
+    limpar.hidden=!filtrando;
+    if(!filtrando){ conta.textContent=''; return }
+    if(!visivel && !ocultoOutra){
+      conta.innerHTML = 'Nenhuma viagem do catálogo combina com esses filtros. Tire um filtro ou <a href="#cotar">peça uma cotação pro OND</a>.';
+      return;
+    }
+    conta.textContent = visivel + (visivel===1?' viagem':' viagens') + ' nesta lista'
+      + (ocultoOutra ? ', e mais ' + ocultoOutra + ' na outra aba.' : '.');
+  }
+  cx.querySelectorAll('button[data-f]').forEach(function(b){
+    b.setAttribute('aria-pressed','false');
+    b.addEventListener('click',function(){
+      var on=b.getAttribute('aria-pressed')==='true'; b.setAttribute('aria-pressed',!on);
+      estado[b.dataset.f][on?'delete':'add'](b.dataset.v); aplica();
+    });
+  });
+  sel.addEventListener('change',function(){ estado.mes=sel.value; aplica() });
+  limpar.addEventListener('click',function(){
+    estado={ocas:new Set(),dur:new Set(),mes:''}; sel.value='';
+    cx.querySelectorAll('button[data-f]').forEach(function(b){ b.setAttribute('aria-pressed','false') });
+    aplica();
+  });
+  document.querySelectorAll('.vg-sw button').forEach(function(b){ b.addEventListener('click',function(){ setTimeout(aplica,50) }) });
+})();
+</script>
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">

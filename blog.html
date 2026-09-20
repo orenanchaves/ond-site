@@ -236,7 +236,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <li><a href="agencias.html" class="nav-agencias">Para Agências</a></li>
   </ul></nav>
   <div class="header-actions"><button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar tema"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg></button>
-  <a href="index.html#app" onclick="openApp(event)" class="header-cta">Teste o app →</a>
+  <a href="https://web.ondviajar.com.br/ond-vai" target="_blank" rel="noopener" class="header-cta">Monte sua viagem</a>
   <button class="header-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button></div>
 </header>
 
@@ -246,7 +246,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <a href="blog.html" onclick="closeMenu()">Blog</a>
   <a href="#" onclick="openContact(event);closeMenu()">Contato</a>
   <a href="agencias.html" onclick="closeMenu()" style="color:#0066ff;font-weight:600">Para Agências</a>
-  <a href="index.html#app" onclick="openApp(event);closeMenu()" style="color:var(--purple);font-weight:700">Teste o app →</a>
+  <a href="https://web.ondviajar.com.br/ond-vai" target="_blank" rel="noopener" onclick="closeMenu()" style="color:var(--purple);font-weight:700">Monte sua viagem</a>
 </nav>
 
 <!-- HERO -->
@@ -264,20 +264,20 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <!-- CATEGORIAS -->
 <div class="blog-cats">
   <button class="cat-chip active" onclick="filterCat(this,'todos')">Todos</button>
+  <button class="cat-chip" onclick="filterCat(this,'destinos')">Destinos</button>
   <button class="cat-chip" onclick="filterCat(this,'roteiros')">Roteiros</button>
-  <button class="cat-chip" onclick="filterCat(this,'dicas')">Dicas</button>
   <button class="cat-chip" onclick="filterCat(this,'orcamento')">Orçamento</button>
-  <button class="cat-chip" onclick="filterCat(this,'ia')">IA &amp; Viagem</button>
+  <button class="cat-chip" onclick="filterCat(this,'dicas')">Dicas</button>
 </div>
 
 <div class="blog-wrap">
 
   <!-- FEATURED -->
   <p class="section-label">Em destaque</p>
-  <a href="/blog/oktoberfest-guia/" class="featured" data-cat="dicas">
+  <a href="/blog/oktoberfest-guia/" class="featured" data-cat="destinos">
     <div class="featured-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Oktoberfest%202012.jpg?width=1300" alt="tendas e público na Oktoberfest" loading="lazy"></div>
     <div class="featured-body">
-      <span class="post-tag tag-blue">Dicas</span>
+      <span class="post-tag tag-purple">Destinos</span>
       <h2 class="featured-title">Oktoberfest 2026: guia de Munique e Blumenau (roteiro e dicas)</h2>
       <p class="featured-excerpt">A Oktoberfest é muito mais que cerveja: é cultura, música, comida típica e uma atmosfera contagiante. E você não precisa ir à Alemanha para viver isso,…</p>
       <div class="post-meta"><span>Ondino</span><span class="dot"></span><span>10 jul 2026</span><span class="dot"></span><span>3 min de leitura</span></div>
@@ -288,10 +288,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   <p class="section-label">Últimas histórias</p>
   <div class="blog-grid" id="grid">
 
-    <a href="/blog/como-montar-roteiro/" class="post-card" data-cat="ia">
+    <a href="/blog/como-montar-roteiro/" class="post-card" data-cat="roteiros">
       <div class="post-thumb"><picture><source srcset="/assets/blog/como-montar-roteiro.webp" type="image/webp"><img src="/assets/blog/como-montar-roteiro.jpg" alt="Cúpulas brancas e azuis de Santorini, na Grécia" width="800" height="534" loading="lazy"></picture></div>
       <div class="post-body">
-        <span class="post-tag tag-green">IA &amp; Viagem</span>
+        <span class="post-tag tag-pink">Roteiros</span>
         <h3 class="post-title">Como montar um roteiro de viagem: passo a passo (2026)</h3>
         <p class="post-excerpt">Planejar viagem não precisa virar um trabalho de 30 abas abertas. Um bom roteiro cabe numa página e evita que você perca tempo (e dinheiro) na viagem.…</p>
         <div class="post-meta"><span>10 jul 2026</span><span class="dot"></span><span>3 min</span></div>
@@ -368,100 +368,100 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       </div>
     </a>
 
-    <a href="/blog/roteiro-buenos-aires/" class="post-card" data-cat="roteiros">
+    <a href="/blog/roteiro-buenos-aires/" class="post-card" data-cat="destinos">
       <div class="post-thumb"><picture><source srcset="/assets/blog/roteiro-buenos-aires.webp" type="image/webp"><img src="/assets/blog/roteiro-buenos-aires.jpg" alt="Fachadas coloridas do Caminito, no bairro da Boca, em Buenos Aires" width="800" height="533" loading="lazy"></picture></div>
       <div class="post-body">
-        <span class="post-tag tag-pink">Roteiros</span>
+        <span class="post-tag tag-purple">Destinos</span>
         <h3 class="post-title">Roteiro de Buenos Aires em 4 dias (com quanto levar)</h3>
         <p class="post-excerpt">Buenos Aires é o destino internacional favorito de quem viaja pela primeira vez para fora: perto, barato e cheio de charme europeu. Veja um roteiro pronto…</p>
         <div class="post-meta"><span>10 jul 2026</span><span class="dot"></span><span>3 min</span></div>
       </div>
     </a>
 
-    <a href="/blog/roteiro-lisboa/" class="post-card" data-cat="roteiros">
+    <a href="/blog/roteiro-lisboa/" class="post-card" data-cat="destinos">
       <div class="post-thumb"><picture><source srcset="/assets/blog/roteiro-lisboa.webp" type="image/webp"><img src="/assets/blog/roteiro-lisboa.jpg" alt="O icônico elétrico amarelo 28 numa rua histórica de Lisboa" width="800" height="532" loading="lazy"></picture></div>
       <div class="post-body">
-        <span class="post-tag tag-pink">Roteiros</span>
+        <span class="post-tag tag-purple">Destinos</span>
         <h3 class="post-title">Roteiro de Lisboa em 4 dias: o que fazer, onde ficar e quanto levar</h3>
         <p class="post-excerpt">Lisboa é a porta de entrada favorita dos brasileiros na Europa: perto, sem barreira de idioma e cheia de charme. Veja um roteiro pronto de 4 dias, onde…</p>
         <div class="post-meta"><span>10 jul 2026</span><span class="dot"></span><span>3 min</span></div>
       </div>
     </a>
 
-    <a href="/blog/dia-dos-pais-viagem/" class="post-card" data-cat="dicas">
+    <a href="/blog/dia-dos-pais-viagem/" class="post-card" data-cat="destinos">
       <div class="post-thumb"><picture><source srcset="/assets/blog/dia-dos-pais-viagem.webp" type="image/webp"><img src="/assets/blog/dia-dos-pais-viagem.jpg" alt="Cristo Redentor no Rio de Janeiro, ideia de viagem para o Dia dos Pais" width="800" height="1200" loading="lazy"></picture></div>
       <div class="post-body">
-        <span class="post-tag tag-blue">Dicas</span>
+        <span class="post-tag tag-purple">Destinos</span>
         <h3 class="post-title">Dia dos Pais: 7 viagens pai e filho para presentear (2026)</h3>
         <p class="post-excerpt">Todo ano é a mesma dúvida: gravata, perfume ou mais uma caneca. Só que o presente que o seu pai vai lembrar não fica na gaveta, ele vira história pra…</p>
         <div class="post-meta"><span>10 jul 2026</span><span class="dot"></span><span>4 min</span></div>
       </div>
     </a>
 
-    <a href="/blog/baixa-temporada-agosto/" class="post-card" data-cat="dicas">
+    <a href="/blog/baixa-temporada-agosto/" class="post-card" data-cat="orcamento">
       <div class="post-thumb"><picture><source srcset="/assets/blog/baixa-temporada-agosto.webp" type="image/webp"><img src="/assets/blog/baixa-temporada-agosto.jpg" alt="Praia paradisíaca de Fernando de Noronha na baixa temporada" width="800" height="600" loading="lazy"></picture></div>
       <div class="post-body">
-        <span class="post-tag tag-blue">Dicas</span>
+        <span class="post-tag tag-orange">Orçamento</span>
         <h3 class="post-title">Baixa temporada: por que agosto é a época mais barata de viajar</h3>
         <p class="post-excerpt">Existe um mês do ano em que viajar custa bem menos, e quase ninguém aproveita: agosto. Enquanto todo mundo já gastou as férias em julho, quem viaja agora…</p>
         <div class="post-meta"><span>10 jul 2026</span><span class="dot"></span><span>4 min</span></div>
       </div>
     </a>
 
-    <a href="/blog/destinos-sem-aeroporto/" class="post-card" data-cat="dicas">
+    <a href="/blog/destinos-sem-aeroporto/" class="post-card" data-cat="roteiros">
       <div class="post-thumb"><picture><source srcset="/assets/blog/destinos-sem-aeroporto.webp" type="image/webp"><img src="/assets/blog/destinos-sem-aeroporto.jpg" alt="praia de Boa Viagem em Recife, aeroporto de entrada para Porto de Galinhas" width="800" height="536" loading="lazy"></picture></div>
       <div class="post-body">
-        <span class="post-tag tag-blue">Dicas</span>
+        <span class="post-tag tag-pink">Roteiros</span>
         <h3 class="post-title">Destinos que não têm aeroporto: por onde você chega (2026)</h3>
         <p class="post-excerpt">Você compra &quot;Porto de Galinhas&quot; e a passagem diz Recife. Compra &quot;Trancoso&quot; e o voo pousa em Porto Seguro, do outro lado do rio. Isso não é erro: é assim…</p>
         <div class="post-meta"><span>10 jul 2026</span><span class="dot"></span><span>8 min</span></div>
       </div>
     </a>
 
-    <a href="/blog/pacote-gramado/" class="post-card" data-cat="roteiros">
+    <a href="/blog/pacote-gramado/" class="post-card" data-cat="destinos">
       <div class="post-thumb"><picture><source srcset="/assets/blog/pacote-gramado.webp" type="image/webp"><img src="/assets/blog/pacote-gramado.jpg" alt="rua de Gramado com arquitetura em estilo europeu na Serra Gaúcha" width="800" height="415" loading="lazy"></picture></div>
       <div class="post-body">
-        <span class="post-tag tag-pink">Roteiros</span>
+        <span class="post-tag tag-purple">Destinos</span>
         <h3 class="post-title">Pacote para Gramado: quanto custa, quando ir e o que fazer (2026)</h3>
         <p class="post-excerpt">Gramado é o destino de serra mais procurado do Brasil. Tem clima europeu, chocolate, fondue, parques e, no fim do ano, o Natal Luz. Neste guia você vê…</p>
         <div class="post-meta"><span>10 jul 2026</span><span class="dot"></span><span>3 min</span></div>
       </div>
     </a>
 
-    <a href="/blog/porto-de-galinhas/" class="post-card" data-cat="roteiros">
+    <a href="/blog/porto-de-galinhas/" class="post-card" data-cat="destinos">
       <div class="post-thumb"><picture><source srcset="/assets/blog/porto-de-galinhas.webp" type="image/webp"><img src="/assets/blog/porto-de-galinhas.jpg" alt="praia de águas claras no litoral de Pernambuco" width="800" height="600" loading="lazy"></picture></div>
       <div class="post-body">
-        <span class="post-tag tag-pink">Roteiros</span>
+        <span class="post-tag tag-purple">Destinos</span>
         <h3 class="post-title">Porto de Galinhas: quanto custa, melhor época e o que fazer (2026)</h3>
         <p class="post-excerpt">Porto de Galinhas, em Ipojuca (PE), é uma das praias mais famosas do Brasil. Tem piscinas naturais com peixinhos, uma vila charmosa e resorts para todos…</p>
         <div class="post-meta"><span>10 jul 2026</span><span class="dot"></span><span>3 min</span></div>
       </div>
     </a>
 
-    <a href="/blog/quanto-custa-fernando-de-noronha/" class="post-card" data-cat="roteiros">
+    <a href="/blog/quanto-custa-fernando-de-noronha/" class="post-card" data-cat="destinos">
       <div class="post-thumb"><picture><source srcset="/assets/blog/quanto-custa-fernando-de-noronha.webp" type="image/webp"><img src="/assets/blog/quanto-custa-fernando-de-noronha.jpg" alt="Morro Dois Irmãos e mar azul em Fernando de Noronha" width="800" height="600" loading="lazy"></picture></div>
       <div class="post-body">
-        <span class="post-tag tag-pink">Roteiros</span>
+        <span class="post-tag tag-purple">Destinos</span>
         <h3 class="post-title">Quanto custa viajar para Fernando de Noronha: taxas, passagem e roteiro (2026)</h3>
         <p class="post-excerpt">Noronha é aquele destino que entra na lista de sonhos: Baía do Sancho, golfinhos rotadores e mar de piscina. É caro, mas com planejamento dá para ir sem…</p>
         <div class="post-meta"><span>10 jul 2026</span><span class="dot"></span><span>3 min</span></div>
       </div>
     </a>
 
-    <a href="/blog/pacote-portugal/" class="post-card" data-cat="roteiros">
+    <a href="/blog/pacote-portugal/" class="post-card" data-cat="destinos">
       <div class="post-thumb"><picture><source srcset="/assets/blog/pacote-portugal.webp" type="image/webp"><img src="/assets/blog/pacote-portugal.jpg" alt="vista de Lisboa com telhados e o rio Tejo" width="800" height="450" loading="lazy"></picture></div>
       <div class="post-body">
-        <span class="post-tag tag-pink">Roteiros</span>
+        <span class="post-tag tag-purple">Destinos</span>
         <h3 class="post-title">Pacote para Portugal: quanto custa, roteiro de 9 dias e melhor época (2026)</h3>
         <p class="post-excerpt">Portugal é a porta de entrada preferida dos brasileiros na Europa: mesma língua, voos diretos e ótimo custo-benefício. Veja quanto custa um pacote e um…</p>
         <div class="post-meta"><span>10 jul 2026</span><span class="dot"></span><span>3 min</span></div>
       </div>
     </a>
 
-    <a href="/blog/pacote-paris/" class="post-card" data-cat="roteiros">
+    <a href="/blog/pacote-paris/" class="post-card" data-cat="destinos">
       <div class="post-thumb"><picture><source srcset="/assets/blog/pacote-paris.webp" type="image/webp"><img src="/assets/blog/pacote-paris.jpg" alt="Torre Eiffel em Paris vista de perto" width="800" height="1480" loading="lazy"></picture></div>
       <div class="post-body">
-        <span class="post-tag tag-pink">Roteiros</span>
+        <span class="post-tag tag-purple">Destinos</span>
         <h3 class="post-title">Pacote para Paris: quanto custa, roteiro de 5 dias e dicas (2026)</h3>
         <p class="post-excerpt">Paris é o sonho de muita gente, e dá para fazer essa viagem acontecer com planejamento. Veja quanto custa um pacote, um roteiro pronto e onde ficar para…</p>
         <div class="post-meta"><span>10 jul 2026</span><span class="dot"></span><span>3 min</span></div>
