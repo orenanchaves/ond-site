@@ -33,6 +33,7 @@
     criancas: 'M430.5-680.5Q410-701 410-730t20.5-49.5Q451-800 480-800t49.5 20.5Q550-759 550-730t-20.5 49.5Q509-660 480-660t-49.5-20.5ZM400-160v-200h-40v-180q0-33 23.5-56.5T440-620h80q33 0 56.5 23.5T600-540v180h-40v200H400Z',
     bebes: 'M477-80q-42 0-81.5-9T324-112q-46-20-75-48.5T220-224v-231q0-31 23.5-57t60.5-46q38-20 83.5-31t92.5-11q47 0 92.5 11t83.5 31q38 20 61 46t23 57v231q0 17-7.5 33T711-161q-14 14-32.5 26.5T637-112q1-5 3-28 0-58-41-99t-99-41q-43 0-76 23t-50 59q32 8 58.5 11t46.5 3q17 0 27.5-1t13.5-1v104q-11 1-21.5 1.5T477-80Zm123-220q33 0 56.5-23.5T680-380q0-33-23.5-56.5T600-460q-33 0-56.5 23.5T520-380q0 33 23.5 56.5T600-300ZM480-640q50 0 85-34.5t35-85.5q0-50-35-85t-85-35q-51 0-85.5 35T360-760q0 51 34.5 85.5T480-640Z'
   };
+  var ICONE_PET = 'M180-475q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29Zm109-189q-29-29-29-71t29-71q29-29 71-29t71 29q29 29 29 71t-29 71q-29 29-71 29t-71-29Zm240 0q-29-29-29-71t29-71q29-29 71-29t71 29q29 29 29 71t-29 71q-29 29-71 29t-71-29Zm251 189q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM266-75q-45 0-75.5-34.5T160-191q0-52 35.5-91t70.5-77q29-31 50-67.5t50-68.5q22-26 51-43t63-17q34 0 63 16t51 42q28 32 49.5 69t50.5 69q35 38 70.5 77t35.5 91q0 47-30.5 81.5T694-75q-54 0-107-9t-107-9q-54 0-107 9t-107 9Z';
   var GRUPOS = [
     { id: 'adultos', rotulo: 'Adultos', sub: '12 anos ou mais', min: 1, inicial: 2, um: 'adulto', varios: 'adultos' },
     { id: 'criancas', rotulo: 'Crianças', sub: '2 a 11 anos', min: 0, inicial: 0, um: 'criança', varios: 'crianças' },
@@ -59,6 +60,11 @@
       + '.brf form{display:grid;gap:12px;margin-top:18px}'
       + '.brf-datas{display:grid;grid-template-columns:1fr 1fr;gap:10px}'
       + '.brf-pessoas{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}'
+      + '.brf-pet{display:flex;align-items:center;gap:10px;margin-top:10px;padding:10px 12px;border:1px solid var(--border,#2a2a3a);border-radius:12px;color:var(--muted,#9a97b5);cursor:pointer}'
+      + '.brf-pet.on{border-color:var(--purple,#7f11f4);color:var(--purple-light,var(--purple,#7f11f4));background:var(--purple-dim,rgba(127,17,244,.12))}'
+      + '.brf .brf-pet>input{flex:0 0 auto;width:18px;height:18px;accent-color:var(--purple,#7f11f4)}'
+      + '.brf .brf-pet>svg{flex:0 0 auto;width:24px;height:24px}'
+      + '.brf .brf-pet>span{flex:1 1 auto;width:auto;font-size:.88rem;font-weight:700;letter-spacing:0;text-transform:none;color:inherit}'
       + '.brf-tile{display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 4px;border:1px solid var(--border,#2a2a3a);border-radius:12px;color:var(--muted,#9a97b5);text-align:center}'
       + '.brf-tile.on{border-color:var(--purple,#7f11f4);color:var(--purple-light,var(--purple,#7f11f4));background:var(--purple-dim,rgba(127,17,244,.12))}'
       + '.brf-tile svg{width:28px;height:28px}'
@@ -88,7 +94,8 @@
       + '<form novalidate>'
       + '<label class="cot-f"><span>Seu nome</span><input name="nome" autocomplete="given-name" required></label>'
       + '<div class="brf-datas"><label class="cot-f"><span>Ida</span><input type="date" name="ida" required></label><label class="cot-f"><span>Volta</span><input type="date" name="volta" required></label></div>'
-      + '<div class="cot-f"><span>Quem vai</span><div class="brf-pessoas">' + tiles + '</div></div>'
+      + '<div class="cot-f"><span>Quem vai</span><div class="brf-pessoas">' + tiles + '</div>'
+      + '<label class="brf-pet"><input type="checkbox" name="pet"><svg viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="' + ICONE_PET + '"/></svg><span>Vamos levar um pet</span></label></div>'
       + '<div class="brf-erro" role="alert" hidden></div>'
       + '<button class="cot-go" type="submit">Pedir cotação no WhatsApp</button>'
       + '</form>'
@@ -107,6 +114,9 @@
     ida.addEventListener('change', function(){
       volta.min = ida.value || hojeIso();
       if(volta.value && ida.value && volta.value < ida.value) volta.value = '';
+    });
+    caixa.querySelector('.brf-pet').addEventListener('change', function(e){
+      e.currentTarget.classList.toggle('on', form.elements.pet.checked);
     });
     caixa.querySelector('.brf-pessoas').addEventListener('click', function(e){
       var b = e.target.closest('button[data-passo]'); if(!b) return;
@@ -131,11 +141,12 @@
       });
       var quemTexto = quem.length > 1 ? quem.slice(0, -1).join(', ') + ' e ' + quem[quem.length - 1] : quem[0];
       var linhas = [
-        'Olá, OND! Quero comprar uma viagem para ' + atual.destinoFrase + '. Vi no catálogo: ' + atual.link,
+        atual.destinoNoCatalogo ? atual.mensagem.replace(/\s*Vi no site\.?\s*$/, '') + ' ' + atual.destinoNoCatalogo : atual.mensagem,
         'Nome: ' + nome,
         'Datas: ' + dataBr(ida.value) + ' a ' + dataBr(volta.value),
         'Quem vai: ' + quemTexto
       ];
+      if (form.elements.pet.checked) linhas.push('Leva pet: sim');
       abrir(linhas.join('\n'), atual.destino, NUM_CATALOGO);
       mostrarConvite();
     });
@@ -182,19 +193,25 @@
     carregarGruposDestino();
     var card = cta.closest('article.dc');
     var msgOriginal = decodeURIComponent((cta.href.split('?text=')[1] || '').replace(/\+/g, ' '));
-    var frase = (msgOriginal.match(/viagem para (.+?)\. Vi no cat/) || [])[1] || cta.getAttribute('data-wa');
+    var frase = cta.getAttribute('data-destino')
+      || (msgOriginal.match(/viagem para (.+?)\. Vi no cat/) || [])[1]
+      || cta.getAttribute('data-wa');
     atual = {
       href: cta.href,
+      mensagem: msgOriginal,
       destino: cta.getAttribute('data-wa') || 'catalogo',
       destinoFrase: frase,
-      slug: card && card.id ? card.id : '',
-      link: 'https://ondviajar.com.br/viagens/' + (card && card.id ? '#' + card.id : '')
+      slug: cta.getAttribute('data-destino-slug') || (card && card.id ? card.id : ''),
+      destinoNoCatalogo: cta.getAttribute('data-destino-slug')
+        ? 'Vi no catálogo: https://ondviajar.com.br/viagens/#' + cta.getAttribute('data-destino-slug')
+        : ''
     };
     [].forEach.call(briefing.caixa.children, function(bloco){
       bloco.hidden = bloco.classList.contains('brf-convite');
     });
     briefing.caixa.querySelector('#brfTitulo').textContent = 'Sua viagem para ' + frase;
     briefing.form.reset();
+    briefing.caixa.querySelector('.brf-pet').classList.remove('on');
     briefing.erro.hidden = true;
     briefing.form.elements.ida.min = hojeIso();
     briefing.form.elements.volta.min = hojeIso();
@@ -210,7 +227,7 @@
     document.body.style.overflow = '';
   }
   document.addEventListener('click', function(e){
-    var cta = e.target.closest && e.target.closest('a.dc-cta');
+    var cta = e.target.closest && e.target.closest('a.dc-cta, a.vh-btn');
     if(!cta) return;
     e.preventDefault();
     abrirBriefing(cta);
