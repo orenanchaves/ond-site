@@ -141,12 +141,14 @@
       });
       var quemTexto = quem.length > 1 ? quem.slice(0, -1).join(', ') + ' e ' + quem[quem.length - 1] : quem[0];
       var linhas = [
-        atual.destinoNoCatalogo ? atual.mensagem.replace(/\s*Vi no site\.?\s*$/, '') + ' ' + atual.destinoNoCatalogo : atual.mensagem,
+        atual.mensagem,
         'Nome: ' + nome,
         'Datas: ' + dataBr(ida.value) + ' a ' + dataBr(volta.value),
         'Quem vai: ' + quemTexto
       ];
       if (form.elements.pet.checked) linhas.push('Leva pet: sim');
+      if (atual.doBanner) linhas.push('Destino: ' + atual.destinoFrase,
+        'Vi no catálogo: https://ondviajar.com.br/viagens/#' + atual.slug);
       abrir(linhas.join('\n'), atual.destino, NUM_CATALOGO);
       mostrarConvite();
     });
@@ -158,6 +160,10 @@
     briefing = { fundo: fundo, caixa: caixa, form: form, erro: erro, convite: caixa.querySelector('.brf-convite') };
   }
 
+  function destinoDoCatalogo(slug){
+    var titulo = slug && document.querySelector('#' + slug + ' h3');
+    return titulo ? titulo.textContent.trim().replace(/^Viaje para /, '') : '';
+  }
   function hojeIso(){
     var d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
     return d.toISOString().slice(0, 10);
@@ -193,18 +199,15 @@
     carregarGruposDestino();
     var card = cta.closest('article.dc');
     var msgOriginal = decodeURIComponent((cta.href.split('?text=')[1] || '').replace(/\+/g, ' '));
-    var frase = cta.getAttribute('data-destino')
-      || (msgOriginal.match(/viagem para (.+?)\. Vi no cat/) || [])[1]
-      || cta.getAttribute('data-wa');
+    var slug = cta.getAttribute('data-destino-slug') || (card && card.id ? card.id : '');
+    var frase = destinoDoCatalogo(slug) || cta.getAttribute('data-wa');
     atual = {
       href: cta.href,
       mensagem: msgOriginal,
       destino: cta.getAttribute('data-wa') || 'catalogo',
       destinoFrase: frase,
-      slug: cta.getAttribute('data-destino-slug') || (card && card.id ? card.id : ''),
-      destinoNoCatalogo: cta.getAttribute('data-destino-slug')
-        ? 'Vi no catálogo: https://ondviajar.com.br/viagens/#' + cta.getAttribute('data-destino-slug')
-        : ''
+      slug: slug,
+      doBanner: !card && !!slug
     };
     [].forEach.call(briefing.caixa.children, function(bloco){
       bloco.hidden = bloco.classList.contains('brf-convite');
