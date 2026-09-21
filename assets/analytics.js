@@ -47,7 +47,7 @@
   document.addEventListener('click', function(e){
     if(B2B) return;
     var a = e.target.closest && e.target.closest('a[href*="wa.me/5511943615412"], a[href*="wa.me/5511953353347"]');
-    if(!a || a.hasAttribute('data-vai-wa') || a.classList.contains('dc-cta')) return;
+    if(!a || a.hasAttribute('data-vai-wa') || a.classList.contains('dc-cta') || a.classList.contains('vh-btn')) return;
     gtag('event', 'whatsapp_click', {
       destino: a.getAttribute('data-wa-destino') || a.getAttribute('data-wa') || 'contato',
       pagina: a.getAttribute('data-wa-pagina') || location.pathname
