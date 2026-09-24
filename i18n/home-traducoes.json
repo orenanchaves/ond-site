@@ -659,17 +659,17 @@
   "fr": "Vous recevez la référence et la confirmation",
   "it": "Ricevi il codice di prenotazione e la conferma"
  },
- "Um WhatsApp oficial": {
-  "en": "One official WhatsApp",
-  "es": "Un WhatsApp oficial",
-  "fr": "Un seul WhatsApp officiel",
-  "it": "Un solo WhatsApp ufficiale"
+ "WhatsApp oficial": {
+  "en": "Official WhatsApp",
+  "es": "WhatsApp oficial",
+  "fr": "WhatsApp officiel",
+  "it": "WhatsApp ufficiale"
  },
- "(11) 94361-5412, desconfie de outros números": {
-  "en": "+55 11 94361-5412, beware of other numbers",
-  "es": "+55 11 94361-5412, desconfía de otros números",
-  "fr": "+55 11 94361-5412, méfiez-vous des autres numéros",
-  "it": "+55 11 94361-5412, diffida di altri numeri"
+ "(11) 91021-4133 e os números dos fundadores. Desconfie de outros.": {
+  "en": "+55 11 91021-4133 and the founders' numbers. Beware of any others.",
+  "es": "+55 11 91021-4133 y los números de los fundadores. Desconfía de otros.",
+  "fr": "+55 11 91021-4133 et les numéros des fondateurs. Méfiez-vous des autres.",
+  "it": "+55 11 91021-4133 e i numeri dei fondatori. Diffida di altri."
  },
  "Fundador": {
   "en": "Founder",
@@ -701,11 +701,11 @@
   "fr": "WhatsApp officiel d'OND",
   "it": "WhatsApp ufficiale di OND"
  },
- "É o único número de vendas e suporte. Desconfie de outros usando o nosso nome.": {
-  "en": "It's our only sales and support number. Beware of other numbers using our name.",
-  "es": "Es el único número de ventas y soporte. Desconfía de otros que usen nuestro nombre.",
-  "fr": "C'est notre seul numéro de vente et d'assistance. Méfiez-vous des autres qui utilisent notre nom.",
-  "it": "È l'unico numero di vendita e assistenza. Diffida di altri che usano il nostro nome."
+ "Você também pode falar direto com os fundadores: Renan Rodrigues, no (11) 94361-5412, e Renan Chaves, no (11) 95335-3347. Fora desses, desconfie de quem usar o nome OND.": {
+  "en": "You can also talk directly to the founders: Renan Rodrigues, at +55 11 94361-5412, and Renan Chaves, at +55 11 95335-3347. Beyond these, be wary of anyone using the OND name.",
+  "es": "También puedes hablar directamente con los fundadores: Renan Rodrigues, al +55 11 94361-5412, y Renan Chaves, al +55 11 95335-3347. Fuera de estos, desconfía de quien use el nombre OND.",
+  "fr": "Vous pouvez aussi parler directement aux fondateurs : Renan Rodrigues, au +55 11 94361-5412, et Renan Chaves, au +55 11 95335-3347. En dehors de ceux-ci, méfiez-vous de quiconque utilise le nom OND.",
+  "it": "Puoi anche parlare direttamente con i fondatori: Renan Rodrigues, al +55 11 94361-5412, e Renan Chaves, al +55 11 95335-3347. Al di fuori di questi, diffida di chi usa il nome OND."
  },
  "Pra onde você vai viajar?": {
   "en": "Where are you going next?",
