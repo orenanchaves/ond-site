@@ -130,6 +130,35 @@ h2 em{font-style:normal;color:var(--neon)}
 
 .abas.grupos{margin-top:16px}.abas.grupos button{font-size:14px;line-height:1.2}
 .grupo-desc{margin-top:10px;font-size:13.5px;color:var(--muted);line-height:1.45}
+
+.linha{display:flex;gap:10px;margin:18px 0 26px;flex-wrap:wrap}
+.linha .et{flex:1 1 160px;background:var(--card);border:1px solid var(--borda);border-radius:14px;padding:14px 16px}
+.linha .et i{display:block;font-style:normal;font-size:12px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:var(--neon);margin-bottom:7px}
+.linha .et b{display:block;font-size:18px;line-height:1.15}
+.linha .et span{display:block;font-size:13px;color:var(--muted);margin-top:4px;line-height:1.35}
+.cidade{background:var(--card);border:1px solid var(--borda);border-radius:20px;padding:20px;margin-bottom:16px}
+.cid-topo{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+
+.cid-topo b{display:block;font-size:24px;line-height:1.1}
+.cid-topo span{display:block;font-size:14px;color:var(--muted);margin-top:3px}
+.cid-topo span.cid-n{width:36px;height:36px;flex:none;border-radius:999px;background:var(--roxo);color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;margin-top:0}
+.cal{background:var(--card2);border:1px solid var(--borda);border-radius:14px;padding:14px;margin-bottom:16px}
+.cal-m{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-g i{font-style:normal;font-size:12px;font-weight:800;color:var(--muted);text-align:center;padding-bottom:4px}
+.cal-g s{text-decoration:none;font-size:13px;text-align:center;padding:7px 0;border-radius:9px;color:var(--muted)}
+.cal-g s.on{background:var(--roxo);color:#fff;font-weight:800}
+.cal-g s.pt{background:rgba(127,17,244,.3);color:var(--txt);font-weight:700}
+.hot{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:700px){.hot{grid-template-columns:1fr}}
+.hcard{background:var(--card2);border:1px solid var(--borda);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.hcard .hf{height:112px;background-color:var(--bg);background-position:center;background-size:cover;background-repeat:no-repeat}
+.hcard .hf.vazia{background:linear-gradient(135deg,var(--card) 0%,var(--bg) 100%);border-bottom:1px solid var(--borda)}
+.hcard .hb{padding:13px 15px 15px}
+.hcard .ht{font-size:12px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--neon);margin-bottom:7px}
+.hcard b{display:block;font-size:16px;line-height:1.2;margin-bottom:7px}
+.hcard span{display:block;font-size:13px;color:var(--muted);line-height:1.4}
+@media(max-width:560px){.cidade{padding:16px}.cid-topo b{font-size:21px}}
 </style></head><body>
 
 <header class="hero">
@@ -184,6 +213,33 @@ h2 em{font-style:normal;color:var(--neon)}
   </section>
 
   <section class="wrap">
+    <div class="rot">O caminho</div>
+    <h2>Três cidades em <em>23 noites</em></h2>
+    <div class="linha">
+      <div class="et"><i>03 e 04 de março</i><b>São Paulo para Tóquio</b><span>Saída de Guarulhos às 22:50, uma conexão, chegada dia 05</span></div>
+      <div class="et"><i>05 a 15</i><b>Tóquio</b><span>10 noites</span></div>
+      <div class="et"><i>15 a 22</i><b>Kyoto</b><span>7 noites, trem-bala de 2h15</span></div>
+      <div class="et"><i>22 a 28</i><b>Osaka</b><span>6 noites, 30 minutos de trem</span></div>
+      <div class="et"><i>28 de março</i><b>Volta</b><span>Saída de Tóquio às 17:45, chegada em São Paulo dia 29</span></div>
+    </div>
+    <div class="cidade">
+      <div class="cid-topo"><span class="cid-n">1</span><div><b>Tóquio</b><span>05 a 15 de março · 10 noites · Chegada e primeira semana</span></div></div>
+      <div class="cal"><div class="cal-m">Março de 2027</div><div class="cal-g"><i>D</i><i>S</i><i>T</i><i>Q</i><i>Q</i><i>S</i><i>S</i><s></s><s>1</s><s>2</s><s>3</s><s>4</s><s class="pt">5</s><s class="on">6</s><s class="on">7</s><s class="on">8</s><s class="on">9</s><s class="on">10</s><s class="on">11</s><s class="on">12</s><s class="on">13</s><s class="on">14</s><s class="pt">15</s><s>16</s><s>17</s><s>18</s><s>19</s><s>20</s><s>21</s><s>22</s><s>23</s><s>24</s><s>25</s><s>26</s><s>27</s><s>28</s><s>29</s><s>30</s><s>31</s></div></div>
+      <div class="hot"><div class="hcard"><div class="hf vazia"></div><div class="hb"><div class="ht">Econômica</div><b>Tabist Hotel Florida Ikebukuro</b><span>Quarto Casal, 1 cama de casal · Só hospedagem</span></div></div><div class="hcard"><div class="hf" style="background-image:url('https://i.travelapi.com/lodging/1000000/30000/22000/21985/c6bfbd3f_t.jpg')"></div><div class="hb"><div class="ht">Intermediária</div><b>Sunshine City Prince Hotel</b><span>Double Room, não fumante, andar alto · Só hospedagem<br>Única categoria 5 estrelas do resultado. Dentro do complexo Sunshine City, metrô na porta.</span></div></div><div class="hcard"><div class="hf" style="background-image:url('https://i.t4w.mobi/h/JP/1011022/1377315/1377315_377199a_hb_a_005.jpg')"></div><div class="hb"><div class="ht">Mais conforto</div><b>Ueno Hotel</b><span>Double Room · Café da manhã incluído<br>O parque de Ueno é um dos pontos mais famosos de florada de Tóquio, e ele viaja em março.</span></div></div></div>
+    </div>
+    <div class="cidade">
+      <div class="cid-topo"><span class="cid-n">2</span><div><b>Kyoto</b><span>15 a 22 de março · 7 noites · Trem-bala, 2h15 de Tóquio</span></div></div>
+      <div class="cal"><div class="cal-m">Março de 2027</div><div class="cal-g"><i>D</i><i>S</i><i>T</i><i>Q</i><i>Q</i><i>S</i><i>S</i><s></s><s>1</s><s>2</s><s>3</s><s>4</s><s>5</s><s>6</s><s>7</s><s>8</s><s>9</s><s>10</s><s>11</s><s>12</s><s>13</s><s>14</s><s class="pt">15</s><s class="on">16</s><s class="on">17</s><s class="on">18</s><s class="on">19</s><s class="on">20</s><s class="on">21</s><s class="pt">22</s><s>23</s><s>24</s><s>25</s><s>26</s><s>27</s><s>28</s><s>29</s><s>30</s><s>31</s></div></div>
+      <div class="hot"><div class="hcard"><div class="hf vazia"></div><div class="hb"><div class="ht">Econômica</div><b>Kyoto Universal Hotel Karasuma</b><span>Quarto Duplo · Meia pensão<br>O único da lista com meia pensão. Em Kyoto, onde jantar fora pesa, isso vale dinheiro.</span></div></div><div class="hcard"><div class="hf vazia"></div><div class="hb"><div class="ht">Intermediária</div><b>RIHGA Royal Hotel Kyoto</b><span>Non-smoking, 8º andar, Kyoto Style Floor · Só hospedagem<br>Hotel tradicional e conhecido de Kyoto. Preço surpreendentemente bom para a categoria.</span></div></div><div class="hcard"><div class="hf vazia"></div><div class="hb"><div class="ht">Mais conforto</div><b>OMO3 Kyoto Toji by Hoshino Resorts</b><span>Quarto Duplo · Só hospedagem<br>Hoshino Resorts é marca japonesa de primeira linha. Fica ao lado do templo Toji.</span></div></div></div>
+    </div>
+    <div class="cidade">
+      <div class="cid-topo"><span class="cid-n">3</span><div><b>Osaka</b><span>22 a 28 de março · 6 noites · Trem, 30 min de Kyoto</span></div></div>
+      <div class="cal"><div class="cal-m">Março de 2027</div><div class="cal-g"><i>D</i><i>S</i><i>T</i><i>Q</i><i>Q</i><i>S</i><i>S</i><s></s><s>1</s><s>2</s><s>3</s><s>4</s><s>5</s><s>6</s><s>7</s><s>8</s><s>9</s><s>10</s><s>11</s><s>12</s><s>13</s><s>14</s><s>15</s><s>16</s><s>17</s><s>18</s><s>19</s><s>20</s><s>21</s><s class="pt">22</s><s class="on">23</s><s class="on">24</s><s class="on">25</s><s class="on">26</s><s class="on">27</s><s class="pt">28</s><s>29</s><s>30</s><s>31</s></div></div>
+      <div class="hot"><div class="hcard"><div class="hf vazia"></div><div class="hb"><div class="ht">Econômica</div><b>BAKURO by Doyanen Hotels</b><span>Quarto Duplo Superior · Só hospedagem</span></div></div><div class="hcard"><div class="hf vazia"></div><div class="hb"><div class="ht">Intermediária</div><b>Comfort Hotel Sakai</b><span>1 Double Bed, não fumante · Só hospedagem</span></div></div><div class="hcard"><div class="hf vazia"></div><div class="hb"><div class="ht">Mais conforto</div><b>APA Hotel &amp; Resort Osaka Namba Ekimae</b><span>Quarto Casal, não fumante, 2 pessoas · Só hospedagem<br>Namba é o melhor ponto de Osaka para andar a pé e comer.</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="wrap">
     <div class="rot">Ideias para o roteiro</div>
     <h2>O que vocês <em>vão viver</em></h2>
     <div class="ideias">
@@ -230,8 +286,8 @@ h2 em{font-style:normal;color:var(--neon)}
 
 <script>
 (function(){
-  var OPCOES = [{"id": "economica", "grupo": "japao", "tag": "Mais em conta", "hotel": "Faixa econômica", "onde": "Tóquio 10 noites, Kyoto 7 e Osaka 6", "itens": ["Hotel japonês de rede e guesthouse", "Quarto duplo compacto, sem café", "Perto de estação de metrô ou trem"], "imgs": [], "fotos": "hoteis economicos Toquio Kyoto Osaka", "destaque": "", "pix": 20590, "cartao": 21670}, {"id": "intermediaria", "grupo": "japao", "tag": "Melhor equilíbrio", "hotel": "Faixa intermediária", "onde": "Tóquio 10 noites, Kyoto 7 e Osaka 6", "itens": ["Hotéis em bairro mais central", "Quarto duplo com mais espaço", "Padrão três estrelas nas três cidades"], "imgs": [], "fotos": "hoteis 3 estrelas Toquio Kyoto Osaka", "destaque": "Mais indicada", "pix": 22700, "cartao": 23890}, {"id": "conforto", "grupo": "japao", "tag": "Mais conforto", "hotel": "Faixa conforto", "onde": "Tóquio 10 noites, Kyoto 7 e Osaka 6", "itens": ["Categoria acima nas três cidades", "Quarto duplo maior", "Endereços centrais"], "imgs": [], "fotos": "hoteis Toquio Kyoto Osaka centro", "destaque": "", "pix": 25040, "cartao": 26360}];
-  var TAXA_CARTAO = 0.0279, TAXA_PARCELA = 0.0129, WHATS = '5511943615412', VALIDADE = new Date('2026-09-26T23:59:59-03:00'), QUOTED_ON = '23/09/2026', TOKEN = 'william-japao', API = 'https://ond.agamatec.com';
+  var OPCOES = [{"id":"economica","grupo":"japao","tag":"Mais em conta","hotel":"Econômica","onde":"Tóquio: Tabist Hotel Florida Ikebukuro · Kyoto: Kyoto Universal Hotel Karasuma · Osaka: BAKURO by Doyanen Hotels","itens":["Tóquio, 10 noites: Tabist Hotel Florida Ikebukuro, quarto casal, 1 cama de casal","Kyoto, 7 noites: Kyoto Universal Hotel Karasuma, quarto duplo, meia pensão","Osaka, 6 noites: BAKURO by Doyanen Hotels, quarto duplo superior"],"imgs":[],"fotos":"Tabist Hotel Florida Ikebukuro Kyoto Universal Hotel Karasuma BAKURO by Doyanen Hotels","destaque":"","pix":21910,"cartao":23060},{"id":"intermediaria","grupo":"japao","tag":"Melhor equilíbrio","hotel":"Intermediária","onde":"Tóquio: Sunshine City Prince Hotel · Kyoto: RIHGA Royal Hotel Kyoto · Osaka: Comfort Hotel Sakai","itens":["Tóquio, 10 noites: Sunshine City Prince Hotel, double room, não fumante, andar alto","Kyoto, 7 noites: RIHGA Royal Hotel Kyoto, non-smoking, 8º andar, kyoto style floor","Osaka, 6 noites: Comfort Hotel Sakai, 1 double bed, não fumante"],"imgs":[],"fotos":"Sunshine City Prince Hotel RIHGA Royal Hotel Kyoto Comfort Hotel Sakai","destaque":"","pix":28530,"cartao":30030},{"id":"conforto","grupo":"japao","tag":"Mais conforto","hotel":"Mais conforto","onde":"Tóquio: Ueno Hotel · Kyoto: OMO3 Kyoto Toji by Hoshino Resorts · Osaka: APA Hotel & Resort Osaka Namba Ekimae","itens":["Tóquio, 10 noites: Ueno Hotel, double room, café da manhã incluído","Kyoto, 7 noites: OMO3 Kyoto Toji by Hoshino Resorts, quarto duplo","Osaka, 6 noites: APA Hotel & Resort Osaka Namba Ekimae, quarto casal, não fumante, 2 pessoas"],"imgs":[],"fotos":"Ueno Hotel OMO3 Kyoto Toji by Hoshino Resorts APA Hotel & Resort Osaka Namba Ekimae","destaque":"","pix":33400,"cartao":35160}];
+  var TAXA_CARTAO = 0.0279, TAXA_PARCELA = 0.0129, WHATS = '5511943615412', VALIDADE = new Date('2026-09-27T23:59:59-03:00'), QUOTED_ON = '25/09/2026', TOKEN = 'william-japao', API = 'https://ond.agamatec.com';
   var MSG = "Olá! Sou o William e quero reservar a viagem para o Japão de 03 a 28/03/2027.", ROT_PIX = "à vista no Pix, para os dois";
   var MSG_NEW_QUOTE = "Olá! Sou o William. A proposta do Japão venceu, pode me mandar uma nova cotação?";
   var GRUPOS = [{"id": "japao", "nome": "Faixas de hospedagem", "recomendada": "intermediaria", "desc": "Aéreo São Paulo e Tóquio com as 23 noites divididas entre Tóquio, Kyoto e Osaka."}];
