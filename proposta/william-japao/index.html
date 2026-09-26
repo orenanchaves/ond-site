@@ -48,6 +48,10 @@ h2 em{font-style:normal;color:var(--neon)}
 .op{position:relative;display:block;cursor:pointer;background:var(--card);border:2px solid var(--borda);border-radius:20px;padding:18px;transition:border-color .15s,background .15s}
 .op input{position:absolute;opacity:0;pointer-events:none}
 .op.on{border-color:var(--neon);background:var(--card2)}
+.op .det{display:none}
+.op.on .det{display:block}
+.op .vermais{font-size:13px;font-weight:800;color:var(--roxo);margin-top:8px}
+.op.on .vermais{display:none}
 .op .selo{position:absolute;top:-12px;left:16px;font-weight:800;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#0d0d14;background:var(--neon);border-radius:999px;padding:4px 10px}
 .op .linha{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
 .op .t{font-weight:800;font-size:12px;letter-spacing:1.8px;text-transform:uppercase;color:var(--neon)}
@@ -307,8 +311,8 @@ h2 em{font-style:normal;color:var(--neon)}
     return '<label class="op" data-op="' + o.id + '"><input type="radio" name="op" value="' + o.id + '">' +
       (o.imgs.length ? '<button type="button" class="btn-fotos" data-fotos="' + o.id + '" aria-label="Ver fotos do hotel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg>Fotos</button>' : '') +
       (o.destaque ? '<span class="selo">' + o.destaque + '</span>' : '') +
-      '<div class="linha">' + (o.thumb ? '<img class="thumb" src="' + o.thumb + '" alt="' + o.hotel + '" loading="lazy">' : '') + '<div><div class="t">' + o.tag + '</div><div class="h">' + o.hotel + '</div><div class="o">' + o.onde + '</div>' +
-      '<ul>' + o.itens.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul></div>' +
+      '<div class="linha">' + (o.thumb ? '<img class="thumb" src="' + o.thumb + '" alt="' + o.hotel + '" loading="lazy">' : '') + '<div><div class="t">' + o.tag + '</div><div class="h">' + o.hotel + '</div><div class="det"><div class="o">' + o.onde + '</div>' +
+      '<ul>' + o.itens.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul></div><div class="vermais">Ver os hotéis</div></div>' +
       '<div class="p"><div class="radio"></div><small>10x no cartão de</small><b>R$ ' + brl(totalCartao(o, 10) / 10, true) + '</b><span>ou R$ ' + brl(o.pix) + ' no Pix</span></div></div></label>';
   }).join('');
     var g = GRUPOS.filter(function(x){ return x.id === estado.grupo; })[0];
