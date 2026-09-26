@@ -25,6 +25,16 @@ a{color:inherit}
 .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,20,.65) 0%,rgba(13,13,20,.05) 30%,rgba(13,13,20,.35) 58%,var(--bg) 100%)}
 .topo{position:absolute;top:0;left:0;right:0;z-index:2}
+.faixas{display:flex;gap:4px;padding:4px;border-radius:999px;background:rgba(13,13,20,.55);border:1px solid rgba(240,238,255,.22);backdrop-filter:blur(10px)}
+.faixas button{font:inherit;font-size:13px;font-weight:700;line-height:1;color:var(--txt);background:transparent;border:0;border-radius:999px;padding:9px 15px;cursor:pointer;white-space:nowrap}
+.faixas button:hover{background:rgba(240,238,255,.12)}
+.faixas button.on{background:var(--neon);color:#0d0d14;font-weight:800}
+.faixas button:focus-visible{outline:2px solid var(--neon);outline-offset:2px}
+@media(max-width:700px){
+.topo .wrap{flex-wrap:wrap;gap:14px}
+.faixas{width:100%;display:grid;grid-template-columns:1fr 1fr 1fr}
+.faixas button{font-size:12px;padding:10px 4px}
+}
 .hero .topo .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:calc(28px + env(safe-area-inset-top, 0px));padding-bottom:20px;padding-inline:24px}
 .logo{height:46.8px;width:auto}
 .tag{font-weight:800;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#0d0d14;background:var(--neon);border-radius:999px;padding:8px 14px}
@@ -40,7 +50,10 @@ section{padding-block:34px}
 .rot{font-weight:800;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
 h2{margin-top:8px;font-weight:800;font-size:28px;line-height:1.05;letter-spacing:-.5px}
 h2 em{font-style:normal;color:var(--neon)}
-.inclui{margin-top:18px;display:grid;gap:10px}
+.inclui{margin-top:14px;display:grid;gap:10px}
+.rot.sanf{display:flex;align-items:center;gap:8px;width:100%;background:transparent;border:0;padding:0;cursor:pointer;font:inherit;font-weight:800;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--neon);text-align:left}
+.rot.sanf svg{width:16px;height:16px;transition:transform .18s}
+.rot.sanf[aria-expanded="true"] svg{transform:rotate(180deg)}
 .inc{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--borda);border-radius:16px;padding:14px 16px;font-weight:700;font-size:16px;line-height:1.3}
 .bol{flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:var(--roxo);color:#fff;padding:9px;display:flex}
 .bol svg{width:100%;height:100%}
@@ -149,8 +162,8 @@ h2 em{font-style:normal;color:var(--neon)}
 .cal-leg b{width:14px;height:14px;border-radius:5px;display:block;flex:none}
 .p1{background:var(--roxo)}.p2{background:rgba(127,17,244,.45);box-shadow:inset 0 0 0 1.5px var(--roxo)}.p3{background:transparent;box-shadow:inset 0 0 0 1.5px rgba(127,17,244,.75)}
 .pv{background:rgba(17,245,88,.45)}
-.abas3{grid-template-columns:1fr 1fr 1fr;margin-bottom:14px}
-.abas3 button{font-size:14px;padding:10px 4px}
+.segue{margin:0 0 14px}
+.segue b{color:var(--txt)}
 .hot{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .hcard{background:var(--card2);border:1px solid var(--borda);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
 .hcab{display:flex;align-items:center;flex-wrap:wrap;gap:4px 9px;padding:13px 14px 0}
@@ -163,7 +176,7 @@ h2 em{font-style:normal;color:var(--neon)}
 .hb{padding:11px 14px 14px}
 .hb b{display:block;font-size:15px;line-height:1.2;margin-bottom:5px}
 .hb span{display:block;font-size:13px;color:var(--muted);line-height:1.35}
-@media(max-width:700px){.hot{grid-template-columns:1fr}.abas3 button{font-size:13px}}
+@media(max-width:700px){.hot{grid-template-columns:1fr}}
 </style></head><body>
 
 <header class="hero">
@@ -175,6 +188,11 @@ h2 em{font-style:normal;color:var(--neon)}
   <path fill="#FFFFFF" d="M542.62,171.56h44.05c1.56,0,3.03.73,3.97,1.97l59.71,78.19h1.54v-75.15c0-2.76,2.24-5,5-5h41.53c2.76,0,5,2.24,5,5v144.14c0,2.76-2.24,5-5,5h-44.1c-1.53,0-2.98-.7-3.93-1.91l-59.49-75.6h-1.76v72.51c0,2.76-2.24,5-5,5h-41.53c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5Z"/>
   <path fill="#FFFFFF" d="M880.82,247.53c0,50.65-43.38,78.17-75.75,78.17h-86.82c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5h88.59c37.87,0,73.99,28.85,73.99,75.97ZM828.86,247.31c0-24.88-15.63-35.01-39.42-35.01h-24.66v72.67h26.42c21.58,0,37.65-14.53,37.65-37.65Z"/>
 </svg>
+<div class="faixas" id="faixaTopo" role="group" aria-label="Escolha a faixa da proposta">
+<button type="button" data-op="economica" aria-pressed="false">Econômica</button>
+<button type="button" data-op="intermediaria" aria-pressed="true" class="on">Intermediária</button>
+<button type="button" data-op="conforto" aria-pressed="false">Mais conforto</button>
+</div>
 </div></div>
   <div class="wrap">
     <div class="para">Para o William</div>
@@ -186,8 +204,8 @@ h2 em{font-style:normal;color:var(--neon)}
 
 <main>
   <section class="wrap">
-    <div class="rot">Todas as opções incluem</div>
-    <div class="inclui">
+    <button type="button" class="rot sanf" id="btInclui" aria-expanded="false" aria-controls="listaInclui">Todas as opções incluem<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+    <div class="inclui" id="listaInclui" hidden>
       <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15.5l-8-4.5V5a1.5 1.5 0 0 0-3 0v6l-8 4.5V17l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-4.5l8 2.5z"/></svg></span>Aéreo ida e volta São Paulo e Tóquio para os 2, pela Japan Airlines, com mala despachada</div>
       <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7M3 13h18v5M21 18v-3.5A2.5 2.5 0 0 0 18.5 12H11v1"/><circle cx="7" cy="10.5" r="1.8"/></svg></span>Hospedagem das 23 noites: 10 em Tóquio, 7 em Kyoto e 6 em Osaka, em quarto duplo</div>
       <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.4"/></svg></span>Roteiro com as atividades no app OND</div>
@@ -222,25 +240,41 @@ h2 em{font-style:normal;color:var(--neon)}
     <h2>Três cidades em <em>23 noites</em></h2>
     <p class="cal-sub">Ida dia 03 de São Paulo, chegada em Tóquio dia 05. Volta de Tóquio dia 28.</p>
     <div class="cal"><div class="cal-g"><i>D</i><i>S</i><i>T</i><i>Q</i><i>Q</i><i>S</i><i>S</i><s></s><s>1</s><s>2</s><s class="voo">3</s><s class="voo">4</s><s class="c1">5</s><s class="c1">6</s><s class="c1">7</s><s class="c1">8</s><s class="c1">9</s><s class="c1">10</s><s class="c1">11</s><s class="c1">12</s><s class="c1">13</s><s class="c1">14</s><s class="c2">15</s><s class="c2">16</s><s class="c2">17</s><s class="c2">18</s><s class="c2">19</s><s class="c2">20</s><s class="c2">21</s><s class="c3">22</s><s class="c3">23</s><s class="c3">24</s><s class="c3">25</s><s class="c3">26</s><s class="c3">27</s><s class="voo">28</s><s>29</s><s>30</s><s>31</s></div><div class="cal-leg"><span><b class="p1"></b>Tóquio, 10 noites</span><span><b class="p2"></b>Kyoto, 7 noites</span><span><b class="p3"></b>Osaka, 6 noites</span><span><b class="pv"></b>Voo</span></div></div>
-    <div class="abas abas3" id="abasFaixa">
-      <button type="button" data-fx="0">Econômica</button>
-      <button type="button" data-fx="1" class="on">Intermediária</button>
-      <button type="button" data-fx="2">Mais conforto</button>
-    </div>
+    <p class="cal-sub segue">Hotéis da opção <b id="faixaAtual">Intermediária</b>, escolhida no passo 1.</p>
     <div class="hot"><div class="hcard"><div class="hcab"><span class="cid-n p1">1</span><b>Tóquio</b><i>05 a 15 de março · 10 noites · chegada</i></div><div class="hv" data-fx="0" hidden><div class="hf vazia"></div><div class="hb"><b>Tabist Hotel Florida Ikebukuro</b><span>Quarto Casal, 1 cama de casal · Só hospedagem</span></div></div><div class="hv" data-fx="1"><div class="hf" style="background-image:url('https://i.travelapi.com/lodging/1000000/30000/22000/21985/c6bfbd3f_t.jpg')"></div><div class="hb"><b>Sunshine City Prince Hotel</b><span>Double Room, não fumante, andar alto · Só hospedagem</span></div></div><div class="hv" data-fx="2" hidden><div class="hf" style="background-image:url('https://i.t4w.mobi/h/JP/1011022/1377315/1377315_377199a_hb_a_005.jpg')"></div><div class="hb"><b>Ueno Hotel</b><span>Double Room · Café da manhã incluído</span></div></div></div><div class="hcard"><div class="hcab"><span class="cid-n p2">2</span><b>Kyoto</b><i>15 a 22 de março · 7 noites · trem-bala, 2h15</i></div><div class="hv" data-fx="0" hidden><div class="hf vazia"></div><div class="hb"><b>Kyoto Universal Hotel Karasuma</b><span>Quarto Duplo · Meia pensão</span></div></div><div class="hv" data-fx="1"><div class="hf vazia"></div><div class="hb"><b>RIHGA Royal Hotel Kyoto</b><span>Non-smoking, 8º andar, Kyoto Style Floor · Só hospedagem</span></div></div><div class="hv" data-fx="2" hidden><div class="hf vazia"></div><div class="hb"><b>OMO3 Kyoto Toji by Hoshino Resorts</b><span>Quarto Duplo · Só hospedagem</span></div></div></div><div class="hcard"><div class="hcab"><span class="cid-n p3">3</span><b>Osaka</b><i>22 a 28 de março · 6 noites · trem, 30 min</i></div><div class="hv" data-fx="0" hidden><div class="hf vazia"></div><div class="hb"><b>BAKURO by Doyanen Hotels</b><span>Quarto Duplo Superior · Só hospedagem</span></div></div><div class="hv" data-fx="1"><div class="hf vazia"></div><div class="hb"><b>Comfort Hotel Sakai</b><span>1 Double Bed, não fumante · Só hospedagem</span></div></div><div class="hv" data-fx="2" hidden><div class="hf vazia"></div><div class="hb"><b>APA Hotel &amp; Resort Osaka Namba Ekimae</b><span>Quarto Casal, não fumante, 2 pessoas · Só hospedagem</span></div></div></div></div>
   </section>
 
   <script>
   (function () {
-    var abas = document.getElementById('abasFaixa');
-    if (!abas) return;
-    abas.addEventListener('click', function (e) {
-      var b = e.target.closest('button[data-fx]');
-      if (!b) return;
-      var fx = b.getAttribute('data-fx');
-      abas.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
-      document.querySelectorAll('.hot .hv').forEach(function (v) { v.hidden = v.getAttribute('data-fx') !== fx; });
+    var bt = document.getElementById("btInclui");
+    var lista = document.getElementById("listaInclui");
+    if (!bt || !lista) return;
+    bt.addEventListener("click", function () {
+      var aberto = bt.getAttribute("aria-expanded") === "true";
+      bt.setAttribute("aria-expanded", String(!aberto));
+      lista.hidden = aberto;
     });
+  })();
+
+  // A escolha da faixa e uma so, e mora no passo 1. Esta secao apenas segue.
+  (function () {
+    var ORDEM = { economica: '0', intermediaria: '1', conforto: '2' };
+    var NOME = { economica: 'Econômica', intermediaria: 'Intermediária', conforto: 'Mais conforto' };
+    var rot = document.getElementById('faixaAtual');
+    function sincroniza() {
+      var m = document.querySelector('input[name="op"]:checked');
+      var id = m ? m.value : 'intermediaria';
+      var fx = ORDEM[id] || '1';
+      document.querySelectorAll('.hot .hv').forEach(function (v) { v.hidden = v.getAttribute('data-fx') !== fx; });
+      if (rot) rot.textContent = NOME[id] || 'Intermediária';
+    }
+    document.addEventListener('change', function (e) {
+      if (e.target && e.target.name === 'op') sincroniza();
+    });
+    document.addEventListener('click', function (e) {
+      if (e.target && e.target.closest && e.target.closest('.op')) setTimeout(sincroniza, 0);
+    });
+    setTimeout(sincroniza, 0);
   })();
   </script>
 
@@ -291,7 +325,7 @@ h2 em{font-style:normal;color:var(--neon)}
 
 <script>
 (function(){
-  var OPCOES = [{"id":"economica","grupo":"japao","tag":"Mais em conta","hotel":"Econômica","onde":"Tóquio: Tabist Hotel Florida Ikebukuro · Kyoto: Kyoto Universal Hotel Karasuma · Osaka: BAKURO by Doyanen Hotels","itens":["Tóquio, 10 noites: Tabist Hotel Florida Ikebukuro, quarto casal, 1 cama de casal","Kyoto, 7 noites: Kyoto Universal Hotel Karasuma, quarto duplo, meia pensão","Osaka, 6 noites: BAKURO by Doyanen Hotels, quarto duplo superior"],"imgs":[],"fotos":"Tabist Hotel Florida Ikebukuro Kyoto Universal Hotel Karasuma BAKURO by Doyanen Hotels","destaque":"","pix":21910,"cartao":23060},{"id":"intermediaria","grupo":"japao","tag":"Melhor equilíbrio","hotel":"Intermediária","onde":"Tóquio: Sunshine City Prince Hotel · Kyoto: RIHGA Royal Hotel Kyoto · Osaka: Comfort Hotel Sakai","itens":["Tóquio, 10 noites: Sunshine City Prince Hotel, double room, não fumante, andar alto","Kyoto, 7 noites: RIHGA Royal Hotel Kyoto, non-smoking, 8º andar, kyoto style floor","Osaka, 6 noites: Comfort Hotel Sakai, 1 double bed, não fumante"],"imgs":[],"fotos":"Sunshine City Prince Hotel RIHGA Royal Hotel Kyoto Comfort Hotel Sakai","destaque":"","pix":28530,"cartao":30030},{"id":"conforto","grupo":"japao","tag":"Mais conforto","hotel":"Mais conforto","onde":"Tóquio: Ueno Hotel · Kyoto: OMO3 Kyoto Toji by Hoshino Resorts · Osaka: APA Hotel & Resort Osaka Namba Ekimae","itens":["Tóquio, 10 noites: Ueno Hotel, double room, café da manhã incluído","Kyoto, 7 noites: OMO3 Kyoto Toji by Hoshino Resorts, quarto duplo","Osaka, 6 noites: APA Hotel & Resort Osaka Namba Ekimae, quarto casal, não fumante, 2 pessoas"],"imgs":[],"fotos":"Ueno Hotel OMO3 Kyoto Toji by Hoshino Resorts APA Hotel & Resort Osaka Namba Ekimae","destaque":"","pix":33400,"cartao":35160}];
+  var OPCOES = [{"id":"economica","grupo":"japao","tag":"Mais em conta","hotel":"Econômica","onde":"Tóquio: Tabist Hotel Florida Ikebukuro · Kyoto: Kyoto Universal Hotel Karasuma · Osaka: BAKURO by Doyanen Hotels","itens":["Tóquio, 10 noites: Tabist Hotel Florida Ikebukuro, quarto casal, 1 cama de casal","Kyoto, 7 noites: Kyoto Universal Hotel Karasuma, quarto duplo, meia pensão","Osaka, 6 noites: BAKURO by Doyanen Hotels, quarto duplo superior"],"imgs":[],"fotos":"Tabist Hotel Florida Ikebukuro Kyoto Universal Hotel Karasuma BAKURO by Doyanen Hotels","destaque":"","pix":21910,"cartao":23060},{"id":"intermediaria","grupo":"japao","tag":"Melhor equilíbrio","hotel":"Intermediária","onde":"Tóquio: Sunshine City Prince Hotel · Kyoto: RIHGA Royal Hotel Kyoto · Osaka: Comfort Hotel Sakai","itens":["Tóquio, 10 noites: Sunshine City Prince Hotel, double room, não fumante, andar alto","Kyoto, 7 noites: RIHGA Royal Hotel Kyoto, non-smoking, 8º andar, kyoto style floor","Osaka, 6 noites: Comfort Hotel Sakai, 1 double bed, não fumante"],"imgs":[],"fotos":"Sunshine City Prince Hotel RIHGA Royal Hotel Kyoto Comfort Hotel Sakai","destaque":"","pix":28530,"cartao":30030},{"id":"conforto","grupo":"japao","tag":"Hotéis melhores","hotel":"Mais conforto","onde":"Tóquio: Ueno Hotel · Kyoto: OMO3 Kyoto Toji by Hoshino Resorts · Osaka: APA Hotel & Resort Osaka Namba Ekimae","itens":["Tóquio, 10 noites: Ueno Hotel, double room, café da manhã incluído","Kyoto, 7 noites: OMO3 Kyoto Toji by Hoshino Resorts, quarto duplo","Osaka, 6 noites: APA Hotel & Resort Osaka Namba Ekimae, quarto casal, não fumante, 2 pessoas"],"imgs":[],"fotos":"Ueno Hotel OMO3 Kyoto Toji by Hoshino Resorts APA Hotel & Resort Osaka Namba Ekimae","destaque":"","pix":33400,"cartao":35160}];
   var TAXA_CARTAO = 0.0279, TAXA_PARCELA = 0.0129, WHATS = '5511943615412', VALIDADE = new Date('2026-09-27T23:59:59-03:00'), QUOTED_ON = '25/09/2026', TOKEN = 'william-japao', API = 'https://ond.agamatec.com';
   var MSG = "Olá! Sou o William e quero reservar a viagem para o Japão de 03 a 28/03/2027.", ROT_PIX = "à vista no Pix, para os dois";
   var MSG_NEW_QUOTE = "Olá! Sou o William. A proposta do Japão venceu, pode me mandar uma nova cotação?";
@@ -332,6 +366,7 @@ h2 em{font-style:normal;color:var(--neon)}
   function render(){
     var o = OPCOES.filter(function(x){ return x.id === estado.op; })[0], r = calc(o);
     [].forEach.call(document.querySelectorAll('.op'), function(el){ el.classList.toggle('on', el.dataset.op === estado.op); el.querySelector('input').checked = el.dataset.op === estado.op; });
+    [].forEach.call(document.querySelectorAll('#faixaTopo button'), function(b){ var on = b.dataset.op === estado.op; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
     [].forEach.call(document.querySelectorAll('.pag .abas button'), function(b){ b.classList.toggle('on', b.dataset.forma === estado.forma); });
     [].forEach.call(par.querySelectorAll('button'), function(b){ b.classList.toggle('on', +b.dataset.n === estado.n); });
     par.hidden = estado.forma !== 'cartao';
@@ -379,6 +414,14 @@ h2 em{font-style:normal;color:var(--neon)}
   var tx0 = null; document.getElementById('gImg').addEventListener('touchstart', function(e){ tx0 = e.touches[0].clientX; }, { passive: true });
   document.getElementById('gImg').addEventListener('touchend', function(e){ if (tx0 === null) return; var dx = e.changedTouches[0].clientX - tx0; if (Math.abs(dx) > 40) galPasso(dx < 0 ? 1 : -1); tx0 = null; });
   lista.addEventListener('click', function(e){ var el = e.target.closest('.op'); if (!el) return; estado.op = el.dataset.op; render(); });
+  var faixaTopo = document.getElementById('faixaTopo');
+  if (faixaTopo) faixaTopo.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-op]'); if (!b) return;
+    estado.op = b.dataset.op; render();
+    // o resto da pagina (hoteis por cidade) escuta o radio do passo 1
+    var m = document.querySelector('input[name="op"]:checked');
+    if (m) m.dispatchEvent(new Event('change', { bubbles: true }));
+  });
   document.querySelector('.pag .abas').addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; estado.forma = b.dataset.forma; render(); });
   par.addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; estado.n = +b.dataset.n; render(); });
   function contagem(){
