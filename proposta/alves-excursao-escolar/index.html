@@ -138,6 +138,7 @@ h2 em{font-style:normal;color:var(--neon)}
 .notas .credito{font-size:12px;color:var(--muted);margin-top:4px}
 .rodape{padding-block:26px 40px;border-top:1px solid var(--borda);text-align:center;color:var(--muted);font-size:13px}
 .rodape .logo{height:30px;margin-bottom:10px}
+.hero img.bg{transition:opacity .35s ease}
 .demo-t{margin-top:34px;font-weight:800;font-size:20px;letter-spacing:-.3px}
 #roteiro-sim{margin-top:18px}
 .feita{display:block;text-align:left;margin-bottom:12px;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
@@ -475,6 +476,30 @@ img.av{object-fit:cover}
   if (g) g.addEventListener('click', function(e){ var b = e.target.closest('[data-grupo]'); if (b) carregar(b.getAttribute('data-grupo')); });
   var on = g && g.querySelector('[data-grupo].on');
   carregar(on ? on.getAttribute('data-grupo') : 'londres');
+})();
+</script>
+<script>
+(function(){
+  var CAPA = {
+    londres: { src: 'capa.jpg', pos: 'center 60%', alt: 'Big Ben e o Palácio de Westminster vistos do rio Tâmisa, com um barco de passeio cheio de gente em primeiro plano',
+      cred: 'Capa: fotografia de Gswaby, sob licença CC BY-SA 4.0, via Wikimedia Commons.' },
+    madri: { src: 'capa-madri.jpg', pos: 'center 55%', alt: 'A Gran Vía de Madri ao anoitecer, vista de cima, com o Edifício Metrópolis iluminado',
+      cred: 'Capa: fotografia de Nan Palmero, sob licença CC BY 2.0, via Wikimedia Commons.' }
+  };
+  var img = document.querySelector('.hero img.bg'), cred = document.querySelector('.credito');
+  if (!img) return;
+  var pre = new Image(); pre.src = CAPA.madri.src;
+  function trocar(cidade){
+    var c = CAPA[cidade]; if (!c || img.getAttribute('src') === c.src) return;
+    img.style.opacity = '0';
+    setTimeout(function(){
+      img.src = c.src; img.alt = c.alt; img.style.objectPosition = c.pos;
+      if (cred) cred.textContent = c.cred;
+      img.style.opacity = '1';
+    }, 300);
+  }
+  var g = document.getElementById('grupos');
+  if (g) g.addEventListener('click', function(e){ var b = e.target.closest('[data-grupo]'); if (b) trocar(b.getAttribute('data-grupo')); });
 })();
 </script>
 </body></html>
