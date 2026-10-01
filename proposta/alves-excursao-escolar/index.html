@@ -21,7 +21,7 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--txt);font-family:"Bio Sans","Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:110px}
 a{color:inherit}
 .wrap{max-width:720px;margin:0 auto;padding-inline:20px}
-.hero{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero{position:relative;min-height:calc(88vh - 80px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
 .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,20,.65) 0%,rgba(13,13,20,.05) 30%,rgba(13,13,20,.35) 58%,var(--bg) 100%)}
 .topo{position:absolute;top:0;left:0;right:0;z-index:2}
@@ -63,7 +63,7 @@ h2 em{font-style:normal;color:var(--neon)}
 .op.on{border-color:var(--neon);background:var(--card2)}
 .op .det{display:none}
 .op.on .det{display:block}
-.op .vermais{font-size:13px;font-weight:800;color:var(--roxo);margin-top:8px}
+.op .vermais{font-size:13px;font-weight:800;color:#9d6fff;margin-top:8px}
 .op.on .vermais{display:none}
 .op .selo{position:absolute;top:-12px;left:16px;font-weight:800;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#0d0d14;background:var(--neon);border-radius:999px;padding:4px 10px}
 .op .linha{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
@@ -73,6 +73,7 @@ h2 em{font-style:normal;color:var(--neon)}
 .op ul{margin-top:10px;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
 .op li{font-size:12.5px;font-weight:700;color:var(--txt);background:rgba(255,255,255,.07);border-radius:999px;padding:5px 10px}
 .op .p{text-align:right;flex:0 0 auto}
+.op .linha > div:not(.p){flex:1 1 auto;min-width:0}
 .op .p small{display:block;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
 .op .p b{display:block;font-weight:800;font-size:22px;white-space:nowrap}
 .op .p span{display:block;font-size:12.5px;font-weight:800;color:var(--neon);white-space:nowrap}
@@ -103,7 +104,7 @@ h2 em{font-style:normal;color:var(--neon)}
 .op .thumb{flex:0 0 auto;width:108px;height:108px;object-fit:cover;border-radius:14px;background:var(--card2)}
 .op .btn-fotos{position:absolute;top:14px;right:14px;z-index:2;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:12.5px;font-weight:800;color:#0d0d14;background:var(--neon);border:0;border-radius:999px;padding:7px 12px;cursor:pointer}
 .op .btn-fotos svg{width:15px;height:15px}
-.op .linha{padding-top:34px}
+.op:has(.btn-fotos) .linha{padding-top:34px}
 .galeria{position:fixed;inset:0;z-index:50;background:rgba(5,5,10,.94);display:flex;flex-direction:column}
 .galeria .gtopo{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:calc(18px + env(safe-area-inset-top, 0px)) 20px 12px}
 .galeria .gtopo b{display:block;font-size:17px;font-weight:800;color:#fff}
@@ -123,7 +124,7 @@ h2 em{font-style:normal;color:var(--neon)}
 .ideia div{padding:12px 14px}
 .ideia b{display:block;font-size:15px;font-weight:800}
 .ideia span{display:block;margin-top:4px;font-size:13px;color:var(--muted);line-height:1.35}
-.ideia.txt{display:flex;flex-direction:column;justify-content:center;padding:6px}
+.ideia.txt{display:flex;flex-direction:column;justify-content:flex-start;padding:6px}
 .notas{display:grid;gap:8px;font-size:13.5px;line-height:1.5;color:#c9c7dd}
 .psg{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:12px;margin-top:14px}
 .pcard{background:var(--card2);border:1px solid var(--borda);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
@@ -137,6 +138,10 @@ h2 em{font-style:normal;color:var(--neon)}
 .notas .credito{font-size:12px;color:var(--muted);margin-top:4px}
 .rodape{padding-block:26px 40px;border-top:1px solid var(--borda);text-align:center;color:var(--muted);font-size:13px}
 .rodape .logo{height:30px;margin-bottom:10px}
+.feita{display:block;text-align:left;margin-bottom:12px;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.consultores{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:700px){.consultores{grid-template-columns:1fr}}
+img.av{object-fit:cover}
 .consultor{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--borda);border-radius:20px;padding:18px;text-align:left}
 .consultor .av{flex:0 0 auto;width:64px;height:64px;border-radius:50%;background:var(--roxo);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;overflow:hidden}
 .consultor .av img{width:100%;height:100%;object-fit:cover}
@@ -166,7 +171,7 @@ h2 em{font-style:normal;color:var(--neon)}
 .cal-g s.c2{background:rgba(127,17,244,.45);color:#fff;font-weight:800;box-shadow:inset 0 0 0 1.5px var(--roxo)}
 .cal-g s.c3{background:transparent;color:var(--txt);font-weight:800;box-shadow:inset 0 0 0 1.5px rgba(127,17,244,.75)}
 .cal-g s.voo{background:rgba(17,245,88,.15);color:var(--neon);font-weight:800}
-.cal-sub{font-size:14px;color:var(--muted);margin:-2px 0 0;line-height:1.4}
+.cal-sub{font-size:14px;color:var(--muted);margin:12px 0 0;line-height:1.45}
 .cal-leg{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:12px;font-size:13px;color:var(--muted)}
 .cal-leg span{display:flex;align-items:center;gap:7px}
 .cal-leg b{width:14px;height:14px;border-radius:5px;display:block;flex:none}
@@ -303,7 +308,11 @@ h2 em{font-style:normal;color:var(--neon)}
 </main>
 
 <footer class="rodape"><div class="wrap">
-  <div class="consultor"><div class="av">RR</div><div><small>Proposta feita por</small><b>Renan Rodrigues</b><div class="contatos"><a href="https://wa.me/5511943615412" target="_blank" rel="noopener">WhatsApp · (11) 94361-5412</a></div></div></div>
+  <small class="feita">Proposta feita por</small>
+  <div class="consultores">
+    <div class="consultor"><img class="av" src="../../assets/equipe/renan-rodrigues.jpg" alt="Renan Rodrigues" width="64" height="64"><div><b>Renan Rodrigues</b><div class="contatos"><a href="https://wa.me/5511943615412" target="_blank" rel="noopener">WhatsApp · (11) 94361-5412</a></div></div></div>
+    <div class="consultor"><img class="av" src="../../assets/equipe/renan-chaves.jpg" alt="Renan Chaves" width="64" height="64"><div><b>Renan Chaves</b><div class="contatos"><a href="https://wa.me/5511953353347" target="_blank" rel="noopener">WhatsApp · (11) 95335-3347</a></div></div></div>
+  </div>
   <div class="marca">
 <svg class="logo" aria-label="OND" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 951.32 497.26" role="img" aria-label="OND">
   <path fill="#7F11F4" d="M327.85,243.05l-69.42-45.05-57.11-117.28c-.76-1.55-2.13-2.44-3.59-2.67-1.46.24-2.83,1.12-3.59,2.67l-57.11,117.28-69.42,45.05c-1.53.99-2.26,2.62-2.21,4.23-.04,1.61.69,3.24,2.21,4.23l69.42,45.05,57.11,117.28c.76,1.55,2.13,2.44,3.59,2.67,1.46-.24,2.83-1.12,3.59-2.67l57.11-117.28,69.42-45.05c1.53-.99,2.26-2.62,2.21-4.23.04-1.61-.69-3.24-2.21-4.23Z"/>
