@@ -164,6 +164,18 @@ h2 em{font-style:normal;color:var(--neon)}
 .telas-nav button svg{width:18px;height:18px}
 .quando{margin-top:18px;font-weight:800;font-size:clamp(22px,5.6vw,28px);letter-spacing:-.4px;color:var(--neon)}
 .resumo-viagem{margin-top:6px;font-weight:600;font-size:15px;line-height:1.4;color:rgba(240,238,255,.86)}
+.modelo{margin-top:12px;background:var(--card);border:1px solid var(--borda);border-left:4px solid var(--roxo);border-radius:18px;padding:16px 18px}
+.modelo b{display:block;font-size:17px;font-weight:800}
+.modelo p{margin-top:8px;font-size:14.5px;line-height:1.5;color:var(--muted)}
+.passos{list-style:none;counter-reset:p;margin-top:16px;display:grid;gap:10px}
+.passos li{counter-increment:p;position:relative;background:var(--card);border:1px solid var(--borda);border-radius:16px;padding:14px 16px 14px 62px;min-height:64px}
+.passos li::before{content:counter(p);position:absolute;left:14px;top:14px;width:34px;height:34px;border-radius:50%;background:var(--roxo);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.passos b{display:block;font-size:15.5px;font-weight:800}
+.passos span{display:block;margin-top:3px;font-size:14px;line-height:1.4;color:var(--muted)}
+.combinar{list-style:none;margin-top:14px;display:grid;gap:8px}
+.combinar li{position:relative;padding-left:22px;font-size:15px;line-height:1.4}
+.combinar li::before{content:"";position:absolute;left:4px;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--neon)}
+.depois{margin-top:18px;font-size:14.5px;line-height:1.5;color:var(--muted)}
 .demo-t{margin-top:34px;font-weight:800;font-size:20px;letter-spacing:-.3px}
 .app-demo{margin-top:20px;display:flex;justify-content:center}
 .ad-fone{position:relative;width:100%;max-width:330px;height:660px;border:9px solid #1a1a2e;border-radius:40px;background:#f4f1fb;overflow:hidden;display:flex;flex-direction:column;color:#1b1530;box-shadow:0 24px 60px rgba(0,0,0,.45)}
@@ -399,6 +411,39 @@ img.av{object-fit:cover}
     sincronizaPasseios();
   })();
   </script>
+
+  <section class="wrap" id="parceria">
+    <div class="rot">Parceria</div>
+    <h2>Como a gente <em>trabalha junto</em></h2>
+    <p class="cal-sub">Uma divisão de papéis para começar com esta excursão e repetir com outras escolas.</p>
+    <div class="ideias">
+      <div class="ideia txt"><div><b>Alves Limited Group</b><span>O relacionamento com as escolas e as famílias, a curadoria do programa e a venda.</span></div></div>
+      <div class="ideia txt"><div><b>OND</b><span>Cotação, reserva, emissão, contrato e cobrança, como agência com Cadastur. O app de cada aluno e o suporte antes e durante a viagem.</span></div></div>
+    </div>
+    <div class="modelo">
+      <b>Por pacote, por aluno</b>
+      <p>Cada família compra o pacote do aluno pelo próprio link de pagamento. O pacote leva um valor fixo de serviço por aluno, que cobre o app, a coordenação e o suporte, e a parte da Alves por aluno vendido.</p>
+      <p>O pagamento passa pelo OND, e a parte da Alves é repassada depois do embarque. Assim os dois lados ficam protegidos se alguém cancelar.</p>
+    </div>
+    <h3 class="demo-t">Do primeiro contato à volta</h3>
+    <ol class="passos">
+      <li><b>Briefing com a escola</b><span>Destino, datas, número de alunos e o que a escola quer do programa. Sai uma proposta como esta.</span></li>
+      <li><b>Tarifa de grupo</b><span>Negociada com a companhia aérea, com depósito e prazo para entregar a lista de nomes.</span></li>
+      <li><b>Contrato e pagamento</b><span>Um contrato e um link de pagamento para cada família.</span></li>
+      <li><b>Documentos</b><span>Autorização de viagem do menor, passaporte e seguro viagem para o espaço Schengen.</span></li>
+      <li><b>Viagem</b><span>O app no celular de cada aluno e a equipe OND de plantão do embarque à volta.</span></li>
+      <li><b>Avaliação</b><span>Conversa com a escola e as famílias depois da volta, para a próxima turma sair melhor.</span></li>
+    </ol>
+    <h3 class="demo-t">Para combinar na próxima conversa</h3>
+    <ul class="combinar">
+      <li>Quem acompanha o grupo na viagem</li>
+      <li>Número mínimo de alunos por excursão</li>
+      <li>Política de cancelamento</li>
+      <li>Exclusividade por escola</li>
+      <li>O valor de serviço e a parte da Alves por aluno</li>
+    </ul>
+    <p class="depois">Depois da primeira viagem, a Alves pode vender com a própria marca, usando a mesma tecnologia do OND.</p>
+  </section>
 
   <section class="wrap">
     <div class="notas">
