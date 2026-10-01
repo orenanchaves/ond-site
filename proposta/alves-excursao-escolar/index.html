@@ -125,6 +125,15 @@ h2 em{font-style:normal;color:var(--neon)}
 .ideia span{display:block;margin-top:4px;font-size:13px;color:var(--muted);line-height:1.35}
 .ideia.txt{display:flex;flex-direction:column;justify-content:center;padding:6px}
 .notas{display:grid;gap:8px;font-size:13.5px;line-height:1.5;color:#c9c7dd}
+.psg{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:12px;margin-top:14px}
+.pcard{background:var(--card2);border:1px solid var(--borda);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.pcard img{width:100%;height:118px;object-fit:cover;display:block;background:var(--bg)}
+.pb{padding:11px 13px 13px;display:flex;flex-direction:column;gap:5px;flex:1}
+.pb b{font-size:14.5px;line-height:1.25}
+.pb span{font-size:12.5px;color:var(--muted);line-height:1.4;flex:1}
+.pb i{font-style:normal;font-weight:800;font-size:15px}
+.ptot{grid-column:1/-1;background:var(--card);border:1px solid var(--borda);border-radius:14px;padding:12px 15px;font-size:14px}
+.ptot b{font-size:17px}
 .notas .credito{font-size:12px;color:var(--muted);margin-top:4px}
 .rodape{padding-block:26px 40px;border-top:1px solid var(--borda);text-align:center;color:var(--muted);font-size:13px}
 .rodape .logo{height:30px;margin-bottom:10px}
@@ -236,12 +245,37 @@ h2 em{font-style:normal;color:var(--neon)}
     <h2>O que vocês <em>vão viver</em></h2>
     <div class="ideias">
       <div class="ideia txt"><div><b>Londres: o circuito dos museus</b><span>British Museum, Natural History e Science Museum têm entrada gratuita. Dá para encher três manhãs sem gastar ingresso.</span></div></div>
-      <div class="ideia txt"><div><b>Londres: a Torre e o Tâmisa</b><span>A Torre de Londres de manhã e o rio à tarde, de Westminster a Greenwich. Os dois ingressos somados saem por volta de R$ 450 por aluno.</span></div></div>
+      <div class="ideia txt"><div><b>Londres: a Torre e o Tâmisa</b><span>A Torre de Londres de manhã e o rio à tarde, de Westminster a Greenwich. Os dois ingressos estão na lista de passeios, logo abaixo.</span></div></div>
       <div class="ideia txt"><div><b>Madri: o triângulo da arte</b><span>Prado, Reina Sofía e Thyssen ficam a dez minutos a pé um do outro, e os três têm faixa de horário com entrada gratuita.</span></div></div>
       <div class="ideia txt"><div><b>Madri: Toledo ou Segóvia no mesmo dia</b><span>Meia hora de trem rápido a partir de Atocha. Dá uma cidade murada inteira sem precisar trocar de hotel.</span></div></div>
     </div>
     </div>
   </section>
+
+
+  <section class="wrap">
+    <div class="rot">Passeios e ingressos</div>
+    <h2>O que dá para <em>somar ao roteiro</em></h2>
+    <p class="cal-sub">Preço por aluno, reservado junto com a viagem e pago no mesmo link. Não está incluído nos valores do passo 1. O catálogo tem mais opções que estas cinco, e a lista acompanha a cidade escolhida lá em cima.</p>
+    <div class="psg" data-cidade="londres"><div class="pcard"><img src="psg-lon-harry-potter.jpg" alt="Tour do Harry Potter a pé" loading="lazy"><div class="pb"><b>Tour do Harry Potter a pé</b><span>Os cenários do mundo mágico nos pontos reais da cidade, a pé.</span><i>R$ 124,50</i></div></div><div class="pcard"><img src="psg-lon-cruzeiro-tamisa.jpg" alt="Cruzeiro pelo Tâmisa, de Westminster a Greenwich" loading="lazy"><div class="pb"><b>Cruzeiro pelo Tâmisa, de Westminster a Greenwich</b><span>Do Parlamento até o meridiano, vendo a cidade pela água.</span><i>R$ 143,77</i></div></div><div class="pcard"><img src="psg-lon-big-bus.jpg" alt="Ônibus turístico Big Bus" loading="lazy"><div class="pb"><b>Ônibus turístico Big Bus</b><span>Sobe e desce o dia inteiro. Resolve distância com grupo grande.</span><i>R$ 267,39</i></div></div><div class="pcard"><img src="psg-lon-torre-de-londres.jpg" alt="Ingresso da Torre de Londres" loading="lazy"><div class="pb"><b>Ingresso da Torre de Londres</b><span>A fortaleza normanda, as joias da coroa e os corvos.</span><i>R$ 309,26</i></div></div><div class="pcard"><img src="psg-lon-london-eye.jpg" alt="London Eye, ingresso flexível sem fila" loading="lazy"><div class="pb"><b>London Eye, ingresso flexível sem fila</b><span>Londres inteira de 135 metros de altura, sem hora marcada.</span><i>R$ 359,36</i></div></div><div class="ptot">Os cinco juntos: <b>R$ 1.204,28</b> por aluno.</div></div>
+    <div class="psg" data-cidade="madri" hidden><div class="pcard"><img src="psg-mad-museu-do-prado.jpg" alt="Museu do Prado, ingresso sem fila" loading="lazy"><div class="pb"><b>Museu do Prado, ingresso sem fila</b><span>Velázquez, Goya e El Greco na maior pinacoteca da Espanha.</span><i>R$ 128,43</i></div></div><div class="pcard"><img src="psg-mad-onibus-turistico.jpg" alt="Ônibus turístico de Madrid" loading="lazy"><div class="pb"><b>Ônibus turístico de Madrid</b><span>Duas linhas ligando o centro histórico aos museus.</span><i>R$ 211,95</i></div></div><div class="pcard"><img src="psg-mad-bernabeu.jpg" alt="Tour Bernabéu, ingresso oficial" loading="lazy"><div class="pb"><b>Tour Bernabéu, ingresso oficial</b><span>O estádio do Real Madrid por dentro, do gramado ao vestiário.</span><i>R$ 264,13</i></div></div><div class="pcard"><img src="psg-mad-toledo-segovia.jpg" alt="Excursão a Toledo e Segóvia" loading="lazy"><div class="pb"><b>Excursão a Toledo e Segóvia</b><span>Duas cidades históricas num dia só, com transporte saindo de Madri.</span><i>R$ 321,19</i></div></div><div class="pcard"><img src="psg-mad-palacio-real.jpg" alt="Palácio Real e Catedral da Almudena" loading="lazy"><div class="pb"><b>Palácio Real e Catedral da Almudena</b><span>O maior palácio real da Europa Ocidental, com guia.</span><i>R$ 342,61</i></div></div><div class="ptot">Os cinco juntos: <b>R$ 1.268,31</b> por aluno.</div></div>
+  </section>
+
+  <script>
+  (function () {
+    var abas = document.getElementById("grupos");
+    if (!abas) return;
+    function sincronizaPasseios() {
+      var marcada = abas.querySelector("button.on");
+      var cidade = marcada ? marcada.getAttribute("data-grupo") : "londres";
+      [].forEach.call(document.querySelectorAll(".psg"), function (bloco) {
+        bloco.hidden = bloco.getAttribute("data-cidade") !== cidade;
+      });
+    }
+    abas.addEventListener("click", function () { setTimeout(sincronizaPasseios, 0); });
+    sincronizaPasseios();
+  })();
+  </script>
 
   <section class="wrap">
     <div class="notas">
@@ -249,7 +283,7 @@ h2 em{font-style:normal;color:var(--neon)}
       <p>Aéreo em voo direto da LATAM, em classe econômica, com bagagem despachada. Para Londres, GRU para Heathrow em 05/07 às 23h50, chegando em 06/07 às 15h05, e a volta em 15/07 às 21h20. Para Madri, GRU para Barajas em 05/07 às 23h, chegando em 06/07 às 14h05, e a volta em 15/07 às 14h45.</p>
       <p>A busca da consolidadora aceita no máximo 9 passageiros. O aéreo foi cotado para 9 e o décimo projetado proporcionalmente. <b>A partir de 10 passageiros a companhia costuma exigir tarifa de grupo</b>, negociada direto com ela, com depósito e prazo para entregar a lista de nomes. Em alta temporada essa tarifa pode sair mais cara que a publicada, e não mais barata: a quantidade de pessoas não garante desconto.</p>
       <p>Hospedagem de dez noites, em cinco quartos duplos para os dez alunos, em regime de só hospedagem salvo onde a opção indicar o contrário.</p>
-      <p>Não estão inclusos e podem ser somados: seguro viagem, chip de dados, transfers, alimentação, passeios e o programa na escola. O <b>seguro viagem é obrigatório para o espaço Schengen</b>, com cobertura mínima de 30 mil euros, e sai a partir de R$ 304,85 por aluno no plano de 60 mil dólares. O chip de dados para União Europeia e Reino Unido custa R$ 18,65. Ingressos e passeios em Londres vão de R$ 124,50 a R$ 626,82 por aluno.</p>
+      <p>Não estão inclusos e podem ser somados: seguro viagem, chip de dados, transfers, alimentação, passeios e o programa na escola. O <b>seguro viagem é obrigatório para o espaço Schengen</b>, com cobertura mínima de 30 mil euros, e sai a partir de R$ 304,85 por aluno no plano de 60 mil dólares. O chip de dados para União Europeia e Reino Unido custa R$ 18,65. Os passeios e ingressos estão listados mais acima, com o preço por aluno de cada um.</p>
       <p>Menor de idade viajando sem os pais precisa de autorização de viagem. Antes de fechar, é preciso definir quem acompanha o grupo e quem dá suporte durante a viagem, porque isso é custo direto e muda o preço.</p>
       <p class="credito">Capa: fotografia de Gswaby, sob licença CC BY-SA 4.0, via Wikimedia Commons.</p>
     </div>
