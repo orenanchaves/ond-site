@@ -72,6 +72,9 @@
 .lm-cards li{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:20px}
 .lm-cards b{display:block;font-size:1.02rem;margin-bottom:8px}
 .lm-cards p{color:var(--muted);font-size:.93rem;line-height:1.55}
+.lm-cards-tela li{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.lm-cards-tela img{display:block;width:100%;height:auto;border-bottom:1px solid var(--border)}
+.lm-card-tx{padding:18px 20px 20px}
 .lm-sec-video{display:grid;grid-template-columns:1fr 190px;gap:32px;align-items:center}
 .lm-video-txt>p{margin-top:12px;max-width:62ch;color:var(--muted);line-height:1.6}
 .lm-video{border-radius:14px;overflow:hidden;border:1px solid var(--border);background:#000}
@@ -168,13 +171,13 @@
 
     <section class="lm-sec">
       <h2>Depois de fechar, a viagem fica no bolso</h2>
-      <ul class="lm-cards">
-        <li><b>Roteiro dia a dia</b><p>Cada dia montado hora a hora, com o caminho entre uma coisa e outra, e disponível sem internet.</p></li>
-        <li><b>Documentos e vouchers</b><p>Passagens, reservas e comprovantes sempre à mão, sem procurar e-mail no aeroporto.</p></li>
-        <li><b>Áudio-guia nas atrações</b><p>Narração nas atrações do roteiro, sem alugar fone em cada bilheteria.</p></li>
-        <li><b>Visto, moeda e segurança</b><p>Informação do destino no aplicativo, para vocês chegarem sabendo como funciona.</p></li>
-        <li><b>Controle de gastos</b><p>O gasto real lado a lado com o previsto, com aviso quando foge da conta.</p></li>
-        <li><b>Avisos no WhatsApp</b><p>Lembrete do que falta levar antes de embarcar e alerta de mudança durante a viagem.</p></li>
+      <ul class="lm-cards lm-cards-tela">
+        <li><img src="/assets/lua-de-mel/app-roteiro.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela do roteiro no aplicativo, com o sábado em Cartagena e os horários de cada atividade do dia"><div class="lm-card-tx"><b>Roteiro dia a dia</b><p>Cada dia montado hora a hora, com o caminho entre uma coisa e outra, e disponível sem internet.</p></div></li>
+        <li><img src="/assets/lua-de-mel/app-documentos.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela Meus documentos no aplicativo, com passagem, reserva de hotel e ingresso em cartões"><div class="lm-card-tx"><b>Documentos e vouchers</b><p>Passagens, reservas e comprovantes sempre à mão, sem procurar e-mail no aeroporto.</p></div></li>
+        <li><img src="/assets/lua-de-mel/app-audioguia.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela do áudio-guia no aplicativo, com as faixas narradas do Castillo San Felipe de Barajas"><div class="lm-card-tx"><b>Áudio-guia nas atrações</b><p>Narração nas atrações do roteiro, sem alugar fone em cada bilheteria.</p></div></li>
+        <li><img src="/assets/lua-de-mel/app-destino.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela de informações do destino no aplicativo, aberta na aba Visto de Cartagena"><div class="lm-card-tx"><b>Visto, moeda e segurança</b><p>Informação do destino no aplicativo, para vocês chegarem sabendo como funciona.</p></div></li>
+        <li><img src="/assets/lua-de-mel/app-gastos.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela financeira do aplicativo na aba Real, com o total gasto e o valor por categoria"><div class="lm-card-tx"><b>Controle de gastos</b><p>O gasto real lado a lado com o previsto, com aviso quando foge da conta.</p></div></li>
+        <li><img src="/assets/lua-de-mel/app-avisos.webp" width="660" height="300" loading="lazy" decoding="async" alt="Conversa no WhatsApp avisando quanto já foi gasto e que a alimentação está acima da média do roteiro"><div class="lm-card-tx"><b>Avisos no WhatsApp</b><p>Lembrete do que falta levar antes de embarcar e alerta de mudança durante a viagem.</p></div></li>
       </ul>
     </section>
 
