@@ -507,7 +507,7 @@ img.av{object-fit:cover}
 .res-passos li{background:var(--card);border:1px solid var(--borda);border-radius:20px;padding:20px 20px 20px 64px;align-items:flex-start}
 .res-passos li::before{left:20px;top:20px}
 }
-.pacotes{margin-top:10px;max-width:420px}
+.pacotes{margin-top:10px;max-width:420px;grid-template-columns:repeat(3,1fr)}
 .pacotes button small{display:block;font-weight:700;font-size:11px;opacity:.8}
 .eco-tab{margin-top:14px;overflow-x:auto}
 .eco-tab table{width:100%;border-collapse:collapse;font-size:14px;color:var(--muted);min-width:640px}
@@ -652,7 +652,7 @@ h2{font-size:46px;letter-spacing:-1px}
     <div class="rot">Passo 1</div>
     <h2>Escolha <em>a opção</em></h2>
     <div class="abas grupos" id="grupos"><button type="button" data-grupo="londres" class="on">Londres</button><button type="button" data-grupo="madri" class="">Madri</button></div>
-    <div class="abas pacotes" id="pacotes"><button type="button" data-pacote="completa" class="on">Completa</button><button type="button" data-pacote="essencial" class="">Essencial</button></div>
+    <div class="abas pacotes" id="pacotes"><button type="button" data-pacote="todas" class="on">Todas</button><button type="button" data-pacote="completa" class="">Completa</button><button type="button" data-pacote="essencial" class="">Essencial</button></div>
     <p class="grupo-desc" id="grupoDesc"></p>
     <div class="carrossel">
       <button type="button" class="car-seta ant" aria-label="Opção anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
@@ -874,12 +874,13 @@ h2{font-size:46px;letter-spacing:-1px}
   var MSG = "Olá! Sou a Thaís, da Alves Limited Group, e quero falar sobre a excursão escolar de julho de 2027.", ROT_PIX = "por aluno, à vista no Pix";
   var MSG_NEW_QUOTE = "Olá! Sou a Thaís, da Alves Limited Group. A proposta da excursão escolar venceu, pode me mandar uma nova cotação?";
   var GRUPOS = [{"id": "londres", "nome": "Londres", "recomendada": "lon-int", "desc": "Dez noites em Londres, em cinco quartos duplos, com voo direto da LATAM. Valores por aluno."}, {"id": "madri", "nome": "Madri", "recomendada": "mad-int", "desc": "Dez noites em Madri, em cinco quartos duplos, com voo direto da LATAM. Sai cerca de 15% mais barato por aluno que Londres, no mesmo padrão de hotel."}];
-  var REC = { completa: { londres: 'lon-c-top', madri: 'mad-c-sup' }, essencial: { londres: 'lon-int', madri: 'mad-int' } };
+  var REC = { todas: { londres: 'lon-c-top', madri: 'mad-c-sup' }, completa: { londres: 'lon-c-top', madri: 'mad-c-sup' }, essencial: { londres: 'lon-int', madri: 'mad-int' } };
   var DESC_PACOTE = {
+    todas: "A Completa é o programa fechado, com aéreo com mala, hotel, um adulto acompanhando o grupo, jantares, traslados, passeios, seguro e chip. A Essencial é só aéreo com mala, hotel e o app OND. Valores por aluno, para um grupo de 10.",
     completa: 'O programa fechado: aéreo com mala, hotel, um adulto acompanhando o grupo, jantares, traslados, passeios, seguro e chip. Valores por aluno, para um grupo de 10.',
     essencial: 'Só aéreo com mala, hotel e o app OND. Seguro, chip, traslados, refeições e passeios ficam por conta de cada família. Valores por aluno.'
   };
-  var estado = { op: "lon-c-top", forma: 'cartao', n: 10, grupo: GRUPOS.length ? GRUPOS[0].id : '', pacote: 'completa' };
+  var estado = { op: "lon-c-top", forma: 'cartao', n: 10, grupo: GRUPOS.length ? GRUPOS[0].id : '', pacote: 'todas' };
   function brl(v, c){ return v.toLocaleString('pt-BR', { minimumFractionDigits: c ? 2 : 0, maximumFractionDigits: c ? 2 : 0 }); }
   function totalCartao(o, n){ return o.cartao * (1 - TAXA_CARTAO) / (1 - TAXA_CARTAO - TAXA_PARCELA * (n - 1)); }
   function calc(o){
@@ -890,11 +891,11 @@ h2{font-size:46px;letter-spacing:-1px}
   }
   var lista = document.getElementById('listaOpcoes');
   function renderLista(){
-  lista.innerHTML = OPCOES.filter(function(o){ return (!estado.grupo || o.grupo === estado.grupo) && o.pacote === estado.pacote; }).map(function(o){
+  lista.innerHTML = OPCOES.filter(function(o){ return (!estado.grupo || o.grupo === estado.grupo) && (estado.pacote === 'todas' || o.pacote === estado.pacote); }).map(function(o){
     return '<label class="op" data-op="' + o.id + '"><input type="radio" name="op" value="' + o.id + '">' +
       (o.imgs.length ? '<button type="button" class="btn-fotos" data-fotos="' + o.id + '" aria-label="Ver fotos do hotel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg>Fotos</button>' : '') +
       (o.destaque ? '<span class="selo">' + o.destaque + '</span>' : '') +
-      '<div class="linha">' + (o.thumb ? '<img class="thumb" src="' + o.thumb + '" alt="' + o.hotel + '" loading="lazy">' : '') + '<div><div class="t">' + o.tag + '</div><div class="h">' + o.hotel + '</div>' + (o.local ? '<div class="local"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-6-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.4"/></svg><span>' + o.local + ' · <a href="' + o.mapa + '" target="_blank" rel="noopener">Ver no mapa</a></span></div>' : '') + '<div class="det"><div class="o">' + o.onde + '</div>' +
+      '<div class="linha">' + (o.thumb ? '<img class="thumb" src="' + o.thumb + '" alt="' + o.hotel + '" loading="lazy">' : '') + '<div><div class="t">' + (o.pacote === 'essencial' ? 'Essencial · ' : '') + o.tag + '</div><div class="h">' + o.hotel + '</div>' + (o.local ? '<div class="local"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-6-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.4"/></svg><span>' + o.local + ' · <a href="' + o.mapa + '" target="_blank" rel="noopener">Ver no mapa</a></span></div>' : '') + '<div class="det"><div class="o">' + o.onde + '</div>' +
       '<ul>' + o.itens.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul></div><div class="vermais">Ver os hotéis</div></div>' +
       '<div class="p"><div class="radio"></div><small>10x no cartão de</small><b>R$ ' + brl(totalCartao(o, 10) / 10, true) + '</b><span>ou R$ ' + brl(o.pix) + ' no Pix</span></div></div></label>';
   }).join('');
