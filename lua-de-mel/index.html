@@ -68,7 +68,7 @@
       </div>
       <form class="cot-form" action="https://wa.me/5511943615412" target="_blank" data-cot-origem="lua-de-mel" data-cot-nota="(vim pela página de lua de mel)">
         <label class="cot-f"><span>Pra onde?</span><input name="destino" placeholder="Ex.: Maldivas, Itália" autocomplete="off"></label>
-        <label class="cot-f"><span>Quando?</span><input name="quando" placeholder="Ex.: março de 2027" autocomplete="off"></label>
+        <label class="cot-f"><span>Ida</span><input type="date" name="ida"></label><label class="cot-f"><span>Volta</span><input type="date" name="volta"></label>
         <label class="cot-f"><span>Quem vai?</span><select name="pessoas"><option value="">Escolha</option><option selected>2 pessoas</option><option>3 pessoas</option><option>4 pessoas</option><option>5 ou mais pessoas</option></select></label>
         <label class="cot-f"><span>Saindo de</span><input name="saida" placeholder="Ex.: São Paulo" autocomplete="address-level2"></label>
         <button class="cot-go" type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.2-3.2-.7-2.7-1.1-4.4-3.9-4.6-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.3.5-.3.3c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2.1 1.3.2.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l1.9.9c.3.1.5.2.5.4.1.1.1.7-.2 1.4Z"/></svg>Pedir cotação</button>
@@ -79,6 +79,7 @@
         <button type="button" data-cot-origem="lua-de-mel-europa" data-cot-msg="Olá, OND! Queremos cotar nossa lua de mel na Europa, com mais de uma cidade. (vim pela página de lua de mel)">Europa, mais de uma cidade</button>
         <button type="button" data-cot-origem="lua-de-mel-ajuda" data-cot-msg="Olá, OND! Queremos ajuda para escolher o destino da nossa lua de mel. (vim pela página de lua de mel)">Ainda não sabemos o destino</button>
       </div>
+      <div data-ond-quem></div>
     </div>
 
     <section class="lm-sec">

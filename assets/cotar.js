@@ -4,6 +4,25 @@
 (function(){
   if(window.__ondCotar) return; window.__ondCotar = true;
   var NUM = '5511943615412', NUM_CATALOGO = '5511910214133';
+  /* Quem atende: um lugar só para o texto e para os dois números. Usado no briefing,
+     no convite de ofertas e em qualquer [data-ond-quem] da página. */
+  var QUEM_ATENDE = '<div class="brf-quem"><span class="brf-quem-fotos">'
+    + '<img src="/assets/equipe/renan-rodrigues.jpg" alt="Renan Rodrigues" loading="lazy" width="38" height="38">'
+    + '<img src="/assets/equipe/renan-chaves.jpg" alt="Renan Chaves" loading="lazy" width="38" height="38">'
+    + '</span><p>Quem vai te atender somos nós dois, não é robô. A cotação chega no seu WhatsApp '
+    + 'por um destes números: <b>(11) 94361-5412</b> ou <b>(11) 95335-3347</b>.</p></div>';
+  var CSS_QUEM = ''
+    + '.brf-quem{display:flex;align-items:center;gap:12px;margin-top:14px;padding:12px;border:1px solid var(--border,#2a2a3a);border-radius:14px}'
+    + '.brf-quem-fotos{flex:0 0 auto;display:flex}'
+    + '.brf-quem-fotos img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--card,#16161f)}'
+    + '.brf-quem-fotos img+img{margin-left:-12px}'
+    + '.brf-quem p{font-size:.78rem;line-height:1.45;color:var(--muted,#9a97b5)}'
+    + '.brf-quem b{color:var(--text,#f0eeff)}';
+  var cssQuemNoAr = false;
+  function plantarCssQuem(){
+    if(cssQuemNoAr) return; cssQuemNoAr = true;
+    var st = document.createElement('style'); st.textContent = CSS_QUEM; document.head.appendChild(st);
+  }
   function abrir(msg, origem, numero){
     if(window.gtag) gtag('event','whatsapp_click',{destino:origem||'cotacao',pagina:location.pathname});
     window.open('https://wa.me/'+(numero||NUM)+'?text='+encodeURIComponent(msg),'_blank','noopener');
@@ -15,7 +34,9 @@
     var v = function(n){ var el=f.elements[n]; return el ? String(el.value||'').trim() : '' };
     var linhas = ['Olá, OND! Quero cotar uma viagem.'];
     linhas.push('Destino: ' + (v('destino') || 'ainda não sei, quero ajuda pra escolher'));
-    if(v('quando')) linhas.push('Quando: ' + v('quando'));
+    if(v('ida') && v('volta')) linhas.push('Datas: ' + dataBr(v('ida')) + ' a ' + dataBr(v('volta')));
+    else if(v('ida')) linhas.push('Ida: ' + dataBr(v('ida')));
+    else if(v('quando')) linhas.push('Quando: ' + v('quando'));
     if(v('pessoas')) linhas.push('Quem vai: ' + v('pessoas'));
     if(v('saida')) linhas.push('Saindo de: ' + v('saida'));
     linhas.push(f.getAttribute('data-cot-nota') || '(vim pelo site)');
@@ -76,12 +97,7 @@
       + '.brf-cont span{min-width:16px;font-weight:800;color:var(--text,#f0eeff)}'
       + '.brf .cot-go{width:100%;margin-top:4px}'
       + '.brf-direto{display:block;margin-top:12px;text-align:center;font-size:.85rem;color:var(--muted,#9a97b5);text-decoration:underline}'
-      + '.brf-quem{display:flex;align-items:center;gap:12px;margin-top:14px;padding:12px;border:1px solid var(--border,#2a2a3a);border-radius:14px}'
-      + '.brf-quem-fotos{flex:0 0 auto;display:flex}'
-      + '.brf-quem-fotos img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--card,#16161f)}'
-      + '.brf-quem-fotos img+img{margin-left:-12px}'
-      + '.brf-quem p{font-size:.78rem;line-height:1.45;color:var(--muted,#9a97b5)}'
-      + '.brf-quem b{color:var(--text,#f0eeff)}'
+      + CSS_QUEM
       + '.brf-erro{color:#ff8a80;font-size:.82rem}'
       + '.brf-convite .cot-go{display:flex;align-items:center;justify-content:center;text-decoration:none;margin-top:18px}'
       + '.brf-convite small{display:block;margin-top:14px;font-size:.76rem;line-height:1.45;color:var(--muted,#9a97b5)}';
@@ -102,14 +118,14 @@
       + '<div class="brf-datas"><label class="cot-f"><span>Ida</span><input type="date" name="ida" required></label><label class="cot-f"><span>Volta</span><input type="date" name="volta" required></label></div>'
       + '<div class="cot-f"><span>Quem vai</span><div class="brf-pessoas">' + tiles + '</div>'
       + '<label class="brf-pet"><input type="checkbox" name="pet"><svg viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="' + ICONE_PET + '"/></svg><span>Vamos levar um pet</span></label></div>'
-      + '<div class="brf-quem"><span class="brf-quem-fotos"><img src="/assets/equipe/renan-rodrigues.jpg" alt="Renan Rodrigues" loading="lazy" width="38" height="38"><img src="/assets/equipe/renan-chaves.jpg" alt="Renan Chaves" loading="lazy" width="38" height="38"></span><p>Quem vai te atender somos nós dois, não é robô. A cotação chega no seu WhatsApp por um destes números: <b>(11) 94361-5412</b> ou <b>(11) 95335-3347</b>.</p></div>'
+      + QUEM_ATENDE
       + '<div class="brf-erro" role="alert" hidden></div>'
       + '<button class="cot-go" type="submit">Pedir cotação no WhatsApp</button>'
       + '</form>'
       + '<a class="brf-direto" href="#">Prefiro falar direto no WhatsApp</a>'
       + '<div class="brf-convite" hidden><h2>Seja o primeiro a saber</h2>'
       + '<p class="brf-convite-txt"></p>'
-      + '<div class="brf-quem"><span class="brf-quem-fotos"><img src="/assets/equipe/renan-rodrigues.jpg" alt="Renan Rodrigues" loading="lazy" width="38" height="38"><img src="/assets/equipe/renan-chaves.jpg" alt="Renan Chaves" loading="lazy" width="38" height="38"></span><p>Quem vai te atender somos nós dois, não é robô. A cotação chega no seu WhatsApp por um destes números: <b>(11) 94361-5412</b> ou <b>(11) 95335-3347</b>.</p></div>'
+      + QUEM_ATENDE
       + '<a class="cot-go" target="_blank" rel="noopener">Quero receber as ofertas</a>'
       + '<a class="brf-direto brf-agora-nao" href="#">Agora não</a>'
       + '<small>Só ofertas do destino, sem spam. Você sai quando quiser.</small></div>';
@@ -243,4 +259,26 @@
     e.preventDefault();
     abrirBriefing(cta);
   });
+
+  /* Página que quiser o bloco de quem atende escreve <div data-ond-quem></div>.
+     As datas de qualquer form.cot-form com ida e volta ganham o mesmo
+     comportamento do briefing: nada no passado e volta nunca antes da ida. */
+  function prepararPagina(){
+    var vagas = document.querySelectorAll('[data-ond-quem]');
+    if(vagas.length){
+      plantarCssQuem();
+      [].forEach.call(vagas, function(vaga){ vaga.innerHTML = QUEM_ATENDE; });
+    }
+    [].forEach.call(document.querySelectorAll('form.cot-form'), function(f){
+      var ida = f.elements.ida, volta = f.elements.volta;
+      if(!ida || !volta) return;
+      ida.min = hojeIso(); volta.min = hojeIso();
+      ida.addEventListener('change', function(){
+        volta.min = ida.value || hojeIso();
+        if(volta.value && ida.value && volta.value < ida.value) volta.value = '';
+      });
+    });
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', prepararPagina);
+  else prepararPagina();
 })();
