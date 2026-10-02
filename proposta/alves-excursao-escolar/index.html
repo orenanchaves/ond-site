@@ -978,12 +978,12 @@ h2{font-size:46px;letter-spacing:-1px}
       valor.innerHTML = '<i>R$</i>' + brl(r.total); sub.textContent = ROT_PIX;
       eco.hidden = false; eco.textContent = 'Economia de R$ ' + brl(o.cartao - o.pix); txtPag = 'Pix, R$ ' + brl(r.total);
     } else {
-      valor.innerHTML = '<i>' + r.n + 'x R$</i>' + brl(r.parcela, true);
-      sub.textContent = (r.n === 1 ? 'à vista no cartão' : 'com a taxa do parcelamento incluída') + ' · total R$ ' + brl(r.total, r.n > 1);
+      valor.innerHTML = '<i>R$</i>' + brl(r.total, r.n > 1);
+      sub.textContent = 'por aluno, ' + (r.n === 1 ? 'à vista no cartão' : 'em ' + r.n + 'x de R$ ' + brl(r.parcela, true) + ', com a taxa do parcelamento incluída');
       eco.hidden = true; txtPag = 'cartão em ' + r.n + 'x de R$ ' + brl(r.parcela, true);
     }
     document.getElementById('bOpcao').textContent = o.tag + ' · ' + o.hotel;
-    document.getElementById('bValor').textContent = estado.forma === 'pix' ? 'R$ ' + brl(r.total) + ' no Pix' : r.n + 'x R$ ' + brl(r.parcela, true);
+    document.getElementById('bValor').textContent = estado.forma === 'pix' ? 'R$ ' + brl(r.total) + ' no Pix' : 'R$ ' + brl(r.total, r.n > 1);
     document.getElementById('cta').href = 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(MSG + ' Opção: ' + o.tag + ' (' + o.hotel + '). Pagamento: ' + txtPag + '.');
     applyExpiredState();
   }
