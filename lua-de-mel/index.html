@@ -72,9 +72,11 @@
 .lm-cards li{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:20px}
 .lm-cards b{display:block;font-size:1.02rem;margin-bottom:8px}
 .lm-cards p{color:var(--muted);font-size:.93rem;line-height:1.55}
-.lm-video{margin-top:22px;border-radius:18px;overflow:hidden;border:1px solid var(--border);background:#000;max-width:420px}
+.lm-sec-video{display:grid;grid-template-columns:1fr 190px;gap:32px;align-items:center}
+.lm-video-txt>p{margin-top:12px;max-width:62ch;color:var(--muted);line-height:1.6}
+.lm-video{border-radius:14px;overflow:hidden;border:1px solid var(--border);background:#000}
 .lm-video video{display:block;width:100%;height:auto}
-.lm-video-nota{margin-top:10px;font-size:.85rem;color:var(--muted);max-width:52ch}
+.lm-video-nota{font-size:.85rem;max-width:52ch}
 .lm-passos{list-style:none;counter-reset:p;display:grid;gap:12px;margin:22px 0 0;padding:0}
 .lm-passos li{counter-increment:p;position:relative;padding-left:52px;min-height:38px}
 .lm-passos li::before{content:counter(p);position:absolute;left:0;top:0;width:38px;height:38px;border-radius:12px;background:var(--purple-dim,rgba(127,17,244,.14));color:var(--purple-light,#b794ff);display:flex;align-items:center;justify-content:center;font-weight:800}
@@ -90,6 +92,7 @@
 .lm-fim p{margin-top:10px;color:var(--muted);max-width:52ch;margin-left:auto;margin-right:auto;line-height:1.6}
 .lm-fim .cot-go{margin-top:18px}
 @media(max-width:980px){.cot-form{grid-template-columns:1fr 1fr}.cot-go{grid-column:1/-1}.lm-cards{grid-template-columns:1fr}}
+@media(max-width:780px){.lm-sec-video{grid-template-columns:1fr;gap:20px}.lm-video{max-width:200px}}
 @media(max-width:560px){.cot-box{padding:20px 16px}.cot-form{grid-template-columns:1fr}}
 </style>
 <script src="/assets/ond-logo.js" defer></script>
@@ -149,16 +152,18 @@
       </ul>
     </section>
 
-    <section class="lm-sec">
-      <h2>Como a viagem é montada e entregue</h2>
-      <p>A inteligência artificial monta o roteiro em minutos. Um agente de verdade confere, cota com os fornecedores e assina o contrato. Veja o caminho completo, da conversa inicial ao roteiro tocando no celular.</p>
+    <section class="lm-sec lm-sec-video">
+      <div class="lm-video-txt">
+        <h2>Como a viagem é montada e entregue</h2>
+        <p>A inteligência artificial monta o roteiro em minutos. Um agente de verdade confere, cota com os fornecedores e assina o contrato. Se quiser ver o caminho completo, da conversa inicial ao roteiro tocando no celular, o vídeo ao lado mostra.</p>
+        <p class="lm-video-nota">Demonstração do produto com uma viagem de exemplo para a Colômbia. As telas são do aplicativo do OND.</p>
+      </div>
       <div class="lm-video">
         <video controls preload="none" playsinline poster="/assets/lua-de-mel-capa.png" width="1080" height="1920">
           <source src="/assets/lua-de-mel.mp4" type="video/mp4">
           Seu navegador não reproduz este vídeo.
         </video>
       </div>
-      <p class="lm-video-nota">Demonstração do produto com uma viagem de exemplo para a Colômbia. As telas são do aplicativo do OND.</p>
     </section>
 
     <section class="lm-sec">
