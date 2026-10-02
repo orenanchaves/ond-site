@@ -404,6 +404,7 @@ def write_sitemap(meta):
     today = datetime.date.today().isoformat()
     fixed = [('', '1.0', 'weekly'), ('agencias.html', '0.9', 'monthly'),
              ('lua-de-mel/', '0.9', 'monthly'),
+             ('excursoes/', '0.9', 'monthly'),
              ('blog.html', '0.7', 'weekly'),
              ('viagens/', '0.9', 'weekly'), ('viagens/quando-viajar/', '0.8', 'monthly')]
     import glob as _g

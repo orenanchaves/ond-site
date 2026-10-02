@@ -236,7 +236,8 @@ def write_sitemap():
 
     for loc, pr in ((page_url('pt', 'agencias.html'), PRIORITY['agencias.html']),
                     (SITE + 'agencias/planos/', '0.8'),
-                    (SITE + 'lua-de-mel/', '0.9')):
+                    (SITE + 'lua-de-mel/', '0.9'),
+                    (SITE + 'excursoes/', '0.9')):
         urls.append(
             '  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n'
             '    <changefreq>monthly</changefreq>\n    <priority>%s</priority>\n  </url>'
