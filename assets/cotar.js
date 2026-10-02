@@ -18,8 +18,8 @@
     if(v('quando')) linhas.push('Quando: ' + v('quando'));
     if(v('pessoas')) linhas.push('Quem vai: ' + v('pessoas'));
     if(v('saida')) linhas.push('Saindo de: ' + v('saida'));
-    linhas.push('(vim pelo site)');
-    abrir(linhas.join('\n'), v('destino') || 'cotacao');
+    linhas.push(f.getAttribute('data-cot-nota') || '(vim pelo site)');
+    abrir(linhas.join('\n'), f.getAttribute('data-cot-origem') || v('destino') || 'cotacao');
   });
   document.addEventListener('click', function(e){
     var b = e.target.closest && e.target.closest('[data-cot-msg]');

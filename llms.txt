@@ -8,6 +8,7 @@
 - [Planejar a viagem no OND vAI](https://web.ondviajar.com.br/ond-vai): grátis, na web e nos apps Android e iOS.
 - [Página inicial](https://ondviajar.com.br/)
 - [Blog Vai para onde?](https://ondviajar.com.br/blog.html): roteiros e dicas de viagem.
+- [Lua de mel sob medida](https://ondviajar.com.br/lua-de-mel/): cotação de aéreo, hospedagem e passeios de lua de mel por agência cadastrada, com a viagem acompanhada no app.
 
 ## Para empresas
 - [OND para agências](https://ondviajar.com.br/agencias.html): leads de viajantes prontos para comprar.
