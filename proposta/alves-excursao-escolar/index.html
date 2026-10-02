@@ -142,7 +142,7 @@ h2 em{font-style:normal;color:var(--neon)}
 .ptot b{font-size:17px}
 .notas .credito{font-size:12px;color:var(--muted);margin-top:4px}
 .rodape{padding-block:26px 40px;border-top:1px solid var(--borda);text-align:center;color:var(--muted);font-size:13px}
-.rodape .logo{height:30px;margin-bottom:10px}
+.rodape .logo{height:40px;margin-bottom:10px}
 .hero img.bg{transition:opacity .35s ease}
 .hero .topo .wrap{justify-content:flex-start;align-items:center;gap:18px;flex-wrap:nowrap}
 .topo .logo{height:66px}
@@ -446,6 +446,41 @@ img.av{object-fit:cover}
 .hb b{display:block;font-size:15px;line-height:1.2;margin-bottom:5px}
 .hb span{display:block;font-size:13px;color:var(--muted);line-height:1.35}
 @media(max-width:700px){.hot{grid-template-columns:1fr}}
+/* parceria */
+.papeis{margin-top:24px;display:grid;gap:14px}
+.papel{background:var(--card);border:1px solid var(--borda);border-radius:22px;padding:24px}
+.papel .papel-logo{height:56px;display:flex;align-items:center;margin:0}
+.papel .papel-logo .logo{height:46px;width:auto;margin:0}
+.papel .alves svg{width:50px;height:50px}
+.papel .alves-txt b{font-size:28px}
+.papel .alves-txt small{font-size:10px;margin-top:5px}
+.papel p{margin-top:16px;font-size:15.5px;line-height:1.5;color:var(--muted)}
+.papel-mais{display:none}
+.modelo-txt p{margin-top:8px}
+.combinar-box{margin-top:34px;background:var(--card);border:1px solid var(--borda);border-radius:22px;padding:22px}
+.combinar-box .demo-t{margin-top:0}
+.combinar{display:flex;flex-wrap:wrap;gap:8px}
+.combinar li{background:var(--card2);border:1px solid var(--borda);border-radius:18px;padding:9px 16px 9px 30px;font-size:14.5px}
+.combinar li::before{left:14px;top:50%;margin-top:-4px}
+.combinar-box .depois{margin-top:16px}
+@media(min-width:1024px){
+.papeis{margin-top:32px;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:20px}
+.papel{padding:32px}
+.papel-mais{display:flex;align-items:center;font-family:'Montserrat',sans-serif;font-weight:300;font-size:44px;color:rgba(240,238,255,.45)}
+#parceria .modelo{margin-top:20px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:48px;align-items:start;padding:32px;border-radius:22px}
+#parceria .modelo b{font-size:26px;line-height:1.15}
+#parceria .modelo-txt p{font-size:16px}
+#parceria .modelo-txt p:first-child{margin-top:0}
+#parceria .demo-t{font-size:24px;margin-top:56px}
+#parceria .passos{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}
+#parceria .passos li{padding:24px;min-height:0;border-radius:22px}
+#parceria .passos li::before{position:static;margin-bottom:16px;width:38px;height:38px}
+#parceria .passos b{font-size:17px}
+#parceria .passos span{font-size:15px}
+#parceria .combinar-box{margin-top:48px;padding:32px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:16px 48px;align-items:start}
+#parceria .combinar-box .demo-t{margin-top:0;grid-row:1 / 3}
+#parceria .combinar-box .depois{grid-column:2;margin-top:4px}
+}
 /* estrutura desktop inspirada no butter.video, com o design system OND */
 @media(min-width:1024px){
 body{padding-bottom:0}
@@ -510,7 +545,7 @@ h2{font-size:46px;letter-spacing:-1px}
 #passeios .ptot{background:transparent;border:0;padding:6px 4px 0;text-align:center}
 .notas{max-width:900px}
 .rodape{padding-block:56px 64px}
-.rodape{text-align:left}.rodape .consultores{max-width:900px}.rodape .marca{display:flex;align-items:center;gap:16px}.rodape .marca .logo{margin-bottom:0}
+.rodape{text-align:center}.rodape .feita{text-align:center}.rodape .consultores{max-width:900px;margin-inline:auto}
 }
 @media(min-width:1024px) and (max-width:1099px){
 
@@ -666,9 +701,8 @@ h2{font-size:46px;letter-spacing:-1px}
     <div class="rot">Parceria</div>
     <h2>Como a gente <em>trabalha junto</em></h2>
     <p class="cal-sub">Uma divisão de papéis para começar com esta excursão e repetir com outras escolas.</p>
-    <div class="duas"><div class="col-a">
-    <div class="ideias">
-      <div class="ideia txt papel"><div><div class="papel-logo"><span class="alves" role="img" aria-label="Alves Limited"><svg viewBox="100 105 195 190" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <div class="papeis">
+      <div class="papel"><div class="papel-logo"><span class="alves" role="img" aria-label="Alves Limited"><svg viewBox="100 105 195 190" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <line x1="115" y1="117" x2="285" y2="117" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
   <line x1="115" y1="128" x2="285" y2="128" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
   <line x1="127" y1="122" x2="127" y2="283" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
@@ -681,20 +715,22 @@ h2{font-size:46px;letter-spacing:-1px}
   <line x1="278" y1="122" x2="278" y2="257" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
   <path d="M267 257 Q267 285 243 285 L222 285" stroke="#c9a84c" stroke-width="7" fill="none" stroke-linecap="round"/>
   <path d="M278 257 Q278 274 243 274 L222 274" stroke="#c9a84c" stroke-width="7" fill="none" stroke-linecap="round"/>
-</svg><span class="alves-txt"><b>Alves</b><small>Limited</small></span></span></div><span>O relacionamento com as escolas e as famílias, a curadoria do programa e a venda.</span></div></div>
-      <div class="ideia txt papel"><div><div class="papel-logo"><svg class="logo" aria-label="OND" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 951.32 497.26" role="img" aria-label="OND">
+</svg><span class="alves-txt"><b>Alves</b><small>Limited</small></span></span></div><p>O relacionamento com as escolas e as famílias, a curadoria do programa e a venda.</p></div>
+      <span class="papel-mais" aria-hidden="true">+</span>
+      <div class="papel"><div class="papel-logo"><svg class="logo" aria-label="OND" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 951.32 497.26" role="img" aria-label="OND">
   <path fill="#7F11F4" d="M327.85,243.05l-69.42-45.05-57.11-117.28c-.76-1.55-2.13-2.44-3.59-2.67-1.46.24-2.83,1.12-3.59,2.67l-57.11,117.28-69.42,45.05c-1.53.99-2.26,2.62-2.21,4.23-.04,1.61.69,3.24,2.21,4.23l69.42,45.05,57.11,117.28c.76,1.55,2.13,2.44,3.59,2.67,1.46-.24,2.83-1.12,3.59-2.67l57.11-117.28,69.42-45.05c1.53-.99,2.26-2.62,2.21-4.23.04-1.61-.69-3.24-2.21-4.23Z"/>
   <path fill="#FFFFFF" d="M373.12,248.52c0-42.54,34.63-76.96,77.17-76.96s77.18,34.42,77.18,76.96-34.63,77.18-77.18,77.18-77.17-34.42-77.17-77.18ZM477.88,248.52c0-15.18-12.4-27.58-27.58-27.58s-27.58,12.4-27.58,27.58,12.4,27.79,27.58,27.79,27.58-12.4,27.58-27.79Z"/>
   <path fill="#FFFFFF" d="M542.62,171.56h44.05c1.56,0,3.03.73,3.97,1.97l59.71,78.19h1.54v-75.15c0-2.76,2.24-5,5-5h41.53c2.76,0,5,2.24,5,5v144.14c0,2.76-2.24,5-5,5h-44.1c-1.53,0-2.98-.7-3.93-1.91l-59.49-75.6h-1.76v72.51c0,2.76-2.24,5-5,5h-41.53c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5Z"/>
   <path fill="#FFFFFF" d="M880.82,247.53c0,50.65-43.38,78.17-75.75,78.17h-86.82c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5h88.59c37.87,0,73.99,28.85,73.99,75.97ZM828.86,247.31c0-24.88-15.63-35.01-39.42-35.01h-24.66v72.67h26.42c21.58,0,37.65-14.53,37.65-37.65Z"/>
-</svg></div><span>Cotação, reserva, emissão, contrato e cobrança, como agência com Cadastur. O app de cada aluno e o suporte antes e durante a viagem.</span></div></div>
+</svg></div><p>Cotação, reserva, emissão, contrato e cobrança, como agência com Cadastur. O app de cada aluno e o suporte antes e durante a viagem.</p></div>
     </div>
     <div class="modelo">
       <b>Por pacote, por aluno</b>
+      <div class="modelo-txt">
       <p>Cada família compra o pacote do aluno pelo próprio link de pagamento. O pacote leva um valor fixo de serviço por aluno, que cobre o app, a coordenação e o suporte, e a parte da Alves por aluno vendido.</p>
       <p>O pagamento passa pelo OND, e a parte da Alves é repassada depois do embarque. Assim os dois lados ficam protegidos se alguém cancelar.</p>
+      </div>
     </div>
-    </div><div class="col-b">
     <h3 class="demo-t">Do primeiro contato à volta</h3>
     <ol class="passos">
       <li><b>Briefing com a escola</b><span>Destino, datas, número de alunos e o que a escola quer do programa. Sai uma proposta como esta.</span></li>
@@ -704,16 +740,17 @@ h2{font-size:46px;letter-spacing:-1px}
       <li><b>Viagem</b><span>O app no celular de cada aluno e a equipe OND de plantão do embarque à volta.</span></li>
       <li><b>Avaliação</b><span>Conversa com a escola e as famílias depois da volta, para a próxima turma sair melhor.</span></li>
     </ol>
-    <h3 class="demo-t">Para combinar na próxima conversa</h3>
-    <ul class="combinar">
+    <div class="combinar-box">
+      <h3 class="demo-t">Para combinar na próxima conversa</h3>
+      <ul class="combinar">
       <li>Quem acompanha o grupo na viagem</li>
       <li>Número mínimo de alunos por excursão</li>
       <li>Política de cancelamento</li>
       <li>Exclusividade por escola</li>
       <li>O valor de serviço e a parte da Alves por aluno</li>
     </ul>
-    <p class="depois">Depois da primeira viagem, a Alves pode vender com a própria marca, usando a mesma tecnologia do OND.</p>
-    </div></div>
+      <p class="depois">Depois da primeira viagem, a Alves pode vender com a própria marca, usando a mesma tecnologia do OND.</p>
+    </div>
   </section>
 
   <section class="wrap">
