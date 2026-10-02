@@ -42,8 +42,10 @@
     if(partner && !url.searchParams.has('partner')) url.searchParams.set('partner', partner);
     return url;
   }
+  var pageLanguage = (document.documentElement.lang || '').slice(0, 2).toLowerCase();
   function withAdParams(href){
     var url = withLandingContext(new URL(href));
+    if(pageLanguage && pageLanguage !== 'pt' && !url.searchParams.has('lang')) url.searchParams.set('lang', pageLanguage);
     adParams.forEach(function(value, key){ if(!url.searchParams.has(key)) url.searchParams.set(key, value); });
     return url.toString();
   }
