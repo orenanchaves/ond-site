@@ -481,6 +481,28 @@ img.av{object-fit:cover}
 #parceria .combinar-box .demo-t{margin-top:0;grid-row:1 / 3}
 #parceria .combinar-box .depois{grid-column:2;margin-top:4px}
 }
+/* resumo */
+.res-grade{margin-top:20px;display:grid;gap:12px}
+.res-card{background:var(--card);border:1px solid var(--borda);border-radius:20px;padding:20px}
+.res-card small,.res-escolha small{display:block;font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
+.res-card b{display:block;margin-top:8px;font-size:21px;font-weight:800;line-height:1.15}
+.res-card p{margin-top:10px;font-size:14.5px;line-height:1.5;color:var(--muted)}
+.res-escolha{margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(135deg,rgba(127,17,244,.28),rgba(127,17,244,.08));border:1px solid rgba(127,17,244,.6);border-radius:20px;padding:20px}
+.res-escolha b{display:block;margin-top:6px;font-size:20px;font-weight:800}
+.res-escolha span{display:block;margin-top:4px;font-size:15px;font-weight:800;color:var(--neon)}
+.res-passos{list-style:none;counter-reset:r;margin-top:14px;display:grid;gap:10px}
+.res-passos li{counter-increment:r;position:relative;padding-left:44px;font-size:15.5px;line-height:1.45;min-height:30px;display:flex;align-items:center}
+.res-passos li::before{content:counter(r);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--neon);color:#0d0d14;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+@media(min-width:1024px){
+.res-grade{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:32px}
+.res-card{padding:26px;border-radius:22px}
+.res-escolha{margin-top:16px;padding:26px 32px;border-radius:22px}
+.res-escolha b{font-size:26px}
+#resumo .demo-t{font-size:24px;margin-top:48px}
+.res-passos{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.res-passos li{background:var(--card);border:1px solid var(--borda);border-radius:20px;padding:20px 20px 20px 64px;align-items:flex-start}
+.res-passos li::before{left:20px;top:20px}
+}
 /* estrutura desktop inspirada no butter.video, com o design system OND */
 @media(min-width:1024px){
 body{padding-bottom:0}
@@ -575,7 +597,7 @@ h2{font-size:46px;letter-spacing:-1px}
   <path d="M267 257 Q267 285 243 285 L222 285" stroke="#c9a84c" stroke-width="7" fill="none" stroke-linecap="round"/>
   <path d="M278 257 Q278 274 243 274 L222 274" stroke="#c9a84c" stroke-width="7" fill="none" stroke-linecap="round"/>
 </svg><span class="alves-txt"><b>Alves</b><small>Limited</small></span></span></a>
-  <div class="menu-links"><a href="#opcoes">Opções</a><a href="#pagamento">Pagamento</a><a href="#plus">App</a><a href="#vivencias">Roteiro</a><a href="#passeios">Passeios</a><a href="#parceria">Parceria</a></div>
+  <div class="menu-links"><a href="#opcoes">Opções</a><a href="#pagamento">Pagamento</a><a href="#plus">App</a><a href="#vivencias">Roteiro</a><a href="#passeios">Passeios</a><a href="#parceria">Parceria</a><a href="#resumo">Resumo</a></div>
 </div></nav>
 <header class="hero" id="topo">
   <img class="bg" src="capa.jpg" alt="Big Ben e o Palácio de Westminster vistos do rio Tâmisa, com um barco de passeio cheio de gente em primeiro plano" style="object-position:center 60%">
@@ -751,6 +773,27 @@ h2{font-size:46px;letter-spacing:-1px}
     </ul>
       <p class="depois">Depois da primeira viagem, a Alves pode vender com a própria marca, usando a mesma tecnologia do OND.</p>
     </div>
+  </section>
+
+  <section class="wrap" id="resumo">
+    <div class="rot">Resumo</div>
+    <h2>A proposta <em>em uma tela</em></h2>
+    <div class="res-grade">
+      <div class="res-card"><small>A viagem</small><b>Londres ou Madri</b><p>05 a 15 de julho de 2027, 10 noites, 10 alunos de 13 a 17 anos, saindo de São Paulo em voo direto da LATAM com bagagem despachada.</p></div>
+      <div class="res-card"><small>Valores por aluno, no Pix</small><b>R$ 9.100 a R$ 20.510</b><p>Londres de R$ 10.740 a R$ 20.510 e Madri de R$ 9.100 a R$ 19.230, conforme o hotel. No cartão, à vista ou em até 10x.</p></div>
+      <div class="res-card"><small>O que inclui</small><b>Aéreo, hotel e app</b><p>Aéreo de ida e volta, dez noites em quartos duplos, o app OND para cada aluno e o suporte da equipe OND antes e durante a viagem.</p></div>
+      <div class="res-card"><small>Para somar</small><b>Seguro, chip e passeios</b><p>Seguro viagem obrigatório para o espaço Schengen a partir de R$ 304,85, chip de dados por R$ 18,65 e os passeios da lista, com preço por aluno.</p></div>
+    </div>
+    <div class="res-escolha">
+      <div><small>A opção escolhida agora</small><b id="resOpcao"></b><span id="resValor"></span></div>
+      <a class="cta" id="resCta" href="#" target="_blank" rel="noopener">Quero reservar</a>
+    </div>
+    <h3 class="demo-t">Próximos passos</h3>
+    <ol class="res-passos">
+      <li>Escolher a cidade, o hotel e a forma de pagamento.</li>
+      <li>Definir quem acompanha o grupo e o número mínimo de alunos.</li>
+      <li>Confirmar até 08/10, quando vence esta cotação. A tarifa é refeita no dia do fechamento.</li>
+    </ol>
   </section>
 
   <section class="wrap">
@@ -1201,6 +1244,17 @@ h2{font-size:46px;letter-spacing:-1px}
     es.forEach(function(e){ if (!e.isIntersecting) return; links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); }); });
   }, { rootMargin: '-40% 0px -55% 0px' });
   links.forEach(function(a){ var alvo = document.querySelector(a.getAttribute('href')); if (alvo) io.observe(alvo); });
+})();
+</script>
+<script>
+(function(){
+  var o = document.getElementById('bOpcao'), v = document.getElementById('bValor'), c = document.getElementById('cta');
+  var ro = document.getElementById('resOpcao'), rv = document.getElementById('resValor'), rc = document.getElementById('resCta');
+  if (!o || !ro) return;
+  function copiar(){ var g = document.querySelector('#grupos button.on'); ro.textContent = (g ? g.textContent + ' · ' : '') + o.textContent; rv.textContent = v.textContent; rc.href = c.href; rc.textContent = c.textContent; }
+  copiar();
+  var mo = new MutationObserver(copiar);
+  [o, v, c, document.getElementById('grupos')].forEach(function(el){ if (el) mo.observe(el, { childList: true, characterData: true, subtree: true, attributes: true }); });
 })();
 </script>
 </body></html>
