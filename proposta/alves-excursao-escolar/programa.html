@@ -852,7 +852,7 @@ h2{font-size:46px;letter-spacing:-1px}
   }
   var lista = document.getElementById('listaOpcoes');
   function renderLista(){
-  lista.innerHTML = OPCOES.filter(function(o){ return (!estado.grupo || o.grupo === estado.grupo) && (estado.pacote === 'todas' || o.pacote === estado.pacote); }).map(function(o){
+  lista.innerHTML = OPCOES.filter(function(o){ return (!estado.grupo || o.grupo === estado.grupo) && (estado.pacote === 'todas' || o.pacote === estado.pacote); }).sort(function(a, b){ return b.cartao - a.cartao; }).map(function(o){
     return '<label class="op" data-op="' + o.id + '"><input type="radio" name="op" value="' + o.id + '">' +
       (o.imgs.length ? '<button type="button" class="btn-fotos" data-fotos="' + o.id + '" aria-label="Ver fotos do hotel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2.5"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg>Fotos</button>' : '') +
       (o.destaque ? '<span class="selo">' + o.destaque + '</span>' : '') +
