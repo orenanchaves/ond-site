@@ -188,6 +188,7 @@ h2 em{font-style:normal;color:var(--neon)}
 .ad-capa .menu svg{width:22px;height:22px}
 .ad-orb{color:#fff;position:relative;margin:-34px auto 4px;width:62px;height:62px;border-radius:50%;border:3px solid #F8F6FC;background:#560FB2;display:flex;align-items:center;justify-content:center;z-index:1}
 .ad-orb svg{width:34px;height:34px}
+.ad-orb img{width:56px;height:56px;border-radius:50%;object-fit:cover;display:block;transition:opacity .25s ease}
 .ad-tit{flex:none;padding:12px 16px 20px;text-align:center;font-size:16px;font-weight:800;color:#290756}
 .ad-tit.vazio{padding:0 0 24px}
 .ad-chips{flex:none;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 16px 12px;margin-top:-8px}
@@ -534,6 +535,7 @@ img.av{object-fit:cover}
       <p>Hospedagem de dez noites, em cinco quartos duplos para os dez alunos, em regime de só hospedagem salvo onde a opção indicar o contrário.</p>
       <p>Não estão inclusos e podem ser somados: seguro viagem, chip de dados, transfers, alimentação, passeios e o programa na escola. O <b>seguro viagem é obrigatório para o espaço Schengen</b>, com cobertura mínima de 30 mil euros, e sai a partir de R$ 304,85 por aluno no plano de 60 mil dólares. O chip de dados para União Europeia e Reino Unido custa R$ 18,65. Os passeios e ingressos estão listados mais acima, com o preço por aluno de cada um.</p>
       <p>Menor de idade viajando sem os pais precisa de autorização de viagem. Antes de fechar, é preciso definir quem acompanha o grupo e quem dá suporte durante a viagem, porque isso é custo direto e muda o preço.</p>
+      <p>Fotos de perfil dos alunos no exemplo do app: Zdenko Zivkovic, BdwayDiva1, Michael Cordedda e barnigomez, sob licença CC BY 2.0, e e³°°°, sob CC BY-SA 2.0, via Flickr; blahter09 e Candace McDaniel, em domínio público.</p>
       <p class="credito">Capa: fotografia de Gswaby, sob licença CC BY-SA 4.0, via Wikimedia Commons.</p>
     </div>
   </section>
@@ -767,8 +769,10 @@ img.av{object-fit:cover}
     star: 'M12 2C12.6 8 16 11.4 22 12C16 12.6 12.6 16 12 22C11.4 16 8 12.6 2 12C8 11.4 11.4 8 12 2Z'
   };
   var LOCK = "<svg class=\"lock\" aria-label=\"OND\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 951.32 497.26\" role=\"img\" aria-label=\"OND\">  <path fill=\"#fff\" d=\"M327.85,243.05l-69.42-45.05-57.11-117.28c-.76-1.55-2.13-2.44-3.59-2.67-1.46.24-2.83,1.12-3.59,2.67l-57.11,117.28-69.42,45.05c-1.53.99-2.26,2.62-2.21,4.23-.04,1.61.69,3.24,2.21,4.23l69.42,45.05,57.11,117.28c.76,1.55,2.13,2.44,3.59,2.67,1.46-.24,2.83-1.12,3.59-2.67l57.11-117.28,69.42-45.05c1.53-.99,2.26-2.62,2.21-4.23.04-1.61-.69-3.24-2.21-4.23Z\"/>  <path fill=\"#fff\" d=\"M373.12,248.52c0-42.54,34.63-76.96,77.17-76.96s77.18,34.42,77.18,76.96-34.63,77.18-77.18,77.18-77.17-34.42-77.17-77.18ZM477.88,248.52c0-15.18-12.4-27.58-27.58-27.58s-27.58,12.4-27.58,27.58,12.4,27.79,27.58,27.79,27.58-12.4,27.58-27.79Z\"/>  <path fill=\"#fff\" d=\"M542.62,171.56h44.05c1.56,0,3.03.73,3.97,1.97l59.71,78.19h1.54v-75.15c0-2.76,2.24-5,5-5h41.53c2.76,0,5,2.24,5,5v144.14c0,2.76-2.24,5-5,5h-44.1c-1.53,0-2.98-.7-3.93-1.91l-59.49-75.6h-1.76v72.51c0,2.76-2.24,5-5,5h-41.53c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5Z\"/>  <path fill=\"#fff\" d=\"M880.82,247.53c0,50.65-43.38,78.17-75.75,78.17h-86.82c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5h88.59c37.87,0,73.99,28.85,73.99,75.97ZM828.86,247.31c0-24.88-15.63-35.01-39.42-35.01h-24.66v72.67h26.42c21.58,0,37.65-14.53,37.65-37.65Z\"/></svg>";
+  var FOTOS = ['aluno-perfil.jpg', 'aluno-perfil-2.jpg', 'aluno-perfil-3.jpg', 'aluno-perfil-4.jpg', 'aluno-perfil-5.jpg', 'aluno-perfil-6.jpg', 'aluno-perfil-7.jpg'];
+  FOTOS.forEach(function(src){ var im = new Image(); im.src = src; });
   var mount = document.getElementById('appDemo'); if (!mount) return;
-  var st = { cid: 'londres', aba: 0, abertos: { 0: true }, dia: 0, pag: 0, fin: 'estimado', resumo: true, check: {} };
+  var st = { foto: 0, cid: 'londres', aba: 0, abertos: { 0: true }, dia: 0, pag: 0, fin: 'estimado', resumo: true, check: {} };
   function esc(s){ return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
   function dd(n){ return (n < 10 ? '0' : '') + n; }
   function dia(i){ return new Date(2027, 6, 6 + i); }
@@ -857,7 +861,7 @@ img.av{object-fit:cover}
   function render(){
     var c = CID[st.cid], titulo = st.aba < 2;
     var corpo = st.aba === 1 ? calendario(c) : st.aba === 2 ? viagem(c) : st.aba === 3 ? financeiro(c) : lista(c);
-    mount.innerHTML = '<div class="ad-fone"><div class="ad-topo"><div class="ad-capa"' + bg(c.capa) + '>' + LOCK + '<span class="menu">' + I(P.menu) + '</span></div><div class="ad-orb">' + I(P.star) + '</div></div>' +
+    mount.innerHTML = '<div class="ad-fone"><div class="ad-topo"><div class="ad-capa"' + bg(c.capa) + '>' + LOCK + '<span class="menu">' + I(P.menu) + '</span></div><div class="ad-orb"><img src="' + FOTOS[st.foto] + '" alt="Foto de perfil de um aluno"></div></div>' +
       '<div class="ad-tit' + (titulo ? '' : ' vazio') + '">' + (titulo ? c.nome + ' (' + dm(0) + ' - ' + dm(c.dias.length - 1) + ')' : '') + '</div>' +
       (st.aba === 1 ? chips(c) : '') +
       '<div class="ad-corpo' + (st.aba === 3 ? ' ad-fin' : '') + '">' + corpo + '</div>' +
@@ -884,6 +888,12 @@ img.av{object-fit:cover}
     else if (b.hasAttribute('data-voltar')){ var o = mount.querySelector('.ad-audio'); if (o) o.remove(); }
     else if (b.hasAttribute('data-faixa')){ [].forEach.call(mount.querySelectorAll('.ad-faixa'), function(x){ x.classList.toggle('on', x === b); }); }
   });
+  setInterval(function(){
+    var im = mount.querySelector('.ad-orb img'); if (!im) return;
+    st.foto = (st.foto + 1) % FOTOS.length;
+    im.style.opacity = '0';
+    setTimeout(function(){ im.src = FOTOS[st.foto]; im.style.opacity = '1'; }, 250);
+  }, 2600);
   var g = document.getElementById('grupos');
   if (g) g.addEventListener('click', function(e){ var b = e.target.closest('[data-grupo]'); if (b && CID[b.getAttribute('data-grupo')]){ st.cid = b.getAttribute('data-grupo'); render(); } });
   var on = g && g.querySelector('[data-grupo].on');
