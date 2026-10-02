@@ -620,6 +620,11 @@ h2{font-size:46px;letter-spacing:-1px}
 @media(max-width:600px){.eco-box table{min-width:0;font-size:13px}.eco-box th,.eco-box td{padding:9px 6px;white-space:normal}.eco-box td:first-child{min-width:112px}.eco-box td:not(:first-child){white-space:nowrap}}
 .op .p b.total{font-size:27px;letter-spacing:-.5px}
 .op .p span.parc{color:var(--muted);font-weight:700;white-space:normal;margin-bottom:2px}
+.bnav{display:none;gap:8px;flex:none}
+.bnav button{width:44px;height:44px;border-radius:12px;border:1px solid var(--borda);background:rgba(240,238,255,.06);color:var(--txt);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.bnav button:hover{border-color:var(--neon);color:var(--neon)}
+.bnav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.barra .i small.brot{font-weight:600;margin-top:1px}
 </style></head><body>
 
 <nav class="menu" id="menu" aria-label="Seções da proposta"><div class="wrap">
@@ -830,7 +835,8 @@ h2{font-size:46px;letter-spacing:-1px}
 </div>
 
 <div class="barra"><div class="wrap">
-  <div class="i"><small id="bOpcao"></small><b id="bValor"></b></div>
+  <div class="i"><small id="bOpcao"></small><b id="bValor"></b><small class="brot" id="bRot"></small></div>
+  <div class="bnav"><button type="button" id="bAnt" aria-label="Opção anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" id="bProx" aria-label="Próxima opção"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
   <a class="cta" id="cta" href="#" target="_blank" rel="noopener">Quero reservar</a>
 </div></div>
 
@@ -872,6 +878,19 @@ h2{font-size:46px;letter-spacing:-1px}
     [].forEach.call(document.querySelectorAll('#grupos button'), function(b){ b.classList.toggle('on', b.getAttribute('data-grupo') === estado.grupo); });
   }
   renderLista();
+  // setas da barra fixa: passam pelas opções na ordem da lista
+  function trocaOpcao(d){
+    var v = OPCOES.filter(function(o){ return (!estado.grupo || o.grupo === estado.grupo) && (estado.pacote === 'todas' || o.pacote === estado.pacote); }).sort(function(a, b){ return b.cartao - a.cartao; });
+    if (!v.length) return;
+    var i = v.map(function(o){ return o.id; }).indexOf(estado.op);
+    estado.op = v[(i + d + v.length) % v.length].id; render();
+    var c = [].slice.call(lista.querySelectorAll('.op')), card = lista.querySelector('.op[data-op="' + estado.op + '"]'), k = c.indexOf(card);
+    if (k < 0) return;
+    var passo = c.length > 1 ? c[1].offsetLeft - c[0].offsetLeft : lista.clientWidth, porTela = Math.max(1, Math.round((lista.clientWidth + 14) / (card.offsetWidth + 14)));
+    lista.scrollTo({ left: Math.max(0, porTela === 1 ? k : k - 1) * passo, behavior: 'smooth' });
+  }
+  if (document.getElementById('bAnt')) document.getElementById('bAnt').addEventListener('click', function(){ trocaOpcao(-1); });
+  if (document.getElementById('bProx')) document.getElementById('bProx').addEventListener('click', function(){ trocaOpcao(1); });
   if (document.getElementById('grupos')) document.getElementById('grupos').addEventListener('click', function(e){
     var b = e.target.closest('button'); if (!b) return;
     estado.grupo = b.getAttribute('data-grupo');
@@ -902,8 +921,9 @@ h2{font-size:46px;letter-spacing:-1px}
       sub.textContent = 'por aluno, ' + (r.n === 1 ? 'à vista no cartão' : 'em ' + r.n + 'x de R$ ' + brl(r.parcela, true) + ', com a taxa do parcelamento incluída');
       eco.hidden = true; txtPag = 'cartão em ' + r.n + 'x de R$ ' + brl(r.parcela, true);
     }
-    document.getElementById('bOpcao').textContent = o.tag + ' · ' + o.hotel;
+    document.getElementById('bOpcao').textContent = (o.pacote === 'essencial' ? 'Essencial · ' : '') + o.tag + ' · ' + o.hotel;
     document.getElementById('bValor').textContent = estado.forma === 'pix' ? 'R$ ' + brl(r.total) + ' no Pix' : 'R$ ' + brl(r.total, r.n > 1);
+    document.getElementById('bRot').textContent = 'valor total por aluno' + (estado.forma === 'pix' ? ', no Pix' : r.n === 1 ? ', à vista' : ', em ' + r.n + 'x');
     document.getElementById('cta').href = 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(MSG + ' Opção: ' + o.tag + ' (' + o.hotel + '). Pagamento: ' + txtPag + '.');
     applyExpiredState();
   }
@@ -912,6 +932,7 @@ h2{font-size:46px;letter-spacing:-1px}
     if (!isExpired()) return;
     document.body.classList.add('expired');
     document.querySelector('.validade').textContent = 'Proposta encerrada';
+    document.getElementById('bRot').textContent = '';
     document.getElementById('bOpcao').textContent = 'Valores de ' + QUOTED_ON + ', podem ter mudado';
     document.getElementById('bValor').textContent = 'Proposta encerrada';
     var cta = document.getElementById('cta');
