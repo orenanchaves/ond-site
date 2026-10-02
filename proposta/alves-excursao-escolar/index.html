@@ -179,6 +179,69 @@ h2 em{font-style:normal;color:var(--neon)}
 .combinar li{position:relative;padding-left:22px;font-size:15px;line-height:1.4}
 .combinar li::before{content:"";position:absolute;left:4px;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--neon)}
 .depois{margin-top:18px;font-size:14.5px;line-height:1.5;color:var(--muted)}
+/* carrossel das opções */
+.carrossel{position:relative;margin-top:18px}
+.opcoes{margin-top:0;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:14px 2px 6px}
+.opcoes::-webkit-scrollbar{display:none}
+.opcoes .op{flex:0 0 86%;scroll-snap-align:start;display:flex;flex-direction:column}
+.opcoes .op .linha{flex:1;flex-direction:column;gap:0}
+.opcoes .op .thumb{width:100%;height:170px;margin-bottom:14px}
+.opcoes .op .det{display:block}
+.opcoes .op .vermais,.opcoes .op .radio{display:none}
+.opcoes .op .p{text-align:left;margin-top:auto;padding-top:16px}
+.opcoes .op:has(.btn-fotos) .linha{padding-top:0}
+.opcoes .op .btn-fotos{top:28px;right:28px}
+.opcoes .op.on::after{content:"Escolhida";position:absolute;top:28px;left:28px;z-index:2;font-weight:800;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#0d0d14;background:var(--neon);border-radius:999px;padding:7px 12px}
+.car-seta{display:none}
+.car-dots{display:flex;justify-content:center;gap:4px;margin-top:10px}
+.car-dots button{box-sizing:content-box;width:8px;height:8px;padding:7px;border:0;border-radius:999px;background:var(--borda);background-clip:content-box;cursor:pointer;transition:width .2s}
+.car-dots button.on{width:22px;background-color:var(--neon)}
+@media(min-width:768px){
+.opcoes .op{flex-basis:calc((100% - 14px) / 2)}
+.car-seta{display:flex;position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:50px;height:50px;border-radius:50%;border:1px solid var(--borda);background:rgba(22,22,31,.96);color:var(--txt);align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.45)}
+.car-seta svg{width:20px;height:20px}
+.car-seta.ant{left:-24px}.car-seta.prox{right:-24px}
+.car-seta[disabled]{opacity:0;pointer-events:none}
+}
+/* logos da parceria */
+.papel .papel-logo{height:52px;display:flex;align-items:center;margin-bottom:12px}
+.papel .papel-logo .logo{height:44px;width:auto}
+.papel .alves,.papel .alves-txt{margin-top:0;font-size:inherit;color:inherit}
+.papel .alves{display:flex;align-items:center;gap:10px}
+.papel .alves svg{width:44px;height:44px}
+.papel .alves-txt{display:flex;flex-direction:column}
+.papel .alves-txt b{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:25px;letter-spacing:.08em;line-height:1;color:#f0e9d6}
+.papel .alves-txt small{font-size:9px}
+/* menu superior */
+.menu{display:none}
+section,footer{scroll-margin-top:84px}
+@media(min-width:1024px){
+.wrap{max-width:1180px;padding-inline:40px}
+.hero .topo .wrap{padding-inline:40px}
+section{padding-block:56px}
+h2{font-size:38px}
+.cal-sub{max-width:720px}
+#vivencias .ideias{grid-template-columns:repeat(3,1fr)}
+.duas{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:64px;align-items:start}
+.duas .col-b > .demo-t:first-child{margin-top:18px}
+#parceria .duas{grid-template-columns:1fr 1fr}
+#parceria .col-b > .demo-t:first-child{margin-top:18px}
+.opcoes .op{flex-basis:calc((100% - 28px) / 3)}
+.pag{max-width:760px}
+.notas{max-width:860px}
+.menu{display:block;position:fixed;top:0;left:0;right:0;z-index:30;border-bottom:1px solid transparent;transition:background .25s,border-color .25s}
+.menu .wrap{display:flex;align-items:center;gap:28px;height:122px;transition:height .25s}
+.menu-logo{display:flex;opacity:0;pointer-events:none;transition:opacity .2s}
+.menu-logo .logo-menu{height:34px;width:auto}
+.menu-links{margin-left:auto;display:flex;gap:2px;padding:5px;border-radius:999px;background:rgba(13,13,20,.55);border:1px solid rgba(240,238,255,.18);backdrop-filter:blur(10px)}
+.menu-links a{font-size:14px;font-weight:700;color:var(--txt);text-decoration:none;padding:9px 15px;border-radius:999px;white-space:nowrap}
+.menu-links a:hover{background:rgba(240,238,255,.1)}
+.menu-links a.on{background:var(--neon);color:#0d0d14}
+.menu.solido{background:rgba(13,13,20,.93);backdrop-filter:blur(12px);border-bottom-color:var(--borda)}
+.menu.solido .wrap{height:70px}
+.menu.solido .menu-logo{opacity:1;pointer-events:auto}
+.menu.solido .menu-links{background:transparent;border-color:transparent}
+}
 .demo-t{margin-top:34px;font-weight:800;font-size:20px;letter-spacing:-.3px}
 .app-demo{margin-top:20px;display:flex;justify-content:center}
 .ad-fone{position:relative;width:100%;max-width:340px;height:680px;border:9px solid #1a1a2e;border-radius:40px;background:#F8F6FC;overflow:hidden;display:flex;flex-direction:column;color:#1C1C1C;box-shadow:0 24px 60px rgba(0,0,0,.45);font-size:14px;line-height:1.43}
@@ -383,9 +446,103 @@ img.av{object-fit:cover}
 .hb b{display:block;font-size:15px;line-height:1.2;margin-bottom:5px}
 .hb span{display:block;font-size:13px;color:var(--muted);line-height:1.35}
 @media(max-width:700px){.hot{grid-template-columns:1fr}}
+/* estrutura desktop inspirada no butter.video, com o design system OND */
+@media(min-width:1024px){
+body{padding-bottom:0}
+.wrap{max-width:1440px;padding-inline:48px}
+section{padding-block:88px}
+h2{font-size:46px;letter-spacing:-1px}
+.cal-sub{font-size:17px;line-height:1.5;margin-top:14px}
+.rot{font-size:12.5px}
+/* menu: duas pílulas flutuantes */
+.menu{position:fixed;top:20px;left:48px;right:auto;z-index:40;background:transparent;border:0}
+.menu .wrap{height:auto;max-width:none;padding:8px 8px 8px 18px;gap:22px;background:rgba(18,18,26,.82);border:1px solid rgba(240,238,255,.14);border-radius:20px;backdrop-filter:blur(14px);box-shadow:0 12px 32px rgba(0,0,0,.35)}
+.menu.solido{background:transparent;border:0}
+.menu.solido .wrap{height:auto}
+.menu-logo{opacity:1;pointer-events:auto;align-items:center;gap:10px;text-decoration:none}
+.menu-logo .logo-menu{height:32px}
+.menu-mais{font-family:'Montserrat',sans-serif;font-weight:300;font-size:20px;color:rgba(240,238,255,.6)}
+.menu-alves{display:flex;align-items:center;gap:7px}
+.menu-alves svg{width:28px;height:28px}
+.menu-alves .alves-txt b{font-size:17px}
+.menu-alves .alves-txt small{font-size:7px;margin-top:3px}
+.menu-links{margin-left:0;background:transparent;border:0;padding:0;backdrop-filter:none}
+.menu-links a{font-size:14px;padding:10px 13px;border-radius:12px}
+.menu-links a.on{background:var(--neon);color:#0d0d14}
+.barra{top:20px;bottom:auto;left:auto;right:48px;border:1px solid rgba(240,238,255,.14);border-radius:20px;background:rgba(18,18,26,.82);backdrop-filter:blur(14px);box-shadow:0 12px 32px rgba(0,0,0,.35);z-index:40}
+.barra .wrap{max-width:none;padding:8px 8px 8px 18px;gap:16px}
+.barra .i small{font-size:11.5px;max-width:190px}
+.barra .i b{font-size:16px}
+.barra .cta{font-size:14.5px;padding:12px 18px;border-radius:14px}
+/* hero centralizado e grande */
+.hero{min-height:100vh;justify-content:center;padding-top:96px}
+.hero .topo{position:relative;z-index:2}
+.hero .topo .wrap{justify-content:center;padding-top:0;padding-bottom:28px}
+.hero > .wrap{display:flex;flex-direction:column;align-items:center;text-align:center;padding-bottom:72px}
+.hero h1{font-size:92px;letter-spacing:-2.5px;line-height:1;margin-top:18px}
+.quando{font-size:32px;margin-top:24px}
+.resumo-viagem{font-size:17px}
+.validade{margin-top:26px}
+/* passo 1: título à esquerda, cidades à direita */
+#opcoes{display:grid;grid-template-columns:minmax(0,1fr) 340px;column-gap:48px}
+#opcoes > *{grid-column:1 / -1}
+#opcoes > .rot{grid-column:1;grid-row:1}
+#opcoes > h2{grid-column:1;grid-row:2}
+#opcoes > .grupo-desc{grid-column:1;grid-row:3;margin-top:12px;max-width:720px;color:var(--muted);font-size:16px;line-height:1.5}
+#opcoes > #grupos{grid-column:2;grid-row:1 / 4;align-self:end}
+#opcoes > .carrossel{margin-top:28px}
+.opcoes{gap:20px}
+.opcoes .op{flex-basis:calc((100% - 40px) / 3);border-radius:24px;padding:20px}
+.opcoes .op .thumb{height:200px;border-radius:16px}
+/* passo 2: texto de um lado, pagamento do outro */
+#pagamento{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);column-gap:64px;align-items:start}
+#pagamento > .rot,#pagamento > h2{grid-column:1}
+#pagamento > .pag{grid-column:2;grid-row:1 / 4;margin-top:0;max-width:none;border-radius:24px;padding:26px}
+/* app e parceria em duas colunas mais largas */
+.duas{grid-template-columns:minmax(0,1fr) 400px;gap:72px}
+#parceria .duas{grid-template-columns:1fr 1fr}
+.ideia,.passos li,.modelo{border-radius:22px}
+#vivencias .ideias{gap:16px}
+#vivencias .ideia.txt{padding:12px}
+/* passeios num painel, como a vitrine de modelos */
+#passeios .psg{background:var(--card);border:1px solid var(--borda);border-radius:28px;padding:24px;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+#passeios .pcard{background:var(--card2)}
+#passeios .ptot{background:transparent;border:0;padding:6px 4px 0;text-align:center}
+.notas{max-width:900px}
+.rodape{padding-block:56px 64px}
+.rodape{text-align:left}.rodape .consultores{max-width:900px}.rodape .marca{display:flex;align-items:center;gap:16px}.rodape .marca .logo{margin-bottom:0}
+}
+@media(min-width:1024px) and (max-width:1099px){
+
+.menu-alves .alves-txt,.menu-mais{display:none}
+.menu-links a{padding:10px 10px;font-size:13.5px}
+.barra .i small{display:none}
+}
 </style></head><body>
 
-<header class="hero">
+<nav class="menu" id="menu" aria-label="Seções da proposta"><div class="wrap">
+  <a class="menu-logo" href="#topo" aria-label="Voltar ao topo, OND e Alves Limited"><svg class="logo-menu" aria-label="OND" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 951.32 497.26" role="img" aria-label="OND">
+  <path fill="#FFFFFF" d="M327.85,243.05l-69.42-45.05-57.11-117.28c-.76-1.55-2.13-2.44-3.59-2.67-1.46.24-2.83,1.12-3.59,2.67l-57.11,117.28-69.42,45.05c-1.53.99-2.26,2.62-2.21,4.23-.04,1.61.69,3.24,2.21,4.23l69.42,45.05,57.11,117.28c.76,1.55,2.13,2.44,3.59,2.67,1.46-.24,2.83-1.12,3.59-2.67l57.11-117.28,69.42-45.05c1.53-.99,2.26-2.62,2.21-4.23.04-1.61-.69-3.24-2.21-4.23Z"/>
+  <path fill="#FFFFFF" d="M373.12,248.52c0-42.54,34.63-76.96,77.17-76.96s77.18,34.42,77.18,76.96-34.63,77.18-77.18,77.18-77.17-34.42-77.17-77.18ZM477.88,248.52c0-15.18-12.4-27.58-27.58-27.58s-27.58,12.4-27.58,27.58,12.4,27.79,27.58,27.79,27.58-12.4,27.58-27.79Z"/>
+  <path fill="#FFFFFF" d="M542.62,171.56h44.05c1.56,0,3.03.73,3.97,1.97l59.71,78.19h1.54v-75.15c0-2.76,2.24-5,5-5h41.53c2.76,0,5,2.24,5,5v144.14c0,2.76-2.24,5-5,5h-44.1c-1.53,0-2.98-.7-3.93-1.91l-59.49-75.6h-1.76v72.51c0,2.76-2.24,5-5,5h-41.53c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5Z"/>
+  <path fill="#FFFFFF" d="M880.82,247.53c0,50.65-43.38,78.17-75.75,78.17h-86.82c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5h88.59c37.87,0,73.99,28.85,73.99,75.97ZM828.86,247.31c0-24.88-15.63-35.01-39.42-35.01h-24.66v72.67h26.42c21.58,0,37.65-14.53,37.65-37.65Z"/>
+</svg><span class="menu-mais" aria-hidden="true">+</span><span class="alves menu-alves" role="img" aria-label="Alves Limited"><svg viewBox="100 105 195 190" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <line x1="115" y1="117" x2="285" y2="117" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="115" y1="128" x2="285" y2="128" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="127" y1="122" x2="127" y2="283" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="138" y1="122" x2="138" y2="274" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="130" y1="274" x2="175" y2="274" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="130" y1="285" x2="175" y2="285" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="200" y1="122" x2="200" y2="285" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="211" y1="122" x2="211" y2="285" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="267" y1="122" x2="267" y2="257" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="278" y1="122" x2="278" y2="257" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <path d="M267 257 Q267 285 243 285 L222 285" stroke="#c9a84c" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M278 257 Q278 274 243 274 L222 274" stroke="#c9a84c" stroke-width="7" fill="none" stroke-linecap="round"/>
+</svg><span class="alves-txt"><b>Alves</b><small>Limited</small></span></span></a>
+  <div class="menu-links"><a href="#opcoes">Opções</a><a href="#pagamento">Pagamento</a><a href="#plus">App</a><a href="#vivencias">Roteiro</a><a href="#passeios">Passeios</a><a href="#parceria">Parceria</a></div>
+</div></nav>
+<header class="hero" id="topo">
   <img class="bg" src="capa.jpg" alt="Big Ben e o Palácio de Westminster vistos do rio Tâmisa, com um barco de passeio cheio de gente em primeiro plano" style="object-position:center 60%">
   <div class="topo"><div class="wrap">
 <svg class="logo" aria-label="OND" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 951.32 497.26" role="img" aria-label="OND">
@@ -423,10 +580,15 @@ img.av{object-fit:cover}
     <h2>Escolha <em>a opção</em></h2>
     <div class="abas grupos" id="grupos"><button type="button" data-grupo="londres" class="on">Londres</button><button type="button" data-grupo="madri" class="">Madri</button></div>
     <p class="grupo-desc" id="grupoDesc"></p>
-    <div class="opcoes" id="listaOpcoes"></div>
+    <div class="carrossel">
+      <button type="button" class="car-seta ant" aria-label="Opção anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="opcoes" id="listaOpcoes"></div>
+      <button type="button" class="car-seta prox" aria-label="Próxima opção"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+    </div>
+    <div class="car-dots" id="opDots" role="group" aria-label="Escolher opção"></div>
   </section>
 
-  <section class="wrap">
+  <section class="wrap" id="pagamento">
     <div class="rot">Passo 2</div>
     <h2>Escolha <em>como pagar</em></h2>
     <div class="pag">
@@ -443,6 +605,7 @@ img.av{object-fit:cover}
   <section class="wrap" id="plus">
     <div class="rot">Plus, sem custo</div>
     <h2>O app OND <em>vai junto</em></h2>
+    <div class="duas"><div class="col-a">
     <p class="cal-sub">Incluído em todas as opções. Cada aluno leva no celular o que normalmente fica com o guia ou numa pasta de papel.</p>
     <div class="telas" id="telas">
       <figure class="tela"><div class="fone"><img src="app-roteiro.jpg" alt="Tela do app com o roteiro do dia em Cartagena, hora a hora" loading="lazy"></div><figcaption><b>O dia montado hora a hora</b><span>O roteiro de cada dia no celular, com o caminho entre uma atividade e outra.</span></figcaption></figure>
@@ -454,12 +617,14 @@ img.av{object-fit:cover}
     <div class="telas-pe"><p>Telas reais do app, da viagem de uma cliente para a Colômbia. Arraste para o lado.</p>
       <div class="telas-nav"><button type="button" data-d="-1" aria-label="Tela anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button><button type="button" data-d="1" aria-label="Próxima tela"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button></div>
     </div>
+    </div><div class="col-b">
     <h3 class="demo-t">Veja na prática</h3>
     <p class="cal-sub">O roteiro de exemplo do grupo, no mesmo desenho do app. Toque no fone para abrir o áudio guia e nas abas de baixo. Muda junto com a cidade escolhida lá em cima.</p>
     <div class="app-demo" id="appDemo"></div>
+    </div></div>
   </section>
 
-  <section class="wrap">
+  <section class="wrap" id="vivencias">
     <div class="rot">Ideias para o roteiro</div>
     <h2>O que os alunos <em>vão viver</em></h2>
     <div class="ideias">
@@ -473,7 +638,7 @@ img.av{object-fit:cover}
   </section>
 
 
-  <section class="wrap">
+  <section class="wrap" id="passeios">
     <div class="rot">Passeios e ingressos</div>
     <h2>O que dá para <em>somar ao roteiro</em></h2>
     <p class="cal-sub">Preço por aluno, reservado junto com a viagem e pago no mesmo link. Não está incluído nos valores do passo 1. O catálogo tem mais opções que estas cinco, e a lista acompanha a cidade escolhida lá em cima.</p>
@@ -501,15 +666,35 @@ img.av{object-fit:cover}
     <div class="rot">Parceria</div>
     <h2>Como a gente <em>trabalha junto</em></h2>
     <p class="cal-sub">Uma divisão de papéis para começar com esta excursão e repetir com outras escolas.</p>
+    <div class="duas"><div class="col-a">
     <div class="ideias">
-      <div class="ideia txt"><div><b>Alves Limited Group</b><span>O relacionamento com as escolas e as famílias, a curadoria do programa e a venda.</span></div></div>
-      <div class="ideia txt"><div><b>OND</b><span>Cotação, reserva, emissão, contrato e cobrança, como agência com Cadastur. O app de cada aluno e o suporte antes e durante a viagem.</span></div></div>
+      <div class="ideia txt papel"><div><div class="papel-logo"><span class="alves" role="img" aria-label="Alves Limited"><svg viewBox="100 105 195 190" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <line x1="115" y1="117" x2="285" y2="117" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="115" y1="128" x2="285" y2="128" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="127" y1="122" x2="127" y2="283" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="138" y1="122" x2="138" y2="274" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="130" y1="274" x2="175" y2="274" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="130" y1="285" x2="175" y2="285" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="200" y1="122" x2="200" y2="285" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="211" y1="122" x2="211" y2="285" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="267" y1="122" x2="267" y2="257" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <line x1="278" y1="122" x2="278" y2="257" stroke="#c9a84c" stroke-width="7" stroke-linecap="round"/>
+  <path d="M267 257 Q267 285 243 285 L222 285" stroke="#c9a84c" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M278 257 Q278 274 243 274 L222 274" stroke="#c9a84c" stroke-width="7" fill="none" stroke-linecap="round"/>
+</svg><span class="alves-txt"><b>Alves</b><small>Limited</small></span></span></div><span>O relacionamento com as escolas e as famílias, a curadoria do programa e a venda.</span></div></div>
+      <div class="ideia txt papel"><div><div class="papel-logo"><svg class="logo" aria-label="OND" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 951.32 497.26" role="img" aria-label="OND">
+  <path fill="#7F11F4" d="M327.85,243.05l-69.42-45.05-57.11-117.28c-.76-1.55-2.13-2.44-3.59-2.67-1.46.24-2.83,1.12-3.59,2.67l-57.11,117.28-69.42,45.05c-1.53.99-2.26,2.62-2.21,4.23-.04,1.61.69,3.24,2.21,4.23l69.42,45.05,57.11,117.28c.76,1.55,2.13,2.44,3.59,2.67,1.46-.24,2.83-1.12,3.59-2.67l57.11-117.28,69.42-45.05c1.53-.99,2.26-2.62,2.21-4.23.04-1.61-.69-3.24-2.21-4.23Z"/>
+  <path fill="#FFFFFF" d="M373.12,248.52c0-42.54,34.63-76.96,77.17-76.96s77.18,34.42,77.18,76.96-34.63,77.18-77.18,77.18-77.17-34.42-77.17-77.18ZM477.88,248.52c0-15.18-12.4-27.58-27.58-27.58s-27.58,12.4-27.58,27.58,12.4,27.79,27.58,27.79,27.58-12.4,27.58-27.79Z"/>
+  <path fill="#FFFFFF" d="M542.62,171.56h44.05c1.56,0,3.03.73,3.97,1.97l59.71,78.19h1.54v-75.15c0-2.76,2.24-5,5-5h41.53c2.76,0,5,2.24,5,5v144.14c0,2.76-2.24,5-5,5h-44.1c-1.53,0-2.98-.7-3.93-1.91l-59.49-75.6h-1.76v72.51c0,2.76-2.24,5-5,5h-41.53c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5Z"/>
+  <path fill="#FFFFFF" d="M880.82,247.53c0,50.65-43.38,78.17-75.75,78.17h-86.82c-2.76,0-5-2.24-5-5v-144.14c0-2.76,2.24-5,5-5h88.59c37.87,0,73.99,28.85,73.99,75.97ZM828.86,247.31c0-24.88-15.63-35.01-39.42-35.01h-24.66v72.67h26.42c21.58,0,37.65-14.53,37.65-37.65Z"/>
+</svg></div><span>Cotação, reserva, emissão, contrato e cobrança, como agência com Cadastur. O app de cada aluno e o suporte antes e durante a viagem.</span></div></div>
     </div>
     <div class="modelo">
       <b>Por pacote, por aluno</b>
       <p>Cada família compra o pacote do aluno pelo próprio link de pagamento. O pacote leva um valor fixo de serviço por aluno, que cobre o app, a coordenação e o suporte, e a parte da Alves por aluno vendido.</p>
       <p>O pagamento passa pelo OND, e a parte da Alves é repassada depois do embarque. Assim os dois lados ficam protegidos se alguém cancelar.</p>
     </div>
+    </div><div class="col-b">
     <h3 class="demo-t">Do primeiro contato à volta</h3>
     <ol class="passos">
       <li><b>Briefing com a escola</b><span>Destino, datas, número de alunos e o que a escola quer do programa. Sai uma proposta como esta.</span></li>
@@ -528,6 +713,7 @@ img.av{object-fit:cover}
       <li>O valor de serviço e a parte da Alves por aluno</li>
     </ul>
     <p class="depois">Depois da primeira viagem, a Alves pode vender com a própria marca, usando a mesma tecnologia do OND.</p>
+    </div></div>
   </section>
 
   <section class="wrap">
@@ -543,7 +729,7 @@ img.av{object-fit:cover}
   </section>
 </main>
 
-<footer class="rodape"><div class="wrap">
+<footer class="rodape" id="contato"><div class="wrap">
   <small class="feita">Proposta feita por</small>
   <div class="consultores">
     <div class="consultor"><img class="av" src="../../assets/equipe/renan-rodrigues.jpg" alt="Renan Rodrigues" width="64" height="64"><div><b>Renan Rodrigues</b><div class="contatos"><a href="https://wa.me/5511943615412" target="_blank" rel="noopener">WhatsApp · (11) 94361-5412</a></div></div></div>
@@ -931,6 +1117,53 @@ img.av{object-fit:cover}
     var passo = telas.querySelector('.tela').getBoundingClientRect().width + 14;
     telas.scrollBy({ left: passo * parseInt(b.getAttribute('data-d'), 10), behavior: 'smooth' });
   });
+})();
+</script>
+<script>
+(function(){
+  var tr = document.getElementById('listaOpcoes'), dots = document.getElementById('opDots');
+  var ant = document.querySelector('.car-seta.ant'), prox = document.querySelector('.car-seta.prox');
+  if (!tr || !dots) return;
+  function cards(){ return [].slice.call(tr.querySelectorAll('.op')); }
+  function passo(){ var c = cards(); return c.length > 1 ? c[1].offsetLeft - c[0].offsetLeft : tr.clientWidth; }
+  function porTela(){ var c = cards()[0]; return c ? Math.max(1, Math.round((tr.clientWidth + 14) / (c.offsetWidth + 14))) : 1; }
+  function paginas(){ return Math.max(1, cards().length - porTela() + 1); }
+  function atual(){ return Math.max(0, Math.min(paginas() - 1, Math.round(tr.scrollLeft / passo()))); }
+  function ir(i, suave){ i = Math.max(0, Math.min(paginas() - 1, i)); tr.scrollTo({ left: i * passo(), behavior: suave === false ? 'auto' : 'smooth' }); }
+  function desenhar(){
+    var n = paginas(), a = atual();
+    if (dots.children.length !== n){
+      dots.innerHTML = '';
+      for (var i = 0; i < n; i++){ var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Ir para a opção ' + (i + 1)); b.setAttribute('data-i', i); dots.appendChild(b); }
+    }
+    [].forEach.call(dots.children, function(b, i){ b.classList.toggle('on', i === a); });
+    dots.hidden = n < 2;
+    if (ant) ant.disabled = a === 0;
+    if (prox) prox.disabled = a >= n - 1;
+  }
+  function centrar(suave){ var c = cards(), on = tr.querySelector('.op.on'), i = on ? c.indexOf(on) : 0; ir(porTela() === 1 ? i : i - 1, suave); }
+  var t;
+  tr.addEventListener('scroll', function(){
+    desenhar(); clearTimeout(t);
+    t = setTimeout(function(){ if (porTela() !== 1) return; var c = cards()[atual()]; if (c && !c.classList.contains('on')) c.click(); }, 180);
+  }, { passive: true });
+  dots.addEventListener('click', function(e){ var b = e.target.closest('button'); if (b) ir(+b.getAttribute('data-i')); });
+  if (ant) ant.addEventListener('click', function(){ ir(atual() - 1); });
+  if (prox) prox.addEventListener('click', function(){ ir(atual() + 1); });
+  new MutationObserver(function(){ setTimeout(function(){ centrar(false); desenhar(); }, 30); }).observe(tr, { childList: true });
+  window.addEventListener('resize', desenhar);
+  setTimeout(function(){ centrar(false); desenhar(); }, 60);
+})();
+(function(){
+  var menu = document.getElementById('menu'); if (!menu) return;
+  var links = [].slice.call(menu.querySelectorAll('.menu-links a'));
+  function rolou(){ menu.classList.toggle('solido', window.scrollY > 140); }
+  window.addEventListener('scroll', rolou, { passive: true }); rolou();
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (!e.isIntersecting) return; links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); }); });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  links.forEach(function(a){ var alvo = document.querySelector(a.getAttribute('href')); if (alvo) io.observe(alvo); });
 })();
 </script>
 </body></html>
