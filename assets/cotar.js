@@ -32,15 +32,20 @@
     if(!f) return;
     e.preventDefault();
     var v = function(n){ var el=f.elements[n]; return el ? String(el.value||'').trim() : '' };
-    var linhas = ['Olá, OND! Quero cotar uma viagem.'];
-    linhas.push('Destino: ' + (v('destino') || 'ainda não sei, quero ajuda pra escolher'));
-    if(v('ida') && v('volta')) linhas.push('Datas: ' + dataBr(v('ida')) + ' a ' + dataBr(v('volta')));
-    else if(v('ida')) linhas.push('Ida: ' + dataBr(v('ida')));
-    else if(v('quando')) linhas.push('Quando: ' + v('quando'));
-    if(v('pessoas')) linhas.push('Quem vai: ' + v('pessoas'));
-    if(v('saida')) linhas.push('Saindo de: ' + v('saida'));
-    linhas.push(f.getAttribute('data-cot-nota') || '(vim pelo site)');
-    abrir(linhas.join('\n'), f.getAttribute('data-cot-origem') || v('destino') || 'cotacao');
+    /* A mensagem é escrita como alguém escreveria, não como ficha preenchida:
+       uma frase de abertura e outra com o que a pessoa contou. */
+    var partes = [];
+    if(v('destino')) partes.push('Pensamos em ' + v('destino'));
+    if(v('pessoas')) partes.push((partes.length ? 'para ' : 'Somos ') + v('pessoas').toLowerCase());
+    if(v('ida')) partes.push((partes.length ? 'com ida em ' : 'Queremos ir em ') + dataBr(v('ida')));
+    else if(v('quando')) partes.push((partes.length ? 'em ' : 'Queremos ir em ') + v('quando'));
+    if(v('volta')) partes.push('voltando em ' + dataBr(v('volta')));
+    if(v('saida')) partes.push('saindo de ' + v('saida'));
+    var msg = 'Olá! Quero cotar ' + (f.getAttribute('data-cot-assunto') || 'uma viagem') + '.';
+    if(partes.length) msg += ' ' + partes.join(', ') + '.';
+    if(!v('destino')) msg += ' Ainda estamos escolhendo o destino.';
+    msg += ' ' + (f.getAttribute('data-cot-nota') || 'Vim pelo site.');
+    abrir(msg, f.getAttribute('data-cot-origem') || v('destino') || 'cotacao');
   });
   document.addEventListener('click', function(e){
     var b = e.target.closest && e.target.closest('[data-cot-msg]');

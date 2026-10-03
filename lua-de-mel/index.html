@@ -66,21 +66,33 @@
         <h2>Peça a cotação da sua lua de mel</h2>
         <p>Sem cadastro e sem formulário longo. O preço é sob consulta: a gente cota com as suas datas e responde no WhatsApp.</p>
       </div>
-      <form class="cot-form" action="https://wa.me/5511943615412" target="_blank" data-cot-origem="lua-de-mel" data-cot-nota="(vim pela página de lua de mel)">
+      <form class="cot-form" action="https://wa.me/5511943615412" target="_blank" data-cot-origem="lua-de-mel" data-cot-assunto="uma lua de mel" data-cot-nota="Vim pela página de lua de mel.">
         <label class="cot-f"><span>Pra onde?</span><input name="destino" placeholder="Ex.: Maldivas, Itália" autocomplete="off"></label>
-        <label class="cot-f"><span>Ida</span><input type="date" name="ida"></label><label class="cot-f"><span>Volta</span><input type="date" name="volta"></label>
+        <label class="cot-f"><span>Quando?</span><input type="date" name="ida"></label>
         <label class="cot-f"><span>Quem vai?</span><select name="pessoas"><option value="">Escolha</option><option selected>2 pessoas</option><option>3 pessoas</option><option>4 pessoas</option><option>5 ou mais pessoas</option></select></label>
-        <label class="cot-f"><span>Saindo de</span><input name="saida" placeholder="Ex.: São Paulo" autocomplete="address-level2"></label>
         <button class="cot-go" type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.2-3.2-.7-2.7-1.1-4.4-3.9-4.6-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.3.5-.3.3c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2.1 1.3.2.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l1.9.9c.3.1.5.2.5.4.1.1.1.7-.2 1.4Z"/></svg>Pedir cotação</button>
       </form>
       <div class="cot-atalhos">
         <span>Ou comece por aqui:</span>
-        <button type="button" data-cot-origem="lua-de-mel-praia" data-cot-msg="Olá, OND! Queremos cotar nossa lua de mel em praia no exterior. Ainda estamos escolhendo o destino. (vim pela página de lua de mel)">Praia no exterior</button>
-        <button type="button" data-cot-origem="lua-de-mel-europa" data-cot-msg="Olá, OND! Queremos cotar nossa lua de mel na Europa, com mais de uma cidade. (vim pela página de lua de mel)">Europa, mais de uma cidade</button>
-        <button type="button" data-cot-origem="lua-de-mel-ajuda" data-cot-msg="Olá, OND! Queremos ajuda para escolher o destino da nossa lua de mel. (vim pela página de lua de mel)">Ainda não sabemos o destino</button>
+        <button type="button" data-cot-origem="lua-de-mel-praia" data-cot-msg="Olá, OND! Queremos cotar nossa lua de mel em praia no exterior. Ainda estamos escolhendo o destino. Vim pela página de lua de mel.">Praia no exterior</button>
+        <button type="button" data-cot-origem="lua-de-mel-europa" data-cot-msg="Olá, OND! Queremos cotar nossa lua de mel na Europa, com mais de uma cidade. Vim pela página de lua de mel.">Europa, mais de uma cidade</button>
+        <button type="button" data-cot-origem="lua-de-mel-ajuda" data-cot-msg="Olá, OND! Queremos ajuda para escolher o destino da nossa lua de mel. Vim pela página de lua de mel.">Ainda não sabemos o destino</button>
       </div>
       <div data-ond-quem></div>
     </div>
+
+    <section class="lm-kit">
+      <div class="lm-kit-tx">
+        <h2>Viaje com quem entende de <em>casamento, viagem e tecnologia</em></h2>
+        <p>Somos dois. Montamos o aplicativo, cuidamos da agência e passamos pela mesma lista que vocês estão passando agora: data, convidados, orçamento, e a viagem sempre sobrando para o fim.</p>
+      </div>
+      <div class="lm-mosaico">
+        <img class="alta" src="/assets/lua-de-mel/casamento-1.webp" width="599" height="900" loading="lazy" decoding="async" alt="Os dois fundadores do OND com os noivos na festa de casamento">
+        <img src="/assets/lua-de-mel/casamento-3.webp" width="1200" height="799" loading="lazy" decoding="async" alt="Convidados rindo durante a recepção do casamento ao ar livre">
+        <img class="alta" src="/assets/lua-de-mel/casamento-2.webp" width="599" height="900" loading="lazy" decoding="async" alt="Os noivos sentados no gramado com os amigos ao redor, embaixo de uma árvore iluminada">
+        <img src="/assets/lua-de-mel/casamento-4.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Os noivos sentados no gramado no fim da tarde, rindo">
+      </div>
+    </section>
 
     <section class="lm-sec">
       <h2>Lua de mel não é viagem para improvisar</h2>
@@ -109,12 +121,12 @@
     <section class="lm-sec">
       <h2>Depois de fechar, a viagem fica no bolso</h2>
       <ul class="lm-cards lm-cards-tela">
-        <li><img src="/assets/lua-de-mel/app-roteiro.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela do roteiro no aplicativo, com o sábado em Cartagena e os horários de cada atividade do dia"><div class="lm-card-tx"><b>Roteiro dia a dia</b><p>Cada dia montado hora a hora, com o caminho entre uma coisa e outra, e disponível sem internet.</p></div></li>
-        <li><img src="/assets/lua-de-mel/app-documentos.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela Meus documentos no aplicativo, com passagem, reserva de hotel e ingresso em cartões"><div class="lm-card-tx"><b>Documentos e vouchers</b><p>Passagens, reservas e comprovantes sempre à mão, sem procurar e-mail no aeroporto.</p></div></li>
-        <li><img src="/assets/lua-de-mel/app-audioguia.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela do áudio-guia no aplicativo, com as faixas narradas do Castillo San Felipe de Barajas"><div class="lm-card-tx"><b>Áudio-guia nas atrações</b><p>Narração nas atrações do roteiro, sem alugar fone em cada bilheteria.</p></div></li>
-        <li><img src="/assets/lua-de-mel/app-destino.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela de informações do destino no aplicativo, aberta na aba Visto de Cartagena"><div class="lm-card-tx"><b>Visto, moeda e segurança</b><p>Informação do destino no aplicativo, para vocês chegarem sabendo como funciona.</p></div></li>
-        <li><img src="/assets/lua-de-mel/app-gastos.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela financeira do aplicativo na aba Real, com o total gasto e o valor por categoria"><div class="lm-card-tx"><b>Controle de gastos</b><p>O gasto real lado a lado com o previsto, com aviso quando foge da conta.</p></div></li>
-        <li><img src="/assets/lua-de-mel/app-avisos.webp" width="660" height="300" loading="lazy" decoding="async" alt="Conversa no WhatsApp avisando quanto já foi gasto e que a alimentação está acima da média do roteiro"><div class="lm-card-tx"><b>Avisos no WhatsApp</b><p>Lembrete do que falta levar antes de embarcar e alerta de mudança durante a viagem.</p></div></li>
+        <li><img src="/assets/lua-de-mel/app-roteiro.webp" data-cheia="/assets/lua-de-mel/app-roteiro-cheia.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela do roteiro no aplicativo, com o sábado em Cartagena e os horários de cada atividade do dia"><div class="lm-card-tx"><b>Roteiro dia a dia</b><p>Cada dia montado hora a hora, com o caminho entre uma coisa e outra, e disponível sem internet.</p></div></li>
+        <li><img src="/assets/lua-de-mel/app-documentos.webp" data-cheia="/assets/lua-de-mel/app-documentos-cheia.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela Meus documentos no aplicativo, com passagem, reserva de hotel e ingresso em cartões"><div class="lm-card-tx"><b>Documentos e vouchers</b><p>Passagens, reservas e comprovantes sempre à mão, sem procurar e-mail no aeroporto.</p></div></li>
+        <li><img src="/assets/lua-de-mel/app-audioguia.webp" data-cheia="/assets/lua-de-mel/app-audioguia-cheia.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela do áudio-guia no aplicativo, com as faixas narradas do Castillo San Felipe de Barajas"><div class="lm-card-tx"><b>Áudio-guia nas atrações</b><p>Narração nas atrações do roteiro, sem alugar fone em cada bilheteria.</p></div></li>
+        <li><img src="/assets/lua-de-mel/app-destino.webp" data-cheia="/assets/lua-de-mel/app-destino-cheia.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela de informações do destino no aplicativo, aberta na aba Visto de Cartagena"><div class="lm-card-tx"><b>Visto, moeda e segurança</b><p>Informação do destino no aplicativo, para vocês chegarem sabendo como funciona.</p></div></li>
+        <li><img src="/assets/lua-de-mel/app-gastos.webp" data-cheia="/assets/lua-de-mel/app-gastos-cheia.webp" width="660" height="300" loading="lazy" decoding="async" alt="Tela financeira do aplicativo na aba Real, com o total gasto e o valor por categoria"><div class="lm-card-tx"><b>Controle de gastos</b><p>O gasto real lado a lado com o previsto, com aviso quando foge da conta.</p></div></li>
+        <li><img src="/assets/lua-de-mel/app-avisos.webp" data-cheia="/assets/lua-de-mel/app-avisos-cheia.webp" width="660" height="300" loading="lazy" decoding="async" alt="Conversa no WhatsApp avisando quanto já foi gasto e que a alimentação está acima da média do roteiro"><div class="lm-card-tx"><b>Avisos no WhatsApp</b><p>Lembrete do que falta levar antes de embarcar e alerta de mudança durante a viagem.</p></div></li>
       </ul>
     </section>
 
@@ -141,7 +153,7 @@
     <section class="lm-fim">
       <h2>Conta pra gente para onde vocês querem ir</h2>
       <p>A gente volta com o orçamento aberto e vocês decidem sem pressa. Sem sair de casa e sem vendedor esperando.</p>
-      <button class="cot-go" type="button" data-cot-origem="lua-de-mel-fim" data-cot-msg="Olá, OND! Queremos cotar nossa lua de mel. (vim pela página de lua de mel)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.2-3.2-.7-2.7-1.1-4.4-3.9-4.6-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.3.5-.3.3c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2.1 1.3.2.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l1.9.9c.3.1.5.2.5.4.1.1.1.7-.2 1.4Z"/></svg>Falar com a OND no WhatsApp</button>
+      <button class="cot-go" type="button" data-cot-origem="lua-de-mel-fim" data-cot-msg="Olá, OND! Queremos cotar nossa lua de mel. Vim pela página de lua de mel."><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.2-3.2-.7-2.7-1.1-4.4-3.9-4.6-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.3.5-.3.3c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2.1 1.3.2.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l1.9.9c.3.1.5.2.5.4.1.1.1.7-.2 1.4Z"/></svg>Falar com a OND no WhatsApp</button>
     </section>
   </div>
 </main>
@@ -150,6 +162,7 @@
 <script src="/assets/busca.js" defer></script>
 <script src="/assets/app-modal.js" defer></script>
 <script src="/assets/cotar.js" defer></script>
+<script src="/assets/lp-amplia.js" defer></script>
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
