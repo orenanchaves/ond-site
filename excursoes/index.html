@@ -1,5 +1,4 @@
-<!DOCTY
-        <label class="cot-f"><span>Saindo de</span><input name="saida" data-destinos="origem" placeholder="Ex.: São Paulo" autocomplete="address-level2"></label>PE html>
+<!DOCTYPE html>
 <html lang="pt-BR" data-theme="dark">
 <head>
 <meta charset="UTF-8">
@@ -31,7 +30,6 @@
 <link rel="stylesheet" href="/assets/acessibilidade.css">
 <link rel="stylesheet" href="/assets/lp.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Excursão escolar e de grupo", "serviceType": "Excursão de grupo", "url": "https://ondviajar.com.br/excursoes/", "areaServed": {"@type": "Country", "name": "Brasil"}, "provider": {"@type": "TravelAgency", "name": "OND", "url": "https://ondviajar.com.br/", "telephone": "+5511943615412", "email": "renan@ondviajar.com.br"}, "description": "Cotação de aéreo, hospedagem, passeios e traslados para excursões escolares e viagens de grupo, por agência cadastrada no Cadastur, com o roteiro e os documentos no aplicativo de cada participante."}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://ondviajar.com.br/"}, {"@type": "ListItem", "position": 2, "name": "Excursões", "item": "https://ondviajar.com.br/excursoes/"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "A partir de quantas pessoas a OND monta uma excursão?", "acceptedAnswer": {"@type": "Answer", "text": "Não há número mínimo fixo. A gente cota do grupo pequeno, de dez pessoas, à excursão escolar com turma inteira. Conte quantos são e para onde querem ir que o orçamento sai por pessoa."}}, {"@type": "Question", "name": "Vocês montam excursão escolar?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. A escola ou o professor define o destino e o objetivo pedagógico, e a OND monta aéreo, hospedagem, traslados, passeios e seguro, com o orçamento aberto por aluno."}}, {"@type": "Question", "name": "Como funciona o pagamento de um grupo?", "acceptedAnswer": {"@type": "Answer", "text": "Cartão em até 10x por link de pagamento, com a taxa do parcelamento já na parcela, ou Pix à vista com desconto. A forma é combinada com o organizador antes de fechar."}}, {"@type": "Question", "name": "Cada participante precisa instalar o aplicativo?", "acceptedAnswer": {"@type": "Answer", "text": "Não é obrigatório, e o aplicativo é gratuito. Quem instala leva o roteiro dia a dia, os documentos da viagem, a ficha do destino e o áudio-guia das atrações no próprio celular, em vez de depender de uma pasta de papel."}}, {"@type": "Question", "name": "A OND é uma agência de verdade?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. R. Fernandes Rodrigues Turismo, CNPJ 39.360.492/0001-61, cadastrada no Cadastur do Ministério do Turismo. A viagem sai com contrato e nota fiscal."}}]}</script>
 <script>try{if(localStorage.getItem('ond_theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
 <style id="a11y-base">:root{color-scheme:dark}[data-theme="light"]{color-scheme:light}html{scroll-padding-top:90px}a,button,summary{touch-action:manipulation}.skip{position:absolute;left:12px;top:-60px;z-index:100000;background:var(--purple,#7f11f4);color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;transition:top .2s}.skip:focus{top:12px}</style>
@@ -49,8 +47,6 @@
 
 <main class="lm" id="conteudo">
   <div class="lm-in">
-    <nav class="lm-bc" aria-label="Você está em"><a href="/">Início</a> · Excursões</nav>
-
     <section class="lm-hero">
       <h1>Excursão de grupo, montada por <em>agência de verdade</em></h1>
       <p>Você junta o grupo e define o destino. A OND cota aéreo, hospedagem, traslados, passeios e seguro, manda o orçamento aberto por pessoa, e cada participante leva o roteiro e os documentos no próprio celular em vez de numa pasta de papel.</p>
@@ -71,6 +67,7 @@
         <label class="cot-f"><span>Pra onde?</span><input name="destino" data-destinos placeholder="Ex.: Portugal, Argentina" autocomplete="off"></label>
         <label class="cot-f"><span>Quando?</span><input type="date" name="ida"></label>
         <label class="cot-f"><span>Quantos são?</span><select name="pessoas"><option value="">Escolha</option><option>Até 10 pessoas</option><option selected>10 a 25 pessoas</option><option>25 a 40 pessoas</option><option>Mais de 40 pessoas</option><option>Ainda estamos fechando o grupo</option></select></label>
+        <label class="cot-f"><span>Saindo de</span><input name="saida" data-destinos="origem" placeholder="Ex.: São Paulo" autocomplete="address-level2"></label>
         <button class="cot-go" type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.2-3.2-.7-2.7-1.1-4.4-3.9-4.6-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.3.5-.3.3c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2.1 1.3.2.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l1.9.9c.3.1.5.2.5.4.1.1.1.7-.2 1.4Z"/></svg>Pedir cotação</button>
       </form>
       <div class="cot-atalhos">
