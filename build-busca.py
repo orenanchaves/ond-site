@@ -67,6 +67,7 @@ PAG = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-itunes-app" content="app-id=6758392427">
 <meta name="theme-color" content="#0d0d14">
 <title>Buscar no site | OND</title>
 <meta name="description" content="Busque destinos, posts e páginas do OND: para onde viajar, quanto custa, quando ir e como comprar a viagem.">
