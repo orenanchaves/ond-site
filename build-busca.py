@@ -50,6 +50,16 @@ def indice():
         s = open(p, encoding='utf8').read()
         itens.append({'t': limpa(re.search(r'<h1[^>]*>(.*?)</h1>', s, re.S).group(1)),
                       'u': '/blog/%s/' % slug, 'k': 'Blog', 'd': meta(s, 'description')[:150], 'x': ''})
+    for pagina_edicao in sorted(glob.glob(os.path.join(ROOT, 'edicoes', '*', 'index.html'))):
+        conteudo = open(pagina_edicao, encoding='utf8').read()
+        rotulo = re.search(r'<span class="ed-selo">(.*?)</span>', conteudo, re.S)
+        cidade = re.search(r'<div class="ed-cidade">(.*?)</div>', conteudo, re.S)
+        paradas = [limpa(nome) for nome in re.findall(r'<h3>(.*?)</h3>', conteudo, re.S)]
+        itens.append({'t': limpa(re.search(r'<h1>(.*?)</h1>', conteudo, re.S).group(1)),
+                      'u': '/edicoes/%s/' % os.path.basename(os.path.dirname(pagina_edicao)),
+                      'k': limpa(rotulo.group(1)) if rotulo else 'Página',
+                      'd': meta(conteudo, 'description')[:150],
+                      'x': ' '.join(([limpa(cidade.group(1))] if cidade else []) + paradas)})
     fixas = [('/viagens/', 'Catálogo de viagens', 'Todos os destinos que o OND vende, do Brasil e do mundo.'),
              ('/viagens/quando-viajar/', 'Quando viajar: o melhor mês para cada destino', 'Calendário de viagem mês a mês.'),
              ('/blog.html', 'Blog do OND', 'Destinos, quanto custa, quando ir e dicas de viagem.'),
@@ -68,6 +78,7 @@ PAG = """<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="apple-itunes-app" content="app-id=6758392427">
+<script src="/assets/edicoes-faixa.js" defer></script>
 <meta name="theme-color" content="#0d0d14">
 <title>Buscar no site | OND</title>
 <meta name="description" content="Busque destinos, posts e páginas do OND: para onde viajar, quanto custa, quando ir e como comprar a viagem.">

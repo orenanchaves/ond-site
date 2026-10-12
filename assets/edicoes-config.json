@@ -1,0 +1,31 @@
+{
+ "api": "https://ond.agamatec.com",
+ "links": {
+  "los-angeles-2026-10": "https://ond.app.link/edicao-los-angeles",
+  "miami-2026-11": "https://ond.app.link/edicao-miami-2026",
+  "terra-santa-2027-03": "https://ond.app.link/edicao-terra-santa"
+ },
+ "paginas": [],
+ "textos": {
+  "en": {
+   "badge": "Special edition",
+   "cta": "Take the trail"
+  },
+  "es": {
+   "badge": "Edición especial",
+   "cta": "Hacer el recorrido"
+  },
+  "fr": {
+   "badge": "Édition spéciale",
+   "cta": "Faire le parcours"
+  },
+  "it": {
+   "badge": "Edizione speciale",
+   "cta": "Fai il percorso"
+  },
+  "pt": {
+   "badge": "Edição especial",
+   "cta": "Fazer a trilha"
+  }
+ }
+}

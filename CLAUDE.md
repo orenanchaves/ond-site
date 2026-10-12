@@ -19,7 +19,8 @@ Editar à mão só o que é fonte. O resto é saída de script e some no próxim
 | `agencias/planos/` | `build-agencias.py` |
 | `busca/` e `assets/busca.json` | `build-busca.py` |
 | `en/`, `es/`, `fr/`, `it/` | `build-i18n-home.py` |
-| `sitemap.xml` | `build-blog.py` |
+| `edicoes/<slug>/`, `edicoes/registro.json` e `assets/edicoes-config.json` | `build-edicoes.py` |
+| `sitemap.xml` | `build-blog.py` (o bloco `/edicoes/` é do `build-edicoes.py`) |
 | `proposta/README.md` | `build-registro.py` |
 | `tokens/*.css` | design system, copiado pelo `sync.ps1` |
 
@@ -28,7 +29,8 @@ Editar à mão só o que é fonte. O resto é saída de script e some no próxim
 ```bash
 python build-destinos.py   # depois de mexer no catálogo
 python build-blog.py       # puxa os posts da API da Firma, reescreve o sitemap
-python build-busca.py      # depende dos dois de cima
+python build-edicoes.py    # puxa as edições temáticas da API do backend, mexe no bloco /edicoes/ do sitemap
+python build-busca.py      # depende dos de cima
 python build-i18n-home.py  # depois de mexer na home
 python build-registro.py   # depois de publicar proposta
 ```
@@ -40,6 +42,19 @@ aprovado na Firma. Se o post novo não aparecer, ele não foi aprovado lá.
 às 07:00 de Brasília, gera o blog a partir do feed, commita se `blog/` mudou e pede o build do
 Pages. Ela também roda na mão pela aba Actions. Rodar `build-blog.py` aqui só serve para publicar
 na hora, sem esperar a manhã seguinte.
+
+**Edições temáticas.** A faixa do topo (`assets/edicoes-faixa.js`) consulta `/api/themed-editions/active`
+direto no navegador, no idioma da página, e guarda a resposta no `localStorage` até a meia-noite de
+Brasília, quando as edições abrem e fecham. Lista vazia ou API fora do ar, sem faixa. Textos, links e
+a lista de páginas existentes vêm de `assets/edicoes-config.json`. As páginas `edicoes/<slug>/` são
+estáticas (por causa do Google) e saem do `build-edicoes.py`: rodar quando uma edição nova é
+cadastrada no backend e dar push; não há Action para isso.
+A tag do script entra sozinha em toda página que tem o banner do app (`apple-itunes-app`). A página
+da edição é perene: depois que a edição sai do ar, fica com o aviso de encerrada. Para testar
+contra outro backend, `python build-edicoes.py --api https://dev.agamatec.com` (ou
+`OND_API_BASE`); trocar de backend descarta o registro, então rodar de novo sem `--api` antes de
+commitar. Textos de interface em `i18n/edicoes-textos.json`, copiados dos ARBs do app. O link do
+Branch de cada edição está no mapa `LINK_BRANCH` do script até o backend expor esse dado.
 
 ## Verificar antes de dar push
 

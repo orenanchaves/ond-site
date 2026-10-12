@@ -1,0 +1,48 @@
+{
+  "_fonte": "Copiado de ond-flutter/l10n/app_<idioma>.arb, mesmas chaves. Texto novo nasce la, nao aqui.",
+  "pt": {
+    "themedEditionCardBadge": "Edição especial",
+    "themedEditionCardCta": "Fazer a trilha",
+    "themedEditionStopsTitle": "Paradas da trilha",
+    "themedEditionStopCounter": "Parada {current} de {total}",
+    "themedEditionDisclaimer": "O OND não tem relação com os criadores da obra citada nesta edição.",
+    "themedEditionEndedTitle": "Esta edição saiu de cartaz",
+    "themedEditionEndedBody": "A cidade continua esperando por você. Monte sua viagem com o assistente."
+  },
+  "en": {
+    "themedEditionCardBadge": "Special edition",
+    "themedEditionCardCta": "Take the trail",
+    "themedEditionStopsTitle": "Trail stops",
+    "themedEditionStopCounter": "Stop {current} of {total}",
+    "themedEditionDisclaimer": "OND is not affiliated with the creators of the work mentioned in this edition.",
+    "themedEditionEndedTitle": "This edition is no longer showing",
+    "themedEditionEndedBody": "The city is still waiting for you. Plan your trip with the assistant."
+  },
+  "es": {
+    "themedEditionCardBadge": "Edición especial",
+    "themedEditionCardCta": "Hacer el recorrido",
+    "themedEditionStopsTitle": "Paradas del recorrido",
+    "themedEditionStopCounter": "Parada {current} de {total}",
+    "themedEditionDisclaimer": "OND no tiene relación con los creadores de la obra citada en esta edición.",
+    "themedEditionEndedTitle": "Esta edición salió de cartelera",
+    "themedEditionEndedBody": "La ciudad sigue esperándote. Arma tu viaje con el asistente."
+  },
+  "fr": {
+    "themedEditionCardBadge": "Édition spéciale",
+    "themedEditionCardCta": "Faire le parcours",
+    "themedEditionStopsTitle": "Étapes du parcours",
+    "themedEditionStopCounter": "Étape {current} sur {total}",
+    "themedEditionDisclaimer": "OND n'a aucun lien avec les créateurs de l'œuvre citée dans cette édition.",
+    "themedEditionEndedTitle": "Cette édition n'est plus à l'affiche",
+    "themedEditionEndedBody": "La ville vous attend toujours. Préparez votre voyage avec l'assistant."
+  },
+  "it": {
+    "themedEditionCardBadge": "Edizione speciale",
+    "themedEditionCardCta": "Fai il percorso",
+    "themedEditionStopsTitle": "Tappe del percorso",
+    "themedEditionStopCounter": "Tappa {current} di {total}",
+    "themedEditionDisclaimer": "OND non ha legami con gli autori dell'opera citata in questa edizione.",
+    "themedEditionEndedTitle": "Questa edizione non è più in cartellone",
+    "themedEditionEndedBody": "La città ti aspetta ancora. Organizza il viaggio con l'assistente."
+  }
+}
