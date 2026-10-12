@@ -13,6 +13,7 @@ Preço de custo, lucro, telefone do cliente e histórico de negociação não en
 | Angélica | Gramado no feriado | 10 a 12 de outubro de 2026 | 3 dias e 2 noites · 2 adultos e 1 bebê · Saindo do Rio de Janeiro | [abrir](https://ondviajar.com.br/proposta/angelica-gramado/) | 23 de setembro de 2026 | sim |
 | Bella | Natal em Gramado | 23 a 26 de dezembro de 2026 | 4 dias e 3 noites · 3 pessoas · Saindo de Boa Vista | [abrir](https://ondviajar.com.br/proposta/bella-gramado/) | 21 de setembro de 2026 | sim |
 | Breno | Gramado no fim do ano | 23 a 27 de dezembro de 2026 | 5 dias e 4 noites · 2 adultos | [abrir](https://ondviajar.com.br/proposta/breno-gramado/) | 23 de setembro de 2026 | sim |
+| Claudia | 3 dias no Rio de Janeiro | 26 a 28 de novembro de 2026 | Hotel em Copacabana · 1 adulta · Saindo do Recife | [abrir](https://ondviajar.com.br/proposta/claudia-rio/) | 14 de outubro de 2026 | sim |
 | Isabelle | Gramado, no Natal Luz | 11 a 14 de dezembro de 2026 | 4 dias e 3 noites · 2 adultos | [abrir](https://ondviajar.com.br/proposta/isabelle-gramado/) | 23 de setembro de 2026 | sim |
 | João | Gramado, na primavera | 20 a 25 de setembro de 2027 | 6 dias e 5 noites · 2 adultos e 1 criança | [abrir](https://ondviajar.com.br/proposta/joao-gramado/) | 23 de setembro de 2026 | sim |
 | Josiclei | Réveillon em Gramado | 30 de dezembro a 5 de janeiro | 7 dias e 6 noites · 2 adultos e 1 criança | [abrir](https://ondviajar.com.br/proposta/josiclei-gramado/) | 23 de setembro de 2026 | sim |
@@ -36,4 +37,4 @@ Preço de custo, lucro, telefone do cliente e histórico de negociação não en
 **Avisa quando abre** é o rastreio que dispara "proposta visualizada" quando o cliente entra na página.
 Para conferir a sua própria proposta sem disparar o aviso, abra uma vez com `?team` no fim do endereço.
 
-Atualizado em 9/10/2026.
+Atualizado em 11/10/2026.
