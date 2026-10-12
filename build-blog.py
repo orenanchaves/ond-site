@@ -420,10 +420,14 @@ def write_sitemap(meta):
         lastmod = p.get('updatedAt') or today
         urls.append(f'  <url>\n    <loc>{SITE}/blog/{cs}/</loc>\n    <lastmod>{lastmod}</lastmod>\n'
                     f'    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>')
+    sp = os.path.join(ROOT, 'sitemap.xml')
+    if os.path.exists(sp):
+        atual = open(sp, encoding='utf-8').read()
+        urls += ['  ' + bloco.strip() for bloco in re.findall(r'<url>.*?</url>', atual, re.S) if '/edicoes/' in bloco]
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
            + '\n'.join(urls) + '\n</urlset>\n')
-    open(os.path.join(ROOT,'sitemap.xml'),'w',encoding='utf-8',newline='\n').write(xml)
+    open(sp,'w',encoding='utf-8',newline='\n').write(xml)
     print('sitemap.xml atualizado (%d urls)' % len(urls))
 
 def main():

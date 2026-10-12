@@ -24,6 +24,8 @@ GERADOS = [
      'build-busca.py', 'os destinos, os posts e as paginas fixas'),
     (r'^(en|es|fr|it)/index\.html$',
      'build-i18n-home.py', 'index.html na raiz mais i18n/home-traducoes.json'),
+    (r'^edicoes/|^assets/edicoes-ativas\.json$',
+     'build-edicoes.py', 'a API de edicoes tematicas do backend (/api/themed-editions)'),
     (r'^sitemap\.xml$',
      'build-blog.py', 'as paginas que existem no disco'),
     (r'^proposta/README\.md$',

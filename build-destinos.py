@@ -166,6 +166,7 @@ def pagina(d, cab, rod, meses_d, rel, outros):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="apple-itunes-app" content="app-id=6758392427">
+<script src="/assets/edicoes-faixa.js" defer></script>
 <meta name="theme-color" content="#0d0d14">
 <title>{html.escape(titulo)}</title>
 <meta name="description" content="{html.escape(desc)}">
