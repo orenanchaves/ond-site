@@ -9,7 +9,17 @@
     "themedEditionEndedTitle": "Esta edição saiu de cartaz",
     "themedEditionEndedBody": "A cidade continua esperando por você. Monte sua viagem com o assistente.",
     "themedEditionUpcomingBadge": "Em breve",
-    "themedEditionUpcomingBody": "Marque na agenda: a trilha começa em {date}."
+    "themedEditionUpcomingBody": "Marque na agenda: a trilha começa em {date}.",
+    "hubLeadCaptureName": "Insira seu nome",
+    "hubLeadCaptureEmail": "Insira seu e-mail",
+    "hubLeadCapturePhone": "Insira seu WhatsApp",
+    "hubLeadCaptureSend": "Enviar",
+    "ondVaiError": "Algo deu errado. Tente de novo.",
+    "themedEditionPremiereNoticeCta": "Me avise na estreia",
+    "themedEditionPremiereNoticeTitle": "Marque presença na estreia",
+    "themedEditionPremiereNoticeBody": "Avisamos pelo WhatsApp no dia {date}. Você pode sair da lista quando quiser.",
+    "themedEditionPremiereNoticeConfirmed": "Combinado. Te avisamos no dia {date}.",
+    "themedEditionPremiereNoticeLeave": "Sair da lista"
   },
   "en": {
     "themedEditionCardBadge": "Special edition",
@@ -20,7 +30,17 @@
     "themedEditionEndedTitle": "This edition is no longer showing",
     "themedEditionEndedBody": "The city is still waiting for you. Plan your trip with the assistant.",
     "themedEditionUpcomingBadge": "Coming soon",
-    "themedEditionUpcomingBody": "Save the date: the trail starts on {date}."
+    "themedEditionUpcomingBody": "Save the date: the trail starts on {date}.",
+    "hubLeadCaptureName": "Enter your name",
+    "hubLeadCaptureEmail": "Enter your email",
+    "hubLeadCapturePhone": "Enter your WhatsApp",
+    "hubLeadCaptureSend": "Send",
+    "ondVaiError": "Something went wrong. Please try again.",
+    "themedEditionPremiereNoticeCta": "Notify me at the premiere",
+    "themedEditionPremiereNoticeTitle": "Be there for the premiere",
+    "themedEditionPremiereNoticeBody": "We'll let you know on WhatsApp on {date}. You can leave the list whenever you want.",
+    "themedEditionPremiereNoticeConfirmed": "Done. We'll let you know on {date}.",
+    "themedEditionPremiereNoticeLeave": "Leave the list"
   },
   "es": {
     "themedEditionCardBadge": "Edición especial",
@@ -31,7 +51,17 @@
     "themedEditionEndedTitle": "Esta edición salió de cartelera",
     "themedEditionEndedBody": "La ciudad sigue esperándote. Arma tu viaje con el asistente.",
     "themedEditionUpcomingBadge": "Próximamente",
-    "themedEditionUpcomingBody": "Anótalo en tu agenda: el recorrido empieza el {date}."
+    "themedEditionUpcomingBody": "Anótalo en tu agenda: el recorrido empieza el {date}.",
+    "hubLeadCaptureName": "Ingresa tu nombre",
+    "hubLeadCaptureEmail": "Ingresa tu correo",
+    "hubLeadCapturePhone": "Ingresa tu WhatsApp",
+    "hubLeadCaptureSend": "Enviar",
+    "ondVaiError": "Algo salió mal. Inténtalo de nuevo.",
+    "themedEditionPremiereNoticeCta": "Avísame en el estreno",
+    "themedEditionPremiereNoticeTitle": "Confirma tu presencia en el estreno",
+    "themedEditionPremiereNoticeBody": "Te avisamos por WhatsApp el {date}. Puedes salir de la lista cuando quieras.",
+    "themedEditionPremiereNoticeConfirmed": "Hecho. Te avisamos el {date}.",
+    "themedEditionPremiereNoticeLeave": "Salir de la lista"
   },
   "fr": {
     "themedEditionCardBadge": "Édition spéciale",
@@ -42,7 +72,17 @@
     "themedEditionEndedTitle": "Cette édition n'est plus à l'affiche",
     "themedEditionEndedBody": "La ville vous attend toujours. Préparez votre voyage avec l'assistant.",
     "themedEditionUpcomingBadge": "Bientôt",
-    "themedEditionUpcomingBody": "Notez-le dans votre agenda : le parcours commence le {date}."
+    "themedEditionUpcomingBody": "Notez-le dans votre agenda : le parcours commence le {date}.",
+    "hubLeadCaptureName": "Entrez votre nom",
+    "hubLeadCaptureEmail": "Entrez votre e-mail",
+    "hubLeadCapturePhone": "Entrez votre WhatsApp",
+    "hubLeadCaptureSend": "Envoyer",
+    "ondVaiError": "Une erreur s'est produite. Réessaie.",
+    "themedEditionPremiereNoticeCta": "Préviens-moi à la première",
+    "themedEditionPremiereNoticeTitle": "Sois là pour la première",
+    "themedEditionPremiereNoticeBody": "On te prévient sur WhatsApp le {date}. Tu peux quitter la liste quand tu veux.",
+    "themedEditionPremiereNoticeConfirmed": "C'est noté. On te prévient le {date}.",
+    "themedEditionPremiereNoticeLeave": "Quitter la liste"
   },
   "it": {
     "themedEditionCardBadge": "Edizione speciale",
@@ -53,6 +93,16 @@
     "themedEditionEndedTitle": "Questa edizione non è più in cartellone",
     "themedEditionEndedBody": "La città ti aspetta ancora. Organizza il viaggio con l'assistente.",
     "themedEditionUpcomingBadge": "Prossimamente",
-    "themedEditionUpcomingBody": "Segnalo in agenda: il percorso inizia il {date}."
+    "themedEditionUpcomingBody": "Segnalo in agenda: il percorso inizia il {date}.",
+    "hubLeadCaptureName": "Inserisci il tuo nome",
+    "hubLeadCaptureEmail": "Inserisci la tua email",
+    "hubLeadCapturePhone": "Inserisci il tuo WhatsApp",
+    "hubLeadCaptureSend": "Invia",
+    "ondVaiError": "Qualcosa è andato storto. Riprova.",
+    "themedEditionPremiereNoticeCta": "Avvisami al debutto",
+    "themedEditionPremiereNoticeTitle": "Conferma la tua presenza al debutto",
+    "themedEditionPremiereNoticeBody": "Ti avvisiamo su WhatsApp il {date}. Puoi uscire dalla lista quando vuoi.",
+    "themedEditionPremiereNoticeConfirmed": "Fatto. Ti avvisiamo il {date}.",
+    "themedEditionPremiereNoticeLeave": "Esci dalla lista"
   }
 }

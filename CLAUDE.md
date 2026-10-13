@@ -52,7 +52,10 @@ estáticas (por causa do Google) e saem do `build-edicoes.py`: rodar quando uma 
 cadastrada no backend e dar push; não há Action para isso.
 A tag do script entra sozinha em toda página que tem o banner do app (`apple-itunes-app`). A página
 da edição nasce antes da estreia, com o selo "Em breve" e a data, e um script na própria página troca
-para o botão da trilha quando a data chega, sem precisar de novo build. Ela é perene: depois que a
+para o botão da trilha quando a data chega, sem precisar de novo build. Nela fica também o formulário
+"Me avise na estreia" (`assets/edicoes-aviso.js`): cria o viajante pelo `POST /api/users`, o mesmo
+cadastro sem login do app, e registra o aviso em `/premiere-notice`. Ele só aparece quando essa rota
+responde, então some sozinho se a flag `features.themed-editions.premiere-notice` for desligada. Ela é perene: depois que a
 edição sai do ar, fica com o aviso de encerrada (essa troca só acontece rodando o build de novo). Para testar
 contra outro backend, `python build-edicoes.py --api https://dev.agamatec.com` (ou
 `OND_API_BASE`); trocar de backend descarta o registro, então rodar de novo sem `--api` antes de

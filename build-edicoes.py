@@ -137,6 +137,31 @@ CSS = """<style id="edicao-css">
 .ed-aviso{color:var(--muted);font-size:.85rem;line-height:1.5;margin-top:36px}
 .ed-estreia{font-size:1.05rem;font-weight:700;color:#fff;margin:0}
 .ed [hidden]{display:none!important}
+.ed-avise{flex-basis:100%;max-width:62ch}
+.ed-avise .ed-bt{border:0;cursor:pointer;font:inherit;font-weight:800}
+.ed-avise .ed-bt:disabled{opacity:.6;cursor:default}
+.ed-form{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:18px 20px;display:grid;gap:12px}
+.ed-form strong{font-size:1.05rem}
+.ed-form p{margin:0;color:rgba(255,255,255,.82);line-height:1.55}
+.ed-form input{font:inherit;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:rgba(0,0,0,.25);color:#fff}
+.ed-form input:focus{outline:2px solid var(--ed-det);outline-offset:1px}
+.ed-form .ed-bt{justify-self:start}
+.ed-erro{color:#FFB4A9;font-weight:600}
+.ed-ok{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px}
+.ed-ok p{margin:0;font-weight:700;color:#fff}
+.ed-sair{background:none;border:0;color:rgba(255,255,255,.72);text-decoration:underline;cursor:pointer;font:inherit;padding:0}
+.ed-oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ed-armadilha{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.ed-form .iti{width:100%}
+.ed-form .iti input{width:100%}
+.ed-form .iti__selected-dial-code{color:#fff}
+.ed-form .iti__arrow{border-top-color:#fff}
+.ed-form .iti__country-selector{background:#1d1b2b;color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:12px;overflow:hidden}
+.ed-form .iti__search-input{border:0;border-radius:0;border-bottom:1px solid rgba(255,255,255,.14);background:transparent}
+.ed-form .iti__search-icon,.ed-form .iti__search-clear{color:rgba(255,255,255,.72)}
+.ed-form .iti__country.iti__highlight{background:rgba(255,255,255,.1)}
+.ed-form .iti__dial-code{color:rgba(255,255,255,.6)}
+.ed-form .iti__country-check{color:var(--ed-det)}
 @media(max-width:700px){.ed-capa{aspect-ratio:16/10}.ed-in{padding:0 18px}}
 </style>"""
 
@@ -149,6 +174,32 @@ def data_por_extenso(inicio):
 def acao_da_trilha(slug, textos):
     return ('<div class="ed-cta"><a class="ed-bt" href="%s" target="_blank" rel="noopener" data-edicao="%s">%s</a></div>'
             % (html.escape(link_branch(slug)), html.escape(slug), html.escape(textos['themedEditionCardCta'])))
+
+
+def formulario_de_aviso(slug, data, textos):
+    campo = ('<label class="ed-oculto" for="ed-%s">%s</label>'
+             '<input id="ed-%s" name="%s" type="%s" autocomplete="%s" placeholder="%s" required%s>')
+    campos = ''.join([
+        campo % ('nome', html.escape(textos['hubLeadCaptureName']), 'nome', 'nome', 'text', 'name',
+                 html.escape(textos['hubLeadCaptureName']), ' maxlength="150"'),
+        campo % ('email', html.escape(textos['hubLeadCaptureEmail']), 'email', 'email', 'email', 'email',
+                 html.escape(textos['hubLeadCaptureEmail']), ' inputmode="email" autocapitalize="off" spellcheck="false"'),
+        campo % ('telefone', html.escape(textos['hubLeadCapturePhone']), 'telefone', 'telefone', 'tel', 'tel',
+                 html.escape(textos['hubLeadCapturePhone']), ' inputmode="tel"'),
+    ])
+    return ('<div class="ed-avise ed-so-breve" id="ed-avise" hidden data-api="%s" data-slug="%s">'
+            '<button type="button" class="ed-bt" data-acao="abrir">%s</button>'
+            '<form class="ed-form" hidden novalidate><strong>%s</strong><p>%s</p>%s'
+            '<input class="ed-armadilha" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">'
+            '<button type="submit" class="ed-bt">%s</button></form>'
+            '<div class="ed-ok" hidden><p>%s</p><button type="button" class="ed-sair" data-acao="sair">%s</button></div>'
+            '<p class="ed-erro" role="alert" hidden>%s</p></div>'
+            % (API_PADRAO, html.escape(slug), html.escape(textos['themedEditionPremiereNoticeCta']),
+               html.escape(textos['themedEditionPremiereNoticeTitle']),
+               html.escape(textos['themedEditionPremiereNoticeBody'].replace('{date}', data)), campos,
+               html.escape(textos['hubLeadCaptureSend']),
+               html.escape(textos['themedEditionPremiereNoticeConfirmed'].replace('{date}', data)),
+               html.escape(textos['themedEditionPremiereNoticeLeave']), html.escape(textos['ondVaiError'])))
 
 
 def pagina(edicao, estado, textos, cab, rod):
@@ -178,15 +229,18 @@ def pagina(edicao, estado, textos, cab, rod):
     if estado == ATIVA:
         acao = acao_da_trilha(slug, textos)
     elif estado == EM_BREVE:
-        estreia = html.escape(textos['themedEditionUpcomingBody'].replace('{date}', data_por_extenso(edicao.get('startsAt'))))
+        data = data_por_extenso(edicao.get('startsAt'))
+        estreia = html.escape(textos['themedEditionUpcomingBody'].replace('{date}', data))
         selo = ('<span class="ed-so-breve">%s</span><span class="ed-so-ativa" hidden>%s</span>'
                 % (html.escape(textos['themedEditionUpcomingBadge']), selo))
-        acao = ('<div class="ed-cta ed-so-breve"><p class="ed-estreia">%s</p></div>'
-                '<div class="ed-so-ativa" hidden>%s</div>' % (estreia, acao_da_trilha(slug, textos)))
+        acao = ('<div class="ed-cta ed-so-breve"><p class="ed-estreia">%s</p>%s</div>'
+                '<div class="ed-so-ativa" hidden>%s</div>'
+                % (estreia, formulario_de_aviso(slug, data, textos), acao_da_trilha(slug, textos)))
         troca_na_estreia = ('<script>(function(){var inicio=Date.parse(%s+"-03:00");if(!(Date.now()>=inicio))return;'
                             'document.querySelectorAll(".ed-so-breve").forEach(function(e){e.hidden=true});'
                             'document.querySelectorAll(".ed-so-ativa").forEach(function(e){e.hidden=false})})();</script>'
-                            % json.dumps((edicao.get('startsAt') or '')[:19]))
+                            % json.dumps((edicao.get('startsAt') or '')[:19])
+                            + '\n<script src="/assets/edicoes-aviso.js" defer></script>')
     else:
         acao = ('<div class="ed-cta"><div class="ed-fim"><strong>%s</strong><p>%s</p>'
                 '<a class="ed-bt" href="%s" target="_blank" rel="noopener">Monte sua viagem</a></div></div>'
