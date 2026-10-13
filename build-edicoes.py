@@ -152,6 +152,16 @@ CSS = """<style id="edicao-css">
 .ed-sair{background:none;border:0;color:rgba(255,255,255,.72);text-decoration:underline;cursor:pointer;font:inherit;padding:0}
 .ed-oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ed-armadilha{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.ed-form .iti{width:100%}
+.ed-form .iti input{width:100%}
+.ed-form .iti__selected-dial-code{color:#fff}
+.ed-form .iti__arrow{border-top-color:#fff}
+.ed-form .iti__country-selector{background:#1d1b2b;color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:12px;overflow:hidden}
+.ed-form .iti__search-input{border:0;border-radius:0;border-bottom:1px solid rgba(255,255,255,.14);background:transparent}
+.ed-form .iti__search-icon,.ed-form .iti__search-clear{color:rgba(255,255,255,.72)}
+.ed-form .iti__country.iti__highlight{background:rgba(255,255,255,.1)}
+.ed-form .iti__dial-code{color:rgba(255,255,255,.6)}
+.ed-form .iti__country-check{color:var(--ed-det)}
 @media(max-width:700px){.ed-capa{aspect-ratio:16/10}.ed-in{padding:0 18px}}
 </style>"""
 
@@ -173,9 +183,9 @@ def formulario_de_aviso(slug, data, textos):
         campo % ('nome', html.escape(textos['hubLeadCaptureName']), 'nome', 'nome', 'text', 'name',
                  html.escape(textos['hubLeadCaptureName']), ' maxlength="150"'),
         campo % ('email', html.escape(textos['hubLeadCaptureEmail']), 'email', 'email', 'email', 'email',
-                 html.escape(textos['hubLeadCaptureEmail']), ''),
+                 html.escape(textos['hubLeadCaptureEmail']), ' inputmode="email" autocapitalize="off" spellcheck="false"'),
         campo % ('telefone', html.escape(textos['hubLeadCapturePhone']), 'telefone', 'telefone', 'tel', 'tel',
-                 html.escape(textos['hubLeadCapturePhone']), ' value="+55 " inputmode="tel"'),
+                 html.escape(textos['hubLeadCapturePhone']), ' inputmode="tel"'),
     ])
     return ('<div class="ed-avise ed-so-breve" id="ed-avise" hidden data-api="%s" data-slug="%s">'
             '<button type="button" class="ed-bt" data-acao="abrir">%s</button>'

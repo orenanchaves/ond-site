@@ -76,6 +76,16 @@
 .ed-sair{background:none;border:0;color:rgba(255,255,255,.72);text-decoration:underline;cursor:pointer;font:inherit;padding:0}
 .ed-oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ed-armadilha{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.ed-form .iti{width:100%}
+.ed-form .iti input{width:100%}
+.ed-form .iti__selected-dial-code{color:#fff}
+.ed-form .iti__arrow{border-top-color:#fff}
+.ed-form .iti__country-selector{background:#1d1b2b;color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:12px;overflow:hidden}
+.ed-form .iti__search-input{border:0;border-radius:0;border-bottom:1px solid rgba(255,255,255,.14);background:transparent}
+.ed-form .iti__search-icon,.ed-form .iti__search-clear{color:rgba(255,255,255,.72)}
+.ed-form .iti__country.iti__highlight{background:rgba(255,255,255,.1)}
+.ed-form .iti__dial-code{color:rgba(255,255,255,.6)}
+.ed-form .iti__country-check{color:var(--ed-det)}
 @media(max-width:700px){.ed-capa{aspect-ratio:16/10}.ed-in{padding:0 18px}}
 </style>
 <script src="/assets/ond-logo.js" defer></script>
@@ -116,7 +126,7 @@
       <h1>Miami, o mapa de verdade</h1>
       <div class="ed-cidade">Miami</div>
       <p class="ed-lead">Sol demais, neon demais, jacaré demais. Conheça a Miami real por trás da cidade do game, parada por parada.</p>
-      <div class="ed-cta ed-so-breve"><p class="ed-estreia">Marque na agenda: a trilha começa em 19 de novembro.</p><div class="ed-avise ed-so-breve" id="ed-avise" hidden data-api="https://ond.agamatec.com" data-slug="miami-2026-11"><button type="button" class="ed-bt" data-acao="abrir">Me avise na estreia</button><form class="ed-form" hidden novalidate><strong>Marque presença na estreia</strong><p>Avisamos pelo WhatsApp no dia 19 de novembro. Você pode sair da lista quando quiser.</p><label class="ed-oculto" for="ed-nome">Insira seu nome</label><input id="ed-nome" name="nome" type="text" autocomplete="name" placeholder="Insira seu nome" required maxlength="150"><label class="ed-oculto" for="ed-email">Insira seu e-mail</label><input id="ed-email" name="email" type="email" autocomplete="email" placeholder="Insira seu e-mail" required><label class="ed-oculto" for="ed-telefone">Insira seu WhatsApp</label><input id="ed-telefone" name="telefone" type="tel" autocomplete="tel" placeholder="Insira seu WhatsApp" required value="+55 " inputmode="tel"><input class="ed-armadilha" name="site" tabindex="-1" autocomplete="off" aria-hidden="true"><button type="submit" class="ed-bt">Enviar</button></form><div class="ed-ok" hidden><p>Combinado. Te avisamos no dia 19 de novembro.</p><button type="button" class="ed-sair" data-acao="sair">Sair da lista</button></div><p class="ed-erro" role="alert" hidden>Algo deu errado. Tente de novo.</p></div></div><div class="ed-so-ativa" hidden><div class="ed-cta"><a class="ed-bt" href="https://ond.app.link/edicao-miami-2026" target="_blank" rel="noopener" data-edicao="miami-2026-11">Fazer a trilha</a></div></div>
+      <div class="ed-cta ed-so-breve"><p class="ed-estreia">Marque na agenda: a trilha começa em 19 de novembro.</p><div class="ed-avise ed-so-breve" id="ed-avise" hidden data-api="https://ond.agamatec.com" data-slug="miami-2026-11"><button type="button" class="ed-bt" data-acao="abrir">Me avise na estreia</button><form class="ed-form" hidden novalidate><strong>Marque presença na estreia</strong><p>Avisamos pelo WhatsApp no dia 19 de novembro. Você pode sair da lista quando quiser.</p><label class="ed-oculto" for="ed-nome">Insira seu nome</label><input id="ed-nome" name="nome" type="text" autocomplete="name" placeholder="Insira seu nome" required maxlength="150"><label class="ed-oculto" for="ed-email">Insira seu e-mail</label><input id="ed-email" name="email" type="email" autocomplete="email" placeholder="Insira seu e-mail" required inputmode="email" autocapitalize="off" spellcheck="false"><label class="ed-oculto" for="ed-telefone">Insira seu WhatsApp</label><input id="ed-telefone" name="telefone" type="tel" autocomplete="tel" placeholder="Insira seu WhatsApp" required inputmode="tel"><input class="ed-armadilha" name="site" tabindex="-1" autocomplete="off" aria-hidden="true"><button type="submit" class="ed-bt">Enviar</button></form><div class="ed-ok" hidden><p>Combinado. Te avisamos no dia 19 de novembro.</p><button type="button" class="ed-sair" data-acao="sair">Sair da lista</button></div><p class="ed-erro" role="alert" hidden>Algo deu errado. Tente de novo.</p></div></div><div class="ed-so-ativa" hidden><div class="ed-cta"><a class="ed-bt" href="https://ond.app.link/edicao-miami-2026" target="_blank" rel="noopener" data-edicao="miami-2026-11">Fazer a trilha</a></div></div>
     </div>
   </div>
   <div class="ed-in">
