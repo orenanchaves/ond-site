@@ -126,7 +126,7 @@
   }
 
   function cadastra(nome, email, telefone) {
-    return postJson(api + '/api/users?lang=pt', {
+    return postJson(api + '/api/users?lang=pt&themedEdition=' + encodeURIComponent(slug) + '&themedEditionReason=premiere-notice', {
       user: { name: nome, email: email, authProvider: 'INTERNAL' },
       name: nome,
       email: email,
