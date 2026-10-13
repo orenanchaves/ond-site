@@ -5,27 +5,40 @@
   "miami-2026-11": "https://ond.app.link/edicao-miami-2026",
   "terra-santa-2027-03": "https://ond.app.link/edicao-terra-santa"
  },
- "paginas": [],
+ "paginas": [
+  "los-angeles-2026-10",
+  "miami-2026-11"
+ ],
  "textos": {
   "en": {
    "badge": "Special edition",
-   "cta": "Take the trail"
+   "badgeUpcoming": "Coming soon",
+   "cta": "Take the trail",
+   "upcomingBody": "Save the date: the trail starts on {date}."
   },
   "es": {
    "badge": "Edición especial",
-   "cta": "Hacer el recorrido"
+   "badgeUpcoming": "Próximamente",
+   "cta": "Hacer el recorrido",
+   "upcomingBody": "Anótalo en tu agenda: el recorrido empieza el {date}."
   },
   "fr": {
    "badge": "Édition spéciale",
-   "cta": "Faire le parcours"
+   "badgeUpcoming": "Bientôt",
+   "cta": "Faire le parcours",
+   "upcomingBody": "Notez-le dans votre agenda : le parcours commence le {date}."
   },
   "it": {
    "badge": "Edizione speciale",
-   "cta": "Fai il percorso"
+   "badgeUpcoming": "Prossimamente",
+   "cta": "Fai il percorso",
+   "upcomingBody": "Segnalo in agenda: il percorso inizia il {date}."
   },
   "pt": {
    "badge": "Edição especial",
-   "cta": "Fazer a trilha"
+   "badgeUpcoming": "Em breve",
+   "cta": "Fazer a trilha",
+   "upcomingBody": "Marque na agenda: a trilha começa em {date}."
   }
  }
 }
