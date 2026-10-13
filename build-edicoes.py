@@ -5,14 +5,16 @@ build-edicoes.py: faixa das edições temáticas em destaque e uma página por e
 
 Fonte única: a API de edições temáticas do backend do OND.
 - GET /api/themed-editions/active?language=<idioma> para cada idioma do site
+- GET /api/themed-editions/upcoming?language=pt para as edições que ainda vão estrear
 - GET /api/themed-editions/<slug>?language=pt para montar a página da edição
 
 Saída:
 - assets/edicoes-config.json: textos da faixa por idioma, link de cada edição e as
   páginas que existem. A faixa (assets/edicoes-faixa.js) consulta a API direto no
   navegador e usa este arquivo só para textos e links.
-- edicoes/<slug>/index.html: página da edição, perene. Continua no ar depois que a
-  edição sai de cartaz, com o aviso de encerrada no lugar do botão.
+- edicoes/<slug>/index.html: página da edição, perene. Antes da estreia mostra o selo
+  "Em breve" com a data e troca sozinha para o botão da trilha quando a data chega.
+  Continua no ar depois que a edição sai de cartaz, com o aviso de encerrada no lugar do botão.
 - edicoes/registro.json: as edições já publicadas, com o último retrato da API.
   É o que mantém a página de pé quando a edição some do /active.
 - o bloco /edicoes/ do sitemap.xml e a tag da faixa nas páginas públicas.
@@ -36,6 +38,9 @@ TEXTOS = os.path.join(ROOT, 'i18n', 'edicoes-textos.json')
 TAG_FAIXA = '<script src="/assets/edicoes-faixa.js" defer></script>'
 META_APP = '<meta name="apple-itunes-app" content="app-id=6758392427">'
 IDIOMAS = ['pt', 'en', 'es', 'fr', 'it']
+MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro',
+         'outubro', 'novembro', 'dezembro']
+ATIVA, EM_BREVE, ENCERRADA = 'ativa', 'em-breve', 'encerrada'
 WEB_APP = 'https://web.ondviajar.com.br/ond-vai'
 
 LINK_BRANCH = {
@@ -130,11 +135,23 @@ CSS = """<style id="edicao-css">
 .ed-paradas h3{font-size:1.12rem;margin:4px 0 0;line-height:1.3}
 .ed-paradas p{margin:8px 0 0;color:var(--muted);line-height:1.55}
 .ed-aviso{color:var(--muted);font-size:.85rem;line-height:1.5;margin-top:36px}
+.ed-estreia{font-size:1.05rem;font-weight:700;color:#fff;margin:0}
+.ed [hidden]{display:none!important}
 @media(max-width:700px){.ed-capa{aspect-ratio:16/10}.ed-in{padding:0 18px}}
 </style>"""
 
 
-def pagina(edicao, ativa, textos, cab, rod):
+def data_por_extenso(inicio):
+    data = datetime.date.fromisoformat((inicio or '')[:10])
+    return '%d de %s' % (data.day, MESES[data.month - 1])
+
+
+def acao_da_trilha(slug, textos):
+    return ('<div class="ed-cta"><a class="ed-bt" href="%s" target="_blank" rel="noopener" data-edicao="%s">%s</a></div>'
+            % (html.escape(link_branch(slug)), html.escape(slug), html.escape(textos['themedEditionCardCta'])))
+
+
+def pagina(edicao, estado, textos, cab, rod):
     slug = edicao['slug']
     titulo = edicao.get('title') or slug
     resumo = edicao.get('summary') or ''
@@ -156,9 +173,20 @@ def pagina(edicao, ativa, textos, cab, rod):
     lista = ('<h2>%s</h2>\n    <ol class="ed-paradas">%s</ol>' % (html.escape(textos['themedEditionStopsTitle']), ''.join(itens))
              if itens else '')
 
-    if ativa:
-        acao = ('<div class="ed-cta"><a class="ed-bt" href="%s" target="_blank" rel="noopener" data-edicao="%s">%s</a></div>'
-                % (html.escape(link_branch(slug)), html.escape(slug), html.escape(textos['themedEditionCardCta'])))
+    selo = html.escape(textos['themedEditionCardBadge'])
+    troca_na_estreia = ''
+    if estado == ATIVA:
+        acao = acao_da_trilha(slug, textos)
+    elif estado == EM_BREVE:
+        estreia = html.escape(textos['themedEditionUpcomingBody'].replace('{date}', data_por_extenso(edicao.get('startsAt'))))
+        selo = ('<span class="ed-so-breve">%s</span><span class="ed-so-ativa" hidden>%s</span>'
+                % (html.escape(textos['themedEditionUpcomingBadge']), selo))
+        acao = ('<div class="ed-cta ed-so-breve"><p class="ed-estreia">%s</p></div>'
+                '<div class="ed-so-ativa" hidden>%s</div>' % (estreia, acao_da_trilha(slug, textos)))
+        troca_na_estreia = ('<script>(function(){var inicio=Date.parse(%s+"-03:00");if(!(Date.now()>=inicio))return;'
+                            'document.querySelectorAll(".ed-so-breve").forEach(function(e){e.hidden=true});'
+                            'document.querySelectorAll(".ed-so-ativa").forEach(function(e){e.hidden=false})})();</script>'
+                            % json.dumps((edicao.get('startsAt') or '')[:19]))
     else:
         acao = ('<div class="ed-cta"><div class="ed-fim"><strong>%s</strong><p>%s</p>'
                 '<a class="ed-bt" href="%s" target="_blank" rel="noopener">Monte sua viagem</a></div></div>'
@@ -227,7 +255,7 @@ def pagina(edicao, ativa, textos, cab, rod):
     <div class="ed-in">
       <nav class="ed-bc" aria-label="Você está em"><a href="/">Início</a> / {html.escape(titulo)}</nav>
       {capa_html}
-      <span class="ed-selo">{html.escape(textos['themedEditionCardBadge'])}</span>
+      <span class="ed-selo">{selo}</span>
       <h1>{html.escape(titulo)}</h1>
       {'<div class="ed-cidade">' + html.escape(cidade) + '</div>' if cidade else ''}
       {'<p class="ed-lead">' + html.escape(resumo) + '</p>' if resumo else ''}
@@ -239,6 +267,7 @@ def pagina(edicao, ativa, textos, cab, rod):
     <p class="ed-aviso">{html.escape(textos['themedEditionDisclaimer'])}</p>
   </div>
 </main>
+{troca_na_estreia}
 <script src="/assets/a11y.js" defer></script>
 <script src="/assets/busca.js" defer></script>
 {rod}
@@ -292,6 +321,12 @@ def garante_tag_faixa():
 
 
 
+def estado_da_edicao(slug, ativos, proximas):
+    if slug in ativos:
+        return ATIVA
+    return EM_BREVE if slug in proximas else ENCERRADA
+
+
 def main():
     parser = argparse.ArgumentParser(description='Faixa e páginas das edições temáticas.')
     parser.add_argument('--api', default=os.environ.get('OND_API_BASE') or API_PADRAO,
@@ -307,6 +342,11 @@ def main():
         except SemEdicao:
             ativas_por_idioma[idioma] = []
         print('  %s: %d edição(ões) em destaque' % (idioma, len(ativas_por_idioma[idioma])))
+    try:
+        proximas = {edicao['slug'] for edicao in baixa('%s/api/themed-editions/upcoming?language=pt' % api)}
+    except SemEdicao:
+        proximas = set()
+    print('  %d edição(ões) para estrear' % len(proximas))
 
     registro = ler_json(REGISTRO, {'origem': api, 'edicoes': {}})
     if registro.get('origem') != api:
@@ -315,7 +355,7 @@ def main():
 
     hoje = datetime.date.today().isoformat()
     ativos = {edicao['slug'] for edicao in ativas_por_idioma['pt']}
-    for slug in sorted(ativos | set(registro['edicoes'])):
+    for slug in sorted(ativos | proximas | set(registro['edicoes'])):
         anterior = registro['edicoes'].get(slug)
         try:
             novo = retrato(baixa('%s/api/themed-editions/%s?language=pt' % (api, slug)))
@@ -332,7 +372,7 @@ def main():
     pasta = os.path.join(ROOT, 'edicoes')
     for slug, entrada in registro['edicoes'].items():
         grava(os.path.join(pasta, slug, 'index.html'),
-              pagina(entrada['edicao'], slug in ativos, textos['pt'], cab, rod))
+              pagina(entrada['edicao'], estado_da_edicao(slug, ativos, proximas), textos['pt'], cab, rod))
     for sobra in glob.glob(os.path.join(pasta, '*', 'index.html')):
         slug = os.path.basename(os.path.dirname(sobra))
         if slug not in registro['edicoes']:
@@ -343,7 +383,9 @@ def main():
 
     config = {'api': API_PADRAO,
               'textos': {idioma: {'badge': textos[idioma]['themedEditionCardBadge'],
-                                  'cta': textos[idioma]['themedEditionCardCta']} for idioma in IDIOMAS},
+                                  'cta': textos[idioma]['themedEditionCardCta'],
+                                  'badgeUpcoming': textos[idioma]['themedEditionUpcomingBadge'],
+                                  'upcomingBody': textos[idioma]['themedEditionUpcomingBody']} for idioma in IDIOMAS},
               'links': LINK_BRANCH,
               'paginas': sorted(registro['edicoes'])}
     grava(CONFIG, json.dumps(config, ensure_ascii=False, indent=1, sort_keys=True) + '\n')

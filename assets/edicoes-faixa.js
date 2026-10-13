@@ -2,7 +2,7 @@
   var idioma = (document.documentElement.lang || 'pt').slice(0, 2).toLowerCase();
   var FUSO_BRASILIA_MS = 3 * 60 * 60 * 1000;
   var DIA_MS = 24 * 60 * 60 * 1000;
-  var CHAVE_CACHE = 'ond-edicoes-ativas-' + idioma;
+  var CHAVE_CACHE = 'ond-edicoes-destaque-' + idioma;
 
   function proximaMeiaNoiteBrasilia() {
     var agoraBrasilia = Date.now() - FUSO_BRASILIA_MS;
@@ -12,15 +12,15 @@
   function lerCache() {
     try {
       var guardado = JSON.parse(localStorage.getItem(CHAVE_CACHE) || 'null');
-      return guardado && guardado.validoAte > Date.now() ? guardado.edicoes : null;
+      return guardado && guardado.validoAte > Date.now() && guardado.destaque ? guardado.destaque : null;
     } catch (erro) {
       return null;
     }
   }
 
-  function gravarCache(edicoes) {
+  function gravarCache(destaque) {
     try {
-      localStorage.setItem(CHAVE_CACHE, JSON.stringify({ validoAte: proximaMeiaNoiteBrasilia(), edicoes: edicoes }));
+      localStorage.setItem(CHAVE_CACHE, JSON.stringify({ validoAte: proximaMeiaNoiteBrasilia(), destaque: destaque }));
     } catch (erro) {}
   }
 
@@ -36,10 +36,22 @@
     return /^#[0-9A-Fa-f]{6}$/.test(valor || '') ? valor : padrao;
   }
 
-  function desenha(config, edicoes) {
+  function dataDeEstreia(inicio) {
+    var partes = /^(\d{4})-(\d{2})-(\d{2})/.exec(inicio || '');
+    if (!partes) return '';
+    var dia = new Date(Date.UTC(+partes[1], +partes[2] - 1, +partes[3]));
+    try {
+      return dia.toLocaleDateString(idioma, { day: 'numeric', month: 'long', timeZone: 'UTC' });
+    } catch (erro) {
+      return partes[3] + '/' + partes[2];
+    }
+  }
+
+  function desenha(config, destaque) {
     var textos = (config.textos || {})[idioma];
     var paginas = config.paginas || [];
-    var candidatas = (edicoes || []).map(function (edicao) {
+    var emBreve = destaque.emBreve;
+    var candidatas = (destaque.edicoes || []).map(function (edicao) {
       var temPagina = idioma === 'pt' && paginas.indexOf(edicao.slug) !== -1;
       return {
         slug: edicao.slug,
@@ -55,10 +67,11 @@
     }).filter(function (candidata) {
       return !candidata.pagina || location.pathname.indexOf(candidata.pagina) !== 0;
     }).sort(function (primeira, segunda) {
-      return segunda.inicio.localeCompare(primeira.inicio);
+      return emBreve ? primeira.inicio.localeCompare(segunda.inicio) : segunda.inicio.localeCompare(primeira.inicio);
     });
     var edicao = candidatas[0];
-    if (!textos || !edicao) return;
+    var data = edicao && emBreve ? dataDeEstreia(edicao.inicio) : '';
+    if (!textos || !edicao || (emBreve && (!textos.badgeUpcoming || !data))) return;
 
     var estilo = document.createElement('style');
     estilo.textContent =
@@ -67,7 +80,7 @@
       '.ond-ed-selo{border:1px solid var(--ond-ed-det);color:var(--ond-ed-det);border-radius:50px;padding:2px 10px;font-size:.72rem;' +
       'font-weight:800;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}' +
       '.ond-ed-tit{color:#fff;font-weight:700;text-decoration:none}a.ond-ed-tit:hover{text-decoration:underline}' +
-      '.ond-ed-cid{color:rgba(255,255,255,.75)}' +
+      '.ond-ed-cid{color:rgba(255,255,255,.75)}.ond-ed-data{color:#fff;font-weight:600}' +
       '.ond-ed-cta{background:var(--ond-ed-pri);color:var(--ond-ed-pri-txt);font-weight:800;border-radius:50px;padding:6px 14px;' +
       'text-decoration:none;white-space:nowrap}.ond-ed-cta:hover{filter:brightness(1.07)}' +
       '@media(max-width:600px){.ond-ed-cid{display:none}}';
@@ -83,13 +96,19 @@
 
     var selo = document.createElement('span');
     selo.className = 'ond-ed-selo';
-    selo.textContent = textos.badge;
+    selo.textContent = emBreve ? textos.badgeUpcoming : textos.badge;
     faixa.appendChild(selo);
 
-    var titulo = document.createElement(edicao.pagina ? 'a' : 'span');
+    var destino = edicao.pagina || (emBreve ? edicao.link : '');
+    var titulo = document.createElement(destino ? 'a' : 'span');
     titulo.className = 'ond-ed-tit';
     titulo.textContent = edicao.titulo;
-    if (edicao.pagina) titulo.href = edicao.pagina;
+    if (destino) titulo.href = destino;
+    if (destino && !edicao.pagina) {
+      titulo.target = '_blank';
+      titulo.rel = 'noopener';
+      titulo.setAttribute('data-edicao', edicao.slug);
+    }
     faixa.appendChild(titulo);
 
     if (edicao.cidade) {
@@ -97,6 +116,15 @@
       cidade.className = 'ond-ed-cid';
       cidade.textContent = edicao.cidade;
       faixa.appendChild(cidade);
+    }
+
+    if (emBreve) {
+      var estreia = document.createElement('span');
+      estreia.className = 'ond-ed-data';
+      estreia.textContent = textos.upcomingBody.replace('{date}', data);
+      faixa.appendChild(estreia);
+      inserir(faixa);
+      return;
     }
 
     var botao = document.createElement('a');
@@ -107,9 +135,23 @@
     botao.textContent = textos.cta;
     botao.setAttribute('data-edicao', edicao.slug);
     faixa.appendChild(botao);
+    inserir(faixa);
+  }
 
+  function inserir(faixa) {
     var pular = document.querySelector('body > .skip');
     document.body.insertBefore(faixa, pular ? pular.nextSibling : document.body.firstChild);
+  }
+
+  function destaqueDaApi(api) {
+    var base = api + '/api/themed-editions/';
+    return json(base + 'active?language=' + idioma).then(function (ativas) {
+      if (!Array.isArray(ativas)) return null;
+      if (ativas.length) return { edicoes: ativas, emBreve: false };
+      return json(base + 'upcoming?language=' + idioma).then(function (proximas) {
+        return { edicoes: Array.isArray(proximas) ? proximas : [], emBreve: true };
+      });
+    });
   }
 
   function json(url) {
@@ -124,10 +166,10 @@
         desenha(config, emCache);
         return;
       }
-      json(config.api + '/api/themed-editions/active?language=' + idioma).then(function (edicoes) {
-        if (!Array.isArray(edicoes)) return;
-        gravarCache(edicoes);
-        desenha(config, edicoes);
+      return destaqueDaApi(config.api).then(function (destaque) {
+        if (!destaque) return;
+        gravarCache(destaque);
+        desenha(config, destaque);
       });
     }).catch(function () {});
   }

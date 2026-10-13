@@ -7,7 +7,9 @@
     "themedEditionStopCounter": "Parada {current} de {total}",
     "themedEditionDisclaimer": "O OND não tem relação com os criadores da obra citada nesta edição.",
     "themedEditionEndedTitle": "Esta edição saiu de cartaz",
-    "themedEditionEndedBody": "A cidade continua esperando por você. Monte sua viagem com o assistente."
+    "themedEditionEndedBody": "A cidade continua esperando por você. Monte sua viagem com o assistente.",
+    "themedEditionUpcomingBadge": "Em breve",
+    "themedEditionUpcomingBody": "Marque na agenda: a trilha começa em {date}."
   },
   "en": {
     "themedEditionCardBadge": "Special edition",
@@ -16,7 +18,9 @@
     "themedEditionStopCounter": "Stop {current} of {total}",
     "themedEditionDisclaimer": "OND is not affiliated with the creators of the work mentioned in this edition.",
     "themedEditionEndedTitle": "This edition is no longer showing",
-    "themedEditionEndedBody": "The city is still waiting for you. Plan your trip with the assistant."
+    "themedEditionEndedBody": "The city is still waiting for you. Plan your trip with the assistant.",
+    "themedEditionUpcomingBadge": "Coming soon",
+    "themedEditionUpcomingBody": "Save the date: the trail starts on {date}."
   },
   "es": {
     "themedEditionCardBadge": "Edición especial",
@@ -25,7 +29,9 @@
     "themedEditionStopCounter": "Parada {current} de {total}",
     "themedEditionDisclaimer": "OND no tiene relación con los creadores de la obra citada en esta edición.",
     "themedEditionEndedTitle": "Esta edición salió de cartelera",
-    "themedEditionEndedBody": "La ciudad sigue esperándote. Arma tu viaje con el asistente."
+    "themedEditionEndedBody": "La ciudad sigue esperándote. Arma tu viaje con el asistente.",
+    "themedEditionUpcomingBadge": "Próximamente",
+    "themedEditionUpcomingBody": "Anótalo en tu agenda: el recorrido empieza el {date}."
   },
   "fr": {
     "themedEditionCardBadge": "Édition spéciale",
@@ -34,7 +40,9 @@
     "themedEditionStopCounter": "Étape {current} sur {total}",
     "themedEditionDisclaimer": "OND n'a aucun lien avec les créateurs de l'œuvre citée dans cette édition.",
     "themedEditionEndedTitle": "Cette édition n'est plus à l'affiche",
-    "themedEditionEndedBody": "La ville vous attend toujours. Préparez votre voyage avec l'assistant."
+    "themedEditionEndedBody": "La ville vous attend toujours. Préparez votre voyage avec l'assistant.",
+    "themedEditionUpcomingBadge": "Bientôt",
+    "themedEditionUpcomingBody": "Notez-le dans votre agenda : le parcours commence le {date}."
   },
   "it": {
     "themedEditionCardBadge": "Edizione speciale",
@@ -43,6 +51,8 @@
     "themedEditionStopCounter": "Tappa {current} di {total}",
     "themedEditionDisclaimer": "OND non ha legami con gli autori dell'opera citata in questa edizione.",
     "themedEditionEndedTitle": "Questa edizione non è più in cartellone",
-    "themedEditionEndedBody": "La città ti aspetta ancora. Organizza il viaggio con l'assistente."
+    "themedEditionEndedBody": "La città ti aspetta ancora. Organizza il viaggio con l'assistente.",
+    "themedEditionUpcomingBadge": "Prossimamente",
+    "themedEditionUpcomingBody": "Segnalo in agenda: il percorso inizia il {date}."
   }
 }

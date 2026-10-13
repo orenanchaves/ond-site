@@ -45,12 +45,15 @@ na hora, sem esperar a manhã seguinte.
 
 **Edições temáticas.** A faixa do topo (`assets/edicoes-faixa.js`) consulta `/api/themed-editions/active`
 direto no navegador, no idioma da página, e guarda a resposta no `localStorage` até a meia-noite de
-Brasília, quando as edições abrem e fecham. Lista vazia ou API fora do ar, sem faixa. Textos, links e
+Brasília, quando as edições abrem e fecham. Sem edição ativa, ela mostra a próxima estreia do
+`/api/themed-editions/upcoming` com o selo "Em breve" e a data. Nenhuma das duas ou API fora do ar, sem faixa. Textos, links e
 a lista de páginas existentes vêm de `assets/edicoes-config.json`. As páginas `edicoes/<slug>/` são
 estáticas (por causa do Google) e saem do `build-edicoes.py`: rodar quando uma edição nova é
 cadastrada no backend e dar push; não há Action para isso.
 A tag do script entra sozinha em toda página que tem o banner do app (`apple-itunes-app`). A página
-da edição é perene: depois que a edição sai do ar, fica com o aviso de encerrada. Para testar
+da edição nasce antes da estreia, com o selo "Em breve" e a data, e um script na própria página troca
+para o botão da trilha quando a data chega, sem precisar de novo build. Ela é perene: depois que a
+edição sai do ar, fica com o aviso de encerrada (essa troca só acontece rodando o build de novo). Para testar
 contra outro backend, `python build-edicoes.py --api https://dev.agamatec.com` (ou
 `OND_API_BASE`); trocar de backend descarta o registro, então rodar de novo sem `--api` antes de
 commitar. Textos de interface em `i18n/edicoes-textos.json`, copiados dos ARBs do app. O link do
