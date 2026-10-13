@@ -117,7 +117,7 @@ def pagina(ps, cab, rod):
               '<p class="pl-para">Para rede de agências, operação com várias lojas ou necessidade fora dos planos.</p>'
               '<ul class="pl-itens"><li>Escopo definido junto com a sua operação</li>'
               '<li>Conversa antes de qualquer proposta</li></ul>'
-              '<a class="pl-btn vazio" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agendar reunião</a></div>')
+              '<a class="pl-btn vazio" href="https://calendly.com/renan-tech/30min" target="_blank" rel="noopener">Agendar reunião</a></div>')
 
     ld = {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
         {'@type': 'ListItem', 'position': 1, 'name': 'OND para agências', 'item': SITE + '/agencias.html'},
@@ -165,7 +165,7 @@ def pagina(ps, cab, rod):
     <div class="pl-grid">{cards}</div>
     <div class="pl-fim">
       <a class="pl-btn" href="/agencias.html#planos">Contratar o OND</a>
-      <a class="pl-sec" href="https://calendly.com/renanfr1047/30min" target="_blank" rel="noopener">Agendar reunião</a>
+      <a class="pl-sec" href="https://calendly.com/renan-tech/30min" target="_blank" rel="noopener">Agendar reunião</a>
     </div>
     <h2>Veja o produto funcionando</h2>
     <p class="pl-lead">O mesmo catálogo e o mesmo conteúdo que atraem o viajante são o que a sua agência passa a vender.</p>

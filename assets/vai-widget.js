@@ -9,7 +9,7 @@
   var WEB = 'https://web.ondviajar.com.br/ond-vai'; // conversa direto, sem onboarding
   var WA = 'https://wa.me/5511943615412';
   var MAIL = 'renan@ondviajar.com.br';
-  var CAL = 'https://calendly.com/renanfr1047/30min';
+  var CAL = 'https://calendly.com/renan-tech/30min';
   // contexto: na LP de agencias/hoteis o vAI responde como B2B (propostas, reunião)
   var B2B = /\/(agencias|hoteis)/.test(location.pathname) || !!document.querySelector('link[href*="ond-b2b"]');
 
