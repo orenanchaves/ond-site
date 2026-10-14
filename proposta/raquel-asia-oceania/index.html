@@ -625,7 +625,7 @@ h2{font-size:46px;letter-spacing:-1px}
 .bnav button:hover{border-color:var(--neon);color:var(--neon)}
 .bnav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .barra .i small.brot{font-weight:600;margin-top:1px}
-</style><style id="ajustes-raquel">.hero-paises{margin:22px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:760px}.hero-paises a{font-weight:800;font-size:14px;color:#fff;text-decoration:none;background:rgba(13,13,20,.55);border:1px solid rgba(240,238,255,.28);border-radius:999px;padding:8px 14px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .15s,border-color .15s}.hero-paises a:hover,.hero-paises a:focus-visible{background:var(--roxo);border-color:var(--roxo)}@media(max-width:700px){.hero-paises{gap:6px}.hero-paises a{font-size:12.5px;padding:7px 11px}}@media(min-width:701px){#listaOpcoes.opcoes .op{flex-basis:calc((100% - 20px) / 2)}#listaOpcoes.opcoes .op .thumb{height:280px}}.rodape .consultores{grid-template-columns:minmax(0,460px);justify-content:center}</style></head><body>
+</style><style id="ajustes-raquel">.hero-paises{margin:22px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:760px}.hero-paises a{font-weight:800;font-size:14px;color:#fff;text-decoration:none;background:rgba(13,13,20,.55);border:1px solid rgba(240,238,255,.28);border-radius:999px;padding:8px 14px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .15s,border-color .15s}.hero-paises a:hover,.hero-paises a:focus-visible{background:var(--roxo);border-color:var(--roxo)}@media(max-width:700px){.hero-paises{gap:6px}.hero-paises a{font-size:12.5px;padding:7px 11px}}@media(min-width:701px){#listaOpcoes.opcoes .op{flex-basis:calc((100% - 20px) / 2)}#listaOpcoes.opcoes .op .thumb{height:280px}}.rodape .consultores{grid-template-columns:minmax(0,460px);justify-content:center}</style><style id="chave-opcao">.barra #bOpcao{display:none}.tg{display:flex;align-items:center;gap:8px;background:none;border:0;padding:0;margin:0 0 5px;font:inherit;font-size:12.5px;font-weight:800;color:var(--muted);cursor:pointer}.tg-s{position:relative;flex:none;width:42px;height:24px;border-radius:999px;background:#2a2a3a;border:1px solid rgba(240,238,255,.25);transition:background .2s}.tg-s i{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .2s,background .2s}.tg[aria-checked="true"] .tg-s{background:var(--neon);border-color:var(--neon)}.tg[aria-checked="true"] .tg-s i{transform:translateX(18px);background:#0d0d14}.tg[aria-checked="true"] .tg-r,.tg[aria-checked="false"] .tg-l{color:#fff}.tg:focus-visible{outline:2px solid var(--neon);outline-offset:4px;border-radius:8px}</style></head><body>
 
 <nav class="menu" id="menu" aria-label="Seções da proposta"><div class="wrap">
   <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu de seções" aria-expanded="false" aria-controls="menuGaveta"><svg class="b" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
@@ -805,7 +805,7 @@ h2{font-size:46px;letter-spacing:-1px}
 </div>
 
 <div class="barra"><div class="wrap">
-  <div class="i"><small id="bOpcao"></small><b id="bValor"></b><small class="brot" id="bRot"></small></div>
+  <div class="i"><button type="button" class="tg" id="tgOpcao" role="switch" aria-checked="true" aria-label="Trocar entre Essencial e Premium"><span class="tg-l">Essencial</span><span class="tg-s" aria-hidden="true"><i></i></span><span class="tg-r">Premium</span></button><small id="bOpcao"></small><b id="bValor"></b><small class="brot" id="bRot"></small></div>
   <div class="bnav"><button type="button" id="bAnt" aria-label="Opção anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" id="bProx" aria-label="Próxima opção"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
   <a class="cta" id="cta" href="#" target="_blank" rel="noopener">Quero reservar</a>
 </div></div>
@@ -1274,6 +1274,19 @@ h2{font-size:46px;letter-spacing:-1px}
   copiar();
   var mo = new MutationObserver(copiar);
   [o, v, c, document.getElementById('grupos')].forEach(function(el){ if (el) mo.observe(el, { childList: true, characterData: true, subtree: true, attributes: true }); });
+})();
+</script>
+<script>
+(function () {
+  var tg = document.getElementById("tgOpcao"), lista = document.getElementById("listaOpcoes");
+  function sincroniza() { var on = lista.querySelector(".op.on"); tg.setAttribute("aria-checked", on && on.getAttribute("data-op") === "essencial" ? "false" : "true"); }
+  tg.addEventListener("click", function () {
+    var alvo = tg.getAttribute("aria-checked") === "true" ? "essencial" : "premium";
+    var card = lista.querySelector('.op[data-op="' + alvo + '"]'); if (card) card.click();
+    setTimeout(sincroniza, 0);
+  });
+  lista.addEventListener("click", function () { setTimeout(sincroniza, 0); });
+  sincroniza();
 })();
 </script>
 </body></html>
