@@ -29,6 +29,7 @@ Preço de custo, lucro, telefone do cliente e histórico de negociação não en
 | Mika | 8 noites na Colômbia | 04 a 12 de setembro de 2027 | Cartagena e San Andrés · 2 adultos, lua de mel · Saindo de São Paulo | [abrir](https://ondviajar.com.br/proposta/mika-colombia/) | 2 de outubro de 2026 | sim |
 | Napoleão | Natal em Gramado | 23 a 26 de dezembro de 2026 | 4 dias e 3 noites · 3 pessoas · Saindo do Rio de Janeiro | [abrir](https://ondviajar.com.br/proposta/napoleao-gramado/) | 20 de setembro de 2026 | sim |
 | Pedro | Gramado, saindo hoje | 20 a 26 de setembro de 2026 | 7 dias e 6 noites · 3 adultos | [abrir](https://ondviajar.com.br/proposta/pedro-gramado/) | 20 de setembro de 2026 | sim |
+| Raquel | Oceania e Ásiaem 24 noites |  |  | [abrir](https://ondviajar.com.br/proposta/raquel-asia-oceania/) | 15 de outubro de 2026 | sim |
 | Renata | Costa Amalfitana e Europa | 9 a 21 de outubro de 2027 | 12 dias · 2 adultos | [abrir](https://ondviajar.com.br/proposta/renata-costa-amalfitana/) | 19 de setembro de 2026 | sim |
 | Renata | Natal, no verão de 2027 | 9 a 13 de janeiro de 2027 | 5 dias e 4 noites · 2 adultos | [abrir](https://ondviajar.com.br/proposta/renata-natal/) | 19 de setembro de 2026 | sim |
 | Sidney | Cinco noites em Salvador | 10 a 15 de setembro de 2027 | 6 dias e 5 noites · 3 adultos · Saindo de Belo Horizonte | [abrir](https://ondviajar.com.br/proposta/sidney-salvador/) | 25 de setembro de 2026 | sim |
@@ -38,4 +39,4 @@ Preço de custo, lucro, telefone do cliente e histórico de negociação não en
 **Avisa quando abre** é o rastreio que dispara "proposta visualizada" quando o cliente entra na página.
 Para conferir a sua própria proposta sem disparar o aviso, abra uma vez com `?team` no fim do endereço.
 
-Atualizado em 12/10/2026.
+Atualizado em 13/10/2026.
