@@ -28,6 +28,7 @@ Preço de custo, lucro, telefone do cliente e histórico de negociação não en
 | Miguel | Natal em Gramado | 23 a 26 de dezembro de 2026 | 4 dias e 3 noites · 2 pessoas · Saindo de Londrina | [abrir](https://ondviajar.com.br/proposta/miguel-gramado/) | 23 de setembro de 2026 | sim |
 | Mika | 8 noites na Colômbia | 04 a 12 de setembro de 2027 | Cartagena e San Andrés · 2 adultos, lua de mel · Saindo de São Paulo | [abrir](https://ondviajar.com.br/proposta/mika-colombia/) | 2 de outubro de 2026 | sim |
 | Napoleão | Natal em Gramado | 23 a 26 de dezembro de 2026 | 4 dias e 3 noites · 3 pessoas · Saindo do Rio de Janeiro | [abrir](https://ondviajar.com.br/proposta/napoleao-gramado/) | 20 de setembro de 2026 | sim |
+| Nicole | 4 dias no Rio de Janeiro | 15 a 18 de janeiro de 2027 | Hotel de frente para o mar · 2 pessoas · Saindo de São Paulo | [abrir](https://ondviajar.com.br/proposta/nicole-rio/) | 20 de outubro de 2026 | sim |
 | Pedro | Gramado, saindo hoje | 20 a 26 de setembro de 2026 | 7 dias e 6 noites · 3 adultos | [abrir](https://ondviajar.com.br/proposta/pedro-gramado/) | 20 de setembro de 2026 | sim |
 | Raquel | Oceania e Ásiaem 24 noites |  |  | [abrir](https://ondviajar.com.br/proposta/raquel-asia-oceania/) | 15 de outubro de 2026 | sim |
 | Renata | Costa Amalfitana e Europa | 9 a 21 de outubro de 2027 | 12 dias · 2 adultos | [abrir](https://ondviajar.com.br/proposta/renata-costa-amalfitana/) | 19 de setembro de 2026 | sim |
@@ -39,4 +40,4 @@ Preço de custo, lucro, telefone do cliente e histórico de negociação não en
 **Avisa quando abre** é o rastreio que dispara "proposta visualizada" quando o cliente entra na página.
 Para conferir a sua própria proposta sem disparar o aviso, abra uma vez com `?team` no fim do endereço.
 
-Atualizado em 13/10/2026.
+Atualizado em 18/10/2026.
