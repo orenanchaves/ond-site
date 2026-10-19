@@ -12,6 +12,7 @@ Preço de custo, lucro, telefone do cliente e histórico de negociação não en
 | Ana | Noronha em família | 19 a 22 de novembro de 2026 | 4 dias e 3 noites · 2 adultos e 2 crianças · Saindo de Cuiabá | [abrir](https://ondviajar.com.br/proposta/ana-noronha/) | 23 de setembro de 2026 | sim |
 | Angélica | Gramado no feriado | 10 a 12 de outubro de 2026 | 3 dias e 2 noites · 2 adultos e 1 bebê · Saindo do Rio de Janeiro | [abrir](https://ondviajar.com.br/proposta/angelica-gramado/) | 23 de setembro de 2026 | sim |
 | Bella | Natal em Gramado | 23 a 26 de dezembro de 2026 | 4 dias e 3 noites · 3 pessoas · Saindo de Boa Vista | [abrir](https://ondviajar.com.br/proposta/bella-gramado/) | 21 de setembro de 2026 | sim |
+| Belli | 8 noites em Paris | 23 de novembro a 1º de dezembro de 2026 | Hotel no centro de Paris · 1 adulta · Saindo de Londres | [abrir](https://ondviajar.com.br/proposta/belli-paris/) | 21 de outubro de 2026 | sim |
 | Breno | Gramado no fim do ano | 23 a 27 de dezembro de 2026 | 5 dias e 4 noites · 2 adultos | [abrir](https://ondviajar.com.br/proposta/breno-gramado/) | 23 de setembro de 2026 | sim |
 | Camilla | 3 anos no Vale dos Vinhedos | 30 de outubro a 2 de novembro de 2026 | Bento Gonçalves e Vale dos Vinhedos · 2 adultos · Indo de carro | [abrir](https://ondviajar.com.br/proposta/camilla-bento/) | 14 de outubro de 2026 | sim |
 | Claudia | 3 dias no Rio de Janeiro | 26 a 28 de novembro de 2026 | Hotel em Copacabana · 1 adulta · Saindo do Recife | [abrir](https://ondviajar.com.br/proposta/claudia-rio/) | 14 de outubro de 2026 | sim |
