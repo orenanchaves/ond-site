@@ -1,0 +1,48 @@
+name: Vitrine de destinos
+
+# Todo dia de manhã (07:30 de Brasília) lê a vitrine de destinos do backend
+# (/api/showcase/destinations) e regera o catálogo, as páginas de cada destino nos
+# cinco idiomas, a busca e o sitemap. Publica só se algo mudou.
+# Também dá pra rodar na mão pela aba Actions (Run workflow).
+on:
+  schedule:
+    - cron: '30 10 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: vitrine-programada
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Gera o catálogo a partir da vitrine
+        run: |
+          python3 build-destinos.py
+          python3 build-i18n-home.py
+          python3 build-busca.py
+
+      - name: Confere o site
+        run: python3 verificar.py links idioma travessao
+
+      - name: Publica se a vitrine mudou
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard -- viagens en es fr it)" ]; then
+            echo "A vitrine não mudou."
+            exit 0
+          fi
+          git config user.name "OND Vitrine (programada)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A viagens en/viagens es/viagens fr/viagens it/viagens en/index.html es/index.html fr/index.html it/index.html sitemap.xml busca assets/busca.json
+          git commit -m "vitrine: catálogo regerado ($(date -u +%Y-%m-%d))"
+          git push
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || echo "aviso: não consegui pedir o build do Pages"
