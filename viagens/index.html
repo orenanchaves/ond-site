@@ -242,20 +242,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .vo-d{display:flex;flex-wrap:wrap;gap:6px 14px;margin:16px 0 14px}
 .vo-d a{color:var(--muted);font-size:.9rem;text-decoration:none;border-bottom:1px solid transparent}
 .vo-d a:hover{color:var(--text);border-color:currentColor}
-.vo-esp{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--vt-line)}
-.vo-e{display:flex;flex-direction:column;gap:10px;padding:26px 32px 30px;scroll-margin-top:80px}
-.vo-e .vo-d{margin:0}
-.vo-e:first-child{border-right:1px solid var(--vt-line)}
-.vo-e-img{position:relative;display:block;aspect-ratio:21/8;overflow:hidden;border-radius:4px;background:var(--surface);margin-bottom:6px}
-.vo-e-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
-.vo-e:hover .vo-e-img img{transform:scale(1.05)}
-.vo-selo{position:absolute;top:12px;left:12px;background:var(--purple);color:var(--ond-color-onPrimary);font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:50px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
-.vo-e b{font-size:1.25rem}
-.vo-e-t{color:var(--muted);line-height:1.6}
-.vo-e-go{margin-top:auto;align-self:flex-start;font-weight:800;color:var(--text);text-decoration:none}
-.vo-e-go:hover{color:var(--purple-light)}
-@media(max-width:700px){.vo-esp{grid-template-columns:1fr}.vo-e:first-child{border-right:none;border-bottom:1px solid var(--vt-line)}.vo-e{padding:18px 20px}}
-@media(prefers-reduced-motion:reduce){.vo-e:hover .vo-e-img img{transform:none}}
+.vo-h .vo-selo{margin-left:auto;white-space:nowrap;background:var(--purple);color:var(--ond-color-onPrimary);font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:50px}
+.vo-esp{margin-top:auto;align-self:flex-start;font-weight:800;color:var(--text);text-decoration:none}
+.vo-esp:hover{color:var(--purple-light)}
 .vo-go{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:transparent;border:none;padding:0;font:inherit;font-weight:800;color:var(--text);cursor:pointer}
 .vo-go:hover{color:#1faa53}
 
@@ -603,22 +592,17 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
   <section class="vo" id="ocasioes">
     <div class="vt-in vt-head"><h2>Viaje por ocasião</h2><p>Não sabe o destino ainda? Comece pelo motivo da viagem e a gente sugere o resto.</p></div>
-    <div class="vo-esp">
-      <div class="vo-e" id="ocasiao-lua-de-mel">
-        <a class="vo-e-img" href="/lua-de-mel/" tabindex="-1"><img src="/assets/viagens/banner/lua-de-mel-maldivas-800.webp" alt="Bangalôs sobre o mar nas Maldivas" loading="lazy" width="800" height="350"><span class="vo-selo">Especialidade OND</span></a>
-        <b>Lua de mel</b>
-        <span class="vo-e-t">Aéreo, hotel e passeios da lua de mel cotados por gente de verdade, e a viagem inteira no app.</span>
-        <div class="vo-d"><a href="#maldivas">Maldivas</a><a href="#fernando-de-noronha">Fernando de Noronha</a><a href="#paris">Paris</a><a href="#cancun">Cancún</a></div>
-        <a class="vo-e-go" href="/lua-de-mel/">Ver lua de mel sob medida →</a>
-      </div>
-      <div class="vo-e" id="ocasiao-excursoes">
-        <a class="vo-e-img" href="/excursoes/" tabindex="-1"><img src="/assets/viagens/foz-do-iguacu.webp" alt="Cataratas do Iguaçu" loading="lazy" width="800" height="500"><span class="vo-selo">Especialidade OND</span></a>
-        <b>Excursões e grupos</b>
-        <span class="vo-e-t">Escola, igreja, turma de amigos. A gente cota tudo e cada um leva o roteiro no app.</span>
-        <a class="vo-e-go" href="/excursoes/">Ver excursões e grupos →</a>
-      </div>
-    </div>
     <div class="vt-grid3">
+      <div class="vo-c" id="ocasiao-lua-de-mel">
+        <div class="vo-h"><span class="vo-i"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span><b>Lua de mel</b><span class="vo-selo">Especialidade OND</span></div>
+        <div class="vo-d"><a href="#maldivas">Maldivas</a><a href="#fernando-de-noronha">Fernando de Noronha</a><a href="#paris">Paris</a><a href="#cancun">Cancún</a></div>
+        <a class="vo-esp" href="/lua-de-mel/">Ver lua de mel sob medida →</a>
+      </div>
+      <div class="vo-c" id="ocasiao-excursoes">
+        <div class="vo-h"><span class="vo-i"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><b>Excursões e grupos</b><span class="vo-selo">Especialidade OND</span></div>
+        <div class="vo-d"><a href="#rio-de-janeiro">Rio de Janeiro</a><a href="#jericoacoara">Jericoacoara</a><a href="#florianopolis">Florianópolis</a><a href="#buenos-aires">Buenos Aires</a></div>
+        <a class="vo-esp" href="/excursoes/">Ver excursões e grupos →</a>
+      </div>
       <div class="vo-c" id="ocasiao-familia">
         <div class="vo-h"><span class="vo-i"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="18" cy="10" r="2.5"/><path d="M16 21v-1.5a3 3 0 0 1 3-3h0a3 3 0 0 1 3 3V21"/></svg></span><b>Família com crianças</b></div>
         <div class="vo-d"><a href="#orlando">Orlando</a><a href="#porto-de-galinhas">Porto de Galinhas</a><a href="#maceio">Maceió</a><a href="#foz-do-iguacu">Foz do Iguaçu</a><a href="#gramado">Gramado</a></div>
@@ -634,10 +618,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       <div class="vo-c" id="ocasiao-natureza">
         <div class="vo-h"><span class="vo-i"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg></span><b>Natureza e aventura</b></div>
         <div class="vo-d"><a href="#bonito">Bonito</a><a href="#lencois-maranhenses">Lençóis Maranhenses</a><a href="#patagonia">Patagônia</a><a href="#machu-picchu">Machu Picchu</a></div>
-      </div>
-      <div class="vo-c" id="ocasiao-amigos">
-        <div class="vo-h"><span class="vo-i"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><b>Viagem com amigos</b></div>
-        <div class="vo-d"><a href="#rio-de-janeiro">Rio de Janeiro</a><a href="#jericoacoara">Jericoacoara</a><a href="#florianopolis">Florianópolis</a><a href="#buenos-aires">Buenos Aires</a></div>
       </div>
     </div>
   </section>
