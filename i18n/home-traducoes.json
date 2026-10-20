@@ -1014,5 +1014,23 @@
   "es": "12 jul | 08:40 - 18 jul | 19:10",
   "fr": "12 juil. | 8 h 40 - 18 juil. | 19 h 10",
   "it": "12 lug | 08:40 - 18 lug | 19:10"
+ },
+ "Especialidades": {
+  "en": "Specialties",
+  "es": "Especialidades",
+  "fr": "Spécialités",
+  "it": "Specialità"
+ },
+ "Lua de mel": {
+  "en": "Honeymoon",
+  "es": "Luna de miel",
+  "fr": "Lune de miel",
+  "it": "Luna di miele"
+ },
+ "Excursões e grupos": {
+  "en": "Group trips",
+  "es": "Excursiones y grupos",
+  "fr": "Voyages de groupe",
+  "it": "Viaggi di gruppo"
  }
 }

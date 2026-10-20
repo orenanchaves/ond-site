@@ -1,26 +1,55 @@
 {
   "edicoes": {
     "los-angeles-2026-10": {
-      "atualizadaEm": "2026-10-13",
+      "atualizadaEm": "2026-10-20",
       "edicao": {
         "cityName": "Los Angeles",
-        "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/agama-tec.appspot.com/o/themed-editions%2Flos-angeles-2026-12%2Fcapa-ceu-esfumacado.jpg?alt=media",
+        "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/agama-tec.appspot.com/o/themed-editions%2Flos-angeles-2026-10%2Fcapa-faixa-v3.jpg?alt=media",
         "detailColor": "#F4C7A1",
         "endsAt": "2026-11-18T23:59:59",
         "primaryColor": "#D97B66",
         "secondaryColor": "#2F3A4A",
         "slug": "los-angeles-2026-10",
         "startsAt": "2026-10-20T00:00:00",
-        "stops": [],
+        "stops": [
+          {
+            "description": "",
+            "name": "Hollywood Hills"
+          },
+          {
+            "description": "Famosa área da calçada de Hollywood estampada com estrelas e nomes de celebridades desde 1960.",
+            "name": "Calçada da Fama"
+          },
+          {
+            "description": "Construído em 1935 em estilo art déco, este local tem planetário, telescópios públicos e vistas da cidade.",
+            "name": "Observatório Griffith"
+          },
+          {
+            "description": "Museu famoso com entrada gratuita que exibe arte americana e europeia, arquitetura e jardins bem-cuidados.",
+            "name": "Getty Center"
+          },
+          {
+            "description": "",
+            "name": "Rodeo Drive"
+          },
+          {
+            "description": "",
+            "name": "Calçadão da praia de Veneza"
+          },
+          {
+            "description": "Destino muito frequentado à beira-mar com várias lojas e cafés, além de parque de diversões e aquário.",
+            "name": "Píer de Santa Mônica"
+          }
+        ],
         "summary": "Letreiro no morro, estrelas na calçada e pôr do sol no píer. A cidade que inspirou o game continua lá, com mais vista e menos caos.",
         "title": "O mapa real da cidade da fama"
       }
     },
     "miami-2026-11": {
-      "atualizadaEm": "2026-10-13",
+      "atualizadaEm": "2026-10-20",
       "edicao": {
         "cityName": "Miami",
-        "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/agama-tec.appspot.com/o/themed-editions%2Fmiami-2026-11%2Fcapa-por-do-sol.jpg?alt=media",
+        "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/agama-tec.appspot.com/o/themed-editions%2Fmiami-2026-11%2Fcapa-faixa-v1.jpg?alt=media",
         "detailColor": "#FFB347",
         "endsAt": "2026-12-19T23:59:59",
         "primaryColor": "#E9447A",

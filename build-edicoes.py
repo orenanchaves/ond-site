@@ -325,6 +325,7 @@ def pagina(edicao, estado, textos, cab, rod):
 <script src="/assets/a11y.js" defer></script>
 <script src="/assets/busca.js" defer></script>
 {rod}
+<script src="/assets/analytics.js" defer></script>
 </body>
 </html>
 """
