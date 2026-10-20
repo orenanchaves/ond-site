@@ -423,9 +423,10 @@ def write_sitemap(meta):
     sp = os.path.join(ROOT, 'sitemap.xml')
     if os.path.exists(sp):
         atual = open(sp, encoding='utf-8').read()
-        urls += ['  ' + bloco.strip() for bloco in re.findall(r'<url>.*?</url>', atual, re.S) if '/edicoes/' in bloco]
+        urls += ['  ' + bloco.strip() for bloco in re.findall(r'<url>.*?</url>', atual, re.S)
+                 if '/edicoes/' in bloco or re.search(r'<loc>[^<]*/(en|es|fr|it)/viagens/', bloco)]
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
-           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
            + '\n'.join(urls) + '\n</urlset>\n')
     open(sp,'w',encoding='utf-8',newline='\n').write(xml)
     print('sitemap.xml atualizado (%d urls)' % len(urls))

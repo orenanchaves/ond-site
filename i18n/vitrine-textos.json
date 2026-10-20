@@ -1,0 +1,261 @@
+{
+ "precoSob": {
+  "pt": "Preço sob consulta",
+  "en": "Price on request",
+  "es": "Precio a consultar",
+  "fr": "Prix sur demande",
+  "it": "Prezzo su richiesta"
+ },
+ "verDetalhes": {
+  "pt": "Ver detalhes",
+  "en": "See details",
+  "es": "Ver detalles",
+  "fr": "Voir les détails",
+  "it": "Vedi dettagli"
+ },
+ "destaques": {
+  "pt": "Destaques:",
+  "en": "Highlights:",
+  "es": "Lo más destacado:",
+  "fr": "Incontournables :",
+  "it": "Da non perdere:"
+ },
+ "quero": {
+  "pt": "Quero essa viagem",
+  "en": "I want this trip",
+  "es": "Quiero este viaje",
+  "fr": "Je veux ce voyage",
+  "it": "Voglio questo viaggio"
+ },
+ "dias": {
+  "pt": "{min} a {max} dias",
+  "en": "{min} to {max} days",
+  "es": "{min} a {max} días",
+  "fr": "{min} à {max} jours",
+  "it": "Da {min} a {max} giorni"
+ },
+ "waCard": {
+  "pt": "Olá, OND! Quero comprar uma viagem para {destino}. Vi no catálogo: {url}",
+  "en": "Hi, OND! I want to buy a trip to {destino}. I saw it in the catalog: {url}",
+  "es": "¡Hola, OND! Quiero comprar un viaje a {destino}. Lo vi en el catálogo: {url}",
+  "fr": "Bonjour, OND ! Je veux acheter un voyage : {destino}. Je l'ai vu dans le catalogue : {url}",
+  "it": "Ciao, OND! Voglio comprare un viaggio: {destino}. L'ho visto nel catalogo: {url}"
+ },
+ "waPagina": {
+  "pt": "Olá, OND! Quero uma cotação de viagem para {destino}. Vim da página do destino.",
+  "en": "Hi, OND! I'd like a quote for a trip to {destino}. I came from the destination page.",
+  "es": "¡Hola, OND! Quiero una cotización de viaje a {destino}. Vengo de la página del destino.",
+  "fr": "Bonjour, OND ! Je voudrais un devis de voyage : {destino}. Je viens de la page de la destination.",
+  "it": "Ciao, OND! Vorrei un preventivo di viaggio: {destino}. Arrivo dalla pagina della destinazione."
+ },
+ "waOutro": {
+  "pt": "Olá, OND! Quero viajar para um destino que não está no catálogo. Vim pelo site.",
+  "en": "Hi, OND! I want to travel to a destination that isn't in the catalog. I came from the website.",
+  "es": "¡Hola, OND! Quiero viajar a un destino que no está en el catálogo. Vengo del sitio.",
+  "fr": "Bonjour, OND ! Je veux voyager vers une destination qui n'est pas dans le catalogue. Je viens du site.",
+  "it": "Ciao, OND! Voglio viaggiare verso una destinazione che non è nel catalogo. Arrivo dal sito."
+ },
+ "mundo": {
+  "pt": "Mundo",
+  "en": "World",
+  "es": "Mundo",
+  "fr": "Monde",
+  "it": "Mondo"
+ },
+ "h2Brasil": {
+  "pt": "Viaje pelo Brasil",
+  "en": "Travel around Brazil",
+  "es": "Viaja por Brasil",
+  "fr": "Voyagez au Brésil",
+  "it": "Viaggia in Brasile"
+ },
+ "pBrasil": {
+  "pt": "Praia, natureza, serra e cidade. Escolha o destino e o OND cuida das passagens, da hospedagem e dos passeios.",
+  "en": "Beaches, nature, mountains and cities. Pick the destination and OND takes care of flights, stays and tours.",
+  "es": "Playa, naturaleza, sierra y ciudad. Elige el destino y OND se encarga de los pasajes, el alojamiento y los paseos.",
+  "fr": "Plages, nature, montagne et villes. Choisissez la destination et OND s'occupe des billets, de l'hébergement et des excursions.",
+  "it": "Mare, natura, montagna e città. Scegli la destinazione e OND pensa a voli, alloggio ed escursioni."
+ },
+ "h2Pais": {
+  "pt": "Viaje pelo seu país",
+  "en": "Travel around your country",
+  "es": "Viaja por tu país",
+  "fr": "Voyagez dans votre pays",
+  "it": "Viaggia nel tuo paese"
+ },
+ "pPais": {
+  "pt": "Escolha o destino e o OND cuida das passagens, da hospedagem e dos passeios.",
+  "en": "Pick the destination and OND takes care of flights, stays and tours.",
+  "es": "Elige el destino y OND se encarga de los pasajes, el alojamiento y los paseos.",
+  "fr": "Choisissez la destination et OND s'occupe des billets, de l'hébergement et des excursions.",
+  "it": "Scegli la destinazione e OND pensa a voli, alloggio ed escursioni."
+ },
+ "h2Mundo": {
+  "pt": "Viaje pelo mundo",
+  "en": "Travel the world",
+  "es": "Viaja por el mundo",
+  "fr": "Voyagez dans le monde",
+  "it": "Viaggia nel mondo"
+ },
+ "pMundo": {
+  "pt": "Da América do Sul ao Japão, com o documento que cada destino pede. Escolha e deixe o resto com o OND.",
+  "en": "From South America to Japan. Pick a destination and leave the rest to OND.",
+  "es": "De Sudamérica a Japón. Elige el destino y deja el resto a OND.",
+  "fr": "De l'Amérique du Sud au Japon. Choisissez et laissez le reste à OND.",
+  "it": "Dal Sud America al Giappone. Scegli e lascia il resto a OND."
+ },
+ "abasAria": {
+  "pt": "Viagens no seu país ou no mundo",
+  "en": "Trips in your country or around the world",
+  "es": "Viajes en tu país o por el mundo",
+  "fr": "Voyages dans votre pays ou dans le monde",
+  "it": "Viaggi nel tuo paese o nel mondo"
+ },
+ "painelPais": {
+  "pt": "Viagens no seu país",
+  "en": "Trips in your country",
+  "es": "Viajes en tu país",
+  "fr": "Voyages dans votre pays",
+  "it": "Viaggi nel tuo paese"
+ },
+ "painelMundo": {
+  "pt": "Viagens pelo mundo",
+  "en": "Trips around the world",
+  "es": "Viajes por el mundo",
+  "fr": "Voyages dans le monde",
+  "it": "Viaggi nel mondo"
+ },
+ "extraTitulo": {
+  "pt": "Não achou o seu destino?",
+  "en": "Didn't find your destination?",
+  "es": "¿No encontraste tu destino?",
+  "fr": "Vous n'avez pas trouvé votre destination ?",
+  "it": "Non hai trovato la tua destinazione?"
+ },
+ "extraTexto": {
+  "pt": "O OND vende viagens pra qualquer lugar do Brasil e do mundo. Conta pra gente pra onde você quer ir.",
+  "en": "OND sells trips to anywhere in the world. Tell us where you want to go.",
+  "es": "OND vende viajes a cualquier lugar del mundo. Cuéntanos a dónde quieres ir.",
+  "fr": "OND vend des voyages partout dans le monde. Dites-nous où vous voulez aller.",
+  "it": "OND vende viaggi in qualsiasi parte del mondo. Dicci dove vuoi andare."
+ },
+ "extraBotao": {
+  "pt": "Cotar outro destino",
+  "en": "Get a quote for another destination",
+  "es": "Cotizar otro destino",
+  "fr": "Demander un devis pour une autre destination",
+  "it": "Chiedi un preventivo per un'altra destinazione"
+ },
+ "extraGlobo": {
+  "pt": "Mundo do OND",
+  "en": "OND's world",
+  "es": "El mundo de OND",
+  "fr": "Le monde d'OND",
+  "it": "Il mondo di OND"
+ },
+ "viajandoDe": {
+  "pt": "Viajando de:",
+  "en": "Traveling from:",
+  "es": "Viajando desde:",
+  "fr": "Au départ de :",
+  "it": "In partenza da:"
+ },
+ "tituloPagina": {
+  "pt": "{destino}: quando ir, quantos dias e o que fazer | OND",
+  "en": "{destino}: when to go, how many days and what to do | OND",
+  "es": "{destino}: cuándo ir, cuántos días y qué hacer | OND",
+  "fr": "{destino} : quand partir, combien de jours et que faire | OND",
+  "it": "{destino}: quando andare, quanti giorni e cosa fare | OND"
+ },
+ "descPagina": {
+  "pt": "Preço sob consulta: o OND cota passagem, hospedagem e passeios com as suas datas.",
+  "en": "Price on request: OND quotes flights, stays and tours for your dates.",
+  "es": "Precio a consultar: OND cotiza pasajes, alojamiento y paseos con tus fechas.",
+  "fr": "Prix sur demande : OND chiffre billets, hébergement et excursions selon vos dates.",
+  "it": "Prezzo su richiesta: OND quota voli, alloggio ed escursioni per le tue date."
+ },
+ "ogTitulo": {
+  "pt": "{chamada} com o OND",
+  "en": "{chamada} with OND",
+  "es": "{chamada} con OND",
+  "fr": "{chamada} avec OND",
+  "it": "{chamada} con OND"
+ },
+ "pular": {
+  "pt": "Pular para o conteúdo",
+  "en": "Skip to content",
+  "es": "Saltar al contenido",
+  "fr": "Aller au contenu",
+  "it": "Vai al contenuto"
+ },
+ "voceEsta": {
+  "pt": "Você está em",
+  "en": "You are here",
+  "es": "Estás en",
+  "fr": "Vous êtes ici",
+  "it": "Sei qui"
+ },
+ "inicio": {
+  "pt": "Início",
+  "en": "Home",
+  "es": "Inicio",
+  "fr": "Accueil",
+  "it": "Home"
+ },
+ "viagens": {
+  "pt": "Viagens",
+  "en": "Trips",
+  "es": "Viajes",
+  "fr": "Voyages",
+  "it": "Viaggi"
+ },
+ "todos": {
+  "pt": "Ver todos os destinos",
+  "en": "See all destinations",
+  "es": "Ver todos los destinos",
+  "fr": "Voir toutes les destinations",
+  "it": "Vedi tutte le destinazioni"
+ },
+ "oQueEntra": {
+  "pt": "O que entra na viagem",
+  "en": "What the trip includes",
+  "es": "Qué incluye el viaje",
+  "fr": "Ce que comprend le voyage",
+  "it": "Cosa include il viaggio"
+ },
+ "quandoIr": {
+  "pt": "Quando ir",
+  "en": "When to go",
+  "es": "Cuándo ir",
+  "fr": "Quand partir",
+  "it": "Quando andare"
+ },
+ "comoMonta": {
+  "pt": "Como o OND monta essa viagem",
+  "en": "How OND puts this trip together",
+  "es": "Cómo OND arma este viaje",
+  "fr": "Comment OND organise ce voyage",
+  "it": "Come OND organizza questo viaggio"
+ },
+ "comoMontaTexto": {
+  "pt": "Você conta as suas datas e a cidade de saída, e uma pessoa do OND cota passagem, hospedagem e passeios numa proposta só. A emissão sai na companhia aérea e no hotel, com localizador no seu nome, e o suporte continua durante a viagem.",
+  "en": "You tell us your dates and departure city, and a person at OND quotes flights, stays and tours in a single proposal. Tickets and bookings are issued directly with the airline and the hotel, in your name, and support continues during the trip.",
+  "es": "Nos cuentas tus fechas y la ciudad de salida, y una persona de OND cotiza pasajes, alojamiento y paseos en una sola propuesta. La emisión sale en la aerolínea y en el hotel, a tu nombre, y el soporte sigue durante el viaje.",
+  "fr": "Vous nous donnez vos dates et votre ville de départ, et une personne d'OND chiffre billets, hébergement et excursions dans une seule proposition. L'émission se fait auprès de la compagnie aérienne et de l'hôtel, à votre nom, et l'assistance continue pendant le voyage.",
+  "it": "Ci dici le tue date e la città di partenza, e una persona di OND quota voli, alloggio ed escursioni in un'unica proposta. L'emissione avviene con la compagnia aerea e l'hotel, a tuo nome, e l'assistenza continua durante il viaggio."
+ },
+ "outros": {
+  "pt": "Outros destinos",
+  "en": "Other destinations",
+  "es": "Otros destinos",
+  "fr": "Autres destinations",
+  "it": "Altre destinazioni"
+ },
+ "ondeFica": {
+  "pt": "Onde fica",
+  "en": "Where",
+  "es": "Dónde está",
+  "fr": "Où",
+  "it": "Dove"
+ }
+}
