@@ -146,6 +146,7 @@ __CAB__
 </script>
 <script src="/assets/a11y.js" defer></script>
 __ROD__
+<script src="/assets/analytics.js" defer></script>
 </body>
 </html>
 """
