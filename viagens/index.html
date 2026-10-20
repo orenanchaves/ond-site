@@ -1234,17 +1234,31 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       conta.innerHTML = 'Nenhuma viagem do catálogo combina com esses filtros. Tire um filtro ou <a href="#cotar">peça uma cotação pro OND</a>.';
       return;
     }
-    conta.textContent = visivel + (visivel===1?' viagem':' viagens') + ' nesta lista'
-      + (ocultoOutra ? ', e mais ' + ocultoOutra + ' na outra aba.' : '.');
+    var outra=aba==='nacionais'?'internacionais':'nacionais';
+    if(!visivel){ trocaAba(outra); return }
+    conta.textContent = visivel + (visivel===1?' viagem':' viagens') + ' nesta lista';
+    if(ocultoOutra){
+      var link=document.createElement('a'); link.href='#'+outra;
+      link.textContent=ocultoOutra + (ocultoOutra===1?' viagem':' viagens') + (outra==='internacionais'?' no mundo':' no Brasil');
+      link.addEventListener('click',function(e){ e.preventDefault(); trocaAba(outra) });
+      conta.append(', e mais ', link, '.');
+    }
+  }
+  function trocaAba(id){
+    var b=document.querySelector('.vg-hd-r .vg-sw button[data-alvo="'+id+'"]'); if(b) b.click();
+  }
+  function mede(filtro,valor){
+    if(window.gtag) gtag('event','catalogo_filtro',{filtro:filtro,valor:valor,pagina:location.pathname});
   }
   cx.querySelectorAll('button[data-f]').forEach(function(b){
     b.setAttribute('aria-pressed','false');
     b.addEventListener('click',function(){
       var on=b.getAttribute('aria-pressed')==='true'; b.setAttribute('aria-pressed',!on);
       estado[b.dataset.f][on?'delete':'add'](b.dataset.v); aplica();
+      if(!on) mede(b.dataset.f==='ocas'?'ocasiao':'duracao', b.dataset.v);
     });
   });
-  sel.addEventListener('change',function(){ estado.mes=sel.value; aplica() });
+  sel.addEventListener('change',function(){ estado.mes=sel.value; aplica(); if(sel.value) mede('mes', sel.value) });
   limpar.addEventListener('click',function(){
     estado={ocas:new Set(),dur:new Set(),mes:''}; sel.value='';
     cx.querySelectorAll('button[data-f]').forEach(function(b){ b.setAttribute('aria-pressed','false') });
