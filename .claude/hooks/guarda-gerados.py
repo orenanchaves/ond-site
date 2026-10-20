@@ -14,8 +14,8 @@ import json, os, re, sys
 
 # padrao do caminho -> (quem gera, qual e a fonte)
 GERADOS = [
-    (r'^viagens/[^/]+/index\.html$',
-     'build-destinos.py', 'as fichas <article class="dc"> em viagens/index.html'),
+    (r'^((en|es|fr|it)/)?viagens/(?!quando-viajar/)[^/]+/index\.html$|^(en|es|fr|it)/viagens/index\.html$',
+     'build-destinos.py', 'a vitrine de destinos do backend (/api/showcase/destinations) e i18n/vitrine-textos.json'),
     (r'^blog/[^/]+/index\.html$',
      'build-blog.py', 'o .md em ond-conteudo/b2c/blog/, que vai para a API da Firma'),
     (r'^agencias/planos/',

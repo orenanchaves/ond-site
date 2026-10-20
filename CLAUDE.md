@@ -12,9 +12,9 @@ Editar à mão só o que é fonte. O resto é saída de script e some no próxim
 | Caminho | Origem |
 |---|---|
 | `index.html`, `agencias.html`, `blog.html`, `hoteis.html`, `assessoria.html`, `links.html` | à mão |
-| `viagens/index.html` (catálogo) e `viagens/quando-viajar/` | à mão, é a fonte dos destinos |
+| `viagens/index.html` (catálogo) e `viagens/quando-viajar/` | à mão, menos as fichas entre `<!-- vitrine:inicio -->` e `<!-- vitrine:fim -->` |
 | `proposta/<slug>/`, `cliente/<slug>/` | à mão, uma pasta por cliente |
-| `viagens/<slug>/` | `build-destinos.py` |
+| fichas do catálogo, `viagens/<slug>/`, `en/`, `es/`, `fr/` e `it/viagens/` | `build-destinos.py`, a partir da vitrine do backend (`/api/showcase/destinations`) |
 | `blog/<slug>/`, cards e categorias do `blog.html` | `build-blog.py` |
 | `agencias/planos/` | `build-agencias.py` |
 | `busca/` e `assets/busca.json` | `build-busca.py` |
@@ -27,13 +27,22 @@ Editar à mão só o que é fonte. O resto é saída de script e some no próxim
 ### Ordem quando mexe em muita coisa
 
 ```bash
-python build-destinos.py   # depois de mexer no catálogo
+python build-destinos.py   # depois de mexer na vitrine do backend ou no viagens/index.html
 python build-blog.py       # puxa os posts da API da Firma, reescreve o sitemap
 python build-edicoes.py    # puxa as edições temáticas da API do backend, mexe no bloco /edicoes/ do sitemap
 python build-busca.py      # depende dos de cima
 python build-i18n-home.py  # depois de mexer na home
 python build-registro.py   # depois de publicar proposta
 ```
+
+**Catálogo de destinos.** Destinos, textos e traduções moram na vitrine do backend (`city_showcase`
+e `city_showcase_translation`, no core). O `build-destinos.py` lê `/api/showcase/destinations` nos
+cinco idiomas, troca as fichas entre os marcadores do `viagens/index.html`, gera `en|es|fr|it/viagens/`
+traduzindo o resto da página com `i18n/home-traducoes.json` mais `i18n/viagens-traducoes.json`, e gera
+a página de cada destino em cada idioma. Textos de interface das fichas em `i18n/vitrine-textos.json`.
+No navegador, o catálogo reagrupa as fichas pelo país de quem visita (região do idioma do navegador,
+ou o seletor "Viajando de", guardado no `localStorage`); com menos de 3 destinos no país, vira uma
+lista só. Para gerar contra o dev: `python build-destinos.py --api https://dev.agamatec.com`.
 
 `build-blog.py` lê `https://ond-firma.ond-jarvis.workers.dev/api/blog/posts` e só traz o que está
 aprovado na Firma. Se o post novo não aparecer, ele não foi aprovado lá.
