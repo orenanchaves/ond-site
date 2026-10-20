@@ -177,9 +177,11 @@ def bloco(ds, idioma, T):
     extra = (f'<div class="dc-extra"><h3>{e(T["extraTitulo"][idioma])}</h3><p>{e(T["extraTexto"][idioma])}</p><div>'
              f'<a class="vt-btn vt-btn-wa wa-btn" href="{wa_outro}" target="_blank" rel="noopener" data-wa="outro destino">{e(T["extraBotao"][idioma])}</a>'
              f'<button type="button" class="vt-btn vt-btn-ghost" onclick="if(window.openGlobe){{openGlobe(event)}}">{e(T["extraGlobo"][idioma])}</button></div></div>\n')
-    dados = (' data-pais-padrao="%s" data-idioma="%s" data-titulo-pais="%s" data-texto-pais="%s" data-titulo-padrao="%s" data-texto-padrao="%s" data-titulo-brasil="%s" data-texto-brasil="%s" data-mundo="%s" data-ver-todos="%s"'
+    dados = (' data-pais-padrao="%s" data-idioma="%s" data-titulo-pais="%s" data-texto-pais="%s" data-titulo-padrao="%s" data-texto-padrao="%s" data-titulo-brasil="%s" data-texto-brasil="%s" data-mundo="%s" data-ver-todos="%s" data-conta-uma="%s" data-conta-varias="%s" data-mais-outra="%s" data-nenhuma-aba="%s" data-filtro-indisponivel="%s"'
              % (pais, idioma, e(T['h2Pais'][idioma]), e(T['pPais'][idioma]), e(titulo_pais), e(texto_pais),
-                e(T['h2Brasil'][idioma]), e(T['pBrasil'][idioma]), e(T['mundo'][idioma]), e(T['todos'][idioma])))
+                e(T['h2Brasil'][idioma]), e(T['pBrasil'][idioma]), e(T['mundo'][idioma]), e(T['todos'][idioma]),
+                e(T['contaUma'][idioma]), e(T['contaVarias'][idioma]), e(T['maisOutra'][idioma]), e(T['nenhumaAba'][idioma]),
+                e(T['filtroIndisponivel'][idioma])))
     return (INICIO
             + '  <div class="vt-in vg-pais"><label for="vg-pais">%s</label> <span class="vgf-sel"><select id="vg-pais"><option value="%s">%s</option></select></span></div>\n'
             % (e(T['viajandoDe'][idioma]), pais, e(nome_pais))

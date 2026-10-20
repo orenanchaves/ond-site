@@ -257,5 +257,40 @@
   "es": "Dónde está",
   "fr": "Où",
   "it": "Dove"
+ },
+ "contaUma": {
+  "pt": "1 viagem nesta lista",
+  "en": "1 trip in this list",
+  "es": "1 viaje en esta lista",
+  "fr": "1 voyage dans cette liste",
+  "it": "1 viaggio in questo elenco"
+ },
+ "contaVarias": {
+  "pt": "{n} viagens nesta lista",
+  "en": "{n} trips in this list",
+  "es": "{n} viajes en esta lista",
+  "fr": "{n} voyages dans cette liste",
+  "it": "{n} viaggi in questo elenco"
+ },
+ "maisOutra": {
+  "pt": "e mais {n} em {aba}",
+  "en": "and {n} more in {aba}",
+  "es": "y {n} más en {aba}",
+  "fr": "et {n} de plus dans {aba}",
+  "it": "e altri {n} in {aba}"
+ },
+ "nenhumaAba": {
+  "pt": "Nenhuma viagem nesta lista com esses filtros.",
+  "en": "No trips in this list match these filters.",
+  "es": "Ningún viaje de esta lista coincide con estos filtros.",
+  "fr": "Aucun voyage de cette liste ne correspond à ces filtres.",
+  "it": "Nessun viaggio di questo elenco corrisponde a questi filtri."
+ },
+ "filtroIndisponivel": {
+  "pt": "Sem destinos com essa opção aqui",
+  "en": "No destinations with this option here",
+  "es": "No hay destinos con esta opción aquí",
+  "fr": "Aucune destination avec cette option ici",
+  "it": "Nessuna destinazione con questa opzione qui"
  }
 }

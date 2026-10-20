@@ -454,6 +454,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 .vg-pais select:focus-visible{outline:3px solid var(--purple-light);outline-offset:2px}
 .vg-sw[hidden]{display:none!important}
 .vg-cat.vg-unica .vg-bar{display:none}
+.vg-filtros button[data-f]:disabled{opacity:.38;cursor:not-allowed;border-style:dashed}
+.vg-filtros button[data-f]:disabled:hover{border-color:var(--border)}
+.vg-cat .vt-grid2>article.dc{animation:vg-entra .32s ease both}
+@keyframes vg-entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.vg-cat .vt-grid2>article.dc{animation:none}}
 .vg-cat:not(.vg-tudo):not(.vg-filtrando) .vt-grid2>article.dc.vg-alem{display:none}
 .vg-cat.vg-tudo .vg-mais,.vg-cat.vg-filtrando .vg-mais{display:none}
 .vg-mais{display:flex;justify-content:center;padding:28px 16px 8px}
@@ -735,7 +740,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <!-- vitrine:inicio -->
   <div class="vt-in vg-pais"><label for="vg-pais">Au départ de :</label> <span class="vgf-sel"><select id="vg-pais"><option value="FR">France</option></select></span></div>
   <div class="vg-bar"><div class="vg-sw vg-sw-fixo" aria-hidden="true"><button type="button" data-alvo="nacionais" tabindex="-1" class="on">France <span>5</span></button><button type="button" data-alvo="internacionais" tabindex="-1" class="">Monde <span>302</span></button></div></div>
-  <section class="vg" id="nacionais" role="tabpanel" aria-label="Voyages dans votre pays" data-pais-padrao="FR" data-idioma="fr" data-titulo-pais="Voyagez dans votre pays" data-texto-pais="Choisissez la destination et OND s&#x27;occupe des billets, de l&#x27;hébergement et des excursions." data-titulo-padrao="Voyagez dans votre pays" data-texto-padrao="Choisissez la destination et OND s&#x27;occupe des billets, de l&#x27;hébergement et des excursions." data-titulo-brasil="Voyagez au Brésil" data-texto-brasil="Plages, nature, montagne et villes. Choisissez la destination et OND s&#x27;occupe des billets, de l&#x27;hébergement et des excursions." data-mundo="Monde" data-ver-todos="Voir toutes les destinations">
+  <section class="vg" id="nacionais" role="tabpanel" aria-label="Voyages dans votre pays" data-pais-padrao="FR" data-idioma="fr" data-titulo-pais="Voyagez dans votre pays" data-texto-pais="Choisissez la destination et OND s&#x27;occupe des billets, de l&#x27;hébergement et des excursions." data-titulo-padrao="Voyagez dans votre pays" data-texto-padrao="Choisissez la destination et OND s&#x27;occupe des billets, de l&#x27;hébergement et des excursions." data-titulo-brasil="Voyagez au Brésil" data-texto-brasil="Plages, nature, montagne et villes. Choisissez la destination et OND s&#x27;occupe des billets, de l&#x27;hébergement et des excursions." data-mundo="Monde" data-ver-todos="Voir toutes les destinations" data-conta-uma="1 voyage dans cette liste" data-conta-varias="{n} voyages dans cette liste" data-mais-outra="et {n} de plus dans {aba}" data-nenhuma-aba="Aucun voyage de cette liste ne correspond à ces filtres." data-filtro-indisponivel="Aucune destination avec cette option ici">
     <div class="vt-in vt-head"><h2>Voyagez dans votre pays</h2><div class="vg-hd-r"><p>Choisissez la destination et OND s&#x27;occupe des billets, de l&#x27;hébergement et des excursions.</p><div class="vg-sw" role="tablist" aria-label="Voyages dans votre pays ou dans le monde"><button type="button" role="tab" data-alvo="nacionais" aria-controls="nacionais" aria-selected="true" class="on">France <span>5</span></button><button type="button" role="tab" data-alvo="internacionais" aria-controls="internacionais" aria-selected="false" tabindex="-1" class="">Monde <span>302</span></button></div></div></div>
     <div class="vt-grid2">
       <article class="dc" id="paris" data-ocas="cidade lua-de-mel" data-meses="abr mai jun set out" data-dur="media" data-pais="FR">
@@ -4883,39 +4888,52 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 (function(){
   var cx=document.querySelector('.vg-filtros'); if(!cx) return;
   var conta=cx.querySelector('.vgf-conta'), limpar=cx.querySelector('.vgf-limpar'), sel=cx.querySelector('#vgf-mes');
+  var cat=document.querySelector('.vg-cat'), nac=document.getElementById('nacionais');
+  var textos=nac.dataset;
   var estado={ocas:new Set(),dur:new Set(),mes:''};
-  function cabe(el){
-    if(estado.mes && (el.dataset.meses||'').split(' ').indexOf(estado.mes)<0) return false;
-    for(var v of estado.ocas) if((el.dataset.ocas||'').split(' ').indexOf(v)<0) return false;
-    if(estado.dur.size && !estado.dur.has(el.dataset.dur)) return false;
+  function lista(v){ return (v||'').split(' ') }
+  function cabe(el,e){
+    e=e||estado;
+    if(e.mes && lista(el.dataset.meses).indexOf(e.mes)<0) return false;
+    for(var v of e.ocas) if(lista(el.dataset.ocas).indexOf(v)<0) return false;
+    if(e.dur.size && !e.dur.has(el.dataset.dur)) return false;
     return true;
   }
+  function abaAtual(){ return document.getElementById('nacionais').hidden?'internacionais':'nacionais' }
+  function fichas(id){ return [].slice.call(document.querySelectorAll('#'+id+' article.dc')) }
+  function rotuloAba(id){ var b=cat.querySelector('.vg-hd-r .vg-sw button[data-alvo="'+id+'"]'); return b&&b.firstChild?b.firstChild.textContent.trim():'' }
+  function simula(f,v){
+    var e={ocas:new Set(estado.ocas),dur:new Set(estado.dur),mes:estado.mes};
+    if(f==='ocas') e.ocas.add(v); else if(f==='dur') e.dur=new Set([v]); else e.mes=v;
+    return fichas(abaAtual()).some(function(el){ return cabe(el,e) });
+  }
+  function disponibilidade(){
+    cx.querySelectorAll('button[data-f]').forEach(function(b){
+      var ligado=b.getAttribute('aria-pressed')==='true';
+      var pode=ligado||simula(b.dataset.f,b.dataset.v);
+      b.disabled=!pode;
+      if(pode) b.removeAttribute('title'); else b.title=textos.filtroIndisponivel||'';
+    });
+    [].forEach.call(sel.options,function(o){ o.disabled=!!o.value&&o.value!==estado.mes&&!simula('mes',o.value) });
+  }
   function aplica(){
-    var visivel=0, ocultoOutra=0, aba=document.getElementById('nacionais').hidden?'internacionais':'nacionais';
+    var aba=abaAtual(), outra=aba==='nacionais'?'internacionais':'nacionais', visivel=0, ocultoOutra=0;
     [].forEach.call(document.querySelectorAll('.vg-cat article.dc'),function(el){
       var ok=cabe(el); el.hidden=!ok;
       if(ok){ el.closest('section').id===aba ? visivel++ : ocultoOutra++ }
     });
     var filtrando=estado.ocas.size||estado.dur.size||estado.mes;
-    document.querySelector('.vg-cat').classList.toggle('vg-filtrando',!!filtrando);
+    cat.classList.toggle('vg-filtrando',!!filtrando);
     limpar.hidden=!filtrando;
+    disponibilidade();
     if(!filtrando){ conta.textContent=''; return }
-    if(!visivel && !ocultoOutra){
-      conta.innerHTML = 'Nenhuma viagem do catálogo combina com esses filtros. Tire um filtro ou <a href="#cotar">peça uma cotação pro OND</a>.';
-      return;
-    }
-    var outra=aba==='nacionais'?'internacionais':'nacionais';
-    if(!visivel){ trocaAba(outra); return }
-    conta.textContent = visivel + (visivel===1?' viagem':' viagens') + ' nesta lista';
-    if(ocultoOutra){
+    conta.textContent=visivel?(visivel===1?textos.contaUma:textos.contaVarias.replace('{n}',visivel)):textos.nenhumaAba;
+    if(ocultoOutra&&!cat.classList.contains('vg-unica')){
       var link=document.createElement('a'); link.href='#'+outra;
-      link.textContent=ocultoOutra + (ocultoOutra===1?' viagem':' viagens') + (outra==='internacionais'?' no mundo':' no Brasil');
-      link.addEventListener('click',function(e){ e.preventDefault(); trocaAba(outra) });
-      conta.append(', e mais ', link, '.');
+      link.textContent=textos.maisOutra.replace('{n}',ocultoOutra).replace('{aba}',rotuloAba(outra));
+      link.addEventListener('click',function(e){ e.preventDefault(); var b=cat.querySelector('.vg-hd-r .vg-sw button[data-alvo="'+outra+'"]'); if(b) b.click() });
+      conta.append(visivel?', ':' ', link, '.');
     }
-  }
-  function trocaAba(id){
-    var b=document.querySelector('.vg-hd-r .vg-sw button[data-alvo="'+id+'"]'); if(b) b.click();
   }
   function mede(filtro,valor){
     if(window.gtag) gtag('event','catalogo_filtro',{filtro:filtro,valor:valor,pagina:location.pathname});
@@ -4923,6 +4941,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   cx.querySelectorAll('button[data-f]').forEach(function(b){
     b.setAttribute('aria-pressed','false');
     b.addEventListener('click',function(){
+      if(b.disabled) return;
       var on=b.getAttribute('aria-pressed')==='true'; b.setAttribute('aria-pressed',!on);
       estado[b.dataset.f][on?'delete':'add'](b.dataset.v); aplica();
       if(!on) mede(b.dataset.f==='ocas'?'ocasiao':'duracao', b.dataset.v);
@@ -4935,12 +4954,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     aplica();
   });
   function posiciona(){
-    var p=document.getElementById(document.getElementById('nacionais').hidden?'internacionais':'nacionais');
+    var p=document.getElementById(abaAtual());
     var grade=p.querySelector('.vt-grid2');
     if(grade && cx.nextElementSibling!==grade) p.insertBefore(cx,grade);
   }
   document.querySelectorAll('.vg-sw button').forEach(function(b){ b.addEventListener('click',function(){ setTimeout(function(){ posiciona(); aplica() },50) }) });
   posiciona();
+  aplica();
 })();
 </script>
 <script>
@@ -4955,6 +4975,28 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   var nomes=null;
   try{ nomes=new Intl.DisplayNames([document.documentElement.lang||nac.dataset.idioma],{type:'region'}) }catch(e){}
   function nome(codigo){ try{ return nomes?nomes.of(codigo):codigo }catch(e){ return codigo } }
+  var FUSOS={BR:'Sao_Paulo Bahia Fortaleza Recife Maceio Belem Manaus Cuiaba Campo_Grande Porto_Velho Rio_Branco Boa_Vista Araguaina Santarem Noronha Eirunepe',
+    AR:'Buenos_Aires Argentina/',CL:'Santiago Punta_Arenas',UY:'Montevideo',PY:'Asuncion',PE:'Lima',CO:'Bogota',VE:'Caracas',
+    MX:'Mexico_City Cancun Merida Monterrey Matamoros Chihuahua Ciudad_Juarez Ojinaga Mazatlan Bahia_Banderas Hermosillo Tijuana',
+    US:'New_York Chicago Denver Los_Angeles Phoenix Anchorage Juneau Boise Detroit Indiana/ Kentucky/ North_Dakota/ Menominee Adak Nome Sitka Yakutat Metlakatla Honolulu',
+    CA:'Toronto Vancouver Edmonton Winnipeg Halifax St_Johns Regina Moncton Glace_Bay Goose_Bay Whitehorse Dawson Iqaluit Swift_Current',
+    PA:'Panama',DO:'Santo_Domingo',PT:'Lisbon Madeira Azores',ES:'Madrid Canary Ceuta',FR:'Paris',IT:'Rome',DE:'Berlin Busingen',GB:'London',
+    NL:'Amsterdam',BE:'Brussels',LU:'Luxembourg',AT:'Vienna',HU:'Budapest',CZ:'Prague',CH:'Zurich',PL:'Warsaw',RO:'Bucharest',HR:'Zagreb',
+    SI:'Ljubljana',ME:'Podgorica',AL:'Tirane',GR:'Athens',DK:'Copenhagen',NO:'Oslo',SE:'Stockholm',FI:'Helsinki',IS:'Reykjavik',MC:'Monaco',
+    TR:'Istanbul',ZA:'Johannesburg',AE:'Dubai',CN:'Shanghai Urumqi',HK:'Hong_Kong',MO:'Macau',JP:'Tokyo',TH:'Bangkok',MA:'Casablanca',
+    IL:'Jerusalem Tel_Aviv',PS:'Hebron Gaza',MV:'Maldives'};
+  function doFuso(){
+    var fuso=''; try{ fuso=Intl.DateTimeFormat().resolvedOptions().timeZone||'' }catch(e){}
+    var local=fuso.slice(fuso.indexOf('/')+1);
+    for(var pais in FUSOS){
+      var nomes=FUSOS[pais].split(' ');
+      for(var i=0;i<nomes.length;i++){
+        var n=nomes[i];
+        if(n.slice(-1)==='/'?local.indexOf(n)===0:local===n) return pais;
+      }
+    }
+    return null;
+  }
   function doNavegador(){
     var lista=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''];
     for(var i=0;i<lista.length;i++){ var m=/[-_]([A-Za-z]{2})$/.exec(lista[i]||''); if(m) return m[1].toUpperCase() }
@@ -5009,7 +5051,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     if(alvo) alvo.scrollIntoView();
   }
   var salvo=null; try{ salvo=localStorage.getItem(CHAVE) }catch(e){}
-  var pais=salvo||doNavegador()||padrao;
+  var pais=salvo||doFuso()||doNavegador()||padrao;
   var ancora=decodeURIComponent(location.hash.slice(1)), alvo=ancora&&document.getElementById(ancora);
   preenche(pais);
   aplica(pais,alvo&&alvo.matches('article.dc')?alvo:null);
