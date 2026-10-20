@@ -76,12 +76,67 @@ def carrega_i18n_home():
     return modulo
 
 
-def foto(d):
+FOTOS_CADASTRO = 'assets/viagens/cadastro'
+LARGURAS = {'ficha': 640, 'capa': 1280}
+
+
+def foto(d, uso='ficha'):
     local = '/assets/viagens/%s.jpg' % d['slug']
     if os.path.exists(os.path.join(ROOT, local.lstrip('/'))):
         webp = local.replace('.jpg', '.webp')
         return local, webp if os.path.exists(os.path.join(ROOT, webp.lstrip('/'))) else None
+    otimizada = '/%s/%s-%d.webp' % (FOTOS_CADASTRO, d['slug'], LARGURAS[uso])
+    if os.path.exists(os.path.join(ROOT, otimizada.lstrip('/'))):
+        return otimizada, None
     return d['image'], None
+
+
+def baixa_foto(url):
+    pedido = urllib.request.Request(url, headers={'User-Agent': 'OND site build (renan@ondviajar.com.br)'})
+    with urllib.request.urlopen(pedido, timeout=120) as r:
+        return r.read()
+
+
+def otimiza_fotos(ds):
+    try:
+        from PIL import Image, ImageOps
+    except ImportError:
+        print('Pillow não está instalado: as fotos do cadastro sem versão otimizada saem no tamanho original.')
+        return
+    import io
+    from concurrent.futures import ThreadPoolExecutor
+    Image.MAX_IMAGE_PIXELS = None
+    pasta = os.path.join(ROOT, FOTOS_CADASTRO)
+    os.makedirs(pasta, exist_ok=True)
+    registro_caminho = os.path.join(pasta, 'fontes.json')
+    registro = json.load(open(registro_caminho, encoding='utf-8')) if os.path.exists(registro_caminho) else {}
+    pendentes = [d for d in ds if d.get('image') and not os.path.exists(os.path.join(ROOT, 'assets/viagens/%s.jpg' % d['slug']))
+                 and (registro.get(d['slug']) != d['image']
+                      or not all(os.path.exists(os.path.join(pasta, '%s-%d.webp' % (d['slug'], w))) for w in LARGURAS.values()))]
+
+    def processa(d):
+        try:
+            original = Image.open(io.BytesIO(baixa_foto(d['image'])))
+            original.draft('RGB', (2560, 2560))
+            imagem = ImageOps.exif_transpose(original).convert('RGB')
+            for largura in LARGURAS.values():
+                copia = imagem.copy()
+                copia.thumbnail((largura, largura * 2))
+                copia.save(os.path.join(pasta, '%s-%d.webp' % (d['slug'], largura)), 'WEBP', quality=72, method=6)
+            return d['slug'], d['image'], None
+        except Exception as erro:
+            return d['slug'], None, erro
+
+    with ThreadPoolExecutor(max_workers=6) as fila:
+        for slug, fonte, erro in fila.map(processa, pendentes):
+            if erro:
+                print('Não consegui otimizar a foto de %s; a página usa a original. Motivo: %s' % (slug, erro))
+            else:
+                registro[slug] = fonte
+    with open(registro_caminho, 'w', encoding='utf-8', newline='\n') as fh:
+        json.dump(dict(sorted(registro.items())), fh, ensure_ascii=False, indent=1)
+    if pendentes:
+        print('%d fotos do cadastro otimizadas em %s' % (len(pendentes), FOTOS_CADASTRO))
 
 
 def destino_frase(d, idioma):
@@ -177,9 +232,11 @@ def bloco(ds, idioma, T):
     extra = (f'<div class="dc-extra"><h3>{e(T["extraTitulo"][idioma])}</h3><p>{e(T["extraTexto"][idioma])}</p><div>'
              f'<a class="vt-btn vt-btn-wa wa-btn" href="{wa_outro}" target="_blank" rel="noopener" data-wa="outro destino">{e(T["extraBotao"][idioma])}</a>'
              f'<button type="button" class="vt-btn vt-btn-ghost" onclick="if(window.openGlobe){{openGlobe(event)}}">{e(T["extraGlobo"][idioma])}</button></div></div>\n')
-    dados = (' data-pais-padrao="%s" data-idioma="%s" data-titulo-pais="%s" data-texto-pais="%s" data-titulo-padrao="%s" data-texto-padrao="%s" data-titulo-brasil="%s" data-texto-brasil="%s" data-mundo="%s" data-ver-todos="%s"'
+    dados = (' data-pais-padrao="%s" data-idioma="%s" data-titulo-pais="%s" data-texto-pais="%s" data-titulo-padrao="%s" data-texto-padrao="%s" data-titulo-brasil="%s" data-texto-brasil="%s" data-mundo="%s" data-ver-todos="%s" data-conta-uma="%s" data-conta-varias="%s" data-mais-outra="%s" data-nenhuma-aba="%s" data-filtro-indisponivel="%s"'
              % (pais, idioma, e(T['h2Pais'][idioma]), e(T['pPais'][idioma]), e(titulo_pais), e(texto_pais),
-                e(T['h2Brasil'][idioma]), e(T['pBrasil'][idioma]), e(T['mundo'][idioma]), e(T['todos'][idioma])))
+                e(T['h2Brasil'][idioma]), e(T['pBrasil'][idioma]), e(T['mundo'][idioma]), e(T['todos'][idioma]),
+                e(T['contaUma'][idioma]), e(T['contaVarias'][idioma]), e(T['maisOutra'][idioma]), e(T['nenhumaAba'][idioma]),
+                e(T['filtroIndisponivel'][idioma])))
     return (INICIO
             + '  <div class="vt-in vg-pais"><label for="vg-pais">%s</label> <span class="vgf-sel"><select id="vg-pais"><option value="%s">%s</option></select></span></div>\n'
             % (e(T['viajandoDe'][idioma]), pais, e(nome_pais))
@@ -260,7 +317,7 @@ def pagina(d, idioma, T, cab, rod, rel, outros, css):
     e = html.escape
     pasta = cfg['pasta']
     url = '%s/%sviagens/%s/' % (SITE, pasta, d['slug'])
-    src, webp = foto(d)
+    src, webp = foto(d, 'capa')
     foto_abs = src if src.startswith('http') else SITE + src
     titulo = T['tituloPagina'][idioma].format(destino=d['title'])
     desc = ('%s %s' % (d['description'], T['descPagina'][idioma]))[:158]
@@ -442,6 +499,8 @@ def main():
         ds = vitrine(api, idioma)
         if not ds:
             raise SystemExit('A vitrine em %s veio vazia de %s; nada foi gravado.' % (idioma, api))
+        if idioma == 'pt':
+            otimiza_fotos(ds)
         if idioma == 'pt':
             pt = com_alternativos(troca_bloco(pt, bloco(ds, idioma, T)), 'viagens/')
             cat = pt

@@ -23,6 +23,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Pillow (otimiza as fotos do cadastro)
+        run: python3 -m pip install --quiet pillow
+
       - name: Gera o catálogo a partir da vitrine
         run: |
           python3 build-destinos.py
@@ -42,7 +45,7 @@ jobs:
           fi
           git config user.name "OND Vitrine (programada)"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A viagens en/viagens es/viagens fr/viagens it/viagens en/index.html es/index.html fr/index.html it/index.html sitemap.xml busca assets/busca.json
+          git add -A viagens en/viagens es/viagens fr/viagens it/viagens en/index.html es/index.html fr/index.html it/index.html sitemap.xml busca assets/busca.json assets/viagens/cadastro
           git commit -m "vitrine: catálogo regerado ($(date -u +%Y-%m-%d))"
           git push
           gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || echo "aviso: não consegui pedir o build do Pages"
