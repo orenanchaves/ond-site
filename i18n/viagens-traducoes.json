@@ -131,12 +131,6 @@
   "fr": "Foz do Iguaçu:",
   "it": "Foz do Iguaçu:"
  },
- "Gire o globo, escolha um país e veja todos os destinos que o OND vende, muito além destes 25.": {
-  "en": "Spin the globe, choose a country, and see all the destinations that OND sells, far beyond these 25.",
-  "es": "Gira el globo terráqueo, elige un país y descubre todos los destinos que OND ofrece, mucho más allá de estos 25.",
-  "fr": "Faites tourner le globe, choisissez un pays et découvrez toutes les destinations proposées par OND, bien au-delà de ces 25.",
-  "it": "Fai girare il mappamondo, scegli un paese e scopri tutte le destinazioni che OND vende, ben oltre queste 25."
- },
  "Gramado:": {
   "en": "Gramado:",
   "es": "Gramado:",
@@ -1102,5 +1096,137 @@
   "es": "Ej.: São Paulo…",
   "fr": "Ex. : São Paulo…",
   "it": "Es.: São Paulo…"
+ },
+ "Gire o globo, escolha um país e veja todos os destinos que o OND vende.": {
+  "en": "Spin the globe, choose a country and see every destination OND sells.",
+  "es": "Gira el globo, elige un país y mira todos los destinos que vende OND.",
+  "fr": "Faites tourner le globe, choisissez un pays et voyez toutes les destinations vendues par OND.",
+  "it": "Fai girare il globo, scegli un paese e guarda tutte le destinazioni che OND vende."
+ },
+ "Viagens para Rio, Noronha, Gramado, Orlando, Paris e mais de 300 destinos. Passagens, hotel e passeios com o OND, agência no Cadastur. Cote pelo WhatsApp.": {
+  "en": "Trips to Rio, Noronha, Gramado, Orlando, Paris and more than 300 destinations. Flights, hotels and tours with OND, a Cadastur-registered agency. Get a quote on WhatsApp.",
+  "es": "Viajes a Río, Noronha, Gramado, Orlando, París y más de 300 destinos. Pasajes, hotel y paseos con OND, agencia registrada en Cadastur. Cotiza por WhatsApp.",
+  "fr": "Voyages à Rio, Noronha, Gramado, Orlando, Paris et plus de 300 destinations. Billets, hôtel et excursions avec OND, agence enregistrée au Cadastur. Devis sur WhatsApp.",
+  "it": "Viaggi a Rio, Noronha, Gramado, Orlando, Parigi e oltre 300 destinazioni. Voli, hotel ed escursioni con OND, agenzia registrata al Cadastur. Preventivo su WhatsApp."
+ },
+ "Bangalôs sobre a água nas Maldivas": {
+  "en": "Overwater bungalows in the Maldives",
+  "es": "Bungalows sobre el agua en las Maldivas",
+  "fr": "Bungalows sur pilotis aux Maldives",
+  "it": "Bungalow sull'acqua alle Maldive"
+ },
+ "Casarões coloridos do Caminito em Buenos Aires": {
+  "en": "Colorful houses of Caminito in Buenos Aires",
+  "es": "Coloridas casas de Caminito en Buenos Aires",
+  "fr": "Maisons colorées de Caminito à Buenos Aires",
+  "it": "Case colorate di Caminito a Buenos Aires"
+ },
+ "Centro histórico de Salvador visto do alto": {
+  "en": "Historic center of Salvador seen from above",
+  "es": "Centro histórico de Salvador visto desde arriba",
+  "fr": "Centre historique de Salvador vu du ciel",
+  "it": "Il centro storico di Salvador visto dall'alto"
+ },
+ "Cristo Redentor e a baía de Guanabara no Rio de Janeiro": {
+  "en": "Christ the Redeemer and Guanabara Bay in Rio de Janeiro",
+  "es": "Cristo Redentor y Bahía de Guanabara en Río de Janeiro",
+  "fr": "Christ Rédempteur et baie de Guanabara à Rio de Janeiro",
+  "it": "Cristo Redentore e Baia Guanabara a Rio de Janeiro"
+ },
+ "Destaque 1": {
+  "en": "Highlight 1",
+  "es": "Destacado 1",
+  "fr": "Surlignage 1",
+  "it": "Evidenziazione 1"
+ },
+ "Destaque 2": {
+  "en": "Highlight 2",
+  "es": "Destacado 2",
+  "fr": "Point saillant 2",
+  "it": "Evidenziazione 2"
+ },
+ "Destaque 3": {
+  "en": "Highlight 3",
+  "es": "Destacar 3",
+  "fr": "Surligner 3",
+  "it": "Evidenziazione 3"
+ },
+ "Destaque 4": {
+  "en": "Highlight 4",
+  "es": "Destacado 4",
+  "fr": "Point saillant 4",
+  "it": "Evidenziazione 4"
+ },
+ "Destaque 5": {
+  "en": "Highlight 5",
+  "es": "Destacar 5",
+  "fr": "Point saillant 5",
+  "it": "Punto saliente 5"
+ },
+ "Destaque 6": {
+  "en": "Highlight 6",
+  "es": "Destacar 6",
+  "fr": "Point saillant 6",
+  "it": "Punto saliente 6"
+ },
+ "Destaque anterior": {
+  "en": "Previous highlight",
+  "es": "Destacado anterior",
+  "fr": "Survol précédent",
+  "it": "Evidenziazione precedente"
+ },
+ "Destaques e datas especiais": {
+  "en": "Highlights and special dates",
+  "es": "Aspectos destacados y fechas especiales",
+  "fr": "Temps forts et dates spéciales",
+  "it": "Eventi salienti e date speciali"
+ },
+ "Falar com o OND pelo WhatsApp": {
+  "en": "Talk to OND via WhatsApp",
+  "es": "Habla con OND a través de WhatsApp",
+  "fr": "Contactez OND via WhatsApp",
+  "it": "Contatta OND tramite WhatsApp"
+ },
+ "Filtrar por duração": {
+  "en": "Filter by duration",
+  "es": "Filtrar por duración",
+  "fr": "Filtrer par durée",
+  "it": "Filtrato per durata"
+ },
+ "Filtrar por ocasião": {
+  "en": "Filter by occasion",
+  "es": "Filtrar por ocasión",
+  "fr": "Filtrer par occasion",
+  "it": "Filtra per occasione"
+ },
+ "Menu": {
+  "en": "Menu",
+  "es": "Menú",
+  "fr": "Menu",
+  "it": "Menu"
+ },
+ "Navegação": {
+  "en": "Navigation",
+  "es": "Navegación",
+  "fr": "Navigation",
+  "it": "Navigazione"
+ },
+ "OND, página inicial": {
+  "en": "OND, homepage",
+  "es": "OND, página principal",
+  "fr": "OND, page d'accueil",
+  "it": "OND, pagina iniziale"
+ },
+ "Pausar destaques": {
+  "en": "Pause highlights",
+  "es": "Destacados de pausa",
+  "fr": "Points saillants de la pause",
+  "it": "Momenti salienti in pausa"
+ },
+ "Próximo destaque": {
+  "en": "Next highlight",
+  "es": "Siguiente punto destacado",
+  "fr": "Prochain point saillant",
+  "it": "Prossimo punto saliente"
  }
 }
