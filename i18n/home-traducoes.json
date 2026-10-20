@@ -35,11 +35,17 @@
   "fr": "Pour les agences",
   "it": "Per le agenzie"
  },
- "Monte sua viagem": {
-  "en": "Plan your trip",
-  "es": "Arma tu viaje",
-  "fr": "Créez votre voyage",
-  "it": "Crea il tuo viaggio"
+ "Planeje grátis": {
+  "en": "Plan for free",
+  "es": "Planea gratis",
+  "fr": "Itinéraire gratuit",
+  "it": "Pianifica gratis"
+ },
+ "Planeje sua viagem grátis": {
+  "en": "Plan your trip for free",
+  "es": "Planea tu viaje gratis",
+  "fr": "Planifiez votre voyage gratuitement",
+  "it": "Pianifica il tuo viaggio gratis"
  },
  "Escolha o destino.": {
   "en": "Pick the destination.",
@@ -377,11 +383,11 @@
   "fr": "DÉPART DE",
   "it": "PARTENZA DA"
  },
- "Montar roteiro": {
-  "en": "Build itinerary",
-  "es": "Armar itinerario",
-  "fr": "Créer l'itinéraire",
-  "it": "Crea itinerario"
+ "Roteiro grátis": {
+  "en": "Free itinerary",
+  "es": "Itinerario gratis",
+  "fr": "Itinéraire gratuit",
+  "it": "Itinerario gratis"
  },
  "Comprar viagem": {
   "en": "Book trip",
