@@ -7,6 +7,10 @@ Troca só texto visível e atributos (alt, aria-label, placeholder, title, conte
 correspondência exata, usando i18n/home-traducoes.json (texto pt -> {en, es, fr, it}).
 Não toca em <script> nem <style>. Ajusta lang, og:locale, canonical, og:url e o seletor de idioma.
 
+O bloco "Viagens em destaque" (entre <!-- destaques:inicio --> e <!-- destaques:fim -->) não é traduzido:
+cada idioma mantém o seu, que o build-destinos.py gera a partir da vitrine. Sem bloco no idioma, vai o
+de português até o próximo build-destinos.py.
+
 Rode depois de mudar a home:  python build-i18n-home.py
 Texto novo sem tradução aparece listado no final (fica em pt até ser traduzido).
 """
@@ -16,6 +20,8 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://ondviajar.com.br/'
 LOC = {'en': ('en', 'en_US', 'EN', 'Language'), 'es': ('es', 'es_ES', 'ES', 'Idioma'),
        'fr': ('fr', 'fr_FR', 'FR', 'Langue'), 'it': ('it', 'it_IT', 'IT', 'Lingua')}
+DESTAQUES = re.compile(r'<!-- destaques:inicio -->\n.*?<!-- destaques:fim -->\n', re.S)
+GUARDA_DESTAQUES = '<script data-destaques-guardado></script>'
 ATTR = re.compile(r'\b(alt|aria-label|placeholder|title|content)="([^"]*)"')
 
 
@@ -60,8 +66,14 @@ def main():
     with open(os.path.join(ROOT, 'index.html'), encoding='utf-8') as fh:
         pt = fh.read().replace('\r\n', '\n')
     faltando = set()
+    bloco_pt = DESTAQUES.search(pt)
+    base = DESTAQUES.sub(GUARDA_DESTAQUES, pt, count=1) if bloco_pt else pt
     for code, (htmllang, ogloc, short, rotulo) in LOC.items():
-        doc = traduz(pt, tr, code, faltando)
+        doc = traduz(base, tr, code, faltando)
+        if bloco_pt:
+            atual = os.path.join(ROOT, code, 'index.html')
+            existente = DESTAQUES.search(open(atual, encoding='utf-8').read()) if os.path.exists(atual) else None
+            doc = doc.replace(GUARDA_DESTAQUES, (existente or bloco_pt).group(0), 1)
         for k, v in wa.items():
             doc = doc.replace(k, v[code])
         url = SITE + code + '/'
@@ -81,6 +93,7 @@ def main():
         doc = re.sub(r'\s*<a href="/blog\.html" onclick="closeMenu\(\)">[^<]*</a>', '', doc, count=1)
         doc = absolutiza(doc)
         doc = re.sub(r'href="/viagens/(?!quando-viajar/)', 'href="/%s/viagens/' % code, doc)
+        doc = doc.replace('data-dados="/assets/viagens/destaques/pt.json"', 'data-dados="/assets/viagens/destaques/%s.json"' % code)
         os.makedirs(os.path.join(ROOT, code), exist_ok=True)
         with open(os.path.join(ROOT, code, 'index.html'), 'w', encoding='utf-8', newline='\n') as fh:
             fh.write(doc)

@@ -292,5 +292,33 @@
   "es": "No hay destinos con esta opción aquí",
   "fr": "Aucune destination avec cette option ici",
   "it": "Nessuna destinazione con questa opzione qui"
+ },
+ "destaquesTitulo": {
+  "pt": "Viagens em destaque",
+  "en": "Featured trips",
+  "es": "Viajes destacados",
+  "fr": "Voyages à la une",
+  "it": "Viaggi in evidenza"
+ },
+ "destaquesTodas": {
+  "pt": "Ver todas as viagens",
+  "en": "See all trips",
+  "es": "Ver todos los viajes",
+  "fr": "Voir tous les voyages",
+  "it": "Vedi tutti i viaggi"
+ },
+ "destaquesMais": {
+  "pt": "Mais {n} destinos",
+  "en": "{n} more destinations",
+  "es": "{n} destinos más",
+  "fr": "{n} autres destinations",
+  "it": "Altre {n} destinazioni"
+ },
+ "listaE": {
+  "pt": "e",
+  "en": "and",
+  "es": "y",
+  "fr": "et",
+  "it": "e"
  }
 }
