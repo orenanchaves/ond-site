@@ -2,7 +2,7 @@ name: Vitrine de destinos
 
 # Todo dia de manhã (07:30 de Brasília) lê a vitrine de destinos do backend
 # (/api/showcase/destinations) e regera o catálogo, as páginas de cada destino nos
-# cinco idiomas, a busca e o sitemap. Publica só se algo mudou.
+# cinco idiomas, os destaques das homes, a busca e o sitemap. Publica só se algo mudou.
 # Também dá pra rodar na mão pela aba Actions (Run workflow).
 on:
   schedule:
@@ -45,7 +45,7 @@ jobs:
           fi
           git config user.name "OND Vitrine (programada)"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A viagens en/viagens es/viagens fr/viagens it/viagens en/index.html es/index.html fr/index.html it/index.html sitemap.xml busca assets/busca.json assets/viagens/cadastro
+          git add -A viagens en/viagens es/viagens fr/viagens it/viagens index.html en/index.html es/index.html fr/index.html it/index.html sitemap.xml busca assets/busca.json assets/viagens/cadastro assets/viagens/destaques
           git commit -m "vitrine: catálogo regerado ($(date -u +%Y-%m-%d))"
           git push
           gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || echo "aviso: não consegui pedir o build do Pages"
