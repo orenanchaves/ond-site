@@ -4963,45 +4963,17 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
   aplica();
 })();
 </script>
+<script src="/assets/pais-visitante.js"></script>
 <script>
 (function(){
   var nac=document.getElementById('nacionais'), inter=document.getElementById('internacionais');
   var sel=document.getElementById('vg-pais');
-  if(!nac||!inter||!sel||!nac.dataset.paisPadrao) return;
-  var MINIMO=3, LIMITE=12, CHAVE='ond_pais_origem', padrao=nac.dataset.paisPadrao;
+  if(!nac||!inter||!sel||!nac.dataset.paisPadrao||!window.ondPaisVisitante) return;
+  var MINIMO=3, LIMITE=12, padrao=nac.dataset.paisPadrao;
   var cat=document.querySelector('.vg-cat');
   var gradeNac=nac.querySelector('.vt-grid2'), gradeInt=inter.querySelector('.vt-grid2'), extra=gradeInt.querySelector('.dc-extra');
   var fichas=[].slice.call(cat.querySelectorAll('article.dc'));
-  var nomes=null;
-  try{ nomes=new Intl.DisplayNames([document.documentElement.lang||nac.dataset.idioma],{type:'region'}) }catch(e){}
-  function nome(codigo){ try{ return nomes?nomes.of(codigo):codigo }catch(e){ return codigo } }
-  var FUSOS={BR:'Sao_Paulo Bahia Fortaleza Recife Maceio Belem Manaus Cuiaba Campo_Grande Porto_Velho Rio_Branco Boa_Vista Araguaina Santarem Noronha Eirunepe',
-    AR:'Buenos_Aires Argentina/',CL:'Santiago Punta_Arenas',UY:'Montevideo',PY:'Asuncion',PE:'Lima',CO:'Bogota',VE:'Caracas',
-    MX:'Mexico_City Cancun Merida Monterrey Matamoros Chihuahua Ciudad_Juarez Ojinaga Mazatlan Bahia_Banderas Hermosillo Tijuana',
-    US:'New_York Chicago Denver Los_Angeles Phoenix Anchorage Juneau Boise Detroit Indiana/ Kentucky/ North_Dakota/ Menominee Adak Nome Sitka Yakutat Metlakatla Honolulu',
-    CA:'Toronto Vancouver Edmonton Winnipeg Halifax St_Johns Regina Moncton Glace_Bay Goose_Bay Whitehorse Dawson Iqaluit Swift_Current',
-    PA:'Panama',DO:'Santo_Domingo',PT:'Lisbon Madeira Azores',ES:'Madrid Canary Ceuta',FR:'Paris',IT:'Rome',DE:'Berlin Busingen',GB:'London',
-    NL:'Amsterdam',BE:'Brussels',LU:'Luxembourg',AT:'Vienna',HU:'Budapest',CZ:'Prague',CH:'Zurich',PL:'Warsaw',RO:'Bucharest',HR:'Zagreb',
-    SI:'Ljubljana',ME:'Podgorica',AL:'Tirane',GR:'Athens',DK:'Copenhagen',NO:'Oslo',SE:'Stockholm',FI:'Helsinki',IS:'Reykjavik',MC:'Monaco',
-    TR:'Istanbul',ZA:'Johannesburg',AE:'Dubai',CN:'Shanghai Urumqi',HK:'Hong_Kong',MO:'Macau',JP:'Tokyo',TH:'Bangkok',MA:'Casablanca',
-    IL:'Jerusalem Tel_Aviv',PS:'Hebron Gaza',MV:'Maldives'};
-  function doFuso(){
-    var fuso=''; try{ fuso=Intl.DateTimeFormat().resolvedOptions().timeZone||'' }catch(e){}
-    var local=fuso.slice(fuso.indexOf('/')+1);
-    for(var pais in FUSOS){
-      var nomes=FUSOS[pais].split(' ');
-      for(var i=0;i<nomes.length;i++){
-        var n=nomes[i];
-        if(n.slice(-1)==='/'?local.indexOf(n)===0:local===n) return pais;
-      }
-    }
-    return null;
-  }
-  function doNavegador(){
-    var lista=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''];
-    for(var i=0;i<lista.length;i++){ var m=/[-_]([A-Za-z]{2})$/.exec(lista[i]||''); if(m) return m[1].toUpperCase() }
-    return null;
-  }
+  var nome=window.ondPaisVisitante.nomeador(document.documentElement.lang||nac.dataset.idioma);
   function preenche(atual){
     var codigos={}; fichas.forEach(function(f){ codigos[f.dataset.pais]=true }); codigos[atual]=true;
     var lista=Object.keys(codigos).sort(function(a,b){ return nome(a).localeCompare(nome(b)) });
@@ -5050,13 +5022,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     abre(secao?secao.id:(divide?'nacionais':'internacionais'));
     if(alvo) alvo.scrollIntoView();
   }
-  var salvo=null; try{ salvo=localStorage.getItem(CHAVE) }catch(e){}
-  var pais=salvo||doFuso()||doNavegador()||padrao;
+  var pais=window.ondPaisVisitante.detecta(padrao);
   var ancora=decodeURIComponent(location.hash.slice(1)), alvo=ancora&&document.getElementById(ancora);
   preenche(pais);
   aplica(pais,alvo&&alvo.matches('article.dc')?alvo:null);
   sel.addEventListener('change',function(){
-    try{ localStorage.setItem(CHAVE,sel.value) }catch(e){}
+    window.ondPaisVisitante.guarda(sel.value);
     aplica(sel.value,null);
     if(window.gtag) gtag('event','catalogo_pais',{pais:sel.value,pagina:location.pathname});
   });

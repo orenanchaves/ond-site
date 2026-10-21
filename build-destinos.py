@@ -10,6 +10,8 @@ i18n/home-traducoes.json mais i18n/viagens-traducoes.json, por correspondência 
 
 Saída:
   viagens/index.html                  só o trecho entre <!-- vitrine:inicio --> e <!-- vitrine:fim -->
+  index.html, <idioma>/index.html     só o trecho entre <!-- destaques:inicio --> e <!-- destaques:fim -->
+  assets/viagens/destaques/<idioma>.json   os destinos em ordem, para a home reagrupar pelo país de quem visita
   en|es|fr|it/viagens/index.html      o catálogo inteiro no idioma
   viagens/<slug>/, <idioma>/viagens/<slug>/   uma página por destino
 
@@ -39,6 +41,8 @@ OCASIAO = {'HONEYMOON': 'lua-de-mel', 'FAMILY': 'familia', 'FRIENDS': 'amigos', 
 DURACAO = {'SHORT': 'curta', 'MEDIUM': 'media', 'LONG': 'longa'}
 MESES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
 INICIO, FIM = '<!-- vitrine:inicio -->\n', '<!-- vitrine:fim -->\n'
+DESTAQUES_INICIO, DESTAQUES_FIM = '<!-- destaques:inicio -->\n', '<!-- destaques:fim -->\n'
+DESTAQUES_CARDS, DESTAQUES_PROXIMOS, DESTAQUES_MINIMO = 6, 4, 3
 
 
 def ler(p):
@@ -252,9 +256,82 @@ def bloco(ds, idioma, T):
             + FIM)
 
 
-def troca_bloco(pagina, novo):
-    i, j = pagina.index(INICIO), pagina.index(FIM) + len(FIM)
+def troca_bloco(pagina, novo, inicio=INICIO, fim=FIM):
+    i, j = pagina.index(inicio), pagina.index(fim) + len(fim)
     return pagina[:i] + novo + pagina[j:]
+
+
+def enumera(nomes, idioma, T):
+    if len(nomes) < 2:
+        return ''.join(nomes)
+    return '%s %s %s' % (', '.join(nomes[:-1]), T['listaE'][idioma], nomes[-1])
+
+
+def card_destaque(d, pasta, grande):
+    e = html.escape
+    src, webp = foto(d, 'capa' if grande else 'ficha')
+    fonte = '<source srcset="%s" type="image/webp">' % webp if webp else ''
+    return ('<a class="ht%s" href="/%sviagens/%s/"><picture>%s<img src="%s" alt="%s" width="800" height="500" loading="lazy"></picture>'
+            '<span class="ht-t"><b>%s</b><span>%s</span></span></a>'
+            % (' ht-big' if grande else '', pasta, d['slug'], fonte, src, e(d.get('imageAlt') or d['title']),
+               e(d['title']), e(d['region'])))
+
+
+def grade_destaque(lista, idioma, T, ancora):
+    pasta = IDIOMAS[idioma]['pasta']
+    visiveis = DESTAQUES_CARDS + 1 if len(lista) == DESTAQUES_CARDS + 1 else DESTAQUES_CARDS
+    cards = [card_destaque(d, pasta, n == 0) for n, d in enumerate(lista[:visiveis])]
+    resto = lista[visiveis:]
+    if resto:
+        nomes = [d['title'] for d in resto[:DESTAQUES_PROXIMOS]]
+        cards.append('<a class="ht ht-mais" href="/%sviagens/#%s"><b>%s</b><span>%s</span></a>'
+                     % (pasta, ancora, html.escape(T['destaquesMais'][idioma].format(n=len(resto))),
+                        html.escape(enumera(nomes, idioma, T))))
+    return ''.join(cards)
+
+
+def bloco_destaques(ds, idioma, T):
+    e = html.escape
+    cfg = IDIOMAS[idioma]
+    pais = cfg['pais']
+    locais = [d for d in ds if d['countryCode'] == pais]
+    divide = len(locais) >= DESTAQUES_MINIMO
+    mundo = [d for d in ds if d['countryCode'] != pais] if divide else ds
+    nome_pais = next((d['countryName'] for d in locais), pais)
+    dados = (' data-dados="/assets/viagens/destaques/%s.json" data-pais-padrao="%s" data-idioma="%s" data-pasta="%s" data-mais="%s" data-e="%s"'
+             % (idioma, pais, idioma, cfg['pasta'], e(T['destaquesMais'][idioma]), e(T['listaE'][idioma])))
+    return (DESTAQUES_INICIO
+            + '  <div class="hv-head"%s><h2>%s</h2><div class="hv-sw" role="tablist" aria-label="%s"%s>'
+            % (dados, e(T['destaquesTitulo'][idioma]), e(T['abasAria'][idioma]), '' if divide else ' hidden')
+            + '<button type="button" role="tab" id="hv-pais-tab" aria-controls="hv-pais" aria-selected="true">%s</button>' % e(nome_pais)
+            + '<button type="button" role="tab" id="hv-mundo-tab" aria-controls="hv-mundo" aria-selected="false" tabindex="-1">%s</button></div>'
+            % e(T['mundo'][idioma])
+            + '<a class="hv-all" href="/%sviagens/">%s</a></div>\n' % (cfg['pasta'], e(T['destaquesTodas'][idioma]))
+            + '  <div class="hv-grid" id="hv-pais" role="tabpanel" aria-labelledby="hv-pais-tab"%s>%s</div>'
+            % ('' if divide else ' hidden', grade_destaque(locais, idioma, T, 'nacionais') if divide else '')
+            + '<div class="hv-grid" id="hv-mundo" role="tabpanel" aria-labelledby="hv-mundo-tab"%s>%s</div>\n'
+            % (' hidden' if divide else '', grade_destaque(mundo, idioma, T, 'internacionais'))
+            + DESTAQUES_FIM)
+
+
+def dados_destaques(ds):
+    itens = []
+    for d in ds:
+        src, webp = foto(d, 'ficha')
+        capa, capa_webp = foto(d, 'capa')
+        itens.append({'s': d['slug'], 'c': d['countryCode'], 't': d['title'], 'r': d['region'],
+                      'a': d.get('imageAlt') or d['title'], 'i': src, 'w': webp, 'g': capa, 'gw': capa_webp})
+    return json.dumps(itens, ensure_ascii=False, separators=(',', ':')) + '\n'
+
+
+def atualiza_home(idioma, ds, T):
+    caminho = '%sindex.html' % IDIOMAS[idioma]['pasta']
+    home = ler(caminho)
+    if DESTAQUES_INICIO not in home:
+        print('A home %s não tem os marcadores dos destaques; rode o build-i18n-home.py antes.' % caminho)
+        return
+    grava(caminho, troca_bloco(home, bloco_destaques(ds, idioma, T), DESTAQUES_INICIO, DESTAQUES_FIM))
+    grava('assets/viagens/destaques/%s.json' % idioma, dados_destaques(ds))
 
 
 def alternativos(caminho):
@@ -509,6 +586,7 @@ def main():
             cat, falta = catalogo_traduzido(troca_bloco(pt, bloco(ds, idioma, T)), idioma, i18n, dicionario)
             faltando |= {(idioma, t) for t in falta}
             grava('%sviagens/index.html' % cfg['pasta'], cat)
+        atualiza_home(idioma, ds, T)
         cab, rod = cabecalho_e_rodape(cat)
         for d in ds:
             vizinhos = [x for x in ds if (x['countryCode'] == 'BR') == (d['countryCode'] == 'BR') and x['slug'] != d['slug']][:8]
