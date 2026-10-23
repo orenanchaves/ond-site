@@ -21,6 +21,7 @@ Preço de custo, lucro, telefone do cliente e histórico de negociação não en
 | Josiclei | Réveillon em Gramado | 30 de dezembro a 5 de janeiro | 7 dias e 6 noites · 2 adultos e 1 criança | [abrir](https://ondviajar.com.br/proposta/josiclei-gramado/) | 23 de setembro de 2026 | sim |
 | Juliana | Bonito, águas cristalinas | 4 a 8 de novembro de 2026, como referência | 5 dias e 4 noites · 4 adultos · Saindo de Ilhéus | [abrir](https://ondviajar.com.br/proposta/juliana-bonito/) | 20 de setembro de 2026 | sim |
 | Juliana | Sua passagem para Miami | 12 de outubro a 7 de novembro de 2026 | Ida e volta com mala · 1 adulta · Saindo de São Paulo | [abrir](https://ondviajar.com.br/proposta/juliana-miami/) | 6 de outubro de 2026 | sim |
+| Karla | 8 noites em Porto de Galinhas | 20 a 28 de novembro de 2026 | Aéreo e hotel com café · 2 pessoas · Saindo de Cuiabá | [abrir](https://ondviajar.com.br/proposta/karla-porto-de-galinhas/) | 25 de outubro de 2026 | sim |
 | Karla | Recife, em julho de 2027 | 14 a 21 de julho de 2027 | 8 dias e 7 noites · 2 pessoas | [abrir](https://ondviajar.com.br/proposta/karla-recife/) | 21 de setembro de 2026 | sim |
 | Kelly | 4 dias em Gramado | 25 a 28 de março de 2027 | Voo direto e hotel com café · 2 adultos · Saindo de São Paulo | [abrir](https://ondviajar.com.br/proposta/kelly-gramado/) | 25 de outubro de 2026 | sim |
 | Lara | Uma semana em Gramado | 21 a 28 de outubro de 2026 | 8 dias e 7 noites · 2 adultos e 1 criança · Saindo de Maringá | [abrir](https://ondviajar.com.br/proposta/lara-gramado/) | 23 de setembro de 2026 | sim |
