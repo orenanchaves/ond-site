@@ -1001,6 +1001,12 @@
    "es": "¡Hola! Vengo del sitio de OND",
    "fr": "Bonjour ! Je viens du site d'OND",
    "it": "Ciao! Vengo dal sito di OND"
+  },
+  "Ol%C3%A1%2C%20Renan%21%20Vim%20pelo%20site%20do%20OND.": {
+   "en": "Hi%20Renan!%20I%20came%20from%20the%20OND%20website.",
+   "es": "%C2%A1Hola%2C%20Renan!%20Vengo%20del%20sitio%20de%20OND.",
+   "fr": "Bonjour%20Renan%20!%20Je%20viens%20du%20site%20d%27OND.",
+   "it": "Ciao%20Renan!%20Vengo%20dal%20sito%20di%20OND."
   }
  },
  "Abrir no mapa": {
@@ -1032,5 +1038,59 @@
   "es": "Excursiones y grupos",
   "fr": "Voyages de groupe",
   "it": "Viaggi di gruppo"
+ },
+ "Sócio do OND": {
+  "en": "Partner at OND",
+  "es": "Socio de OND",
+  "fr": "Associé d'OND",
+  "it": "Socio di OND"
+ },
+ "Renan Rodrigues, sócio do OND": {
+  "en": "Renan Rodrigues, partner at OND",
+  "es": "Renan Rodrigues, socio de OND",
+  "fr": "Renan Rodrigues, associé d'OND",
+  "it": "Renan Rodrigues, socio di OND"
+ },
+ "Renan Chaves, sócio do OND": {
+  "en": "Renan Chaves, partner at OND",
+  "es": "Renan Chaves, socio de OND",
+  "fr": "Renan Chaves, associé d'OND",
+  "it": "Renan Chaves, socio di OND"
+ },
+ "Falar com Renan Rodrigues no WhatsApp": {
+  "en": "Chat with Renan Rodrigues on WhatsApp",
+  "es": "Hablar con Renan Rodrigues por WhatsApp",
+  "fr": "Parler à Renan Rodrigues sur WhatsApp",
+  "it": "Parla con Renan Rodrigues su WhatsApp"
+ },
+ "Falar com Renan Chaves no WhatsApp": {
+  "en": "Chat with Renan Chaves on WhatsApp",
+  "es": "Hablar con Renan Chaves por WhatsApp",
+  "fr": "Parler à Renan Chaves sur WhatsApp",
+  "it": "Parla con Renan Chaves su WhatsApp"
+ },
+ "(11) 94361-5412": {
+  "en": "+55 11 94361-5412",
+  "es": "+55 11 94361-5412",
+  "fr": "+55 11 94361-5412",
+  "it": "+55 11 94361-5412"
+ },
+ "(11) 95335-3347": {
+  "en": "+55 11 95335-3347",
+  "es": "+55 11 95335-3347",
+  "fr": "+55 11 95335-3347",
+  "it": "+55 11 95335-3347"
+ },
+ "Se preferir, fale direto com um de nós dois pelo WhatsApp, nos botões ao lado das fotos.": {
+  "en": "If you prefer, talk directly to one of us on WhatsApp using the buttons next to the photos.",
+  "es": "Si lo prefieres, habla directamente con uno de nosotros por WhatsApp, en los botones junto a las fotos.",
+  "fr": "Si vous préférez, parlez directement à l'un de nous deux sur WhatsApp, avec les boutons à côté des photos.",
+  "it": "Se preferisci, parla direttamente con uno di noi due su WhatsApp, con i pulsanti accanto alle foto."
+ },
+ "(11) 91021-4133, ou direto com os sócios.": {
+  "en": "+55 11 91021-4133, or directly with the partners.",
+  "es": "+55 11 91021-4133, o directamente con los socios.",
+  "fr": "+55 11 91021-4133, ou directement avec les associés.",
+  "it": "+55 11 91021-4133, o direttamente con i soci."
  }
 }
