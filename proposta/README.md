@@ -40,8 +40,9 @@ Preço de custo, lucro, telefone do cliente e histórico de negociação não en
 | Sidney | Cinco noites em Salvador | 10 a 15 de setembro de 2027 | 6 dias e 5 noites · 3 adultos · Saindo de Belo Horizonte | [abrir](https://ondviajar.com.br/proposta/sidney-salvador/) | 25 de setembro de 2026 | sim |
 | Thaís | 7 noites no Marrocos | 03 a 10 de outubro de 2026 | Fez e Tânger · 4 pessoas · Hospedagem nas duas cidades | [abrir](https://ondviajar.com.br/proposta/thais-marrocos/) | 2 de outubro de 2026 | sim |
 | William | 23 noites no Japão | 03 a 28 de março de 2027 | Tóquio, Kyoto e Osaka · 2 adultos · Saindo de São Paulo | [abrir](https://ondviajar.com.br/proposta/william-japao/) | 27 de setembro de 2026 | sim |
+| Yasmin | Lua de mel nas Maldivas | 16 a 19 de novembro de 2026 | Aéreo e resort · 2 pessoas · Saindo de São Paulo | [abrir](https://ondviajar.com.br/proposta/yasmin-maldivas/) | 26 de outubro de 2026 | sim |
 
 **Avisa quando abre** é o rastreio que dispara "proposta visualizada" quando o cliente entra na página.
 Para conferir a sua própria proposta sem disparar o aviso, abra uma vez com `?team` no fim do endereço.
 
-Atualizado em 23/10/2026.
+Atualizado em 24/10/2026.
