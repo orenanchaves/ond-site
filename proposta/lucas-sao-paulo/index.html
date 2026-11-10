@@ -224,13 +224,13 @@ h2 em{font-style:normal;color:var(--neon)}
     <div class="rot">Passo 2</div>
     <h2>Escolha <em>como pagar</em></h2>
     <div class="pag">
-      <div class="abas"><button type="button" data-forma="cartao" class="on">Cartão · até 10x</button><button type="button" data-forma="pix">Pix à vista · 5% off</button></div>
+      <div class="abas"><button type="button" data-forma="cartao" class="on">Cartão · até 3x</button><button type="button" data-forma="pix">Pix à vista · 5% off</button></div>
       <div class="parcelas" id="parcelas"></div>
       <div class="resumo">
         <div><div class="v" id="valor"></div><div class="s" id="sub"></div></div>
         <span class="eco" id="eco"></span>
       </div>
-      <div class="nota-pag">Pix só à vista, com 5% de desconto sobre o valor do cartão. Cartão por link de pagamento: à vista sem acréscimo ou em até 10x, com a taxa do parcelamento incluída na parcela.</div>
+      <div class="nota-pag">Pix só à vista, com 5% de desconto sobre o valor do cartão. Cartão por link de pagamento: à vista sem acréscimo ou em até 3x, com a taxa do parcelamento incluída na parcela.</div>
     </div>
   </section>
 
@@ -331,7 +331,7 @@ h2 em{font-style:normal;color:var(--neon)}
   var MSG = "Olá! Sou o Lucas e quero reservar o hotel em São Paulo para o show do dia 24/11/2026.", ROT_PIX = "à vista no Pix";
   var MSG_NEW_QUOTE = "Olá! Sou o Lucas. A proposta de São Paulo venceu, pode me mandar uma nova cotação?";
   var GRUPOS = [{"id": "g", "nome": "Onde ficar", "recomendada": "styles", "desc": "Uma noite na Barra Funda, perto do terminal e da Burning House. Muda o hotel."}];
-  var estado = { op: "styles", forma: 'cartao', n: 10, grupo: GRUPOS.length ? GRUPOS[0].id : '' };
+  var estado = { op: "styles", forma: 'cartao', n: 1, grupo: GRUPOS.length ? GRUPOS[0].id : '' };
   function brl(v, c){ return v.toLocaleString('pt-BR', { minimumFractionDigits: c ? 2 : 0, maximumFractionDigits: c ? 2 : 0 }); }
   function totalCartao(o, n){ return o.cartao * (1 - TAXA_CARTAO) / (1 - TAXA_CARTAO - TAXA_PARCELA * (n - 1)); }
   function calc(o){
@@ -348,7 +348,7 @@ h2 em{font-style:normal;color:var(--neon)}
       (o.destaque ? '<span class="selo">' + o.destaque + '</span>' : '') +
       '<div class="linha">' + (o.thumb ? '<img class="thumb" src="' + o.thumb + '" alt="' + o.hotel + '" loading="lazy">' : '') + '<div><div class="t">' + o.tag + '</div><div class="h">' + o.hotel + '</div><div class="det"><div class="o">' + o.onde + '</div>' +
       '<ul>' + o.itens.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul></div><div class="vermais">Ver os hotéis</div></div>' +
-      '<div class="p"><div class="radio"></div><small>10x no cartão de</small><b>R$ ' + brl(totalCartao(o, 10) / 10, true) + '</b><span>ou R$ ' + brl(o.pix) + ' no Pix</span></div></div></label>';
+      '<div class="p"><div class="radio"></div><small>À vista no cartão</small><b>R$ ' + brl(o.cartao) + '</b><span>ou R$ ' + brl(o.pix) + ' no Pix</span></div></div></label>';
   }).join('');
     var g = GRUPOS.filter(function(x){ return x.id === estado.grupo; })[0];
     if (g && document.getElementById('grupoDesc')) document.getElementById('grupoDesc').textContent = g.desc || '';
@@ -363,7 +363,7 @@ h2 em{font-style:normal;color:var(--neon)}
     renderLista(); render();
   });
   var par = document.getElementById('parcelas');
-  par.innerHTML = [1,2,3,4,5,6,7,8,9,10].map(function(n){ return '<button type="button" data-n="' + n + '">' + n + 'x</button>'; }).join('');
+  par.innerHTML = [1,2,3].map(function(n){ return '<button type="button" data-n="' + n + '">' + n + 'x</button>'; }).join('');
   function render(){
     var o = OPCOES.filter(function(x){ return x.id === estado.op; })[0], r = calc(o);
     [].forEach.call(document.querySelectorAll('.op'), function(el){ el.classList.toggle('on', el.dataset.op === estado.op); el.querySelector('input').checked = el.dataset.op === estado.op; });
