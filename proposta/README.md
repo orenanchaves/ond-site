@@ -27,6 +27,7 @@ Preço de custo, lucro, telefone do cliente e histórico de negociação não en
 | Lara | Uma semana em Gramado | 21 a 28 de outubro de 2026 | 8 dias e 7 noites · 2 adultos e 1 criança · Saindo de Maringá | [abrir](https://ondviajar.com.br/proposta/lara-gramado/) | 23 de setembro de 2026 | sim |
 | Lília | Do Rio para Gramado | 31 de outubro a 3 de novembro de 2026 | Voos diretos, ida e volta · 1 adulta, só com mochila · Saindo do Galeão | [abrir](https://ondviajar.com.br/proposta/lilia-gramado/) | 20 de setembro de 2026 | sim |
 | Luana | 5 dias em Gramado | 1 a 5 de março | Aéreo e hotel com café · 2 pessoas · Saindo de Natal | [abrir](https://ondviajar.com.br/proposta/luana-gramado/) | 25 de outubro de 2026 | sim |
+| Lucas | Uma noite na Barra Funda | 24 de novembro de 2026 | Hotel na Barra Funda · 1 pessoa · Show do Dying Fetus | [abrir](https://ondviajar.com.br/proposta/lucas-sao-paulo/) | 12 de novembro de 2026 | sim |
 | Marcília | 3 noites em Natal | 26 a 29 de dezembro de 2026 | Natal, no Rio Grande do Norte · 1 adulta · Saindo de São Paulo | [abrir](https://ondviajar.com.br/proposta/marcilia-natal/) | 11 de outubro de 2026 | sim |
 | família da Mariana | Porto Seguro, Arraial e Trancoso | 5 a 11 de dezembro | 6 noites · 2 adultos, 3 crianças* e 1 bebê** | [abrir](https://ondviajar.com.br/proposta/mariana-porto-seguro/) | 18 de setembro de 2026 | sim |
 | Miguel | Natal em Gramado | 23 a 26 de dezembro de 2026 | 4 dias e 3 noites · 2 pessoas · Saindo de Londrina | [abrir](https://ondviajar.com.br/proposta/miguel-gramado/) | 23 de setembro de 2026 | sim |
@@ -45,4 +46,4 @@ Preço de custo, lucro, telefone do cliente e histórico de negociação não en
 **Avisa quando abre** é o rastreio que dispara "proposta visualizada" quando o cliente entra na página.
 Para conferir a sua própria proposta sem disparar o aviso, abra uma vez com `?team` no fim do endereço.
 
-Atualizado em 24/10/2026.
+Atualizado em 10/11/2026.
