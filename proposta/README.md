@@ -30,6 +30,7 @@ Preço de custo, lucro, telefone do cliente e histórico de negociação não en
 | Lucas | Uma noite na Barra Funda | 24 de novembro de 2026 | Hotel na Barra Funda · 1 pessoa · Show do Dying Fetus | [abrir](https://ondviajar.com.br/proposta/lucas-sao-paulo/) | 12 de novembro de 2026 | sim |
 | Marcília | 3 noites em Natal | 26 a 29 de dezembro de 2026 | Natal, no Rio Grande do Norte · 1 adulta · Saindo de São Paulo | [abrir](https://ondviajar.com.br/proposta/marcilia-natal/) | 11 de outubro de 2026 | sim |
 | família da Mariana | Porto Seguro, Arraial e Trancoso | 5 a 11 de dezembro | 6 noites · 2 adultos, 3 crianças* e 1 bebê** | [abrir](https://ondviajar.com.br/proposta/mariana-porto-seguro/) | 18 de setembro de 2026 | sim |
+| Mayara | Sua passagem para Dublin | 24 de novembro a 10 de dezembro de 2026 | Ida e volta com mala · 1 pessoa · Saindo de São Paulo | [abrir](https://ondviajar.com.br/proposta/mayara-dublin/) | 21 de novembro de 2026 | sim |
 | Miguel | Natal em Gramado | 23 a 26 de dezembro de 2026 | 4 dias e 3 noites · 2 pessoas · Saindo de Londrina | [abrir](https://ondviajar.com.br/proposta/miguel-gramado/) | 23 de setembro de 2026 | sim |
 | Mika | 8 noites na Colômbia | 04 a 12 de setembro de 2027 | Cartagena e San Andrés · 2 adultos, lua de mel · Saindo de São Paulo | [abrir](https://ondviajar.com.br/proposta/mika-colombia/) | 2 de outubro de 2026 | sim |
 | Napoleão | Natal em Gramado | 23 a 26 de dezembro de 2026 | 4 dias e 3 noites · 3 pessoas · Saindo do Rio de Janeiro | [abrir](https://ondviajar.com.br/proposta/napoleao-gramado/) | 20 de setembro de 2026 | sim |
@@ -46,4 +47,4 @@ Preço de custo, lucro, telefone do cliente e histórico de negociação não en
 **Avisa quando abre** é o rastreio que dispara "proposta visualizada" quando o cliente entra na página.
 Para conferir a sua própria proposta sem disparar o aviso, abra uma vez com `?team` no fim do endereço.
 
-Atualizado em 10/11/2026.
+Atualizado em 19/11/2026.
