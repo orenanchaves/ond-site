@@ -141,7 +141,10 @@ h2 em{font-style:normal;color:var(--neon)}
 .barra .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px calc(12px + env(safe-area-inset-bottom))}
 .barra .i{min-width:0}
 .barra .i small{display:block;font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.barra .i b{display:block;font-size:19px;font-weight:800;white-space:nowrap}
+.barra .i b{display:block;font-size:19px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.barra .cta,.barra a{flex:none}
+body.expired .barra .i small{white-space:normal}
+body.expired .barra .i b{font-size:15px;white-space:normal}
 .cta{flex:0 0 auto;font-weight:800;font-size:16px;color:#0d0d14;background:var(--neon);border-radius:999px;padding:14px 22px;text-decoration:none;white-space:nowrap}
 @media (max-width:420px){.op .linha{flex-direction:column}.op .thumb{width:100%;height:150px}.op .p{text-align:left}.op .radio{display:none}.ideias{grid-template-columns:1fr}}
 
@@ -199,9 +202,8 @@ p,small,span,li,.inc,.ideia span,.notas p,.grupo-desc,.nota-pag,.op *{text-wrap:
 </div>
 </div></div>
   <div class="wrap">
-    <div class="para">Para Mayara</div>
     <h1>Sua passagem para Dublin</h1>
-    <div class="chips"><span>24 de novembro a 10 de dezembro de 2026</span><span>Ida e volta com mala</span><span>1 pessoa</span><span>Saindo de São Paulo</span></div>
+    <div class="chips"><span>Para Mayara</span><span>24 de novembro a 10 de dezembro de 2026</span><span>Ida e volta com mala</span><span>1 pessoa</span><span>Saindo de São Paulo</span></div>
     <div class="validade">Proposta válida por <b id="contagem">até 21/11</b></div>
   </div>
 </header>
@@ -217,7 +219,6 @@ p,small,span,li,.inc,.ideia span,.notas p,.grupo-desc,.nota-pag,.op *{text-wrap:
   </section>
 
   <section class="wrap" id="opcoes">
-    <div class="rot">Passo 1</div>
     <h2>Escolha <em>a opção</em></h2>
     <div class="abas grupos" id="grupos" hidden><button type="button" data-grupo="dublin" class="on">Opções de voo</button></div>
     <p class="grupo-desc" id="grupoDesc"></p>
@@ -225,7 +226,6 @@ p,small,span,li,.inc,.ideia span,.notas p,.grupo-desc,.nota-pag,.op *{text-wrap:
   </section>
 
   <section class="wrap">
-    <div class="rot">Passo 2</div>
     <h2>Escolha <em>como pagar</em></h2>
     <div class="pag">
       <div class="abas"><button type="button" data-forma="cartao" class="on">Cartão · até 10x</button><button type="button" data-forma="pix">Pix à vista · 5% off</button></div>
@@ -239,7 +239,6 @@ p,small,span,li,.inc,.ideia span,.notas p,.grupo-desc,.nota-pag,.op *{text-wrap:
   </section>
 
     <section class="wrap">
-    <div class="rot">Ideias para o roteiro</div>
     <h2>O que você <em>vai viver</em></h2>
     <div class="ideias">
       <div class="ideia txt"><div><b>Natal em Grafton Street</b><span>Em dezembro o centro de Dublin fica iluminado para o Natal, com luzes em Grafton Street e Henry Street e feiras natalinas espalhadas pela cidade. O sol se põe por volta das 16h, então dá para ver as luzes cedo.</span></div></div>

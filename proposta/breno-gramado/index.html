@@ -122,7 +122,10 @@ h2 em{font-style:normal;color:var(--neon)}
 .barra .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px calc(12px + env(safe-area-inset-bottom))}
 .barra .i{min-width:0}
 .barra .i small{display:block;font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.barra .i b{display:block;font-size:19px;font-weight:800;white-space:nowrap}
+.barra .i b{display:block;font-size:19px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.barra .cta,.barra a{flex:none}
+body.expired .barra .i small{white-space:normal}
+body.expired .barra .i b{font-size:15px;white-space:normal}
 .cta{flex:0 0 auto;font-weight:800;font-size:16px;color:#0d0d14;background:var(--neon);border-radius:999px;padding:14px 22px;text-decoration:none;white-space:nowrap}
 @media (max-width:420px){.op .linha{flex-direction:column}.op .p{text-align:left}.op .radio{display:none}.ideias{grid-template-columns:1fr}}
 
@@ -154,16 +157,15 @@ h2 em{font-style:normal;color:var(--neon)}
 </svg>
 <span class="tag">Proposta de viagem</span></div></div>
   <div class="wrap">
-    <div class="para">Para o Breno</div>
     <h1>Gramado no fim do ano</h1>
-    <div class="chips"><span>23 a 27 de dezembro de 2026</span><span>5 dias e 4 noites</span><span>2 adultos</span></div>
+    <div class="chips"><span>Para o Breno</span><span>23 a 27 de dezembro de 2026</span><span>5 dias e 4 noites</span><span>2 adultos</span></div>
     <div class="validade">Proposta válida por <b id="contagem">até 23/09</b></div>
   </div>
 </header>
 
 <main>
   <section class="wrap">
-    <div class="rot">Todas as opções incluem</div>
+    <h2>Todas as opções <em>incluem</em></h2>
     <div class="inclui">
       <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15.5l-8-4.5V5a1.5 1.5 0 0 0-3 0v6l-8 4.5V17l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-4.5l8 2.5z"/></svg></span>Aéreo ida e volta saindo do Rio de Janeiro, com bagagem</div>
       <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7M3 13h18v5M21 18v-3.5A2.5 2.5 0 0 0 18.5 12H11v1"/><circle cx="7" cy="10.5" r="1.8"/></svg></span>Hospedagem de 4 noites com café da manhã</div>
@@ -173,7 +175,7 @@ h2 em{font-style:normal;color:var(--neon)}
   </section>
 
   <section class="wrap">
-    <div class="rot">Fica à parte</div>
+    <h2>Fica <em>à parte</em></h2>
     <div class="inclui aparte">
       <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.4"/></svg></span>Traslado do aeroporto até o hotel. Gramado não tem aeroporto: o voo pousa em Porto Alegre e ainda são 115 km, cerca de 1h40 de carro. A gente contrata carro ou motorista para vocês</div>
       <div class="inc"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-1 6a3 3 0 0 1-6 0z"/><path d="M12 12v8M8 21h8"/></svg></span>Ingressos dos espetáculos do Natal Luz, que na semana do Natal esgotam antes</div>
@@ -182,7 +184,6 @@ h2 em{font-style:normal;color:var(--neon)}
   </section>
 
   <section class="wrap" id="opcoes">
-    <div class="rot">Passo 1</div>
     <h2>Escolha <em>a hospedagem</em></h2>
     <div class="abas modos" id="modos"><button type="button" data-modo="direto" class="on">Voo direto</button><button type="button" data-modo="conexao" class="">Com conexão, mais barato</button></div>
     <p class="grupo-desc" id="modoDesc"></p>
@@ -192,7 +193,6 @@ h2 em{font-style:normal;color:var(--neon)}
   </section>
 
   <section class="wrap">
-    <div class="rot">Passo 2</div>
     <h2>Escolha <em>como pagar</em></h2>
     <div class="pag">
       <div class="abas"><button type="button" data-forma="cartao" class="on">Cartão · até 10x</button><button type="button" data-forma="pix">Pix à vista · 5% off</button></div>
@@ -206,7 +206,6 @@ h2 em{font-style:normal;color:var(--neon)}
   </section>
 
   <section class="wrap">
-    <div class="rot">Ideias para o roteiro</div>
     <h2>O que vocês <em>vão viver</em></h2>
     <div class="ideias">
       <div class="ideia"><img src="ideia-1.jpg" alt="Natal Luz" loading="lazy"><div><b>Natal Luz</b><span>Vocês pegam a reta final do Natal Luz, com a cidade inteira decorada.</span></div></div>

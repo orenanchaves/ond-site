@@ -141,7 +141,10 @@ h2 em{font-style:normal;color:var(--neon)}
 .barra .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px calc(12px + env(safe-area-inset-bottom))}
 .barra .i{min-width:0}
 .barra .i small{display:block;font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.barra .i b{display:block;font-size:19px;font-weight:800;white-space:nowrap}
+.barra .i b{display:block;font-size:19px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.barra .cta,.barra a{flex:none}
+body.expired .barra .i small{white-space:normal}
+body.expired .barra .i b{font-size:15px;white-space:normal}
 .cta{flex:0 0 auto;font-weight:800;font-size:16px;color:#0d0d14;background:var(--neon);border-radius:999px;padding:14px 22px;text-decoration:none;white-space:nowrap}
 @media (max-width:420px){.op .linha{flex-direction:column}.op .thumb{width:100%;height:150px}.op .p{text-align:left}.op .radio{display:none}.ideias{grid-template-columns:1fr}}
 
@@ -194,9 +197,8 @@ h2 em{font-style:normal;color:var(--neon)}
 </div>
 </div></div>
   <div class="wrap">
-    <div class="para">Para a Karla</div>
     <h1>8 noites em Porto de Galinhas</h1>
-    <div class="chips"><span>20 a 28 de novembro de 2026</span><span>Aéreo e hotel com café</span><span>2 pessoas</span><span>Saindo de Cuiabá</span></div>
+    <div class="chips"><span>Para a Karla</span><span>20 a 28 de novembro de 2026</span><span>Aéreo e hotel com café</span><span>2 pessoas</span><span>Saindo de Cuiabá</span></div>
     <div class="validade">Proposta válida por <b id="contagem">até 25/10</b></div>
   </div>
 </header>
@@ -213,7 +215,6 @@ h2 em{font-style:normal;color:var(--neon)}
   </section>
 
   <section class="wrap" id="opcoes">
-    <div class="rot">Passo 1</div>
     <h2>Escolha <em>a opção</em></h2>
     <div class="abas grupos" id="grupos" hidden><button type="button" data-grupo="g" class="on">Onde ficar</button></div>
     <p class="grupo-desc" id="grupoDesc"></p>
@@ -221,7 +222,6 @@ h2 em{font-style:normal;color:var(--neon)}
   </section>
 
   <section class="wrap">
-    <div class="rot">Passo 2</div>
     <h2>Escolha <em>como pagar</em></h2>
     <div class="pag">
       <div class="abas"><button type="button" data-forma="cartao" class="on">Cartão · até 10x</button><button type="button" data-forma="pix">Pix à vista · 5% off</button></div>
@@ -235,7 +235,6 @@ h2 em{font-style:normal;color:var(--neon)}
   </section>
 
   <section class="wrap">
-    <div class="rot">O caminho</div>
     <h2>Oito noites no <em>litoral</em></h2>
     <p class="cal-sub">Novembro de 2026. Você chega a Recife na sexta, dia 20, no fim da tarde, e volta no sábado, dia 28, com mais de uma semana de praia.</p>
     <div class="cal"><div class="cal-g"><i>D</i><i>S</i><i>T</i><i>Q</i><i>Q</i><i>S</i><i>S</i><s>1</s><s>2</s><s>3</s><s>4</s><s>5</s><s>6</s><s>7</s><s>8</s><s>9</s><s>10</s><s>11</s><s>12</s><s>13</s><s>14</s><s>15</s><s>16</s><s>17</s><s>18</s><s>19</s><s class="c1">20</s><s class="c1">21</s><s class="c1">22</s><s class="c1">23</s><s class="c1">24</s><s class="c1">25</s><s class="c1">26</s><s class="c1">27</s><s class="voo">28</s><s>29</s><s>30</s></div><div class="cal-leg"><span><b class="p1"></b>Porto de Galinhas, 8 noites</span><span><b class="pv"></b>Volta para casa</span></div></div>
@@ -278,7 +277,6 @@ h2 em{font-style:normal;color:var(--neon)}
   </script>
 
   <section class="wrap">
-    <div class="rot">Ideias para o roteiro</div>
     <h2>O que você <em>vai viver</em></h2>
     <div class="ideias">
       <div class="ideia txt"><div><b>Piscinas naturais de jangada</b><span>O passeio clássico sai da praia da vila na maré baixa, quando as piscinas aparecem entre os corais. Vale olhar a tábua de marés e ir cedo, com a água mais clara.</span></div></div>

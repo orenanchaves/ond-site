@@ -141,7 +141,10 @@ h2 em{font-style:normal;color:var(--neon)}
 .barra .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px calc(12px + env(safe-area-inset-bottom))}
 .barra .i{min-width:0}
 .barra .i small{display:block;font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.barra .i b{display:block;font-size:19px;font-weight:800;white-space:nowrap}
+.barra .i b{display:block;font-size:19px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.barra .cta,.barra a{flex:none}
+body.expired .barra .i small{white-space:normal}
+body.expired .barra .i b{font-size:15px;white-space:normal}
 .cta{flex:0 0 auto;font-weight:800;font-size:16px;color:#0d0d14;background:var(--neon);border-radius:999px;padding:14px 22px;text-decoration:none;white-space:nowrap}
 @media (max-width:420px){.op .linha{flex-direction:column}.op .thumb{width:100%;height:150px}.op .p{text-align:left}.op .radio{display:none}.ideias{grid-template-columns:1fr}}
 
@@ -196,9 +199,8 @@ h2 em{font-style:normal;color:var(--neon)}
 </div>
 </div></div>
   <div class="wrap">
-    <div class="para">Para a Juliana</div>
     <h1>Sua passagem para Miami</h1>
-    <div class="chips"><span>12 de outubro a 7 de novembro de 2026</span><span>Ida e volta com mala</span><span>1 adulta</span><span>Saindo de São Paulo</span></div>
+    <div class="chips"><span>Para a Juliana</span><span>12 de outubro a 7 de novembro de 2026</span><span>Ida e volta com mala</span><span>1 adulta</span><span>Saindo de São Paulo</span></div>
     <div class="validade">Proposta válida por <b id="contagem">até 06/10</b></div>
   </div>
 </header>
@@ -214,7 +216,6 @@ h2 em{font-style:normal;color:var(--neon)}
   </section>
 
   <section class="wrap" id="opcoes">
-    <div class="rot">Passo 1</div>
     <h2>Escolha <em>a opção</em></h2>
     <div class="abas grupos" id="grupos" hidden><button type="button" data-grupo="miami" class="on">Opções de voo</button></div>
     <p class="grupo-desc" id="grupoDesc"></p>
@@ -222,7 +223,6 @@ h2 em{font-style:normal;color:var(--neon)}
   </section>
 
   <section class="wrap">
-    <div class="rot">Passo 2</div>
     <h2>Escolha <em>como pagar</em></h2>
     <div class="pag">
       <div class="abas"><button type="button" data-forma="cartao" class="on">Cartão · até 10x</button><button type="button" data-forma="pix">Pix à vista · 5% off</button></div>
@@ -236,7 +236,6 @@ h2 em{font-style:normal;color:var(--neon)}
   </section>
 
     <section class="wrap">
-    <div class="rot">Ideias para o roteiro</div>
     <h2>O que você <em>vai viver</em></h2>
     <div class="ideias">
       <div class="ideia txt"><div><b>Treino ao ar livre, de graça</b><span>Miami Beach e o Bayfront Park, em Downtown, costumam ter aulas gratuitas de yoga e treino na grama e na areia. É o jeito mais fácil de conhecer gente sem precisar de muito inglês.</span></div></div>
