@@ -52,3 +52,7 @@
 [data-theme="light"] .langsel-menu a{color:var(--text)}
 [data-theme="light"] .lg-live,[data-theme="light"] .ret-badge.now{color:#00662b}
 [data-theme="light"] .lg-lead-hot{color:#a3170f}
+
+/* quebra de linha: título e botão em linhas equilibradas, texto corrido sem palavra sozinha na última linha */
+h1,h2,h3,h4,h5,h6,legend,figcaption,blockquote,button,.btn,[role="button"],label{text-wrap:balance}
+p,li,dd,dt,td,th,small,summary{text-wrap:pretty}

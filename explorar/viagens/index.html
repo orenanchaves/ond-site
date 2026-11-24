@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f8f6fc">
+<script src="/assets/tema-app.js"></script>
+<script src="/assets/idioma-app.js"></script>
+<title>Minhas viagens | OND</title>
+<meta name="description" content="Seus roteiros do OND num lugar só: viagens marcadas, planejadas e as que já foram.">
+<link rel="icon" type="image/svg+xml" href="/assets/ond-symbol.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/tokens/ond-core.css">
+<link rel="stylesheet" href="/tokens/ond-b2c.css">
+<link rel="stylesheet" href="/assets/explorar-nav.css">
+<script src="/assets/edicoes-faixa.js" defer></script>
+<link rel="stylesheet" href="/assets/comunidade.css">
+<link rel="stylesheet" href="/assets/explorar-escuro.css">
+<style>
+.mv-wrap{max-width:1180px;margin:0 auto;padding:28px 28px 90px}
+.section-head{display:flex;align-items:center;gap:8px;margin-bottom:18px}
+.section-head h2{font-size:28px;font-weight:800;color:var(--deep);line-height:1.15}
+.trips{display:flex;align-items:center;gap:32px;padding:32px;border-radius:24px;background:var(--white);border:1px solid var(--line)}
+.trips img{width:120px;height:auto;flex:none}
+.trips h3{font-size:20px;font-weight:800;color:var(--deep)}
+.trips p{color:var(--muted);margin:6px 0 18px}
+@media (max-width:1023px){
+  .mv-wrap{padding:18px 14px 110px}
+  .section-head h2{font-size:23px}
+  .trips{flex-direction:column;text-align:center;padding:28px 20px}
+}
+</style>
+</head>
+<body>
+<div class="nv-content">
+  <div class="mv-wrap">
+    <section id="viagens" aria-labelledby="viagens-titulo">
+      <div class="section-head"><h2 id="viagens-titulo">Minhas viagens</h2></div>
+      <div class="trips" data-pede-conta="viagens">
+        <img src="/assets/ondino-caminhando.svg" alt="">
+        <div>
+          <h3>Suas viagens aparecem aqui</h3>
+          <p>Entre para ver seus roteiros, reservas e planos em qualquer aparelho.</p>
+          <a class="btn btn-primary" href="https://web.ondviajar.com.br/">Entrar</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<script src="/assets/explorar-nav.js" data-page="viagens" data-shell="sim"></script>
+<script src="/assets/comunidade.js"></script>
+<script src="/assets/roteiros-exemplo.js"></script>
+<script src="/assets/viagens-criadas.js"></script>
+<script src="/assets/minhas-viagens.js"></script>
+<script src="/assets/analytics.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f8f6fc">
+<script src="/assets/tema-app.js"></script>
+<script src="/assets/idioma-app.js"></script>
+<title>Nova viagem | OND</title>
+<meta name="description" content="Comece uma viagem de um roteiro pronto ou em branco e junte destinos.">
+<link rel="icon" type="image/svg+xml" href="/assets/ond-symbol.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/tokens/ond-core.css">
+<link rel="stylesheet" href="/tokens/ond-b2c.css">
+<link rel="stylesheet" href="/assets/explorar-nav.css">
+<script src="/assets/edicoes-faixa.js" defer></script>
+<link rel="stylesheet" href="/assets/comunidade.css">
+<link rel="stylesheet" href="/assets/explorar-escuro.css">
+<style>
+.nv-wrap{max-width:1180px;margin:0 auto;padding:28px 28px 90px}
+.nv-h1{font-size:34px;font-weight:800;color:var(--deep);line-height:1.1}
+.nv-sub{color:var(--muted);font-size:16px;margin:6px 0 22px}
+.nv-h2{font-size:22px;font-weight:800;color:var(--deep);margin-bottom:4px}
+.nv-prontos{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-bottom:34px}
+.nv-filtros{margin-bottom:18px}
+.nv-regioes{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.nv-regioes button{flex:none;height:42px;padding:0 14px;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;background:none;color:var(--muted);font:inherit;font-size:15px;font-weight:700;cursor:pointer;transition:color .3s ease,border-color .3s ease}
+.nv-regioes button:hover{color:var(--deep)}
+.nv-regioes button[aria-selected="true"]{color:var(--deep);border-bottom-color:var(--purple)}
+.nv-vazio{grid-column:1/-1;align-self:center;color:var(--muted);font-size:15px;margin:0;padding:8px 0}
+.nv-cats{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.nv-cats button{height:38px;padding:0 15px;border-radius:999px;border:1px solid var(--line);background:var(--white);color:var(--deep);font:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:background .35s ease,color .35s ease,border-color .35s ease}
+.nv-cats button:hover{border-color:#cdb6f0}
+.nv-cats button[aria-pressed="true"]{background:var(--deep);border-color:var(--deep);color:#fff}
+.nv-cats-sep{width:1px;height:22px;background:var(--line);margin:0 4px}
+.nv-prontos{transition:opacity .16s ease}
+.nv-prontos.nv-trocando{opacity:0}
+.nv-pronto{animation:nv-in .55s cubic-bezier(.22,1,.36,1) both;animation-delay:calc(var(--i,0) * 40ms)}
+.nv-novo{animation:nv-in .5s cubic-bezier(.22,1,.36,1) both}
+.nv-saindo{transition:opacity .22s ease,transform .22s ease;opacity:0;transform:translateY(-6px)}
+@keyframes nv-in{from{opacity:0;transform:translateY(10px)}}
+.nv-perto{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px}
+.nv-perto:empty{display:none}
+.nv-perto>span{font-size:13px;font-weight:700;color:var(--muted);flex-basis:100%}
+.nv-perto button{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 13px 0 10px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--deep);font:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:border-color .3s ease,background .3s ease}
+.nv-perto button:hover{border-color:var(--purple);background:#faf7ff}
+.nv-perto button svg{width:15px;height:15px;color:var(--purple)}
+.nv-perto small{font-weight:600;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.nv-pronto,.nv-novo{animation:none}.nv-prontos,.nv-saindo{transition:none}}
+.nv-pronto{display:flex;flex-direction:column;text-align:left;padding:0;border:1px solid var(--line);border-radius:20px;background:var(--white);overflow:hidden;cursor:pointer;font:inherit;color:inherit;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s ease,border-color .45s ease}
+.nv-pronto:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(41,7,86,.12);border-color:#d9c6f5}
+.nv-pronto:focus-visible{outline:2px solid var(--purple);outline-offset:3px}
+.nv-pronto-img{height:120px;background:#f3ecff}.nv-pronto-img img{width:100%;height:100%;object-fit:cover;display:block}
+.nv-pronto-txt{display:flex;flex-direction:column;gap:4px;padding:12px 14px 16px}
+.nv-pronto-txt b{font-size:16px;font-weight:800;color:var(--deep)}
+.nv-pronto-txt small{font-size:13px;color:var(--muted);line-height:1.4}
+.nv-flags{display:flex;gap:4px}.nv-flag{width:22px;height:15px;border-radius:3px;object-fit:cover;flex:none;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.nv-branco{border-style:dashed;border-width:1.5px;border-color:#cdb6f0;background:#faf7ff}
+.nv-branco-ic{height:120px;display:grid;place-items:center;color:var(--purple)}.nv-branco-ic svg{width:34px;height:34px}
+.nv-builder{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.nv-form{display:grid;gap:16px;padding:24px;border-radius:24px;background:var(--white);border:1px solid var(--line)}
+.nv-campo .input{min-width:0;width:100%}
+.nv-campo{display:grid;gap:6px;min-width:0}.nv-campo>span{font-size:13px;font-weight:800;color:var(--deep)}
+.nv-linha{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.nv-paradas{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.nv-vazio{padding:18px;border-radius:16px;background:#faf7ff;color:var(--muted);font-size:14px;text-align:center}
+.nv-parada{display:flex;align-items:center;gap:10px;padding:10px 10px 10px 12px;border-radius:16px;border:1px solid var(--line);background:#fff}
+.nv-num{flex:none;width:26px;height:26px;border-radius:50%;background:var(--purple);color:#fff;font-weight:800;font-size:13px;display:grid;place-items:center}
+.nv-parada-txt{display:flex;flex-direction:column;min-width:0;margin-right:auto}
+.nv-parada-txt b{font-size:15px;color:var(--deep);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nv-parada-txt small{font-size:12px;color:var(--muted)}
+.nv-noites{display:flex;align-items:center;gap:6px;flex:none}
+.nv-noites span{font-size:13px;font-weight:700;color:var(--deep);min-width:58px;text-align:center}
+.nv-noites button,.nv-ordem button{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--deep);font:inherit;font-size:18px;font-weight:700;cursor:pointer;display:grid;place-items:center}
+.nv-noites button:hover,.nv-ordem button:hover{border-color:var(--purple);color:var(--purple)}
+.nv-ordem{display:flex;gap:4px;flex:none}.nv-ordem button{border:0;background:none;color:var(--muted)}.nv-ordem button:disabled{opacity:.3;cursor:default}
+.nv-ordem svg{width:18px;height:18px}
+.nv-trecho{display:flex;align-items:center;gap:8px;padding:0 14px 0 20px;font-size:13px;color:var(--muted);font-weight:600}
+.nv-trecho small{margin-left:auto;font-size:12px}
+.nv-trecho-ic{width:26px;height:26px;border-radius:50%;background:#f3ecff;color:var(--purple);display:grid;place-items:center;flex:none}.nv-trecho-ic svg{width:15px;height:15px}
+.nv-busca{position:relative}
+.nv-busca .input{padding-left:42px}
+.nv-busca-ic{position:absolute;left:14px;top:14px;color:var(--muted);pointer-events:none}.nv-busca-ic svg{width:20px;height:20px}
+.nv-sug{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:500;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 30px rgba(21,10,46,.16);overflow:hidden}
+.nv-sug button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 14px;border:0;background:none;cursor:pointer;font:inherit}
+.nv-sug button+button{border-top:1px solid var(--line)}
+.nv-sug button[aria-selected="true"],.nv-sug button:hover{background:#f3ecff}
+.nv-sug span{display:flex;flex-direction:column}.nv-sug b{font-size:14px;color:var(--deep)}.nv-sug small{font-size:12px;color:var(--muted)}
+.nv-resumo{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;font-size:14px;color:var(--muted)}
+.nv-resumo:empty{display:none}
+.nv-resumo b{font-size:20px;font-weight:800;color:var(--purple);margin-right:3px}
+.nv-datas{flex-basis:100%;font-weight:600}
+.nv-otimizar{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--deep);font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.nv-otimizar svg{width:17px;height:17px;color:var(--purple)}
+.nv-acoes .btn{width:100%;height:52px;font-size:16px}
+.nv-mapa-col{position:sticky;top:24px}
+.nv-mapa{position:relative;height:520px;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:var(--white)}
+.nv-mapa canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab}
+@media (max-width:1023px){
+  .nv-wrap{padding:18px 16px 120px}
+  .nv-h1{font-size:28px}
+  .nv-regioes,.nv-cats{flex-wrap:nowrap;overflow-x:auto;margin-left:-16px;margin-right:-16px;padding:0 16px;scrollbar-width:none}
+  .nv-regioes::-webkit-scrollbar,.nv-cats::-webkit-scrollbar{display:none}
+  .nv-regioes button{padding:0 12px}
+  .nv-cats button{flex:none}
+  .nv-vazio{flex:1 0 100%}
+  .nv-prontos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 16px;margin:0 -16px 26px;padding:2px 16px 8px;scrollbar-width:none}
+  .nv-prontos::-webkit-scrollbar{display:none}
+  .nv-pronto{flex:0 0 200px;scroll-snap-align:start}
+  .nv-builder{grid-template-columns:1fr}
+  .nv-mapa-col{position:static;order:-1}
+  .nv-mapa{height:300px;border-radius:20px}
+  .nv-form{padding:18px 16px}
+  .nv-linha{grid-template-columns:1fr}
+  .nv-parada{flex-wrap:wrap}
+  .nv-parada-txt{flex:1 1 calc(100% - 80px)}
+  .nv-noites{margin-left:36px}
+  .nv-ordem{margin-left:auto}
+}
+/* importar roteiro */
+.im{position:fixed;inset:0;margin:auto;height:fit-content;width:min(560px,calc(100vw - 32px));max-height:calc(100vh - 48px);overflow:auto;border:0;border-radius:24px;padding:28px;background:var(--white);color:var(--deep);box-shadow:0 30px 80px rgba(41,7,86,.25)}
+.im::backdrop{background:rgba(41,7,86,.45)}
+.im-x{position:absolute;top:14px;right:14px;width:40px;height:40px;border:0;border-radius:50%;background:#f6f1fd;color:var(--deep);display:grid;place-items:center;cursor:pointer}.im-x svg{width:20px;height:20px}
+.im-h{font-size:24px;font-weight:800;margin:0 48px 6px 0}
+.im-sub{color:var(--muted);font-size:15px;line-height:1.5;margin:0 0 18px}
+.im-drop{display:flex;align-items:center;gap:14px;padding:18px;border:1.5px dashed #cdb6f0;border-radius:18px;background:#faf7ff;cursor:pointer;transition:background .2s ease,border-color .2s ease}
+.im-drop:hover,.im-drop.on{background:#f3ebff;border-color:var(--purple)}
+.im-drop input{position:absolute;width:1px;height:1px;opacity:0}
+.im-drop:focus-within{outline:2px solid var(--purple);outline-offset:2px}
+.im-drop svg{width:30px;height:30px;color:var(--purple);flex:none}
+.im-drop span{display:flex;flex-direction:column;gap:2px;min-width:0}.im-drop b{font-size:15px}.im-drop small{font-size:13px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.im-campo{display:flex;flex-direction:column;gap:6px;margin-top:16px}.im-campo>span{font-size:13px;font-weight:700;color:var(--muted)}
+.im-campo textarea{resize:vertical;min-height:120px;font:inherit;font-size:14px;line-height:1.5;padding:12px 14px}
+.im-res:empty{display:none}.im-res{margin-top:16px}
+.im-lendo{font-size:14px;color:var(--muted);margin:0}
+.im-ok{display:flex;flex-direction:column;gap:3px;padding:14px 16px;border-radius:16px;background:#f6f1fd}.im-ok b{font-size:16px}.im-ok small{font-size:13px;color:var(--muted)}
+.im-lista{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.im-lista li{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--line);border-radius:14px}
+.im-lista span{display:flex;flex-direction:column;flex:1;min-width:0}.im-lista b{font-size:15px}.im-lista small{font-size:12px;color:var(--muted)}
+.im-lista em{font-style:normal;font-size:13px;font-weight:700;color:var(--purple);flex:none}
+.im-aviso{display:flex;gap:8px;align-items:flex-start;font-size:14px;line-height:1.45;color:#8a4b00;background:#fff6e8;border-radius:12px;padding:10px 12px;margin:10px 0 0}.im-aviso svg{width:18px;height:18px;flex:none;margin-top:1px}
+.im-usar{width:100%;margin-top:14px}
+.im-dica{font-size:13px;color:var(--muted);text-align:center;margin:8px 0 0}
+.im-acoes{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+.im.lido .im-acoes{display:none}
+@media (max-width:600px){.im{padding:22px 16px;border-radius:20px}.im-h{font-size:21px}.im-acoes .btn{flex:1}}
+</style>
+</head>
+<body>
+<div class="nv-content">
+  <div class="nv-wrap">
+    <section id="nova" aria-labelledby="nova-titulo"></section>
+  </div>
+</div>
+<script src="/assets/explorar-nav.js" data-page="viagens" data-shell="sim"></script>
+<script src="/assets/comunidade.js"></script>
+<script src="/assets/roteiros-prontos.js"></script>
+<script src="/assets/globe-land.js"></script>
+<script src="/assets/globo-ond.js"></script>
+<script src="/assets/nova-viagem.js"></script>
+<script src="/assets/importar-roteiro.js"></script>
+<script src="/assets/analytics.js" defer></script>
+</body>
+</html>

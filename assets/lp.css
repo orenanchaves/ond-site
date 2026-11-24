@@ -5,6 +5,7 @@
 .lm-bc{font-size:.85rem;color:var(--muted);padding:26px 0 10px}
 .lm-bc a{color:var(--muted);text-decoration:none}.lm-bc a:hover{color:var(--text)}
 .lm-hero{padding:14px 0 6px}
+.lm-hero-tx>h1:first-child{margin-top:18px}
 .lm-hero h1{font-size:clamp(2rem,5vw,3.1rem);font-weight:800;letter-spacing:-.03em;line-height:1.05}
 .lm-hero h1 em{font-style:normal;color:var(--purple-light,#b794ff)}
 .lm-hero>p{margin-top:16px;max-width:62ch;font-size:1.06rem;line-height:1.6;color:var(--muted)}

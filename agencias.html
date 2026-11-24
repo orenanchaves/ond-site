@@ -78,7 +78,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .header-logo-svg{height:42px;width:auto}
 .header-logo{flex:1 1 0;min-width:0;display:flex;align-items:center}
 .header-actions{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:flex-end;gap:12px}
-.header-badge{font-size:8px;font-weight:700;background:var(--blue);color:var(--ond-color-onPrimary);padding:2px 8px;border-radius:6px;letter-spacing:.07em;text-transform:uppercase;flex-shrink:0}
+.header-badge{font-size:10px;font-weight:700;background:var(--blue);color:var(--ond-color-onPrimary);padding:2px 8px;border-radius:6px;letter-spacing:.07em;text-transform:uppercase;flex-shrink:0}
 .header>nav{flex:0 0 auto;min-width:0}
 .header-nav{display:flex;gap:4px;list-style:none}
 .header-nav a{color:var(--muted);text-decoration:none;font-size:.84rem;font-weight:600;padding:6px 14px;border-radius:20px;transition:all .15s;white-space:nowrap}
@@ -991,6 +991,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
   .orb-cta-btn{width:58px;height:58px;border-radius:50%;background:var(--green);color:var(--on-green);flex-shrink:0;
     display:flex;align-items:center;justify-content:center;animation:orb-pulse 2.6s ease-out infinite}
   .orb-cta-btn .ic{width:26px;height:26px}
+  .orb-cta-label{transition:opacity .2s,transform .2s}
+  body.orb-rolou .orb-cta-label{opacity:0;transform:translateX(10px);pointer-events:none}
   /* orb é pequeno e canto direito; folga leve só pra respeitar a safe-area */
   body{padding-bottom:calc(20px + env(safe-area-inset-bottom))}
 }
@@ -2393,6 +2395,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   })
 })
 </script>
+<script>(function(){var t=function(){document.body.classList.toggle('orb-rolou',window.scrollY>500)};addEventListener('scroll',t,{passive:true});t()})()</script>
 <script src="/assets/vai-widget.js" defer></script>
 <script>
 (function () {

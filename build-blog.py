@@ -38,6 +38,10 @@ COVER_OVERRIDE = {
         'url':'https://ond-emails.pages.dev/social-html/fotos/br.jpg',
         'alt':'Cristo Redentor no Rio de Janeiro, ideia de viagem para o Dia dos Pais',
         'credit':'OND'},
+    'consciencia-negra-turismo': {
+        'url':'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Salvador_Casario_Pelourinho.jpg/1920px-Salvador_Casario_Pelourinho.jpg',
+        'alt':'Casario colorido do Pelourinho, em Salvador',
+        'credit':'Lalaisca, CC BY-SA 4.0, via Wikimedia Commons'},
     'baixa-temporada-agosto': {
         'url':'https://ond-emails.pages.dev/social-html/fotos/paisagem-praia.jpg',
         'alt':'Praia paradisíaca de Fernando de Noronha na baixa temporada',
@@ -406,7 +410,8 @@ def write_sitemap(meta):
              ('lua-de-mel/', '0.9', 'monthly'),
              ('excursoes/', '0.9', 'monthly'),
              ('blog.html', '0.7', 'weekly'),
-             ('viagens/', '0.9', 'weekly'), ('viagens/quando-viajar/', '0.8', 'monthly')]
+             ('viagens/', '0.9', 'weekly'), ('viagens/quando-viajar/', '0.8', 'monthly'),
+             ('explorar/', '0.9', 'weekly'), ('explorar/avaliacoes/', '0.8', 'weekly')]
     import glob as _g
     for d in sorted(_g.glob(os.path.join(ROOT, 'viagens', '*', 'index.html'))):
         slug = os.path.basename(os.path.dirname(d))
