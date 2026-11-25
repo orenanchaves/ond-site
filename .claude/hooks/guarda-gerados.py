@@ -18,8 +18,6 @@ GERADOS = [
      'build-destinos.py', 'a vitrine de destinos do backend (/api/showcase/destinations) e i18n/vitrine-textos.json'),
     (r'^blog/[^/]+/index\.html$',
      'build-blog.py', 'o .md em ond-conteudo/b2c/blog/, que vai para a API da Firma'),
-    (r'^agencias/planos/',
-     'build-agencias.py', 'os planos em agencias.html'),
     (r'^busca/index\.html$|^assets/busca\.json$',
      'build-busca.py', 'os destinos, os posts e as paginas fixas'),
     (r'^(en|es|fr|it)/index\.html$',

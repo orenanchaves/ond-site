@@ -2109,7 +2109,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
     <div class="pricing-head">
       <h2 class="section-title">Escolha o plano e comece agora</h2>
       <p class="section-sub" style="margin:0 auto">Contrate direto pela página. Sem reunião, sem espera: seu acesso chega por e-mail assim que o pagamento é confirmado.</p>
-      <p class="pricing-nota">O valor de cada plano aparece na contratação, antes de qualquer pagamento. <a href="/agencias/planos/">Ver o que cada plano inclui</a></p>
+      <p class="pricing-nota">O valor de cada plano aparece na contratação, antes de qualquer pagamento.</p>
     </div>
     <div class="plans-grid plans-grid-5">
       <div class="plan">
@@ -2340,7 +2340,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5% 2
       <h3>Agências</h3>
       <ul>
         <li><a href="https://calendly.com/renan-tech/30min" target="_blank" rel="noopener">Agendar reunião</a></li>
-        <li><a href="/agencias/planos/">Planos</a></li>
+        <li><a href="/agencias.html#planos">Planos</a></li>
         <li><a href="/agencias-app.html">Ver demonstração</a></li>
       </ul>
     </div>
@@ -2549,7 +2549,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     });
   });
 
-  // chegou por /agencias/planos/ com o plano escolhido: abre a contratacao ja nele
+  // chegou com ?plano= na URL: abre a contratacao ja nele
   (function(){
     var cod = (new URLSearchParams(location.search)).get('plano');
     if (!cod) return;
