@@ -52,3 +52,9 @@
 [data-theme="light"] .langsel-menu a{color:var(--text)}
 [data-theme="light"] .lg-live,[data-theme="light"] .ret-badge.now{color:#00662b}
 [data-theme="light"] .lg-lead-hot{color:#a3170f}
+
+/* Menu do viajante com Excursões e Lua de mel: abaixo de 1180px não cabe ao lado do logo e das ações */
+@media(max-width:1180px){
+  header:has(.header-nav a[href="/excursoes/"]) .header-nav{display:none}
+  header:has(.header-nav a[href="/excursoes/"]) .header-menu-btn{display:block}
+}
