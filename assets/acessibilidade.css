@@ -58,3 +58,9 @@
   header:has(.header-nav a[href="/excursoes/"]) .header-nav{display:none}
   header:has(.header-nav a[href="/excursoes/"]) .header-menu-btn{display:block}
 }
+
+/* Redes do OND no rodapé, abaixo da frase da marca */
+.footer-social{display:flex;gap:10px;margin-top:14px}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid var(--border);border-radius:50%;color:var(--muted);transition:color .2s,border-color .2s}
+.footer-social a:hover{color:var(--text);border-color:var(--text)}
+.footer-social svg{width:16px;height:16px}
