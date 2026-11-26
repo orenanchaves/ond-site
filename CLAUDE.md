@@ -16,7 +16,6 @@ Editar à mão só o que é fonte. O resto é saída de script e some no próxim
 | `proposta/<slug>/`, `cliente/<slug>/` | à mão, uma pasta por cliente |
 | fichas do catálogo, `viagens/<slug>/`, `en/`, `es/`, `fr/` e `it/viagens/` | `build-destinos.py`, a partir da vitrine do backend (`/api/showcase/destinations`) |
 | `blog/<slug>/`, cards e categorias do `blog.html` | `build-blog.py` |
-| `agencias/planos/` | `build-agencias.py` |
 | `busca/` e `assets/busca.json` | `build-busca.py` |
 | `en/`, `es/`, `fr/`, `it/` | `build-i18n-home.py` |
 | `edicoes/<slug>/`, `edicoes/registro.json` e `assets/edicoes-config.json` | `build-edicoes.py` |

@@ -466,7 +466,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
       "email": "renan@ondviajar.com.br",
       "sameAs": [
         "https://play.google.com/store/apps/details?id=com.agamatec.ond",
-        "https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427"
+        "https://apps.apple.com/br/app/ond-planejador-de-viagem/id6758392427",
+        "https://www.instagram.com/ondviajar",
+        "https://www.tiktok.com/@ondviajar",
+        "https://www.youtube.com/@ondviajar",
+        "https://www.linkedin.com/company/ondviajar/"
       ]
     },
     {
@@ -1200,11 +1204,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 
 <!-- HEADER -->
 <header class="header">
-  <a href="index.html" class="header-logo" aria-label="OND, página inicial">
+  <a href="/" class="header-logo" aria-label="OND, página inicial">
     <svg class="header-logo-svg" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
   </a>
   <nav><ul class="header-nav">
     <li><a href="/viagens/">Viagens</a></li>
+    <li><a href="/excursoes/">Excursões</a></li>
+    <li><a href="/lua-de-mel/">Lua de mel</a></li>
     <li><a href="#como-funciona">Como funciona</a></li>
     <li><a href="/blog.html">Blog</a></li>
     <li><a href="#" onclick="openContact(event)">Contato</a></li>
@@ -1226,6 +1232,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 </header>
 <nav class="mobile-nav" id="mobileNav">
   <a href="/viagens/" onclick="closeMenu()">Viagens</a>
+  <a href="/excursoes/" onclick="closeMenu()">Excursões</a>
+  <a href="/lua-de-mel/" onclick="closeMenu()">Lua de mel</a>
   <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
   <a href="/blog.html" onclick="closeMenu()">Blog</a>
   <a href="#" onclick="openContact(event);closeMenu()">Contato</a>
@@ -1405,6 +1413,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     <div class="footer-brand">
       <svg class="footer-logo-svg" viewBox="0 0 951.32 497.26" xmlns="http://www.w3.org/2000/svg"><use href="#ond-logo"/></svg>
       <p>Organize, planeje e compre sua viagem com o OND!<br>Passagens, hospedagem e passeios.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/ondviajar" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.6"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.tiktok.com/@ondviajar" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.68c.27 0 .53.04.77.12V9.69a5.72 5.72 0 1 0 4.9 5.66V9.01a7.35 7.35 0 0 0 4.29 1.37V7.3a4.29 4.29 0 0 1-3.22-1.48z"/></svg></a>
+        <a href="https://www.youtube.com/@ondviajar" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.58 7.19a2.76 2.76 0 0 0-1.94-1.95C17.9 4.77 12 4.77 12 4.77s-5.9 0-7.64.47A2.76 2.76 0 0 0 2.42 7.19 28.9 28.9 0 0 0 1.95 12a28.9 28.9 0 0 0 .47 4.81 2.76 2.76 0 0 0 1.94 1.95c1.74.47 7.64.47 7.64.47s5.9 0 7.64-.47a2.76 2.76 0 0 0 1.94-1.95A28.9 28.9 0 0 0 22.05 12a28.9 28.9 0 0 0-.47-4.81zM10.1 15.3V8.7l5.7 3.3z"/></svg></a>
+        <a href="https://www.linkedin.com/company/ondviajar/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+      </div>
     </div>
     <div class="footer-col">
       <h3>Viajantes</h3>
