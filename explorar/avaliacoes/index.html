@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#f8f6fc">
+<script src="/assets/tema-app.js"></script>
+<script src="/assets/idioma-app.js"></script>
+<title>Guia | OND</title>
+<meta name="description" content="Hotéis, restaurantes, atrações e passeios avaliados por viajantes do OND. Leve o que gostar para a sua viagem.">
+<link rel="canonical" href="https://ondviajar.com.br/explorar/avaliacoes/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OND">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://ondviajar.com.br/explorar/avaliacoes/">
+<meta property="og:title" content="Guia | OND">
+<meta property="og:description" content="Hotéis, restaurantes, atrações e passeios avaliados por viajantes do OND. Leve o que gostar para a sua viagem.">
+<meta property="og:image" content="https://ondviajar.com.br/assets/og-ond.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/assets/ond-symbol.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/tokens/ond-core.css">
+<link rel="stylesheet" href="/tokens/ond-b2c.css">
+<link rel="stylesheet" href="/assets/explorar-nav.css">
+<script src="/assets/edicoes-faixa.js" defer></script>
+<link rel="stylesheet" href="/assets/comunidade.css">
+<link rel="stylesheet" href="/assets/explorar-escuro.css">
+<link rel="stylesheet" href="/assets/avaliacoes.css">
+</head>
+<body>
+<div class="nv-content">
+  <div class="wrap av-wrap" id="avaliacoes">
+    <header class="av-head">
+      <div class="av-head-txt">
+        <h1>Guia</h1>
+        <p>Hotéis, restaurantes, atrações e passeios avaliados por quem já foi. Gostou de algum? Leve para a sua viagem.</p>
+      </div>
+      <button type="button" class="btn btn-primary av-avaliar-btn" data-av-avaliar="" data-pede-conta="avaliar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></svg>Avaliar um lugar</button>
+    </header>
+    <div class="tabs av-tabs" role="tablist" aria-label="Tipo">
+      <button class="tab on" role="tab" aria-selected="true" data-cat="lugar">Atrações</button>
+      <button class="tab" role="tab" aria-selected="false" data-cat="passeio">Passeios</button>
+      <button class="tab" role="tab" aria-selected="false" data-cat="restaurante">Restaurantes</button>
+      <button class="tab" role="tab" aria-selected="false" data-cat="hotel">Hotéis</button>
+    </div>
+    <div class="av-filter">
+      <label class="av-search"><span id="av-lupa"></span><input type="search" id="av-busca" placeholder="Buscar cidade ou lugar" autocomplete="off" aria-label="Buscar cidade ou lugar"></label>
+      <div class="chips av-cities" id="av-cidades" aria-label="Cidade"></div>
+    </div>
+    <div class="av-grid" id="av-lista" aria-live="polite"></div>
+  </div>
+</div>
+
+<div class="scrim"></div>
+
+<script src="/assets/explorar-nav.js" data-page="avaliacoes" data-shell="sim"></script>
+<script src="/assets/comunidade.js"></script>
+<script src="/assets/comunidade-exemplo.js"></script>
+<script src="/assets/roteiros-exemplo.js"></script>
+<script src="/assets/viagens-criadas.js"></script>
+<script src="/assets/avaliacoes-exemplo.js"></script>
+<script src="/assets/adicionar-viagem.js"></script>
+<script src="/assets/avaliacoes.js"></script>
+</body>
+</html>

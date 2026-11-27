@@ -123,6 +123,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <style id="transicao-suave">@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.45s;animation-timing-function:ease}body{animation:pgIn .45s ease backwards}@keyframes pgIn{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){body{animation:none}::view-transition-old(root),::view-transition-new(root){animation:none}}</style>
 <style id="vg-blog">.vg-blog{padding-top:44px;padding-bottom:10px}.vg-blog-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}.vg-blog h2{font-size:clamp(1.4rem,2.6vw,2rem);letter-spacing:-.02em}.vg-blog-todos{color:var(--text);font-weight:700;font-size:.9rem;text-decoration:none;border-bottom:1px solid var(--border)}.vg-blog-l{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:18px 0 0;padding:0}.vg-blog-l a{display:block;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px 18px;color:var(--text);text-decoration:none;font-weight:700;line-height:1.35;transition:border-color .2s}.vg-blog-l a:hover{border-color:var(--purple)}</style>
 <link rel="stylesheet" href="/assets/acessibilidade.css">
+<link rel="stylesheet" href="/assets/explorar-nav.css">
 </head>
 <body>
 
@@ -329,5 +330,6 @@ document.addEventListener('click',function(e){
 <script src="/assets/cotar.js" defer></script>
 <script src="/assets/analytics.js" defer></script>
 <script src="/assets/busca.js" defer></script>
+<script src="/assets/explorar-nav.js" data-page="loja" data-shell="sim" data-wrap="sim"></script>
 </body>
 </html>

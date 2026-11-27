@@ -464,6 +464,7 @@ def pagina(d, idioma, T, cab, rod, rel, outros, css):
 <style id="a11y-base">:root{{color-scheme:dark}}[data-theme="light"]{{color-scheme:light}}html{{scroll-padding-top:90px}}a,button,summary{{touch-action:manipulation}}.skip{{position:absolute;left:12px;top:-60px;z-index:100000;background:var(--purple,#7f11f4);color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;transition:top .2s}}.skip:focus{{top:12px}}</style>
 {css}
 <script src="/assets/ond-logo.js" defer></script>
+<link rel="stylesheet" href="/assets/explorar-nav.css">
 </head>
 <body>
 <a class="skip" href="#conteudo">{e(T['pular'][idioma])}</a>
@@ -495,6 +496,7 @@ def pagina(d, idioma, T, cab, rod, rel, outros, css):
 <script src="/assets/busca.js" defer></script>
 {rod}
 <script src="/assets/analytics.js" defer></script>
+<script src="/assets/explorar-nav.js" data-page="loja" data-shell="sim" data-wrap="sim"></script>
 </body>
 </html>
 """

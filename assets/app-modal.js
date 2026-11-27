@@ -92,6 +92,7 @@
     document.addEventListener('click', function(e){
       var link = e.target.closest && e.target.closest('a[href^="https://web.ondviajar.com.br"]');
       if(!link) return;
+      if(window.ondOpenVai && /\/ond-vai/.test(link.href) && !link.hasAttribute('data-loja')) return; // casca do app: o vAI abre aqui dentro
       e.preventDefault(); e.stopPropagation();
       var url = withLandingContext(new URL(link.href)), store = isIOS ? APPSTORE : PLAY, done = false;
       function go(href){ if(done) return; done = true; location.href = href; }

@@ -41,7 +41,7 @@ a{color:inherit}
 .logo{height:46.8px;width:auto}
 .tag{font-weight:800;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#0d0d14;background:var(--neon);border-radius:999px;padding:8px 14px}
 .hero > .wrap{position:relative;z-index:2;padding-block:0 28px;width:100%}
-.para{font-weight:800;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--neon)}
+.para{font-weight:800;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--neon);text-transform:none;letter-spacing:0;margin-top:12px}
 h1{margin-top:8px;font-weight:800;font-size:clamp(38px,9vw,64px);line-height:.95;letter-spacing:-1.5px}
 .chips{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
 .chips span{font-weight:700;font-size:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:7px 14px}
@@ -421,7 +421,10 @@ img.av{object-fit:cover}
 .barra .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px calc(12px + env(safe-area-inset-bottom))}
 .barra .i{min-width:0}
 .barra .i small{display:block;font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.barra .i b{display:block;font-size:19px;font-weight:800;white-space:nowrap}
+.barra .i b{display:block;font-size:19px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.barra .cta,.barra a{flex:none}
+body.expired .barra .i small{white-space:normal}
+body.expired .barra .i b{font-size:15px;white-space:normal}
 .cta{flex:0 0 auto;font-weight:800;font-size:16px;color:#0d0d14;background:var(--neon);border-radius:999px;padding:14px 22px;text-decoration:none;white-space:nowrap}
 @media (max-width:420px){.op .linha{flex-direction:column}.op .thumb{width:100%;height:150px}.op .p{text-align:left}.op .radio{display:none}.ideias{grid-template-columns:1fr}}
 
@@ -649,10 +652,10 @@ h2{font-size:46px;letter-spacing:-1px}
 </svg>
 </div></div>
   <div class="wrap">
-    <div class="para">Para a Raquel</div>
     <h1>Oceania e Ásia<br>em 24 noites</h1>
     <div class="quando">9 de fevereiro a 5 de março de 2027</div>
     <div class="resumo-viagem">10 países · de Auckland a Tóquio · saída&nbsp;de&nbsp;São&nbsp;Paulo</div>
+    <div class="para">Para a Raquel</div>
     <div class="validade">Proposta válida por <b id="contagem">até 15/10</b></div>
     <nav class="hero-paises" aria-label="Ir para um país"><a href="#hoteis" data-ir="akl">Nova Zelândia</a><a href="#hoteis" data-ir="syd">Austrália</a><a href="#hoteis" data-ir="sin">Singapura</a><a href="#hoteis" data-ir="kul">Malásia</a><a href="#hoteis" data-ir="bkk">Tailândia</a><a href="#hoteis" data-ir="rep">Camboja</a><a href="#hoteis" data-ir="han">Vietnã</a><a href="#hoteis" data-ir="pek">China</a><a href="#hoteis" data-ir="sel">Coreia do Sul</a><a href="#hoteis" data-ir="tyo">Japão</a></nav>
   </div>
@@ -660,7 +663,6 @@ h2{font-size:46px;letter-spacing:-1px}
 
 <main>
   <section class="wrap" id="opcoes">
-    <div class="rot">Passo 1</div>
     <h2>Escolha <em>a opção</em></h2>
     <div class="abas pax" id="paxSel" role="group" aria-label="Quantas pessoas viajam"><button type="button" data-pax="2" class="on">2 pessoas</button><button type="button" data-pax="1">1 pessoa</button></div>
         
@@ -674,7 +676,6 @@ h2{font-size:46px;letter-spacing:-1px}
   </section>
 
   <section class="wrap" id="pagamento">
-    <div class="rot">Passo 2</div>
     <h2>Escolha <em>como pagar</em></h2>
     <div class="pag">
       <div class="abas"><button type="button" data-forma="cartao" class="on">Cartão · até 10x</button><button type="button" data-forma="pix">Pix à vista · desconto</button></div>
@@ -688,7 +689,6 @@ h2{font-size:46px;letter-spacing:-1px}
   </section>
 
   <section class="wrap" id="plus">
-    <div class="rot">Plus, sem custo</div>
     <h2>O app OND <em>vai junto</em></h2>
     <div class="duas"><div class="col-a">
     <p class="cal-sub">Incluído nas duas opções. Os 10 países, os 11 voos, os hotéis e os passeios ficam no seu celular, num lugar só.</p>
@@ -710,7 +710,6 @@ h2{font-size:46px;letter-spacing:-1px}
   </section>
 
   <section class="wrap" id="vivencias">
-    <div class="rot">Ideias para o roteiro</div>
     <h2>O que você <em>vai viver</em></h2>
     <div class="ideias">
       <div class="ideia txt"><div><b>Auckland: a primeira cidade do dia</b><span>A Nova Zelândia é um dos primeiros lugares do mundo a ver o sol nascer. Da Sky Tower dá para ver os dois mares da cidade, e a ilha de Waiheke, com vinícolas, fica a 40 minutos de balsa.</span></div></div>
@@ -725,7 +724,6 @@ h2{font-size:46px;letter-spacing:-1px}
 
   <section class="wrap" id="hoteis">
     <style>.paises{grid-template-columns:repeat(5,1fr);margin-top:16px}.paises button{font-size:14px;line-height:1.2;padding:11px 6px}@media(max-width:700px){.paises{display:flex;overflow-x:auto;scrollbar-width:none}.paises::-webkit-scrollbar{display:none}.paises button{flex:none;padding:11px 14px}}.pais-cab{margin-top:18px;padding:16px 18px;border:1px solid var(--borda);border-radius:16px;background:rgba(240,238,255,.04)}.pais-cab b{display:block;font-size:20px;font-weight:800}.pais-cab span{display:block;margin-top:4px;color:var(--neon);font-weight:700;font-size:14px}.pais-cab p{margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.5}.pais-cab .pp{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}.pais-cab .pp>div{background:#0d0d14;border:1px solid var(--borda);border-radius:12px;padding:10px 12px}.pais-cab .pp small{display:block;color:var(--muted);font-size:12px;font-weight:700}.pais-cab .pp b{display:block;font-size:20px;margin-top:2px}.pais-cab .pp i{font-style:normal;color:var(--muted);font-size:12px}#hoteis .ci strong.preco{display:block;margin-top:6px;font-size:18px;font-weight:800;color:#fff}.pais-nota{margin-top:14px;color:var(--muted);font-size:13px}</style>
-    <div class="rot">País a país</div>
     <h2>Escolha <em>o país</em></h2>
     <p class="cal-sub">Toque em cada país para ver as datas, como você chega, o hotel de cada opção e as atrações de lá.</p>
     <div class="abas paises" id="paises" role="tablist"><button type="button" data-pais="akl" class="on">Nova Zelândia</button><button type="button" data-pais="syd">Austrália</button><button type="button" data-pais="sin">Singapura</button><button type="button" data-pais="kul">Malásia</button><button type="button" data-pais="bkk">Tailândia</button><button type="button" data-pais="rep">Camboja</button><button type="button" data-pais="han">Vietnã</button><button type="button" data-pais="pek">China</button><button type="button" data-pais="sel">Coreia do Sul</button><button type="button" data-pais="tyo">Japão</button></div>
@@ -749,7 +747,6 @@ h2{font-size:46px;letter-spacing:-1px}
   
 
   <section class="wrap" id="resumo">
-    <div class="rot">Resumo</div>
     <h2>A proposta <em>em uma tela</em></h2>
     <div class="res-grade">
       <div class="res-card"><small>A viagem</small><b>Oceania e Ásia</b><p>9 de fevereiro a 5 de março de 2027, 24 noites em 10 países, de Auckland a Tóquio, saindo de São Paulo.</p></div>

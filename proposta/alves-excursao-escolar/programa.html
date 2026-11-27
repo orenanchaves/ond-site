@@ -41,7 +41,7 @@ a{color:inherit}
 .logo{height:46.8px;width:auto}
 .tag{font-weight:800;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#0d0d14;background:var(--neon);border-radius:999px;padding:8px 14px}
 .hero > .wrap{position:relative;z-index:2;padding-block:0 28px;width:100%}
-.para{font-weight:800;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--neon)}
+.para{font-weight:800;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--neon);text-transform:none;letter-spacing:0;margin-top:12px}
 h1{margin-top:8px;font-weight:800;font-size:clamp(38px,9vw,64px);line-height:.95;letter-spacing:-1.5px}
 .chips{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
 .chips span{font-weight:700;font-size:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:7px 14px}
@@ -675,17 +675,16 @@ h2{font-size:46px;letter-spacing:-1px}
 </svg><span class="alves-txt"><b>Alves</b><small>Limited</small></span></span>
 </div></div>
   <div class="wrap">
-    <div class="para">Programa de Experiência Internacional</div>
     <h1>Excursão escolar<br>na Europa</h1>
     <div class="quando">05 a 15 de julho de 2027</div>
     <div class="resumo-viagem">10 noites · 10 alunos de 13 a 17 anos · saída&nbsp;de&nbsp;São&nbsp;Paulo</div>
+    <div class="para">Programa de Experiência Internacional</div>
     <div class="validade">Proposta válida por <b id="contagem">até 08/10</b></div>
   </div>
 </header>
 
 <main>
   <section class="wrap" id="opcoes">
-    <div class="rot">Passo 1</div>
     <h2>Escolha <em>a opção</em></h2>
     <div class="abas grupos" id="grupos"><button type="button" data-grupo="londres" class="on">Londres</button><button type="button" data-grupo="madri" class="">Madri</button></div>
     <div class="abas pacotes" id="pacotes"><button type="button" data-pacote="todas" class="on">Todas</button><button type="button" data-pacote="completa" class="">Completa</button><button type="button" data-pacote="essencial" class="">Essencial</button></div>
@@ -699,7 +698,6 @@ h2{font-size:46px;letter-spacing:-1px}
   </section>
 
   <section class="wrap" id="pagamento">
-    <div class="rot">Passo 2</div>
     <h2>Escolha <em>como pagar</em></h2>
     <div class="pag">
       <div class="abas"><button type="button" data-forma="cartao" class="on">Cartão · até 10x</button><button type="button" data-forma="pix">Pix à vista · desconto</button></div>
@@ -713,7 +711,6 @@ h2{font-size:46px;letter-spacing:-1px}
   </section>
 
   <section class="wrap" id="plus">
-    <div class="rot">Plus, sem custo</div>
     <h2>O app OND <em>vai junto</em></h2>
     <div class="duas"><div class="col-a">
     <p class="cal-sub">Incluído em todas as opções. Cada aluno leva no celular o que normalmente fica com o guia ou numa pasta de papel.</p>
@@ -735,7 +732,6 @@ h2{font-size:46px;letter-spacing:-1px}
   </section>
 
   <section class="wrap" id="vivencias">
-    <div class="rot">Ideias para o roteiro</div>
     <h2>O que os alunos <em>vão viver</em></h2>
     <div class="ideias">
       <div class="ideia txt"><div><b>Londres: o circuito dos museus</b><span>British Museum, Natural History e Science Museum têm entrada gratuita. Dá para encher três manhãs sem gastar ingresso.</span></div></div>
@@ -749,7 +745,6 @@ h2{font-size:46px;letter-spacing:-1px}
 
 
   <section class="wrap" id="passeios">
-    <div class="rot">Passeios e ingressos</div>
     <h2>Os passeios <em>do roteiro</em></h2>
     <p class="cal-sub">Preço por aluno, reservado junto com a viagem e pago no mesmo link. Estes cinco já estão na opção Completa e não estão incluídos na Essencial. O catálogo tem mais opções que estas cinco, e a lista acompanha a cidade escolhida lá em cima.</p>
     <div class="psg" data-cidade="londres"><div class="pcard"><img src="psg-lon-harry-potter.jpg" alt="Tour do Harry Potter a pé" loading="lazy"><div class="pb"><b>Tour do Harry Potter a pé</b><span>Os cenários do mundo mágico nos pontos reais da cidade, a pé.</span><i>R$ 124,50</i></div></div><div class="pcard"><img src="psg-lon-cruzeiro-tamisa.jpg" alt="Cruzeiro pelo Tâmisa, de Westminster a Greenwich" loading="lazy"><div class="pb"><b>Cruzeiro pelo Tâmisa, de Westminster a Greenwich</b><span>Do Parlamento até o meridiano, vendo a cidade pela água.</span><i>R$ 143,77</i></div></div><div class="pcard"><img src="psg-lon-big-bus.jpg" alt="Ônibus turístico Big Bus" loading="lazy"><div class="pb"><b>Ônibus turístico Big Bus</b><span>Sobe e desce o dia inteiro. Resolve distância com grupo grande.</span><i>R$ 267,39</i></div></div><div class="pcard"><img src="psg-lon-torre-de-londres.jpg" alt="Ingresso da Torre de Londres" loading="lazy"><div class="pb"><b>Ingresso da Torre de Londres</b><span>A fortaleza normanda, as joias da coroa e os corvos.</span><i>R$ 309,26</i></div></div><div class="pcard"><img src="psg-lon-london-eye.jpg" alt="London Eye, ingresso flexível sem fila" loading="lazy"><div class="pb"><b>London Eye, ingresso flexível sem fila</b><span>Londres inteira de 135 metros de altura, sem hora marcada.</span><i>R$ 359,36</i></div></div><div class="ptot">Os cinco juntos: <b>R$ 1.204,28</b> por aluno.</div></div>
@@ -779,7 +774,6 @@ h2{font-size:46px;letter-spacing:-1px}
   
 
   <section class="wrap" id="resumo">
-    <div class="rot">Resumo</div>
     <h2>A proposta <em>em uma tela</em></h2>
     <div class="res-grade">
       <div class="res-card"><small>A viagem</small><b>Londres ou Madri</b><p>05 a 15 de julho de 2027, 10 noites, 10 alunos de 13 a 17 anos, saindo de São Paulo em voo direto da LATAM com bagagem despachada.</p></div>

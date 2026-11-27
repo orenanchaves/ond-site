@@ -29,7 +29,9 @@
       var valor = parseInt(hex.substr(posicao, 2), 16) / 255;
       return valor <= 0.03928 ? valor / 12.92 : Math.pow((valor + 0.055) / 1.055, 2.4);
     });
-    return 0.2126 * canais[0] + 0.7152 * canais[1] + 0.0722 * canais[2] > 0.4 ? '#1E1E1E' : '#FFFFFF';
+    var lum = 0.2126 * canais[0] + 0.7152 * canais[1] + 0.0722 * canais[2];
+    /* escolhe o texto com mais contraste: branco ganha só abaixo de 0,18 de luminância */
+    return (1.05 / (lum + 0.05)) >= ((lum + 0.05) / 0.0631) ? '#FFFFFF' : '#120821';
   }
 
   function cor(valor, padrao) {
@@ -83,7 +85,10 @@
       '.ond-ed-cid{color:rgba(255,255,255,.75)}.ond-ed-data{color:#fff;font-weight:600}' +
       '.ond-ed-cta{background:var(--ond-ed-pri);color:var(--ond-ed-pri-txt);font-weight:800;border-radius:50px;padding:6px 14px;' +
       'text-decoration:none;white-space:nowrap}.ond-ed-cta:hover{filter:brightness(1.07)}' +
-      '@media(max-width:600px){.ond-ed-cid{display:none}}';
+      '@media(max-width:600px){.ond-ed-cid{display:none}' +
+      '.ond-ed{flex-wrap:nowrap;justify-content:flex-start;gap:10px;padding:8px 16px;font-size:14px}' +
+      '.ond-ed-tit{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}' +
+      '.ond-ed-data{white-space:nowrap}.ond-ed-cta{padding:6px 12px;font-size:13px}}';
     document.head.appendChild(estilo);
 
     var faixa = document.createElement('aside');
@@ -94,10 +99,7 @@
     faixa.style.setProperty('--ond-ed-det', edicao.detalhe);
     faixa.style.setProperty('--ond-ed-pri-txt', contraste(edicao.primaria));
 
-    var selo = document.createElement('span');
-    selo.className = 'ond-ed-selo';
-    selo.textContent = emBreve ? textos.badgeUpcoming : textos.badge;
-    faixa.appendChild(selo);
+    /* sem selo em cima do título: a faixa abre direto pelo nome da edição */
 
     var destino = edicao.pagina || (emBreve ? edicao.link : '');
     var titulo = document.createElement(destino ? 'a' : 'span');

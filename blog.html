@@ -82,7 +82,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 
 /* ── BLOG HERO ── */
 .blog-hero{padding:60px 5% 44px;position:relative;overflow:hidden}
-.blog-hero::before{content:'';position:absolute;top:-120px;right:2%;width:620px;height:480px;background:radial-gradient(circle,color-mix(in srgb, var(--purple) 16%, transparent) 0%,transparent 70%);pointer-events:none}
+.blog-hero::before{content:'';position:absolute;top:-120px;right:2%;width:620px;height:480px;background:radial-gradient(closest-side,color-mix(in srgb, var(--purple) 16%, transparent) 0%,transparent 100%);pointer-events:none}
 .blog-hero-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:48px;position:relative}
 .blog-hero-text{flex:1;min-width:0;text-align:left}
 .blog-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--purple-dim);border:1px solid color-mix(in srgb, var(--purple) 30%, transparent);color:var(--purple-light);font-size:.74rem;font-weight:700;padding:6px 14px;border-radius:50px;margin-bottom:22px;letter-spacing:.08em;text-transform:uppercase;position:relative}
@@ -94,6 +94,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 @media(max-width:760px){
   .blog-hero-inner{flex-direction:column;align-items:flex-start;gap:26px}
   .blog-hero-img{width:100%;max-width:200px;align-self:center}
+  .blog-hero::before{right:-30%;width:120%;height:420px}
 }
 
 /* ── CATEGORIAS ── */
@@ -101,6 +102,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--ond-font-family-ba
 .cat-chip{background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:.85rem;font-weight:600;padding:8px 16px;border-radius:50px;cursor:pointer;transition:color .18s,border-color .18s,background .18s}
 .cat-chip:hover{color:var(--text);border-color:var(--purple)}
 .cat-chip.active{background:var(--purple);color:var(--ond-color-onPrimary);border-color:var(--purple)}
+@media(max-width:760px){.blog-cats{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding:0 16px 4px;scrollbar-width:none}.blog-cats::-webkit-scrollbar{display:none}.cat-chip{flex:none}}
 
 .blog-wrap{max-width:1280px;margin:0 auto;padding:44px 5% 0}
 .section-label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin-bottom:20px}
@@ -221,6 +223,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 </script>
 <style id="transicao-suave">@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.45s;animation-timing-function:ease}body{animation:pgIn .45s ease backwards}@keyframes pgIn{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){body{animation:none}::view-transition-old(root),::view-transition-new(root){animation:none}}</style>
 <link rel="stylesheet" href="/assets/acessibilidade.css">
+<link rel="stylesheet" href="/assets/explorar-nav.css">
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -263,7 +266,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
 <section class="blog-hero">
   <div class="blog-hero-inner">
     <div class="blog-hero-text">
-      <div class="blog-eyebrow"><span class="blog-eyebrow-dot"></span>Blog do OND</div>
       <h1 class="blog-title">Vai para <em>onde?</em></h1>
       <p class="blog-sub">Destinos, roteiros e dicas para tirar a viagem do papel, com o jeito OND de planejar: rápido, esperto e sem estresse.</p>
     </div>
@@ -449,7 +451,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 5% 3
     </a>
 
     <a href="/blog/consciencia-negra-turismo/" class="post-card" data-cat="dicas">
-      <div class="post-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pelourinho%2C%20Salvador%2C%20Bahia%2C%20Brazil.jpg?width=1300" alt="casario colorido do Pelourinho, em Salvador" loading="lazy"></div>
+      <div class="post-thumb"><img src="/assets/blog/consciencia-negra-turismo.jpg" alt="casario colorido do Pelourinho, em Salvador" loading="lazy"></div>
       <div class="post-body">
         <span class="post-tag tag-blue">Dicas</span>
         <h3 class="post-title">Consciência Negra: turismo de raízes e cultura afro-brasileira</h3>
@@ -715,5 +717,6 @@ function subscribe(e){
 <script src="assets/vai-widget.js" defer></script>
 <script src="/assets/analytics.js" defer></script>
 <script src="/assets/busca.js" defer></script>
+<script src="/assets/explorar-nav.js" data-page="blog" data-shell="sim" data-wrap="sim"></script>
 </body>
 </html>
