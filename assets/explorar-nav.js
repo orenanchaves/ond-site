@@ -104,6 +104,15 @@
     'Roteiro inteiro sem internet, com destinos e PDF', 'Áudio guia completo', 'Todos os modelos de imagem do passaporte', 'Suporte com prioridade'
   ];
   var PLANO_PLUS = ['30 roteiros do OND vAI por mês', 'Tudo o que o Premium tem', 'Compartilhar a viagem com até 10 pessoas', 'Venda seus roteiros na comunidade', 'Concierge com a equipe OND, de pessoa para pessoa', 'Acesso antes de todo mundo ao que for lançado'];
+  /* o benefício que mais vende a assinatura fica em destaque, fora da lista, no Premium e no Plus */
+  var IC_AVIAO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>';
+  var IC_ESCUDO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5.5c0 4.4 3 8 7 9.5 4-1.5 7-5.1 7-9.5V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>';
+  /* Premium: desconto no seguro viagem. Plus, o mais caro: desconto nas viagens e no seguro */
+  function destaquePlano(comViagens) {
+    /* cada desconto no seu próprio quadro */
+    return (comViagens ? '<div class="nv-pl-destaque viagens"><p>' + IC_AVIAO + '<span>Desconto nas viagens do OND</span></p></div>' : '') +
+      '<div class="nv-pl-destaque seguro"><p>' + IC_ESCUDO + '<span>Desconto em seguro viagem</span></p></div>';
+  }
   var IC_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
   var IC_TRAVA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
   function tagPlano() { var plano = window.OndPlano.plano(); return '<span class="nv-plano-tag' + (plano !== 'free' ? ' premium' : '') + '">' + ({ free: 'Free', premium: 'Premium', plus: 'Plus' })[plano] + '</span>'; }
@@ -122,9 +131,11 @@
             '<ul>' + PLANO_FREE.map(function (item) { return '<li class="' + (item[0] ? '' : 'trava') + '">' + (item[0] ? IC_OK : IC_TRAVA) + item[1] + '</li>'; }).join('') + '</ul>' +
             '<button type="button" class="nv-pl-btn linha" data-pl-free></button></section>' +
           '<section class="nv-pl nv-pl-premium"><h3>Premium</h3><p class="nv-pl-preco"><small>R$</small><b data-pl-valor></b><small>/mês</small></p><small class="nv-pl-nota" data-pl-nota></small>' +
+            destaquePlano(false) +
             '<ul>' + PLANO_PREMIUM.map(function (item) { return '<li>' + IC_OK + item + '</li>'; }).join('') + '</ul>' +
             '<button type="button" class="nv-pl-btn" data-planos-assinar="premium">Assinar o Premium</button></section>' +
           '<section class="nv-pl nv-pl-plus"><h3>Plus</h3><p class="nv-pl-preco"><small>R$</small><b data-pl-valor-plus></b><small>/mês</small></p><small class="nv-pl-nota" data-pl-nota-plus></small>' +
+            destaquePlano(true) +
             '<ul>' + PLANO_PLUS.map(function (item) { return '<li>' + IC_OK + item + '</li>'; }).join('') + '</ul>' +
             '<button type="button" class="nv-pl-btn linha" data-planos-assinar="plus">Assinar o Plus</button></section>' +
         '</div>' +
@@ -371,9 +382,42 @@
   function escapeHtml(text) { return String(text).replace(/[&<>"']/g, function (character) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]; }); }
   var input = search.querySelector('input');
   var results = search.querySelector('.nv-results');
+  /* viajantes na busca: os perfis da comunidade (por enquanto os personagens do OND). Na página
+     Destinos a comunidade não vem carregada, então os dois arquivos entram na primeira busca. */
+  var pedindoGente = false;
+  function carregarGente() {
+    if (window.OND_EXEMPLO || pedindoGente) return;
+    pedindoGente = true;
+    var lista = window.OndStore ? ['/assets/comunidade-exemplo.js'] : ['/assets/comunidade.js', '/assets/comunidade-exemplo.js'];
+    (function proximo() {
+      var src = lista.shift(); if (!src) { renderResults(); return; }
+      var tag = document.createElement('script'); tag.src = src; tag.onload = proximo; document.head.appendChild(tag);
+    })();
+  }
+  function gente(query) {
+    var base = window.OND_EXEMPLO && window.OND_EXEMPLO.people;
+    if (!base || !query) return [];
+    var termo = query.replace(/^@/, '');
+    if (!termo) return [];
+    var eu = window.ondConta && window.ondConta() ? window.ondConta().handle : '';
+    return Object.keys(base).filter(function (handle) {
+      return handle !== eu && (normalize(base[handle].name).indexOf(termo) >= 0 || normalize(handle).indexOf(termo) >= 0);
+    }).slice(0, 6).map(function (handle) { return base[handle]; });
+  }
+  function genteHtml(lista) {
+    if (!lista.length) return '';
+    return '<h4>VIAJANTES</h4>' + lista.map(function (pessoa, index) {
+      var foto = pessoa.photo ? '<img src="' + escapeHtml(pessoa.photo) + '" alt="">' : escapeHtml(pessoa.initials || '');
+      return '<a class="nv-result nv-result-gente" style="animation-delay:' + index * 30 + 'ms" href="/explorar/viajante/?u=' + encodeURIComponent(pessoa.handle) + '">' +
+        '<span class="nv-gente-av" style="background:' + escapeHtml(pessoa.color || '#7f11f4') + '">' + foto + '</span><div><b>' + escapeHtml(pessoa.name) + '</b><span>@' + escapeHtml(pessoa.handle) + '</span></div></a>';
+    }).join('');
+  }
   function renderResults() {
     if (!catalog) { results.innerHTML = '<p class="nv-empty">Carregando os destinos do OND.</p>'; return; }
     var query = normalize(input.value);
+    if (query) carregarGente();
+    var pessoas = gente(query);
+    if (query.charAt(0) === '@') { results.innerHTML = pessoas.length ? genteHtml(pessoas) : '<p class="nv-empty">Nenhum viajante encontrado.</p>'; return; }
     var cities = [], countries = [];
     if (!query) {
       /* foto local leve: a do catálogo chega a 25 MB */
@@ -399,8 +443,8 @@
       return firstStarts - secondStarts || (second.city.image ? 1 : 0) - (first.city.image ? 1 : 0);
     });
     cities = cities.slice(0, 24);
-    if (!cities.length) { results.innerHTML = '<p class="nv-empty">Nenhum destino encontrado.</p>'; return; }
-    results.innerHTML = '<h4>' + (query ? 'DESTINOS' : 'PARA COMEÇAR') + '</h4>' + cities.map(function (item, index) {
+    if (!cities.length) { results.innerHTML = pessoas.length ? genteHtml(pessoas) : '<p class="nv-empty">Nenhum destino encontrado.</p>'; return; }
+    results.innerHTML = genteHtml(pessoas) + '<h4>' + (query ? 'DESTINOS' : 'PARA COMEÇAR') + '</h4>' + cities.map(function (item, index) {
       var code = (item.city.unlocode || '').replace(/\s+/g, '') || item.city.name;
       return '<a class="nv-result" style="animation-delay:' + Math.min(index, 10) * 30 + 'ms" href="/explorar/destino/?cidade=' + encodeURIComponent(code) + '">' +
         '<img class="thumb" src="' + escapeHtml(item.city.image || '') + '" alt="" loading="lazy"><div><b>' + escapeHtml(item.city.name) + '</b>' +

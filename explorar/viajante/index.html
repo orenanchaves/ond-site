@@ -375,6 +375,21 @@ select.input{appearance:auto}
 .swatches button.on{box-shadow:0 0 0 3px var(--white),0 0 0 5.5px var(--deep)}
 #editar .input:focus{border-color:var(--purple);background:var(--white)}
 @media (max-width:900px){.avatars{grid-template-columns:repeat(5,1fr)}#editar>h2{padding:20px 20px 0}#editar>.field{padding:0 20px}.ed-preview{margin:14px 20px 4px}#editar .sheet-actions{padding:12px 20px}}
+/* viajantes para seguir */
+.vj-lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.vj-lista-col{grid-template-columns:1fr;margin-top:16px}
+.vj-card{display:flex;align-items:center;gap:12px;padding:14px;border-radius:18px;background:var(--white);border:1px solid var(--line);transition:border-color .25s,box-shadow .25s}
+.vj-card:hover{border-color:color-mix(in srgb,var(--purple) 35%,transparent);box-shadow:0 10px 26px rgba(41,7,86,.07)}
+.vj-link{display:flex;align-items:center;gap:12px;flex:1;min-width:0;color:inherit;text-decoration:none}
+.vj-tx{display:flex;flex-direction:column;min-width:0}
+.vj-tx b{font-size:15px;color:var(--deep)}
+.vj-tx small{font-size:12px;color:var(--muted)}
+.vj-comum{font-size:13px;line-height:1.35;color:var(--muted);margin-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.vj-seguir{flex:none}
+.vj-vazio{color:var(--muted);font-size:14px;line-height:1.5;margin:0}
+button.stat-seguindo{font:inherit;cursor:pointer;text-align:inherit;color:inherit;border-radius:10px;transition:background .2s}
+button.stat-seguindo:hover{background:color-mix(in srgb,var(--purple) 7%,transparent)}
+button.stat-seguindo span{text-decoration:underline;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,currentColor 35%,transparent)}
 </style>
 </head>
 <body>
@@ -454,10 +469,20 @@ select.input{appearance:auto}
     <div class="head-row"><h2 class="section-title">Resenhas</h2></div>
     <div id="resenhas"></div>
   </section>
+
+  <section class="block" id="bloco-viajantes" hidden>
+    <div class="head-row"><h2 class="section-title" id="vj-titulo">Viajantes para seguir</h2></div>
+    <div class="vj-lista" id="viajantes"></div>
+  </section>
 </div>
 </div>
 
 <div class="scrim"></div>
+<div class="sheet" id="seguindo-lista" role="dialog" aria-modal="true" aria-labelledby="seguindo-titulo">
+  <button class="x" data-close aria-label="Fechar"></button>
+  <h2 id="seguindo-titulo">Seguindo</h2>
+  <div class="vj-lista vj-lista-col" id="seguindo-corpo"></div>
+</div>
 <div class="sheet" id="detalhe" role="dialog" aria-modal="true" aria-labelledby="detalhe-titulo">
   <button class="x" data-close aria-label="Fechar"></button>
   <div id="detalhe-corpo"></div>

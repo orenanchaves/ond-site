@@ -2,6 +2,9 @@
    Sem ?u= é o perfil de quem está vendo (dono): carimbos e perfil ficam neste navegador até o servidor existir.
    Com ?u=handle mostra outro viajante (no protótipo, só os exemplos do localhost). */
 (function () {
+  function quantosSigo() { return Object.keys(OndStore.read('seguindo', {})).filter(isFollowing).length; }
+  /* "Lisboa, Porto e Paris" com o "e" do idioma da página */
+  function juntarNomes(lista) { var a = lista.slice(0, -1).join(', '), b = lista[lista.length - 1]; return window.OndIdioma ? OndIdioma.t('{a} e {b}', { a: a, b: b }) : a + ' e ' + b; }
   var handle = new URLSearchParams(location.search).get('u');
   /* meu: o perfil é meu (sem ?u=). previa: meu perfil como os outros veem (?previa), sem nada de dono. */
   var meu = !handle;
@@ -138,8 +141,12 @@
       : (OND_EXEMPLO ? Object.keys(OND_EXEMPLO.reviews).reduce(function (sum, code) { return sum + OND_EXEMPLO.reviews[code].filter(function (review) { return review.by === person.handle; }).length; }, 0) : 0) + avaliacoesDoGuia().length;
     var followers = (person.followers || 0) + (!meu && isFollowing(person.handle) ? 1 : 0);
     var cityCount = past.filter(function (stamp) { return stamp.city; }).length, countryCount = Object.keys(countries).length;
-    var values = [[countryCount, countryCount === 1 ? 'país' : 'países'], [cityCount, cityCount === 1 ? 'cidade' : 'cidades'], [reviewsCount, reviewsCount === 1 ? 'resenha' : 'resenhas'], [followers, followers === 1 ? 'seguidor' : 'seguidores'], [person.following || 0, 'seguindo']];
-    document.getElementById('stats').innerHTML = values.map(function (value) { return '<div class="stat"><b data-count="' + value[0] + '">0</b><span>' + value[1] + '</span></div>'; }).join('');
+    var values = [[countryCount, countryCount === 1 ? 'país' : 'países'], [cityCount, cityCount === 1 ? 'cidade' : 'cidades'], [reviewsCount, reviewsCount === 1 ? 'resenha' : 'resenhas'], [followers, followers === 1 ? 'seguidor' : 'seguidores'], [owner ? quantosSigo() : person.following || 0, 'seguindo']];
+    document.getElementById('stats').innerHTML = values.map(function (value) {
+      var abre = owner && value[1] === 'seguindo';
+      return abre ? '<button type="button" class="stat stat-seguindo" aria-label="Ver quem você segue"><b data-count="' + value[0] + '">0</b><span>' + value[1] + '</span></button>'
+        : '<div class="stat"><b data-count="' + value[0] + '">0</b><span>' + value[1] + '</span></div>';
+    }).join('');
     document.querySelectorAll('[data-count]').forEach(function (element) {
       var target = +element.dataset.count, start = performance.now();
       (function step(now) {
@@ -613,6 +620,66 @@
     globe = window.createOndGlobe(document.getElementById('globo'), { onPin: function (pin) { globe.flyTo(pin.latitude, pin.longitude, 2); } });
     applyProfile(); renderStamps(); renderPhotosAndReviews(); renderWishes();
   }).catch(function () { toast('O catálogo de destinos não carregou'); });
+  /* ── viajantes: sugestões de quem seguir e a lista de quem você segue ──
+     Enquanto o servidor não existe, as pessoas são os personagens do OND (comunidade-exemplo.js).
+     A afinidade é pelos lugares em comum com os seus carimbos. */
+  (function () {
+    var bloco = document.getElementById('bloco-viajantes');
+    if (!bloco || !OND_EXEMPLO) return;
+    var contaAtual = window.ondConta && window.ondConta();
+    var meuHandle = contaAtual ? contaAtual.handle : 'voce';
+    var meusCarimbos = meu ? stamps : (contaAtual && OND_EXEMPLO.stamps[contaAtual.handle]) || OndStore.read('carimbos', []);
+    function cidadesDe(lista) { var mapa = {}; (lista || []).forEach(function (stamp) { if (stamp.city && !isFuture(stamp)) mapa[normalizeText(stamp.city)] = stamp.city; }); return mapa; }
+    var minhas = cidadesDe(meusCarimbos);
+    function emComum(handle) {
+      var delas = cidadesDe(OND_EXEMPLO.stamps[handle]);
+      return Object.keys(delas).filter(function (key) { return minhas[key]; }).map(function (key) { return delas[key]; });
+    }
+    function juntar(lista) { return lista.length > 1 ? juntarNomes(lista) : lista[0] || ''; }
+    function pessoas() {
+      return Object.keys(OND_EXEMPLO.people).filter(function (handle) { return handle !== meuHandle && handle !== person.handle; })
+        .map(function (handle) { return { p: OND_EXEMPLO.people[handle], comum: emComum(handle) }; })
+        .sort(function (a, b) { return b.comum.length - a.comum.length; });
+    }
+    function cardHtml(item) {
+      var gente = item.p, seguindo = isFollowing(gente.handle);
+      var linha = item.comum.length ? 'Também esteve em ' + juntar(item.comum.slice(0, 3)) : (gente.style || '');
+      return '<div class="vj-card"><a class="vj-link" href="' + profileUrl(gente.handle) + '">' + avatarHtml(gente, 52) +
+        '<span class="vj-tx"><b>' + escapeHtml(gente.name) + '</b><small>@' + escapeHtml(gente.handle) + '</small><span class="vj-comum">' + escapeHtml(linha) + '</span></span></a>' +
+        (previa ? '' : '<button type="button" class="btn ' + (seguindo ? 'btn-line' : 'btn-primary') + ' btn-sm vj-seguir" data-vj="' + escapeHtml(gente.handle) + '">' + (seguindo ? 'Seguindo' : 'Seguir') + '</button>') + '</div>';
+    }
+    function render() {
+      var lista = pessoas();
+      bloco.hidden = !lista.length;
+      document.getElementById('vj-titulo').textContent = meu ? 'Viajantes para seguir' : 'Outros viajantes';
+      document.getElementById('viajantes').innerHTML = lista.map(cardHtml).join('');
+    }
+    render();
+
+    /* lista de quem você segue: abre pelo número "seguindo" do seu perfil */
+    function renderSeguindo() {
+      var handles = Object.keys(OndStore.read('seguindo', {})).filter(function (handle) { return isFollowing(handle) && OND_EXEMPLO.people[handle]; });
+      document.getElementById('seguindo-corpo').innerHTML = handles.length
+        ? handles.map(function (handle) { return cardHtml({ p: OND_EXEMPLO.people[handle], comum: emComum(handle) }); }).join('')
+        : '<p class="vj-vazio">Você ainda não segue ninguém. As sugestões ficam no fim do seu perfil, em Viajantes para seguir.</p>';
+    }
+    document.addEventListener('click', function (event) {
+      var botao = event.target.closest('.vj-seguir');
+      if (botao) {
+        var handle = botao.dataset.vj, gente = OND_EXEMPLO.people[handle], agora = !isFollowing(handle);
+        setFollowing(handle, agora);
+        var numero = document.querySelector('.stat-seguindo b');
+        if (numero) { numero.textContent = quantosSigo(); numero.dataset.count = quantosSigo(); }
+        toast(agora ? 'Agora você segue ' + gente.name : 'Você deixou de seguir ' + gente.name);
+        document.querySelectorAll('.vj-seguir[data-vj="' + handle + '"]').forEach(function (outro) {
+          outro.textContent = agora ? 'Seguindo' : 'Seguir';
+          outro.classList.toggle('btn-primary', !agora); outro.classList.toggle('btn-line', agora);
+        });
+        return;
+      }
+      if (owner && event.target.closest('.stat-seguindo')) { renderSeguindo(); openSheet('seguindo-lista'); }
+    });
+  })();
 })();
 
 /* capa do passaporte: fechado ao abrir a página; clique abre, o botão da página de dados fecha */
@@ -844,4 +911,5 @@
     exemplo.onload = render;
     document.head.appendChild(exemplo);
   }
+
 })();

@@ -130,8 +130,8 @@ body.nv-shell .nv-content{margin-left:248px}
 
 /* transição ao abrir um destino: a foto do cartão cresce até virar a capa */
 @view-transition{navigation:auto}
-::view-transition-group(root){animation-duration:.32s}
-::view-transition-group(destino-capa){animation-duration:.55s;animation-timing-function:cubic-bezier(.22,1,.36,1);border-radius:24px;overflow:hidden}
+::view-transition-group(root){animation-duration:.45s}
+::view-transition-group(destino-capa){animation-duration:.65s;animation-timing-function:cubic-bezier(.22,1,.36,1);border-radius:24px;overflow:hidden}
 ::view-transition-old(destino-capa),::view-transition-new(destino-capa){height:100%;width:100%;object-fit:cover;animation:none}
 ::view-transition-old(destino-capa){display:none}
 @media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}
@@ -228,7 +228,11 @@ p{text-wrap:pretty}
 html.nv-vt-busca .nv-search{transition:none}
 ::view-transition-group(nv-busca){animation-duration:.42s;animation-timing-function:cubic-bezier(.22,1,.36,1)}
 ::view-transition-old(nv-busca),::view-transition-new(nv-busca){height:100%;object-fit:fill}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.3s}
+/* troca de página mais suave: a antiga só esmaece, a nova entra devagar e sobe 6px */
+::view-transition-old(root){animation:nv-vt-sai .26s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:nv-vt-entra .45s cubic-bezier(.22,1,.36,1) .05s both}
+@keyframes nv-vt-sai{to{opacity:0}}
+@keyframes nv-vt-entra{from{opacity:0;transform:translateY(6px)}}
 
 /* OND vAI integrado */
 .nv-vai{position:fixed;z-index:60;top:0;right:0;bottom:0;left:248px;display:flex;flex-direction:column;background:var(--ond-color-bg,#f8f6fc);opacity:0;transform:translateX(24px);pointer-events:none;transition:opacity .3s,transform .4s cubic-bezier(.22,1,.36,1),left .35s cubic-bezier(.22,1,.36,1)}
@@ -263,8 +267,8 @@ html.nv-vai-aberto{overflow:hidden}
     @keyframes nv-progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
     .section>:not(.reveal):not(.section-head),.nv-footer-in>*{animation:nv-scroll-in linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
     .section>.section-head{animation:nv-head-in linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
-    @keyframes nv-scroll-in{from{opacity:0;transform:translateY(56px) scale(.97)}}
-    @keyframes nv-head-in{from{opacity:0;transform:translateX(-24px)}}
+    @keyframes nv-scroll-in{from{opacity:0;transform:translateY(24px)}}
+    @keyframes nv-head-in{from{opacity:0;transform:translateX(-10px)}}
   }
 }
 
@@ -272,7 +276,7 @@ html.nv-vai-aberto{overflow:hidden}
 .nv-vai{z-index:300}
 html.nv-vai-aberto aside.ond-ed{visibility:hidden}
 html.nv-vt-busca::view-transition-old(root){animation:none}
-html.nv-vt-busca::view-transition-new(root){animation:nv-vt-fade .28s ease-out both}
+html.nv-vt-busca::view-transition-new(root){animation:nv-vt-fade .36s cubic-bezier(.22,1,.36,1) both}
 @keyframes nv-vt-fade{from{opacity:0}}
 
 /* blog dentro da casca nova: some o topo, o menu e o rodapé antigos do site */
@@ -541,3 +545,46 @@ html.nv-mini[data-theme="dark"] .nv-idioma-lateral .nv-idioma-cod{background:#1c
 [data-theme="dark"] .nv-idi-cod{color:#a09ab8}
 [data-theme="dark"] .nv-idi-op.on .nv-idi-cod,[data-theme="dark"] .nv-idi-check{color:#b270f8}
 
+
+/* busca: viajantes */
+.nv-gente-av{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;overflow:hidden;color:#fff;font-size:14px;font-weight:800}
+.nv-gente-av img{width:100%;height:100%;object-fit:cover}
+
+/* planos: benefício em destaque no Premium e no Plus */
+.nv-pl-destaque{display:grid;gap:10px;margin:18px 0 0;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);font-size:15px;font-weight:700;line-height:1.35;color:#fff}
+.nv-pl-destaque p{display:flex;align-items:center;gap:12px;margin:0}
+.nv-pl-destaque svg{flex:none;width:26px;height:26px;color:#c8f5d8}
+.nv-pl-destaque + ul{margin-top:16px}
+.nv-pl-destaque + .nv-pl-destaque{margin-top:10px}
+/* Plus, o topo de linha: cartão escuro, borda dourada viva, detalhes em ouro (paleta OND: ink, purple-900, gold) */
+@property --plus-ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+.nv-planos-cols .nv-pl.nv-pl-plus{position:relative;isolation:isolate;border:0;color:#f0eeff;background:radial-gradient(110% 55% at 100% 0%,rgba(157,111,255,.30),transparent 60%),radial-gradient(80% 50% at 0% 100%,rgba(13,10,26,.65),transparent 70%),linear-gradient(160deg,#4e1a9e 0%,#290756 50%,#1a0b38 100%);box-shadow:0 24px 60px rgba(41,7,86,.5)}
+.nv-planos-cols .nv-pl.nv-pl-plus::before{content:"";position:absolute;inset:0;z-index:-1;padding:1.5px;border-radius:inherit;background:conic-gradient(from var(--plus-ang),#c9b6ff,#9d6fff,#ffd60a,#9d6fff,#560fb2,#c9b6ff);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:plus-borda 6s linear infinite;pointer-events:none}
+@keyframes plus-borda{to{--plus-ang:360deg}}
+@media (prefers-reduced-motion:reduce){.nv-planos-cols .nv-pl.nv-pl-plus::before{animation:none}}
+.nv-planos-cols .nv-pl.nv-pl-plus h3{color:#ffd60a}
+.nv-planos-cols .nv-pl.nv-pl-plus .nv-pl-preco{color:#fff}
+.nv-planos-cols .nv-pl.nv-pl-plus .nv-pl-nota{color:rgba(240,238,255,.72)}
+.nv-planos-cols .nv-pl.nv-pl-plus ul{border-top-color:rgba(255,255,255,.12)}
+.nv-planos-cols .nv-pl.nv-pl-plus li{color:#f0eeff}
+.nv-planos-cols .nv-pl.nv-pl-plus li svg{color:#ffd60a}
+.nv-planos-cols .nv-pl.nv-pl-plus .nv-pl-btn{border:0;background:linear-gradient(135deg,#ffd60a,#ffab40);color:#0d0a1a;font-weight:800}
+.nv-planos-cols .nv-pl.nv-pl-plus .nv-pl-btn:hover:not([disabled]){box-shadow:0 10px 28px rgba(255,171,64,.4)}
+.nv-planos-cols .nv-pl.nv-pl-plus .nv-pl-btn[disabled]{background:rgba(255,214,10,.14);color:#ffd60a}
+.nv-planos-cols .nv-pl-plus .nv-pl-destaque.viagens{background:rgba(255,171,64,.12);border-color:rgba(255,171,64,.4);color:#fff}
+.nv-planos-cols .nv-pl-plus .nv-pl-destaque.viagens svg{color:#ffab40}
+.nv-planos-cols .nv-pl-plus .nv-pl-destaque.seguro{background:rgba(0,230,118,.10);border-color:rgba(105,240,174,.38);color:#fff}
+.nv-planos-cols .nv-pl-plus .nv-pl-destaque.seguro svg{color:#69f0ae}
+@media (min-width:861px){.nv-planos-cols{grid-template-columns:1fr 1.12fr 1.12fr}}
+
+/* Premium em roxo claro; o escuro fica só para o Plus */
+.nv-planos-cols .nv-pl.nv-pl-premium{border:1px solid #c9b6ff;background:linear-gradient(160deg,#e7ddff 0%,#eeebff 55%,#f5f4ff 100%);color:#290756;box-shadow:0 20px 50px rgba(127,17,244,.16)}
+.nv-planos-cols .nv-pl.nv-pl-premium h3,.nv-planos-cols .nv-pl.nv-pl-premium .nv-pl-preco{color:#290756}
+.nv-planos-cols .nv-pl.nv-pl-premium .nv-pl-nota{color:#4a4a70}
+.nv-planos-cols .nv-pl.nv-pl-premium ul{border-top-color:#c9b6ff}
+.nv-planos-cols .nv-pl.nv-pl-premium li{color:#290756}
+.nv-planos-cols .nv-pl.nv-pl-premium li svg{color:#7f11f4}
+.nv-planos-cols .nv-pl.nv-pl-premium .nv-pl-btn{background:#7f11f4;color:#fff}
+.nv-planos-cols .nv-pl.nv-pl-premium .nv-pl-btn[disabled]{background:rgba(127,17,244,.12);color:#560fb2}
+.nv-planos-cols .nv-pl-premium .nv-pl-destaque.seguro{background:rgba(0,230,118,.14);border-color:rgba(0,200,83,.4);color:#290756}
+.nv-planos-cols .nv-pl-premium .nv-pl-destaque.seguro svg{color:#085e20}

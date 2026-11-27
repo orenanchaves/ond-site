@@ -196,6 +196,18 @@
     '<div class="rt-sheet-scrim" data-acao="fechar-mais"></div><div class="rt-sheet" role="dialog" aria-label="Ações rápidas"><h3>Ações rápidas</h3>' + moreMenu() + '</div>' +
     '<div class="rt-modal-scrim" data-acao="fechar-modal"></div><div class="rt-modal" role="dialog" aria-modal="true" aria-labelledby="rt-modal-t"><button class="rt-modal-x" data-acao="fechar-modal" aria-label="Fechar">' + I.fechar + '</button><div class="rt-modal-in"></div></div>');
   root.insertAdjacentHTML('beforeend', '<button type="button" class="rt-map-btn" data-acao="mapa">' + I.mapa + '<span>Ver no mapa</span></button>');
+  /* menu Mais no computador: antes de abrir, sobe a página até a barra grudar no topo e limita a altura ao que cabe na tela, com rolagem própria */
+  (function () {
+    var more = root.querySelector('.rt-more'); if (!more) return;
+    more.addEventListener('toggle', function () {
+      var menu = more.querySelector('.rt-menu'); if (!more.open || !menu) return;
+      var bar = root.querySelector('.rt-bar');
+      var stick = parseFloat(getComputedStyle(bar).top) || 0;
+      var y = bar.getBoundingClientRect().top - stick;
+      if (y > 1) window.scrollTo({ top: window.scrollY + y, behavior: 'instant' });
+      menu.style.maxHeight = Math.max(240, window.innerHeight - more.getBoundingClientRect().bottom - 24) + 'px';
+    });
+  })();
   /* no celular o botão do mapa só aparece depois do topo, para não cobrir os botões do roteiro */
   (function () { var tick = function () { document.body.classList.toggle('rt-rolou', window.scrollY > 380); }; window.addEventListener('scroll', tick, { passive: true }); tick(); })();
   var main = document.getElementById('rt-main');

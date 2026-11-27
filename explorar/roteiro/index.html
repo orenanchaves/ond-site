@@ -302,6 +302,8 @@ html,body.modo-viagem{overflow-x:clip}
 .rt-menu .tile svg,.rt-sheet .tile svg{width:20px;height:20px}
 .rt-menu .tile .vai-orb,.rt-sheet .tile .vai-orb{--orb:24px}
 .rt-menu-t{flex:1}
+.rt-menu{overflow-y:auto;overscroll-behavior:contain}
+.rt-sheet{max-height:calc(100dvh - 24px);overflow-y:auto;overscroll-behavior:contain}
 .rt-menu button>svg:last-child,.rt-sheet button>svg:last-child{width:18px;height:18px;color:#6b6a6a}
 /* aba Viagem por partes */
 .rt-secnav{position:sticky;top:122px;z-index:5;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:8px 0 12px;background:var(--bg)}
@@ -478,9 +480,11 @@ html,body.modo-viagem{overflow-x:clip}
 .rt-sec{display:none}
 .rt-sec.on{display:block;animation:rt-sec-in .35s cubic-bezier(.22,1,.36,1)}
 @keyframes rt-sec-in{from{opacity:0;transform:translateY(8px)}}
-.rt-secnav button{flex:none;height:38px;padding:0 16px;border-radius:999px;background:var(--white);border:1px solid var(--border);font:inherit;font-size:13px;font-weight:700;color:var(--deep);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
-.rt-secnav button:hover{border-color:var(--purple);color:var(--purple)}
-.rt-secnav button[aria-selected="true"]{background:var(--deep);border-color:var(--deep);color:#fff}
+/* abas com linha embaixo, no lugar das pílulas */
+.rt-secnav{gap:4px;padding-bottom:0;margin-bottom:14px;box-shadow:inset 0 -1px 0 var(--border)}
+.rt-secnav button{flex:none;height:44px;padding:0 14px;border:0;border-radius:0;background:none;box-shadow:inset 0 -2px 0 transparent;font:inherit;font-size:14px;font-weight:700;color:#6b6a6a;cursor:pointer;transition:color .2s,box-shadow .2s}
+.rt-secnav button:hover{color:var(--deep)}
+.rt-secnav button[aria-selected="true"]{color:var(--purple);box-shadow:inset 0 -3px 0 var(--purple)}
 @media (min-width:1024px){
   #sec-deslocamento .rt-sec-body,#sec-preparacao .rt-sec-body,#sec-hospedagem .rt-sec-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
   #sec-preparacao .rt-countdown{grid-column:1/-1;margin:0}

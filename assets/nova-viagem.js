@@ -351,7 +351,13 @@
     try { stored = JSON.parse(localStorage.getItem('ond_comunidade_viagens_criadas')) || []; } catch (storageError) {}
     stored.unshift(trip);
     try { localStorage.setItem('ond_comunidade_viagens_criadas', JSON.stringify(stored)); } catch (storageError) { toast('Não deu para salvar neste navegador'); return; }
-    location.href = '/explorar/roteiro/?id=' + encodeURIComponent(trip.id);
+    var destino = '/explorar/roteiro/?id=' + encodeURIComponent(trip.id);
+    if (!window.ondCarregando) { location.href = destino; return; }
+    /* carregamento com o símbolo do OND antes de abrir o roteiro novo */
+    var nomes = (trip.stops || state.stops || []).map(function (stop) { return stop.name || stop.city || stop.title; }).filter(Boolean);
+    var sub = nomes.length > 1 ? (window.OndIdioma ? OndIdioma.t('{a} e {b}', { a: nomes.slice(0, -1).join(', '), b: nomes[nomes.length - 1] }) : nomes.slice(0, -1).join(', ') + ' e ' + nomes[nomes.length - 1]) : (nomes[0] || trip.title || '');
+    window.ondCarregando('Montando sua viagem', sub);
+    setTimeout(function () { location.href = destino; }, 2200);
   }
 
   /* ── busca de destino: catálogo do OND primeiro, mapa aberto (Photon) para o resto ── */

@@ -90,6 +90,29 @@
   .side{order:-1}
   .write .onds{display:none}
 }
+/* aba Guia */
+.gd-grupo+.gd-grupo{margin-top:26px}
+.gd-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px}
+.gd-head h3{font-size:18px;font-weight:800;color:var(--deep);margin:0}
+.gd-head a{font-size:13px;font-weight:700;color:var(--purple);white-space:nowrap}
+.gd-lista{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.gd-card{display:flex;gap:12px;padding:10px;border-radius:16px;background:var(--white);border:1px solid var(--line);color:inherit;text-decoration:none;transition:border-color .25s,box-shadow .25s,transform .25s}
+.gd-card:hover{border-color:color-mix(in srgb,var(--purple) 40%,transparent);box-shadow:0 10px 26px rgba(41,7,86,.08);transform:translateY(-2px)}
+.gd-card img,.gd-sem{flex:none;width:92px;height:92px;border-radius:12px;object-fit:cover}
+.gd-sem{display:grid;place-items:center;background:color-mix(in srgb,var(--purple) 8%,transparent);color:var(--purple)}
+.gd-sem svg{width:26px;height:26px}
+.empty-reviews>svg{display:block;margin:0 auto 10px;color:var(--purple)}
+.gd-tx{display:flex;flex-direction:column;gap:4px;min-width:0}
+.gd-tx b{font-size:15px;color:var(--deep);line-height:1.25}
+.gd-nota{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+.gd-nota em{font-style:normal;font-weight:800;color:var(--deep)}
+.gd-txt{font-size:13px;line-height:1.45;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gd-por{font-size:12px;color:var(--muted)}
+@media (max-width:700px){.gd-lista{grid-template-columns:1fr}}
+/* troca de aba suave */
+.aba:not([hidden]){animation:aba-in .38s cubic-bezier(.22,1,.36,1) both}
+@keyframes aba-in{from{opacity:0;transform:translateY(6px)}}
+@media (prefers-reduced-motion:reduce){.aba:not([hidden]){animation:none}}
 </style>
 </head>
 <body>
@@ -178,8 +201,8 @@
       '<button class="btn btn-ghost" data-open="resenha">' + ICON.pen + 'Escrever resenha</button>' +
       planMenuHtml(city) + '</div></div></section>' +
       '<div class="layout"><main>' +
-      '<div class="tabs"><button class="tab on" data-tab="resenhas">Resenhas</button><button class="tab" data-tab="fotos">Fotos dos viajantes</button></div>' +
-      '<div id="aba-resenhas"></div><div id="aba-fotos" hidden></div></main>' +
+      '<div class="tabs"><button class="tab on" data-tab="resenhas">Resenhas</button><button class="tab" data-tab="fotos">Fotos</button><button class="tab" data-tab="guia">Guia</button></div>' +
+      '<div id="aba-resenhas" class="aba"></div><div id="aba-fotos" class="aba" hidden></div><div id="aba-guia" class="aba" hidden></div></main>' +
       '<aside class="side">' +
       (reviews.length ? '<div class="card histogram"><h3>Nota dos viajantes</h3><div class="big-score"><b>' + averageText + '</b><div>' + ondsHtml(average, 18) + '<span style="display:block">' + countText + '</span></div></div><div id="barras"></div></div>' : '') +
       (articles.length || countryArticles.length ? '<div class="card"><h3>Do blog do OND</h3>' + articles.concat(countryArticles).map(function (item) {
@@ -295,11 +318,41 @@
       if (botao) ondVerFotos(photos, +botao.dataset.galeria);
     });
     document.getElementById('aba-fotos').innerHTML = photos.length ? '<div class="gallery">' + photos.map(function (src, i) { return '<button type="button" data-galeria="' + i + '" aria-label="Ver foto"><img src="' + escapeHtml(src) + '" alt="" loading="lazy"></button>'; }).join('') + '</div>' : '<p class="loading" style="padding:40px 0">As fotos das resenhas aparecem aqui.</p>';
+    /* Guia: lugares, passeios, restaurantes e hotéis que os viajantes indicaram nesta cidade (os mesmos do /explorar/avaliacoes/) */
+    (function () {
+      var box = document.getElementById('aba-guia');
+      var gente = (OND_EXEMPLO && OND_EXEMPLO.people) || {};
+      var itens = OndStore.read('guia_avaliacoes', []).concat(window.OND_AVALIACOES || []).filter(function (item) { return normalizeText(item.city || '') === normalizeText(city.name); });
+      var guiaUrl = '/explorar/avaliacoes/?cidade=' + encodeURIComponent(city.name);
+      if (!itens.length) {
+        box.innerHTML = '<div class="empty-reviews">' + ICON.pin.replace('<svg', '<svg width="28" height="28"') + '<b>Ninguém indicou lugares em ' + escapeHtml(city.name) + ' ainda</b><p>Conte uma atração, um passeio ou um restaurante que vale a pena.</p><a class="btn btn-primary" href="' + guiaUrl + '">Indicar um lugar</a></div>';
+        return;
+      }
+      var porLugar = {}, lugares = [];
+      itens.forEach(function (item) {
+        var k = item.cat + '|' + normalizeText(item.title);
+        if (!porLugar[k]) { porLugar[k] = { cat: item.cat, title: item.title, itens: [], foto: null }; lugares.push(porLugar[k]); }
+        porLugar[k].itens.push(item);
+        if (!porLugar[k].foto && item.photo) porLugar[k].foto = item.photo;
+      });
+      lugares.forEach(function (lugar) { lugar.media = Math.round(lugar.itens.reduce(function (soma, item) { return soma + item.rate; }, 0) / lugar.itens.length * 10) / 10; });
+      var GRUPOS = [['lugar', 'Lugares para visitar'], ['passeio', 'Passeios'], ['restaurante', 'Onde comer'], ['hotel', 'Onde ficar']];
+      box.innerHTML = GRUPOS.map(function (grupo) {
+        var lista = lugares.filter(function (lugar) { return lugar.cat === grupo[0]; }).sort(function (a, b) { return b.media - a.media || b.itens.length - a.itens.length; });
+        if (!lista.length) return '';
+        return '<section class="gd-grupo"><div class="gd-head"><h3>' + grupo[1] + '</h3><a href="' + guiaUrl + '&aba=' + grupo[0] + '">Ver no Guia</a></div><div class="gd-lista">' + lista.map(function (lugar) {
+          var top = lugar.itens[0], autor = gente[top.by];
+          return '<a class="gd-card" href="' + guiaUrl + '&aba=' + lugar.cat + '">' +
+            (lugar.foto ? '<img src="' + escapeHtml(lugar.foto) + '" alt="" loading="lazy">' : '<span class="gd-sem">' + ICON.pin + '</span>') +
+            '<span class="gd-tx"><b>' + escapeHtml(lugar.title) + '</b><span class="gd-nota">' + ondsHtml(lugar.media, 14) + '<em>' + notaTexto(lugar.media) + '</em><small>' + (lugar.itens.length === 1 ? '1 avaliação' : lugar.itens.length + ' avaliações') + '</small></span>' +
+            '<span class="gd-txt">' + escapeHtml(top.text || '') + '</span>' + (autor ? '<small class="gd-por">por ' + escapeHtml(autor.name) + '</small>' : '') + '</span></a>';
+        }).join('') + '</div></section>';
+      }).join('');
+    })();
     document.querySelectorAll('.tab').forEach(function (tab) {
       tab.addEventListener('click', function () {
         document.querySelectorAll('.tab').forEach(function (other) { other.classList.toggle('on', other === tab); });
-        document.getElementById('aba-resenhas').hidden = tab.dataset.tab !== 'resenhas';
-        document.getElementById('aba-fotos').hidden = tab.dataset.tab !== 'fotos';
+        ['resenhas', 'fotos', 'guia'].forEach(function (nome) { document.getElementById('aba-' + nome).hidden = tab.dataset.tab !== nome; });
       });
     });
 
